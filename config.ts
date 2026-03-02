@@ -1,5 +1,5 @@
 import { generateDeploymentConfig } from "scripts";
-const config = generateDeploymentConfig("ae_app");
+const config = generateDeploymentConfig("CEF-M");
 
 config.google_drive.sheets_folders = [
   { id: "1hAotIKkBpCXSw8wN8FA9SO49AJ5CVSEQ", name: "CEF-M sheets" }
