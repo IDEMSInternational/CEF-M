@@ -14,7 +14,7 @@
     {
       "type": "text",
       "name": "type_canal_info_label",
-      "value": "Séléctionnez le canal à utiliser pour faire votre observation sur: "
+      "value": "Séléctionnez le canal à utiliser pour faire votre observation sur: @fields.current_primary_crop"
     },
     {
       "type": "audio",
@@ -29,19 +29,19 @@
       "type": "text",
       "name": "error_type_canal_info",
       "value": "@global.error_required_answer",
-      "condition": "!!@field.type_canal_info",
+      "condition": "!!@fields.type_canal_info",
       "style_list": "color: red; font-size: 12px;"
     },
     {
       "type": "radio_button_grid",
       "name": "type_canal_info",
-      "value": "@field.type_canal_info",
+      "value": "@fields.type_canal_info",
       "action_list": "changed | set_field : type_canal_info: this.value;",
       "parameter_list": "answer_list: @data.group_observation; \nvariant: flex;\nitem_width: 60px;\ngrid_gap: 8px;"
     },
     {
       "type": "begin_display_group",
-      "condition": "@field.type_canal_info == \"par_text\""
+      "condition": "@fields.type_canal_info == \"par_text\""
     },
     {
       "type": "text",
@@ -59,15 +59,15 @@
     },
     {
       "type": "text_area",
-      "name": "observation",
-      "value": "@field.info_text",
-      "action_list": "changed | set_field : observation: this.value;",
+      "name": "temp_observ",
+      "value": "@fields.info_text",
+      "action_list": "changed | set_field : temp_observ: this.value;",
       "parameter_list": "placeholder: Info par écrit ",
-      "condition": "@field.type_canal_info == \"par_text\""
+      "condition": "@fields.type_canal_info == \"par_text\""
     },
     {
       "type": "begin_display_group",
-      "condition": "@field.type_canal_info == \"par_video\""
+      "condition": "@fields.type_canal_info == \"par_video\""
     },
     {
       "type": "text",
@@ -87,11 +87,11 @@
       "type": "text",
       "name": "info_video",
       "value": "We would need a video recorder here",
-      "condition": "@field.type_canal_info == \"par_video\""
+      "condition": "@fields.type_canal_info == \"par_video\""
     },
     {
       "type": "begin_display_group",
-      "condition": "@field.type_canal_info == \"par_vocal\""
+      "condition": "@fields.type_canal_info == \"par_vocal\""
     },
     {
       "type": "text",
@@ -111,11 +111,11 @@
       "type": "text",
       "name": "info_audio",
       "value": "We would need a audio recorder here",
-      "condition": "@field.type_canal_info == \"par_vocal\""
+      "condition": "@fields.type_canal_info == \"par_vocal\""
     },
     {
       "type": "begin_display_group",
-      "condition": "@field.type_canal_info == \"par_photo\""
+      "condition": "@fields.type_canal_info == \"par_photo\""
     },
     {
       "type": "text",
@@ -135,11 +135,7 @@
       "type": "text",
       "name": "info_image",
       "value": "We would need a camera here",
-      "condition": "@field.type_canal_info == \"par_photo\""
-    },
-    {
-      "name": "completed_enabled",
-      "value": "!!@local.type_canal_info"
+      "condition": "@fields.type_canal_info == \"par_photo\""
     },
     {
       "name": "last_primary_crop_loop_idx",
@@ -162,7 +158,7 @@
       "type": "button",
       "name": "btn_next_crop",
       "value": "@global.btn_continue",
-      "action_list": "click | set_field: @calc('observation' + @fields.current_primary_crop) : @fields.observation;\nclick | set_field: observation: null;\nclick | set_field: primary_crop_loop_idx : @calc(Number(@fields.primary_crop_loop_idx) + 1);\nclick | set_field: current_primary_crop : @calc(@fields.primary_crops_selected.split(',')[Number(@fields.primary_crop_loop_idx) + 1]);",
+      "action_list": "click | set_field: @calc('observation_' + @fields.current_primary_crop) : @fields.temp_observ;\nclick | set_field: temp_observ:;\nclick | set_field: type_canal_info:;\nclick | set_field: primary_crop_loop_idx : @calc(Number(@fields.primary_crop_loop_idx) + 1);\nclick | set_field: current_primary_crop : @calc(@fields.primary_crops_selected.split(',')[Number(@fields.primary_crop_loop_idx) + 1]);\nclick | set_data | _list_id: section_semi_settings_pages, _index: 6, completed: false;\nclick | set_data | _list_id: section_semi_settings_pages, _index: 7, completed: false;\nclick | set_data | _list_id: section_semi_settings_pages, _index: 8, completed: false;\nclick | set_data | _list_id: section_semi_settings_pages, _index: 9, completed: false;\nclick | set_data | _list_id: section_semi_settings_pages, _index: 10, completed: false;\nclick | set_data | _list_id: section_semi_settings_pages, _index: 11, completed: false;\nclick | set_data | _list_id: section_semi_settings_pages, _index: 12, completed: false;\nclick | set_data | _list_id: section_semi_settings_pages, _index: 13, completed: false;\nclick | set_data | _list_id: section_semi_settings_pages, _index: 14, completed: false;",
       "condition": "!@local.last_primary_crop_loop_idx",
       "style_list": "flex: 1"
     },
@@ -170,7 +166,7 @@
       "type": "button",
       "name": "page_15_button_continue",
       "value": "@global.btn_continue",
-      "action_list": "click | set_field: @calc('observation' + @fields.current_primary_crop) : @fields.observation;\nclick | set_field: observation: null;\nclick | emit: completed",
+      "action_list": "click | set_field: @calc('observation_' + @fields.current_primary_crop) : @fields.temp_observ;\nclick | set_field: temp_observ:;\nclick | emit: completed",
       "condition": "@local.last_primary_crop_loop_idx",
       "style_list": "flex: 1"
     },

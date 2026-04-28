@@ -31,114 +31,14 @@
       }
     },
     {
-      "type": "text",
-      "value": "@global.title_campagne",
-      "_translations": {
-        "value": {}
-      },
-      "name": "text_3",
-      "_nested_name": "text_3",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.title_campagne",
-            "matchedExpression": "@global.title_campagne",
-            "type": "global",
-            "fieldName": "title_campagne"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.title_campagne": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "date_time_picker",
-      "name": "year_campaign",
-      "value": "@fields.year_campaign",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "changed",
-          "action_id": "set_local",
-          "args": [
-            "year_campaign",
-            "this.value"
-          ],
-          "_raw": "changed | set_local: year_campaign: this.value"
-        }
-      ],
+      "type": "audio",
+      "name": "audio_2_1",
       "parameter_list": {
-        "type": "date"
+        "variant": "compact",
+        "src": "audio/Superficie/annee_saison_fr.mp3",
+        "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
       },
-      "_nested_name": "year_campaign",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@fields.year_campaign",
-            "matchedExpression": "@fields.year_campaign",
-            "type": "fields",
-            "fieldName": "year_campaign"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.year_campaign": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.note_campagne </p>",
-      "_translations": {
-        "value": {}
-      },
-      "_nested_name": "html_text",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<p style=\"color: red;\"> @global.note_campagne </p>",
-            "matchedExpression": "@global.note_campagne",
-            "type": "global",
-            "fieldName": "note_campagne"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.note_campagne": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "completed_enabled",
-      "value": "@local.year_campaign",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "completed_enabled",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@local.year_campaign",
-            "matchedExpression": "@local.year_campaign",
-            "type": "local",
-            "fieldName": "year_campaign"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.year_campaign": [
-          "value"
-        ]
-      }
+      "_nested_name": "audio_2_1"
     },
     {
       "type": "display_group",
@@ -152,7 +52,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page1_button_back",
+          "name": "page2_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -167,25 +67,16 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_7.page1_button_back"
+          "_nested_name": "display_group_4.page2_button_back"
         },
         {
           "type": "button",
-          "name": "button_continue_1",
+          "name": "page2_button_continue",
           "value": "Continuer",
           "_translations": {
             "value": {}
           },
           "action_list": [
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "year_campaign",
-                "@local.year_campaign"
-              ],
-              "_raw": "click | set_field: year_campaign: @local.year_campaign"
-            },
             {
               "trigger": "click",
               "action_id": "emit",
@@ -195,57 +86,11 @@
               "_raw": "click | emit: completed"
             }
           ],
-          "parameter_list": {
-            "disabled": "!@local.completed_enabled"
-          },
-          "_nested_name": "display_group_7.button_continue_1",
-          "_dynamicFields": {
-            "action_list": {
-              "0": {
-                "args": {
-                  "1": [
-                    {
-                      "fullExpression": "@local.year_campaign",
-                      "matchedExpression": "@local.year_campaign",
-                      "type": "local",
-                      "fieldName": "year_campaign"
-                    }
-                  ]
-                },
-                "_raw": [
-                  {
-                    "fullExpression": "click | set_field: year_campaign: @local.year_campaign",
-                    "matchedExpression": "@local.year_campaign",
-                    "type": "local",
-                    "fieldName": "year_campaign"
-                  }
-                ]
-              }
-            },
-            "parameter_list": {
-              "disabled": [
-                {
-                  "fullExpression": "!@local.completed_enabled",
-                  "matchedExpression": "!@local.completed_enabled",
-                  "type": "local",
-                  "fieldName": "completed_enabled"
-                }
-              ]
-            }
-          },
-          "_dynamicDependencies": {
-            "@local.year_campaign": [
-              "action_list.0.args.1",
-              "action_list.0._raw"
-            ],
-            "!@local.completed_enabled": [
-              "parameter_list.disabled"
-            ]
-          }
+          "_nested_name": "display_group_4.page2_button_continue"
         }
       ],
-      "name": "display_group_7",
-      "_nested_name": "display_group_7"
+      "name": "display_group_4",
+      "_nested_name": "display_group_4"
     }
   ],
   "_source": {

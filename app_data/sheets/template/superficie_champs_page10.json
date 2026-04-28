@@ -1,0 +1,966 @@
+{
+  "flow_type": "template",
+  "flow_name": "superficie_champs_page10",
+  "status": "released",
+  "rows": [
+    {
+      "type": "subtitle",
+      "value": "**La diversité culturale dans la parcelle  N⁰@fields.num_parcelle de @fields.nom_champ**",
+      "_translations": {
+        "value": {}
+      },
+      "name": "subtitle_2",
+      "_nested_name": "subtitle_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "**La diversité culturale dans la parcelle  N⁰@fields.num_parcelle de @fields.nom_champ**",
+            "matchedExpression": "@fields.num_parcelle",
+            "type": "fields",
+            "fieldName": "num_parcelle"
+          },
+          {
+            "fullExpression": "**La diversité culturale dans la parcelle  N⁰@fields.num_parcelle de @fields.nom_champ**",
+            "matchedExpression": "@fields.nom_champ",
+            "type": "fields",
+            "fieldName": "nom_champ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.num_parcelle": [
+          "value"
+        ],
+        "@fields.nom_champ": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "data_items",
+      "value": "@data.cult_princip",
+      "parameter_list": {
+        "filter": "@item.name == @fields.cult_princip"
+      },
+      "rows": [
+        {
+          "type": "image",
+          "value": "@item.image",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:150px",
+            "height:150px"
+          ],
+          "name": "image_1_@item.id",
+          "_nested_name": "data_items_3.image_1_@item.id",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@item.image",
+                "matchedExpression": "@item.image",
+                "type": "item",
+                "fieldName": "image"
+              }
+            ],
+            "name": [
+              {
+                "fullExpression": "image_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_3.image_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.image": [
+              "value"
+            ],
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        }
+      ],
+      "name": "data_items_3",
+      "_nested_name": "data_items_3",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@data.cult_princip",
+            "matchedExpression": "@data.cult_princip",
+            "type": "data",
+            "fieldName": "cult_princip"
+          }
+        ],
+        "parameter_list": {
+          "filter": [
+            {
+              "fullExpression": "@item.name == @fields.cult_princip",
+              "matchedExpression": "@item.name",
+              "type": "item",
+              "fieldName": "name"
+            },
+            {
+              "fullExpression": "@item.name == @fields.cult_princip",
+              "matchedExpression": "@fields.cult_princip",
+              "type": "fields",
+              "fieldName": "cult_princip"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@data.cult_princip": [
+          "value"
+        ],
+        "@item.name": [
+          "parameter_list.filter"
+        ],
+        "@fields.cult_princip": [
+          "parameter_list.filter"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "Comptez et renseignez le nombre d'arbres dans la parcelle N⁰@fields.num_parcelle",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_5.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "Comptez et renseignez le nombre d'arbres dans la parcelle N⁰@fields.num_parcelle",
+                "matchedExpression": "@fields.num_parcelle",
+                "type": "fields",
+                "fieldName": "num_parcelle"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.num_parcelle": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_10_1",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Superficie/nbre_arbre_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_5.audio_10_1"
+        }
+      ],
+      "name": "display_group_5",
+      "_nested_name": "display_group_5"
+    },
+    {
+      "type": "image",
+      "value": "images/arbre.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:100px",
+        "height:100px"
+      ],
+      "name": "image_7",
+      "_nested_name": "image_7"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_arbre",
+      "value": "@fields.nombre_arbre",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "nombre_arbre",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: nombre_arbre : this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true\nplaceholder"
+      },
+      "condition": "!!@fields.nombre_arbre",
+      "exclude_from_translation": true,
+      "_nested_name": "nombre_arbre",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.nombre_arbre",
+            "matchedExpression": "@fields.nombre_arbre",
+            "type": "fields",
+            "fieldName": "nombre_arbre"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!!@fields.nombre_arbre",
+            "matchedExpression": "!@fields.nombre_arbre",
+            "type": "fields",
+            "fieldName": "nombre_arbre"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.nombre_arbre": [
+          "value"
+        ],
+        "!@fields.nombre_arbre": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_arbre",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "nombre_arbre",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: nombre_arbre : this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Entrez le nombre"
+      },
+      "condition": "!@fields.nombre_arbre",
+      "exclude_from_translation": true,
+      "_nested_name": "nombre_arbre",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!@fields.nombre_arbre",
+            "matchedExpression": "!@fields.nombre_arbre",
+            "type": "fields",
+            "fieldName": "nombre_arbre"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.nombre_arbre": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@fields.nombre_arbre",
+      "_nested_name": "html_text",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "matchedExpression": "@global.warning_message",
+            "type": "global",
+            "fieldName": "warning_message"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@fields.nombre_arbre",
+            "matchedExpression": "!@fields.nombre_arbre",
+            "type": "fields",
+            "fieldName": "nombre_arbre"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.warning_message": [
+          "value"
+        ],
+        "!@fields.nombre_arbre": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "valid_nombre_arbre",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_arbre) && @local.nombre_arbre>= 0 ) || @local.nombre_arbre == '' || !@local.nombre_arbre)",
+      "_translations": {
+        "value": {}
+      },
+      "exclude_from_translation": true,
+      "type": "set_variable",
+      "_nested_name": "valid_nombre_arbre",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_arbre) && @local.nombre_arbre>= 0 ) || @local.nombre_arbre == '' || !@local.nombre_arbre)",
+            "matchedExpression": "@local.nombre_arbre",
+            "type": "local",
+            "fieldName": "nombre_arbre"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_arbre) && @local.nombre_arbre>= 0 ) || @local.nombre_arbre == '' || !@local.nombre_arbre)",
+            "matchedExpression": "@local.nombre_arbre",
+            "type": "local",
+            "fieldName": "nombre_arbre"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_arbre) && @local.nombre_arbre>= 0 ) || @local.nombre_arbre == '' || !@local.nombre_arbre)",
+            "matchedExpression": "@local.nombre_arbre",
+            "type": "local",
+            "fieldName": "nombre_arbre"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_arbre) && @local.nombre_arbre>= 0 ) || @local.nombre_arbre == '' || !@local.nombre_arbre)",
+            "matchedExpression": "!@local.nombre_arbre",
+            "type": "local",
+            "fieldName": "nombre_arbre"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_arbre) && @local.nombre_arbre>= 0 ) || @local.nombre_arbre == '' || !@local.nombre_arbre)",
+            "matchedExpression": "@calc((/^\\d+$/.test(@local.nombre_arbre) && @local.nombre_arbre>= 0 ) || @local.nombre_arbre == '' || !@local.nombre_arbre)",
+            "type": "calc",
+            "fieldName": "(/^\\d+$/.test(@local.nombre_arbre) && @local.nombre_arbre>= 0 ) || @local.nombre_arbre == '' || !@local.nombre_arbre"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.nombre_arbre": [
+          "value",
+          "value",
+          "value"
+        ],
+        "!@local.nombre_arbre": [
+          "value"
+        ],
+        "@calc((/^\\d+$/.test(@local.nombre_arbre) && @local.nombre_arbre>= 0 ) || @local.nombre_arbre == '' || !@local.nombre_arbre)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.valid_nombre_arbre",
+      "exclude_from_translation": true,
+      "style_list": [
+        "color: #FF0000",
+        "font-size: 14px"
+      ],
+      "name": "text_12",
+      "_nested_name": "text_12",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.validite_nombre",
+            "matchedExpression": "@global.validite_nombre",
+            "type": "global",
+            "fieldName": "validite_nombre"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.valid_nombre_arbre",
+            "matchedExpression": "!@local.valid_nombre_arbre",
+            "type": "local",
+            "fieldName": "valid_nombre_arbre"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.validite_nombre": [
+          "value"
+        ],
+        "!@local.valid_nombre_arbre": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@calc(@fields.nombre_arbre > 0)",
+      "rows": [
+        {
+          "type": "text",
+          "value": "Ecrivez le(s) nom(s) des arbres se trouvant dans la parcelle N⁰@fields.num_parcelle",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_13.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "Ecrivez le(s) nom(s) des arbres se trouvant dans la parcelle N⁰@fields.num_parcelle",
+                "matchedExpression": "@fields.num_parcelle",
+                "type": "fields",
+                "fieldName": "num_parcelle"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.num_parcelle": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_10_2",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Superficie/nom_arbre_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_13.audio_10_2"
+        }
+      ],
+      "name": "display_group_13",
+      "_nested_name": "display_group_13",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@calc(@fields.nombre_arbre > 0)",
+            "matchedExpression": "@fields.nombre_arbre",
+            "type": "fields",
+            "fieldName": "nombre_arbre"
+          },
+          {
+            "fullExpression": "@calc(@fields.nombre_arbre > 0)",
+            "matchedExpression": "@calc(@fields.nombre_arbre > 0)",
+            "type": "calc",
+            "fieldName": "@fields.nombre_arbre > 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.nombre_arbre": [
+          "condition"
+        ],
+        "@calc(@fields.nombre_arbre > 0)": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "nom_arbre",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "@calc('nom_arbre_parcelle_N' + @fields.num_parcelle)",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: @calc('nom_arbre_parcelle_N' + @fields.num_parcelle) : this.value"
+        }
+      ],
+      "parameter_list": {
+        "placeholder": "Entrez le nom de l'arbre"
+      },
+      "condition": "@fields.nombre_arbre  > 0",
+      "_nested_name": "nom_arbre",
+      "_dynamicFields": {
+        "action_list": {
+          "0": {
+            "args": {
+              "0": [
+                {
+                  "fullExpression": "@calc('nom_arbre_parcelle_N' + @fields.num_parcelle)",
+                  "matchedExpression": "@fields.num_parcelle",
+                  "type": "fields",
+                  "fieldName": "num_parcelle"
+                },
+                {
+                  "fullExpression": "@calc('nom_arbre_parcelle_N' + @fields.num_parcelle)",
+                  "matchedExpression": "@calc('nom_arbre_parcelle_N' + @fields.num_parcelle)",
+                  "type": "calc",
+                  "fieldName": "'nom_arbre_parcelle_N' + @fields.num_parcelle"
+                }
+              ]
+            },
+            "_raw": [
+              {
+                "fullExpression": "changed | set_field: @calc('nom_arbre_parcelle_N' + @fields.num_parcelle) : this.value",
+                "matchedExpression": "@fields.num_parcelle",
+                "type": "fields",
+                "fieldName": "num_parcelle"
+              }
+            ]
+          }
+        },
+        "condition": [
+          {
+            "fullExpression": "@fields.nombre_arbre  > 0",
+            "matchedExpression": "@fields.nombre_arbre",
+            "type": "fields",
+            "fieldName": "nombre_arbre"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.num_parcelle": [
+          "action_list.0.args.0",
+          "action_list.0._raw"
+        ],
+        "@calc('nom_arbre_parcelle_N' + @fields.num_parcelle)": [
+          "action_list.0.args.0"
+        ],
+        "@fields.nombre_arbre": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "Indiquez si d’autre(s) culture(s) sont associées avec @fields.cult_princip dans la parcellle N⁰@fields.num_parcelle",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_16.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "Indiquez si d’autre(s) culture(s) sont associées avec @fields.cult_princip dans la parcellle N⁰@fields.num_parcelle",
+                "matchedExpression": "@fields.cult_princip",
+                "type": "fields",
+                "fieldName": "cult_princip"
+              },
+              {
+                "fullExpression": "Indiquez si d’autre(s) culture(s) sont associées avec @fields.cult_princip dans la parcellle N⁰@fields.num_parcelle",
+                "matchedExpression": "@fields.num_parcelle",
+                "type": "fields",
+                "fieldName": "num_parcelle"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.cult_princip": [
+              "value"
+            ],
+            "@fields.num_parcelle": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_10_3",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Superficie/cult_asso_yn_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_16.audio_10_3"
+        }
+      ],
+      "name": "display_group_16",
+      "_nested_name": "display_group_16"
+    },
+    {
+      "type": "image",
+      "value": "images/association.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:100px",
+        "height:100px"
+      ],
+      "name": "image_18",
+      "_nested_name": "image_18"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\">Il s'agit de l'association de deux ou plusieurs cultures dans la même parcelle avec la culture principale</p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.association_oui_non",
+      "name": "html_19",
+      "_nested_name": "html_19",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!@local.association_oui_non",
+            "matchedExpression": "!@local.association_oui_non",
+            "type": "local",
+            "fieldName": "association_oui_non"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.association_oui_non": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "radio_list",
+      "name": "association_oui_non",
+      "value": "@fields.association_oui_non",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "association_oui_non",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: association_oui_non : this.value"
+        }
+      ],
+      "rows": [
+        {
+          "type": "data_items",
+          "value": "@data.oui_non",
+          "rows": [],
+          "name": "data_items_1",
+          "_nested_name": "association_oui_non.data_items_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@data.oui_non",
+                "matchedExpression": "@data.oui_non",
+                "type": "data",
+                "fieldName": "oui_non"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@data.oui_non": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "association_oui_non",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.association_oui_non",
+            "matchedExpression": "@fields.association_oui_non",
+            "type": "fields",
+            "fieldName": "association_oui_non"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.association_oui_non": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.association_oui_non",
+      "_nested_name": "html_text",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "matchedExpression": "@global.warning_message",
+            "type": "global",
+            "fieldName": "warning_message"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.association_oui_non",
+            "matchedExpression": "!@local.association_oui_non",
+            "type": "local",
+            "fieldName": "association_oui_non"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.warning_message": [
+          "value"
+        ],
+        "!@local.association_oui_non": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@fields.nombre_arbre && @fields.association_oui_non",
+      "_translations": {
+        "value": {}
+      },
+      "exclude_from_translation": true,
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.nombre_arbre && @fields.association_oui_non",
+            "matchedExpression": "@fields.nombre_arbre",
+            "type": "fields",
+            "fieldName": "nombre_arbre"
+          },
+          {
+            "fullExpression": "@fields.nombre_arbre && @fields.association_oui_non",
+            "matchedExpression": "@fields.association_oui_non",
+            "type": "fields",
+            "fieldName": "association_oui_non"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.nombre_arbre": [
+          "value"
+        ],
+        "@fields.association_oui_non": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "exclude_from_translation": "padding: 12px 24px;",
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page10_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "display_group_23.page10_button_back"
+        },
+        {
+          "type": "button",
+          "name": "page10_button_continue",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "@calc('nombre_arbre_parcelle_N⁰' + @fields.num_parcelle)",
+                "@fields.nombre_arbre"
+              ],
+              "_raw": "click | set_field: @calc('nombre_arbre_parcelle_N⁰' + @fields.num_parcelle) : @fields.nombre_arbre"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "@calc('association_oui_non_parcelle_N⁰' + @fields.num_parcelle)",
+                "@fields.association_oui_non"
+              ],
+              "_raw": "click | set_field: @calc('association_oui_non_parcelle_N⁰' + @fields.num_parcelle) : @fields.association_oui_non"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "_nested_name": "display_group_23.page10_button_continue",
+          "_dynamicFields": {
+            "action_list": {
+              "0": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "@calc('nombre_arbre_parcelle_N⁰' + @fields.num_parcelle)",
+                      "matchedExpression": "@fields.num_parcelle",
+                      "type": "fields",
+                      "fieldName": "num_parcelle"
+                    },
+                    {
+                      "fullExpression": "@calc('nombre_arbre_parcelle_N⁰' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('nombre_arbre_parcelle_N⁰' + @fields.num_parcelle)",
+                      "type": "calc",
+                      "fieldName": "'nombre_arbre_parcelle_N⁰' + @fields.num_parcelle"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.nombre_arbre",
+                      "matchedExpression": "@fields.nombre_arbre",
+                      "type": "fields",
+                      "fieldName": "nombre_arbre"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: @calc('nombre_arbre_parcelle_N⁰' + @fields.num_parcelle) : @fields.nombre_arbre",
+                    "matchedExpression": "@fields.num_parcelle",
+                    "type": "fields",
+                    "fieldName": "num_parcelle"
+                  },
+                  {
+                    "fullExpression": "click | set_field: @calc('nombre_arbre_parcelle_N⁰' + @fields.num_parcelle) : @fields.nombre_arbre",
+                    "matchedExpression": "@fields.nombre_arbre",
+                    "type": "fields",
+                    "fieldName": "nombre_arbre"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "@calc('association_oui_non_parcelle_N⁰' + @fields.num_parcelle)",
+                      "matchedExpression": "@fields.num_parcelle",
+                      "type": "fields",
+                      "fieldName": "num_parcelle"
+                    },
+                    {
+                      "fullExpression": "@calc('association_oui_non_parcelle_N⁰' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('association_oui_non_parcelle_N⁰' + @fields.num_parcelle)",
+                      "type": "calc",
+                      "fieldName": "'association_oui_non_parcelle_N⁰' + @fields.num_parcelle"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.association_oui_non",
+                      "matchedExpression": "@fields.association_oui_non",
+                      "type": "fields",
+                      "fieldName": "association_oui_non"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: @calc('association_oui_non_parcelle_N⁰' + @fields.num_parcelle) : @fields.association_oui_non",
+                    "matchedExpression": "@fields.num_parcelle",
+                    "type": "fields",
+                    "fieldName": "num_parcelle"
+                  },
+                  {
+                    "fullExpression": "click | set_field: @calc('association_oui_non_parcelle_N⁰' + @fields.num_parcelle) : @fields.association_oui_non",
+                    "matchedExpression": "@fields.association_oui_non",
+                    "type": "fields",
+                    "fieldName": "association_oui_non"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@fields.num_parcelle": [
+              "action_list.0.args.0",
+              "action_list.0._raw",
+              "action_list.1.args.0",
+              "action_list.1._raw"
+            ],
+            "@calc('nombre_arbre_parcelle_N⁰' + @fields.num_parcelle)": [
+              "action_list.0.args.0"
+            ],
+            "@fields.nombre_arbre": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "@calc('association_oui_non_parcelle_N⁰' + @fields.num_parcelle)": [
+              "action_list.1.args.0"
+            ],
+            "@fields.association_oui_non": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_23",
+      "_nested_name": "display_group_23"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/superficie_champs_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1Za6KnU73iDgbTARvf6JCQo0vJb_EkTgiHEyZUJdNgXs"
+  }
+}

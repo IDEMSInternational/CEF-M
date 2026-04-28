@@ -1,102 +1,105 @@
 {
   "flow_type": "template",
-  "flow_name": "section_semi_page2",
+  "flow_name": "section_semi_page20",
   "status": "released",
   "rows": [
     {
       "type": "title",
       "name": "page_title",
+      "value": "APRECIATIONS ET OBSERVATIONS SUR LE FORMULAIRE",
+      "_translations": {
+        "value": {}
+      },
       "_nested_name": "page_title"
     },
     {
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "name": "campaign_year_label",
-          "value": "<span style=\"color: red;\">*</span> @global.campaign_year_label",
+          "type": "image",
+          "value": "images/vocal.jpg",
           "_translations": {
             "value": {}
           },
-          "style_list": [
-            "font-size:20px"
-          ],
-          "_nested_name": "display_group_3.campaign_year_label",
+          "name": "image_1",
+          "_nested_name": "display_group_3.image_1"
+        },
+        {
+          "type": "text",
+          "name": "observation_appreciation_label",
+          "value": "@global.observation_appreciation_label",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_3.observation_appreciation_label",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<span style=\"color: red;\">*</span> @global.campaign_year_label",
-                "matchedExpression": "@global.campaign_year_label",
+                "fullExpression": "@global.observation_appreciation_label",
+                "matchedExpression": "@global.observation_appreciation_label",
                 "type": "global",
-                "fieldName": "campaign_year_label"
+                "fieldName": "observation_appreciation_label"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@global.campaign_year_label": [
+            "@global.observation_appreciation_label": [
               "value"
             ]
           }
         },
         {
           "type": "audio",
-          "name": "audio_2_1",
+          "name": "audio_12_1",
           "parameter_list": {
             "variant": "compact",
-            "src": "audio/semis/annee_saison_fr.mp3",
+            "src": "audio/Enrolement/appreciation_audio_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "style_list": [
-            "float : right"
+            "float: right"
           ],
-          "_nested_name": "display_group_3.audio_2_1"
+          "_nested_name": "display_group_3.audio_12_1"
         }
       ],
       "name": "display_group_3",
       "_nested_name": "display_group_3"
     },
     {
-      "name": "year_campaign",
-      "type": "set_variable",
-      "_nested_name": "year_campaign"
-    },
-    {
-      "type": "date_time_picker",
-      "name": "year_campaign",
-      "value": "@fields.year_campaign",
+      "type": "text",
+      "name": "observation_appreciation_hint",
+      "value": "@global.observation_appreciation",
       "_translations": {
         "value": {}
       },
-      "action_list": [
-        {
-          "trigger": "changed",
-          "action_id": "set_local",
-          "args": [
-            "year_campaign",
-            "this.value"
-          ],
-          "_raw": "changed | set_local: year_campaign: this.value"
-        }
+      "style_list": [
+        "font-size:14px"
       ],
-      "parameter_list": {
-        "type": "date"
-      },
-      "_nested_name": "year_campaign",
+      "_nested_name": "observation_appreciation_hint",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.year_campaign",
-            "matchedExpression": "@fields.year_campaign",
-            "type": "fields",
-            "fieldName": "year_campaign"
+            "fullExpression": "@global.observation_appreciation",
+            "matchedExpression": "@global.observation_appreciation",
+            "type": "global",
+            "fieldName": "observation_appreciation"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.year_campaign": [
+        "@global.observation_appreciation": [
           "value"
         ]
       }
+    },
+    {
+      "type": "text",
+      "name": "observation_appreciation",
+      "value": "We would need a recorder here in order to transmit observations or feedback regarding the form.",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "observation_appreciation"
     },
     {
       "type": "display_group",
@@ -111,7 +114,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_2_btn_back",
+          "name": "page_1_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -126,11 +129,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_2_btn_back"
+          "_nested_name": "dg_footer.page_1_button_back"
         },
         {
           "type": "button",
-          "name": "page_2_btn_continue",
+          "name": "page_1_button_continue",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -145,13 +148,10 @@
               "_raw": "click | emit: completed"
             }
           ],
-          "parameter_list": {
-            "disabled": "!@local.year_campaign"
-          },
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_2_btn_continue",
+          "_nested_name": "dg_footer.page_1_button_continue",
           "_dynamicFields": {
             "value": [
               {
@@ -160,24 +160,11 @@
                 "type": "global",
                 "fieldName": "btn_continue"
               }
-            ],
-            "parameter_list": {
-              "disabled": [
-                {
-                  "fullExpression": "!@local.year_campaign",
-                  "matchedExpression": "!@local.year_campaign",
-                  "type": "local",
-                  "fieldName": "year_campaign"
-                }
-              ]
-            }
+            ]
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
-            ],
-            "!@local.year_campaign": [
-              "parameter_list.disabled"
             ]
           }
         }

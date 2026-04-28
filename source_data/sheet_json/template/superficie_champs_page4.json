@@ -4,88 +4,238 @@
   "status": "released",
   "rows": [
     {
-      "name": "task_group",
-      "value": "parcelle_form_settings_pages"
+      "type": "title",
+      "value": "@global.title_page2"
     },
     {
-      "name": "page_count"
+      "type": "begin_display_group"
     },
     {
-      "type": "data_items",
-      "name": "compute_page_count",
-      "value": "@data.parcelle_form_settings_pages",
-      "action_list": "data_changed | set_local: page_count:  @items.length"
+      "type": "subtitle",
+      "value": "@global.nom_champ"
     },
     {
-      "name": "completed_count"
+      "type": "audio",
+      "name": "audio_4_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/nom_champ_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
     },
     {
-      "type": "data_items",
-      "name": "compute_completed_count",
-      "value": "@data.parcelle_form_settings_pages",
-      "action_list": "data_changed | set_local: completed_count:  @items.length",
-      "parameter_list": "filter: @item.completed"
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/champ.jpg",
+      "style_list": "width: 120px; height: 120px; "
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: black;\"> @global.note_nom_champ </p>"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "nom_champ",
+      "value": "@fields.nom_champ",
+      "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom du champ",
+      "condition": "!!@fields.nom_champ"
+    },
+    {
+      "type": "text_box",
+      "name": "nom_champ",
+      "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom du champ",
+      "condition": "!@fields.nom_champ"
+    },
+    {
+      "name": "valid_nom_champ",
+      "value": "@calc(/^[A-Z ]+$/.test(@local.nom_champ) || @local.nom_champ == '' || !@local.nom_champ)"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "text",
-      "name": "debug_completed_count",
-      "value": "Completed count: @local.completed_count",
-      "condition": false,
+      "value": "@global.nom_champ_hint",
+      "condition": "!@local.valid_nom_champ",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.nom_champ"
+    },
+    {
+      "type": "subtitle",
+      "value": "**Caracteristiques du champ @local.nom_champ**"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "**Sélectionnez le type de sol du champ @local.nom_champ**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_4_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/type_sol_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/soil_type.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "type_sol",
+      "value": "@fields.type_sol",
+      "action_list": "changed | set_local : type_sol: this.value;",
+      "parameter_list": "answer_list: @data.type_sol; \nstyle: secondary;\nitem_width: 60px;\ngrid_gap: 8px;"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.type_sol"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "**Sélectionnez le niveau d'inclinaison du champ @local.nom_champ**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_4_3",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/inclinaison_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/pente.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "begin_radio_list",
+      "name": "pente_sol",
+      "value": "@fields.pente_sol"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.pente_sol"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_radio_list"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.pente_sol"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "**Comptez et renseignez le nombre de parcelles de @local.nom_champ**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_4_4",
+      "parameter_list": "variant: compact;\nsrc: audio/superficie/nbre_parcel_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@calc(@global.parcelle_hint + '  '+@local.nom_champ)"
+    },
+    {
+      "type": "image",
+      "value": "images/superf_champ.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "nb_parcelles",
+      "value": "@fields.nb_parcelles",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "condition": "!!@field.nb_parcelles",
       "exclude_from_translation": true
     },
     {
-      "type": "begin_data_items",
-      "value": "@data.test",
-      "parameter_list": "limit: @fields.nb_parcelles"
+      "type": "text_box",
+      "name": "nb_parcelles",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "condition": "!@field.nb_parcelles",
+      "exclude_from_translation": true
     },
     {
-      "name": "num_parcelle",
-      "value": "@item.number",
-      "action_list": "changed | set_field: num_parcelle :@item.number "
+      "name": "valid_nb_parcelles",
+      "value": "@calc((/^\\d+$/.test(@local.nb_parcelles) && @local.nb_parcelles>= 1) || @local.nb_parcelles == '' || !@local.nb_parcelles)",
+      "exclude_from_translation": true
     },
     {
-      "type": "begin_data_items",
-      "name": "loop_pages",
-      "value": "@data.parcelle_form_settings_pages"
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "S'il vous plaît, saisissez un nombre valide !",
+      "condition": "!@local.valid_nb_parcelles",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.nb_parcelles"
     },
     {
       "type": "begin_display_group",
-      "name": "await_data_loop_evaluation",
-      "parameter_list": "style: column",
-      "condition": "@local.completed_count !== undefined"
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
     },
     {
-      "type": "begin_display_group",
-      "name": "condition",
-      "parameter_list": "style: column",
-      "condition": "@item._index == @local.completed_count"
+      "name": "completed_enabled",
+      "value": "!!@local.nom_champ  && @local.valid_nb_parcelles && !!@local.type_sol && !!@local.pente_sol && !!@local.nb_parcelles",
+      "style_list": true
     },
     {
-      "type": "begin_template",
-      "name": "page",
-      "value": "parcelle_form_@item.id",
-      "action_list": "completed | set_data |\n_list_id: parcelle_form_settings_pages,\n_id: @item.id,\ncompleted: true;\n\nuncompleted | set_data | \n_list_id: parcelle_form_settings_pages,\n_id: page@local.completed_count,\ncompleted: false;"
+      "type": "round_button",
+      "name": "page4_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
-      "type": "end_template"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "end_data_items"
+      "type": "button",
+      "name": "page4_button_continue",
+      "value": "Continuer",
+      "action_list": "click | set_field: nom_champ: @local.nom_champ;\nclick | set_field: type_sol: @local.type_sol;\nclick | set_field: pente_sol: @local.pente_sol;\nclick | set_field: nb_parcelles: @local.nb_parcelles;\nclick | emit: completed;",
+      "parameter_list": "disabled: !@local.completed_enabled"
     },
     {
       "type": "end_display_group"
-    },
-    {
-      "type": "end_data_items"
-    },
-    {
-      "type": "end_data_items"
     }
   ]
 }

@@ -4,16 +4,184 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "value": "**FIN DU FORMULAIRE**"
+      "type": "subtitle",
+      "value": "**Semence cultivée dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**"
+    },
+    {
+      "type": "begin_display_group"
     },
     {
       "type": "text",
-      "value": "Les informations collectées à travers les formulaires et les évaluations de performances pour votre UPA sont accessibles à la plateforme web: https://chemins-iae.stats4sd.org/login"
+      "value": "**Sélectionnez la date de semis de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle** "
+    },
+    {
+      "type": "audio",
+      "name": "audio_9_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/date_semence_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "date_time_picker",
+      "name": "date_semis",
+      "value": "@fields.date_semis",
+      "action_list": "changed | set_field: date_semis : this.value;",
+      "parameter_list": "type: date"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@fields.date_semis"
+    },
+    {
+      "type": "begin_display_group"
     },
     {
       "type": "text",
-      "value": "MERCI !!!"
+      "value": "**La quantité de semence (kg) de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_9_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/q_semence_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/kg.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "text",
+      "value": "@global.semence_kg"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_semence",
+      "value": "@fields.quantite_semence",
+      "action_list": "changed | set_field: quantite_semence : this.value;",
+      "parameter_list": "number_input: true\nplaceholder: Entrez la quantite en kg;",
+      "condition": "!!@fields.quantite_semence",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_semence",
+      "action_list": "changed | set_field: quantite_semence : this.value;",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez la quantite en kg;",
+      "condition": "!@field.quantite_semence",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@fields.quantite_semence "
+    },
+    {
+      "name": "valid_quantite_semence",
+      "value": "@calc((/^\\d+$/.test(@local.quantite_semence) && @local.quantite_semence>0 ) || @local.quantite_semence == '' || !@local.quantite_semence )"
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "condition": "!@local.valid_quantite_semence",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "**Sélectionnez la source de la semence de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_9_3",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/source_semence_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_radio_list",
+      "name": "source_semence",
+      "value": "@fields.source_semence",
+      "action_list": "changed | set_field: source_semence: this.value;"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.source_semence"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_radio_list"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@fields.source_semence"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.source_semence == 'semence_autre_source'"
+    },
+    {
+      "type": "text",
+      "value": "@global.autre_message"
+    },
+    {
+      "type": "audio",
+      "name": "audio_9_4",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/nom_autre_source_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "source_semence",
+      "value": "@fields.source_semence",
+      "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom de la source",
+      "condition": "@fields.source_semence == 'semence_autre_source'",
+      "exclude_from_translation_1": true
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "exclude_from_translation": "padding: 12px 24px;"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@fields.date_semis && @fields.source_semence && @fields.quantite_semence",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "round_button",
+      "name": "page9_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page9_button_continue",
+      "value": "Continuer",
+      "action_list": "click | set_field: @calc('date_semis_parcelle_N⁰' + @fields.num_parcelle) : @fields.date_semis;\nclick | set_field: @calc('source_semence_parcelle_N⁰' + @fields.num_parcelle) : @fields.source_semence;\nclick | set_field: @calc('quantite_semence_parcelle_N⁰' + @fields.num_parcelle) : @fields.quantite_semence;\nclick | emit: completed;",
+      "parameter_list": "disabled: !@local.completed_enabled"
+    },
+    {
+      "type": "end_display_group"
     }
   ]
 }

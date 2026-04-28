@@ -6,11 +6,26 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "coûts des intrants & services SEMIS (drm)",
+      "value": "coûts des intrants & services SEMIS (drm) : @fields.current_primary_crop",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "page_title"
+      "_nested_name": "page_title",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "coûts des intrants & services SEMIS (drm) : @fields.current_primary_crop",
+            "matchedExpression": "@fields.current_primary_crop",
+            "type": "fields",
+            "fieldName": "current_primary_crop"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.current_primary_crop": [
+          "value"
+        ]
+      }
     },
     {
       "name": "key_fum",
@@ -461,12 +476,69 @@
       }
     },
     {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "image",
+          "value": "images/cfa_tot.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "name": "image_1",
+          "_nested_name": "display_group_17.image_1"
+        },
+        {
+          "type": "audio",
+          "name": "audio_14_1",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/semis/cout_cult_semis_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_17.audio_14_1"
+        }
+      ],
+      "name": "display_group_17",
+      "_nested_name": "display_group_17"
+    },
+    {
       "type": "text",
+      "value": "@global.hint_price",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "name": "text_19",
+      "_nested_name": "text_19",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.hint_price",
+            "matchedExpression": "@global.hint_price",
+            "type": "global",
+            "fieldName": "hint_price"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.hint_price": [
+          "value"
+        ]
+      }
+    },
+    {
       "name": "current_primary_crop_total_cost",
       "value": "@calc(Number(@local.c_fum) + Number(@local.c_chaux) + Number(@local.c_pnt) + Number(@local.c_sup) + Number(@local.c_sem) + Number(@local.c_herb))",
       "_translations": {
         "value": {}
       },
+      "type": "set_variable",
       "_nested_name": "current_primary_crop_total_cost",
       "_dynamicFields": {
         "value": [
@@ -534,6 +606,72 @@
           "value"
         ],
         "@calc(Number(@local.c_fum) + Number(@local.c_chaux) + Number(@local.c_pnt) + Number(@local.c_sup) + Number(@local.c_sem) + Number(@local.c_herb))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "current_primary_crop_total_cost_cfa",
+      "value": "@calc(Number(@local.current_primary_crop_total_cost || 0) * 5)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "current_primary_crop_total_cost_cfa",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@local.current_primary_crop_total_cost || 0) * 5)",
+            "matchedExpression": "@local.current_primary_crop_total_cost",
+            "type": "local",
+            "fieldName": "current_primary_crop_total_cost"
+          },
+          {
+            "fullExpression": "@calc(Number(@local.current_primary_crop_total_cost || 0) * 5)",
+            "matchedExpression": "@calc(Number(@local.current_primary_crop_total_cost || 0) * 5)",
+            "type": "calc",
+            "fieldName": "Number(@local.current_primary_crop_total_cost || 0) * 5"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.current_primary_crop_total_cost": [
+          "value"
+        ],
+        "@calc(Number(@local.current_primary_crop_total_cost || 0) * 5)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41; text-transform: uppercase;\">coûts des intrants & services SEMIS</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.current_primary_crop_total_cost drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.current_primary_crop_total_cost_cfa FCFA\n    </span>\n  </div>\n</div>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_22",
+      "_nested_name": "html_22",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41; text-transform: uppercase;\">coûts des intrants & services SEMIS</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.current_primary_crop_total_cost drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.current_primary_crop_total_cost_cfa FCFA\n    </span>\n  </div>\n</div>",
+            "matchedExpression": "@local.current_primary_crop_total_cost",
+            "type": "local",
+            "fieldName": "current_primary_crop_total_cost"
+          },
+          {
+            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41; text-transform: uppercase;\">coûts des intrants & services SEMIS</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.current_primary_crop_total_cost drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.current_primary_crop_total_cost_cfa FCFA\n    </span>\n  </div>\n</div>",
+            "matchedExpression": "@local.current_primary_crop_total_cost_cfa",
+            "type": "local",
+            "fieldName": "current_primary_crop_total_cost_cfa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.current_primary_crop_total_cost": [
+          "value"
+        ],
+        "@local.current_primary_crop_total_cost_cfa": [
           "value"
         ]
       }

@@ -14,6 +14,14 @@
     {
       "type": "declare_global_constant",
       "name": "title_campagne",
+      "value": "L'année de la campagne agricole",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "campagne_selection",
       "value": "Choisissez l'année de la campagne*:",
       "_translations": {
         "value": {}
@@ -53,6 +61,14 @@
     },
     {
       "type": "declare_global_constant",
+      "name": "nom_champ_hint",
+      "value": "❌ Invalide s'il vous plaît, saisissez le nom en majuscules uniquement !",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
       "name": "nom_champ",
       "value": "Ecrivez le nom vernaculaire du champ en langue locale tel que « SODALA FORO » ou « KUNGO DIAN FORO »",
       "_translations": {
@@ -77,8 +93,8 @@
     },
     {
       "type": "declare_global_constant",
-      "name": "aucun_message",
-      "value": "Vous avez sélectionné \"Aucun\", écrivez le nom en dessous !",
+      "name": "autre_message",
+      "value": "Vous avez sélectionné \"Autre\", écrivez le nom en dessous !",
       "_translations": {
         "value": {}
       }
@@ -95,6 +111,43 @@
       "type": "declare_global_constant",
       "name": "validite_nombre",
       "value": "S'il vous plaît, saisissez un nombre valide !",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_field_default",
+      "name": "num_parcelle",
+      "value": 1
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "parcelle_hint",
+      "value": "Un champ est souvent divisé en plusieurs parcelles qui sont affectées annuellement à différentes cultures. Il s'agit du nombre de parcelles délimitées et affectées aux différentes cultures dans:",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "culture_preced_hint",
+      "value": "Sélectionnez le nom de la culture précédente",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "variete_hint",
+      "value": "Écrivez \"Je ne sais pas\" si vous ne connaissez pas le nom de la variété",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "semence_kg",
+      "value": "Ecrivez la quantité de semence en Kilogrammes(kg)",
       "_translations": {
         "value": {}
       }

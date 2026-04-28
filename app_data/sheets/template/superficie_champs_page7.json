@@ -4,50 +4,112 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "name": "page_observ",
-      "value": "**Observations sur la fertilité de la parcelle N⁰**",
+      "type": "subtitle",
+      "value": "**Culture principale dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "page_observ"
+      "condition": "@fields.nom_champ",
+      "name": "subtitle_2",
+      "_nested_name": "subtitle_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "**Culture principale dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+            "matchedExpression": "@fields.num_parcelle",
+            "type": "fields",
+            "fieldName": "num_parcelle"
+          },
+          {
+            "fullExpression": "**Culture principale dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+            "matchedExpression": "@fields.nom_champ",
+            "type": "fields",
+            "fieldName": "nom_champ"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.nom_champ",
+            "matchedExpression": "@fields.nom_champ",
+            "type": "fields",
+            "fieldName": "nom_champ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.num_parcelle": [
+          "value"
+        ],
+        "@fields.nom_champ": [
+          "value",
+          "condition"
+        ]
+      }
     },
     {
       "type": "display_group",
+      "condition": "@fields.nom_champ",
       "rows": [
         {
-          "type": "html",
-          "value": "<p style=\"color: black;\"> Séléctionnez le canal à utiliser pour faire votre observation sur la parcelle N⁰ </p>",
+          "type": "text",
+          "value": "Sélectionnez la culture principale dans la parcelle N⁰@fields.num_parcelle",
           "_translations": {
             "value": {}
           },
-          "style_list": [
-            "font-size:20px"
-          ],
-          "name": "html_1",
-          "_nested_name": "display_group_3.html_1"
+          "name": "text_1",
+          "_nested_name": "display_group_3.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "Sélectionnez la culture principale dans la parcelle N⁰@fields.num_parcelle",
+                "matchedExpression": "@fields.num_parcelle",
+                "type": "fields",
+                "fieldName": "num_parcelle"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.num_parcelle": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
           "name": "audio_7_1",
           "parameter_list": {
             "variant": "compact",
-            "src": "audio/Enrolement/canal_obser_fr.mp3",
+            "src": "audio/Superficie/cult_prin_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "style_list": [
-            "float: right"
+            "float : right"
           ],
           "_nested_name": "display_group_3.audio_7_1"
         }
       ],
       "name": "display_group_3",
-      "_nested_name": "display_group_3"
+      "_nested_name": "display_group_3",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.nom_champ",
+            "matchedExpression": "@fields.nom_champ",
+            "type": "fields",
+            "fieldName": "nom_champ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.nom_champ": [
+          "condition"
+        ]
+      }
     },
     {
       "type": "radio_button_grid",
-      "name": "type_observation",
-      "value": "@fields.type_observation",
+      "name": "cult_princip",
+      "value": "@fields.cult_princip",
       "_translations": {
         "value": {}
       },
@@ -56,57 +118,58 @@
           "trigger": "changed",
           "action_id": "set_field",
           "args": [
-            "type_observation",
+            "cult_princip",
             "this.value"
           ],
-          "_raw": "changed | set_field : type_observation: this.value"
+          "_raw": "changed | set_field: cult_princip: this.value"
         }
       ],
       "parameter_list": {
-        "answer_list": "@data.group_observation",
-        "variant": "flex",
-        "item_width": "60px",
-        "grid_gap": "8px"
+        "answer_list": "@data.cult_princip",
+        "item_width": "80px",
+        "grid_width": "150%",
+        "grid_gap": "10px",
+        "variant": "circle-icon"
       },
-      "_nested_name": "type_observation",
+      "_nested_name": "cult_princip",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.type_observation",
-            "matchedExpression": "@fields.type_observation",
+            "fullExpression": "@fields.cult_princip",
+            "matchedExpression": "@fields.cult_princip",
             "type": "fields",
-            "fieldName": "type_observation"
+            "fieldName": "cult_princip"
           }
         ],
         "parameter_list": {
           "answer_list": [
             {
-              "fullExpression": "@data.group_observation",
-              "matchedExpression": "@data.group_observation",
+              "fullExpression": "@data.cult_princip",
+              "matchedExpression": "@data.cult_princip",
               "type": "data",
-              "fieldName": "group_observation"
+              "fieldName": "cult_princip"
             }
           ]
         }
       },
       "_dynamicDependencies": {
-        "@fields.type_observation": [
+        "@fields.cult_princip": [
           "value"
         ],
-        "@data.group_observation": [
+        "@data.cult_princip": [
           "parameter_list.answer_list"
         ]
       }
     },
     {
       "type": "html",
+      "name": "html_text",
       "value": "<p style=\"color: red;\"> @global.warning_message </p>",
       "_translations": {
         "value": {}
       },
-      "condition": "!@fields.type_observation",
-      "name": "html_6",
-      "_nested_name": "html_6",
+      "condition": "!@fields.cult_princip",
+      "_nested_name": "html_text",
       "_dynamicFields": {
         "value": [
           {
@@ -118,10 +181,10 @@
         ],
         "condition": [
           {
-            "fullExpression": "!@fields.type_observation",
-            "matchedExpression": "!@fields.type_observation",
+            "fullExpression": "!@fields.cult_princip",
+            "matchedExpression": "!@fields.cult_princip",
             "type": "fields",
-            "fieldName": "type_observation"
+            "fieldName": "cult_princip"
           }
         ]
       },
@@ -129,34 +192,49 @@
         "@global.warning_message": [
           "value"
         ],
-        "!@fields.type_observation": [
+        "!@fields.cult_princip": [
           "condition"
         ]
       }
     },
     {
       "type": "display_group",
-      "condition": "@fields.type_observation == \"par_text\"",
+      "condition": "@fields.cult_princip == 'autre'",
       "rows": [
         {
           "type": "text",
-          "value": "Entrez par écrit l'information supplémentaire.",
+          "value": "@global.autre_message",
           "_translations": {
             "value": {}
           },
           "name": "text_1",
-          "_nested_name": "display_group_7.text_1"
+          "_nested_name": "display_group_7.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.autre_message",
+                "matchedExpression": "@global.autre_message",
+                "type": "global",
+                "fieldName": "autre_message"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.autre_message": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
           "name": "audio_7_2",
           "parameter_list": {
             "variant": "compact",
-            "src": "audio/Enrolement/oberv_ecrit_fr.mp3",
+            "src": "audio/Superficie/autre_cult_nom1_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "style_list": [
-            "float: right"
+            "float : right"
           ],
           "_nested_name": "display_group_7.audio_7_2"
         }
@@ -166,299 +244,81 @@
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@fields.type_observation == \"par_text\"",
-            "matchedExpression": "@fields.type_observation",
+            "fullExpression": "@fields.cult_princip == 'autre'",
+            "matchedExpression": "@fields.cult_princip",
             "type": "fields",
-            "fieldName": "type_observation"
+            "fieldName": "cult_princip"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.type_observation": [
+        "@fields.cult_princip": [
           "condition"
         ]
       }
     },
     {
-      "type": "text_area",
-      "value": "@fields.info_text",
+      "type": "text_box",
+      "name": "autre_cult_princip",
+      "value": "@fields.autre_cult_princip",
       "_translations": {
         "value": {}
       },
-      "action_list": [
-        {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "info_text",
-            "this.value"
-          ],
-          "_raw": "changed | set_field : info_text: this.value"
-        }
-      ],
       "parameter_list": {
-        "placeholder": "Ecrivez votre observation"
+        "max_length": "30",
+        "placeholder": "Entrez le nom de la culture"
       },
-      "condition": "@fields.type_observation == \"par_text\"",
-      "name": "text_area_9",
-      "_nested_name": "text_area_9",
+      "condition": "@fields.cult_princip == 'autre'",
+      "exclude_from_translation_1": true,
+      "_nested_name": "autre_cult_princip",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.info_text",
-            "matchedExpression": "@fields.info_text",
+            "fullExpression": "@fields.autre_cult_princip",
+            "matchedExpression": "@fields.autre_cult_princip",
             "type": "fields",
-            "fieldName": "info_text"
+            "fieldName": "autre_cult_princip"
           }
         ],
         "condition": [
           {
-            "fullExpression": "@fields.type_observation == \"par_text\"",
-            "matchedExpression": "@fields.type_observation",
+            "fullExpression": "@fields.cult_princip == 'autre'",
+            "matchedExpression": "@fields.cult_princip",
             "type": "fields",
-            "fieldName": "type_observation"
+            "fieldName": "cult_princip"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.info_text": [
+        "@fields.autre_cult_princip": [
           "value"
         ],
-        "@fields.type_observation": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "display_group",
-      "condition": "@fields.type_observation == \"par_video\"",
-      "rows": [
-        {
-          "type": "text",
-          "name": "info_video_label",
-          "value": "Enregistrez par vidéo l'information supplémentaire.",
-          "_translations": {
-            "value": {}
-          },
-          "_nested_name": "display_group_10.info_video_label"
-        },
-        {
-          "type": "audio",
-          "name": "audio_7_3",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Enrolement/oberv_vid_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "style_list": [
-            "float: right"
-          ],
-          "_nested_name": "display_group_10.audio_7_3"
-        }
-      ],
-      "name": "display_group_10",
-      "_nested_name": "display_group_10",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@fields.type_observation == \"par_video\"",
-            "matchedExpression": "@fields.type_observation",
-            "type": "fields",
-            "fieldName": "type_observation"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.type_observation": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "name": "info_video",
-      "value": "We would need a video recorder here",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.type_observation == \"par_video\"",
-      "_nested_name": "info_video",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@fields.type_observation == \"par_video\"",
-            "matchedExpression": "@fields.type_observation",
-            "type": "fields",
-            "fieldName": "type_observation"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.type_observation": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "display_group",
-      "condition": "@fields.type_observation == \"par_vocal\"",
-      "rows": [
-        {
-          "type": "text",
-          "name": "info_audio_label",
-          "value": "Enregistrez par vocal l'information supplémentaire.",
-          "_translations": {
-            "value": {}
-          },
-          "_nested_name": "display_group_13.info_audio_label"
-        },
-        {
-          "type": "audio",
-          "name": "audio_7_4",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Enrolement/oberv_audio_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "style_list": [
-            "float: right"
-          ],
-          "_nested_name": "display_group_13.audio_7_4"
-        }
-      ],
-      "name": "display_group_13",
-      "_nested_name": "display_group_13",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@fields.type_observation == \"par_vocal\"",
-            "matchedExpression": "@fields.type_observation",
-            "type": "fields",
-            "fieldName": "type_observation"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.type_observation": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "name": "info_audio",
-      "value": "We would need a audio recorder here",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.type_observation == \"par_vocal\"",
-      "_nested_name": "info_audio",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@fields.type_observation == \"par_vocal\"",
-            "matchedExpression": "@fields.type_observation",
-            "type": "fields",
-            "fieldName": "type_observation"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.type_observation": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "display_group",
-      "condition": "@fields.type_observation == \"par_photo\"",
-      "rows": [
-        {
-          "type": "text",
-          "name": "info_image_label",
-          "value": "Enregistrez par image l'information supplémentaire.",
-          "_translations": {
-            "value": {}
-          },
-          "_nested_name": "display_group_16.info_image_label"
-        },
-        {
-          "type": "audio",
-          "name": "audio_7_5",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Enrolement/oberv_phot_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "style_list": [
-            "float: right"
-          ],
-          "_nested_name": "display_group_16.audio_7_5"
-        }
-      ],
-      "name": "display_group_16",
-      "_nested_name": "display_group_16",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@fields.type_observation == \"par_photo\"",
-            "matchedExpression": "@fields.type_observation",
-            "type": "fields",
-            "fieldName": "type_observation"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.type_observation": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "name": "info_image",
-      "value": "We would need a camera here",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.type_observation == \"par_photo\"",
-      "_nested_name": "info_image",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@fields.type_observation == \"par_photo\"",
-            "matchedExpression": "@fields.type_observation",
-            "type": "fields",
-            "fieldName": "type_observation"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.type_observation": [
+        "@fields.cult_princip": [
           "condition"
         ]
       }
     },
     {
       "name": "completed_enabled",
-      "value": "!!@local.type_observation",
+      "value": "!!@fields.cult_princip",
       "_translations": {
         "value": {}
       },
+      "exclude_from_translation": true,
       "type": "set_variable",
       "_nested_name": "completed_enabled",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "!!@local.type_observation",
-            "matchedExpression": "!@local.type_observation",
-            "type": "local",
-            "fieldName": "type_observation"
+            "fullExpression": "!!@fields.cult_princip",
+            "matchedExpression": "!@fields.cult_princip",
+            "type": "fields",
+            "fieldName": "cult_princip"
           }
         ]
       },
       "_dynamicDependencies": {
-        "!@local.type_observation": [
+        "!@fields.cult_princip": [
           "value"
         ]
       }
@@ -469,13 +329,11 @@
       "parameter_list": {
         "sticky": "bottom"
       },
-      "style_list": [
-        "padding: 12px 24px"
-      ],
+      "exclude_from_translation": "padding: 12px 24px;",
       "rows": [
         {
           "type": "round_button",
-          "name": "button_back",
+          "name": "page7_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -490,16 +348,34 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_20.button_back"
+          "_nested_name": "display_group_10.page7_button_back"
         },
         {
           "type": "button",
-          "name": "button_continue",
-          "value": "@global.btn_continue",
+          "name": "page7_button_continue",
+          "value": "Continuer",
           "_translations": {
             "value": {}
           },
           "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "@calc('cult_princip_parcelle_N⁰' + @fields.num_parcelle)",
+                "@fields.cult_princip"
+              ],
+              "_raw": "click | set_field: @calc('cult_princip_parcelle_N⁰' + @fields.num_parcelle) : @fields.cult_princip"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "@calc('autre_cult_princip_parcelle_N⁰' + @fields.num_parcelle)",
+                "@fields.autre_cult_princip"
+              ],
+              "_raw": "click | set_field: @calc('autre_cult_princip_parcelle_N⁰' + @fields.num_parcelle) : @fields.autre_cult_princip"
+            },
             {
               "trigger": "click",
               "action_id": "emit",
@@ -509,29 +385,133 @@
               "_raw": "click | emit: completed"
             }
           ],
-          "style_list": [
-            "flex: 1"
-          ],
-          "_nested_name": "display_group_20.button_continue",
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "_nested_name": "display_group_10.page7_button_continue",
           "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@global.btn_continue",
-                "matchedExpression": "@global.btn_continue",
-                "type": "global",
-                "fieldName": "btn_continue"
+            "action_list": {
+              "0": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "@calc('cult_princip_parcelle_N⁰' + @fields.num_parcelle)",
+                      "matchedExpression": "@fields.num_parcelle",
+                      "type": "fields",
+                      "fieldName": "num_parcelle"
+                    },
+                    {
+                      "fullExpression": "@calc('cult_princip_parcelle_N⁰' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('cult_princip_parcelle_N⁰' + @fields.num_parcelle)",
+                      "type": "calc",
+                      "fieldName": "'cult_princip_parcelle_N⁰' + @fields.num_parcelle"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.cult_princip",
+                      "matchedExpression": "@fields.cult_princip",
+                      "type": "fields",
+                      "fieldName": "cult_princip"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: @calc('cult_princip_parcelle_N⁰' + @fields.num_parcelle) : @fields.cult_princip",
+                    "matchedExpression": "@fields.num_parcelle",
+                    "type": "fields",
+                    "fieldName": "num_parcelle"
+                  },
+                  {
+                    "fullExpression": "click | set_field: @calc('cult_princip_parcelle_N⁰' + @fields.num_parcelle) : @fields.cult_princip",
+                    "matchedExpression": "@fields.cult_princip",
+                    "type": "fields",
+                    "fieldName": "cult_princip"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "@calc('autre_cult_princip_parcelle_N⁰' + @fields.num_parcelle)",
+                      "matchedExpression": "@fields.num_parcelle",
+                      "type": "fields",
+                      "fieldName": "num_parcelle"
+                    },
+                    {
+                      "fullExpression": "@calc('autre_cult_princip_parcelle_N⁰' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('autre_cult_princip_parcelle_N⁰' + @fields.num_parcelle)",
+                      "type": "calc",
+                      "fieldName": "'autre_cult_princip_parcelle_N⁰' + @fields.num_parcelle"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.autre_cult_princip",
+                      "matchedExpression": "@fields.autre_cult_princip",
+                      "type": "fields",
+                      "fieldName": "autre_cult_princip"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: @calc('autre_cult_princip_parcelle_N⁰' + @fields.num_parcelle) : @fields.autre_cult_princip",
+                    "matchedExpression": "@fields.num_parcelle",
+                    "type": "fields",
+                    "fieldName": "num_parcelle"
+                  },
+                  {
+                    "fullExpression": "click | set_field: @calc('autre_cult_princip_parcelle_N⁰' + @fields.num_parcelle) : @fields.autre_cult_princip",
+                    "matchedExpression": "@fields.autre_cult_princip",
+                    "type": "fields",
+                    "fieldName": "autre_cult_princip"
+                  }
+                ]
               }
-            ]
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
-            "@global.btn_continue": [
-              "value"
+            "@fields.num_parcelle": [
+              "action_list.0.args.0",
+              "action_list.0._raw",
+              "action_list.1.args.0",
+              "action_list.1._raw"
+            ],
+            "@calc('cult_princip_parcelle_N⁰' + @fields.num_parcelle)": [
+              "action_list.0.args.0"
+            ],
+            "@fields.cult_princip": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "@calc('autre_cult_princip_parcelle_N⁰' + @fields.num_parcelle)": [
+              "action_list.1.args.0"
+            ],
+            "@fields.autre_cult_princip": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
             ]
           }
         }
       ],
-      "name": "display_group_20",
-      "_nested_name": "display_group_20"
+      "name": "display_group_10",
+      "_nested_name": "display_group_10"
     }
   ],
   "_source": {
