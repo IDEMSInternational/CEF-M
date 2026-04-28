@@ -1,0 +1,87 @@
+{
+  "flow_type": "template",
+  "flow_name": "section_semi_page19",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_title",
+      "value": "Le coût total des opérations SEMIS pour les cultures principales\n"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.primary_crops",
+      "parameter_list": "filter: @fields.[@item.name] == true;",
+      "style_list": "display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%; gap: 10px;"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "image",
+      "value": "@item.image"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "name": "cout_total",
+      "value": "@calc( (Number(@fields.cout_transport_fumure_organique_coton) || 0) + (Number(@fields.cout_transport_chaux_agricole_coton) || 0) + (Number(@fields.cout_pnt_png_coton) || 0) + (Number(@fields.cout_superficie_labouree_coton) || 0) + (Number(@fields.cout_semence_achetee_coton) || 0) + (Number(@fields.cout_herbicide_prelevee_coton) || 0) + (Number(@fields.cout_transport_fumure_organique_mais) || 0) + (Number(@fields.cout_transport_chaux_agricole_mais) || 0) + (Number(@fields.cout_pnt_png_mais) || 0) + (Number(@fields.cout_superficie_labouree_mais) || 0) + (Number(@fields.cout_semence_achetee_mais) || 0) + (Number(@fields.cout_herbicide_prelevee_mais) || 0) + (Number(@fields.cout_transport_fumure_organique_mil) || 0) + (Number(@fields.cout_transport_chaux_agricole_mil) || 0) + (Number(@fields.cout_pnt_png_mil) || 0) + (Number(@fields.cout_superficie_labouree_mil) || 0) + (Number(@fields.cout_semence_achetee_mil) || 0) + (Number(@fields.cout_herbicide_prelevee_mil) || 0) + (Number(@fields.cout_transport_fumure_organique_sorgho) || 0) + (Number(@fields.cout_transport_chaux_agricole_sorgho) || 0) + (Number(@fields.cout_pnt_png_sorgho) || 0) + (Number(@fields.cout_superficie_labouree_sorgho) || 0) + (Number(@fields.cout_semence_achetee_sorgho) || 0) + (Number(@fields.cout_herbicide_prelevee_sorgho) || 0) + (Number(@fields.cout_transport_fumure_organique_arachide) || 0) + (Number(@fields.cout_transport_chaux_agricole_arachide) || 0) + (Number(@fields.cout_pnt_png_arachide) || 0) + (Number(@fields.cout_superficie_labouree_arachide) || 0) + (Number(@fields.cout_semence_achetee_arachide) || 0) + (Number(@fields.cout_herbicide_prelevee_arachide) || 0) + (Number(@fields.cout_transport_fumure_organique_fourrage) || 0) + (Number(@fields.cout_transport_chaux_agricole_fourrage) || 0) + (Number(@fields.cout_pnt_png_fourrage) || 0) + (Number(@fields.cout_superficie_labouree_fourrage) || 0) + (Number(@fields.cout_semence_achetee_fourrage) || 0) + (Number(@fields.cout_herbicide_prelevee_fourrage) || 0) )"
+    },
+    {
+      "name": "cout_total_cfa",
+      "value": "@calc(Number(@local.cout_total || 0) * 5)"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa_tot.jpg"
+    },
+    {
+      "type": "audio",
+      "name": "audio_19_1",
+      "parameter_list": "variant: compact;\nsrc: audio/semis/cout_tot_semis.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.hint_price",
+      "style_list": "color: gray; font-size: 16px;"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41; text-transform: uppercase;\">Coût total des opérations SEMIS (Cultures Principales)</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.cout_total drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.cout_total_cfa FCFA\n    </span>\n  </div>\n</div>"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page_14_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page_14_button_continue",
+      "value": "@global.btn_continue",
+      "action_list": "click | emit: completed",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

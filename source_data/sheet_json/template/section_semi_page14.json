@@ -6,7 +6,7 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "coûts des intrants & services SEMIS (drm)"
+      "value": "coûts des intrants & services SEMIS (drm) : @fields.current_primary_crop"
     },
     {
       "name": "key_fum",
@@ -81,9 +81,37 @@
       "type": "end_data_items"
     },
     {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa_tot.jpg"
+    },
+    {
+      "type": "audio",
+      "name": "audio_14_1",
+      "parameter_list": "variant: compact;\nsrc: audio/semis/cout_cult_semis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
       "type": "text",
+      "value": "@global.hint_price",
+      "style_list": "color: gray; font-size: 16px;"
+    },
+    {
       "name": "current_primary_crop_total_cost",
       "value": "@calc(Number(@local.c_fum) + Number(@local.c_chaux) + Number(@local.c_pnt) + Number(@local.c_sup) + Number(@local.c_sem) + Number(@local.c_herb))"
+    },
+    {
+      "name": "current_primary_crop_total_cost_cfa",
+      "value": "@calc(Number(@local.current_primary_crop_total_cost || 0) * 5)"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41; text-transform: uppercase;\">coûts des intrants & services SEMIS</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.current_primary_crop_total_cost drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.current_primary_crop_total_cost_cfa FCFA\n    </span>\n  </div>\n</div>"
     },
     {
       "type": "begin_display_group",

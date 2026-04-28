@@ -201,7 +201,7 @@
       "rows": [
         {
           "type": "html",
-          "name": "superficie_label",
+          "name": "temp_sup_label",
           "value": "<span style=\"color: red;\">*</span> Superficie total de @fields.current_primary_crop (ha)",
           "_translations": {
             "value": {}
@@ -209,7 +209,7 @@
           "style_list": [
             "font-size:20px"
           ],
-          "_nested_name": "display_group_6.superficie_label",
+          "_nested_name": "display_group_6.temp_sup_label",
           "_dynamicFields": {
             "value": [
               {
@@ -260,7 +260,7 @@
     },
     {
       "type": "text",
-      "name": "superficie_hint",
+      "name": "temp_sup_hint",
       "value": "Superficie cumulée de toutes les parcelles de @fields.current_primary_crop",
       "_translations": {
         "value": {}
@@ -269,7 +269,7 @@
         "color: gray",
         "font-size: 16px"
       ],
-      "_nested_name": "superficie_hint",
+      "_nested_name": "temp_sup_hint",
       "_dynamicFields": {
         "value": [
           {
@@ -287,42 +287,58 @@
       }
     },
     {
-      "name": "valid_superficie",
-      "value": "@calc(@fields.superficie >= 0)",
+      "name": "valid_temp_sup",
+      "value": "@calc(!!@fields.temp_sup && @fields.temp_sup != \"\" && @fields.temp_sup >= 0)",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "valid_superficie",
+      "_nested_name": "valid_temp_sup",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(@fields.superficie >= 0)",
-            "matchedExpression": "@fields.superficie",
+            "fullExpression": "@calc(!!@fields.temp_sup && @fields.temp_sup != \"\" && @fields.temp_sup >= 0)",
+            "matchedExpression": "!@fields.temp_sup",
             "type": "fields",
-            "fieldName": "superficie"
+            "fieldName": "temp_sup"
           },
           {
-            "fullExpression": "@calc(@fields.superficie >= 0)",
-            "matchedExpression": "@calc(@fields.superficie >= 0)",
+            "fullExpression": "@calc(!!@fields.temp_sup && @fields.temp_sup != \"\" && @fields.temp_sup >= 0)",
+            "matchedExpression": "@fields.temp_sup",
+            "type": "fields",
+            "fieldName": "temp_sup"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.temp_sup && @fields.temp_sup != \"\" && @fields.temp_sup >= 0)",
+            "matchedExpression": "@fields.temp_sup",
+            "type": "fields",
+            "fieldName": "temp_sup"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.temp_sup && @fields.temp_sup != \"\" && @fields.temp_sup >= 0)",
+            "matchedExpression": "@calc(!!@fields.temp_sup && @fields.temp_sup != \"\" && @fields.temp_sup >= 0)",
             "type": "calc",
-            "fieldName": "@fields.superficie >= 0"
+            "fieldName": "!!@fields.temp_sup && @fields.temp_sup != \"\" && @fields.temp_sup >= 0"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.superficie": [
+        "!@fields.temp_sup": [
           "value"
         ],
-        "@calc(@fields.superficie >= 0)": [
+        "@fields.temp_sup": [
+          "value",
+          "value"
+        ],
+        "@calc(!!@fields.temp_sup && @fields.temp_sup != \"\" && @fields.temp_sup >= 0)": [
           "value"
         ]
       }
     },
     {
       "type": "text_box",
-      "name": "superficie",
-      "value": "@fields.superficie",
+      "name": "temp_sup",
+      "value": "@fields.temp_sup",
       "_translations": {
         "value": {}
       },
@@ -331,45 +347,47 @@
           "trigger": "changed",
           "action_id": "set_field",
           "args": [
-            "superficie",
+            "temp_sup",
             "this.value"
           ],
-          "_raw": "changed | set_field : superficie: this.value"
+          "_raw": "changed | set_field : temp_sup: this.value"
         }
       ],
       "parameter_list": {
         "number_input": "true"
       },
-      "_nested_name": "superficie",
+      "_nested_name": "temp_sup",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.superficie",
-            "matchedExpression": "@fields.superficie",
+            "fullExpression": "@fields.temp_sup",
+            "matchedExpression": "@fields.temp_sup",
             "type": "fields",
-            "fieldName": "superficie"
+            "fieldName": "temp_sup"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.superficie": [
+        "@fields.temp_sup": [
           "value"
         ]
       }
     },
     {
       "type": "text",
-      "name": "error_superficie",
+      "name": "error_temp_sup",
       "value": "@global.error_superficie",
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.attempt_submit && !@local.valid_superficie",
+      "condition": "@fields.attempt_submit && !@local.valid_temp_sup",
       "style_list": [
         "color: red",
-        "font-size: 16px"
+        "font-size: 16px",
+        "background: #fff5f5",
+        "padding: 5px"
       ],
-      "_nested_name": "error_superficie",
+      "_nested_name": "error_temp_sup",
       "_dynamicFields": {
         "value": [
           {
@@ -381,16 +399,16 @@
         ],
         "condition": [
           {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_superficie",
+            "fullExpression": "@fields.attempt_submit && !@local.valid_temp_sup",
             "matchedExpression": "@fields.attempt_submit",
             "type": "fields",
             "fieldName": "attempt_submit"
           },
           {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_superficie",
-            "matchedExpression": "!@local.valid_superficie",
+            "fullExpression": "@fields.attempt_submit && !@local.valid_temp_sup",
+            "matchedExpression": "!@local.valid_temp_sup",
             "type": "local",
-            "fieldName": "valid_superficie"
+            "fieldName": "valid_temp_sup"
           }
         ]
       },
@@ -401,14 +419,14 @@
         "@fields.attempt_submit": [
           "condition"
         ],
-        "!@local.valid_superficie": [
+        "!@local.valid_temp_sup": [
           "condition"
         ]
       }
     },
     {
       "name": "completed_enabled",
-      "value": "@local.valid_superficie",
+      "value": "@local.valid_temp_sup",
       "_translations": {
         "value": {}
       },
@@ -417,15 +435,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@local.valid_superficie",
-            "matchedExpression": "@local.valid_superficie",
+            "fullExpression": "@local.valid_temp_sup",
+            "matchedExpression": "@local.valid_temp_sup",
             "type": "local",
-            "fieldName": "valid_superficie"
+            "fieldName": "valid_temp_sup"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.valid_superficie": [
+        "@local.valid_temp_sup": [
           "value"
         ]
       }
@@ -478,9 +496,6 @@
               "_raw": "click | set_field: attempt_submit: true"
             }
           ],
-          "parameter_list": {
-            "disabled": "!@local.completed_enabled"
-          },
           "condition": "!@local.completed_enabled",
           "style_list": [
             "flex: 1"
@@ -495,16 +510,6 @@
                 "fieldName": "btn_continue"
               }
             ],
-            "parameter_list": {
-              "disabled": [
-                {
-                  "fullExpression": "!@local.completed_enabled",
-                  "matchedExpression": "!@local.completed_enabled",
-                  "type": "local",
-                  "fieldName": "completed_enabled"
-                }
-              ]
-            },
             "condition": [
               {
                 "fullExpression": "!@local.completed_enabled",
@@ -519,7 +524,6 @@
               "value"
             ],
             "!@local.completed_enabled": [
-              "parameter_list.disabled",
               "condition"
             ]
           }
@@ -537,18 +541,27 @@
               "action_id": "set_field",
               "args": [
                 "@calc('superficie_' + @fields.current_primary_crop)",
-                "@fields.superficie"
+                "@fields.temp_sup"
               ],
-              "_raw": "click | set_field: @calc('superficie_' + @fields.current_primary_crop) : @fields.superficie"
+              "_raw": "click | set_field: @calc('superficie_' + @fields.current_primary_crop) : @fields.temp_sup"
             },
             {
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "superficie",
-                "null"
+                "temp_sup",
+                ""
               ],
-              "_raw": "click | set_field: superficie: null"
+              "_raw": "click | set_field: temp_sup:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                false
+              ],
+              "_raw": "click | set_field: attempt_submit: false"
             },
             {
               "trigger": "click",
@@ -559,6 +572,9 @@
               "_raw": "click | emit: completed"
             }
           ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
           "condition": "@local.completed_enabled",
           "style_list": [
             "flex: 1"
@@ -592,28 +608,38 @@
                   ],
                   "1": [
                     {
-                      "fullExpression": "@fields.superficie",
-                      "matchedExpression": "@fields.superficie",
+                      "fullExpression": "@fields.temp_sup",
+                      "matchedExpression": "@fields.temp_sup",
                       "type": "fields",
-                      "fieldName": "superficie"
+                      "fieldName": "temp_sup"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('superficie_' + @fields.current_primary_crop) : @fields.superficie",
+                    "fullExpression": "click | set_field: @calc('superficie_' + @fields.current_primary_crop) : @fields.temp_sup",
                     "matchedExpression": "@fields.current_primary_crop",
                     "type": "fields",
                     "fieldName": "current_primary_crop"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('superficie_' + @fields.current_primary_crop) : @fields.superficie",
-                    "matchedExpression": "@fields.superficie",
+                    "fullExpression": "click | set_field: @calc('superficie_' + @fields.current_primary_crop) : @fields.temp_sup",
+                    "matchedExpression": "@fields.temp_sup",
                     "type": "fields",
-                    "fieldName": "superficie"
+                    "fieldName": "temp_sup"
                   }
                 ]
               }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
             },
             "condition": [
               {
@@ -635,9 +661,12 @@
             "@calc('superficie_' + @fields.current_primary_crop)": [
               "action_list.0.args.0"
             ],
-            "@fields.superficie": [
+            "@fields.temp_sup": [
               "action_list.0.args.1",
               "action_list.0._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
             ],
             "@local.completed_enabled": [
               "condition"

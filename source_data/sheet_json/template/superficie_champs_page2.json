@@ -10,24 +10,9 @@
       "parameter_list": "style: contextual"
     },
     {
-      "type": "text",
-      "value": "@global.title_campagne"
-    },
-    {
-      "type": "date_time_picker",
-      "name": "year_campaign",
-      "value": "@fields.year_campaign",
-      "action_list": "changed | set_local: year_campaign: this.value;",
-      "parameter_list": "type: date"
-    },
-    {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.note_campagne </p>"
-    },
-    {
-      "name": "completed_enabled",
-      "value": "@local.year_campaign "
+      "type": "audio",
+      "name": "audio_2_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/annee_saison_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;"
     },
     {
       "type": "begin_display_group",
@@ -37,16 +22,15 @@
     },
     {
       "type": "round_button",
-      "name": "page1_button_back",
+      "name": "page2_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "button_continue_1",
+      "name": "page2_button_continue",
       "value": "Continuer",
-      "action_list": "click | set_field: year_campaign: @local.year_campaign;\nclick | emit: completed;",
-      "parameter_list": "disabled: !@local.completed_enabled"
+      "action_list": "click | emit: completed;"
     },
     {
       "type": "end_display_group"

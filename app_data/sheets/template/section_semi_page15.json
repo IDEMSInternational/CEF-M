@@ -18,11 +18,26 @@
         {
           "type": "text",
           "name": "type_canal_info_label",
-          "value": "Séléctionnez le canal à utiliser pour faire votre observation sur:",
+          "value": "Séléctionnez le canal à utiliser pour faire votre observation sur: @fields.current_primary_crop",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_3.type_canal_info_label"
+          "_nested_name": "display_group_3.type_canal_info_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "Séléctionnez le canal à utiliser pour faire votre observation sur: @fields.current_primary_crop",
+                "matchedExpression": "@fields.current_primary_crop",
+                "type": "fields",
+                "fieldName": "current_primary_crop"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.current_primary_crop": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -48,7 +63,7 @@
       "_translations": {
         "value": {}
       },
-      "condition": "!!@field.type_canal_info",
+      "condition": "!!@fields.type_canal_info",
       "style_list": [
         "color: red",
         "font-size: 12px"
@@ -65,9 +80,9 @@
         ],
         "condition": [
           {
-            "fullExpression": "!!@field.type_canal_info",
-            "matchedExpression": "!@field.type_canal_info",
-            "type": "field",
+            "fullExpression": "!!@fields.type_canal_info",
+            "matchedExpression": "!@fields.type_canal_info",
+            "type": "fields",
             "fieldName": "type_canal_info"
           }
         ]
@@ -76,7 +91,7 @@
         "@global.error_required_answer": [
           "value"
         ],
-        "!@field.type_canal_info": [
+        "!@fields.type_canal_info": [
           "condition"
         ]
       }
@@ -84,7 +99,7 @@
     {
       "type": "radio_button_grid",
       "name": "type_canal_info",
-      "value": "@field.type_canal_info",
+      "value": "@fields.type_canal_info",
       "_translations": {
         "value": {}
       },
@@ -109,9 +124,9 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@field.type_canal_info",
-            "matchedExpression": "@field.type_canal_info",
-            "type": "field",
+            "fullExpression": "@fields.type_canal_info",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
             "fieldName": "type_canal_info"
           }
         ],
@@ -127,7 +142,7 @@
         }
       },
       "_dynamicDependencies": {
-        "@field.type_canal_info": [
+        "@fields.type_canal_info": [
           "value"
         ],
         "@data.group_observation": [
@@ -137,7 +152,7 @@
     },
     {
       "type": "display_group",
-      "condition": "@field.type_canal_info == \"par_text\"",
+      "condition": "@fields.type_canal_info == \"par_text\"",
       "rows": [
         {
           "type": "text",
@@ -167,23 +182,23 @@
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@field.type_canal_info == \"par_text\"",
-            "matchedExpression": "@field.type_canal_info",
-            "type": "field",
+            "fullExpression": "@fields.type_canal_info == \"par_text\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
             "fieldName": "type_canal_info"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.type_canal_info": [
+        "@fields.type_canal_info": [
           "condition"
         ]
       }
     },
     {
       "type": "text_area",
-      "name": "observation",
-      "value": "@field.info_text",
+      "name": "temp_observ",
+      "value": "@fields.info_text",
       "_translations": {
         "value": {}
       },
@@ -192,47 +207,47 @@
           "trigger": "changed",
           "action_id": "set_field",
           "args": [
-            "observation",
+            "temp_observ",
             "this.value"
           ],
-          "_raw": "changed | set_field : observation: this.value"
+          "_raw": "changed | set_field : temp_observ: this.value"
         }
       ],
       "parameter_list": {
         "placeholder": "Info par écrit"
       },
-      "condition": "@field.type_canal_info == \"par_text\"",
-      "_nested_name": "observation",
+      "condition": "@fields.type_canal_info == \"par_text\"",
+      "_nested_name": "temp_observ",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@field.info_text",
-            "matchedExpression": "@field.info_text",
-            "type": "field",
+            "fullExpression": "@fields.info_text",
+            "matchedExpression": "@fields.info_text",
+            "type": "fields",
             "fieldName": "info_text"
           }
         ],
         "condition": [
           {
-            "fullExpression": "@field.type_canal_info == \"par_text\"",
-            "matchedExpression": "@field.type_canal_info",
-            "type": "field",
+            "fullExpression": "@fields.type_canal_info == \"par_text\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
             "fieldName": "type_canal_info"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.info_text": [
+        "@fields.info_text": [
           "value"
         ],
-        "@field.type_canal_info": [
+        "@fields.type_canal_info": [
           "condition"
         ]
       }
     },
     {
       "type": "display_group",
-      "condition": "@field.type_canal_info == \"par_video\"",
+      "condition": "@fields.type_canal_info == \"par_video\"",
       "rows": [
         {
           "type": "text",
@@ -262,15 +277,15 @@
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@field.type_canal_info == \"par_video\"",
-            "matchedExpression": "@field.type_canal_info",
-            "type": "field",
+            "fullExpression": "@fields.type_canal_info == \"par_video\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
             "fieldName": "type_canal_info"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.type_canal_info": [
+        "@fields.type_canal_info": [
           "condition"
         ]
       }
@@ -282,27 +297,27 @@
       "_translations": {
         "value": {}
       },
-      "condition": "@field.type_canal_info == \"par_video\"",
+      "condition": "@fields.type_canal_info == \"par_video\"",
       "_nested_name": "info_video",
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@field.type_canal_info == \"par_video\"",
-            "matchedExpression": "@field.type_canal_info",
-            "type": "field",
+            "fullExpression": "@fields.type_canal_info == \"par_video\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
             "fieldName": "type_canal_info"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.type_canal_info": [
+        "@fields.type_canal_info": [
           "condition"
         ]
       }
     },
     {
       "type": "display_group",
-      "condition": "@field.type_canal_info == \"par_vocal\"",
+      "condition": "@fields.type_canal_info == \"par_vocal\"",
       "rows": [
         {
           "type": "text",
@@ -332,15 +347,15 @@
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@field.type_canal_info == \"par_vocal\"",
-            "matchedExpression": "@field.type_canal_info",
-            "type": "field",
+            "fullExpression": "@fields.type_canal_info == \"par_vocal\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
             "fieldName": "type_canal_info"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.type_canal_info": [
+        "@fields.type_canal_info": [
           "condition"
         ]
       }
@@ -352,27 +367,27 @@
       "_translations": {
         "value": {}
       },
-      "condition": "@field.type_canal_info == \"par_vocal\"",
+      "condition": "@fields.type_canal_info == \"par_vocal\"",
       "_nested_name": "info_audio",
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@field.type_canal_info == \"par_vocal\"",
-            "matchedExpression": "@field.type_canal_info",
-            "type": "field",
+            "fullExpression": "@fields.type_canal_info == \"par_vocal\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
             "fieldName": "type_canal_info"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.type_canal_info": [
+        "@fields.type_canal_info": [
           "condition"
         ]
       }
     },
     {
       "type": "display_group",
-      "condition": "@field.type_canal_info == \"par_photo\"",
+      "condition": "@fields.type_canal_info == \"par_photo\"",
       "rows": [
         {
           "type": "text",
@@ -402,15 +417,15 @@
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@field.type_canal_info == \"par_photo\"",
-            "matchedExpression": "@field.type_canal_info",
-            "type": "field",
+            "fullExpression": "@fields.type_canal_info == \"par_photo\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
             "fieldName": "type_canal_info"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.type_canal_info": [
+        "@fields.type_canal_info": [
           "condition"
         ]
       }
@@ -422,45 +437,21 @@
       "_translations": {
         "value": {}
       },
-      "condition": "@field.type_canal_info == \"par_photo\"",
+      "condition": "@fields.type_canal_info == \"par_photo\"",
       "_nested_name": "info_image",
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@field.type_canal_info == \"par_photo\"",
-            "matchedExpression": "@field.type_canal_info",
-            "type": "field",
+            "fullExpression": "@fields.type_canal_info == \"par_photo\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
             "fieldName": "type_canal_info"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.type_canal_info": [
+        "@fields.type_canal_info": [
           "condition"
-        ]
-      }
-    },
-    {
-      "name": "completed_enabled",
-      "value": "!!@local.type_canal_info",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "completed_enabled",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "!!@local.type_canal_info",
-            "matchedExpression": "!@local.type_canal_info",
-            "type": "local",
-            "fieldName": "type_canal_info"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "!@local.type_canal_info": [
-          "value"
         ]
       }
     },
@@ -548,19 +539,28 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "@calc('observation' + @fields.current_primary_crop)",
-                "@fields.observation"
+                "@calc('observation_' + @fields.current_primary_crop)",
+                "@fields.temp_observ"
               ],
-              "_raw": "click | set_field: @calc('observation' + @fields.current_primary_crop) : @fields.observation"
+              "_raw": "click | set_field: @calc('observation_' + @fields.current_primary_crop) : @fields.temp_observ"
             },
             {
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "observation",
-                "null"
+                "temp_observ",
+                ""
               ],
-              "_raw": "click | set_field: observation: null"
+              "_raw": "click | set_field: temp_observ:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "type_canal_info",
+                ""
+              ],
+              "_raw": "click | set_field: type_canal_info:"
             },
             {
               "trigger": "click",
@@ -579,6 +579,105 @@
                 "@calc(@fields.primary_crops_selected.split(',')[Number(@fields.primary_crop_loop_idx) + 1])"
               ],
               "_raw": "click | set_field: current_primary_crop : @calc(@fields.primary_crops_selected.split(',')[Number(@fields.primary_crop_loop_idx) + 1])"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: section_semi_settings_pages, _index: 6, completed: false",
+              "params": {
+                "_list_id": "section_semi_settings_pages",
+                "_index": 6,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: section_semi_settings_pages, _index: 7, completed: false",
+              "params": {
+                "_list_id": "section_semi_settings_pages",
+                "_index": 7,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: section_semi_settings_pages, _index: 8, completed: false",
+              "params": {
+                "_list_id": "section_semi_settings_pages",
+                "_index": 8,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: section_semi_settings_pages, _index: 9, completed: false",
+              "params": {
+                "_list_id": "section_semi_settings_pages",
+                "_index": 9,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: section_semi_settings_pages, _index: 10, completed: false",
+              "params": {
+                "_list_id": "section_semi_settings_pages",
+                "_index": 10,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: section_semi_settings_pages, _index: 11, completed: false",
+              "params": {
+                "_list_id": "section_semi_settings_pages",
+                "_index": 11,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: section_semi_settings_pages, _index: 12, completed: false",
+              "params": {
+                "_list_id": "section_semi_settings_pages",
+                "_index": 12,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: section_semi_settings_pages, _index: 13, completed: false",
+              "params": {
+                "_list_id": "section_semi_settings_pages",
+                "_index": 13,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: section_semi_settings_pages, _index: 14, completed: false",
+              "params": {
+                "_list_id": "section_semi_settings_pages",
+                "_index": 14,
+                "completed": false
+              }
             }
           ],
           "condition": "!@local.last_primary_crop_loop_idx",
@@ -600,43 +699,43 @@
                 "args": {
                   "0": [
                     {
-                      "fullExpression": "@calc('observation' + @fields.current_primary_crop)",
+                      "fullExpression": "@calc('observation_' + @fields.current_primary_crop)",
                       "matchedExpression": "@fields.current_primary_crop",
                       "type": "fields",
                       "fieldName": "current_primary_crop"
                     },
                     {
-                      "fullExpression": "@calc('observation' + @fields.current_primary_crop)",
-                      "matchedExpression": "@calc('observation' + @fields.current_primary_crop)",
+                      "fullExpression": "@calc('observation_' + @fields.current_primary_crop)",
+                      "matchedExpression": "@calc('observation_' + @fields.current_primary_crop)",
                       "type": "calc",
-                      "fieldName": "'observation' + @fields.current_primary_crop"
+                      "fieldName": "'observation_' + @fields.current_primary_crop"
                     }
                   ],
                   "1": [
                     {
-                      "fullExpression": "@fields.observation",
-                      "matchedExpression": "@fields.observation",
+                      "fullExpression": "@fields.temp_observ",
+                      "matchedExpression": "@fields.temp_observ",
                       "type": "fields",
-                      "fieldName": "observation"
+                      "fieldName": "temp_observ"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('observation' + @fields.current_primary_crop) : @fields.observation",
+                    "fullExpression": "click | set_field: @calc('observation_' + @fields.current_primary_crop) : @fields.temp_observ",
                     "matchedExpression": "@fields.current_primary_crop",
                     "type": "fields",
                     "fieldName": "current_primary_crop"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('observation' + @fields.current_primary_crop) : @fields.observation",
-                    "matchedExpression": "@fields.observation",
+                    "fullExpression": "click | set_field: @calc('observation_' + @fields.current_primary_crop) : @fields.temp_observ",
+                    "matchedExpression": "@fields.temp_observ",
                     "type": "fields",
-                    "fieldName": "observation"
+                    "fieldName": "temp_observ"
                   }
                 ]
               },
-              "2": {
+              "3": {
                 "args": {
                   "1": [
                     {
@@ -668,7 +767,7 @@
                   }
                 ]
               },
-              "3": {
+              "4": {
                 "args": {
                   "1": [
                     {
@@ -730,30 +829,30 @@
               "action_list.0.args.0",
               "action_list.0._raw"
             ],
-            "@calc('observation' + @fields.current_primary_crop)": [
+            "@calc('observation_' + @fields.current_primary_crop)": [
               "action_list.0.args.0"
             ],
-            "@fields.observation": [
+            "@fields.temp_observ": [
               "action_list.0.args.1",
               "action_list.0._raw"
             ],
             "@fields.primary_crop_loop_idx": [
-              "action_list.2.args.1",
-              "action_list.2._raw",
               "action_list.3.args.1",
-              "action_list.3._raw"
+              "action_list.3._raw",
+              "action_list.4.args.1",
+              "action_list.4._raw"
             ],
             "@calc(Number(@fields.primary_crop_loop_idx) + 1)": [
-              "action_list.2.args.1",
-              "action_list.2._raw"
+              "action_list.3.args.1",
+              "action_list.3._raw"
             ],
             "@fields.primary_crops_selected.split": [
-              "action_list.3.args.1",
-              "action_list.3._raw"
+              "action_list.4.args.1",
+              "action_list.4._raw"
             ],
             "@calc(@fields.primary_crops_selected.split(',')[Number(@fields.primary_crop_loop_idx) + 1])": [
-              "action_list.3.args.1",
-              "action_list.3._raw"
+              "action_list.4.args.1",
+              "action_list.4._raw"
             ],
             "!@local.last_primary_crop_loop_idx": [
               "condition"
@@ -772,19 +871,19 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "@calc('observation' + @fields.current_primary_crop)",
-                "@fields.observation"
+                "@calc('observation_' + @fields.current_primary_crop)",
+                "@fields.temp_observ"
               ],
-              "_raw": "click | set_field: @calc('observation' + @fields.current_primary_crop) : @fields.observation"
+              "_raw": "click | set_field: @calc('observation_' + @fields.current_primary_crop) : @fields.temp_observ"
             },
             {
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "observation",
-                "null"
+                "temp_observ",
+                ""
               ],
-              "_raw": "click | set_field: observation: null"
+              "_raw": "click | set_field: temp_observ:"
             },
             {
               "trigger": "click",
@@ -814,39 +913,39 @@
                 "args": {
                   "0": [
                     {
-                      "fullExpression": "@calc('observation' + @fields.current_primary_crop)",
+                      "fullExpression": "@calc('observation_' + @fields.current_primary_crop)",
                       "matchedExpression": "@fields.current_primary_crop",
                       "type": "fields",
                       "fieldName": "current_primary_crop"
                     },
                     {
-                      "fullExpression": "@calc('observation' + @fields.current_primary_crop)",
-                      "matchedExpression": "@calc('observation' + @fields.current_primary_crop)",
+                      "fullExpression": "@calc('observation_' + @fields.current_primary_crop)",
+                      "matchedExpression": "@calc('observation_' + @fields.current_primary_crop)",
                       "type": "calc",
-                      "fieldName": "'observation' + @fields.current_primary_crop"
+                      "fieldName": "'observation_' + @fields.current_primary_crop"
                     }
                   ],
                   "1": [
                     {
-                      "fullExpression": "@fields.observation",
-                      "matchedExpression": "@fields.observation",
+                      "fullExpression": "@fields.temp_observ",
+                      "matchedExpression": "@fields.temp_observ",
                       "type": "fields",
-                      "fieldName": "observation"
+                      "fieldName": "temp_observ"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('observation' + @fields.current_primary_crop) : @fields.observation",
+                    "fullExpression": "click | set_field: @calc('observation_' + @fields.current_primary_crop) : @fields.temp_observ",
                     "matchedExpression": "@fields.current_primary_crop",
                     "type": "fields",
                     "fieldName": "current_primary_crop"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('observation' + @fields.current_primary_crop) : @fields.observation",
-                    "matchedExpression": "@fields.observation",
+                    "fullExpression": "click | set_field: @calc('observation_' + @fields.current_primary_crop) : @fields.temp_observ",
+                    "matchedExpression": "@fields.temp_observ",
                     "type": "fields",
-                    "fieldName": "observation"
+                    "fieldName": "temp_observ"
                   }
                 ]
               }
@@ -868,10 +967,10 @@
               "action_list.0.args.0",
               "action_list.0._raw"
             ],
-            "@calc('observation' + @fields.current_primary_crop)": [
+            "@calc('observation_' + @fields.current_primary_crop)": [
               "action_list.0.args.0"
             ],
-            "@fields.observation": [
+            "@fields.temp_observ": [
               "action_list.0.args.1",
               "action_list.0._raw"
             ],

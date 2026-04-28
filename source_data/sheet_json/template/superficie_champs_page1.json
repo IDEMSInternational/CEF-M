@@ -83,13 +83,13 @@
     },
     {
       "type": "round_button",
-      "name": "page_1_btn_back",
+      "name": "page1_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page_1_btn_continue",
+      "name": "page1_button_continue",
       "value": "@global.btn_continue",
       "action_list": "click | set_field: chef_UPA: @local.chef_UPA;\nclick | set_field: type_upa: @local.type_upa;\nclick | emit: completed",
       "style_list": "flex: 1"

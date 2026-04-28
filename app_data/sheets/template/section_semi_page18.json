@@ -6,32 +6,493 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "FIN DU FORMULAIRE",
+      "value": "OBSERVATIONS PERIODE DE SEMIS",
       "_translations": {
         "value": {}
       },
       "_nested_name": "page_title"
     },
     {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "name": "type_canal_info_label",
+          "value": "Séléctionnez le canal à utiliser pour faire votre observation sur: @fields.current_secondary_crop",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_3.type_canal_info_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "Séléctionnez le canal à utiliser pour faire votre observation sur: @fields.current_secondary_crop",
+                "matchedExpression": "@fields.current_secondary_crop",
+                "type": "fields",
+                "fieldName": "current_secondary_crop"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.current_secondary_crop": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_15_1",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/semis/canal_obser_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_3.audio_15_1"
+        }
+      ],
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
+    },
+    {
       "type": "text",
-      "name": "note_fin",
-      "value": "@global.note_fin",
+      "name": "error_type_canal_info",
+      "value": "@global.error_required_answer",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "note_fin",
+      "condition": "!!@fields.type_canal_info",
+      "style_list": [
+        "color: red",
+        "font-size: 12px"
+      ],
+      "_nested_name": "error_type_canal_info",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.note_fin",
-            "matchedExpression": "@global.note_fin",
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
             "type": "global",
-            "fieldName": "note_fin"
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!!@fields.type_canal_info",
+            "matchedExpression": "!@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.note_fin": [
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "!@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "type_canal_info",
+      "value": "@fields.type_canal_info",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "type_canal_info",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : type_canal_info: this.value"
+        }
+      ],
+      "parameter_list": {
+        "answer_list": "@data.group_observation",
+        "variant": "flex",
+        "item_width": "60px",
+        "grid_gap": "8px"
+      },
+      "_nested_name": "type_canal_info",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.type_canal_info",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ],
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@data.group_observation",
+              "matchedExpression": "@data.group_observation",
+              "type": "data",
+              "fieldName": "group_observation"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "value"
+        ],
+        "@data.group_observation": [
+          "parameter_list.answer_list"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_info == \"par_text\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_text_label",
+          "value": "Entrez par écrit l'observation faite.",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_7.info_text_label"
+        },
+        {
+          "type": "audio",
+          "name": "audio_15_2",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/semis/oberv_ecrit_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_7.audio_15_2"
+        }
+      ],
+      "name": "display_group_7",
+      "_nested_name": "display_group_7",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_text\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_area",
+      "name": "temp_observ",
+      "value": "@fields.info_text",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "temp_observ",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : temp_observ: this.value"
+        }
+      ],
+      "parameter_list": {
+        "placeholder": "Info par écrit"
+      },
+      "condition": "@fields.type_canal_info == \"par_text\"",
+      "_nested_name": "temp_observ",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.info_text",
+            "matchedExpression": "@fields.info_text",
+            "type": "fields",
+            "fieldName": "info_text"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_text\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.info_text": [
+          "value"
+        ],
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_info == \"par_video\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_video_label",
+          "value": "Enregistrez par vidéo l'observation faite",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_10.info_video_label"
+        },
+        {
+          "type": "audio",
+          "name": "audio_15_3",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/semis/oberv_vid_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_10.audio_15_3"
+        }
+      ],
+      "name": "display_group_10",
+      "_nested_name": "display_group_10",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_video\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "info_video",
+      "value": "We would need a video recorder here",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.type_canal_info == \"par_video\"",
+      "_nested_name": "info_video",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_video\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_info == \"par_vocal\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_audio_label",
+          "value": "Enregistrez par vocal l'observation faite.",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_13.info_audio_label"
+        },
+        {
+          "type": "audio",
+          "name": "audio_15_4",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/semis/oberv_audio_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_13.audio_15_4"
+        }
+      ],
+      "name": "display_group_13",
+      "_nested_name": "display_group_13",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_vocal\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "info_audio",
+      "value": "We would need a audio recorder here",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.type_canal_info == \"par_vocal\"",
+      "_nested_name": "info_audio",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_vocal\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_info == \"par_photo\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_image_label",
+          "value": "Enregistrez par image l'observation faite.",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_16.info_image_label"
+        },
+        {
+          "type": "audio",
+          "name": "audio_15_5",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/semis/oberv_phot_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_16.audio_15_5"
+        }
+      ],
+      "name": "display_group_16",
+      "_nested_name": "display_group_16",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_photo\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "info_image",
+      "value": "We would need a camera here",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.type_canal_info == \"par_photo\"",
+      "_nested_name": "info_image",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_photo\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "last_secondary_crop_loop_idx",
+      "value": "@calc((Number(@fields.secondary_crop_loop_idx) + 1) >= Number(@fields.secondary_crops_selected_count))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "last_secondary_crop_loop_idx",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((Number(@fields.secondary_crop_loop_idx) + 1) >= Number(@fields.secondary_crops_selected_count))",
+            "matchedExpression": "@fields.secondary_crop_loop_idx",
+            "type": "fields",
+            "fieldName": "secondary_crop_loop_idx"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.secondary_crop_loop_idx) + 1) >= Number(@fields.secondary_crops_selected_count))",
+            "matchedExpression": "@fields.secondary_crops_selected_count",
+            "type": "fields",
+            "fieldName": "secondary_crops_selected_count"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.secondary_crop_loop_idx) + 1) >= Number(@fields.secondary_crops_selected_count))",
+            "matchedExpression": "@calc((Number(@fields.secondary_crop_loop_idx) + 1) >= Number(@fields.secondary_crops_selected_count))",
+            "type": "calc",
+            "fieldName": "(Number(@fields.secondary_crop_loop_idx) + 1) >= Number(@fields.secondary_crops_selected_count)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.secondary_crop_loop_idx": [
+          "value"
+        ],
+        "@fields.secondary_crops_selected_count": [
+          "value"
+        ],
+        "@calc((Number(@fields.secondary_crop_loop_idx) + 1) >= Number(@fields.secondary_crops_selected_count))": [
           "value"
         ]
       }
@@ -49,7 +510,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_1_button_back",
+          "name": "page_15_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -64,16 +525,300 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_1_button_back"
+          "_nested_name": "dg_footer.page_15_button_back"
         },
         {
           "type": "button",
-          "name": "page_1_button_continue",
+          "name": "btn_next_crop",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
           "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "@calc('observation_' + @fields.current_secondary_crop)",
+                "@fields.temp_observ"
+              ],
+              "_raw": "click | set_field: @calc('observation_' + @fields.current_secondary_crop) : @fields.temp_observ"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "temp_observ",
+                ""
+              ],
+              "_raw": "click | set_field: temp_observ:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "type_canal_info",
+                ""
+              ],
+              "_raw": "click | set_field: type_canal_info:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "secondary_crop_loop_idx",
+                "@calc(Number(@fields.secondary_crop_loop_idx) + 1)"
+              ],
+              "_raw": "click | set_field: secondary_crop_loop_idx : @calc(Number(@fields.secondary_crop_loop_idx) + 1)"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "current_secondary_crop",
+                "@calc(@fields.secondary_crops_selected.split(',')[Number(@fields.secondary_crop_loop_idx) + 1])"
+              ],
+              "_raw": "click | set_field: current_secondary_crop : @calc(@fields.secondary_crops_selected.split(',')[Number(@fields.secondary_crop_loop_idx) + 1])"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: section_semi_settings_pages, _index: 15, completed: false",
+              "params": {
+                "_list_id": "section_semi_settings_pages",
+                "_index": 15,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: section_semi_settings_pages, _index: 16, completed: false",
+              "params": {
+                "_list_id": "section_semi_settings_pages",
+                "_index": 16,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: section_semi_settings_pages, _index: 17, completed: false",
+              "params": {
+                "_list_id": "section_semi_settings_pages",
+                "_index": 17,
+                "completed": false
+              }
+            }
+          ],
+          "condition": "!@local.last_secondary_crop_loop_idx",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.btn_next_crop",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "action_list": {
+              "0": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "@calc('observation_' + @fields.current_secondary_crop)",
+                      "matchedExpression": "@fields.current_secondary_crop",
+                      "type": "fields",
+                      "fieldName": "current_secondary_crop"
+                    },
+                    {
+                      "fullExpression": "@calc('observation_' + @fields.current_secondary_crop)",
+                      "matchedExpression": "@calc('observation_' + @fields.current_secondary_crop)",
+                      "type": "calc",
+                      "fieldName": "'observation_' + @fields.current_secondary_crop"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.temp_observ",
+                      "matchedExpression": "@fields.temp_observ",
+                      "type": "fields",
+                      "fieldName": "temp_observ"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: @calc('observation_' + @fields.current_secondary_crop) : @fields.temp_observ",
+                    "matchedExpression": "@fields.current_secondary_crop",
+                    "type": "fields",
+                    "fieldName": "current_secondary_crop"
+                  },
+                  {
+                    "fullExpression": "click | set_field: @calc('observation_' + @fields.current_secondary_crop) : @fields.temp_observ",
+                    "matchedExpression": "@fields.temp_observ",
+                    "type": "fields",
+                    "fieldName": "temp_observ"
+                  }
+                ]
+              },
+              "3": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@calc(Number(@fields.secondary_crop_loop_idx) + 1)",
+                      "matchedExpression": "@fields.secondary_crop_loop_idx",
+                      "type": "fields",
+                      "fieldName": "secondary_crop_loop_idx"
+                    },
+                    {
+                      "fullExpression": "@calc(Number(@fields.secondary_crop_loop_idx) + 1)",
+                      "matchedExpression": "@calc(Number(@fields.secondary_crop_loop_idx) + 1)",
+                      "type": "calc",
+                      "fieldName": "Number(@fields.secondary_crop_loop_idx) + 1"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: secondary_crop_loop_idx : @calc(Number(@fields.secondary_crop_loop_idx) + 1)",
+                    "matchedExpression": "@fields.secondary_crop_loop_idx",
+                    "type": "fields",
+                    "fieldName": "secondary_crop_loop_idx"
+                  },
+                  {
+                    "fullExpression": "click | set_field: secondary_crop_loop_idx : @calc(Number(@fields.secondary_crop_loop_idx) + 1)",
+                    "matchedExpression": "@calc(Number(@fields.secondary_crop_loop_idx) + 1)",
+                    "type": "calc",
+                    "fieldName": "Number(@fields.secondary_crop_loop_idx) + 1"
+                  }
+                ]
+              },
+              "4": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@calc(@fields.secondary_crops_selected.split(',')[Number(@fields.secondary_crop_loop_idx) + 1])",
+                      "matchedExpression": "@fields.secondary_crops_selected.split",
+                      "type": "fields",
+                      "fieldName": "secondary_crops_selected"
+                    },
+                    {
+                      "fullExpression": "@calc(@fields.secondary_crops_selected.split(',')[Number(@fields.secondary_crop_loop_idx) + 1])",
+                      "matchedExpression": "@fields.secondary_crop_loop_idx",
+                      "type": "fields",
+                      "fieldName": "secondary_crop_loop_idx"
+                    },
+                    {
+                      "fullExpression": "@calc(@fields.secondary_crops_selected.split(',')[Number(@fields.secondary_crop_loop_idx) + 1])",
+                      "matchedExpression": "@calc(@fields.secondary_crops_selected.split(',')[Number(@fields.secondary_crop_loop_idx) + 1])",
+                      "type": "calc",
+                      "fieldName": "@fields.secondary_crops_selected.split(',')[Number(@fields.secondary_crop_loop_idx) + 1]"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: current_secondary_crop : @calc(@fields.secondary_crops_selected.split(',')[Number(@fields.secondary_crop_loop_idx) + 1])",
+                    "matchedExpression": "@fields.secondary_crops_selected.split",
+                    "type": "fields",
+                    "fieldName": "secondary_crops_selected"
+                  },
+                  {
+                    "fullExpression": "click | set_field: current_secondary_crop : @calc(@fields.secondary_crops_selected.split(',')[Number(@fields.secondary_crop_loop_idx) + 1])",
+                    "matchedExpression": "@fields.secondary_crop_loop_idx",
+                    "type": "fields",
+                    "fieldName": "secondary_crop_loop_idx"
+                  },
+                  {
+                    "fullExpression": "click | set_field: current_secondary_crop : @calc(@fields.secondary_crops_selected.split(',')[Number(@fields.secondary_crop_loop_idx) + 1])",
+                    "matchedExpression": "@calc(@fields.secondary_crops_selected.split(',')[Number(@fields.secondary_crop_loop_idx) + 1])",
+                    "type": "calc",
+                    "fieldName": "@fields.secondary_crops_selected.split(',')[Number(@fields.secondary_crop_loop_idx) + 1]"
+                  }
+                ]
+              }
+            },
+            "condition": [
+              {
+                "fullExpression": "!@local.last_secondary_crop_loop_idx",
+                "matchedExpression": "!@local.last_secondary_crop_loop_idx",
+                "type": "local",
+                "fieldName": "last_secondary_crop_loop_idx"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "@fields.current_secondary_crop": [
+              "action_list.0.args.0",
+              "action_list.0._raw"
+            ],
+            "@calc('observation_' + @fields.current_secondary_crop)": [
+              "action_list.0.args.0"
+            ],
+            "@fields.temp_observ": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "@fields.secondary_crop_loop_idx": [
+              "action_list.3.args.1",
+              "action_list.3._raw",
+              "action_list.4.args.1",
+              "action_list.4._raw"
+            ],
+            "@calc(Number(@fields.secondary_crop_loop_idx) + 1)": [
+              "action_list.3.args.1",
+              "action_list.3._raw"
+            ],
+            "@fields.secondary_crops_selected.split": [
+              "action_list.4.args.1",
+              "action_list.4._raw"
+            ],
+            "@calc(@fields.secondary_crops_selected.split(',')[Number(@fields.secondary_crop_loop_idx) + 1])": [
+              "action_list.4.args.1",
+              "action_list.4._raw"
+            ],
+            "!@local.last_secondary_crop_loop_idx": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "name": "page_15_button_continue",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "@calc('observation_' + @fields.current_secondary_crop)",
+                "@fields.temp_observ"
+              ],
+              "_raw": "click | set_field: @calc('observation_' + @fields.current_secondary_crop) : @fields.temp_observ"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "temp_observ",
+                ""
+              ],
+              "_raw": "click | set_field: temp_observ:"
+            },
             {
               "trigger": "click",
               "action_id": "emit",
@@ -83,10 +828,11 @@
               "_raw": "click | emit: completed"
             }
           ],
+          "condition": "@local.last_secondary_crop_loop_idx",
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_1_button_continue",
+          "_nested_name": "dg_footer.page_15_button_continue",
           "_dynamicFields": {
             "value": [
               {
@@ -95,11 +841,75 @@
                 "type": "global",
                 "fieldName": "btn_continue"
               }
+            ],
+            "action_list": {
+              "0": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "@calc('observation_' + @fields.current_secondary_crop)",
+                      "matchedExpression": "@fields.current_secondary_crop",
+                      "type": "fields",
+                      "fieldName": "current_secondary_crop"
+                    },
+                    {
+                      "fullExpression": "@calc('observation_' + @fields.current_secondary_crop)",
+                      "matchedExpression": "@calc('observation_' + @fields.current_secondary_crop)",
+                      "type": "calc",
+                      "fieldName": "'observation_' + @fields.current_secondary_crop"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.temp_observ",
+                      "matchedExpression": "@fields.temp_observ",
+                      "type": "fields",
+                      "fieldName": "temp_observ"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: @calc('observation_' + @fields.current_secondary_crop) : @fields.temp_observ",
+                    "matchedExpression": "@fields.current_secondary_crop",
+                    "type": "fields",
+                    "fieldName": "current_secondary_crop"
+                  },
+                  {
+                    "fullExpression": "click | set_field: @calc('observation_' + @fields.current_secondary_crop) : @fields.temp_observ",
+                    "matchedExpression": "@fields.temp_observ",
+                    "type": "fields",
+                    "fieldName": "temp_observ"
+                  }
+                ]
+              }
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.last_secondary_crop_loop_idx",
+                "matchedExpression": "@local.last_secondary_crop_loop_idx",
+                "type": "local",
+                "fieldName": "last_secondary_crop_loop_idx"
+              }
             ]
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
+            ],
+            "@fields.current_secondary_crop": [
+              "action_list.0.args.0",
+              "action_list.0._raw"
+            ],
+            "@calc('observation_' + @fields.current_secondary_crop)": [
+              "action_list.0.args.0"
+            ],
+            "@fields.temp_observ": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "@local.last_secondary_crop_loop_idx": [
+              "condition"
             ]
           }
         }
