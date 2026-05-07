@@ -1,0 +1,175 @@
+{
+  "flow_type": "template",
+  "flow_name": "superficie_champs_page12",
+  "status": "released",
+  "rows": [
+    {
+      "type": "subtitle ",
+      "value": "**Quantité de fertilisant dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Quantité de fumure organique (charretée) dans la parcelle N⁰@fields.num_parcelle"
+    },
+    {
+      "type": "audio",
+      "name": "audio_12_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/qte_fo_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/charrette.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\"> Mettez 0 si aucune fumure organique </p>"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_fumure_organique",
+      "value": "@fields.quantite_fumure_organique",
+      "action_list": "changed | set_field: quantite_fumure_organique : this.value;",
+      "parameter_list": "number_input: true\nplaceholder: Entrez le nombre de charetée;",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@fields.quantite_fumure_organique"
+    },
+    {
+      "name": "valid_quantite_fumure_organique",
+      "value": "@calc((/^\\d+$/.test(@local.quantite_fumure_organique) && @local.quantite_fumure_organique>= 0 ) || @local.quantite_fumure_organique == '' || !@local.quantite_fumure_organique)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "condition": "!@local.valid_quantite_fumure_organique",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.quantite_fumure_organique > 0"
+    },
+    {
+      "type": "text",
+      "value": "Sélectionnez le(s) type(s) de fumure organique appliqué à la parcelle N⁰@fields.num_parcelle"
+    },
+    {
+      "type": "audio",
+      "name": "audio_12_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/type_fo_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.type_fumure",
+      "condition": "@fields.quantite_fumure_organique > 0"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.quantite_fumure_organique > 0"
+    },
+    {
+      "type": "simple_checkbox",
+      "name": "@item.name",
+      "value": "@fields.@item.name",
+      "action_list": "changed | set_field: @item.name: !@fields.@item.name;",
+      "parameter_list": "align: left; label_text: @item.text;\n",
+      "exclude_from_translation": true,
+      "style_list": "margin-bottom: 10px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "name": "valid_type_fumure",
+      "value": "@calc(!!@fields.tas_ordures|| !!@fields.fumier_parcs || !!@fields.fumier_fosses)"
+    },
+    {
+      "type": "text",
+      "value": "@global.warning_message ",
+      "condition": "!@local.valid_type_fumure && @fields.quantite_fumure_organique > 0",
+      "style_list": "color: red; font-size: 16px;"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.autre_fumier == true"
+    },
+    {
+      "type": "text",
+      "value": "@global.autre_message"
+    },
+    {
+      "type": "audio",
+      "name": "audio_12_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/autre_fo_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: black;\"> @global.autre_fumure</p>",
+      "condition": "@fields.autre_fumier == true"
+    },
+    {
+      "type": "text_box",
+      "action_list": "changed | set_field: autre_fumier: this.value;",
+      "parameter_list": "max_length: 30;\nplaceholder: Ecrivez le nom ",
+      "condition": "@fields.autre_fumier == true",
+      "exclude_from_translation_1": true
+    },
+    {
+      "name": "type_fumure_selected",
+      "value": "@calc([@fields.tas_ordures ? 'tas_ordures' : null,@fields.fumier_parcs ? 'fumier_parcs' : null,@fields.fumier_fosses ? 'fumier_fosses' : null].filter(v => v !== null).join(','))",
+      "action_list": "@calc(!!@fields.tas_ordures|| !!@fields.fumier_parcs || !!@fields.fumier_fosses)"
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "exclude_from_translation": "padding: 12px 24px;"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@fields.quantite_fumure_organique",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "round_button",
+      "name": "page12_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page12_button_continue",
+      "value": "Continuer",
+      "action_list": "click | set_field: @calc('type_fumure_selected_parcelle_N' + @fields.num_parcelle) : @local.type_fumure_selected;\nclick | set_field: @calc('quantite_fumure_organique_parcelle_N⁰' + @fields.num_parcelle) : @fields.quantite_fumure_organique;\nclick | set_field: @calc('autre_fumier_parcelle_N' + @fields.num_parcelle) : @fields.autre_fumier;\nclick | emit: completed;",
+      "parameter_list": "disabled: !@local.completed_enabled"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

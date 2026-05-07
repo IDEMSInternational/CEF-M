@@ -16,8 +16,8 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "Nombre d'appareils de traitement herbicide ou insecticide",
+          "type": "html",
+          "value": "Nombre d'appareils de traitement herbicide ou insecticide<p style=\"color: red;\">*</p>",
           "_translations": {
             "value": {}
           },
@@ -25,26 +25,43 @@
             "style": "contextual"
           },
           "exclude_from_translation": true,
-          "name": "text_1",
-          "_nested_name": "display_group_3.text_1"
+          "style_list": [
+            "font-size:20px"
+          ],
+          "name": "html_1",
+          "_nested_name": "display_group_3.html_1"
         },
         {
-          "type": "image",
-          "value": "images/traitement.jpg",
-          "_translations": {
-            "value": {}
+          "type": "audio",
+          "name": "pompe",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/pompe_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
+          "exclude_from_translation": true,
           "style_list": [
-            "width: 150px",
-            "height: 150px",
-            "object-fit: cover"
+            "align-self: flex-end"
           ],
-          "name": "image_2",
-          "_nested_name": "display_group_3.image_2"
+          "_nested_name": "display_group_3.pompe"
         }
       ],
       "name": "display_group_3",
       "_nested_name": "display_group_3"
+    },
+    {
+      "type": "image",
+      "value": "images/traitement.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 120px",
+        "height: 120px",
+        "object-fit: cover"
+      ],
+      "name": "image_5",
+      "_nested_name": "image_5"
     },
     {
       "name": "valid_nombre_pompe_traitement",
@@ -119,7 +136,7 @@
           },
           "condition": "!!@field.nombre_pompe_traitement",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_5.nombre_pompe_traitement",
+          "_nested_name": "display_group_6.nombre_pompe_traitement",
           "_dynamicFields": {
             "value": [
               {
@@ -156,7 +173,7 @@
           },
           "condition": "!@field.nombre_pompe_traitement",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_5.nombre_pompe_traitement",
+          "_nested_name": "display_group_6.nombre_pompe_traitement",
           "_dynamicFields": {
             "condition": [
               {
@@ -172,24 +189,46 @@
               "condition"
             ]
           }
-        },
-        {
-          "type": "audio",
-          "name": "pompe",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Enrolement/pompe_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "align-self: flex-end"
-          ],
-          "_nested_name": "display_group_5.pompe"
         }
       ],
-      "name": "display_group_5",
-      "_nested_name": "display_group_5"
+      "name": "display_group_6",
+      "_nested_name": "display_group_6"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.nombre_pompe_traitement",
+      "name": "html_8",
+      "_nested_name": "html_8",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.nombre_pompe_traitement",
+            "matchedExpression": "!@local.nombre_pompe_traitement",
+            "type": "local",
+            "fieldName": "nombre_pompe_traitement"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@local.nombre_pompe_traitement": [
+          "condition"
+        ]
+      }
     },
     {
       "type": "text",
@@ -203,8 +242,8 @@
         "color: #FF0000",
         "font-size: 14px"
       ],
-      "name": "text_7",
-      "_nested_name": "text_7",
+      "name": "text_9",
+      "_nested_name": "text_9",
       "_dynamicFields": {
         "condition": [
           {
@@ -225,8 +264,8 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "Nombre de pulvérisateurs ou herses",
+          "type": "html",
+          "value": "Nombre de pulvérisateurs ou herses <span style=\"color: red;\">*</span>",
           "_translations": {
             "value": {}
           },
@@ -234,26 +273,43 @@
             "style": "contextual"
           },
           "exclude_from_translation": true,
-          "name": "text_1",
-          "_nested_name": "display_group_8.text_1"
+          "style_list": [
+            "font-size:20px"
+          ],
+          "name": "html_1",
+          "_nested_name": "display_group_10.html_1"
         },
         {
-          "type": "image",
-          "value": "images/herse.jpg",
-          "_translations": {
-            "value": {}
+          "type": "audio",
+          "name": "herse",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/herse_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
+          "exclude_from_translation": true,
           "style_list": [
-            "width: 150px",
-            "height: 150px",
-            "object-fit: cover"
+            "align-self: flex-end"
           ],
-          "name": "image_2",
-          "_nested_name": "display_group_8.image_2"
+          "_nested_name": "display_group_10.herse"
         }
       ],
-      "name": "display_group_8",
-      "_nested_name": "display_group_8"
+      "name": "display_group_10",
+      "_nested_name": "display_group_10"
+    },
+    {
+      "type": "image",
+      "value": "images/herse.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 120px",
+        "height: 120px",
+        "object-fit: cover"
+      ],
+      "name": "image_12",
+      "_nested_name": "image_12"
     },
     {
       "name": "valid_nombre_pulverisateurs",
@@ -328,7 +384,7 @@
           },
           "condition": "!!@field.nombre_pulverisateurs",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_10.nombre_pulverisateurs",
+          "_nested_name": "display_group_13.nombre_pulverisateurs",
           "_dynamicFields": {
             "value": [
               {
@@ -365,7 +421,7 @@
           },
           "condition": "!@field.nombre_pulverisateurs",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_10.nombre_pulverisateurs",
+          "_nested_name": "display_group_13.nombre_pulverisateurs",
           "_dynamicFields": {
             "condition": [
               {
@@ -381,24 +437,46 @@
               "condition"
             ]
           }
-        },
-        {
-          "type": "audio",
-          "name": "herse",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Enrolement/herse_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "align-self: flex-end"
-          ],
-          "_nested_name": "display_group_10.herse"
         }
       ],
-      "name": "display_group_10",
-      "_nested_name": "display_group_10"
+      "name": "display_group_13",
+      "_nested_name": "display_group_13"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.nombre_pulverisateurs",
+      "name": "html_15",
+      "_nested_name": "html_15",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.nombre_pulverisateurs",
+            "matchedExpression": "!@local.nombre_pulverisateurs",
+            "type": "local",
+            "fieldName": "nombre_pulverisateurs"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@local.nombre_pulverisateurs": [
+          "condition"
+        ]
+      }
     },
     {
       "type": "text",
@@ -412,8 +490,8 @@
         "color: #FF0000",
         "font-size: 14px"
       ],
-      "name": "text_12",
-      "_nested_name": "text_12",
+      "name": "text_16",
+      "_nested_name": "text_16",
       "_dynamicFields": {
         "condition": [
           {
@@ -434,8 +512,8 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "Nombre de corps butteurs",
+          "type": "html",
+          "value": "Nombre de corps butteurs <span style=\"color: red;\">*</span>",
           "_translations": {
             "value": {}
           },
@@ -443,26 +521,43 @@
             "style": "contextual"
           },
           "exclude_from_translation": true,
-          "name": "text_1",
-          "_nested_name": "display_group_13.text_1"
+          "style_list": [
+            "font-size:20px"
+          ],
+          "name": "html_1",
+          "_nested_name": "display_group_17.html_1"
         },
         {
-          "type": "image",
-          "value": "images/butter.jpg",
-          "_translations": {
-            "value": {}
+          "type": "audio",
+          "name": "corp_but",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/corp_but_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
+          "exclude_from_translation": true,
           "style_list": [
-            "width: 150px",
-            "height: 150px",
-            "object-fit: cover"
+            "align-self: flex-end"
           ],
-          "name": "image_2",
-          "_nested_name": "display_group_13.image_2"
+          "_nested_name": "display_group_17.corp_but"
         }
       ],
-      "name": "display_group_13",
-      "_nested_name": "display_group_13"
+      "name": "display_group_17",
+      "_nested_name": "display_group_17"
+    },
+    {
+      "type": "image",
+      "value": "images/butter.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 120px",
+        "height: 120px",
+        "object-fit: cover"
+      ],
+      "name": "image_19",
+      "_nested_name": "image_19"
     },
     {
       "name": "valid_nombre_corps_buteur",
@@ -537,7 +632,7 @@
           },
           "condition": "!!@field.nombre_corps_buteur",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_15.nombre_corps_buteur",
+          "_nested_name": "display_group_20.nombre_corps_buteur",
           "_dynamicFields": {
             "value": [
               {
@@ -574,7 +669,7 @@
           },
           "condition": "!@field.nombre_corps_buteur",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_15.nombre_corps_buteur",
+          "_nested_name": "display_group_20.nombre_corps_buteur",
           "_dynamicFields": {
             "condition": [
               {
@@ -590,24 +685,46 @@
               "condition"
             ]
           }
-        },
-        {
-          "type": "audio",
-          "name": "corp_but",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Enrolement/corp_but_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "align-self: flex-end"
-          ],
-          "_nested_name": "display_group_15.corp_but"
         }
       ],
-      "name": "display_group_15",
-      "_nested_name": "display_group_15"
+      "name": "display_group_20",
+      "_nested_name": "display_group_20"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.nombre_corps_buteur",
+      "name": "html_22",
+      "_nested_name": "html_22",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.nombre_corps_buteur",
+            "matchedExpression": "!@local.nombre_corps_buteur",
+            "type": "local",
+            "fieldName": "nombre_corps_buteur"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@local.nombre_corps_buteur": [
+          "condition"
+        ]
+      }
     },
     {
       "type": "text",
@@ -621,8 +738,8 @@
         "color: #FF0000",
         "font-size: 14px"
       ],
-      "name": "text_17",
-      "_nested_name": "text_17",
+      "name": "text_23",
+      "_nested_name": "text_23",
       "_dynamicFields": {
         "condition": [
           {
@@ -643,8 +760,8 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "Autre(s) Matériel(s)",
+          "type": "html",
+          "value": "Autre(s) Matériel(s) <span style=\"color: red;\">*</span>",
           "_translations": {
             "value": {}
           },
@@ -652,38 +769,55 @@
             "style": "contextual"
           },
           "exclude_from_translation": true,
-          "name": "text_1",
-          "_nested_name": "display_group_18.text_1"
+          "style_list": [
+            "font-size:20px"
+          ],
+          "name": "html_1",
+          "_nested_name": "display_group_24.html_1"
         },
         {
-          "type": "image",
-          "value": "images/autre_mat.jpg",
-          "_translations": {
-            "value": {}
+          "type": "audio",
+          "name": "autre_mat",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/autre_mat_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
+          "exclude_from_translation": true,
           "style_list": [
-            "width: 150px",
-            "height: 150px",
-            "object-fit: cover"
+            "align-self: flex-end"
           ],
-          "name": "image_2",
-          "_nested_name": "display_group_18.image_2"
+          "_nested_name": "display_group_24.autre_mat"
         }
       ],
-      "name": "display_group_18",
-      "_nested_name": "display_group_18"
+      "name": "display_group_24",
+      "_nested_name": "display_group_24"
+    },
+    {
+      "type": "image",
+      "value": "images/autre_mat.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 120px",
+        "height: 120px",
+        "object-fit: cover"
+      ],
+      "name": "image_26",
+      "_nested_name": "image_26"
     },
     {
       "type": "text",
-      "value": "Veuillez entrez le nom du matériel ou ecrire Aucun",
+      "value": "Veuillez entrez le nom du matériel ou ecrire \"Aucun\"",
       "_translations": {
         "value": {}
       },
       "style_list": [
         "font-size:14px"
       ],
-      "name": "text_20",
-      "_nested_name": "text_20"
+      "name": "text_27",
+      "_nested_name": "text_27"
     },
     {
       "type": "display_group",
@@ -706,25 +840,47 @@
             "placeholder": "Entrez le nom du matériel"
           },
           "exclude_from_translation": true,
-          "_nested_name": "display_group_21.autre_materiel"
-        },
-        {
-          "type": "audio",
-          "name": "autre_mat",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Enrolement/autre_mat_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "align-self: flex-end"
-          ],
-          "_nested_name": "display_group_21.autre_mat"
+          "_nested_name": "display_group_28.autre_materiel"
         }
       ],
-      "name": "display_group_21",
-      "_nested_name": "display_group_21"
+      "name": "display_group_28",
+      "_nested_name": "display_group_28"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.autre_materiel",
+      "name": "html_30",
+      "_nested_name": "html_30",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.autre_materiel",
+            "matchedExpression": "!@local.autre_materiel",
+            "type": "local",
+            "fieldName": "autre_materiel"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@local.autre_materiel": [
+          "condition"
+        ]
+      }
     },
     {
       "type": "text",
@@ -735,9 +891,10 @@
       "parameter_list": {
         "style": "contextual"
       },
+      "condition": "@fields.autre_materiel",
       "exclude_from_translation": true,
-      "name": "text_23",
-      "_nested_name": "text_23",
+      "name": "text_31",
+      "_nested_name": "text_31",
       "_dynamicFields": {
         "value": [
           {
@@ -746,11 +903,48 @@
             "type": "field",
             "fieldName": "autre_materiel"
           }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.autre_materiel",
+            "matchedExpression": "@fields.autre_materiel",
+            "type": "fields",
+            "fieldName": "autre_materiel"
+          }
         ]
       },
       "_dynamicDependencies": {
         "@field.autre_materiel": [
           "value"
+        ],
+        "@fields.autre_materiel": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_autre_materiel",
+      "value": 0,
+      "parameter_list": {
+        "number_input": "true"
+      },
+      "condition": "@fields.autre_materiel == 'Aucun'",
+      "exclude_from_translation": true,
+      "_nested_name": "nombre_autre_materiel",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.autre_materiel == 'Aucun'",
+            "matchedExpression": "@fields.autre_materiel",
+            "type": "fields",
+            "fieldName": "autre_materiel"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.autre_materiel": [
+          "condition"
         ]
       }
     },
@@ -762,9 +956,10 @@
         "value": {}
       },
       "parameter_list": {
-        "number_input": "true\nplaceholder"
+        "number_input": "true",
+        "placeholder": "Entrez le nombre"
       },
-      "condition": "!!@field.nombre_autre_materiel",
+      "condition": "@fields.autre_materiel != 'Aucun'",
       "exclude_from_translation": true,
       "_nested_name": "nombre_autre_materiel",
       "_dynamicFields": {
@@ -778,10 +973,10 @@
         ],
         "condition": [
           {
-            "fullExpression": "!!@field.nombre_autre_materiel",
-            "matchedExpression": "!@field.nombre_autre_materiel",
-            "type": "field",
-            "fieldName": "nombre_autre_materiel"
+            "fullExpression": "@fields.autre_materiel != 'Aucun'",
+            "matchedExpression": "@fields.autre_materiel",
+            "type": "fields",
+            "fieldName": "autre_materiel"
           }
         ]
       },
@@ -789,33 +984,7 @@
         "@field.nombre_autre_materiel": [
           "value"
         ],
-        "!@field.nombre_autre_materiel": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_autre_materiel",
-      "parameter_list": {
-        "number_input": "true",
-        "placeholder": "Entrez le nombre"
-      },
-      "condition": "!@field.nombre_autre_materiel",
-      "exclude_from_translation": true,
-      "_nested_name": "nombre_autre_materiel",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "!@field.nombre_autre_materiel",
-            "matchedExpression": "!@field.nombre_autre_materiel",
-            "type": "field",
-            "fieldName": "nombre_autre_materiel"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "!@field.nombre_autre_materiel": [
+        "@fields.autre_materiel": [
           "condition"
         ]
       }
@@ -898,8 +1067,8 @@
         "color: #FF0000",
         "font-size: 14px"
       ],
-      "name": "text_27",
-      "_nested_name": "text_27",
+      "name": "text_35",
+      "_nested_name": "text_35",
       "_dynamicFields": {
         "condition": [
           {

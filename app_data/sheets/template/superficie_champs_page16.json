@@ -1,0 +1,491 @@
+{
+  "flow_type": "template",
+  "flow_name": "superficie_champs_page16",
+  "status": "released",
+  "rows": [
+    {
+      "type": "subtitle",
+      "value": "**Superficie réelle de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+      "_translations": {
+        "value": {}
+      },
+      "name": "subtitle_2",
+      "_nested_name": "subtitle_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "**Superficie réelle de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+            "matchedExpression": "@fields.num_parcelle",
+            "type": "fields",
+            "fieldName": "num_parcelle"
+          },
+          {
+            "fullExpression": "**Superficie réelle de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+            "matchedExpression": "@fields.nom_champ",
+            "type": "fields",
+            "fieldName": "nom_champ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.num_parcelle": [
+          "value"
+        ],
+        "@fields.nom_champ": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "**Superficie de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_3",
+      "_nested_name": "text_3",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "**Superficie de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+            "matchedExpression": "@fields.cult_princip",
+            "type": "fields",
+            "fieldName": "cult_princip"
+          },
+          {
+            "fullExpression": "**Superficie de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+            "matchedExpression": "@fields.num_parcelle",
+            "type": "fields",
+            "fieldName": "num_parcelle"
+          },
+          {
+            "fullExpression": "**Superficie de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+            "matchedExpression": "@fields.nom_champ",
+            "type": "fields",
+            "fieldName": "nom_champ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.cult_princip": [
+          "value"
+        ],
+        "@fields.num_parcelle": [
+          "value"
+        ],
+        "@fields.nom_champ": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "La superficie estimée (ha) était :",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_4.text_1"
+        },
+        {
+          "type": "text",
+          "name": "superficie_estimee",
+          "value": "@fields.superficie_parcelle",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_4.superficie_estimee",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.superficie_parcelle",
+                "matchedExpression": "@fields.superficie_parcelle",
+                "type": "fields",
+                "fieldName": "superficie_parcelle"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.superficie_parcelle": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_4",
+      "_nested_name": "display_group_4"
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "La superficie mesurée (ha) est :",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_6.text_1"
+        },
+        {
+          "type": "text",
+          "name": "superficie_mesuree",
+          "value": "@fields.superficie_geo",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_6.superficie_mesuree",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.superficie_geo",
+                "matchedExpression": "@fields.superficie_geo",
+                "type": "fields",
+                "fieldName": "superficie_geo"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.superficie_geo": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_6",
+      "_nested_name": "display_group_6"
+    },
+    {
+      "name": "superficie_diff",
+      "value": "@calc(Number(@local.superficie_estimee) - Number(@local.superficie_mesuree))",
+      "_translations": {
+        "value": {}
+      },
+      "exclude_from_translation": true,
+      "type": "set_variable",
+      "_nested_name": "superficie_diff",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@local.superficie_estimee) - Number(@local.superficie_mesuree))",
+            "matchedExpression": "@local.superficie_estimee",
+            "type": "local",
+            "fieldName": "superficie_estimee"
+          },
+          {
+            "fullExpression": "@calc(Number(@local.superficie_estimee) - Number(@local.superficie_mesuree))",
+            "matchedExpression": "@local.superficie_mesuree",
+            "type": "local",
+            "fieldName": "superficie_mesuree"
+          },
+          {
+            "fullExpression": "@calc(Number(@local.superficie_estimee) - Number(@local.superficie_mesuree))",
+            "matchedExpression": "@calc(Number(@local.superficie_estimee) - Number(@local.superficie_mesuree))",
+            "type": "calc",
+            "fieldName": "Number(@local.superficie_estimee) - Number(@local.superficie_mesuree)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.superficie_estimee": [
+          "value"
+        ],
+        "@local.superficie_mesuree": [
+          "value"
+        ],
+        "@calc(Number(@local.superficie_estimee) - Number(@local.superficie_mesuree))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "La différence entre la superficie donnée et la superficie mésurée (ha) est :",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_9.text_1"
+        },
+        {
+          "type": "text_box",
+          "name": "superficie_diff_value",
+          "value": "@local.superficie_diff",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_9.superficie_diff_value",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.superficie_diff",
+                "matchedExpression": "@local.superficie_diff",
+                "type": "local",
+                "fieldName": "superficie_diff"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.superficie_diff": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_9",
+      "_nested_name": "display_group_9"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: green;\"> Bonne estimation de la superficie, Bravo! </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.superficie_diff < 0.1 || @local.superficie_diff > -0.1",
+      "name": "html_11",
+      "_nested_name": "html_11",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.superficie_diff < 0.1 || @local.superficie_diff > -0.1",
+            "matchedExpression": "@local.superficie_diff",
+            "type": "local",
+            "fieldName": "superficie_diff"
+          },
+          {
+            "fullExpression": "@local.superficie_diff < 0.1 || @local.superficie_diff > -0.1",
+            "matchedExpression": "@local.superficie_diff",
+            "type": "local",
+            "fieldName": "superficie_diff"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.superficie_diff": [
+          "condition",
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> Superficie sur-estimée ! </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.superficie_diff > 0.1",
+      "name": "html_12",
+      "_nested_name": "html_12",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.superficie_diff > 0.1",
+            "matchedExpression": "@local.superficie_diff",
+            "type": "local",
+            "fieldName": "superficie_diff"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.superficie_diff": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> Superficie sous-estimée !</p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.superficie_diff < -0.1",
+      "name": "html_13",
+      "_nested_name": "html_13",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.superficie_diff < -0.1",
+            "matchedExpression": "@local.superficie_diff",
+            "type": "local",
+            "fieldName": "superficie_diff"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.superficie_diff": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "!@local.superficie_diff",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": true,
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "!@local.superficie_diff",
+            "matchedExpression": "!@local.superficie_diff",
+            "type": "local",
+            "fieldName": "superficie_diff"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.superficie_diff": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page16_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "display_group_14.page16_button_back"
+        },
+        {
+          "type": "button",
+          "name": "page16_button_continue",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "@calc('superficie_diff_parcelle_N' + @fields.num_parcelle)",
+                "@local.superficie_diff"
+              ],
+              "_raw": "click | set_field: @calc('superficie_diff_parcelle_N' + @fields.num_parcelle) : @local.superficie_diff"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "_nested_name": "display_group_14.page16_button_continue",
+          "_dynamicFields": {
+            "action_list": {
+              "0": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "@calc('superficie_diff_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@fields.num_parcelle",
+                      "type": "fields",
+                      "fieldName": "num_parcelle"
+                    },
+                    {
+                      "fullExpression": "@calc('superficie_diff_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('superficie_diff_parcelle_N' + @fields.num_parcelle)",
+                      "type": "calc",
+                      "fieldName": "'superficie_diff_parcelle_N' + @fields.num_parcelle"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@local.superficie_diff",
+                      "matchedExpression": "@local.superficie_diff",
+                      "type": "local",
+                      "fieldName": "superficie_diff"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: @calc('superficie_diff_parcelle_N' + @fields.num_parcelle) : @local.superficie_diff",
+                    "matchedExpression": "@fields.num_parcelle",
+                    "type": "fields",
+                    "fieldName": "num_parcelle"
+                  },
+                  {
+                    "fullExpression": "click | set_field: @calc('superficie_diff_parcelle_N' + @fields.num_parcelle) : @local.superficie_diff",
+                    "matchedExpression": "@local.superficie_diff",
+                    "type": "local",
+                    "fieldName": "superficie_diff"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@fields.num_parcelle": [
+              "action_list.0.args.0",
+              "action_list.0._raw"
+            ],
+            "@calc('superficie_diff_parcelle_N' + @fields.num_parcelle)": [
+              "action_list.0.args.0"
+            ],
+            "@local.superficie_diff": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_14",
+      "_nested_name": "display_group_14"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/superficie_champs_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1Za6KnU73iDgbTARvf6JCQo0vJb_EkTgiHEyZUJdNgXs"
+  }
+}

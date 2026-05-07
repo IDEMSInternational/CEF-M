@@ -427,19 +427,19 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "@calc('nom_variete_parcelle_N⁰' + @fields.num_parcelle)",
+                "@calc('nom_variete_parcelle_N' + @fields.num_parcelle)",
                 "@fields.nom_variete"
               ],
-              "_raw": "click | set_field: @calc('nom_variete_parcelle_N⁰' + @fields.num_parcelle) : @fields.nom_variete"
+              "_raw": "click | set_field: @calc('nom_variete_parcelle_N' + @fields.num_parcelle) : @fields.nom_variete"
             },
             {
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "@calc('type_variete_parcelle_N⁰' + @fields.num_parcelle)",
+                "@calc('type_variete_parcelle_N' + @fields.num_parcelle)",
                 "@fields.type_variete"
               ],
-              "_raw": "click | set_field: @calc('type_variete_parcelle_N⁰' + @fields.num_parcelle) : @fields.type_variete"
+              "_raw": "click | set_field: @calc('type_variete_parcelle_N' + @fields.num_parcelle) : @fields.type_variete"
             },
             {
               "trigger": "click",
@@ -460,16 +460,16 @@
                 "args": {
                   "0": [
                     {
-                      "fullExpression": "@calc('nom_variete_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('nom_variete_parcelle_N' + @fields.num_parcelle)",
                       "matchedExpression": "@fields.num_parcelle",
                       "type": "fields",
                       "fieldName": "num_parcelle"
                     },
                     {
-                      "fullExpression": "@calc('nom_variete_parcelle_N⁰' + @fields.num_parcelle)",
-                      "matchedExpression": "@calc('nom_variete_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('nom_variete_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('nom_variete_parcelle_N' + @fields.num_parcelle)",
                       "type": "calc",
-                      "fieldName": "'nom_variete_parcelle_N⁰' + @fields.num_parcelle"
+                      "fieldName": "'nom_variete_parcelle_N' + @fields.num_parcelle"
                     }
                   ],
                   "1": [
@@ -483,13 +483,13 @@
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('nom_variete_parcelle_N⁰' + @fields.num_parcelle) : @fields.nom_variete",
+                    "fullExpression": "click | set_field: @calc('nom_variete_parcelle_N' + @fields.num_parcelle) : @fields.nom_variete",
                     "matchedExpression": "@fields.num_parcelle",
                     "type": "fields",
                     "fieldName": "num_parcelle"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('nom_variete_parcelle_N⁰' + @fields.num_parcelle) : @fields.nom_variete",
+                    "fullExpression": "click | set_field: @calc('nom_variete_parcelle_N' + @fields.num_parcelle) : @fields.nom_variete",
                     "matchedExpression": "@fields.nom_variete",
                     "type": "fields",
                     "fieldName": "nom_variete"
@@ -500,16 +500,16 @@
                 "args": {
                   "0": [
                     {
-                      "fullExpression": "@calc('type_variete_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('type_variete_parcelle_N' + @fields.num_parcelle)",
                       "matchedExpression": "@fields.num_parcelle",
                       "type": "fields",
                       "fieldName": "num_parcelle"
                     },
                     {
-                      "fullExpression": "@calc('type_variete_parcelle_N⁰' + @fields.num_parcelle)",
-                      "matchedExpression": "@calc('type_variete_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('type_variete_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('type_variete_parcelle_N' + @fields.num_parcelle)",
                       "type": "calc",
-                      "fieldName": "'type_variete_parcelle_N⁰' + @fields.num_parcelle"
+                      "fieldName": "'type_variete_parcelle_N' + @fields.num_parcelle"
                     }
                   ],
                   "1": [
@@ -523,13 +523,13 @@
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('type_variete_parcelle_N⁰' + @fields.num_parcelle) : @fields.type_variete",
+                    "fullExpression": "click | set_field: @calc('type_variete_parcelle_N' + @fields.num_parcelle) : @fields.type_variete",
                     "matchedExpression": "@fields.num_parcelle",
                     "type": "fields",
                     "fieldName": "num_parcelle"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('type_variete_parcelle_N⁰' + @fields.num_parcelle) : @fields.type_variete",
+                    "fullExpression": "click | set_field: @calc('type_variete_parcelle_N' + @fields.num_parcelle) : @fields.type_variete",
                     "matchedExpression": "@fields.type_variete",
                     "type": "fields",
                     "fieldName": "type_variete"
@@ -555,14 +555,14 @@
               "action_list.1.args.0",
               "action_list.1._raw"
             ],
-            "@calc('nom_variete_parcelle_N⁰' + @fields.num_parcelle)": [
+            "@calc('nom_variete_parcelle_N' + @fields.num_parcelle)": [
               "action_list.0.args.0"
             ],
             "@fields.nom_variete": [
               "action_list.0.args.1",
               "action_list.0._raw"
             ],
-            "@calc('type_variete_parcelle_N⁰' + @fields.num_parcelle)": [
+            "@calc('type_variete_parcelle_N' + @fields.num_parcelle)": [
               "action_list.1.args.0"
             ],
             "@fields.type_variete": [

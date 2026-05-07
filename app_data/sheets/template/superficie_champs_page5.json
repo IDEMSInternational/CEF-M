@@ -258,10 +258,10 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "@calc('fertilite_sol_parcelle_N⁰' + @fields.num_parcelle)",
+                "@calc('fertilite_sol_parcelle_N' + @fields.num_parcelle)",
                 "@fields.fertilite_sol"
               ],
-              "_raw": "click | set_field: @calc('fertilite_sol_parcelle_N⁰' + @fields.num_parcelle) : @fields.fertilite_sol"
+              "_raw": "click | set_field: @calc('fertilite_sol_parcelle_N' + @fields.num_parcelle) : @fields.fertilite_sol"
             },
             {
               "trigger": "click",
@@ -282,16 +282,16 @@
                 "args": {
                   "0": [
                     {
-                      "fullExpression": "@calc('fertilite_sol_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('fertilite_sol_parcelle_N' + @fields.num_parcelle)",
                       "matchedExpression": "@fields.num_parcelle",
                       "type": "fields",
                       "fieldName": "num_parcelle"
                     },
                     {
-                      "fullExpression": "@calc('fertilite_sol_parcelle_N⁰' + @fields.num_parcelle)",
-                      "matchedExpression": "@calc('fertilite_sol_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('fertilite_sol_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('fertilite_sol_parcelle_N' + @fields.num_parcelle)",
                       "type": "calc",
-                      "fieldName": "'fertilite_sol_parcelle_N⁰' + @fields.num_parcelle"
+                      "fieldName": "'fertilite_sol_parcelle_N' + @fields.num_parcelle"
                     }
                   ],
                   "1": [
@@ -305,13 +305,13 @@
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('fertilite_sol_parcelle_N⁰' + @fields.num_parcelle) : @fields.fertilite_sol",
+                    "fullExpression": "click | set_field: @calc('fertilite_sol_parcelle_N' + @fields.num_parcelle) : @fields.fertilite_sol",
                     "matchedExpression": "@fields.num_parcelle",
                     "type": "fields",
                     "fieldName": "num_parcelle"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('fertilite_sol_parcelle_N⁰' + @fields.num_parcelle) : @fields.fertilite_sol",
+                    "fullExpression": "click | set_field: @calc('fertilite_sol_parcelle_N' + @fields.num_parcelle) : @fields.fertilite_sol",
                     "matchedExpression": "@fields.fertilite_sol",
                     "type": "fields",
                     "fieldName": "fertilite_sol"
@@ -335,7 +335,7 @@
               "action_list.0.args.0",
               "action_list.0._raw"
             ],
-            "@calc('fertilite_sol_parcelle_N⁰' + @fields.num_parcelle)": [
+            "@calc('fertilite_sol_parcelle_N' + @fields.num_parcelle)": [
               "action_list.0.args.0"
             ],
             "@fields.fertilite_sol": [

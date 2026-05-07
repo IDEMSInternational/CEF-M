@@ -11,18 +11,26 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "Nombre d'ânes*",
+      "type": "html",
+      "value": "Nombre d'ânes<span style=\"color: red;\">*</span>",
       "parameter_list": "style: contextual;",
-      "exclude_from_translation": true
+      "exclude_from_translation": true,
+      "style_list": "font-size:20px;"
+    },
+    {
+      "type": "audio",
+      "name": "ane",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/ane_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "image",
       "value": "images/ane.jpg",
-      "style_list": "width: 150px; height: 150px; object-fit: cover;"
-    },
-    {
-      "type": "end_display_group"
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
     },
     {
       "type": "begin_display_group"
@@ -48,14 +56,12 @@
       "exclude_from_translation": true
     },
     {
-      "type": "audio",
-      "name": "ane",
-      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/ane_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "align-self: flex-end;"
+      "type": "end_display_group"
     },
     {
-      "type": "end_display_group"
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "!@local.nombre_anes"
     },
     {
       "type": "text",
@@ -68,18 +74,26 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "Nombre de chevaux*",
+      "type": "html",
+      "value": "Nombre de chevaux<span style=\"color: red;\">*</span>",
       "parameter_list": "style: contextual;",
-      "exclude_from_translation": true
+      "exclude_from_translation": true,
+      "style_list": "font-size:20px;"
+    },
+    {
+      "type": "audio",
+      "name": "cheveau",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/chevo_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "image",
       "value": "images/cheval.jpg",
-      "style_list": "width: 150px; height: 150px; object-fit: cover;"
-    },
-    {
-      "type": "end_display_group"
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
     },
     {
       "type": "begin_display_group"
@@ -105,14 +119,12 @@
       "exclude_from_translation": true
     },
     {
-      "type": "audio",
-      "name": "cheveau",
-      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/chevo_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "align-self: flex-end;"
+      "type": "end_display_group"
     },
     {
-      "type": "end_display_group"
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "!@local.nombre_chevaux"
     },
     {
       "type": "text",
@@ -125,18 +137,26 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "Nombre de moutons*",
+      "type": "html",
+      "value": "Nombre de moutons<span style=\"color: red;\">*</span>",
       "parameter_list": "style: contextual;",
-      "exclude_from_translation": true
+      "exclude_from_translation": true,
+      "style_list": "font-size:20px;"
+    },
+    {
+      "type": "audio",
+      "name": "mouton",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/mout_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "image",
       "value": "images/mouton.jpg",
-      "style_list": "width: 150px; height: 150px; object-fit: cover;"
-    },
-    {
-      "type": "end_display_group"
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
     },
     {
       "type": "begin_display_group"
@@ -162,14 +182,12 @@
       "exclude_from_translation": true
     },
     {
-      "type": "audio",
-      "name": "mouton",
-      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/mout_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "align-self: flex-end;"
+      "type": "end_display_group"
     },
     {
-      "type": "end_display_group"
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "!@local.nombre_moutons"
     },
     {
       "type": "text",
@@ -182,18 +200,26 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "Nombre de chèvres*",
+      "type": "html",
+      "value": "Nombre de chèvres<span style=\"color: red;\">*</span>",
       "parameter_list": "style: contextual;",
-      "exclude_from_translation": true
+      "exclude_from_translation": true,
+      "style_list": "font-size:20px;"
+    },
+    {
+      "type": "audio",
+      "name": "chevre",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/chevre_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "image",
       "value": "images/chevre.jpg",
-      "style_list": "width: 150px; height: 150px; object-fit: cover;"
-    },
-    {
-      "type": "end_display_group"
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
     },
     {
       "type": "begin_display_group"
@@ -219,14 +245,12 @@
       "exclude_from_translation": true
     },
     {
-      "type": "audio",
-      "name": "chevre",
-      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/chevre_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "align-self: flex-end;"
+      "type": "end_display_group"
     },
     {
-      "type": "end_display_group"
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "!@local.nombre_chevres"
     },
     {
       "type": "text",
@@ -239,18 +263,26 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "Nombre de porcs*",
+      "type": "html",
+      "value": "Nombre de porcs<span style=\"color: red;\">*</span>",
       "parameter_list": "style: contextual;",
-      "exclude_from_translation": true
+      "exclude_from_translation": true,
+      "style_list": "font-size:20px;"
+    },
+    {
+      "type": "audio",
+      "name": "porc",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/porc_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "image",
       "value": "images/porc.jpg",
-      "style_list": "width: 150px; height: 150px; object-fit: cover;"
-    },
-    {
-      "type": "end_display_group"
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
     },
     {
       "type": "begin_display_group"
@@ -276,14 +308,12 @@
       "exclude_from_translation": true
     },
     {
-      "type": "audio",
-      "name": "porc",
-      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/porc_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "align-self: flex-end;"
+      "type": "end_display_group"
     },
     {
-      "type": "end_display_group"
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "!@local.nombre_porcs"
     },
     {
       "type": "text",

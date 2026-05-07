@@ -1,0 +1,92 @@
+{
+  "flow_type": "global",
+  "flow_name": "besoins_animaux_var",
+  "status": "released",
+  "rows": [
+    {
+      "type": "declare_global_constant",
+      "name": "note_campagne",
+      "value": "L'année de la date doit être supérieure ou égale à 2023 !"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "identification_QR",
+      "value": "Identification de l'Unité de Production Agricole (UPA) par QR code"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "numero_error",
+      "value": "Veuillez saisir un numéro de téléphone correct (8 chiffres, sans 0 au début)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_besoin_animaux",
+      "value": "L’alimentation des animaux constitue un défi majeur durant la saison sèche-chaude (Janvier-Juin) dans le sahel.\nPour faire face à ce défi, il est nécessaire de planifier l’accès aux aliments pour le bétail: \n-**Concentrés**\n-**Fourrages**\n-**Résidus de cultures**\nCe formulaire a pour objectif d'aider à planifier l’alimentation des animaux durant la saison sèche-chaude en fonction de l'objectif d’alimentation de chaque catégorie animale de l’UPA et leur nombre prévu en saison sèche. "
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "espece_animaux_hint",
+      "value": "Il s'agit des espèces animales que votre UPA possède maintenant ou possédéra durant la saison sèche-chaude"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nom_champ_hint",
+      "value": "❌ Invalide s'il vous plaît, saisissez le nom en majuscules uniquement !"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nom_champ",
+      "value": "Ecrivez le nom vernaculaire du champ en langue locale tel que « SODALA FORO » ou « KUNGO DIAN FORO »"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_nom_champ",
+      "value": "Veuillez utiliser uniquement des lettres majuscules."
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "warning_message ",
+      "value": "La réponse est obligatoire, aucune valeur n'a été donnée!"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_message",
+      "value": "Vous avez sélectionné \"Autre\", écrivez le nom en dessous !"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_fumure",
+      "value": "Il s'agit du type de fumure organique qui n'existe pas dans la liste"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "validite_nombre",
+      "value": "S'il vous plaît, saisissez un nombre valide !"
+    },
+    {
+      "type": "declare_field_default",
+      "name": "num_parcelle",
+      "value": 1
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "parcelle_hint",
+      "value": "Un champ est souvent divisé en plusieurs parcelles qui sont affectées annuellement à différentes cultures. Il s'agit du nombre de parcelles délimitées et affectées aux différentes cultures dans:"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "culture_preced_hint",
+      "value": "Sélectionnez le nom de la culture précédente "
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "variete_hint",
+      "value": "Écrivez \"Je ne sais pas\" si vous ne connaissez pas le nom de la variété"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "semence_kg",
+      "value": "Ecrivez la quantité de semence en Kilogrammes(kg)"
+    }
+  ]
+}

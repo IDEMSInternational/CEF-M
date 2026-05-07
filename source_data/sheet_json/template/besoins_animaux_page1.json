@@ -1,0 +1,107 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_animaux_page1",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "@global.identification_QR"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "html",
+      "name": "camera_scane_label",
+      "value": "@global.camera_scane_label",
+      "style_list": "@global.label_style"
+    },
+    {
+      "type": "audio",
+      "name": "audio_1_1",
+      "parameter_list": "variant: compact;\nsrc: audio/semis/qr_code_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "@global.audio_style"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "camera_scane_hint",
+      "value": "@global.camera_scane_hint",
+      "style_list": "@global.hint_style"
+    },
+    {
+      "type": "image",
+      "value": "images/icons/scan.svg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text",
+      "value": "Nom et prénom de chef UPA"
+    },
+    {
+      "type": "text_box",
+      "name": "chef_UPA",
+      "value": "@fields.chef_UPA",
+      "action_list": "changed | set_field: chef_UPA: this.value;",
+      "parameter_list": "max_length: 30;\nplaceholder: Nom et prénom du chef UPA",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "Type d'exploitation de l'UPA "
+    },
+    {
+      "type": "text_box",
+      "name": "type_upa",
+      "value": "@fields.type_upa",
+      "action_list": "changed | set_field: type_upa: this.value;",
+      "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom du type d'exploitation"
+    },
+    {
+      "type": "text",
+      "value": "Numéro de téléphone de l'UPA"
+    },
+    {
+      "type": "text_box",
+      "name": "numero_tel_UPA",
+      "value": "@fields.numero_tel_UPA",
+      "action_list": "changed | set_field: numero_tel_UPA: this.value;",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le numero de telephone "
+    },
+    {
+      "name": "valid_numero_upa",
+      "value": "@calc(/^[1-9][0-9]{7}$/.test(@local.numero_tel_UPA)|| @local.numero_tel_UPA == '')"
+    },
+    {
+      "type": "html",
+      "name": "error_num_phone",
+      "value": "<p style=\"color: red;\"> @global.numero_error </p>",
+      "condition": "!@local.valid_numero_upa",
+      "style_list": "color: red; font-size: 16px;"
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page1_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page1_button_continue",
+      "value": "Continuer",
+      "action_list": "click | emit: completed",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

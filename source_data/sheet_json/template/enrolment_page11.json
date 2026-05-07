@@ -11,18 +11,26 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "Nombre d'appareils de traitement herbicide ou insecticide",
+      "type": "html",
+      "value": "Nombre d'appareils de traitement herbicide ou insecticide<p style=\"color: red;\">*</p> ",
       "parameter_list": "style: contextual;",
-      "exclude_from_translation": true
+      "exclude_from_translation": true,
+      "style_list": "font-size:20px;"
+    },
+    {
+      "type": "audio",
+      "name": "pompe",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/pompe_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "image",
       "value": "images/traitement.jpg",
-      "style_list": "width: 150px; height: 150px; object-fit: cover;"
-    },
-    {
-      "type": "end_display_group"
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
     },
     {
       "type": "begin_display_group"
@@ -48,14 +56,12 @@
       "exclude_from_translation": true
     },
     {
-      "type": "audio",
-      "name": "pompe",
-      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/pompe_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "align-self: flex-end;"
+      "type": "end_display_group"
     },
     {
-      "type": "end_display_group"
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "!@local.nombre_pompe_traitement"
     },
     {
       "type": "text",
@@ -68,18 +74,26 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "Nombre de pulvérisateurs ou herses",
+      "type": "html",
+      "value": "Nombre de pulvérisateurs ou herses <span style=\"color: red;\">*</span> ",
       "parameter_list": "style: contextual;",
-      "exclude_from_translation": true
+      "exclude_from_translation": true,
+      "style_list": "font-size:20px;"
+    },
+    {
+      "type": "audio",
+      "name": "herse",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/herse_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "image",
       "value": "images/herse.jpg",
-      "style_list": "width: 150px; height: 150px; object-fit: cover;"
-    },
-    {
-      "type": "end_display_group"
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
     },
     {
       "type": "begin_display_group"
@@ -105,14 +119,12 @@
       "exclude_from_translation": true
     },
     {
-      "type": "audio",
-      "name": "herse",
-      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/herse_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "align-self: flex-end;"
+      "type": "end_display_group"
     },
     {
-      "type": "end_display_group"
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "!@local.nombre_pulverisateurs"
     },
     {
       "type": "text",
@@ -125,18 +137,26 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "Nombre de corps butteurs",
+      "type": "html",
+      "value": "Nombre de corps butteurs <span style=\"color: red;\">*</span> ",
       "parameter_list": "style: contextual;",
-      "exclude_from_translation": true
+      "exclude_from_translation": true,
+      "style_list": "font-size:20px;"
+    },
+    {
+      "type": "audio",
+      "name": "corp_but",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/corp_but_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "image",
       "value": "images/butter.jpg",
-      "style_list": "width: 150px; height: 150px; object-fit: cover;"
-    },
-    {
-      "type": "end_display_group"
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
     },
     {
       "type": "begin_display_group"
@@ -162,14 +182,12 @@
       "exclude_from_translation": true
     },
     {
-      "type": "audio",
-      "name": "corp_but",
-      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/corp_but_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "align-self: flex-end;"
+      "type": "end_display_group"
     },
     {
-      "type": "end_display_group"
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "!@local.nombre_corps_buteur"
     },
     {
       "type": "text",
@@ -182,22 +200,30 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "Autre(s) Matériel(s)",
+      "type": "html",
+      "value": "Autre(s) Matériel(s) <span style=\"color: red;\">*</span> ",
       "parameter_list": "style: contextual;",
-      "exclude_from_translation": true
+      "exclude_from_translation": true,
+      "style_list": "font-size:20px;"
     },
     {
-      "type": "image",
-      "value": "images/autre_mat.jpg",
-      "style_list": "width: 150px; height: 150px; object-fit: cover;"
+      "type": "audio",
+      "name": "autre_mat",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/autre_mat_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
     },
     {
       "type": "end_display_group"
     },
     {
+      "type": "image",
+      "value": "images/autre_mat.jpg",
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
+    },
+    {
       "type": "text",
-      "value": "Veuillez entrez le nom du matériel ou ecrire Aucun ",
+      "value": "Veuillez entrez le nom du matériel ou ecrire \"Aucun\" ",
       "style_list": "font-size:14px;"
     },
     {
@@ -211,34 +237,34 @@
       "exclude_from_translation": true
     },
     {
-      "type": "audio",
-      "name": "autre_mat",
-      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/autre_mat_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "align-self: flex-end;"
+      "type": "end_display_group"
     },
     {
-      "type": "end_display_group"
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "!@local.autre_materiel"
     },
     {
       "type": "text",
       "value": "Nombre autre materiel (@field.autre_materiel)",
       "parameter_list": "style: contextual;",
+      "condition": "@fields.autre_materiel",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_autre_materiel",
+      "value": 0,
+      "parameter_list": "number_input: true\n",
+      "condition": "@fields.autre_materiel == 'Aucun'",
       "exclude_from_translation": true
     },
     {
       "type": "text_box",
       "name": "nombre_autre_materiel",
       "value": "@field.nombre_autre_materiel",
-      "parameter_list": "number_input: true\nplaceholder: Entrez le nombre;",
-      "condition": "!!@field.nombre_autre_materiel",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_autre_materiel",
       "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
-      "condition": "!@field.nombre_autre_materiel",
+      "condition": "@fields.autre_materiel != 'Aucun'",
       "exclude_from_translation": true
     },
     {

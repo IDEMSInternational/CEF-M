@@ -1,0 +1,103 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_animaux_page4",
+  "status": "released",
+  "rows": [
+    {
+      "type": "subtitle",
+      "value": "**ESPÈCES ANIMALES DE L'UPA**"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\"> @global.espece_animaux_hint </p>"
+    },
+    {
+      "type": "image",
+      "value": "images/saison_paturage.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text",
+      "value": " Séléctionnez les espèces animales de l'UPA"
+    },
+    {
+      "name": "valid_cat_animaux",
+      "value": "@calc(!!@fields.boeufs_labour || !!@fields.embouche_bovine || !!@fields.vache_laitiere\n || !!@fields.autres_bovins || !!@fields.asins || !!@fields.embouche_ovine || !!@fields.reste_ovins | !!@fields.caprins)",
+      "action_list": "\n\n\n\n\n"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.categorie_animaux"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "image",
+      "value": "@item.image",
+      "style_list": "width:70px; height:70px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "simple_checkbox",
+      "name": "@item.name",
+      "value": "@fields.@item.name",
+      "action_list": "changed | set_field: @item.name: !@fields.@item.name;",
+      "parameter_list": "label_text: @item.text;",
+      "exclude_from_translation": true,
+      "style_list": "margin-bottom: 10px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "name": "cat_animaux_selected",
+      "value": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null,@fields.embouche_bovine ? 'embouche_bovine' : null,@fields.vache_laitiere ? 'vache_laitiere' : null,@fields.autres_bovins ? 'autres_bovins' : null,@fields.asins ? 'asins' : null,@fields.embouche_ovine ? 'embouche_ovine' : null,@fields.reste_ovins ? 'reste_ovins' : null,@fields.caprins ? 'caprins' : null].filter(v => v !== null).join(','))"
+    },
+    {
+      "name": "cat_animaux_selected_count",
+      "value": "@calc([@fields.boeufs_labour,@fields.embouche_bovine,@fields.vache_laitiere,@fields.autres_bovins,@fields.asins,@fields.embouche_ovine,@fields.reste_ovins,@fields.caprins].filter(v=>!!v).length)"
+    },
+    {
+      "name": "current_cat_animaux",
+      "value": "@calc(@fields.boeufs_labour ? 'boeufs_labour' :(@fields.embouche_bovine ? 'embouche_bovine' :(@fields.vache_laitiere ? 'vache_laitiere' :(@fields.autres_bovins ? 'autres_bovins' :(@fields.asins ? 'asins' :(@fields.embouche_ovine ? 'embouche_ovine' :(@fields.reste_ovins ? 'reste_ovins' :(@fields.caprins ? 'caprins' :''))))))))"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "@local.valid_espece_animaux"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.valid_cat_animaux "
+    },
+    {
+      "name": "cat_animaux_loop_idx",
+      "value": 0
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page4_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page4_button_continue",
+      "value": "Continuer",
+      "action_list": "click | set_field: cat_animaux_selected : @local.cat_animaux_selected;\nclick | set_field: cat_animaux_selected_count : @local.cat_animaux_selected_count;\nclick | set_field: current_cat_animaux: @local.current_cat_animaux;\nclick | set_field: cat_animaux_loop_idx : @local.cat_animaux_loop_idx;\nclick | emit: completed;",
+      "parameter_list": "disabled: !@local.completed_enabled"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

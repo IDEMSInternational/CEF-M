@@ -16,8 +16,8 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "Nombre d'ânes*",
+          "type": "html",
+          "value": "Nombre d'ânes<span style=\"color: red;\">*</span>",
           "_translations": {
             "value": {}
           },
@@ -25,26 +25,43 @@
             "style": "contextual"
           },
           "exclude_from_translation": true,
-          "name": "text_1",
-          "_nested_name": "display_group_3.text_1"
+          "style_list": [
+            "font-size:20px"
+          ],
+          "name": "html_1",
+          "_nested_name": "display_group_3.html_1"
         },
         {
-          "type": "image",
-          "value": "images/ane.jpg",
-          "_translations": {
-            "value": {}
+          "type": "audio",
+          "name": "ane",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/ane_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
+          "exclude_from_translation": true,
           "style_list": [
-            "width: 150px",
-            "height: 150px",
-            "object-fit: cover"
+            "align-self: flex-end"
           ],
-          "name": "image_2",
-          "_nested_name": "display_group_3.image_2"
+          "_nested_name": "display_group_3.ane"
         }
       ],
       "name": "display_group_3",
       "_nested_name": "display_group_3"
+    },
+    {
+      "type": "image",
+      "value": "images/ane.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 120px",
+        "height: 120px",
+        "object-fit: cover"
+      ],
+      "name": "image_5",
+      "_nested_name": "image_5"
     },
     {
       "name": "valid_nombre_anes",
@@ -119,7 +136,7 @@
           },
           "condition": "!!@field.nombre_anes",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_5.nombre_anes",
+          "_nested_name": "display_group_6.nombre_anes",
           "_dynamicFields": {
             "value": [
               {
@@ -156,7 +173,7 @@
           },
           "condition": "!@field.nombre_anes",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_5.nombre_anes",
+          "_nested_name": "display_group_6.nombre_anes",
           "_dynamicFields": {
             "condition": [
               {
@@ -172,24 +189,46 @@
               "condition"
             ]
           }
-        },
-        {
-          "type": "audio",
-          "name": "ane",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Enrolement/ane_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "align-self: flex-end"
-          ],
-          "_nested_name": "display_group_5.ane"
         }
       ],
-      "name": "display_group_5",
-      "_nested_name": "display_group_5"
+      "name": "display_group_6",
+      "_nested_name": "display_group_6"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.nombre_anes",
+      "name": "html_8",
+      "_nested_name": "html_8",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.nombre_anes",
+            "matchedExpression": "!@local.nombre_anes",
+            "type": "local",
+            "fieldName": "nombre_anes"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@local.nombre_anes": [
+          "condition"
+        ]
+      }
     },
     {
       "type": "text",
@@ -203,8 +242,8 @@
         "color: #FF0000",
         "font-size: 14px"
       ],
-      "name": "text_7",
-      "_nested_name": "text_7",
+      "name": "text_9",
+      "_nested_name": "text_9",
       "_dynamicFields": {
         "condition": [
           {
@@ -225,8 +264,8 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "Nombre de chevaux*",
+          "type": "html",
+          "value": "Nombre de chevaux<span style=\"color: red;\">*</span>",
           "_translations": {
             "value": {}
           },
@@ -234,26 +273,43 @@
             "style": "contextual"
           },
           "exclude_from_translation": true,
-          "name": "text_1",
-          "_nested_name": "display_group_8.text_1"
+          "style_list": [
+            "font-size:20px"
+          ],
+          "name": "html_1",
+          "_nested_name": "display_group_10.html_1"
         },
         {
-          "type": "image",
-          "value": "images/cheval.jpg",
-          "_translations": {
-            "value": {}
+          "type": "audio",
+          "name": "cheveau",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/chevo_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
+          "exclude_from_translation": true,
           "style_list": [
-            "width: 150px",
-            "height: 150px",
-            "object-fit: cover"
+            "align-self: flex-end"
           ],
-          "name": "image_2",
-          "_nested_name": "display_group_8.image_2"
+          "_nested_name": "display_group_10.cheveau"
         }
       ],
-      "name": "display_group_8",
-      "_nested_name": "display_group_8"
+      "name": "display_group_10",
+      "_nested_name": "display_group_10"
+    },
+    {
+      "type": "image",
+      "value": "images/cheval.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 120px",
+        "height: 120px",
+        "object-fit: cover"
+      ],
+      "name": "image_12",
+      "_nested_name": "image_12"
     },
     {
       "name": "valid_nombre_chevaux",
@@ -328,7 +384,7 @@
           },
           "condition": "!!@field.nombre_chevaux",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_10.nombre_chevaux",
+          "_nested_name": "display_group_13.nombre_chevaux",
           "_dynamicFields": {
             "value": [
               {
@@ -365,7 +421,7 @@
           },
           "condition": "!@field.nombre_chevaux",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_10.nombre_chevaux",
+          "_nested_name": "display_group_13.nombre_chevaux",
           "_dynamicFields": {
             "condition": [
               {
@@ -381,24 +437,46 @@
               "condition"
             ]
           }
-        },
-        {
-          "type": "audio",
-          "name": "cheveau",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Enrolement/chevo_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "align-self: flex-end"
-          ],
-          "_nested_name": "display_group_10.cheveau"
         }
       ],
-      "name": "display_group_10",
-      "_nested_name": "display_group_10"
+      "name": "display_group_13",
+      "_nested_name": "display_group_13"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.nombre_chevaux",
+      "name": "html_15",
+      "_nested_name": "html_15",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.nombre_chevaux",
+            "matchedExpression": "!@local.nombre_chevaux",
+            "type": "local",
+            "fieldName": "nombre_chevaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@local.nombre_chevaux": [
+          "condition"
+        ]
+      }
     },
     {
       "type": "text",
@@ -412,8 +490,8 @@
         "color: #FF0000",
         "font-size: 14px"
       ],
-      "name": "text_12",
-      "_nested_name": "text_12",
+      "name": "text_16",
+      "_nested_name": "text_16",
       "_dynamicFields": {
         "condition": [
           {
@@ -434,8 +512,8 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "Nombre de moutons*",
+          "type": "html",
+          "value": "Nombre de moutons<span style=\"color: red;\">*</span>",
           "_translations": {
             "value": {}
           },
@@ -443,26 +521,43 @@
             "style": "contextual"
           },
           "exclude_from_translation": true,
-          "name": "text_1",
-          "_nested_name": "display_group_13.text_1"
+          "style_list": [
+            "font-size:20px"
+          ],
+          "name": "html_1",
+          "_nested_name": "display_group_17.html_1"
         },
         {
-          "type": "image",
-          "value": "images/mouton.jpg",
-          "_translations": {
-            "value": {}
+          "type": "audio",
+          "name": "mouton",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/mout_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
+          "exclude_from_translation": true,
           "style_list": [
-            "width: 150px",
-            "height: 150px",
-            "object-fit: cover"
+            "align-self: flex-end"
           ],
-          "name": "image_2",
-          "_nested_name": "display_group_13.image_2"
+          "_nested_name": "display_group_17.mouton"
         }
       ],
-      "name": "display_group_13",
-      "_nested_name": "display_group_13"
+      "name": "display_group_17",
+      "_nested_name": "display_group_17"
+    },
+    {
+      "type": "image",
+      "value": "images/mouton.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 120px",
+        "height: 120px",
+        "object-fit: cover"
+      ],
+      "name": "image_19",
+      "_nested_name": "image_19"
     },
     {
       "name": "valid_nombre_moutons",
@@ -537,7 +632,7 @@
           },
           "condition": "!!@field.nombre_moutons",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_15.nombre_moutons",
+          "_nested_name": "display_group_20.nombre_moutons",
           "_dynamicFields": {
             "value": [
               {
@@ -574,7 +669,7 @@
           },
           "condition": "!@field.nombre_moutons",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_15.nombre_moutons",
+          "_nested_name": "display_group_20.nombre_moutons",
           "_dynamicFields": {
             "condition": [
               {
@@ -590,24 +685,46 @@
               "condition"
             ]
           }
-        },
-        {
-          "type": "audio",
-          "name": "mouton",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Enrolement/mout_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "align-self: flex-end"
-          ],
-          "_nested_name": "display_group_15.mouton"
         }
       ],
-      "name": "display_group_15",
-      "_nested_name": "display_group_15"
+      "name": "display_group_20",
+      "_nested_name": "display_group_20"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.nombre_moutons",
+      "name": "html_22",
+      "_nested_name": "html_22",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.nombre_moutons",
+            "matchedExpression": "!@local.nombre_moutons",
+            "type": "local",
+            "fieldName": "nombre_moutons"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@local.nombre_moutons": [
+          "condition"
+        ]
+      }
     },
     {
       "type": "text",
@@ -621,8 +738,8 @@
         "color: #FF0000",
         "font-size: 14px"
       ],
-      "name": "text_17",
-      "_nested_name": "text_17",
+      "name": "text_23",
+      "_nested_name": "text_23",
       "_dynamicFields": {
         "condition": [
           {
@@ -643,8 +760,8 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "Nombre de chèvres*",
+          "type": "html",
+          "value": "Nombre de chèvres<span style=\"color: red;\">*</span>",
           "_translations": {
             "value": {}
           },
@@ -652,26 +769,43 @@
             "style": "contextual"
           },
           "exclude_from_translation": true,
-          "name": "text_1",
-          "_nested_name": "display_group_18.text_1"
+          "style_list": [
+            "font-size:20px"
+          ],
+          "name": "html_1",
+          "_nested_name": "display_group_24.html_1"
         },
         {
-          "type": "image",
-          "value": "images/chevre.jpg",
-          "_translations": {
-            "value": {}
+          "type": "audio",
+          "name": "chevre",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/chevre_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
+          "exclude_from_translation": true,
           "style_list": [
-            "width: 150px",
-            "height: 150px",
-            "object-fit: cover"
+            "align-self: flex-end"
           ],
-          "name": "image_2",
-          "_nested_name": "display_group_18.image_2"
+          "_nested_name": "display_group_24.chevre"
         }
       ],
-      "name": "display_group_18",
-      "_nested_name": "display_group_18"
+      "name": "display_group_24",
+      "_nested_name": "display_group_24"
+    },
+    {
+      "type": "image",
+      "value": "images/chevre.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 120px",
+        "height: 120px",
+        "object-fit: cover"
+      ],
+      "name": "image_26",
+      "_nested_name": "image_26"
     },
     {
       "name": "valid_nombre_chevres",
@@ -746,7 +880,7 @@
           },
           "condition": "!!@field.nombre_chevres",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_20.nombre_chevres",
+          "_nested_name": "display_group_27.nombre_chevres",
           "_dynamicFields": {
             "value": [
               {
@@ -783,7 +917,7 @@
           },
           "condition": "!@field.nombre_chevres",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_20.nombre_chevres",
+          "_nested_name": "display_group_27.nombre_chevres",
           "_dynamicFields": {
             "condition": [
               {
@@ -799,24 +933,46 @@
               "condition"
             ]
           }
-        },
-        {
-          "type": "audio",
-          "name": "chevre",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Enrolement/chevre_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "align-self: flex-end"
-          ],
-          "_nested_name": "display_group_20.chevre"
         }
       ],
-      "name": "display_group_20",
-      "_nested_name": "display_group_20"
+      "name": "display_group_27",
+      "_nested_name": "display_group_27"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.nombre_chevres",
+      "name": "html_29",
+      "_nested_name": "html_29",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.nombre_chevres",
+            "matchedExpression": "!@local.nombre_chevres",
+            "type": "local",
+            "fieldName": "nombre_chevres"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@local.nombre_chevres": [
+          "condition"
+        ]
+      }
     },
     {
       "type": "text",
@@ -830,8 +986,8 @@
         "color: #FF0000",
         "font-size: 14px"
       ],
-      "name": "text_22",
-      "_nested_name": "text_22",
+      "name": "text_30",
+      "_nested_name": "text_30",
       "_dynamicFields": {
         "condition": [
           {
@@ -852,8 +1008,8 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "Nombre de porcs*",
+          "type": "html",
+          "value": "Nombre de porcs<span style=\"color: red;\">*</span>",
           "_translations": {
             "value": {}
           },
@@ -861,26 +1017,43 @@
             "style": "contextual"
           },
           "exclude_from_translation": true,
-          "name": "text_1",
-          "_nested_name": "display_group_23.text_1"
+          "style_list": [
+            "font-size:20px"
+          ],
+          "name": "html_1",
+          "_nested_name": "display_group_31.html_1"
         },
         {
-          "type": "image",
-          "value": "images/porc.jpg",
-          "_translations": {
-            "value": {}
+          "type": "audio",
+          "name": "porc",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/porc_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
+          "exclude_from_translation": true,
           "style_list": [
-            "width: 150px",
-            "height: 150px",
-            "object-fit: cover"
+            "align-self: flex-end"
           ],
-          "name": "image_2",
-          "_nested_name": "display_group_23.image_2"
+          "_nested_name": "display_group_31.porc"
         }
       ],
-      "name": "display_group_23",
-      "_nested_name": "display_group_23"
+      "name": "display_group_31",
+      "_nested_name": "display_group_31"
+    },
+    {
+      "type": "image",
+      "value": "images/porc.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 120px",
+        "height: 120px",
+        "object-fit: cover"
+      ],
+      "name": "image_33",
+      "_nested_name": "image_33"
     },
     {
       "name": "valid_nombre_porcs",
@@ -955,7 +1128,7 @@
           },
           "condition": "!!@field.nombre_porcs",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_25.nombre_porcs",
+          "_nested_name": "display_group_34.nombre_porcs",
           "_dynamicFields": {
             "value": [
               {
@@ -992,7 +1165,7 @@
           },
           "condition": "!@field.nombre_porcs",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_25.nombre_porcs",
+          "_nested_name": "display_group_34.nombre_porcs",
           "_dynamicFields": {
             "condition": [
               {
@@ -1008,24 +1181,46 @@
               "condition"
             ]
           }
-        },
-        {
-          "type": "audio",
-          "name": "porc",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Enrolement/porc_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "align-self: flex-end"
-          ],
-          "_nested_name": "display_group_25.porc"
         }
       ],
-      "name": "display_group_25",
-      "_nested_name": "display_group_25"
+      "name": "display_group_34",
+      "_nested_name": "display_group_34"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.nombre_porcs",
+      "name": "html_36",
+      "_nested_name": "html_36",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.nombre_porcs",
+            "matchedExpression": "!@local.nombre_porcs",
+            "type": "local",
+            "fieldName": "nombre_porcs"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@local.nombre_porcs": [
+          "condition"
+        ]
+      }
     },
     {
       "type": "text",
@@ -1039,8 +1234,8 @@
         "color: #FF0000",
         "font-size: 14px"
       ],
-      "name": "text_27",
-      "_nested_name": "text_27",
+      "name": "text_37",
+      "_nested_name": "text_37",
       "_dynamicFields": {
         "condition": [
           {

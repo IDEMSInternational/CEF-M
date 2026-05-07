@@ -1,0 +1,71 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_animaux_page2",
+  "status": "released",
+  "rows": [
+    {
+      "type": "subtitle",
+      "value": "**@global.title_campagne**"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "html",
+      "value": "@global.campagne_selection <p style=\"color: red;\">*</p>",
+      "style_list": "font-size:20px;"
+    },
+    {
+      "type": "audio",
+      "name": "audio_3_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/annee_saison_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "@global.audio_style"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: black;\"> @global.note_campagne </p>"
+    },
+    {
+      "type": "date_time_picker",
+      "name": "annee_campagne",
+      "value": "@fields.annee_campagne",
+      "action_list": "changed | set_local: annee_campagne: this.value;",
+      "parameter_list": "type: date"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "!@local.annee_campagne"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.annee_campagne "
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page2_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page2_button_continue",
+      "value": "Continuer",
+      "action_list": "click | set_field: annee_campagne: @local.annee_campagne;\nclick | emit: completed;",
+      "parameter_list": "disabled: !@local.completed_enabled"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

@@ -59,6 +59,7 @@
       "type": "text_box",
       "name": "autre_cult_princip",
       "value": "@fields.autre_cult_princip",
+      "action_list": "changed | set_field: autre_cult_princip: this.value;",
       "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom de la culture",
       "condition": "@fields.cult_princip == 'autre'",
       "exclude_from_translation_1": true
@@ -82,10 +83,19 @@
     },
     {
       "type": "button",
+      "name": "page7_button_continue_condition",
+      "value": "Continuer",
+      "action_list": "click | set_field: cult_princip: @fields.autre_cult_princip;\nclick | set_field: @calc('cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.cult_princip;\nclick | emit: completed;",
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "condition": "@fields.cult_princip == 'autre' "
+    },
+    {
+      "type": "button",
       "name": "page7_button_continue",
       "value": "Continuer",
-      "action_list": "click | set_field: @calc('cult_princip_parcelle_N⁰' + @fields.num_parcelle) : @fields.cult_princip;\nclick | set_field: @calc('autre_cult_princip_parcelle_N⁰' + @fields.num_parcelle) : @fields.autre_cult_princip;\nclick | emit: completed;",
-      "parameter_list": "disabled: !@local.completed_enabled"
+      "action_list": "click | set_field: @calc('cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.cult_princip;\nclick | set_field: @calc('autre_cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.autre_cult_princip;\nclick | emit: completed;",
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "condition": "@fields.cult_princip != 'autre' "
     },
     {
       "type": "end_display_group"

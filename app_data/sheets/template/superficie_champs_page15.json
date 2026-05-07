@@ -1,0 +1,355 @@
+{
+  "flow_type": "template",
+  "flow_name": "superficie_champs_page15",
+  "status": "released",
+  "rows": [
+    {
+      "type": "subtitle",
+      "value": "**Mesure de superficie de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+      "_translations": {
+        "value": {}
+      },
+      "name": "subtitle_2",
+      "_nested_name": "subtitle_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "**Mesure de superficie de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+            "matchedExpression": "@fields.num_parcelle",
+            "type": "fields",
+            "fieldName": "num_parcelle"
+          },
+          {
+            "fullExpression": "**Mesure de superficie de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+            "matchedExpression": "@fields.nom_champ",
+            "type": "fields",
+            "fieldName": "nom_champ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.num_parcelle": [
+          "value"
+        ],
+        "@fields.nom_champ": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "**Superficie de @fields.cult_princip dans la parcelle N° @fields.num_parcelle de @fields.nom_champ**",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_3.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "**Superficie de @fields.cult_princip dans la parcelle N° @fields.num_parcelle de @fields.nom_champ**",
+                "matchedExpression": "@fields.cult_princip",
+                "type": "fields",
+                "fieldName": "cult_princip"
+              },
+              {
+                "fullExpression": "**Superficie de @fields.cult_princip dans la parcelle N° @fields.num_parcelle de @fields.nom_champ**",
+                "matchedExpression": "@fields.num_parcelle",
+                "type": "fields",
+                "fieldName": "num_parcelle"
+              },
+              {
+                "fullExpression": "**Superficie de @fields.cult_princip dans la parcelle N° @fields.num_parcelle de @fields.nom_champ**",
+                "matchedExpression": "@fields.nom_champ",
+                "type": "fields",
+                "fieldName": "nom_champ"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.cult_princip": [
+              "value"
+            ],
+            "@fields.num_parcelle": [
+              "value"
+            ],
+            "@fields.nom_champ": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_20",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Superficie/sup_mes_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "_nested_name": "display_group_3.audio_20"
+        }
+      ],
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
+    },
+    {
+      "type": "image",
+      "value": "images/superf_geoloca.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:100px",
+        "height:100px"
+      ],
+      "name": "image_5",
+      "_nested_name": "image_5"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> Mesurez à l'aide du GPS la superficie de @fields.cult_princip dans la parcelle N⁰  </p>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_6",
+      "_nested_name": "html_6",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> Mesurez à l'aide du GPS la superficie de @fields.cult_princip dans la parcelle N⁰  </p>",
+            "matchedExpression": "@fields.cult_princip",
+            "type": "fields",
+            "fieldName": "cult_princip"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.cult_princip": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "superficie_geo",
+      "value": "@fields.superficie_parcelle",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "superficie_geo",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.superficie_parcelle",
+            "matchedExpression": "@fields.superficie_parcelle",
+            "type": "fields",
+            "fieldName": "superficie_parcelle"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.superficie_parcelle": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@fields.superficie_parcelle",
+      "_translations": {
+        "value": {}
+      },
+      "exclude_from_translation": true,
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.superficie_parcelle",
+            "matchedExpression": "@fields.superficie_parcelle",
+            "type": "fields",
+            "fieldName": "superficie_parcelle"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.superficie_parcelle": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "exclude_from_translation": "padding: 12px 24px;",
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page15_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "display_group_8.page15_button_back"
+        },
+        {
+          "type": "button",
+          "name": "page15_button_continue",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "superficie_geo",
+                "@fields.superficie_parcelle"
+              ],
+              "_raw": "click | set_field: superficie_geo: @fields.superficie_parcelle"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "@calc('superficie_geo_parcelle_N' + @fields.num_parcelle)",
+                "@fields.superficie_geo"
+              ],
+              "_raw": "click | set_field: @calc('superficie_geo_parcelle_N' + @fields.num_parcelle) : @fields.superficie_geo"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "_nested_name": "display_group_8.page15_button_continue",
+          "_dynamicFields": {
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@fields.superficie_parcelle",
+                      "matchedExpression": "@fields.superficie_parcelle",
+                      "type": "fields",
+                      "fieldName": "superficie_parcelle"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: superficie_geo: @fields.superficie_parcelle",
+                    "matchedExpression": "@fields.superficie_parcelle",
+                    "type": "fields",
+                    "fieldName": "superficie_parcelle"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "@calc('superficie_geo_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@fields.num_parcelle",
+                      "type": "fields",
+                      "fieldName": "num_parcelle"
+                    },
+                    {
+                      "fullExpression": "@calc('superficie_geo_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('superficie_geo_parcelle_N' + @fields.num_parcelle)",
+                      "type": "calc",
+                      "fieldName": "'superficie_geo_parcelle_N' + @fields.num_parcelle"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.superficie_geo",
+                      "matchedExpression": "@fields.superficie_geo",
+                      "type": "fields",
+                      "fieldName": "superficie_geo"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: @calc('superficie_geo_parcelle_N' + @fields.num_parcelle) : @fields.superficie_geo",
+                    "matchedExpression": "@fields.num_parcelle",
+                    "type": "fields",
+                    "fieldName": "num_parcelle"
+                  },
+                  {
+                    "fullExpression": "click | set_field: @calc('superficie_geo_parcelle_N' + @fields.num_parcelle) : @fields.superficie_geo",
+                    "matchedExpression": "@fields.superficie_geo",
+                    "type": "fields",
+                    "fieldName": "superficie_geo"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@fields.superficie_parcelle": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "@fields.num_parcelle": [
+              "action_list.1.args.0",
+              "action_list.1._raw"
+            ],
+            "@calc('superficie_geo_parcelle_N' + @fields.num_parcelle)": [
+              "action_list.1.args.0"
+            ],
+            "@fields.superficie_geo": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_8",
+      "_nested_name": "display_group_8"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/superficie_champs_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1Za6KnU73iDgbTARvf6JCQo0vJb_EkTgiHEyZUJdNgXs"
+  }
+}

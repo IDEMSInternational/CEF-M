@@ -1,0 +1,521 @@
+{
+  "flow_type": "template",
+  "flow_name": "superficie_champs_page14",
+  "status": "released",
+  "rows": [
+    {
+      "type": "subtitle",
+      "value": "**Superficie de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+      "_translations": {
+        "value": {}
+      },
+      "name": "subtitle_2",
+      "_nested_name": "subtitle_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "**Superficie de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+            "matchedExpression": "@fields.num_parcelle",
+            "type": "fields",
+            "fieldName": "num_parcelle"
+          },
+          {
+            "fullExpression": "**Superficie de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+            "matchedExpression": "@fields.nom_champ",
+            "type": "fields",
+            "fieldName": "nom_champ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.num_parcelle": [
+          "value"
+        ],
+        "@fields.nom_champ": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "**Superficie de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_3.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "**Superficie de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**",
+                "matchedExpression": "@fields.cult_princip",
+                "type": "fields",
+                "fieldName": "cult_princip"
+              },
+              {
+                "fullExpression": "**Superficie de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**",
+                "matchedExpression": "@fields.num_parcelle",
+                "type": "fields",
+                "fieldName": "num_parcelle"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.cult_princip": [
+              "value"
+            ],
+            "@fields.num_parcelle": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_19",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Superficie/sup_estim_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "_nested_name": "display_group_3.audio_19"
+        }
+      ],
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
+    },
+    {
+      "type": "image",
+      "value": "images/sup_cult.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:100px",
+        "height:100px"
+      ],
+      "name": "image_5",
+      "_nested_name": "image_5"
+    },
+    {
+      "type": "text",
+      "value": "Donnez votre meilleure estimation de la superficie en Hectares (ha)",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_6",
+      "_nested_name": "text_6"
+    },
+    {
+      "type": "text_box",
+      "name": "superficie_parcelle",
+      "value": "@fields.superficie_parcelle",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "superficie_parcelle",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: superficie_parcelle: this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true\nplaceholder"
+      },
+      "exclude_from_translation": true,
+      "_nested_name": "superficie_parcelle",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.superficie_parcelle",
+            "matchedExpression": "@fields.superficie_parcelle",
+            "type": "fields",
+            "fieldName": "superficie_parcelle"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.superficie_parcelle": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.superficie_parcelle",
+      "_nested_name": "html_text",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "matchedExpression": "@global.warning_message",
+            "type": "global",
+            "fieldName": "warning_message"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.superficie_parcelle",
+            "matchedExpression": "!@local.superficie_parcelle",
+            "type": "local",
+            "fieldName": "superficie_parcelle"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.warning_message": [
+          "value"
+        ],
+        "!@local.superficie_parcelle": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "valid_superficie_parcelle",
+      "value": "@calc((/^\\d+$/.test(@local.superficie_parcelle) && @local.superficie_parcelle>= 0 ) || @local.superficie_parcelle == '' || !@local.superficie_parcelle )",
+      "_translations": {
+        "value": {}
+      },
+      "exclude_from_translation": true,
+      "type": "set_variable",
+      "_nested_name": "valid_superficie_parcelle",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.superficie_parcelle) && @local.superficie_parcelle>= 0 ) || @local.superficie_parcelle == '' || !@local.superficie_parcelle )",
+            "matchedExpression": "@local.superficie_parcelle",
+            "type": "local",
+            "fieldName": "superficie_parcelle"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.superficie_parcelle) && @local.superficie_parcelle>= 0 ) || @local.superficie_parcelle == '' || !@local.superficie_parcelle )",
+            "matchedExpression": "@local.superficie_parcelle",
+            "type": "local",
+            "fieldName": "superficie_parcelle"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.superficie_parcelle) && @local.superficie_parcelle>= 0 ) || @local.superficie_parcelle == '' || !@local.superficie_parcelle )",
+            "matchedExpression": "@local.superficie_parcelle",
+            "type": "local",
+            "fieldName": "superficie_parcelle"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.superficie_parcelle) && @local.superficie_parcelle>= 0 ) || @local.superficie_parcelle == '' || !@local.superficie_parcelle )",
+            "matchedExpression": "!@local.superficie_parcelle",
+            "type": "local",
+            "fieldName": "superficie_parcelle"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.superficie_parcelle) && @local.superficie_parcelle>= 0 ) || @local.superficie_parcelle == '' || !@local.superficie_parcelle )",
+            "matchedExpression": "@calc((/^\\d+$/.test(@local.superficie_parcelle) && @local.superficie_parcelle>= 0 ) || @local.superficie_parcelle == '' || !@local.superficie_parcelle )",
+            "type": "calc",
+            "fieldName": "(/^\\d+$/.test(@local.superficie_parcelle) && @local.superficie_parcelle>= 0 ) || @local.superficie_parcelle == '' || !@local.superficie_parcelle "
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.superficie_parcelle": [
+          "value",
+          "value",
+          "value"
+        ],
+        "!@local.superficie_parcelle": [
+          "value"
+        ],
+        "@calc((/^\\d+$/.test(@local.superficie_parcelle) && @local.superficie_parcelle>= 0 ) || @local.superficie_parcelle == '' || !@local.superficie_parcelle )": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.valid_superficie_parcelle",
+      "exclude_from_translation": true,
+      "style_list": [
+        "color: #FF0000",
+        "font-size: 14px"
+      ],
+      "name": "text_10",
+      "_nested_name": "text_10",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.validite_nombre",
+            "matchedExpression": "@global.validite_nombre",
+            "type": "global",
+            "fieldName": "validite_nombre"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.valid_superficie_parcelle",
+            "matchedExpression": "!@local.valid_superficie_parcelle",
+            "type": "local",
+            "fieldName": "valid_superficie_parcelle"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.validite_nombre": [
+          "value"
+        ],
+        "!@local.valid_superficie_parcelle": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@fields.superficie_parcelle && @local.valid_superficie_parcelle",
+      "_translations": {
+        "value": {}
+      },
+      "exclude_from_translation": true,
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.superficie_parcelle && @local.valid_superficie_parcelle",
+            "matchedExpression": "@fields.superficie_parcelle",
+            "type": "fields",
+            "fieldName": "superficie_parcelle"
+          },
+          {
+            "fullExpression": "@fields.superficie_parcelle && @local.valid_superficie_parcelle",
+            "matchedExpression": "@local.valid_superficie_parcelle",
+            "type": "local",
+            "fieldName": "valid_superficie_parcelle"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.superficie_parcelle": [
+          "value"
+        ],
+        "@local.valid_superficie_parcelle": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "exclude_from_translation": "padding: 12px 24px;",
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page14_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "display_group_11.page14_button_back"
+        },
+        {
+          "type": "button",
+          "name": "page14_button_continue",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "@calc('superficie_parcelle_N' + @fields.num_parcelle)",
+                "@fields.superficie_parcelle"
+              ],
+              "_raw": "click | set_field: @calc('superficie_parcelle_N' + @fields.num_parcelle) : @fields.superficie_parcelle"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "sum_total",
+                "@fields.sum_total + @local.superficie_parcelle"
+              ],
+              "_raw": "click | set_field: sum_total: @fields.sum_total + @local.superficie_parcelle"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "_nested_name": "display_group_11.page14_button_continue",
+          "_dynamicFields": {
+            "action_list": {
+              "0": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "@calc('superficie_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@fields.num_parcelle",
+                      "type": "fields",
+                      "fieldName": "num_parcelle"
+                    },
+                    {
+                      "fullExpression": "@calc('superficie_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('superficie_parcelle_N' + @fields.num_parcelle)",
+                      "type": "calc",
+                      "fieldName": "'superficie_parcelle_N' + @fields.num_parcelle"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.superficie_parcelle",
+                      "matchedExpression": "@fields.superficie_parcelle",
+                      "type": "fields",
+                      "fieldName": "superficie_parcelle"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: @calc('superficie_parcelle_N' + @fields.num_parcelle) : @fields.superficie_parcelle",
+                    "matchedExpression": "@fields.num_parcelle",
+                    "type": "fields",
+                    "fieldName": "num_parcelle"
+                  },
+                  {
+                    "fullExpression": "click | set_field: @calc('superficie_parcelle_N' + @fields.num_parcelle) : @fields.superficie_parcelle",
+                    "matchedExpression": "@fields.superficie_parcelle",
+                    "type": "fields",
+                    "fieldName": "superficie_parcelle"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@fields.sum_total + @local.superficie_parcelle",
+                      "matchedExpression": "@fields.sum_total",
+                      "type": "fields",
+                      "fieldName": "sum_total"
+                    },
+                    {
+                      "fullExpression": "@fields.sum_total + @local.superficie_parcelle",
+                      "matchedExpression": "@local.superficie_parcelle",
+                      "type": "local",
+                      "fieldName": "superficie_parcelle"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: sum_total: @fields.sum_total + @local.superficie_parcelle",
+                    "matchedExpression": "@fields.sum_total",
+                    "type": "fields",
+                    "fieldName": "sum_total"
+                  },
+                  {
+                    "fullExpression": "click | set_field: sum_total: @fields.sum_total + @local.superficie_parcelle",
+                    "matchedExpression": "@local.superficie_parcelle",
+                    "type": "local",
+                    "fieldName": "superficie_parcelle"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@fields.num_parcelle": [
+              "action_list.0.args.0",
+              "action_list.0._raw"
+            ],
+            "@calc('superficie_parcelle_N' + @fields.num_parcelle)": [
+              "action_list.0.args.0"
+            ],
+            "@fields.superficie_parcelle": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "@fields.sum_total": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
+            "@local.superficie_parcelle": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_11",
+      "_nested_name": "display_group_11"
+    },
+    {
+      "action_list": [
+        {
+          "trigger": "data_changed",
+          "action_id": "set_local",
+          "args": [
+            "hp_unlocked_ids",
+            "@items.map(item => item.type)"
+          ],
+          "_raw": "data_changed | set_local : hp_unlocked_ids : @items.map(item => item.type)"
+        }
+      ],
+      "type": "set_variable",
+      "name": "set_variable_13",
+      "_nested_name": "set_variable_13"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/superficie_champs_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1Za6KnU73iDgbTARvf6JCQo0vJb_EkTgiHEyZUJdNgXs"
+  }
+}
