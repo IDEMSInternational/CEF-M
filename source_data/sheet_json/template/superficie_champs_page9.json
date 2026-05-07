@@ -26,7 +26,6 @@
     {
       "type": "date_time_picker",
       "name": "date_semis",
-      "value": "@fields.date_semis",
       "action_list": "changed | set_field: date_semis : this.value;",
       "parameter_list": "type: date"
     },
@@ -177,7 +176,7 @@
       "type": "button",
       "name": "page9_button_continue",
       "value": "Continuer",
-      "action_list": "click | set_field: @calc('date_semis_parcelle_N⁰' + @fields.num_parcelle) : @fields.date_semis;\nclick | set_field: @calc('source_semence_parcelle_N⁰' + @fields.num_parcelle) : @fields.source_semence;\nclick | set_field: @calc('quantite_semence_parcelle_N⁰' + @fields.num_parcelle) : @fields.quantite_semence;\nclick | emit: completed;",
+      "action_list": "click | set_field: @calc('date_semis_parcelle_N' + @fields.num_parcelle) : @fields.date_semis;\nclick | set_field: @calc('source_semence_parcelle_N' + @fields.num_parcelle) : @fields.source_semence;\nclick | set_field: @calc('quantite_semence_parcelle_N' + @fields.num_parcelle) : @fields.quantite_semence;\nclick | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled"
     },
     {

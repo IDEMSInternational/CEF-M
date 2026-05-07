@@ -22,9 +22,14 @@
     {
       "type": "text_box",
       "name": "chef_UPA",
+      "value": "@fields.chef_UPA",
       "parameter_list": "max_length: 30;\nplaceholder: Nom et prénom du chef UPA",
       "condition": "!@fields.chef_UPA",
       "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "Type d'exploitation du chef de l'UPA "
     },
     {
       "type": "text_box",
@@ -36,6 +41,7 @@
     {
       "type": "text_box",
       "name": "type_upa",
+      "value": "@fields.type_upa",
       "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom du type d'exploitation",
       "condition": "!@fields.type_upa"
     },

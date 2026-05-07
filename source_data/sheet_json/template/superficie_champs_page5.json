@@ -67,7 +67,7 @@
       "type": "button",
       "name": "page5_button_continue",
       "value": "Continuer",
-      "action_list": "click | set_field: @calc('fertilite_sol_parcelle_N⁰' + @fields.num_parcelle) : @fields.fertilite_sol;\n\nclick | emit: completed;",
+      "action_list": "click | set_field: @calc('fertilite_sol_parcelle_N' + @fields.num_parcelle) : @fields.fertilite_sol;\nclick | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled"
     },
     {

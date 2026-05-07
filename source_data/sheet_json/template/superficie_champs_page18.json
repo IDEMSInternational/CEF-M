@@ -1,0 +1,77 @@
+{
+  "flow_type": "template",
+  "flow_name": "superficie_champs_page18",
+  "status": "released",
+  "rows": [
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "**Recapitulatif des superficies mesurées des cultures dans @fields.nom_champ**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_8_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/sup_tot_gps_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/sup_tot.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "La superficie cumulée (ha) des parcelles mesurées dans @fields.nom_champ est:"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "nombre_parcelle",
+      "parameter_list": "limit: @fields.nb_parcelles"
+    },
+    {
+      "type": "text",
+      "name": "superficie_totale",
+      "value": "@calc((@item.number > 0 ? Number(@fields.superficie_parcelle_N1) : 0) + (@item.number > 1 ? Number(@fields.superficie_parcelle_N2) : 0) + (@item.number > 2 ? Number(@fields.superficie_parcelle_N3) : 0) + (@item.number > 3 ? Number(@fields.superficie_parcelle_N4) : 0) + (@item.number > 4 ? Number(@fields.superficie_parcelle_N5) : 0) + (@item.number > 5 ? Number(@fields.superficie_parcelle_N6) : 0) + (@item.number > 6 ? Number(@fields.superficie_parcelle_N7) : 0) + (@item.number > 7 ? Number(@fields.superficie_parcelle_N8) : 0) + (@item.number > 8 ? Number(@fields.superficie_parcelle_N9) : 0) + (@item.number > 9 ? Number(@fields.superficie_parcelle_N10) : 0) + 'ha')",
+      "condition": "@item.number ==  @fields.nb_parcelles"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "name": "completed_enabled",
+      "style_list": true
+    },
+    {
+      "type": "round_button",
+      "name": "page18_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page18_button_continue",
+      "value": "Continuer",
+      "action_list": "click | emit: completed;"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

@@ -1,0 +1,329 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_animaux_page2",
+  "status": "released",
+  "rows": [
+    {
+      "type": "subtitle",
+      "value": "**@global.title_campagne**",
+      "_translations": {
+        "value": {}
+      },
+      "name": "subtitle_2",
+      "_nested_name": "subtitle_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "**@global.title_campagne**",
+            "matchedExpression": "@global.title_campagne",
+            "type": "global",
+            "fieldName": "title_campagne"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.title_campagne": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "html",
+          "value": "@global.campagne_selection <p style=\"color: red;\">*</p>",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size:20px"
+          ],
+          "name": "html_1",
+          "_nested_name": "display_group_3.html_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.campagne_selection <p style=\"color: red;\">*</p>",
+                "matchedExpression": "@global.campagne_selection",
+                "type": "global",
+                "fieldName": "campagne_selection"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.campagne_selection": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_3_1",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Superficie/annee_saison_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "@global.audio_style"
+          ],
+          "_nested_name": "display_group_3.audio_3_1",
+          "_dynamicFields": {
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.audio_style",
+                  "matchedExpression": "@global.audio_style",
+                  "type": "global",
+                  "fieldName": "audio_style"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@global.audio_style": [
+              "style_list.0"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: black;\"> @global.note_campagne </p>",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "html_text",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: black;\"> @global.note_campagne </p>",
+            "matchedExpression": "@global.note_campagne",
+            "type": "global",
+            "fieldName": "note_campagne"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_campagne": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "date_time_picker",
+      "name": "annee_campagne",
+      "value": "@fields.annee_campagne",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_local",
+          "args": [
+            "annee_campagne",
+            "this.value"
+          ],
+          "_raw": "changed | set_local: annee_campagne: this.value"
+        }
+      ],
+      "parameter_list": {
+        "type": "date"
+      },
+      "_nested_name": "annee_campagne",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.annee_campagne",
+            "matchedExpression": "@fields.annee_campagne",
+            "type": "fields",
+            "fieldName": "annee_campagne"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.annee_campagne": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.annee_campagne",
+      "name": "html_7",
+      "_nested_name": "html_7",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.annee_campagne",
+            "matchedExpression": "!@local.annee_campagne",
+            "type": "local",
+            "fieldName": "annee_campagne"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@local.annee_campagne": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.annee_campagne",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@local.annee_campagne",
+            "matchedExpression": "@local.annee_campagne",
+            "type": "local",
+            "fieldName": "annee_campagne"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.annee_campagne": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page2_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "display_group_9.page2_button_back"
+        },
+        {
+          "type": "button",
+          "name": "page2_button_continue",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "annee_campagne",
+                "@local.annee_campagne"
+              ],
+              "_raw": "click | set_field: annee_campagne: @local.annee_campagne"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "_nested_name": "display_group_9.page2_button_continue",
+          "_dynamicFields": {
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.annee_campagne",
+                      "matchedExpression": "@local.annee_campagne",
+                      "type": "local",
+                      "fieldName": "annee_campagne"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: annee_campagne: @local.annee_campagne",
+                    "matchedExpression": "@local.annee_campagne",
+                    "type": "local",
+                    "fieldName": "annee_campagne"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@local.annee_campagne": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_9",
+      "_nested_name": "display_group_9"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/besoins_animaux_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1U46sOmNeVPbt-HeQiPvQBjmJoqzQnjrSCBu93Ydt7Iw"
+  }
+}

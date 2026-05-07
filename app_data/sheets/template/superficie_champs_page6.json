@@ -349,19 +349,19 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "@calc('cult_prev_parcelle_N⁰' + @fields.num_parcelle)",
+                "@calc('cult_prev_parcelle_N' + @fields.num_parcelle)",
                 "@fields.cult_prev"
               ],
-              "_raw": "click | set_field: @calc('cult_prev_parcelle_N⁰' + @fields.num_parcelle) : @fields.cult_prev"
+              "_raw": "click | set_field: @calc('cult_prev_parcelle_N' + @fields.num_parcelle) : @fields.cult_prev"
             },
             {
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "@calc('autre_cult_prev_parcelle_N⁰' + @fields.num_parcelle)",
+                "@calc('autre_cult_prev_parcelle_N' + @fields.num_parcelle)",
                 "@fields.autre_cult_prev"
               ],
-              "_raw": "click | set_field: @calc('autre_cult_prev_parcelle_N⁰' + @fields.num_parcelle) : @fields.autre_cult_prev"
+              "_raw": "click | set_field: @calc('autre_cult_prev_parcelle_N' + @fields.num_parcelle) : @fields.autre_cult_prev"
             },
             {
               "trigger": "click",
@@ -382,16 +382,16 @@
                 "args": {
                   "0": [
                     {
-                      "fullExpression": "@calc('cult_prev_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('cult_prev_parcelle_N' + @fields.num_parcelle)",
                       "matchedExpression": "@fields.num_parcelle",
                       "type": "fields",
                       "fieldName": "num_parcelle"
                     },
                     {
-                      "fullExpression": "@calc('cult_prev_parcelle_N⁰' + @fields.num_parcelle)",
-                      "matchedExpression": "@calc('cult_prev_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('cult_prev_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('cult_prev_parcelle_N' + @fields.num_parcelle)",
                       "type": "calc",
-                      "fieldName": "'cult_prev_parcelle_N⁰' + @fields.num_parcelle"
+                      "fieldName": "'cult_prev_parcelle_N' + @fields.num_parcelle"
                     }
                   ],
                   "1": [
@@ -405,13 +405,13 @@
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('cult_prev_parcelle_N⁰' + @fields.num_parcelle) : @fields.cult_prev",
+                    "fullExpression": "click | set_field: @calc('cult_prev_parcelle_N' + @fields.num_parcelle) : @fields.cult_prev",
                     "matchedExpression": "@fields.num_parcelle",
                     "type": "fields",
                     "fieldName": "num_parcelle"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('cult_prev_parcelle_N⁰' + @fields.num_parcelle) : @fields.cult_prev",
+                    "fullExpression": "click | set_field: @calc('cult_prev_parcelle_N' + @fields.num_parcelle) : @fields.cult_prev",
                     "matchedExpression": "@fields.cult_prev",
                     "type": "fields",
                     "fieldName": "cult_prev"
@@ -422,16 +422,16 @@
                 "args": {
                   "0": [
                     {
-                      "fullExpression": "@calc('autre_cult_prev_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('autre_cult_prev_parcelle_N' + @fields.num_parcelle)",
                       "matchedExpression": "@fields.num_parcelle",
                       "type": "fields",
                       "fieldName": "num_parcelle"
                     },
                     {
-                      "fullExpression": "@calc('autre_cult_prev_parcelle_N⁰' + @fields.num_parcelle)",
-                      "matchedExpression": "@calc('autre_cult_prev_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('autre_cult_prev_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('autre_cult_prev_parcelle_N' + @fields.num_parcelle)",
                       "type": "calc",
-                      "fieldName": "'autre_cult_prev_parcelle_N⁰' + @fields.num_parcelle"
+                      "fieldName": "'autre_cult_prev_parcelle_N' + @fields.num_parcelle"
                     }
                   ],
                   "1": [
@@ -445,13 +445,13 @@
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('autre_cult_prev_parcelle_N⁰' + @fields.num_parcelle) : @fields.autre_cult_prev",
+                    "fullExpression": "click | set_field: @calc('autre_cult_prev_parcelle_N' + @fields.num_parcelle) : @fields.autre_cult_prev",
                     "matchedExpression": "@fields.num_parcelle",
                     "type": "fields",
                     "fieldName": "num_parcelle"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('autre_cult_prev_parcelle_N⁰' + @fields.num_parcelle) : @fields.autre_cult_prev",
+                    "fullExpression": "click | set_field: @calc('autre_cult_prev_parcelle_N' + @fields.num_parcelle) : @fields.autre_cult_prev",
                     "matchedExpression": "@fields.autre_cult_prev",
                     "type": "fields",
                     "fieldName": "autre_cult_prev"
@@ -477,14 +477,14 @@
               "action_list.1.args.0",
               "action_list.1._raw"
             ],
-            "@calc('cult_prev_parcelle_N⁰' + @fields.num_parcelle)": [
+            "@calc('cult_prev_parcelle_N' + @fields.num_parcelle)": [
               "action_list.0.args.0"
             ],
             "@fields.cult_prev": [
               "action_list.0.args.1",
               "action_list.0._raw"
             ],
-            "@calc('autre_cult_prev_parcelle_N⁰' + @fields.num_parcelle)": [
+            "@calc('autre_cult_prev_parcelle_N' + @fields.num_parcelle)": [
               "action_list.1.args.0"
             ],
             "@fields.autre_cult_prev": [

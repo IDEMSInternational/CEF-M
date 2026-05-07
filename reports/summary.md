@@ -3,28 +3,28 @@
 
 | type | count |
 | --- | --- |
-| audio | 174 |
-| button | 113 |
+| audio | 196 |
+| button | 128 |
 | combo_box | 11 |
-| data_items | 51 |
-| date_time_picker | 9 |
+| data_items | 75 |
+| date_time_picker | 10 |
 | declare_field_default | 2 |
-| display_group | 325 |
-| html | 158 |
-| image | 151 |
-| radio_button_grid | 12 |
-| radio_list | 8 |
-| round_button | 67 |
-| set_variable | 305 |
-| simple_checkbox | 7 |
+| display_group | 375 |
+| html | 211 |
+| image | 163 |
+| radio_button_grid | 13 |
+| radio_list | 13 |
+| round_button | 80 |
+| set_variable | 336 |
+| simple_checkbox | 9 |
 | square_button | 2 |
-| subtitle | 14 |
-| task_progress_bar | 5 |
-| template | 5 |
-| text | 335 |
-| text_area | 5 |
-| text_box | 160 |
-| title | 65 |
+| subtitle | 24 |
+| task_progress_bar | 7 |
+| template | 7 |
+| text | 379 |
+| text_area | 6 |
+| text_box | 171 |
+| title | 70 |
 | toggle_bar | 1 |
 </details>
 
@@ -35,13 +35,14 @@
 | --- | --- |
 | add_data | 8 |
 | audio_play | 1 |
-| emit: completed | 70 |
+| emit: completed | 84 |
 | emit: force_reprocess | 2 |
-| emit: uncompleted | 65 |
+| emit: uncompleted | 78 |
 | go_to | 23 |
-| set_data | 34 |
-| set_field | 315 |
-| set_local | 19 |
+| set_data | 50 |
+| set_field | 382 |
+| set_local | 25 |
+| undefined | 80 |
 </details>
 
 <details open>
@@ -49,8 +50,8 @@
 
 | assets | KB | MB |
 | --- | --- | --- |
-| total | 17168 KB | 17.2 MB |
-| unused | 23910 KB | 23.9 MB |
+| total | 18301 KB | 18.3 MB |
+| unused | 23013 KB | 23 MB |
 </details>
 
 <details open>
@@ -73,13 +74,11 @@ Assets that appear in app-data but do not have references within sheets
 | audio/Enrolement/boeuf_lab_bm.mp3 | 14.9 |
 | audio/Enrolement/canard_bm.mp3 | 14.9 |
 | audio/Enrolement/cercle_bm.mp3 | 14.9 |
-| audio/Enrolement/cercle_fr.mp3 | 18.1 |
 | audio/Enrolement/charret_bm.mp3 | 17.7 |
 | audio/Enrolement/charrue_bm.mp3 | 15.8 |
 | audio/Enrolement/chevo_bm.mp3 | 14.5 |
 | audio/Enrolement/chevre_bm.mp3 | 15.3 |
 | audio/Enrolement/commune_bm.mp3 | 14.5 |
-| audio/Enrolement/commune_fr.mp3 | 16.8 |
 | audio/Enrolement/coop_cereales_bm.mp3 | 22.9 |
 | audio/Enrolement/coop_coton_bm.mp3 | 22.9 |
 | audio/Enrolement/corp_but_bm.mp3 | 20.2 |
@@ -119,7 +118,6 @@ Assets that appear in app-data but do not have references within sheets
 | audio/Enrolement/ratio_bl_ter_bm.mp3 | 38.5 |
 | audio/Enrolement/ratio_mbre_ter_bm.mp3 | 30.7 |
 | audio/Enrolement/region_bm.mp3 | 12.4 |
-| audio/Enrolement/region_fr.mp3 | 14.5 |
 | audio/Enrolement/semoir_bm.mp3 | 15.3 |
 | audio/Enrolement/sexe_chef_upa_bm.mp3 | 20.6 |
 | audio/Enrolement/sup_cult_upa_bm.mp3 | 22.1 |
@@ -137,13 +135,11 @@ Assets that appear in app-data but do not have references within sheets
 | audio/Enrolement/vieille_upa_bm.mp3 | 28.8 |
 | audio/Enrolement/vieux_upa_bm.mp3 | 32.9 |
 | audio/Enrolement/village_bm.mp3 | 15.8 |
-| audio/Enrolement/village_fr.mp3 | 18.1 |
 | audio/Superficie/Recap_sup_est_bm(1).mp3 | 112.7 |
 | audio/Superficie/Recap_sup_est_fr(1).mp3 | 112.7 |
 | audio/Superficie/Recap_sup_mes_bm(1).mp3 | 125.4 |
 | audio/Superficie/Recap_sup_mes_fr(1).mp3 | 132.2 |
 | audio/Superficie/asso_yesno_bm.mp3 | 219.2 |
-| audio/Superficie/asso_yesno_fr.mp3 | 216.9 |
 | audio/Superficie/autre_cult_nom1_bm.mp3 | 225.2 |
 | audio/Superficie/autre_cult_nom2_bm.mp3 | 216.9 |
 | audio/Superficie/cult_asso_bm.mp3 | 212.4 |
@@ -165,15 +161,12 @@ Assets that appear in app-data but do not have references within sheets
 | audio/Superficie/sup_bne_bm.mp3 | 122.4 |
 | audio/Superficie/sup_bne_fr.mp3 | 93.9 |
 | audio/Superficie/sup_estim_bm.mp3 | 183.9 |
-| audio/Superficie/sup_estim_fr.mp3 | 219.2 |
 | audio/Superficie/sup_mes_bm.mp3 | 172.7 |
-| audio/Superficie/sup_mes_fr.mp3 | 204.2 |
 | audio/Superficie/sup_souses_bm.mp3 | 122.4 |
 | audio/Superficie/sup_sousest_fr.mp3 | 96.9 |
 | audio/Superficie/sup_surest_bm.mp3 | 116.4 |
 | audio/Superficie/sup_surest_fr.mp3 | 81.2 |
 | audio/Superficie/sup_tot_gps_bm.mp3 | 165.9 |
-| audio/Superficie/sup_tot_gps_fr.mp3 | 168.9 |
 | audio/Superficie/type_sol_bm.mp3 | 106.7 |
 | audio/postSemi/Ob_audio_postsemis_bm.mp3 | 172.7 |
 | audio/postSemi/Ob_ecrit_postsemis_bm.mp3 | 178.7 |
@@ -312,7 +305,6 @@ Assets that appear in app-data but do not have references within sheets
 | images/info_icon.jpg | 8.3 |
 | images/insecticide.jpg | 3 |
 | images/labour.jpg | 4.5 |
-| images/localisation.jpg | 16.4 |
 | images/male.jpg | 16 |
 | images/maïs.jpg | 3.2 |
 | images/npk.jpg | 4.3 |
@@ -324,7 +316,6 @@ Assets that appear in app-data but do not have references within sheets
 | images/sarclage.jpg | 4.7 |
 | images/semence.jpg | 5.1 |
 | images/superf_cult.jpg | 4.2 |
-| images/superf_geoloca.jpg | 4.4 |
 | images/sésame.jpg | 5.6 |
 | images/uree.jpg | 4.4 |
 </details>
@@ -336,16 +327,22 @@ Assets that have references within sheets but do not appear in app-data
 
 | path | count |
 | --- | --- |
-| audio/Enrolement/appreciation_audio_fr.mp3 | 2 |
-| audio/Enrolement/canal_obser_fr.mp3 | 1 |
-| audio/Superficie/annee_saison_fr.mp3 | 2 |
-| audio/Superficie/cult_asso_yn_fr.mp3 | 1 |
+| audio/Enrolement/appreciation_audio_fr.mp3 | 3 |
+| audio/Enrolement/canal_obser_fr.mp3 | 2 |
+| audio/Superficie/annee_saison_fr.mp3 | 3 |
+| audio/Superficie/autre_engrais_fr.mp3 | 1 |
+| audio/Superficie/autre_fo_fr.mp3 | 1 |
 | audio/Superficie/cult_preced_fr.mp3 | 1 |
 | audio/Superficie/date_semence_fr.mp3 | 1 |
 | audio/Superficie/nom_arbre_fr.mp3 | 1 |
+| audio/Superficie/nom_autre_engrais_fr.mp3 | 1 |
 | audio/Superficie/nom_autre_source_fr.mp3 | 1 |
 | audio/Superficie/q_semence_fr.mp3 | 1 |
+| audio/Superficie/qte_fo_fr.mp3 | 1 |
+| audio/Superficie/qte_npk_fr.mp3 | 1 |
+| audio/Superficie/qte_uree_fr.mp3 | 1 |
 | audio/Superficie/source_semence_fr.mp3 | 1 |
+| audio/Superficie/type_fo_fr.mp3 | 1 |
 | audio/Superficie/var_seme_fr.mp3 | 1 |
 | audio/Superficie/var_type_fr.mp3 | 1 |
 | audio/postSemi/note_form_postsemis_fr.mp3 | 1 |
@@ -373,6 +370,9 @@ Assets that have references within sheets but do not appear in app-data
 | audio/superficie/nbre_parcel_fr.mp3 | 1 |
 | click | audio_play:audio/Enrolement/pompe_fr.mp3 | 1 |
 | images/association.jpg | 1 |
+| images/autres_bovins.jpg | 1 |
+| images/reste_ovins.jpg | 1 |
+| images/saison_paturage.jpg | 1 |
 </details>
 
 <details >
@@ -394,10 +394,12 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | audio/Enrolement/autre_vol_fr.mp3 | 17.7 | 1 |
 | audio/Enrolement/boeuf_lab_fr.mp3 | 15.8 | 1 |
 | audio/Enrolement/canard_fr.mp3 | 18.1 | 1 |
+| audio/Enrolement/cercle_fr.mp3 | 18.1 | 1 |
 | audio/Enrolement/charret_fr.mp3 | 16.8 | 1 |
 | audio/Enrolement/charrue_fr.mp3 | 18.1 | 1 |
 | audio/Enrolement/chevo_fr.mp3 | 17.2 | 1 |
 | audio/Enrolement/chevre_fr.mp3 | 14.1 | 1 |
+| audio/Enrolement/commune_fr.mp3 | 16.8 | 1 |
 | audio/Enrolement/coop_cereales_fr.mp3 | 26.3 | 1 |
 | audio/Enrolement/coop_coton_fr.mp3 | 30.3 | 1 |
 | audio/Enrolement/corp_but_fr.mp3 | 17.7 | 1 |
@@ -415,10 +417,10 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | audio/Enrolement/nom_chef_trvx_fr.mp3 | 25.9 | 1 |
 | audio/Enrolement/nom_chef_upa_fr.mp3 | 31.2 | 1 |
 | audio/Enrolement/nom_neo_alpha_fr.mp3 | 22.5 | 1 |
-| audio/Enrolement/oberv_audio_fr.mp3 | 20.2 | 1 |
-| audio/Enrolement/oberv_ecrit_fr.mp3 | 19.8 | 1 |
-| audio/Enrolement/oberv_phot_fr.mp3 | 18.1 | 1 |
-| audio/Enrolement/oberv_vid_fr.mp3 | 19.8 | 1 |
+| audio/Enrolement/oberv_audio_fr.mp3 | 20.2 | 2 |
+| audio/Enrolement/oberv_ecrit_fr.mp3 | 19.8 | 2 |
+| audio/Enrolement/oberv_phot_fr.mp3 | 18.1 | 2 |
+| audio/Enrolement/oberv_vid_fr.mp3 | 19.8 | 2 |
 | audio/Enrolement/phone_num_fr.mp3 | 35.6 | 1 |
 | audio/Enrolement/pigeon_fr.mp3 | 15.3 | 1 |
 | audio/Enrolement/pintade_fr.mp3 | 16.8 | 1 |
@@ -428,6 +430,7 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | audio/Enrolement/ratio_actif_ter_fr.mp3 | 21 | 1 |
 | audio/Enrolement/ratio_bl_ter_fr.mp3 | 23.4 | 1 |
 | audio/Enrolement/ratio_mbre_ter_fr.mp3 | 21 | 1 |
+| audio/Enrolement/region_fr.mp3 | 14.5 | 1 |
 | audio/Enrolement/semoir_fr.mp3 | 15.3 | 1 |
 | audio/Enrolement/sexe_chef_upa_fr.mp3 | 25.5 | 1 |
 | audio/Enrolement/sup_cult_upa_fr.mp3 | 21 | 1 |
@@ -444,6 +447,8 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | audio/Enrolement/veau_fr.mp3 | 14.5 | 1 |
 | audio/Enrolement/vieille_upa_fr.mp3 | 22.5 | 1 |
 | audio/Enrolement/vieux_upa_fr.mp3 | 25.5 | 1 |
+| audio/Enrolement/village_fr.mp3 | 18.1 | 1 |
+| audio/Superficie/asso_yesno_fr.mp3 | 216.9 | 1 |
 | audio/Superficie/autre_cult_nom1_fr.mp3 | 260.4 | 3 |
 | audio/Superficie/autre_cult_nom2_fr.mp3 | 250.7 | 1 |
 | audio/Superficie/cult_asso_fr.mp3 | 194.4 | 1 |
@@ -452,6 +457,9 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | audio/Superficie/inclinaison_fr.mp3 | 125.4 | 1 |
 | audio/Superficie/nbre_arbre_fr.mp3 | 147.9 | 1 |
 | audio/Superficie/nom_champ_fr.mp3 | 244.7 | 1 |
+| audio/Superficie/sup_estim_fr.mp3 | 219.2 | 1 |
+| audio/Superficie/sup_mes_fr.mp3 | 204.2 | 1 |
+| audio/Superficie/sup_tot_gps_fr.mp3 | 168.9 | 1 |
 | audio/Superficie/type_sol_fr.mp3 | 112.7 | 1 |
 | audio/postSemi/Ob_audio_postsemis_fr.mp3 | 188.4 | 1 |
 | audio/postSemi/Ob_ecrit_postsemis_fr.mp3 | 194.4 | 1 |
@@ -493,7 +501,7 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | audio/semis/q_herbicide_fr.mp3 | 297.2 | 1 |
 | audio/semis/q_pnt_fr.mp3 | 337.7 | 1 |
 | audio/semis/q_semence_fr.mp3 | 183.9 | 2 |
-| audio/semis/qr_code_fr.mp3 | 165.9 | 2 |
+| audio/semis/qr_code_fr.mp3 | 165.9 | 3 |
 | audio/semis/select_culture_fr.mp3 | 573.2 | 1 |
 | audio/semis/sup_culture_fr.mp3 | 309.9 | 2 |
 | audio/semis/sup_labour_fr.mp3 | 244.7 | 1 |
@@ -502,7 +510,7 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/Flag_of_Mali.svg | 0.2 | 1 |
 | images/adolescent.jpg | 22.3 | 1 |
 | images/agri.jpg | 33.3 | 1 |
-| images/ane.jpg | 18.1 | 1 |
+| images/ane.jpg | 18.1 | 2 |
 | images/arachide.jpg | 3.2 | 5 |
 | images/arbre.jpg | 4.8 | 1 |
 | images/autre_act.jpg | 21.9 | 1 |
@@ -510,18 +518,19 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/autre_cult_2.jpg | 4.1 | 6 |
 | images/autre_mat.jpg | 26.8 | 1 |
 | images/bissap.jpg | 5.3 | 3 |
-| images/boeuf_labour.jpg | 14.2 | 1 |
+| images/boeuf_labour.jpg | 14.2 | 2 |
 | images/botte.jpg | 5.2 | 1 |
+| images/bovin_embouche.jpg | 235.6 | 1 |
 | images/butter.jpg | 20.1 | 1 |
 | images/canard.jpg | 17.4 | 1 |
 | images/cfa.jpg | 2.6 | 25 |
 | images/cfa_tot.jpg | 2.9 | 3 |
 | images/champ.jpg | 65.5 | 1 |
-| images/charrette.jpg | 4.2 | 3 |
+| images/charrette.jpg | 4.2 | 4 |
 | images/charrue.jpg | 10.6 | 1 |
 | images/chef_travaux.jpg | 3.6 | 1 |
 | images/cheval.jpg | 18.1 | 1 |
-| images/chevre.jpg | 17.8 | 1 |
+| images/chevre.jpg | 17.8 | 2 |
 | images/commerce.jpg | 18.8 | 1 |
 | images/coton.jpg | 3.7 | 5 |
 | images/elevage.jpg | 40.4 | 1 |
@@ -541,19 +550,20 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/herse.jpg | 17.4 | 1 |
 | images/holding.jpg | 14 | 1 |
 | images/homme_adult.jpg | 19 | 1 |
-| images/icons/audio/Speaker_Icon.svg | 0.5 | 175 |
+| images/icons/audio/Speaker_Icon.svg | 0.5 | 197 |
 | images/icons/female.svg | 5.8 | 1 |
 | images/icons/male.svg | 3.7 | 1 |
-| images/icons/scan.svg | 1.4 | 2 |
+| images/icons/scan.svg | 1.4 | 3 |
 | images/kg.jpg | 3.8 | 4 |
 | images/lapin.jpg | 18.3 | 1 |
+| images/localisation.jpg | 16.4 | 1 |
 | images/mais.jpg | 3.2 | 5 |
 | images/maraicher.jpg | 20.1 | 1 |
 | images/membres.jpg | 37 | 1 |
 | images/mil.jpg | 3.1 | 5 |
 | images/mohamed.jpeg | 36.1 | 1 |
 | images/motoculture.jpg | 7.8 | 1 |
-| images/mouton.jpg | 17.9 | 1 |
+| images/mouton.jpg | 17.9 | 2 |
 | images/multiculteur.jpg | 16.8 | 1 |
 | images/neo_alpha.jpg | 11.4 | 1 |
 | images/num_phone.jpg | 16.9 | 1 |
@@ -572,27 +582,28 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/ratio_membre_terre.jpg | 60.2 | 1 |
 | images/ratio_travailleur_terre.jpg | 19.8 | 1 |
 | images/rice.jpg | 6.1 | 4 |
-| images/sac.jpg | 3.1 | 4 |
+| images/sac.jpg | 3.1 | 6 |
 | images/semoir.jpg | 21 | 1 |
 | images/sesame.jpg | 5.6 | 3 |
 | images/soil_type.jpg | 5.9 | 1 |
 | images/sorgho.jpg | 3.1 | 5 |
-| images/sup_cult.jpg | 31.7 | 1 |
-| images/sup_tot.jpg | 6.8 | 1 |
+| images/sup_cult.jpg | 31.7 | 2 |
+| images/sup_tot.jpg | 6.8 | 2 |
 | images/superf_champ.jpg | 4 | 1 |
+| images/superf_geoloca.jpg | 4.4 | 1 |
 | images/superf_unit.jpg | 2.9 | 7 |
 | images/taureau.jpg | 20 | 1 |
 | images/text.jpg | 3.6 | 1 |
 | images/tractor.jpg | 27.9 | 1 |
 | images/traitement.jpg | 12.7 | 1 |
 | images/travailleurs.jpg | 40.2 | 1 |
-| images/vache_lait.jpg | 17.4 | 1 |
+| images/vache_lait.jpg | 17.4 | 2 |
 | images/vache_tarie.jpg | 19.7 | 1 |
 | images/veau.jpg | 17.8 | 1 |
 | images/video.jpg | 4.4 | 1 |
 | images/vieille.jpg | 23.5 | 1 |
 | images/vieux.jpg | 17.4 | 1 |
-| images/vocal.jpg | 4.2 | 5 |
+| images/vocal.jpg | 4.2 | 6 |
 | images/wouandzou.jpg | 5.4 | 3 |
 </details>
 
@@ -601,7 +612,7 @@ Assets that are used within sheets and also can be found in the synced asset dat
 
 | type | subtype | total |
 | --- | --- | --- |
-| data_list |  | 32 |
-| global |  | 7 |
-| template |  | 83 |
+| data_list |  | 48 |
+| global |  | 8 |
+| template |  | 102 |
 </details>

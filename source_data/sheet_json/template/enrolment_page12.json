@@ -11,18 +11,26 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "Nombre de boeufs de labour*",
+      "type": "html",
+      "value": "Nombre de boeufs de labour<span style=\"color: red;\">*</span>",
       "parameter_list": "style: contextual;",
-      "exclude_from_translation": true
+      "exclude_from_translation": true,
+      "style_list": "font-size:20px;"
+    },
+    {
+      "type": "audio",
+      "name": "boeuf_labour",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/boeuf_lab_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "image",
       "value": "images/boeuf_labour.jpg",
-      "style_list": "width: 150px; height: 150px; object-fit: cover;"
-    },
-    {
-      "type": "end_display_group"
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
     },
     {
       "type": "begin_display_group"
@@ -48,14 +56,12 @@
       "exclude_from_translation": true
     },
     {
-      "type": "audio",
-      "name": "boeuf_labour",
-      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/boeuf_lab_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "align-self: flex-end;"
+      "type": "end_display_group"
     },
     {
-      "type": "end_display_group"
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "!@local.nombre_boeuf_labour"
     },
     {
       "type": "text",
@@ -68,18 +74,26 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "Nombre de taureaux*",
+      "type": "html",
+      "value": "Nombre de taureaux<span style=\"color: red;\">*</span>",
       "parameter_list": "style: contextual;",
-      "exclude_from_translation": true
+      "exclude_from_translation": true,
+      "style_list": "font-size:20px;"
+    },
+    {
+      "type": "audio",
+      "name": "taureau",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/tauro_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "image",
       "value": "images/taureau.jpg",
-      "style_list": "width: 150px; height: 150px; object-fit: cover;"
-    },
-    {
-      "type": "end_display_group"
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
     },
     {
       "type": "begin_display_group"
@@ -105,14 +119,12 @@
       "exclude_from_translation": true
     },
     {
-      "type": "audio",
-      "name": "taureau",
-      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/tauro_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "align-self: flex-end;"
+      "type": "end_display_group"
     },
     {
-      "type": "end_display_group"
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "!@local.nombre_taureaux"
     },
     {
       "type": "text",
@@ -125,17 +137,26 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "Nombre de vaches taries*",
+      "type": "html",
+      "value": "Nombre de vaches taries<span style=\"color: red;\">*</span>",
       "parameter_list": "style: contextual;",
-      "exclude_from_translation": true
+      "exclude_from_translation": true,
+      "style_list": "font-size:20px;"
     },
     {
-      "type": "image",
-      "value": "images/vache_tarie.jpg"
+      "type": "audio",
+      "name": "vache_tarie",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/vach_tarie_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
     },
     {
       "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/vache_tarie.jpg",
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
     },
     {
       "type": "begin_display_group"
@@ -161,14 +182,12 @@
       "exclude_from_translation": true
     },
     {
-      "type": "audio",
-      "name": "vache_tarie",
-      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/vach_tarie_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "align-self: flex-end;"
+      "type": "end_display_group"
     },
     {
-      "type": "end_display_group"
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "!@local.nombre_vaches_taries"
     },
     {
       "type": "text",
@@ -181,17 +200,26 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "Nombre de vaches laitières*",
+      "type": "html",
+      "value": "Nombre de vaches laitières<span style=\"color: red;\">*</span>",
       "parameter_list": "style: contextual;",
-      "exclude_from_translation": true
+      "exclude_from_translation": true,
+      "style_list": "font-size:20px;"
     },
     {
-      "type": "image",
-      "value": "images/vache_lait.jpg"
+      "type": "audio",
+      "name": "vache_lait",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/vach_lait_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
     },
     {
       "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/vache_lait.jpg",
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
     },
     {
       "type": "begin_display_group"
@@ -217,14 +245,12 @@
       "exclude_from_translation": true
     },
     {
-      "type": "audio",
-      "name": "vache_lait",
-      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/vach_lait_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "align-self: flex-end;"
+      "type": "end_display_group"
     },
     {
-      "type": "end_display_group"
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "!@local.nombre_vaches_laitieres"
     },
     {
       "type": "text",
@@ -237,17 +263,26 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "Nombre de génisses*",
+      "type": "html",
+      "value": "Nombre de génisses<span style=\"color: red;\">*</span>",
       "parameter_list": "style: contextual;",
-      "exclude_from_translation": true
+      "exclude_from_translation": true,
+      "style_list": "font-size:20px;"
     },
     {
-      "type": "image",
-      "value": "images/genisse.jpg"
+      "type": "audio",
+      "name": "genisse",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/genise_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
     },
     {
       "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/genisse.jpg",
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
     },
     {
       "type": "begin_display_group"
@@ -273,14 +308,12 @@
       "exclude_from_translation": true
     },
     {
-      "type": "audio",
-      "name": "genisse",
-      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/genise_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "align-self: flex-end;"
+      "type": "end_display_group"
     },
     {
-      "type": "end_display_group"
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "!@local.nombre_genisses"
     },
     {
       "type": "text",
@@ -293,17 +326,26 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "Nombre de veaux*",
+      "type": "html",
+      "value": "Nombre de veaux<span style=\"color: red;\">*</span>",
       "parameter_list": "style: contextual;",
-      "exclude_from_translation": true
+      "exclude_from_translation": true,
+      "style_list": "font-size:20px;"
     },
     {
-      "type": "image",
-      "value": "images/veau.jpg"
+      "type": "audio",
+      "name": "veau",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/veau_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
     },
     {
       "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/veau.jpg",
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
     },
     {
       "type": "begin_display_group"
@@ -329,14 +371,12 @@
       "exclude_from_translation": true
     },
     {
-      "type": "audio",
-      "name": "veau",
-      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/veau_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "align-self: flex-end;"
+      "type": "end_display_group"
     },
     {
-      "type": "end_display_group"
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "!@local.nombre_veaux"
     },
     {
       "type": "text",

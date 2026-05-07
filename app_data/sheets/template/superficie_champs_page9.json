@@ -92,10 +92,6 @@
     {
       "type": "date_time_picker",
       "name": "date_semis",
-      "value": "@fields.date_semis",
-      "_translations": {
-        "value": {}
-      },
       "action_list": [
         {
           "trigger": "changed",
@@ -110,22 +106,7 @@
       "parameter_list": {
         "type": "date"
       },
-      "_nested_name": "date_semis",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@fields.date_semis",
-            "matchedExpression": "@fields.date_semis",
-            "type": "fields",
-            "fieldName": "date_semis"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.date_semis": [
-          "value"
-        ]
-      }
+      "_nested_name": "date_semis"
     },
     {
       "type": "html",
@@ -794,28 +775,28 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "@calc('date_semis_parcelle_N⁰' + @fields.num_parcelle)",
+                "@calc('date_semis_parcelle_N' + @fields.num_parcelle)",
                 "@fields.date_semis"
               ],
-              "_raw": "click | set_field: @calc('date_semis_parcelle_N⁰' + @fields.num_parcelle) : @fields.date_semis"
+              "_raw": "click | set_field: @calc('date_semis_parcelle_N' + @fields.num_parcelle) : @fields.date_semis"
             },
             {
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "@calc('source_semence_parcelle_N⁰' + @fields.num_parcelle)",
+                "@calc('source_semence_parcelle_N' + @fields.num_parcelle)",
                 "@fields.source_semence"
               ],
-              "_raw": "click | set_field: @calc('source_semence_parcelle_N⁰' + @fields.num_parcelle) : @fields.source_semence"
+              "_raw": "click | set_field: @calc('source_semence_parcelle_N' + @fields.num_parcelle) : @fields.source_semence"
             },
             {
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "@calc('quantite_semence_parcelle_N⁰' + @fields.num_parcelle)",
+                "@calc('quantite_semence_parcelle_N' + @fields.num_parcelle)",
                 "@fields.quantite_semence"
               ],
-              "_raw": "click | set_field: @calc('quantite_semence_parcelle_N⁰' + @fields.num_parcelle) : @fields.quantite_semence"
+              "_raw": "click | set_field: @calc('quantite_semence_parcelle_N' + @fields.num_parcelle) : @fields.quantite_semence"
             },
             {
               "trigger": "click",
@@ -836,16 +817,16 @@
                 "args": {
                   "0": [
                     {
-                      "fullExpression": "@calc('date_semis_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('date_semis_parcelle_N' + @fields.num_parcelle)",
                       "matchedExpression": "@fields.num_parcelle",
                       "type": "fields",
                       "fieldName": "num_parcelle"
                     },
                     {
-                      "fullExpression": "@calc('date_semis_parcelle_N⁰' + @fields.num_parcelle)",
-                      "matchedExpression": "@calc('date_semis_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('date_semis_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('date_semis_parcelle_N' + @fields.num_parcelle)",
                       "type": "calc",
-                      "fieldName": "'date_semis_parcelle_N⁰' + @fields.num_parcelle"
+                      "fieldName": "'date_semis_parcelle_N' + @fields.num_parcelle"
                     }
                   ],
                   "1": [
@@ -859,13 +840,13 @@
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('date_semis_parcelle_N⁰' + @fields.num_parcelle) : @fields.date_semis",
+                    "fullExpression": "click | set_field: @calc('date_semis_parcelle_N' + @fields.num_parcelle) : @fields.date_semis",
                     "matchedExpression": "@fields.num_parcelle",
                     "type": "fields",
                     "fieldName": "num_parcelle"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('date_semis_parcelle_N⁰' + @fields.num_parcelle) : @fields.date_semis",
+                    "fullExpression": "click | set_field: @calc('date_semis_parcelle_N' + @fields.num_parcelle) : @fields.date_semis",
                     "matchedExpression": "@fields.date_semis",
                     "type": "fields",
                     "fieldName": "date_semis"
@@ -876,16 +857,16 @@
                 "args": {
                   "0": [
                     {
-                      "fullExpression": "@calc('source_semence_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('source_semence_parcelle_N' + @fields.num_parcelle)",
                       "matchedExpression": "@fields.num_parcelle",
                       "type": "fields",
                       "fieldName": "num_parcelle"
                     },
                     {
-                      "fullExpression": "@calc('source_semence_parcelle_N⁰' + @fields.num_parcelle)",
-                      "matchedExpression": "@calc('source_semence_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('source_semence_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('source_semence_parcelle_N' + @fields.num_parcelle)",
                       "type": "calc",
-                      "fieldName": "'source_semence_parcelle_N⁰' + @fields.num_parcelle"
+                      "fieldName": "'source_semence_parcelle_N' + @fields.num_parcelle"
                     }
                   ],
                   "1": [
@@ -899,13 +880,13 @@
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('source_semence_parcelle_N⁰' + @fields.num_parcelle) : @fields.source_semence",
+                    "fullExpression": "click | set_field: @calc('source_semence_parcelle_N' + @fields.num_parcelle) : @fields.source_semence",
                     "matchedExpression": "@fields.num_parcelle",
                     "type": "fields",
                     "fieldName": "num_parcelle"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('source_semence_parcelle_N⁰' + @fields.num_parcelle) : @fields.source_semence",
+                    "fullExpression": "click | set_field: @calc('source_semence_parcelle_N' + @fields.num_parcelle) : @fields.source_semence",
                     "matchedExpression": "@fields.source_semence",
                     "type": "fields",
                     "fieldName": "source_semence"
@@ -916,16 +897,16 @@
                 "args": {
                   "0": [
                     {
-                      "fullExpression": "@calc('quantite_semence_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('quantite_semence_parcelle_N' + @fields.num_parcelle)",
                       "matchedExpression": "@fields.num_parcelle",
                       "type": "fields",
                       "fieldName": "num_parcelle"
                     },
                     {
-                      "fullExpression": "@calc('quantite_semence_parcelle_N⁰' + @fields.num_parcelle)",
-                      "matchedExpression": "@calc('quantite_semence_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('quantite_semence_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('quantite_semence_parcelle_N' + @fields.num_parcelle)",
                       "type": "calc",
-                      "fieldName": "'quantite_semence_parcelle_N⁰' + @fields.num_parcelle"
+                      "fieldName": "'quantite_semence_parcelle_N' + @fields.num_parcelle"
                     }
                   ],
                   "1": [
@@ -939,13 +920,13 @@
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('quantite_semence_parcelle_N⁰' + @fields.num_parcelle) : @fields.quantite_semence",
+                    "fullExpression": "click | set_field: @calc('quantite_semence_parcelle_N' + @fields.num_parcelle) : @fields.quantite_semence",
                     "matchedExpression": "@fields.num_parcelle",
                     "type": "fields",
                     "fieldName": "num_parcelle"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('quantite_semence_parcelle_N⁰' + @fields.num_parcelle) : @fields.quantite_semence",
+                    "fullExpression": "click | set_field: @calc('quantite_semence_parcelle_N' + @fields.num_parcelle) : @fields.quantite_semence",
                     "matchedExpression": "@fields.quantite_semence",
                     "type": "fields",
                     "fieldName": "quantite_semence"
@@ -973,21 +954,21 @@
               "action_list.2.args.0",
               "action_list.2._raw"
             ],
-            "@calc('date_semis_parcelle_N⁰' + @fields.num_parcelle)": [
+            "@calc('date_semis_parcelle_N' + @fields.num_parcelle)": [
               "action_list.0.args.0"
             ],
             "@fields.date_semis": [
               "action_list.0.args.1",
               "action_list.0._raw"
             ],
-            "@calc('source_semence_parcelle_N⁰' + @fields.num_parcelle)": [
+            "@calc('source_semence_parcelle_N' + @fields.num_parcelle)": [
               "action_list.1.args.0"
             ],
             "@fields.source_semence": [
               "action_list.1.args.1",
               "action_list.1._raw"
             ],
-            "@calc('quantite_semence_parcelle_N⁰' + @fields.num_parcelle)": [
+            "@calc('quantite_semence_parcelle_N' + @fields.num_parcelle)": [
               "action_list.2.args.0"
             ],
             "@fields.quantite_semence": [

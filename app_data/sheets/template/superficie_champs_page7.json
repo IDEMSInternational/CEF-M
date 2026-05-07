@@ -264,6 +264,17 @@
       "_translations": {
         "value": {}
       },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "autre_cult_princip",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: autre_cult_princip: this.value"
+        }
+      ],
       "parameter_list": {
         "max_length": "30",
         "placeholder": "Entrez le nom de la culture"
@@ -352,7 +363,7 @@
         },
         {
           "type": "button",
-          "name": "page7_button_continue",
+          "name": "page7_button_continue_condition",
           "value": "Continuer",
           "_translations": {
             "value": {}
@@ -362,19 +373,19 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "@calc('cult_princip_parcelle_N⁰' + @fields.num_parcelle)",
-                "@fields.cult_princip"
+                "cult_princip",
+                "@fields.autre_cult_princip"
               ],
-              "_raw": "click | set_field: @calc('cult_princip_parcelle_N⁰' + @fields.num_parcelle) : @fields.cult_princip"
+              "_raw": "click | set_field: cult_princip: @fields.autre_cult_princip"
             },
             {
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "@calc('autre_cult_princip_parcelle_N⁰' + @fields.num_parcelle)",
-                "@fields.autre_cult_princip"
+                "@calc('cult_princip_parcelle_N' + @fields.num_parcelle)",
+                "@fields.cult_princip"
               ],
-              "_raw": "click | set_field: @calc('autre_cult_princip_parcelle_N⁰' + @fields.num_parcelle) : @fields.autre_cult_princip"
+              "_raw": "click | set_field: @calc('cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.cult_princip"
             },
             {
               "trigger": "click",
@@ -388,23 +399,44 @@
           "parameter_list": {
             "disabled": "!@local.completed_enabled"
           },
-          "_nested_name": "display_group_10.page7_button_continue",
+          "condition": "@fields.cult_princip == 'autre'",
+          "_nested_name": "display_group_10.page7_button_continue_condition",
           "_dynamicFields": {
             "action_list": {
               "0": {
                 "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@fields.autre_cult_princip",
+                      "matchedExpression": "@fields.autre_cult_princip",
+                      "type": "fields",
+                      "fieldName": "autre_cult_princip"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: cult_princip: @fields.autre_cult_princip",
+                    "matchedExpression": "@fields.autre_cult_princip",
+                    "type": "fields",
+                    "fieldName": "autre_cult_princip"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
                   "0": [
                     {
-                      "fullExpression": "@calc('cult_princip_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('cult_princip_parcelle_N' + @fields.num_parcelle)",
                       "matchedExpression": "@fields.num_parcelle",
                       "type": "fields",
                       "fieldName": "num_parcelle"
                     },
                     {
-                      "fullExpression": "@calc('cult_princip_parcelle_N⁰' + @fields.num_parcelle)",
-                      "matchedExpression": "@calc('cult_princip_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('cult_princip_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('cult_princip_parcelle_N' + @fields.num_parcelle)",
                       "type": "calc",
-                      "fieldName": "'cult_princip_parcelle_N⁰' + @fields.num_parcelle"
+                      "fieldName": "'cult_princip_parcelle_N' + @fields.num_parcelle"
                     }
                   ],
                   "1": [
@@ -418,13 +450,137 @@
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('cult_princip_parcelle_N⁰' + @fields.num_parcelle) : @fields.cult_princip",
+                    "fullExpression": "click | set_field: @calc('cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.cult_princip",
                     "matchedExpression": "@fields.num_parcelle",
                     "type": "fields",
                     "fieldName": "num_parcelle"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('cult_princip_parcelle_N⁰' + @fields.num_parcelle) : @fields.cult_princip",
+                    "fullExpression": "click | set_field: @calc('cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.cult_princip",
+                    "matchedExpression": "@fields.cult_princip",
+                    "type": "fields",
+                    "fieldName": "cult_princip"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            },
+            "condition": [
+              {
+                "fullExpression": "@fields.cult_princip == 'autre'",
+                "matchedExpression": "@fields.cult_princip",
+                "type": "fields",
+                "fieldName": "cult_princip"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.autre_cult_princip": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "@fields.num_parcelle": [
+              "action_list.1.args.0",
+              "action_list.1._raw"
+            ],
+            "@calc('cult_princip_parcelle_N' + @fields.num_parcelle)": [
+              "action_list.1.args.0"
+            ],
+            "@fields.cult_princip": [
+              "action_list.1.args.1",
+              "action_list.1._raw",
+              "condition"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "name": "page7_button_continue",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "@calc('cult_princip_parcelle_N' + @fields.num_parcelle)",
+                "@fields.cult_princip"
+              ],
+              "_raw": "click | set_field: @calc('cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.cult_princip"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "@calc('autre_cult_princip_parcelle_N' + @fields.num_parcelle)",
+                "@fields.autre_cult_princip"
+              ],
+              "_raw": "click | set_field: @calc('autre_cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.autre_cult_princip"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "condition": "@fields.cult_princip != 'autre'",
+          "_nested_name": "display_group_10.page7_button_continue",
+          "_dynamicFields": {
+            "action_list": {
+              "0": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "@calc('cult_princip_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@fields.num_parcelle",
+                      "type": "fields",
+                      "fieldName": "num_parcelle"
+                    },
+                    {
+                      "fullExpression": "@calc('cult_princip_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('cult_princip_parcelle_N' + @fields.num_parcelle)",
+                      "type": "calc",
+                      "fieldName": "'cult_princip_parcelle_N' + @fields.num_parcelle"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.cult_princip",
+                      "matchedExpression": "@fields.cult_princip",
+                      "type": "fields",
+                      "fieldName": "cult_princip"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: @calc('cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.cult_princip",
+                    "matchedExpression": "@fields.num_parcelle",
+                    "type": "fields",
+                    "fieldName": "num_parcelle"
+                  },
+                  {
+                    "fullExpression": "click | set_field: @calc('cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.cult_princip",
                     "matchedExpression": "@fields.cult_princip",
                     "type": "fields",
                     "fieldName": "cult_princip"
@@ -435,16 +591,16 @@
                 "args": {
                   "0": [
                     {
-                      "fullExpression": "@calc('autre_cult_princip_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('autre_cult_princip_parcelle_N' + @fields.num_parcelle)",
                       "matchedExpression": "@fields.num_parcelle",
                       "type": "fields",
                       "fieldName": "num_parcelle"
                     },
                     {
-                      "fullExpression": "@calc('autre_cult_princip_parcelle_N⁰' + @fields.num_parcelle)",
-                      "matchedExpression": "@calc('autre_cult_princip_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('autre_cult_princip_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('autre_cult_princip_parcelle_N' + @fields.num_parcelle)",
                       "type": "calc",
-                      "fieldName": "'autre_cult_princip_parcelle_N⁰' + @fields.num_parcelle"
+                      "fieldName": "'autre_cult_princip_parcelle_N' + @fields.num_parcelle"
                     }
                   ],
                   "1": [
@@ -458,13 +614,13 @@
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('autre_cult_princip_parcelle_N⁰' + @fields.num_parcelle) : @fields.autre_cult_princip",
+                    "fullExpression": "click | set_field: @calc('autre_cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.autre_cult_princip",
                     "matchedExpression": "@fields.num_parcelle",
                     "type": "fields",
                     "fieldName": "num_parcelle"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('autre_cult_princip_parcelle_N⁰' + @fields.num_parcelle) : @fields.autre_cult_princip",
+                    "fullExpression": "click | set_field: @calc('autre_cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.autre_cult_princip",
                     "matchedExpression": "@fields.autre_cult_princip",
                     "type": "fields",
                     "fieldName": "autre_cult_princip"
@@ -481,7 +637,15 @@
                   "fieldName": "completed_enabled"
                 }
               ]
-            }
+            },
+            "condition": [
+              {
+                "fullExpression": "@fields.cult_princip != 'autre'",
+                "matchedExpression": "@fields.cult_princip",
+                "type": "fields",
+                "fieldName": "cult_princip"
+              }
+            ]
           },
           "_dynamicDependencies": {
             "@fields.num_parcelle": [
@@ -490,14 +654,15 @@
               "action_list.1.args.0",
               "action_list.1._raw"
             ],
-            "@calc('cult_princip_parcelle_N⁰' + @fields.num_parcelle)": [
+            "@calc('cult_princip_parcelle_N' + @fields.num_parcelle)": [
               "action_list.0.args.0"
             ],
             "@fields.cult_princip": [
               "action_list.0.args.1",
-              "action_list.0._raw"
+              "action_list.0._raw",
+              "condition"
             ],
-            "@calc('autre_cult_princip_parcelle_N⁰' + @fields.num_parcelle)": [
+            "@calc('autre_cult_princip_parcelle_N' + @fields.num_parcelle)": [
               "action_list.1.args.0"
             ],
             "@fields.autre_cult_princip": [

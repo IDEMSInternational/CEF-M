@@ -1,0 +1,91 @@
+{
+  "flow_type": "template",
+  "flow_name": "superficie_champs_page14",
+  "status": "released",
+  "rows": [
+    {
+      "type": "subtitle",
+      "value": "**Superficie de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "**Superficie de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_19",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/sup_estim_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/sup_cult.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "text",
+      "value": "Donnez votre meilleure estimation de la superficie en Hectares (ha)"
+    },
+    {
+      "type": "text_box",
+      "name": "superficie_parcelle",
+      "value": "@fields.superficie_parcelle",
+      "action_list": "changed | set_field: superficie_parcelle: this.value;",
+      "parameter_list": "number_input: true\nplaceholder: Entrez la valeur;",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.superficie_parcelle "
+    },
+    {
+      "name": "valid_superficie_parcelle",
+      "value": "@calc((/^\\d+$/.test(@local.superficie_parcelle) && @local.superficie_parcelle>= 0 ) || @local.superficie_parcelle == '' || !@local.superficie_parcelle )",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "condition": "!@local.valid_superficie_parcelle",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "exclude_from_translation": "padding: 12px 24px;"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@fields.superficie_parcelle && @local.valid_superficie_parcelle",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "round_button",
+      "name": "page14_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page14_button_continue",
+      "value": "Continuer",
+      "action_list": "click | set_field: @calc('superficie_parcelle_N' + @fields.num_parcelle) : @fields.superficie_parcelle;\nclick | set_field: sum_total: @fields.sum_total + @local.superficie_parcelle;\nclick | emit: completed;",
+      "parameter_list": "disabled: !@local.completed_enabled"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "action_list": "data_changed | set_local : hp_unlocked_ids : @items.map(item => item.type)"
+    }
+  ]
+}

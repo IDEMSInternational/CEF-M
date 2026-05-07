@@ -1,0 +1,934 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_animaux_page4",
+  "status": "released",
+  "rows": [
+    {
+      "type": "subtitle",
+      "value": "**ESPÈCES ANIMALES DE L'UPA**",
+      "_translations": {
+        "value": {}
+      },
+      "name": "subtitle_2",
+      "_nested_name": "subtitle_2"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\"> @global.espece_animaux_hint </p>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_3",
+      "_nested_name": "html_3",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: black;\"> @global.espece_animaux_hint </p>",
+            "matchedExpression": "@global.espece_animaux_hint",
+            "type": "global",
+            "fieldName": "espece_animaux_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.espece_animaux_hint": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "value": "images/saison_paturage.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_4",
+      "_nested_name": "image_4"
+    },
+    {
+      "type": "text",
+      "value": "Séléctionnez les espèces animales de l'UPA",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_5",
+      "_nested_name": "text_5"
+    },
+    {
+      "name": "valid_cat_animaux",
+      "value": "@calc(!!@fields.boeufs_labour || !!@fields.embouche_bovine || !!@fields.vache_laitiere\n || !!@fields.autres_bovins || !!@fields.asins || !!@fields.embouche_ovine || !!@fields.reste_ovins | !!@fields.caprins)",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [],
+      "type": "set_variable",
+      "_nested_name": "valid_cat_animaux",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.boeufs_labour || !!@fields.embouche_bovine || !!@fields.vache_laitiere\n || !!@fields.autres_bovins || !!@fields.asins || !!@fields.embouche_ovine || !!@fields.reste_ovins | !!@fields.caprins)",
+            "matchedExpression": "!@fields.boeufs_labour",
+            "type": "fields",
+            "fieldName": "boeufs_labour"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.boeufs_labour || !!@fields.embouche_bovine || !!@fields.vache_laitiere\n || !!@fields.autres_bovins || !!@fields.asins || !!@fields.embouche_ovine || !!@fields.reste_ovins | !!@fields.caprins)",
+            "matchedExpression": "!@fields.embouche_bovine",
+            "type": "fields",
+            "fieldName": "embouche_bovine"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.boeufs_labour || !!@fields.embouche_bovine || !!@fields.vache_laitiere\n || !!@fields.autres_bovins || !!@fields.asins || !!@fields.embouche_ovine || !!@fields.reste_ovins | !!@fields.caprins)",
+            "matchedExpression": "!@fields.vache_laitiere",
+            "type": "fields",
+            "fieldName": "vache_laitiere"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.boeufs_labour || !!@fields.embouche_bovine || !!@fields.vache_laitiere\n || !!@fields.autres_bovins || !!@fields.asins || !!@fields.embouche_ovine || !!@fields.reste_ovins | !!@fields.caprins)",
+            "matchedExpression": "!@fields.autres_bovins",
+            "type": "fields",
+            "fieldName": "autres_bovins"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.boeufs_labour || !!@fields.embouche_bovine || !!@fields.vache_laitiere\n || !!@fields.autres_bovins || !!@fields.asins || !!@fields.embouche_ovine || !!@fields.reste_ovins | !!@fields.caprins)",
+            "matchedExpression": "!@fields.asins",
+            "type": "fields",
+            "fieldName": "asins"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.boeufs_labour || !!@fields.embouche_bovine || !!@fields.vache_laitiere\n || !!@fields.autres_bovins || !!@fields.asins || !!@fields.embouche_ovine || !!@fields.reste_ovins | !!@fields.caprins)",
+            "matchedExpression": "!@fields.embouche_ovine",
+            "type": "fields",
+            "fieldName": "embouche_ovine"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.boeufs_labour || !!@fields.embouche_bovine || !!@fields.vache_laitiere\n || !!@fields.autres_bovins || !!@fields.asins || !!@fields.embouche_ovine || !!@fields.reste_ovins | !!@fields.caprins)",
+            "matchedExpression": "!@fields.reste_ovins",
+            "type": "fields",
+            "fieldName": "reste_ovins"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.boeufs_labour || !!@fields.embouche_bovine || !!@fields.vache_laitiere\n || !!@fields.autres_bovins || !!@fields.asins || !!@fields.embouche_ovine || !!@fields.reste_ovins | !!@fields.caprins)",
+            "matchedExpression": "!@fields.caprins",
+            "type": "fields",
+            "fieldName": "caprins"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.boeufs_labour": [
+          "value"
+        ],
+        "!@fields.embouche_bovine": [
+          "value"
+        ],
+        "!@fields.vache_laitiere": [
+          "value"
+        ],
+        "!@fields.autres_bovins": [
+          "value"
+        ],
+        "!@fields.asins": [
+          "value"
+        ],
+        "!@fields.embouche_ovine": [
+          "value"
+        ],
+        "!@fields.reste_ovins": [
+          "value"
+        ],
+        "!@fields.caprins": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "data_items",
+      "value": "@data.categorie_animaux",
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "image",
+              "value": "@item.image",
+              "_translations": {
+                "value": {}
+              },
+              "style_list": [
+                "width:70px",
+                "height:70px",
+                "object-fit:contain",
+                "flex-shrink:0"
+              ],
+              "name": "image_1",
+              "_nested_name": "data_items_7.display_group_1_@item.id.image_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@item.image",
+                    "matchedExpression": "@item.image",
+                    "type": "item",
+                    "fieldName": "image"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_7.display_group_1_@item.id.image_1",
+                    "matchedExpression": "@item.id.image_1",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.image": [
+                  "value"
+                ],
+                "@item.id.image_1": [
+                  "_nested_name"
+                ]
+              }
+            },
+            {
+              "type": "simple_checkbox",
+              "name": "@item.name",
+              "value": "@fields.@item.name",
+              "_translations": {
+                "value": {}
+              },
+              "action_list": [
+                {
+                  "trigger": "changed",
+                  "action_id": "set_field",
+                  "args": [
+                    "@item.name",
+                    "!@fields.@item.name"
+                  ],
+                  "_raw": "changed | set_field: @item.name: !@fields.@item.name"
+                }
+              ],
+              "parameter_list": {
+                "label_text": "@item.text"
+              },
+              "exclude_from_translation": true,
+              "style_list": [
+                "margin-bottom: 10px"
+              ],
+              "_nested_name": "data_items_7.display_group_1_@item.id.@item.name",
+              "_dynamicFields": {
+                "name": [
+                  {
+                    "fullExpression": "@item.name",
+                    "matchedExpression": "@item.name",
+                    "type": "item",
+                    "fieldName": "name"
+                  }
+                ],
+                "value": [
+                  {
+                    "fullExpression": "@fields.@item.name",
+                    "matchedExpression": "@item.name",
+                    "type": "item",
+                    "fieldName": "name"
+                  }
+                ],
+                "action_list": {
+                  "0": {
+                    "args": {
+                      "0": [
+                        {
+                          "fullExpression": "@item.name",
+                          "matchedExpression": "@item.name",
+                          "type": "item",
+                          "fieldName": "name"
+                        }
+                      ],
+                      "1": [
+                        {
+                          "fullExpression": "!@fields.@item.name",
+                          "matchedExpression": "@item.name",
+                          "type": "item",
+                          "fieldName": "name"
+                        }
+                      ]
+                    },
+                    "_raw": [
+                      {
+                        "fullExpression": "changed | set_field: @item.name: !@fields.@item.name",
+                        "matchedExpression": "@item.name",
+                        "type": "item",
+                        "fieldName": "name"
+                      },
+                      {
+                        "fullExpression": "changed | set_field: @item.name: !@fields.@item.name",
+                        "matchedExpression": "@item.name",
+                        "type": "item",
+                        "fieldName": "name"
+                      }
+                    ]
+                  }
+                },
+                "parameter_list": {
+                  "label_text": [
+                    {
+                      "fullExpression": "@item.text",
+                      "matchedExpression": "@item.text",
+                      "type": "item",
+                      "fieldName": "text"
+                    }
+                  ]
+                },
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_7.display_group_1_@item.id.@item.name",
+                    "matchedExpression": "@item.id",
+                    "type": "item",
+                    "fieldName": "id"
+                  },
+                  {
+                    "fullExpression": "data_items_7.display_group_1_@item.id.@item.name",
+                    "matchedExpression": "@item.name",
+                    "type": "item",
+                    "fieldName": "name"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.name": [
+                  "name",
+                  "value",
+                  "action_list.0.args.0",
+                  "action_list.0.args.1",
+                  "action_list.0._raw",
+                  "action_list.0._raw",
+                  "_nested_name"
+                ],
+                "@item.text": [
+                  "parameter_list.label_text"
+                ],
+                "@item.id": [
+                  "_nested_name"
+                ]
+              }
+            }
+          ],
+          "name": "display_group_1_@item.id",
+          "_nested_name": "data_items_7.display_group_1_@item.id",
+          "_dynamicFields": {
+            "name": [
+              {
+                "fullExpression": "display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_7.display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        }
+      ],
+      "name": "data_items_7",
+      "_nested_name": "data_items_7",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@data.categorie_animaux",
+            "matchedExpression": "@data.categorie_animaux",
+            "type": "data",
+            "fieldName": "categorie_animaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@data.categorie_animaux": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "cat_animaux_selected",
+      "value": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null,@fields.embouche_bovine ? 'embouche_bovine' : null,@fields.vache_laitiere ? 'vache_laitiere' : null,@fields.autres_bovins ? 'autres_bovins' : null,@fields.asins ? 'asins' : null,@fields.embouche_ovine ? 'embouche_ovine' : null,@fields.reste_ovins ? 'reste_ovins' : null,@fields.caprins ? 'caprins' : null].filter(v => v !== null).join(','))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "cat_animaux_selected",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null,@fields.embouche_bovine ? 'embouche_bovine' : null,@fields.vache_laitiere ? 'vache_laitiere' : null,@fields.autres_bovins ? 'autres_bovins' : null,@fields.asins ? 'asins' : null,@fields.embouche_ovine ? 'embouche_ovine' : null,@fields.reste_ovins ? 'reste_ovins' : null,@fields.caprins ? 'caprins' : null].filter(v => v !== null).join(','))",
+            "matchedExpression": "@fields.boeufs_labour",
+            "type": "fields",
+            "fieldName": "boeufs_labour"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null,@fields.embouche_bovine ? 'embouche_bovine' : null,@fields.vache_laitiere ? 'vache_laitiere' : null,@fields.autres_bovins ? 'autres_bovins' : null,@fields.asins ? 'asins' : null,@fields.embouche_ovine ? 'embouche_ovine' : null,@fields.reste_ovins ? 'reste_ovins' : null,@fields.caprins ? 'caprins' : null].filter(v => v !== null).join(','))",
+            "matchedExpression": "@fields.embouche_bovine",
+            "type": "fields",
+            "fieldName": "embouche_bovine"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null,@fields.embouche_bovine ? 'embouche_bovine' : null,@fields.vache_laitiere ? 'vache_laitiere' : null,@fields.autres_bovins ? 'autres_bovins' : null,@fields.asins ? 'asins' : null,@fields.embouche_ovine ? 'embouche_ovine' : null,@fields.reste_ovins ? 'reste_ovins' : null,@fields.caprins ? 'caprins' : null].filter(v => v !== null).join(','))",
+            "matchedExpression": "@fields.vache_laitiere",
+            "type": "fields",
+            "fieldName": "vache_laitiere"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null,@fields.embouche_bovine ? 'embouche_bovine' : null,@fields.vache_laitiere ? 'vache_laitiere' : null,@fields.autres_bovins ? 'autres_bovins' : null,@fields.asins ? 'asins' : null,@fields.embouche_ovine ? 'embouche_ovine' : null,@fields.reste_ovins ? 'reste_ovins' : null,@fields.caprins ? 'caprins' : null].filter(v => v !== null).join(','))",
+            "matchedExpression": "@fields.autres_bovins",
+            "type": "fields",
+            "fieldName": "autres_bovins"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null,@fields.embouche_bovine ? 'embouche_bovine' : null,@fields.vache_laitiere ? 'vache_laitiere' : null,@fields.autres_bovins ? 'autres_bovins' : null,@fields.asins ? 'asins' : null,@fields.embouche_ovine ? 'embouche_ovine' : null,@fields.reste_ovins ? 'reste_ovins' : null,@fields.caprins ? 'caprins' : null].filter(v => v !== null).join(','))",
+            "matchedExpression": "@fields.asins",
+            "type": "fields",
+            "fieldName": "asins"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null,@fields.embouche_bovine ? 'embouche_bovine' : null,@fields.vache_laitiere ? 'vache_laitiere' : null,@fields.autres_bovins ? 'autres_bovins' : null,@fields.asins ? 'asins' : null,@fields.embouche_ovine ? 'embouche_ovine' : null,@fields.reste_ovins ? 'reste_ovins' : null,@fields.caprins ? 'caprins' : null].filter(v => v !== null).join(','))",
+            "matchedExpression": "@fields.embouche_ovine",
+            "type": "fields",
+            "fieldName": "embouche_ovine"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null,@fields.embouche_bovine ? 'embouche_bovine' : null,@fields.vache_laitiere ? 'vache_laitiere' : null,@fields.autres_bovins ? 'autres_bovins' : null,@fields.asins ? 'asins' : null,@fields.embouche_ovine ? 'embouche_ovine' : null,@fields.reste_ovins ? 'reste_ovins' : null,@fields.caprins ? 'caprins' : null].filter(v => v !== null).join(','))",
+            "matchedExpression": "@fields.reste_ovins",
+            "type": "fields",
+            "fieldName": "reste_ovins"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null,@fields.embouche_bovine ? 'embouche_bovine' : null,@fields.vache_laitiere ? 'vache_laitiere' : null,@fields.autres_bovins ? 'autres_bovins' : null,@fields.asins ? 'asins' : null,@fields.embouche_ovine ? 'embouche_ovine' : null,@fields.reste_ovins ? 'reste_ovins' : null,@fields.caprins ? 'caprins' : null].filter(v => v !== null).join(','))",
+            "matchedExpression": "@fields.caprins",
+            "type": "fields",
+            "fieldName": "caprins"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null,@fields.embouche_bovine ? 'embouche_bovine' : null,@fields.vache_laitiere ? 'vache_laitiere' : null,@fields.autres_bovins ? 'autres_bovins' : null,@fields.asins ? 'asins' : null,@fields.embouche_ovine ? 'embouche_ovine' : null,@fields.reste_ovins ? 'reste_ovins' : null,@fields.caprins ? 'caprins' : null].filter(v => v !== null).join(','))",
+            "matchedExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null,@fields.embouche_bovine ? 'embouche_bovine' : null,@fields.vache_laitiere ? 'vache_laitiere' : null,@fields.autres_bovins ? 'autres_bovins' : null,@fields.asins ? 'asins' : null,@fields.embouche_ovine ? 'embouche_ovine' : null,@fields.reste_ovins ? 'reste_ovins' : null,@fields.caprins ? 'caprins' : null].filter(v => v !== null).join(','))",
+            "type": "calc",
+            "fieldName": "[@fields.boeufs_labour ? 'boeufs_labour' : null,@fields.embouche_bovine ? 'embouche_bovine' : null,@fields.vache_laitiere ? 'vache_laitiere' : null,@fields.autres_bovins ? 'autres_bovins' : null,@fields.asins ? 'asins' : null,@fields.embouche_ovine ? 'embouche_ovine' : null,@fields.reste_ovins ? 'reste_ovins' : null,@fields.caprins ? 'caprins' : null].filter(v => v !== null).join(',')"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.boeufs_labour": [
+          "value"
+        ],
+        "@fields.embouche_bovine": [
+          "value"
+        ],
+        "@fields.vache_laitiere": [
+          "value"
+        ],
+        "@fields.autres_bovins": [
+          "value"
+        ],
+        "@fields.asins": [
+          "value"
+        ],
+        "@fields.embouche_ovine": [
+          "value"
+        ],
+        "@fields.reste_ovins": [
+          "value"
+        ],
+        "@fields.caprins": [
+          "value"
+        ],
+        "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null,@fields.embouche_bovine ? 'embouche_bovine' : null,@fields.vache_laitiere ? 'vache_laitiere' : null,@fields.autres_bovins ? 'autres_bovins' : null,@fields.asins ? 'asins' : null,@fields.embouche_ovine ? 'embouche_ovine' : null,@fields.reste_ovins ? 'reste_ovins' : null,@fields.caprins ? 'caprins' : null].filter(v => v !== null).join(','))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "cat_animaux_selected_count",
+      "value": "@calc([@fields.boeufs_labour,@fields.embouche_bovine,@fields.vache_laitiere,@fields.autres_bovins,@fields.asins,@fields.embouche_ovine,@fields.reste_ovins,@fields.caprins].filter(v=>!!v).length)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "cat_animaux_selected_count",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour,@fields.embouche_bovine,@fields.vache_laitiere,@fields.autres_bovins,@fields.asins,@fields.embouche_ovine,@fields.reste_ovins,@fields.caprins].filter(v=>!!v).length)",
+            "matchedExpression": "@fields.boeufs_labour",
+            "type": "fields",
+            "fieldName": "boeufs_labour"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour,@fields.embouche_bovine,@fields.vache_laitiere,@fields.autres_bovins,@fields.asins,@fields.embouche_ovine,@fields.reste_ovins,@fields.caprins].filter(v=>!!v).length)",
+            "matchedExpression": "@fields.embouche_bovine",
+            "type": "fields",
+            "fieldName": "embouche_bovine"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour,@fields.embouche_bovine,@fields.vache_laitiere,@fields.autres_bovins,@fields.asins,@fields.embouche_ovine,@fields.reste_ovins,@fields.caprins].filter(v=>!!v).length)",
+            "matchedExpression": "@fields.vache_laitiere",
+            "type": "fields",
+            "fieldName": "vache_laitiere"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour,@fields.embouche_bovine,@fields.vache_laitiere,@fields.autres_bovins,@fields.asins,@fields.embouche_ovine,@fields.reste_ovins,@fields.caprins].filter(v=>!!v).length)",
+            "matchedExpression": "@fields.autres_bovins",
+            "type": "fields",
+            "fieldName": "autres_bovins"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour,@fields.embouche_bovine,@fields.vache_laitiere,@fields.autres_bovins,@fields.asins,@fields.embouche_ovine,@fields.reste_ovins,@fields.caprins].filter(v=>!!v).length)",
+            "matchedExpression": "@fields.asins",
+            "type": "fields",
+            "fieldName": "asins"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour,@fields.embouche_bovine,@fields.vache_laitiere,@fields.autres_bovins,@fields.asins,@fields.embouche_ovine,@fields.reste_ovins,@fields.caprins].filter(v=>!!v).length)",
+            "matchedExpression": "@fields.embouche_ovine",
+            "type": "fields",
+            "fieldName": "embouche_ovine"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour,@fields.embouche_bovine,@fields.vache_laitiere,@fields.autres_bovins,@fields.asins,@fields.embouche_ovine,@fields.reste_ovins,@fields.caprins].filter(v=>!!v).length)",
+            "matchedExpression": "@fields.reste_ovins",
+            "type": "fields",
+            "fieldName": "reste_ovins"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour,@fields.embouche_bovine,@fields.vache_laitiere,@fields.autres_bovins,@fields.asins,@fields.embouche_ovine,@fields.reste_ovins,@fields.caprins].filter(v=>!!v).length)",
+            "matchedExpression": "@fields.caprins",
+            "type": "fields",
+            "fieldName": "caprins"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour,@fields.embouche_bovine,@fields.vache_laitiere,@fields.autres_bovins,@fields.asins,@fields.embouche_ovine,@fields.reste_ovins,@fields.caprins].filter(v=>!!v).length)",
+            "matchedExpression": "@calc([@fields.boeufs_labour,@fields.embouche_bovine,@fields.vache_laitiere,@fields.autres_bovins,@fields.asins,@fields.embouche_ovine,@fields.reste_ovins,@fields.caprins].filter(v=>!!v).length)",
+            "type": "calc",
+            "fieldName": "[@fields.boeufs_labour,@fields.embouche_bovine,@fields.vache_laitiere,@fields.autres_bovins,@fields.asins,@fields.embouche_ovine,@fields.reste_ovins,@fields.caprins].filter(v=>!!v).length"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.boeufs_labour": [
+          "value"
+        ],
+        "@fields.embouche_bovine": [
+          "value"
+        ],
+        "@fields.vache_laitiere": [
+          "value"
+        ],
+        "@fields.autres_bovins": [
+          "value"
+        ],
+        "@fields.asins": [
+          "value"
+        ],
+        "@fields.embouche_ovine": [
+          "value"
+        ],
+        "@fields.reste_ovins": [
+          "value"
+        ],
+        "@fields.caprins": [
+          "value"
+        ],
+        "@calc([@fields.boeufs_labour,@fields.embouche_bovine,@fields.vache_laitiere,@fields.autres_bovins,@fields.asins,@fields.embouche_ovine,@fields.reste_ovins,@fields.caprins].filter(v=>!!v).length)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "current_cat_animaux",
+      "value": "@calc(@fields.boeufs_labour ? 'boeufs_labour' :(@fields.embouche_bovine ? 'embouche_bovine' :(@fields.vache_laitiere ? 'vache_laitiere' :(@fields.autres_bovins ? 'autres_bovins' :(@fields.asins ? 'asins' :(@fields.embouche_ovine ? 'embouche_ovine' :(@fields.reste_ovins ? 'reste_ovins' :(@fields.caprins ? 'caprins' :''))))))))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "current_cat_animaux",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@fields.boeufs_labour ? 'boeufs_labour' :(@fields.embouche_bovine ? 'embouche_bovine' :(@fields.vache_laitiere ? 'vache_laitiere' :(@fields.autres_bovins ? 'autres_bovins' :(@fields.asins ? 'asins' :(@fields.embouche_ovine ? 'embouche_ovine' :(@fields.reste_ovins ? 'reste_ovins' :(@fields.caprins ? 'caprins' :''))))))))",
+            "matchedExpression": "@fields.boeufs_labour",
+            "type": "fields",
+            "fieldName": "boeufs_labour"
+          },
+          {
+            "fullExpression": "@calc(@fields.boeufs_labour ? 'boeufs_labour' :(@fields.embouche_bovine ? 'embouche_bovine' :(@fields.vache_laitiere ? 'vache_laitiere' :(@fields.autres_bovins ? 'autres_bovins' :(@fields.asins ? 'asins' :(@fields.embouche_ovine ? 'embouche_ovine' :(@fields.reste_ovins ? 'reste_ovins' :(@fields.caprins ? 'caprins' :''))))))))",
+            "matchedExpression": "@fields.embouche_bovine",
+            "type": "fields",
+            "fieldName": "embouche_bovine"
+          },
+          {
+            "fullExpression": "@calc(@fields.boeufs_labour ? 'boeufs_labour' :(@fields.embouche_bovine ? 'embouche_bovine' :(@fields.vache_laitiere ? 'vache_laitiere' :(@fields.autres_bovins ? 'autres_bovins' :(@fields.asins ? 'asins' :(@fields.embouche_ovine ? 'embouche_ovine' :(@fields.reste_ovins ? 'reste_ovins' :(@fields.caprins ? 'caprins' :''))))))))",
+            "matchedExpression": "@fields.vache_laitiere",
+            "type": "fields",
+            "fieldName": "vache_laitiere"
+          },
+          {
+            "fullExpression": "@calc(@fields.boeufs_labour ? 'boeufs_labour' :(@fields.embouche_bovine ? 'embouche_bovine' :(@fields.vache_laitiere ? 'vache_laitiere' :(@fields.autres_bovins ? 'autres_bovins' :(@fields.asins ? 'asins' :(@fields.embouche_ovine ? 'embouche_ovine' :(@fields.reste_ovins ? 'reste_ovins' :(@fields.caprins ? 'caprins' :''))))))))",
+            "matchedExpression": "@fields.autres_bovins",
+            "type": "fields",
+            "fieldName": "autres_bovins"
+          },
+          {
+            "fullExpression": "@calc(@fields.boeufs_labour ? 'boeufs_labour' :(@fields.embouche_bovine ? 'embouche_bovine' :(@fields.vache_laitiere ? 'vache_laitiere' :(@fields.autres_bovins ? 'autres_bovins' :(@fields.asins ? 'asins' :(@fields.embouche_ovine ? 'embouche_ovine' :(@fields.reste_ovins ? 'reste_ovins' :(@fields.caprins ? 'caprins' :''))))))))",
+            "matchedExpression": "@fields.asins",
+            "type": "fields",
+            "fieldName": "asins"
+          },
+          {
+            "fullExpression": "@calc(@fields.boeufs_labour ? 'boeufs_labour' :(@fields.embouche_bovine ? 'embouche_bovine' :(@fields.vache_laitiere ? 'vache_laitiere' :(@fields.autres_bovins ? 'autres_bovins' :(@fields.asins ? 'asins' :(@fields.embouche_ovine ? 'embouche_ovine' :(@fields.reste_ovins ? 'reste_ovins' :(@fields.caprins ? 'caprins' :''))))))))",
+            "matchedExpression": "@fields.embouche_ovine",
+            "type": "fields",
+            "fieldName": "embouche_ovine"
+          },
+          {
+            "fullExpression": "@calc(@fields.boeufs_labour ? 'boeufs_labour' :(@fields.embouche_bovine ? 'embouche_bovine' :(@fields.vache_laitiere ? 'vache_laitiere' :(@fields.autres_bovins ? 'autres_bovins' :(@fields.asins ? 'asins' :(@fields.embouche_ovine ? 'embouche_ovine' :(@fields.reste_ovins ? 'reste_ovins' :(@fields.caprins ? 'caprins' :''))))))))",
+            "matchedExpression": "@fields.reste_ovins",
+            "type": "fields",
+            "fieldName": "reste_ovins"
+          },
+          {
+            "fullExpression": "@calc(@fields.boeufs_labour ? 'boeufs_labour' :(@fields.embouche_bovine ? 'embouche_bovine' :(@fields.vache_laitiere ? 'vache_laitiere' :(@fields.autres_bovins ? 'autres_bovins' :(@fields.asins ? 'asins' :(@fields.embouche_ovine ? 'embouche_ovine' :(@fields.reste_ovins ? 'reste_ovins' :(@fields.caprins ? 'caprins' :''))))))))",
+            "matchedExpression": "@fields.caprins",
+            "type": "fields",
+            "fieldName": "caprins"
+          },
+          {
+            "fullExpression": "@calc(@fields.boeufs_labour ? 'boeufs_labour' :(@fields.embouche_bovine ? 'embouche_bovine' :(@fields.vache_laitiere ? 'vache_laitiere' :(@fields.autres_bovins ? 'autres_bovins' :(@fields.asins ? 'asins' :(@fields.embouche_ovine ? 'embouche_ovine' :(@fields.reste_ovins ? 'reste_ovins' :(@fields.caprins ? 'caprins' :''))))))))",
+            "matchedExpression": "@calc(@fields.boeufs_labour ? 'boeufs_labour' :(@fields.embouche_bovine ? 'embouche_bovine' :(@fields.vache_laitiere ? 'vache_laitiere' :(@fields.autres_bovins ? 'autres_bovins' :(@fields.asins ? 'asins' :(@fields.embouche_ovine ? 'embouche_ovine' :(@fields.reste_ovins ? 'reste_ovins' :(@fields.caprins ? 'caprins' :''))))))))",
+            "type": "calc",
+            "fieldName": "@fields.boeufs_labour ? 'boeufs_labour' :(@fields.embouche_bovine ? 'embouche_bovine' :(@fields.vache_laitiere ? 'vache_laitiere' :(@fields.autres_bovins ? 'autres_bovins' :(@fields.asins ? 'asins' :(@fields.embouche_ovine ? 'embouche_ovine' :(@fields.reste_ovins ? 'reste_ovins' :(@fields.caprins ? 'caprins' :'')))))))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.boeufs_labour": [
+          "value"
+        ],
+        "@fields.embouche_bovine": [
+          "value"
+        ],
+        "@fields.vache_laitiere": [
+          "value"
+        ],
+        "@fields.autres_bovins": [
+          "value"
+        ],
+        "@fields.asins": [
+          "value"
+        ],
+        "@fields.embouche_ovine": [
+          "value"
+        ],
+        "@fields.reste_ovins": [
+          "value"
+        ],
+        "@fields.caprins": [
+          "value"
+        ],
+        "@calc(@fields.boeufs_labour ? 'boeufs_labour' :(@fields.embouche_bovine ? 'embouche_bovine' :(@fields.vache_laitiere ? 'vache_laitiere' :(@fields.autres_bovins ? 'autres_bovins' :(@fields.asins ? 'asins' :(@fields.embouche_ovine ? 'embouche_ovine' :(@fields.reste_ovins ? 'reste_ovins' :(@fields.caprins ? 'caprins' :''))))))))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.valid_espece_animaux",
+      "name": "html_12",
+      "_nested_name": "html_12",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@local.valid_espece_animaux",
+            "matchedExpression": "@local.valid_espece_animaux",
+            "type": "local",
+            "fieldName": "valid_espece_animaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "@local.valid_espece_animaux": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.valid_cat_animaux",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@local.valid_cat_animaux",
+            "matchedExpression": "@local.valid_cat_animaux",
+            "type": "local",
+            "fieldName": "valid_cat_animaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.valid_cat_animaux": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "cat_animaux_loop_idx",
+      "value": 0,
+      "type": "set_variable",
+      "_nested_name": "cat_animaux_loop_idx"
+    },
+    {
+      "type": "display_group",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page4_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "display_group_15.page4_button_back"
+        },
+        {
+          "type": "button",
+          "name": "page4_button_continue",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cat_animaux_selected",
+                "@local.cat_animaux_selected"
+              ],
+              "_raw": "click | set_field: cat_animaux_selected : @local.cat_animaux_selected"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cat_animaux_selected_count",
+                "@local.cat_animaux_selected_count"
+              ],
+              "_raw": "click | set_field: cat_animaux_selected_count : @local.cat_animaux_selected_count"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "current_cat_animaux",
+                "@local.current_cat_animaux"
+              ],
+              "_raw": "click | set_field: current_cat_animaux: @local.current_cat_animaux"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cat_animaux_loop_idx",
+                "@local.cat_animaux_loop_idx"
+              ],
+              "_raw": "click | set_field: cat_animaux_loop_idx : @local.cat_animaux_loop_idx"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "_nested_name": "display_group_15.page4_button_continue",
+          "_dynamicFields": {
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.cat_animaux_selected",
+                      "matchedExpression": "@local.cat_animaux_selected",
+                      "type": "local",
+                      "fieldName": "cat_animaux_selected"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: cat_animaux_selected : @local.cat_animaux_selected",
+                    "matchedExpression": "@local.cat_animaux_selected",
+                    "type": "local",
+                    "fieldName": "cat_animaux_selected"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.cat_animaux_selected_count",
+                      "matchedExpression": "@local.cat_animaux_selected_count",
+                      "type": "local",
+                      "fieldName": "cat_animaux_selected_count"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: cat_animaux_selected_count : @local.cat_animaux_selected_count",
+                    "matchedExpression": "@local.cat_animaux_selected_count",
+                    "type": "local",
+                    "fieldName": "cat_animaux_selected_count"
+                  }
+                ]
+              },
+              "2": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.current_cat_animaux",
+                      "matchedExpression": "@local.current_cat_animaux",
+                      "type": "local",
+                      "fieldName": "current_cat_animaux"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: current_cat_animaux: @local.current_cat_animaux",
+                    "matchedExpression": "@local.current_cat_animaux",
+                    "type": "local",
+                    "fieldName": "current_cat_animaux"
+                  }
+                ]
+              },
+              "3": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.cat_animaux_loop_idx",
+                      "matchedExpression": "@local.cat_animaux_loop_idx",
+                      "type": "local",
+                      "fieldName": "cat_animaux_loop_idx"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: cat_animaux_loop_idx : @local.cat_animaux_loop_idx",
+                    "matchedExpression": "@local.cat_animaux_loop_idx",
+                    "type": "local",
+                    "fieldName": "cat_animaux_loop_idx"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@local.cat_animaux_selected": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "@local.cat_animaux_selected_count": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
+            "@local.current_cat_animaux": [
+              "action_list.2.args.1",
+              "action_list.2._raw"
+            ],
+            "@local.cat_animaux_loop_idx": [
+              "action_list.3.args.1",
+              "action_list.3._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_15",
+      "_nested_name": "display_group_15"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/besoins_animaux_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1U46sOmNeVPbt-HeQiPvQBjmJoqzQnjrSCBu93Ydt7Iw"
+  }
+}

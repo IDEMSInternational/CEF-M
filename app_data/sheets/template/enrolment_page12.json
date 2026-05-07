@@ -16,8 +16,8 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "Nombre de boeufs de labour*",
+          "type": "html",
+          "value": "Nombre de boeufs de labour<span style=\"color: red;\">*</span>",
           "_translations": {
             "value": {}
           },
@@ -25,26 +25,43 @@
             "style": "contextual"
           },
           "exclude_from_translation": true,
-          "name": "text_1",
-          "_nested_name": "display_group_3.text_1"
+          "style_list": [
+            "font-size:20px"
+          ],
+          "name": "html_1",
+          "_nested_name": "display_group_3.html_1"
         },
         {
-          "type": "image",
-          "value": "images/boeuf_labour.jpg",
-          "_translations": {
-            "value": {}
+          "type": "audio",
+          "name": "boeuf_labour",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/boeuf_lab_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
+          "exclude_from_translation": true,
           "style_list": [
-            "width: 150px",
-            "height: 150px",
-            "object-fit: cover"
+            "align-self: flex-end"
           ],
-          "name": "image_2",
-          "_nested_name": "display_group_3.image_2"
+          "_nested_name": "display_group_3.boeuf_labour"
         }
       ],
       "name": "display_group_3",
       "_nested_name": "display_group_3"
+    },
+    {
+      "type": "image",
+      "value": "images/boeuf_labour.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 120px",
+        "height: 120px",
+        "object-fit: cover"
+      ],
+      "name": "image_5",
+      "_nested_name": "image_5"
     },
     {
       "name": "valid_nombre_boeuf_labour",
@@ -119,7 +136,7 @@
           },
           "condition": "!!@field.nombre_boeuf_labour",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_5.nombre_boeuf_labour",
+          "_nested_name": "display_group_6.nombre_boeuf_labour",
           "_dynamicFields": {
             "value": [
               {
@@ -156,7 +173,7 @@
           },
           "condition": "!@field.nombre_boeuf_labour",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_5.nombre_boeuf_labour",
+          "_nested_name": "display_group_6.nombre_boeuf_labour",
           "_dynamicFields": {
             "condition": [
               {
@@ -172,24 +189,46 @@
               "condition"
             ]
           }
-        },
-        {
-          "type": "audio",
-          "name": "boeuf_labour",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Enrolement/boeuf_lab_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "align-self: flex-end"
-          ],
-          "_nested_name": "display_group_5.boeuf_labour"
         }
       ],
-      "name": "display_group_5",
-      "_nested_name": "display_group_5"
+      "name": "display_group_6",
+      "_nested_name": "display_group_6"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.nombre_boeuf_labour",
+      "name": "html_8",
+      "_nested_name": "html_8",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.nombre_boeuf_labour",
+            "matchedExpression": "!@local.nombre_boeuf_labour",
+            "type": "local",
+            "fieldName": "nombre_boeuf_labour"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@local.nombre_boeuf_labour": [
+          "condition"
+        ]
+      }
     },
     {
       "type": "text",
@@ -203,8 +242,8 @@
         "color: #FF0000",
         "font-size: 14px"
       ],
-      "name": "text_7",
-      "_nested_name": "text_7",
+      "name": "text_9",
+      "_nested_name": "text_9",
       "_dynamicFields": {
         "condition": [
           {
@@ -225,8 +264,8 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "Nombre de taureaux*",
+          "type": "html",
+          "value": "Nombre de taureaux<span style=\"color: red;\">*</span>",
           "_translations": {
             "value": {}
           },
@@ -234,26 +273,43 @@
             "style": "contextual"
           },
           "exclude_from_translation": true,
-          "name": "text_1",
-          "_nested_name": "display_group_8.text_1"
+          "style_list": [
+            "font-size:20px"
+          ],
+          "name": "html_1",
+          "_nested_name": "display_group_10.html_1"
         },
         {
-          "type": "image",
-          "value": "images/taureau.jpg",
-          "_translations": {
-            "value": {}
+          "type": "audio",
+          "name": "taureau",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/tauro_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
+          "exclude_from_translation": true,
           "style_list": [
-            "width: 150px",
-            "height: 150px",
-            "object-fit: cover"
+            "align-self: flex-end"
           ],
-          "name": "image_2",
-          "_nested_name": "display_group_8.image_2"
+          "_nested_name": "display_group_10.taureau"
         }
       ],
-      "name": "display_group_8",
-      "_nested_name": "display_group_8"
+      "name": "display_group_10",
+      "_nested_name": "display_group_10"
+    },
+    {
+      "type": "image",
+      "value": "images/taureau.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 120px",
+        "height: 120px",
+        "object-fit: cover"
+      ],
+      "name": "image_12",
+      "_nested_name": "image_12"
     },
     {
       "name": "valid_nombre_taureaux",
@@ -328,7 +384,7 @@
           },
           "condition": "!!@field.nombre_taureaux",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_10.nombre_taureaux",
+          "_nested_name": "display_group_13.nombre_taureaux",
           "_dynamicFields": {
             "value": [
               {
@@ -365,7 +421,7 @@
           },
           "condition": "!@field.nombre_taureaux",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_10.nombre_taureaux",
+          "_nested_name": "display_group_13.nombre_taureaux",
           "_dynamicFields": {
             "condition": [
               {
@@ -381,24 +437,46 @@
               "condition"
             ]
           }
-        },
-        {
-          "type": "audio",
-          "name": "taureau",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Enrolement/tauro_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "align-self: flex-end"
-          ],
-          "_nested_name": "display_group_10.taureau"
         }
       ],
-      "name": "display_group_10",
-      "_nested_name": "display_group_10"
+      "name": "display_group_13",
+      "_nested_name": "display_group_13"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.nombre_taureaux",
+      "name": "html_15",
+      "_nested_name": "html_15",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.nombre_taureaux",
+            "matchedExpression": "!@local.nombre_taureaux",
+            "type": "local",
+            "fieldName": "nombre_taureaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@local.nombre_taureaux": [
+          "condition"
+        ]
+      }
     },
     {
       "type": "text",
@@ -412,8 +490,8 @@
         "color: #FF0000",
         "font-size: 14px"
       ],
-      "name": "text_12",
-      "_nested_name": "text_12",
+      "name": "text_16",
+      "_nested_name": "text_16",
       "_dynamicFields": {
         "condition": [
           {
@@ -434,8 +512,8 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "Nombre de vaches taries*",
+          "type": "html",
+          "value": "Nombre de vaches taries<span style=\"color: red;\">*</span>",
           "_translations": {
             "value": {}
           },
@@ -443,21 +521,43 @@
             "style": "contextual"
           },
           "exclude_from_translation": true,
-          "name": "text_1",
-          "_nested_name": "display_group_13.text_1"
+          "style_list": [
+            "font-size:20px"
+          ],
+          "name": "html_1",
+          "_nested_name": "display_group_17.html_1"
         },
         {
-          "type": "image",
-          "value": "images/vache_tarie.jpg",
-          "_translations": {
-            "value": {}
+          "type": "audio",
+          "name": "vache_tarie",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/vach_tarie_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
-          "name": "image_2",
-          "_nested_name": "display_group_13.image_2"
+          "exclude_from_translation": true,
+          "style_list": [
+            "align-self: flex-end"
+          ],
+          "_nested_name": "display_group_17.vache_tarie"
         }
       ],
-      "name": "display_group_13",
-      "_nested_name": "display_group_13"
+      "name": "display_group_17",
+      "_nested_name": "display_group_17"
+    },
+    {
+      "type": "image",
+      "value": "images/vache_tarie.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 120px",
+        "height: 120px",
+        "object-fit: cover"
+      ],
+      "name": "image_19",
+      "_nested_name": "image_19"
     },
     {
       "name": "valid_nombre_vaches_taries",
@@ -532,7 +632,7 @@
           },
           "condition": "!!@field.nombre_vaches_taries",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_15.nombre_vaches_taries",
+          "_nested_name": "display_group_20.nombre_vaches_taries",
           "_dynamicFields": {
             "value": [
               {
@@ -569,7 +669,7 @@
           },
           "condition": "!@field.nombre_vaches_taries",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_15.nombre_vaches_taries",
+          "_nested_name": "display_group_20.nombre_vaches_taries",
           "_dynamicFields": {
             "condition": [
               {
@@ -585,24 +685,46 @@
               "condition"
             ]
           }
-        },
-        {
-          "type": "audio",
-          "name": "vache_tarie",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Enrolement/vach_tarie_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "align-self: flex-end"
-          ],
-          "_nested_name": "display_group_15.vache_tarie"
         }
       ],
-      "name": "display_group_15",
-      "_nested_name": "display_group_15"
+      "name": "display_group_20",
+      "_nested_name": "display_group_20"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.nombre_vaches_taries",
+      "name": "html_22",
+      "_nested_name": "html_22",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.nombre_vaches_taries",
+            "matchedExpression": "!@local.nombre_vaches_taries",
+            "type": "local",
+            "fieldName": "nombre_vaches_taries"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@local.nombre_vaches_taries": [
+          "condition"
+        ]
+      }
     },
     {
       "type": "text",
@@ -616,8 +738,8 @@
         "color: #FF0000",
         "font-size: 14px"
       ],
-      "name": "text_17",
-      "_nested_name": "text_17",
+      "name": "text_23",
+      "_nested_name": "text_23",
       "_dynamicFields": {
         "condition": [
           {
@@ -638,8 +760,8 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "Nombre de vaches laitières*",
+          "type": "html",
+          "value": "Nombre de vaches laitières<span style=\"color: red;\">*</span>",
           "_translations": {
             "value": {}
           },
@@ -647,21 +769,43 @@
             "style": "contextual"
           },
           "exclude_from_translation": true,
-          "name": "text_1",
-          "_nested_name": "display_group_18.text_1"
+          "style_list": [
+            "font-size:20px"
+          ],
+          "name": "html_1",
+          "_nested_name": "display_group_24.html_1"
         },
         {
-          "type": "image",
-          "value": "images/vache_lait.jpg",
-          "_translations": {
-            "value": {}
+          "type": "audio",
+          "name": "vache_lait",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/vach_lait_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
-          "name": "image_2",
-          "_nested_name": "display_group_18.image_2"
+          "exclude_from_translation": true,
+          "style_list": [
+            "align-self: flex-end"
+          ],
+          "_nested_name": "display_group_24.vache_lait"
         }
       ],
-      "name": "display_group_18",
-      "_nested_name": "display_group_18"
+      "name": "display_group_24",
+      "_nested_name": "display_group_24"
+    },
+    {
+      "type": "image",
+      "value": "images/vache_lait.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 120px",
+        "height: 120px",
+        "object-fit: cover"
+      ],
+      "name": "image_26",
+      "_nested_name": "image_26"
     },
     {
       "name": "valid_nombre_vaches_laitieres",
@@ -736,7 +880,7 @@
           },
           "condition": "!!@field.nombre_vaches_laitieres",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_20.nombre_vaches_laitieres",
+          "_nested_name": "display_group_27.nombre_vaches_laitieres",
           "_dynamicFields": {
             "value": [
               {
@@ -773,7 +917,7 @@
           },
           "condition": "!@field.nombre_vaches_laitieres",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_20.nombre_vaches_laitieres",
+          "_nested_name": "display_group_27.nombre_vaches_laitieres",
           "_dynamicFields": {
             "condition": [
               {
@@ -789,24 +933,46 @@
               "condition"
             ]
           }
-        },
-        {
-          "type": "audio",
-          "name": "vache_lait",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Enrolement/vach_lait_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "align-self: flex-end"
-          ],
-          "_nested_name": "display_group_20.vache_lait"
         }
       ],
-      "name": "display_group_20",
-      "_nested_name": "display_group_20"
+      "name": "display_group_27",
+      "_nested_name": "display_group_27"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.nombre_vaches_laitieres",
+      "name": "html_29",
+      "_nested_name": "html_29",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.nombre_vaches_laitieres",
+            "matchedExpression": "!@local.nombre_vaches_laitieres",
+            "type": "local",
+            "fieldName": "nombre_vaches_laitieres"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@local.nombre_vaches_laitieres": [
+          "condition"
+        ]
+      }
     },
     {
       "type": "text",
@@ -820,8 +986,8 @@
         "color: #FF0000",
         "font-size: 14px"
       ],
-      "name": "text_22",
-      "_nested_name": "text_22",
+      "name": "text_30",
+      "_nested_name": "text_30",
       "_dynamicFields": {
         "condition": [
           {
@@ -842,8 +1008,8 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "Nombre de génisses*",
+          "type": "html",
+          "value": "Nombre de génisses<span style=\"color: red;\">*</span>",
           "_translations": {
             "value": {}
           },
@@ -851,21 +1017,43 @@
             "style": "contextual"
           },
           "exclude_from_translation": true,
-          "name": "text_1",
-          "_nested_name": "display_group_23.text_1"
+          "style_list": [
+            "font-size:20px"
+          ],
+          "name": "html_1",
+          "_nested_name": "display_group_31.html_1"
         },
         {
-          "type": "image",
-          "value": "images/genisse.jpg",
-          "_translations": {
-            "value": {}
+          "type": "audio",
+          "name": "genisse",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/genise_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
-          "name": "image_2",
-          "_nested_name": "display_group_23.image_2"
+          "exclude_from_translation": true,
+          "style_list": [
+            "align-self: flex-end"
+          ],
+          "_nested_name": "display_group_31.genisse"
         }
       ],
-      "name": "display_group_23",
-      "_nested_name": "display_group_23"
+      "name": "display_group_31",
+      "_nested_name": "display_group_31"
+    },
+    {
+      "type": "image",
+      "value": "images/genisse.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 120px",
+        "height: 120px",
+        "object-fit: cover"
+      ],
+      "name": "image_33",
+      "_nested_name": "image_33"
     },
     {
       "name": "valid_nombre_genisses",
@@ -940,7 +1128,7 @@
           },
           "condition": "!!@field.nombre_genisses",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_25.nombre_genisses",
+          "_nested_name": "display_group_34.nombre_genisses",
           "_dynamicFields": {
             "value": [
               {
@@ -977,7 +1165,7 @@
           },
           "condition": "!@field.nombre_genisses",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_25.nombre_genisses",
+          "_nested_name": "display_group_34.nombre_genisses",
           "_dynamicFields": {
             "condition": [
               {
@@ -993,24 +1181,46 @@
               "condition"
             ]
           }
-        },
-        {
-          "type": "audio",
-          "name": "genisse",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Enrolement/genise_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "align-self: flex-end"
-          ],
-          "_nested_name": "display_group_25.genisse"
         }
       ],
-      "name": "display_group_25",
-      "_nested_name": "display_group_25"
+      "name": "display_group_34",
+      "_nested_name": "display_group_34"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.nombre_genisses",
+      "name": "html_36",
+      "_nested_name": "html_36",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.nombre_genisses",
+            "matchedExpression": "!@local.nombre_genisses",
+            "type": "local",
+            "fieldName": "nombre_genisses"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@local.nombre_genisses": [
+          "condition"
+        ]
+      }
     },
     {
       "type": "text",
@@ -1024,8 +1234,8 @@
         "color: #FF0000",
         "font-size: 14px"
       ],
-      "name": "text_27",
-      "_nested_name": "text_27",
+      "name": "text_37",
+      "_nested_name": "text_37",
       "_dynamicFields": {
         "condition": [
           {
@@ -1046,8 +1256,8 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "Nombre de veaux*",
+          "type": "html",
+          "value": "Nombre de veaux<span style=\"color: red;\">*</span>",
           "_translations": {
             "value": {}
           },
@@ -1055,21 +1265,43 @@
             "style": "contextual"
           },
           "exclude_from_translation": true,
-          "name": "text_1",
-          "_nested_name": "display_group_28.text_1"
+          "style_list": [
+            "font-size:20px"
+          ],
+          "name": "html_1",
+          "_nested_name": "display_group_38.html_1"
         },
         {
-          "type": "image",
-          "value": "images/veau.jpg",
-          "_translations": {
-            "value": {}
+          "type": "audio",
+          "name": "veau",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/veau_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
-          "name": "image_2",
-          "_nested_name": "display_group_28.image_2"
+          "exclude_from_translation": true,
+          "style_list": [
+            "align-self: flex-end"
+          ],
+          "_nested_name": "display_group_38.veau"
         }
       ],
-      "name": "display_group_28",
-      "_nested_name": "display_group_28"
+      "name": "display_group_38",
+      "_nested_name": "display_group_38"
+    },
+    {
+      "type": "image",
+      "value": "images/veau.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 120px",
+        "height: 120px",
+        "object-fit: cover"
+      ],
+      "name": "image_40",
+      "_nested_name": "image_40"
     },
     {
       "name": "valid_nombre_veaux",
@@ -1144,7 +1376,7 @@
           },
           "condition": "!!@field.nombre_veaux",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_30.nombre_veaux",
+          "_nested_name": "display_group_41.nombre_veaux",
           "_dynamicFields": {
             "value": [
               {
@@ -1181,7 +1413,7 @@
           },
           "condition": "!@field.nombre_veaux",
           "exclude_from_translation": true,
-          "_nested_name": "display_group_30.nombre_veaux",
+          "_nested_name": "display_group_41.nombre_veaux",
           "_dynamicFields": {
             "condition": [
               {
@@ -1197,24 +1429,46 @@
               "condition"
             ]
           }
-        },
-        {
-          "type": "audio",
-          "name": "veau",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Enrolement/veau_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "align-self: flex-end"
-          ],
-          "_nested_name": "display_group_30.veau"
         }
       ],
-      "name": "display_group_30",
-      "_nested_name": "display_group_30"
+      "name": "display_group_41",
+      "_nested_name": "display_group_41"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.nombre_veaux",
+      "name": "html_43",
+      "_nested_name": "html_43",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.nombre_veaux",
+            "matchedExpression": "!@local.nombre_veaux",
+            "type": "local",
+            "fieldName": "nombre_veaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@local.nombre_veaux": [
+          "condition"
+        ]
+      }
     },
     {
       "type": "text",
@@ -1228,8 +1482,8 @@
         "color: #FF0000",
         "font-size: 14px"
       ],
-      "name": "text_32",
-      "_nested_name": "text_32",
+      "name": "text_44",
+      "_nested_name": "text_44",
       "_dynamicFields": {
         "condition": [
           {
@@ -1339,7 +1593,7 @@
           },
           "exclude_from_translation": true,
           "name": "text_1",
-          "_nested_name": "display_group_34.text_1"
+          "_nested_name": "display_group_46.text_1"
         },
         {
           "type": "text_box",
@@ -1349,7 +1603,7 @@
           },
           "exclude_from_translation": true,
           "name": "text_box_2",
-          "_nested_name": "display_group_34.text_box_2",
+          "_nested_name": "display_group_46.text_box_2",
           "_dynamicFields": {
             "value": [
               {
@@ -1367,8 +1621,8 @@
           }
         }
       ],
-      "name": "display_group_34",
-      "_nested_name": "display_group_34"
+      "name": "display_group_46",
+      "_nested_name": "display_group_46"
     },
     {
       "name": "completed_enabled",

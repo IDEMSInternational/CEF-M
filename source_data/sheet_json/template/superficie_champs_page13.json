@@ -1,0 +1,205 @@
+{
+  "flow_type": "template",
+  "flow_name": "superficie_champs_page13",
+  "status": "released",
+  "rows": [
+    {
+      "type": "subtitle",
+      "value": "**Quantité d'engrais minéraux dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "**Quantité NPK (sac 50 kg) dans la parcelle N⁰@fields.num_parcelle**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_13_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/qte_npk_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/sac.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "text",
+      "value": "Écrivez le nombre de sacs(50kg) ou 0 si aucun apport de NPK"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_npk",
+      "value": "@fields.quantite_npk",
+      "action_list": "changed | set_field: quantite_npk: this.value;",
+      "parameter_list": "number_input: true\nplaceholder: Entrez la quantité;",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.quantite_npk "
+    },
+    {
+      "name": "valid_quantite_npk",
+      "value": "@calc((/^\\d+$/.test(@local.quantite_npk) && @local.quantite_npk>= 0 ) || @local.quantite_npk == '' || !@local.quantite_npk )",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "condition": "!@local.valid_quantite_npk",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "**Quantité Urée (sac 50 kg) dans la parcelle N⁰@fields.num_parcelle**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_13_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/qte_uree_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/sac.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "text",
+      "value": "Écrivez le nombre de sacs(50kg) ou 0 si aucun apport de NPK"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_uree",
+      "value": "@fields.quantite_uree",
+      "action_list": "changed | set_field: quantite_uree: this.value;",
+      "parameter_list": "number_input: true\nplaceholder: Entrez la quantité;",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.quantite_uree "
+    },
+    {
+      "name": "valid_quantite_uree",
+      "value": "@calc((/^\\d+$/.test(@local.quantite_uree) && @local.quantite_uree>= 0 ) || @local.quantite_uree == '' || !@local.quantite_uree )",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "condition": "!@local.valid_quantite_uree",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "**Indiquez si une autre formule d'engrais est apportée à la culture @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_13_3",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/autre_engrais_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: black;\"> Il s'agit d'une autre formule d'engrais différente de NPK et urée en sac de 50kg </p>"
+    },
+    {
+      "type": "begin_radio_list",
+      "name": "autre_engrais_oui_non",
+      "value": "@fields.autre_engrais_oui_non",
+      "action_list": "changed | set_field: autre_engrais_oui_non: this.value;"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.oui_non"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_radio_list"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.autre_engrais_oui_non"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.autre_engrais_oui_non == 'oui'"
+    },
+    {
+      "type": "text",
+      "value": "@global.autre_message"
+    },
+    {
+      "type": "audio",
+      "name": "audio_13_4",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/nom_autre_engrais_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "autre_engrais",
+      "action_list": "changed | set_field: autre_engrais: this.value;",
+      "parameter_list": "placeholder: Entrez le nom de l'engrais;",
+      "condition": "@local.autre_engrais_oui_non == 'oui'"
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "exclude_from_translation": "padding: 12px 24px;"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@fields.quantite_npk && @fields.quantite_uree && @fields.autre_engrais_oui_non",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "round_button",
+      "name": "page13_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page13_button_continue",
+      "value": "Continuer",
+      "action_list": "click | set_field: @calc('quantite_npk_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk;\nclick | set_field: @calc('quantite_uree_parcelle_N' + @fields.num_parcelle) : @fields.quantite_uree;\nclick | set_field: @calc('autre_engrais_oui_non_parcelle_N' + @fields.num_parcelle) : @fields.autre_engrais_oui_non;\nclick | set_field: @calc('autre_engrais_parcelle_N' + @fields.num_parcelle) : @fields.autre_engrais;\nclick | emit: completed;",
+      "parameter_list": "disabled: !@local.completed_enabled"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

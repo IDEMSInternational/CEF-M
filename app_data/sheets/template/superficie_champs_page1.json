@@ -95,6 +95,10 @@
     {
       "type": "text_box",
       "name": "chef_UPA",
+      "value": "@fields.chef_UPA",
+      "_translations": {
+        "value": {}
+      },
       "parameter_list": {
         "max_length": "30",
         "placeholder": "Nom et prénom du chef UPA"
@@ -103,6 +107,14 @@
       "exclude_from_translation": true,
       "_nested_name": "chef_UPA",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.chef_UPA",
+            "matchedExpression": "@fields.chef_UPA",
+            "type": "fields",
+            "fieldName": "chef_UPA"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "!@fields.chef_UPA",
@@ -113,10 +125,22 @@
         ]
       },
       "_dynamicDependencies": {
+        "@fields.chef_UPA": [
+          "value"
+        ],
         "!@fields.chef_UPA": [
           "condition"
         ]
       }
+    },
+    {
+      "type": "text",
+      "value": "Type d'exploitation du chef de l'UPA",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_6",
+      "_nested_name": "text_6"
     },
     {
       "type": "text_box",
@@ -161,6 +185,10 @@
     {
       "type": "text_box",
       "name": "type_upa",
+      "value": "@fields.type_upa",
+      "_translations": {
+        "value": {}
+      },
       "parameter_list": {
         "max_length": "30",
         "placeholder": "Entrez le nom du type d'exploitation"
@@ -168,6 +196,14 @@
       "condition": "!@fields.type_upa",
       "_nested_name": "type_upa",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.type_upa",
+            "matchedExpression": "@fields.type_upa",
+            "type": "fields",
+            "fieldName": "type_upa"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "!@fields.type_upa",
@@ -178,6 +214,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@fields.type_upa": [
+          "value"
+        ],
         "!@fields.type_upa": [
           "condition"
         ]
@@ -196,7 +235,7 @@
           "style_list": [
             "@global.label_style"
           ],
-          "_nested_name": "display_group_8.camera_scane_label",
+          "_nested_name": "display_group_9.camera_scane_label",
           "_dynamicFields": {
             "value": [
               {
@@ -237,7 +276,7 @@
           "style_list": [
             "@global.audio_style"
           ],
-          "_nested_name": "display_group_8.audio_1_1",
+          "_nested_name": "display_group_9.audio_1_1",
           "_dynamicFields": {
             "style_list": {
               "0": [
@@ -257,8 +296,8 @@
           }
         }
       ],
-      "name": "display_group_8",
-      "_nested_name": "display_group_8"
+      "name": "display_group_9",
+      "_nested_name": "display_group_9"
     },
     {
       "type": "image",
@@ -272,8 +311,8 @@
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_10",
-      "_nested_name": "image_10"
+      "name": "image_11",
+      "_nested_name": "image_11"
     },
     {
       "type": "text",

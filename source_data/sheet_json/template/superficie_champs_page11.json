@@ -4,17 +4,69 @@
   "status": "released",
   "rows": [
     {
-      "name": "culture_association",
-      "parameter_list": "filter: @fields.association_oui_non == 'oui'"
+      "type": "subtitle",
+      "value": "**Association de cultures**"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Indiquez si d’autre(s) culture(s) sont associées avec @fields.cult_princip dans la parcellle N⁰@fields.num_parcelle"
+    },
+    {
+      "type": "audio",
+      "name": "audio_11_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/asso_yesno_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/association.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\">Il s'agit de l'association de deux ou plusieurs cultures dans la même parcelle avec la culture principale</p>"
+    },
+    {
+      "type": "begin_radio_list",
+      "value": "@fields.association_oui_non",
+      "action_list": "changed | set_field: association_oui_non : this.value;"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.oui_non"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_radio_list"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@fields.association_oui_non"
     },
     {
       "type": "subtitle",
-      "value": "**Association de cultures dans la parcelle N⁰ de @fields.nom_champ**"
+      "value": "**Association de cultures dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+      "condition": "@fields.association_oui_non == 'oui'"
     },
     {
       "type": "begin_data_items",
       "value": "@data.cult_princip",
-      "parameter_list": "filter: @item.name == @fields.cult_princip"
+      "parameter_list": "filter: @item.name == @fields.cult_princip",
+      "condition": "@fields.association_oui_non == 'oui'"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.association_oui_non == 'oui'"
     },
     {
       "type": "image",
@@ -22,10 +74,18 @@
       "style_list": "width:150px; height:150px; "
     },
     {
+      "type": "text",
+      "value": "@item.name"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
       "type": "end_data_items"
     },
     {
-      "type": "begin_display_group"
+      "type": "begin_display_group",
+      "condition": "@fields.association_oui_non == 'oui'"
     },
     {
       "type": "text",
@@ -46,10 +106,12 @@
     },
     {
       "type": "begin_data_items",
-      "value": "@data.culture_association"
+      "value": "@data.culture_association",
+      "condition": "@fields.association_oui_non == 'oui'"
     },
     {
-      "type": "begin_display_group"
+      "type": "begin_display_group",
+      "condition": "@fields.association_oui_non == 'oui'"
     },
     {
       "type": "image",
@@ -72,14 +134,8 @@
       "type": "end_data_items"
     },
     {
-      "type": "text",
-      "value": "@global.warning_message ",
-      "condition": "!@local.valid_cult_asso",
-      "style_list": "color: red; font-size: 16px;"
-    },
-    {
       "type": "begin_display_group",
-      "condition": "@fields.autre_culture1 == true"
+      "condition": "@fields.autre_culture1 == true && @fields.association_oui_non == 'oui'"
     },
     {
       "type": "text",
@@ -96,15 +152,14 @@
     },
     {
       "type": "text_box",
-      "value": "@fields.autre_cult_asso1",
       "action_list": "changed | set_field: autre_cult_asso1: this.value;",
       "parameter_list": "max_length: 30;\nplaceholder: Encrivez le nom ",
-      "condition": "@fields.autre_culture1 == true",
+      "condition": "@fields.autre_culture1 == true && @fields.association_oui_non == 'oui'",
       "exclude_from_translation_1": true
     },
     {
       "type": "begin_display_group",
-      "condition": "@fields.autre_culture2 == true"
+      "condition": "@fields.autre_culture2 == true && @fields.association_oui_non == 'oui'"
     },
     {
       "type": "text",
@@ -121,11 +176,14 @@
     },
     {
       "type": "text_box",
-      "value": "@fields.autre_cult_asso2",
       "action_list": "changed | set_field: autre_cult_asso2: this.value;",
       "parameter_list": "max_length: 30;\nplaceholder: Encrivez le nom ",
-      "condition": "@fields.autre_culture2 == true",
+      "condition": "@fields.autre_culture2 == true && @fields.association_oui_non == 'oui'",
       "exclude_from_translation_1": true
+    },
+    {
+      "name": "cult_asso_selected",
+      "value": "@calc([@fields.coton ? 'coton' : null,@fields.mais ? 'mais' : null,@fields.mil ? 'mil' : null,@fields.sorgho ? 'sorgho' : null,@fields.arachide ? 'arachide' : null,@fields.fourrage ? 'fourrage' : null,@fields.fonio ? 'fonio' : null,@fields.riz ? 'riz' : null,@fields.sesame ? 'sesame' : null,@fields.wauandzou ? 'wauandzou' : null,@fields.patate_douce ? 'patate_douce' : null,@fields.bissap ? 'bissap' : null,@fields.autre_cult_asso1 ? @fields.autre_cult_asso1 : null,@fields.autre_cult_asso2 ? @fields.autre_cult_asso2: null].filter(v => v !== null).join(','))"
     },
     {
       "type": "begin_display_group",
@@ -135,7 +193,7 @@
     },
     {
       "name": "completed_enabled",
-      "value": "@fields.nombre_arbre && @fields.association_oui_non ",
+      "value": "@fields.association_oui_non",
       "exclude_from_translation": true
     },
     {
@@ -148,7 +206,7 @@
       "type": "button",
       "name": "page11_button_continue",
       "value": "Continuer",
-      "action_list": "click | set_field: @calc('nombre_arbre_parcelle_N⁰' + @fields.num_parcelle) : @fields.nombre_arbre;\nchanged | set_field: @calc('cult_asso_parc_N'+@fields.num_parcelle + @item.name): !@fields.@item.name;\nclick | set_field: @calc('association_oui_non_parcelle_N⁰' + @fields.num_parcelle) : @fields.association_oui_non;\nclick | emit: completed;",
+      "action_list": "click | set_field: @calc('cult_asso_selected_parcelle_N' + @fields.num_parcelle) : @local.cult_asso_selected;\nclick | set_field: @calc('association_oui_non_parcelle_N⁰' + @fields.num_parcelle) : @fields.association_oui_non;\nclick | set_field: @calc('autre_cult_asso1_parcelle_N⁰' + @fields.num_parcelle) : @fields.autre_cult_asso1;\nclick | set_field: @calc('autre_cult_asso2_parcelle_N⁰' + @fields.num_parcelle) : @fields.autre_cult_asso2;\nclick | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled"
     },
     {

@@ -1,0 +1,1115 @@
+{
+  "flow_type": "template",
+  "flow_name": "superficie_champs_page13",
+  "status": "released",
+  "rows": [
+    {
+      "type": "subtitle",
+      "value": "**Quantité d'engrais minéraux dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+      "_translations": {
+        "value": {}
+      },
+      "name": "subtitle_2",
+      "_nested_name": "subtitle_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "**Quantité d'engrais minéraux dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+            "matchedExpression": "@fields.num_parcelle",
+            "type": "fields",
+            "fieldName": "num_parcelle"
+          },
+          {
+            "fullExpression": "**Quantité d'engrais minéraux dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+            "matchedExpression": "@fields.nom_champ",
+            "type": "fields",
+            "fieldName": "nom_champ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.num_parcelle": [
+          "value"
+        ],
+        "@fields.nom_champ": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "**Quantité NPK (sac 50 kg) dans la parcelle N⁰@fields.num_parcelle**",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_3.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "**Quantité NPK (sac 50 kg) dans la parcelle N⁰@fields.num_parcelle**",
+                "matchedExpression": "@fields.num_parcelle",
+                "type": "fields",
+                "fieldName": "num_parcelle"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.num_parcelle": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_13_1",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Superficie/qte_npk_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "_nested_name": "display_group_3.audio_13_1"
+        }
+      ],
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
+    },
+    {
+      "type": "image",
+      "value": "images/sac.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:100px",
+        "height:100px"
+      ],
+      "name": "image_5",
+      "_nested_name": "image_5"
+    },
+    {
+      "type": "text",
+      "value": "Écrivez le nombre de sacs(50kg) ou 0 si aucun apport de NPK",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_6",
+      "_nested_name": "text_6"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_npk",
+      "value": "@fields.quantite_npk",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "quantite_npk",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: quantite_npk: this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true\nplaceholder"
+      },
+      "exclude_from_translation": true,
+      "_nested_name": "quantite_npk",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.quantite_npk",
+            "matchedExpression": "@fields.quantite_npk",
+            "type": "fields",
+            "fieldName": "quantite_npk"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_npk": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.quantite_npk",
+      "_nested_name": "html_text",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "matchedExpression": "@global.warning_message",
+            "type": "global",
+            "fieldName": "warning_message"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.quantite_npk",
+            "matchedExpression": "!@local.quantite_npk",
+            "type": "local",
+            "fieldName": "quantite_npk"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.warning_message": [
+          "value"
+        ],
+        "!@local.quantite_npk": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "valid_quantite_npk",
+      "value": "@calc((/^\\d+$/.test(@local.quantite_npk) && @local.quantite_npk>= 0 ) || @local.quantite_npk == '' || !@local.quantite_npk )",
+      "_translations": {
+        "value": {}
+      },
+      "exclude_from_translation": true,
+      "type": "set_variable",
+      "_nested_name": "valid_quantite_npk",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.quantite_npk) && @local.quantite_npk>= 0 ) || @local.quantite_npk == '' || !@local.quantite_npk )",
+            "matchedExpression": "@local.quantite_npk",
+            "type": "local",
+            "fieldName": "quantite_npk"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.quantite_npk) && @local.quantite_npk>= 0 ) || @local.quantite_npk == '' || !@local.quantite_npk )",
+            "matchedExpression": "@local.quantite_npk",
+            "type": "local",
+            "fieldName": "quantite_npk"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.quantite_npk) && @local.quantite_npk>= 0 ) || @local.quantite_npk == '' || !@local.quantite_npk )",
+            "matchedExpression": "@local.quantite_npk",
+            "type": "local",
+            "fieldName": "quantite_npk"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.quantite_npk) && @local.quantite_npk>= 0 ) || @local.quantite_npk == '' || !@local.quantite_npk )",
+            "matchedExpression": "!@local.quantite_npk",
+            "type": "local",
+            "fieldName": "quantite_npk"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.quantite_npk) && @local.quantite_npk>= 0 ) || @local.quantite_npk == '' || !@local.quantite_npk )",
+            "matchedExpression": "@calc((/^\\d+$/.test(@local.quantite_npk) && @local.quantite_npk>= 0 ) || @local.quantite_npk == '' || !@local.quantite_npk )",
+            "type": "calc",
+            "fieldName": "(/^\\d+$/.test(@local.quantite_npk) && @local.quantite_npk>= 0 ) || @local.quantite_npk == '' || !@local.quantite_npk "
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.quantite_npk": [
+          "value",
+          "value",
+          "value"
+        ],
+        "!@local.quantite_npk": [
+          "value"
+        ],
+        "@calc((/^\\d+$/.test(@local.quantite_npk) && @local.quantite_npk>= 0 ) || @local.quantite_npk == '' || !@local.quantite_npk )": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.valid_quantite_npk",
+      "exclude_from_translation": true,
+      "style_list": [
+        "color: #FF0000",
+        "font-size: 14px"
+      ],
+      "name": "text_10",
+      "_nested_name": "text_10",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.validite_nombre",
+            "matchedExpression": "@global.validite_nombre",
+            "type": "global",
+            "fieldName": "validite_nombre"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.valid_quantite_npk",
+            "matchedExpression": "!@local.valid_quantite_npk",
+            "type": "local",
+            "fieldName": "valid_quantite_npk"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.validite_nombre": [
+          "value"
+        ],
+        "!@local.valid_quantite_npk": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "**Quantité Urée (sac 50 kg) dans la parcelle N⁰@fields.num_parcelle**",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_11.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "**Quantité Urée (sac 50 kg) dans la parcelle N⁰@fields.num_parcelle**",
+                "matchedExpression": "@fields.num_parcelle",
+                "type": "fields",
+                "fieldName": "num_parcelle"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.num_parcelle": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_13_2",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Superficie/qte_uree_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "_nested_name": "display_group_11.audio_13_2"
+        }
+      ],
+      "name": "display_group_11",
+      "_nested_name": "display_group_11"
+    },
+    {
+      "type": "image",
+      "value": "images/sac.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:100px",
+        "height:100px"
+      ],
+      "name": "image_13",
+      "_nested_name": "image_13"
+    },
+    {
+      "type": "text",
+      "value": "Écrivez le nombre de sacs(50kg) ou 0 si aucun apport de NPK",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_14",
+      "_nested_name": "text_14"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_uree",
+      "value": "@fields.quantite_uree",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "quantite_uree",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: quantite_uree: this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true\nplaceholder"
+      },
+      "exclude_from_translation": true,
+      "_nested_name": "quantite_uree",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.quantite_uree",
+            "matchedExpression": "@fields.quantite_uree",
+            "type": "fields",
+            "fieldName": "quantite_uree"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_uree": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.quantite_uree",
+      "_nested_name": "html_text",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "matchedExpression": "@global.warning_message",
+            "type": "global",
+            "fieldName": "warning_message"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.quantite_uree",
+            "matchedExpression": "!@local.quantite_uree",
+            "type": "local",
+            "fieldName": "quantite_uree"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.warning_message": [
+          "value"
+        ],
+        "!@local.quantite_uree": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "valid_quantite_uree",
+      "value": "@calc((/^\\d+$/.test(@local.quantite_uree) && @local.quantite_uree>= 0 ) || @local.quantite_uree == '' || !@local.quantite_uree )",
+      "_translations": {
+        "value": {}
+      },
+      "exclude_from_translation": true,
+      "type": "set_variable",
+      "_nested_name": "valid_quantite_uree",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.quantite_uree) && @local.quantite_uree>= 0 ) || @local.quantite_uree == '' || !@local.quantite_uree )",
+            "matchedExpression": "@local.quantite_uree",
+            "type": "local",
+            "fieldName": "quantite_uree"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.quantite_uree) && @local.quantite_uree>= 0 ) || @local.quantite_uree == '' || !@local.quantite_uree )",
+            "matchedExpression": "@local.quantite_uree",
+            "type": "local",
+            "fieldName": "quantite_uree"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.quantite_uree) && @local.quantite_uree>= 0 ) || @local.quantite_uree == '' || !@local.quantite_uree )",
+            "matchedExpression": "@local.quantite_uree",
+            "type": "local",
+            "fieldName": "quantite_uree"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.quantite_uree) && @local.quantite_uree>= 0 ) || @local.quantite_uree == '' || !@local.quantite_uree )",
+            "matchedExpression": "!@local.quantite_uree",
+            "type": "local",
+            "fieldName": "quantite_uree"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.quantite_uree) && @local.quantite_uree>= 0 ) || @local.quantite_uree == '' || !@local.quantite_uree )",
+            "matchedExpression": "@calc((/^\\d+$/.test(@local.quantite_uree) && @local.quantite_uree>= 0 ) || @local.quantite_uree == '' || !@local.quantite_uree )",
+            "type": "calc",
+            "fieldName": "(/^\\d+$/.test(@local.quantite_uree) && @local.quantite_uree>= 0 ) || @local.quantite_uree == '' || !@local.quantite_uree "
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.quantite_uree": [
+          "value",
+          "value",
+          "value"
+        ],
+        "!@local.quantite_uree": [
+          "value"
+        ],
+        "@calc((/^\\d+$/.test(@local.quantite_uree) && @local.quantite_uree>= 0 ) || @local.quantite_uree == '' || !@local.quantite_uree )": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.valid_quantite_uree",
+      "exclude_from_translation": true,
+      "style_list": [
+        "color: #FF0000",
+        "font-size: 14px"
+      ],
+      "name": "text_18",
+      "_nested_name": "text_18",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.validite_nombre",
+            "matchedExpression": "@global.validite_nombre",
+            "type": "global",
+            "fieldName": "validite_nombre"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.valid_quantite_uree",
+            "matchedExpression": "!@local.valid_quantite_uree",
+            "type": "local",
+            "fieldName": "valid_quantite_uree"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.validite_nombre": [
+          "value"
+        ],
+        "!@local.valid_quantite_uree": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "**Indiquez si une autre formule d'engrais est apportée à la culture @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_19.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "**Indiquez si une autre formule d'engrais est apportée à la culture @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**",
+                "matchedExpression": "@fields.cult_princip",
+                "type": "fields",
+                "fieldName": "cult_princip"
+              },
+              {
+                "fullExpression": "**Indiquez si une autre formule d'engrais est apportée à la culture @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**",
+                "matchedExpression": "@fields.num_parcelle",
+                "type": "fields",
+                "fieldName": "num_parcelle"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.cult_princip": [
+              "value"
+            ],
+            "@fields.num_parcelle": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_13_3",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Superficie/autre_engrais_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_19.audio_13_3"
+        }
+      ],
+      "name": "display_group_19",
+      "_nested_name": "display_group_19"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: black;\"> Il s'agit d'une autre formule d'engrais différente de NPK et urée en sac de 50kg </p>",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "html_text"
+    },
+    {
+      "type": "radio_list",
+      "name": "autre_engrais_oui_non",
+      "value": "@fields.autre_engrais_oui_non",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "autre_engrais_oui_non",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: autre_engrais_oui_non: this.value"
+        }
+      ],
+      "rows": [
+        {
+          "type": "data_items",
+          "value": "@data.oui_non",
+          "rows": [],
+          "name": "data_items_1",
+          "_nested_name": "autre_engrais_oui_non.data_items_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@data.oui_non",
+                "matchedExpression": "@data.oui_non",
+                "type": "data",
+                "fieldName": "oui_non"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@data.oui_non": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "autre_engrais_oui_non",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.autre_engrais_oui_non",
+            "matchedExpression": "@fields.autre_engrais_oui_non",
+            "type": "fields",
+            "fieldName": "autre_engrais_oui_non"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.autre_engrais_oui_non": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.autre_engrais_oui_non",
+      "_nested_name": "html_text",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "matchedExpression": "@global.warning_message",
+            "type": "global",
+            "fieldName": "warning_message"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.autre_engrais_oui_non",
+            "matchedExpression": "!@local.autre_engrais_oui_non",
+            "type": "local",
+            "fieldName": "autre_engrais_oui_non"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.warning_message": [
+          "value"
+        ],
+        "!@local.autre_engrais_oui_non": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.autre_engrais_oui_non == 'oui'",
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.autre_message",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_25.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.autre_message",
+                "matchedExpression": "@global.autre_message",
+                "type": "global",
+                "fieldName": "autre_message"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.autre_message": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_13_4",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Superficie/nom_autre_engrais_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_25.audio_13_4"
+        }
+      ],
+      "name": "display_group_25",
+      "_nested_name": "display_group_25",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.autre_engrais_oui_non == 'oui'",
+            "matchedExpression": "@fields.autre_engrais_oui_non",
+            "type": "fields",
+            "fieldName": "autre_engrais_oui_non"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.autre_engrais_oui_non": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "autre_engrais",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "autre_engrais",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: autre_engrais: this.value"
+        }
+      ],
+      "parameter_list": {
+        "placeholder": "Entrez le nom de l'engrais"
+      },
+      "condition": "@local.autre_engrais_oui_non == 'oui'",
+      "_nested_name": "autre_engrais",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.autre_engrais_oui_non == 'oui'",
+            "matchedExpression": "@local.autre_engrais_oui_non",
+            "type": "local",
+            "fieldName": "autre_engrais_oui_non"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.autre_engrais_oui_non": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@fields.quantite_npk && @fields.quantite_uree && @fields.autre_engrais_oui_non",
+      "_translations": {
+        "value": {}
+      },
+      "exclude_from_translation": true,
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.quantite_npk && @fields.quantite_uree && @fields.autre_engrais_oui_non",
+            "matchedExpression": "@fields.quantite_npk",
+            "type": "fields",
+            "fieldName": "quantite_npk"
+          },
+          {
+            "fullExpression": "@fields.quantite_npk && @fields.quantite_uree && @fields.autre_engrais_oui_non",
+            "matchedExpression": "@fields.quantite_uree",
+            "type": "fields",
+            "fieldName": "quantite_uree"
+          },
+          {
+            "fullExpression": "@fields.quantite_npk && @fields.quantite_uree && @fields.autre_engrais_oui_non",
+            "matchedExpression": "@fields.autre_engrais_oui_non",
+            "type": "fields",
+            "fieldName": "autre_engrais_oui_non"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_npk": [
+          "value"
+        ],
+        "@fields.quantite_uree": [
+          "value"
+        ],
+        "@fields.autre_engrais_oui_non": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "exclude_from_translation": "padding: 12px 24px;",
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page13_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "display_group_28.page13_button_back"
+        },
+        {
+          "type": "button",
+          "name": "page13_button_continue",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "@calc('quantite_npk_parcelle_N' + @fields.num_parcelle)",
+                "@fields.quantite_npk"
+              ],
+              "_raw": "click | set_field: @calc('quantite_npk_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "@calc('quantite_uree_parcelle_N' + @fields.num_parcelle)",
+                "@fields.quantite_uree"
+              ],
+              "_raw": "click | set_field: @calc('quantite_uree_parcelle_N' + @fields.num_parcelle) : @fields.quantite_uree"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "@calc('autre_engrais_oui_non_parcelle_N' + @fields.num_parcelle)",
+                "@fields.autre_engrais_oui_non"
+              ],
+              "_raw": "click | set_field: @calc('autre_engrais_oui_non_parcelle_N' + @fields.num_parcelle) : @fields.autre_engrais_oui_non"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "@calc('autre_engrais_parcelle_N' + @fields.num_parcelle)",
+                "@fields.autre_engrais"
+              ],
+              "_raw": "click | set_field: @calc('autre_engrais_parcelle_N' + @fields.num_parcelle) : @fields.autre_engrais"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "_nested_name": "display_group_28.page13_button_continue",
+          "_dynamicFields": {
+            "action_list": {
+              "0": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "@calc('quantite_npk_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@fields.num_parcelle",
+                      "type": "fields",
+                      "fieldName": "num_parcelle"
+                    },
+                    {
+                      "fullExpression": "@calc('quantite_npk_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('quantite_npk_parcelle_N' + @fields.num_parcelle)",
+                      "type": "calc",
+                      "fieldName": "'quantite_npk_parcelle_N' + @fields.num_parcelle"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.quantite_npk",
+                      "matchedExpression": "@fields.quantite_npk",
+                      "type": "fields",
+                      "fieldName": "quantite_npk"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: @calc('quantite_npk_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk",
+                    "matchedExpression": "@fields.num_parcelle",
+                    "type": "fields",
+                    "fieldName": "num_parcelle"
+                  },
+                  {
+                    "fullExpression": "click | set_field: @calc('quantite_npk_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk",
+                    "matchedExpression": "@fields.quantite_npk",
+                    "type": "fields",
+                    "fieldName": "quantite_npk"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "@calc('quantite_uree_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@fields.num_parcelle",
+                      "type": "fields",
+                      "fieldName": "num_parcelle"
+                    },
+                    {
+                      "fullExpression": "@calc('quantite_uree_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('quantite_uree_parcelle_N' + @fields.num_parcelle)",
+                      "type": "calc",
+                      "fieldName": "'quantite_uree_parcelle_N' + @fields.num_parcelle"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.quantite_uree",
+                      "matchedExpression": "@fields.quantite_uree",
+                      "type": "fields",
+                      "fieldName": "quantite_uree"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: @calc('quantite_uree_parcelle_N' + @fields.num_parcelle) : @fields.quantite_uree",
+                    "matchedExpression": "@fields.num_parcelle",
+                    "type": "fields",
+                    "fieldName": "num_parcelle"
+                  },
+                  {
+                    "fullExpression": "click | set_field: @calc('quantite_uree_parcelle_N' + @fields.num_parcelle) : @fields.quantite_uree",
+                    "matchedExpression": "@fields.quantite_uree",
+                    "type": "fields",
+                    "fieldName": "quantite_uree"
+                  }
+                ]
+              },
+              "2": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "@calc('autre_engrais_oui_non_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@fields.num_parcelle",
+                      "type": "fields",
+                      "fieldName": "num_parcelle"
+                    },
+                    {
+                      "fullExpression": "@calc('autre_engrais_oui_non_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('autre_engrais_oui_non_parcelle_N' + @fields.num_parcelle)",
+                      "type": "calc",
+                      "fieldName": "'autre_engrais_oui_non_parcelle_N' + @fields.num_parcelle"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.autre_engrais_oui_non",
+                      "matchedExpression": "@fields.autre_engrais_oui_non",
+                      "type": "fields",
+                      "fieldName": "autre_engrais_oui_non"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: @calc('autre_engrais_oui_non_parcelle_N' + @fields.num_parcelle) : @fields.autre_engrais_oui_non",
+                    "matchedExpression": "@fields.num_parcelle",
+                    "type": "fields",
+                    "fieldName": "num_parcelle"
+                  },
+                  {
+                    "fullExpression": "click | set_field: @calc('autre_engrais_oui_non_parcelle_N' + @fields.num_parcelle) : @fields.autre_engrais_oui_non",
+                    "matchedExpression": "@fields.autre_engrais_oui_non",
+                    "type": "fields",
+                    "fieldName": "autre_engrais_oui_non"
+                  }
+                ]
+              },
+              "3": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "@calc('autre_engrais_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@fields.num_parcelle",
+                      "type": "fields",
+                      "fieldName": "num_parcelle"
+                    },
+                    {
+                      "fullExpression": "@calc('autre_engrais_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('autre_engrais_parcelle_N' + @fields.num_parcelle)",
+                      "type": "calc",
+                      "fieldName": "'autre_engrais_parcelle_N' + @fields.num_parcelle"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.autre_engrais",
+                      "matchedExpression": "@fields.autre_engrais",
+                      "type": "fields",
+                      "fieldName": "autre_engrais"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: @calc('autre_engrais_parcelle_N' + @fields.num_parcelle) : @fields.autre_engrais",
+                    "matchedExpression": "@fields.num_parcelle",
+                    "type": "fields",
+                    "fieldName": "num_parcelle"
+                  },
+                  {
+                    "fullExpression": "click | set_field: @calc('autre_engrais_parcelle_N' + @fields.num_parcelle) : @fields.autre_engrais",
+                    "matchedExpression": "@fields.autre_engrais",
+                    "type": "fields",
+                    "fieldName": "autre_engrais"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@fields.num_parcelle": [
+              "action_list.0.args.0",
+              "action_list.0._raw",
+              "action_list.1.args.0",
+              "action_list.1._raw",
+              "action_list.2.args.0",
+              "action_list.2._raw",
+              "action_list.3.args.0",
+              "action_list.3._raw"
+            ],
+            "@calc('quantite_npk_parcelle_N' + @fields.num_parcelle)": [
+              "action_list.0.args.0"
+            ],
+            "@fields.quantite_npk": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "@calc('quantite_uree_parcelle_N' + @fields.num_parcelle)": [
+              "action_list.1.args.0"
+            ],
+            "@fields.quantite_uree": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
+            "@calc('autre_engrais_oui_non_parcelle_N' + @fields.num_parcelle)": [
+              "action_list.2.args.0"
+            ],
+            "@fields.autre_engrais_oui_non": [
+              "action_list.2.args.1",
+              "action_list.2._raw"
+            ],
+            "@calc('autre_engrais_parcelle_N' + @fields.num_parcelle)": [
+              "action_list.3.args.0"
+            ],
+            "@fields.autre_engrais": [
+              "action_list.3.args.1",
+              "action_list.3._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_28",
+      "_nested_name": "display_group_28"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/superficie_champs_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1Za6KnU73iDgbTARvf6JCQo0vJb_EkTgiHEyZUJdNgXs"
+  }
+}

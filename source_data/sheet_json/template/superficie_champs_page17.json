@@ -1,0 +1,177 @@
+{
+  "flow_type": "template",
+  "flow_name": "superficie_champs_page17",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_observ",
+      "value": "**Observations sur la fertilité de la parcelle N⁰@fields.num_parcelle**"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\"> Séléctionnez le canal à utiliser pour faire votre observation sur la parcelle N⁰@fields.num_parcelle</p>",
+      "style_list": "font-size:20px;"
+    },
+    {
+      "type": "audio",
+      "name": "audio_7_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/canal_obser_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "type_observation",
+      "value": "@fields.type_observation",
+      "action_list": "changed | set_field : type_observation: this.value;",
+      "parameter_list": "answer_list: @data.group_observation; \nvariant: flex;\nitem_width: 60px;\ngrid_gap: 8px;"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@fields.type_observation"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.type_observation == \"par_text\""
+    },
+    {
+      "type": "text",
+      "value": "Entrez par écrit l'information supplémentaire."
+    },
+    {
+      "type": "audio",
+      "name": "audio_7_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/oberv_ecrit_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_area",
+      "value": "@fields.info_text",
+      "action_list": "changed | set_field : info_text: this.value;",
+      "parameter_list": "placeholder: Ecrivez votre observation",
+      "condition": "@fields.type_observation == \"par_text\""
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.type_observation == \"par_video\""
+    },
+    {
+      "type": "text",
+      "name": "info_video_label",
+      "value": "Enregistrez par vidéo l'information supplémentaire."
+    },
+    {
+      "type": "audio",
+      "name": "audio_7_3",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/oberv_vid_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "info_video",
+      "value": "We would need a video recorder here",
+      "condition": "@fields.type_observation == \"par_video\""
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.type_observation == \"par_vocal\""
+    },
+    {
+      "type": "text",
+      "name": "info_audio_label",
+      "value": "Enregistrez par vocal l'information supplémentaire."
+    },
+    {
+      "type": "audio",
+      "name": "audio_7_4",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/oberv_audio_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "info_audio",
+      "value": "We would need a audio recorder here",
+      "condition": "@fields.type_observation == \"par_vocal\""
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.type_observation == \"par_photo\""
+    },
+    {
+      "type": "text",
+      "name": "info_image_label",
+      "value": "Enregistrez par image l'information supplémentaire."
+    },
+    {
+      "type": "audio",
+      "name": "audio_7_5",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/oberv_phot_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "info_image",
+      "value": "We would need a camera here",
+      "condition": "@fields.type_observation == \"par_photo\""
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.type_observation"
+    },
+    {
+      "name": "last_parcelle",
+      "value": "@calc((Number(@fields.num_parcelle) + 1) <= Number(@fields.nb_parcelles))"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page_15_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "btn_next_parcelle",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: @calc('observation_' + @fields.num_parcelle) : @fields.info_text;\nclick | set_field: @calc('type_observation_' + @fields.num_parcelle) : @fields.type_observation;\nclick | set_field: info_text:;\nclick | set_field: type_observation:;\nclick | set_field: cult_princip:;\nclick | set_field: autre_cult_princip:;\nclick | set_field: fertilite_sol:;\nclick | set_field: cult_prev:;\nclick | set_field: autre_cult_prev:;\nclick | set_field: cult_princip:;\nclick | set_field: type_variete:;\nclick | set_field: nom_variete:;\nclick | set_field: date_semis:; \nclick | set_field: source_semence:; \nclick | set_field: quantite_semence:; \nclick | set_field: nombre_arbre:;\nclick | set_field: association_oui_non:;\nclick | set_field: quantite_fumure_organique:;\nclick | set_field: quantite_npk:;\nclick | set_field: quantite_uree:;\nclick | set_field: autre_engrais_oui_non:;\nclick | set_field: autre_engrais:;\nclick | set_field: superficie_parcelle:;\n\nclick | set_field: num_parcelle : @calc(Number(@fields.num_parcelle) + 1);\nclick | set_data | _list_id: superficie_settings_pages, _index: 5, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 6, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 7, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 8, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 9, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 10, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 11, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 12, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 13, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 14, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 15, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 16, completed: false;",
+      "condition": "@local.last_parcelle",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "button",
+      "name": "page_17_button_continue",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: @calc('observation_' + @fields.num_parcelle) : @fields.info_text;\nclick | set_field: @calc('type_observation_' + @fields.num_parcelle) : @fields.type_observation;\nclick | set_field: info_text:;\nclick | set_field: type_observation:;\nclick | emit: completed",
+      "condition": "!@local.last_parcelle",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_animaux_page3",
+  "status": "released",
+  "rows": [
+    {
+      "type": "text",
+      "value": "@global.note_besoin_animaux",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_2",
+      "_nested_name": "text_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.note_besoin_animaux",
+            "matchedExpression": "@global.note_besoin_animaux",
+            "type": "global",
+            "fieldName": "note_besoin_animaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_besoin_animaux": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page3_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "display_group_3.page3_button_back"
+        },
+        {
+          "type": "button",
+          "name": "page3_button_continue",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "_nested_name": "display_group_3.page3_button_continue"
+        }
+      ],
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/besoins_animaux_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1U46sOmNeVPbt-HeQiPvQBjmJoqzQnjrSCBu93Ydt7Iw"
+  }
+}

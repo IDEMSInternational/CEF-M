@@ -100,7 +100,7 @@
       "type": "button",
       "name": "page8_button_continue",
       "value": "Continuer",
-      "action_list": "click | set_field: @calc('nom_variete_parcelle_N⁰' + @fields.num_parcelle) : @fields.nom_variete;\nclick | set_field: @calc('type_variete_parcelle_N⁰' + @fields.num_parcelle) : @fields.type_variete;\nclick | emit: completed;",
+      "action_list": "click | set_field: @calc('nom_variete_parcelle_N' + @fields.num_parcelle) : @fields.nom_variete;\nclick | set_field: @calc('type_variete_parcelle_N' + @fields.num_parcelle) : @fields.type_variete;\nclick | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled"
     },
     {

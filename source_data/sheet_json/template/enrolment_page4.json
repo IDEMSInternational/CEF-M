@@ -4,8 +4,196 @@
   "status": "released",
   "rows": [
     {
+      "type": "title",
+      "value": "LOCALITE DE L'UPA"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
       "type": "text",
-      "value": "The farmers' various production areas are stored in a “locations” file that is not accessible "
+      "name": "region_text",
+      "value": "**Sélectionnez le nom de la région de l'UPA**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_4_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/region_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/localisation.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "begin_radio_list",
+      "name": "region_upa",
+      "action_list": "changed | set_field: region_upa: this.value;"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.region"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_radio_list"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.error_required_answer </p>",
+      "condition": "!@fields.region_upa "
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.region_upa "
+    },
+    {
+      "type": "text",
+      "name": "cercle_text",
+      "value": "**Selectionnez le nom du cercle de l'UPA**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_4_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/cercle_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_radio_list",
+      "name": "cercle_upa",
+      "action_list": "changed | set_field: cercle_upa: this.value;",
+      "condition": "@fields.region_upa "
+    },
+    {
+      "type": "data_items",
+      "value": "@data.cercle_koutiala",
+      "condition": "@fields.region_upa == 'koutiala'"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.cercle_segou",
+      "condition": "@fields.region_upa == 'segou'"
+    },
+    {
+      "type": "end_radio_list"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.cercle_upa "
+    },
+    {
+      "type": "text",
+      "name": "commune_text",
+      "value": "**Selectionnez le nom de la commune de l'UPA**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_4_3",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/commune_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_radio_list",
+      "name": "commune_upa",
+      "action_list": "changed | set_field: commune_upa: this.value;",
+      "condition": "@fields.cercle_upa"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.commune_koutiala",
+      "condition": "@fields.cercle_upa  == 'koutiala'"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.commune_niono",
+      "condition": "@fields.cercle_upa == 'niono'"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.commune_macina",
+      "condition": "@fields.cercle_upa == 'macina'"
+    },
+    {
+      "type": "end_radio_list"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.commune_upa "
+    },
+    {
+      "type": "text",
+      "name": "village_text",
+      "value": "**Selectionnez le nom du village de l'UPA**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_4_4",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/village_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_radio_list",
+      "name": "village_upa",
+      "action_list": "changed | set_field: village_upa: this.value;",
+      "condition": "@fields.commune_upa "
+    },
+    {
+      "type": "data_items",
+      "value": "@data.village_koutiala",
+      "condition": "@fields.commune_upa  == 'koutiala'"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.village_molobala",
+      "condition": "@fields.commune_upa == 'molobala'"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.village_sinsina",
+      "condition": "@fields.commune_upa == 'sinsina'"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.village_kimparana",
+      "condition": "@fields.commune_upa == 'kimparana'"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.village_toridakako",
+      "condition": "@fields.commune_upa == 'toridakako'"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.village_yeredon",
+      "condition": "@fields.commune_upa == 'yeredon'"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.village_bokiwere",
+      "condition": "@fields.commune_upa == 'bokiwere'"
+    },
+    {
+      "type": "end_radio_list"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@fields.village_upa && @fields.commune_upa && @fields.cercle_upa && @fields.region_upa"
     },
     {
       "type": "begin_display_group",
@@ -25,6 +213,7 @@
       "name": "page_4_button_continue",
       "value": "@global.btn_continue",
       "action_list": "click | emit: completed",
+      "parameter_list": "disabled: !@local.completed_enabled",
       "style_list": "flex: 1"
     },
     {

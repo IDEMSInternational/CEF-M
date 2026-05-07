@@ -44,29 +44,89 @@
       },
       "rows": [
         {
-          "type": "image",
-          "value": "@item.image",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "width:150px",
-            "height:150px"
-          ],
-          "name": "image_1_@item.id",
-          "_nested_name": "data_items_3.image_1_@item.id",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@item.image",
-                "matchedExpression": "@item.image",
-                "type": "item",
-                "fieldName": "image"
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "image",
+              "value": "@item.image",
+              "_translations": {
+                "value": {}
+              },
+              "style_list": [
+                "width:150px",
+                "height:150px"
+              ],
+              "name": "image_1",
+              "_nested_name": "data_items_3.display_group_1_@item.id.image_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@item.image",
+                    "matchedExpression": "@item.image",
+                    "type": "item",
+                    "fieldName": "image"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_3.display_group_1_@item.id.image_1",
+                    "matchedExpression": "@item.id.image_1",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.image": [
+                  "value"
+                ],
+                "@item.id.image_1": [
+                  "_nested_name"
+                ]
               }
-            ],
+            },
+            {
+              "type": "text",
+              "value": "@item.name",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_2",
+              "_nested_name": "data_items_3.display_group_1_@item.id.text_2",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@item.name",
+                    "matchedExpression": "@item.name",
+                    "type": "item",
+                    "fieldName": "name"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_3.display_group_1_@item.id.text_2",
+                    "matchedExpression": "@item.id.text_2",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.name": [
+                  "value"
+                ],
+                "@item.id.text_2": [
+                  "_nested_name"
+                ]
+              }
+            }
+          ],
+          "name": "display_group_1_@item.id",
+          "_nested_name": "data_items_3.display_group_1_@item.id",
+          "_dynamicFields": {
             "name": [
               {
-                "fullExpression": "image_1_@item.id",
+                "fullExpression": "display_group_1_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -74,7 +134,7 @@
             ],
             "_nested_name": [
               {
-                "fullExpression": "data_items_3.image_1_@item.id",
+                "fullExpression": "data_items_3.display_group_1_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -82,9 +142,6 @@
             ]
           },
           "_dynamicDependencies": {
-            "@item.image": [
-              "value"
-            ],
             "@item.id": [
               "name",
               "_nested_name"
@@ -188,6 +245,15 @@
       ],
       "name": "image_7",
       "_nested_name": "image_7"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: black;\"> Ecrivez 0 s'il n'y a aucun arbre </p>",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "html_text"
     },
     {
       "type": "text_box",
@@ -382,8 +448,8 @@
         "color: #FF0000",
         "font-size: 14px"
       ],
-      "name": "text_12",
-      "_nested_name": "text_12",
+      "name": "text_13",
+      "_nested_name": "text_13",
       "_dynamicFields": {
         "value": [
           {
@@ -422,7 +488,7 @@
             "value": {}
           },
           "name": "text_1",
-          "_nested_name": "display_group_13.text_1",
+          "_nested_name": "display_group_14.text_1",
           "_dynamicFields": {
             "value": [
               {
@@ -450,11 +516,11 @@
           "style_list": [
             "float : right"
           ],
-          "_nested_name": "display_group_13.audio_10_2"
+          "_nested_name": "display_group_14.audio_10_2"
         }
       ],
-      "name": "display_group_13",
-      "_nested_name": "display_group_13",
+      "name": "display_group_14",
+      "_nested_name": "display_group_14",
       "_dynamicFields": {
         "condition": [
           {
@@ -483,15 +549,19 @@
     {
       "type": "text_box",
       "name": "nom_arbre",
+      "value": "@fields.nom_arbre",
+      "_translations": {
+        "value": {}
+      },
       "action_list": [
         {
           "trigger": "changed",
           "action_id": "set_field",
           "args": [
-            "@calc('nom_arbre_parcelle_N' + @fields.num_parcelle)",
+            "nom_arbre",
             "this.value"
           ],
-          "_raw": "changed | set_field: @calc('nom_arbre_parcelle_N' + @fields.num_parcelle) : this.value"
+          "_raw": "changed | set_field: nom_arbre : this.value"
         }
       ],
       "parameter_list": {
@@ -500,34 +570,14 @@
       "condition": "@fields.nombre_arbre  > 0",
       "_nested_name": "nom_arbre",
       "_dynamicFields": {
-        "action_list": {
-          "0": {
-            "args": {
-              "0": [
-                {
-                  "fullExpression": "@calc('nom_arbre_parcelle_N' + @fields.num_parcelle)",
-                  "matchedExpression": "@fields.num_parcelle",
-                  "type": "fields",
-                  "fieldName": "num_parcelle"
-                },
-                {
-                  "fullExpression": "@calc('nom_arbre_parcelle_N' + @fields.num_parcelle)",
-                  "matchedExpression": "@calc('nom_arbre_parcelle_N' + @fields.num_parcelle)",
-                  "type": "calc",
-                  "fieldName": "'nom_arbre_parcelle_N' + @fields.num_parcelle"
-                }
-              ]
-            },
-            "_raw": [
-              {
-                "fullExpression": "changed | set_field: @calc('nom_arbre_parcelle_N' + @fields.num_parcelle) : this.value",
-                "matchedExpression": "@fields.num_parcelle",
-                "type": "fields",
-                "fieldName": "num_parcelle"
-              }
-            ]
+        "value": [
+          {
+            "fullExpression": "@fields.nom_arbre",
+            "matchedExpression": "@fields.nom_arbre",
+            "type": "fields",
+            "fieldName": "nom_arbre"
           }
-        },
+        ],
         "condition": [
           {
             "fullExpression": "@fields.nombre_arbre  > 0",
@@ -538,12 +588,8 @@
         ]
       },
       "_dynamicDependencies": {
-        "@fields.num_parcelle": [
-          "action_list.0.args.0",
-          "action_list.0._raw"
-        ],
-        "@calc('nom_arbre_parcelle_N' + @fields.num_parcelle)": [
-          "action_list.0.args.0"
+        "@fields.nom_arbre": [
+          "value"
         ],
         "@fields.nombre_arbre": [
           "condition"
@@ -551,191 +597,8 @@
       }
     },
     {
-      "type": "display_group",
-      "rows": [
-        {
-          "type": "text",
-          "value": "Indiquez si d’autre(s) culture(s) sont associées avec @fields.cult_princip dans la parcellle N⁰@fields.num_parcelle",
-          "_translations": {
-            "value": {}
-          },
-          "name": "text_1",
-          "_nested_name": "display_group_16.text_1",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "Indiquez si d’autre(s) culture(s) sont associées avec @fields.cult_princip dans la parcellle N⁰@fields.num_parcelle",
-                "matchedExpression": "@fields.cult_princip",
-                "type": "fields",
-                "fieldName": "cult_princip"
-              },
-              {
-                "fullExpression": "Indiquez si d’autre(s) culture(s) sont associées avec @fields.cult_princip dans la parcellle N⁰@fields.num_parcelle",
-                "matchedExpression": "@fields.num_parcelle",
-                "type": "fields",
-                "fieldName": "num_parcelle"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@fields.cult_princip": [
-              "value"
-            ],
-            "@fields.num_parcelle": [
-              "value"
-            ]
-          }
-        },
-        {
-          "type": "audio",
-          "name": "audio_10_3",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Superficie/cult_asso_yn_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "style_list": [
-            "float : right"
-          ],
-          "_nested_name": "display_group_16.audio_10_3"
-        }
-      ],
-      "name": "display_group_16",
-      "_nested_name": "display_group_16"
-    },
-    {
-      "type": "image",
-      "value": "images/association.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "width:100px",
-        "height:100px"
-      ],
-      "name": "image_18",
-      "_nested_name": "image_18"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: black;\">Il s'agit de l'association de deux ou plusieurs cultures dans la même parcelle avec la culture principale</p>",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "!@local.association_oui_non",
-      "name": "html_19",
-      "_nested_name": "html_19",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "!@local.association_oui_non",
-            "matchedExpression": "!@local.association_oui_non",
-            "type": "local",
-            "fieldName": "association_oui_non"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "!@local.association_oui_non": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "radio_list",
-      "name": "association_oui_non",
-      "value": "@fields.association_oui_non",
-      "action_list": [
-        {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "association_oui_non",
-            "this.value"
-          ],
-          "_raw": "changed | set_field: association_oui_non : this.value"
-        }
-      ],
-      "rows": [
-        {
-          "type": "data_items",
-          "value": "@data.oui_non",
-          "rows": [],
-          "name": "data_items_1",
-          "_nested_name": "association_oui_non.data_items_1",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@data.oui_non",
-                "matchedExpression": "@data.oui_non",
-                "type": "data",
-                "fieldName": "oui_non"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@data.oui_non": [
-              "value"
-            ]
-          }
-        }
-      ],
-      "_nested_name": "association_oui_non",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@fields.association_oui_non",
-            "matchedExpression": "@fields.association_oui_non",
-            "type": "fields",
-            "fieldName": "association_oui_non"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.association_oui_non": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "!@local.association_oui_non",
-      "_nested_name": "html_text",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
-            "matchedExpression": "@global.warning_message",
-            "type": "global",
-            "fieldName": "warning_message"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "!@local.association_oui_non",
-            "matchedExpression": "!@local.association_oui_non",
-            "type": "local",
-            "fieldName": "association_oui_non"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.warning_message": [
-          "value"
-        ],
-        "!@local.association_oui_non": [
-          "condition"
-        ]
-      }
-    },
-    {
       "name": "completed_enabled",
-      "value": "@fields.nombre_arbre && @fields.association_oui_non",
+      "value": "@fields.nombre_arbre",
       "_translations": {
         "value": {}
       },
@@ -745,24 +608,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.nombre_arbre && @fields.association_oui_non",
+            "fullExpression": "@fields.nombre_arbre",
             "matchedExpression": "@fields.nombre_arbre",
             "type": "fields",
             "fieldName": "nombre_arbre"
-          },
-          {
-            "fullExpression": "@fields.nombre_arbre && @fields.association_oui_non",
-            "matchedExpression": "@fields.association_oui_non",
-            "type": "fields",
-            "fieldName": "association_oui_non"
           }
         ]
       },
       "_dynamicDependencies": {
         "@fields.nombre_arbre": [
-          "value"
-        ],
-        "@fields.association_oui_non": [
           "value"
         ]
       }
@@ -792,7 +646,7 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_23.page10_button_back"
+          "_nested_name": "display_group_17.page10_button_back"
         },
         {
           "type": "button",
@@ -806,19 +660,19 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "@calc('nombre_arbre_parcelle_N⁰' + @fields.num_parcelle)",
+                "@calc('nombre_arbre_parcelle_N' + @fields.num_parcelle)",
                 "@fields.nombre_arbre"
               ],
-              "_raw": "click | set_field: @calc('nombre_arbre_parcelle_N⁰' + @fields.num_parcelle) : @fields.nombre_arbre"
+              "_raw": "click | set_field: @calc('nombre_arbre_parcelle_N' + @fields.num_parcelle) : @fields.nombre_arbre"
             },
             {
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "@calc('association_oui_non_parcelle_N⁰' + @fields.num_parcelle)",
-                "@fields.association_oui_non"
+                "@calc('nom_arbre_parcelle_N' + @fields.num_parcelle)",
+                "@fields.nom_arbre"
               ],
-              "_raw": "click | set_field: @calc('association_oui_non_parcelle_N⁰' + @fields.num_parcelle) : @fields.association_oui_non"
+              "_raw": "click | set_field: @calc('nom_arbre_parcelle_N' + @fields.num_parcelle) : @fields.nom_arbre"
             },
             {
               "trigger": "click",
@@ -832,23 +686,23 @@
           "parameter_list": {
             "disabled": "!@local.completed_enabled"
           },
-          "_nested_name": "display_group_23.page10_button_continue",
+          "_nested_name": "display_group_17.page10_button_continue",
           "_dynamicFields": {
             "action_list": {
               "0": {
                 "args": {
                   "0": [
                     {
-                      "fullExpression": "@calc('nombre_arbre_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('nombre_arbre_parcelle_N' + @fields.num_parcelle)",
                       "matchedExpression": "@fields.num_parcelle",
                       "type": "fields",
                       "fieldName": "num_parcelle"
                     },
                     {
-                      "fullExpression": "@calc('nombre_arbre_parcelle_N⁰' + @fields.num_parcelle)",
-                      "matchedExpression": "@calc('nombre_arbre_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('nombre_arbre_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('nombre_arbre_parcelle_N' + @fields.num_parcelle)",
                       "type": "calc",
-                      "fieldName": "'nombre_arbre_parcelle_N⁰' + @fields.num_parcelle"
+                      "fieldName": "'nombre_arbre_parcelle_N' + @fields.num_parcelle"
                     }
                   ],
                   "1": [
@@ -862,13 +716,13 @@
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('nombre_arbre_parcelle_N⁰' + @fields.num_parcelle) : @fields.nombre_arbre",
+                    "fullExpression": "click | set_field: @calc('nombre_arbre_parcelle_N' + @fields.num_parcelle) : @fields.nombre_arbre",
                     "matchedExpression": "@fields.num_parcelle",
                     "type": "fields",
                     "fieldName": "num_parcelle"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('nombre_arbre_parcelle_N⁰' + @fields.num_parcelle) : @fields.nombre_arbre",
+                    "fullExpression": "click | set_field: @calc('nombre_arbre_parcelle_N' + @fields.num_parcelle) : @fields.nombre_arbre",
                     "matchedExpression": "@fields.nombre_arbre",
                     "type": "fields",
                     "fieldName": "nombre_arbre"
@@ -879,39 +733,39 @@
                 "args": {
                   "0": [
                     {
-                      "fullExpression": "@calc('association_oui_non_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('nom_arbre_parcelle_N' + @fields.num_parcelle)",
                       "matchedExpression": "@fields.num_parcelle",
                       "type": "fields",
                       "fieldName": "num_parcelle"
                     },
                     {
-                      "fullExpression": "@calc('association_oui_non_parcelle_N⁰' + @fields.num_parcelle)",
-                      "matchedExpression": "@calc('association_oui_non_parcelle_N⁰' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('nom_arbre_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('nom_arbre_parcelle_N' + @fields.num_parcelle)",
                       "type": "calc",
-                      "fieldName": "'association_oui_non_parcelle_N⁰' + @fields.num_parcelle"
+                      "fieldName": "'nom_arbre_parcelle_N' + @fields.num_parcelle"
                     }
                   ],
                   "1": [
                     {
-                      "fullExpression": "@fields.association_oui_non",
-                      "matchedExpression": "@fields.association_oui_non",
+                      "fullExpression": "@fields.nom_arbre",
+                      "matchedExpression": "@fields.nom_arbre",
                       "type": "fields",
-                      "fieldName": "association_oui_non"
+                      "fieldName": "nom_arbre"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('association_oui_non_parcelle_N⁰' + @fields.num_parcelle) : @fields.association_oui_non",
+                    "fullExpression": "click | set_field: @calc('nom_arbre_parcelle_N' + @fields.num_parcelle) : @fields.nom_arbre",
                     "matchedExpression": "@fields.num_parcelle",
                     "type": "fields",
                     "fieldName": "num_parcelle"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('association_oui_non_parcelle_N⁰' + @fields.num_parcelle) : @fields.association_oui_non",
-                    "matchedExpression": "@fields.association_oui_non",
+                    "fullExpression": "click | set_field: @calc('nom_arbre_parcelle_N' + @fields.num_parcelle) : @fields.nom_arbre",
+                    "matchedExpression": "@fields.nom_arbre",
                     "type": "fields",
-                    "fieldName": "association_oui_non"
+                    "fieldName": "nom_arbre"
                   }
                 ]
               }
@@ -934,17 +788,17 @@
               "action_list.1.args.0",
               "action_list.1._raw"
             ],
-            "@calc('nombre_arbre_parcelle_N⁰' + @fields.num_parcelle)": [
+            "@calc('nombre_arbre_parcelle_N' + @fields.num_parcelle)": [
               "action_list.0.args.0"
             ],
             "@fields.nombre_arbre": [
               "action_list.0.args.1",
               "action_list.0._raw"
             ],
-            "@calc('association_oui_non_parcelle_N⁰' + @fields.num_parcelle)": [
+            "@calc('nom_arbre_parcelle_N' + @fields.num_parcelle)": [
               "action_list.1.args.0"
             ],
-            "@fields.association_oui_non": [
+            "@fields.nom_arbre": [
               "action_list.1.args.1",
               "action_list.1._raw"
             ],
@@ -954,8 +808,8 @@
           }
         }
       ],
-      "name": "display_group_23",
-      "_nested_name": "display_group_23"
+      "name": "display_group_17",
+      "_nested_name": "display_group_17"
     }
   ],
   "_source": {
