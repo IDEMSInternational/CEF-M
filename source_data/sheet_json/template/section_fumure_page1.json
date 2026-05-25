@@ -2,5 +2,68 @@
   "flow_type": "template",
   "flow_name": "section_fumure_page1",
   "status": "released",
-  "rows": []
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_title"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "html",
+      "name": "camera_scane_label",
+      "value": "@global.camera_scane_label",
+      "style_list": "@global.label_style"
+    },
+    {
+      "type": "audio",
+      "name": "audio_1_1",
+      "parameter_list": "variant: compact;\nsrc: audio/semis/qr_code_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "@global.audio_style"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/icons/scan.svg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text",
+      "name": "camera_scane_hint",
+      "value": "@global.camera_scane_hint",
+      "style_list": "@global.hint_style"
+    },
+    {
+      "type": "button",
+      "name": "button_camera_scane",
+      "value": "@global.camera_scane_btn",
+      "parameter_list": "button_align: centre; style: flexible"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page_1_btn_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page_1_btn_continue",
+      "value": "@global.btn_continue",
+      "action_list": "click | emit: completed",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
 }

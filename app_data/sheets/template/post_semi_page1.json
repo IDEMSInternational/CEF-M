@@ -65,119 +65,37 @@
     },
     {
       "type": "text",
-      "value": "Choisissez l'année de la campagne:",
+      "value": "LOGIQUE DE RÉCUPÉRATION (PULLDATA) -- Pas encore dispo",
       "_translations": {
         "value": {}
       },
       "style_list": [
-        "margin-top: 20px"
+        "font-size:11px",
+        "color:gray"
       ],
       "name": "text_6",
       "_nested_name": "text_6"
     },
     {
-      "type": "date_time_picker",
-      "name": "year_picker",
-      "action_list": [
-        {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "campagne",
-            "this.value"
-          ],
-          "_raw": "changed | set_field: campagne: this.value"
-        }
-      ],
+      "type": "html",
+      "name": "pull_chef_upa",
+      "value": "<div style=\"display: flex; align-items: center; margin-bottom: 15px;\">\n  <div style=\"background: #1e3656; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 12px;\">  </div>\n  <div>\n    <div style=\"font-size: 16px; font-weight: bold; color: #1e3656;\">.....</div>\n    <div style=\"font-size: 12px; color: #4f8ff1;\">Chef d'exploitation</div>\n  </div>\n</div>",
+      "_translations": {
+        "value": {}
+      },
       "parameter_list": {
-        "type": "year",
-        "min": "2023",
-        "max": "@calc(now())"
+        "placeholder": "Nom et prénom de chef UPA"
       },
-      "_nested_name": "year_picker",
-      "_dynamicFields": {
-        "parameter_list": {
-          "max": [
-            {
-              "fullExpression": "@calc(now())",
-              "matchedExpression": "@calc(now())",
-              "type": "calc",
-              "fieldName": "now()"
-            }
-          ]
-        }
-      },
-      "_dynamicDependencies": {
-        "@calc(now())": [
-          "parameter_list.max"
-        ]
-      }
+      "_nested_name": "pull_chef_upa"
     },
     {
-      "name": "v_year_ok",
-      "value": "@calc(!!@field.campagne)",
+      "type": "html",
+      "value": "<div style=\"margin-top: 10px;\">\n  <div style=\"display: flex; justify-content: space-between; margin-bottom: 5px;\">\n    <span style=\"color: #999; font-size: 13px;\">Type d'UPA :</span>\n    <span style=\"font-weight: bold; color: #333;\"> .....</span>\n  </div>\n  <div style=\"display: flex; justify-content: space-between;\">\n    <span style=\"color: #999; font-size: 13px;\">Contact :</span>\n    <span style=\"font-weight: bold; color: #333;\">....</span>\n  </div>\n</div>",
       "_translations": {
         "value": {}
       },
-      "type": "set_variable",
-      "_nested_name": "v_year_ok",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(!!@field.campagne)",
-            "matchedExpression": "!@field.campagne",
-            "type": "field",
-            "fieldName": "campagne"
-          },
-          {
-            "fullExpression": "@calc(!!@field.campagne)",
-            "matchedExpression": "@calc(!!@field.campagne)",
-            "type": "calc",
-            "fieldName": "!!@field.campagne"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "!@field.campagne": [
-          "value"
-        ],
-        "@calc(!!@field.campagne)": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "completed_enabled",
-      "value": "@calc(@local.v_year_ok)",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "completed_enabled",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(@local.v_year_ok)",
-            "matchedExpression": "@local.v_year_ok",
-            "type": "local",
-            "fieldName": "v_year_ok"
-          },
-          {
-            "fullExpression": "@calc(@local.v_year_ok)",
-            "matchedExpression": "@calc(@local.v_year_ok)",
-            "type": "calc",
-            "fieldName": "@local.v_year_ok"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.v_year_ok": [
-          "value"
-        ],
-        "@calc(@local.v_year_ok)": [
-          "value"
-        ]
-      }
+      "name": "html_8",
+      "_nested_name": "html_8"
     },
     {
       "type": "display_group",
@@ -226,8 +144,7 @@
             }
           ],
           "parameter_list": {
-            "style": "navigation",
-            "disabled": "!@local.completed_enabled"
+            "style": "navigation"
           },
           "style_list": [
             "flex: 1"
@@ -241,24 +158,11 @@
                 "type": "global",
                 "fieldName": "btn_continue"
               }
-            ],
-            "parameter_list": {
-              "disabled": [
-                {
-                  "fullExpression": "!@local.completed_enabled",
-                  "matchedExpression": "!@local.completed_enabled",
-                  "type": "local",
-                  "fieldName": "completed_enabled"
-                }
-              ]
-            }
+            ]
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
-            ],
-            "!@local.completed_enabled": [
-              "parameter_list.disabled"
             ]
           }
         }

@@ -1,0 +1,116 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_humains_page7",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "RENDEMENTS ESTIMÉS"
+    },
+    {
+      "name": "rend_mais",
+      "value": "@calc(@field.type_menage_id == 'HRE-LH' ? 2427 : (@field.type_menage_id == 'HRE' ? 2081 : (@field.type_menage_id == 'MRE' ? 1888 : 1298)))"
+    },
+    {
+      "name": "rend_mil",
+      "value": "@calc(@field.type_menage_id == 'HRE-LH' ? 884 : (@field.type_menage_id == 'HRE' ? 668 : (@field.type_menage_id == 'MRE' ? 697 : 524)))"
+    },
+    {
+      "name": "rend_sorgho",
+      "value": "@calc(@field.type_menage_id == 'HRE-LH' ? 1107 : (@field.type_menage_id == 'HRE' ? 871 : (@field.type_menage_id == 'MRE' ? 907 : 650)))"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "info_rendement",
+      "style_list": "background: #f8f9fa; padding: 20px;  margin: 15px;"
+    },
+    {
+      "type": "html",
+      "value": "<h3 style=\"color: #1e3656; margin: 0 0 10px 0; font-size: 16px;\">VOS CAPACITÉS DE PRODUCTION</h3>"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: #666; font-size: 13px;\">Basé sur votre profil <b>@field.final_upa_type </b>, voici vos rendements moyens attendus :</p>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "card_mais",
+      "style_list": "background: white; padding: 15px; margin-bottom: 10px; display: flex; align-items: center;"
+    },
+    {
+      "type": "image",
+      "value": "images/mais.jpg",
+      "style_list": "width: 40px; margin-right: 15px;"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"flex: 1;\"><span style=\"color: #666; font-size: 12px;\">Maïs</span><br><b style=\"color: #1e3656; font-size: 18px;\">@local.rend_mais kg / ha</b></div>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "card_mil",
+      "style_list": "background: white;padding: 15px; margin-bottom: 10px; display: flex; align-items: center;"
+    },
+    {
+      "type": "image",
+      "value": "images/mil.jpg",
+      "style_list": "width: 60px; margin-right: 15px;"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"flex: 1;\"><span style=\"color: #666; font-size: 12px;\">Mil</span><br><b style=\"color: #1e3656; font-size: 18px;\">@local.rend_mil kg / ha</b></div>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "card_sorgho",
+      "style_list": "background: white; padding: 15px; margin-bottom: 10px; display: flex; align-items: center;"
+    },
+    {
+      "type": "image",
+      "value": "images/sorgho.jpg",
+      "style_list": "width: 60px; margin-right: 15px;"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"flex: 1;\"><span style=\"color: #666; font-size: 12px;\">Sorgho</span><br><b style=\"color: #1e3656; font-size: 18px;\">@local.rend_sorgho kg / ha</b></div>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: rend_mais : @local.rend_mais;\nclick | set_field: rend_mil : @local.rend_mil;\nclick | set_field: rend_sorgho : @local.rend_sorgho;\nclick | emit: completed",
+      "parameter_list": "style: navigation;\n",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

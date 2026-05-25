@@ -2,6 +2,7 @@
   "flow_type": "template",
   "flow_name": "section_fumure",
   "status": "released",
+  "__EMPTY": "planning form",
   "rows": [
     {
       "name": "task_group",
@@ -218,7 +219,7 @@
                 {
                   "type": "template",
                   "name": "page",
-                  "value": "section_semi_@item.id",
+                  "value": "section_fumure_@item.id",
                   "action_list": [
                     {
                       "trigger": "completed",
@@ -248,7 +249,7 @@
                   "_dynamicFields": {
                     "value": [
                       {
-                        "fullExpression": "section_semi_@item.id",
+                        "fullExpression": "section_fumure_@item.id",
                         "matchedExpression": "@item.id",
                         "type": "item",
                         "fieldName": "id"

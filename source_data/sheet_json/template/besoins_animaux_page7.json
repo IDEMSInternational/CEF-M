@@ -1,0 +1,64 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_animaux_page7",
+  "status": "released",
+  "rows": [
+    {
+      "type": "begin_template",
+      "name": "temp1",
+      "value": "sup_simple",
+      "condition": "@fields.type_regime == 'compl_faible'"
+    },
+    {
+      "type": "end_template "
+    },
+    {
+      "type": "begin_template",
+      "name": "temp2",
+      "value": "sup_ameliore",
+      "condition": "@fields.type_regime == 'compl_ameli'"
+    },
+    {
+      "type": "end_template "
+    },
+    {
+      "type": "begin_template",
+      "name": "temp3",
+      "value": "stabulation",
+      "condition": "@fields.type_regime == 'stabulation'"
+    },
+    {
+      "type": "end_template "
+    },
+    {
+      "type": "begin_template",
+      "name": "temp4",
+      "value": "paturage_transh",
+      "condition": "@fields.type_regime == 'paturage' || @fields.type_regime == 'transhumance' "
+    },
+    {
+      "type": "end_template "
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page7_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page7_button_continue",
+      "value": "Continuer",
+      "action_list": "click | emit: completed;"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

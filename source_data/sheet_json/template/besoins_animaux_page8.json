@@ -1,0 +1,144 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_animaux_page8",
+  "status": "released",
+  "rows": [
+    {
+      "type": "subtitle",
+      "value": "**SOINS VETERINAIRE**"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.categorie_animaux",
+      "parameter_list": "filter: @item.name == @fields.current_cat_animaux"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@item.text: @fields.nb_animaux tête(s)"
+    },
+    {
+      "type": "image",
+      "value": "@item.image",
+      "style_list": "width:150px; height:150px; "
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "note_soins_veto",
+      "value": "Traitement et vacination"
+    },
+    {
+      "type": "image",
+      "value": "images/soins_veto.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\"> Donnez le prix unitaire du soins vétérinaire pour une tête de @item.text . Il s'agit des frais de medicaments et de préstations vétérinaires.</p>"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text_box",
+      "name": "frais_veterinaire_tete",
+      "value": "@fields.frais_veterinaire_tete",
+      "action_list": "changed | set_field: frais_veterinaire_tete : this.value;",
+      "parameter_list": "number_input: true\nplaceholder: Entrez le prix du soins ;",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@fields.frais_veterinaire_tete "
+    },
+    {
+      "name": "valid_frais_veterinaire_tete",
+      "value": "@calc((/^\\d+$/.test(@local.frais_veterinaire_tete) && @local.frais_veterinaire_tete>0 ) || @local.frais_veterinaire_tete == '' || !@local.frais_veterinaire_tete )"
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "condition": "!@local.valid_frais_veterinaire_tete",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "text",
+      "value": "Les frais totaux prévisionnels de soins vétérinaires",
+      "condition": "@fields.frais_veterinaire_tete > 0"
+    },
+    {
+      "type": "set_field",
+      "name": "frais_veterinaire_cat",
+      "value": "@calc((Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0)))",
+      "condition": "@fields.frais_veterinaire_tete > 0"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa_tot.jpg",
+      "condition": "@fields.frais_veterinaire_tete > 0",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text",
+      "name": "note_totaux",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n Les frais totaux pour le(s) @fields.nb_animaux tête (s) de @item.text sont :  <strong> @fields.frais_veterinaire_cat drm\n</strong> </div>",
+      "condition": "@fields.frais_veterinaire_tete > 0"
+    },
+    {
+      "condition": "@fields.frais_veterinaire_tete > 0"
+    },
+    {
+      "type": "text",
+      "name": "note_hint",
+      "value": "Ce montant est obtenu en multipliant le prix unitaire de soins (@fields.frais_veterinaire_tete drm) par le nombre d'animaux @fields.nb_animaux de @item.text",
+      "condition": "@fields.frais_veterinaire_tete > 0",
+      "style_list": "font-size: 14px"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "name": "last_cat_animaux",
+      "value": "@calc((Number(@fields.cat_animaux_loop_idx) + 1) <= Number(@fields.cat_animaux_selected_count))"
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page8_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page8_next_cat_animaux",
+      "value": "Continuer",
+      "action_list": "click | set_field: type_regime:;\nclick | set_field: nb_animaux:;\n\nclick | set_field: cat_animaux_loop_idx : @calc(Number(@fields.cat_animaux_loop_idx) + 1);\nclick | set_field: current_cat_animaux : @calc(@fields.cat_animaux_selected.split(',')[Number(@fields.cat_animaux_loop_idx) + 1])\n\nclick | set_data | _list_id: besoins_animaux_settings_pages, _index: 5, completed: false;\nclick | set_data | _list_id: besoins_animaux_settings_pages, _index: 6, completed: false;\nclick | set_data | _list_id: besoins_animaux_settings_pages, _index: 7, completed: false;\n\n",
+      "condition": "@local.last_cat_animaux"
+    },
+    {
+      "type": "button",
+      "name": "page8_button_continue",
+      "value": "Continuer",
+      "action_list": "click | emit: completed;",
+      "condition": "!@local.last_cat_animaux"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

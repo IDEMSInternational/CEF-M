@@ -12,22 +12,23 @@
       "type": "begin_display_group"
     },
     {
-      "type": "image",
-      "value": "images/vocal.jpg"
-    },
-    {
       "type": "text",
       "name": "observation_appreciation_label",
       "value": "@global.observation_appreciation_label"
     },
     {
       "type": "audio",
-      "name": "audio_12_1",
+      "name": "audio_20_1",
       "parameter_list": "variant: compact;\nsrc: audio/Enrolement/appreciation_audio_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
     {
       "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/vocal.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
     },
     {
       "type": "text",
@@ -49,13 +50,13 @@
     },
     {
       "type": "round_button",
-      "name": "page_1_button_back",
+      "name": "page_20_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page_1_button_continue",
+      "name": "page_20_button_continue",
       "value": "@global.btn_continue",
       "action_list": "click | emit: completed",
       "style_list": "flex: 1"

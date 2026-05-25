@@ -1,0 +1,119 @@
+{
+  "flow_type": "template",
+  "flow_name": "depenses_page10",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_title",
+      "value": "TOTAUX DES DEPENSES PREVUES"
+    },
+    {
+      "name": "total_depenses_recurrentes",
+      "value": "@calc((Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + (Number(@fields.montant_autre_frais) || 0)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))"
+    },
+    {
+      "name": "total_depenses_investissements",
+      "value": "@calc((Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))"
+    },
+    {
+      "name": "depenes_total_upa",
+      "value": "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) + Number(@local.total_depenses_investissements.replace(/\\s/g, ''))).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))"
+    },
+    {
+      "name": "total_depenses_recurrentes_cfa\n",
+      "value": "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))"
+    },
+    {
+      "name": "total_depenses_investissements_cfa\n",
+      "value": "@calc((Number(@local.total_depenses_investissements.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))"
+    },
+    {
+      "name": "depenes_total_upa_cfa\n",
+      "value": "@calc((Number(@local.depenes_total_upa.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))"
+    },
+    {
+      "type": "text",
+      "value": "Totaux des dépenses récurrentes de l'année (drm)",
+      "style_list": "font-size:20px;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa_tot.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text",
+      "name": "hint_price_1",
+      "value": "@global.hint_price",
+      "style_list": "color: gray; font-size: 16px;"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.total_depenses_recurrentes drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.total_depenses_recurrentes_cfa FCFA\n    </span>\n  </div>\n</div>"
+    },
+    {
+      "type": "text",
+      "value": "Totaux des dépenses d'investissement de l'année (drm)",
+      "style_list": "font-size:20px;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa_tot.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text",
+      "name": "hint_price_2",
+      "value": "@global.hint_price",
+      "style_list": "color: gray; font-size: 16px;"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.total_depenses_investissements drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.total_depenses_investissements_cfa FCFA\n    </span>\n  </div>\n</div>"
+    },
+    {
+      "type": "text",
+      "value": "Dépenses totales de l'UPA de l'année (drm)",
+      "style_list": "font-size:20px;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa_tot.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text",
+      "name": "hint_price_3",
+      "value": "@global.hint_price",
+      "style_list": "color: gray; font-size: 16px;"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.depenes_total_upa drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.depenes_total_upa_cfa FCFA\n    </span>\n  </div>\n</div>"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page_10_btn_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page_10_btn_continue",
+      "value": "@global.btn_continue",
+      "action_list": "click | emit: completed",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

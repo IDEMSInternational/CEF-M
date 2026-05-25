@@ -4,37 +4,80 @@
   "status": "released",
   "rows": [
     {
+      "type": "plh_module_details_header",
+      "value": "CEF-M",
+      "parameter_list": "background: #F9FBE7; hide_back_button: true;"
+    },
+    {
       "type": "title",
-      "value": "HI Everyone !"
+      "value": "SUIVI DE CAMPAGNE"
     },
     {
-      "type": "text",
-      "value": "Welcome to your app!"
-    },
-    {
-      "type": "button",
+      "type": "plh_module_list_item",
+      "name": "item_enrolment",
       "value": "Enrolment",
-      "action_list": "click | go_to: enrolment"
+      "action_list": "click | go_to: enrolment",
+      "parameter_list": "module_image_asset: images/neo_alpha.jpg; nav_image_asset: images/icons/expand_circle_right.png;"
     },
     {
-      "type": "button",
-      "value": "Semi",
-      "action_list": "click | go_to: section_semi"
+      "type": "plh_module_list_item",
+      "name": "item_semi",
+      "value": "Semis",
+      "action_list": "click | go_to: section_semi",
+      "parameter_list": "module_image_asset: images/seeding.png; nav_image_asset: images/icons/expand_circle_right.png;"
     },
     {
-      "type": "button",
-      "value": "Post Semi",
-      "action_list": "click | go_to: post_semi"
+      "type": "plh_module_list_item",
+      "name": "item_post_semi",
+      "value": "Post Semis",
+      "action_list": "click | go_to: post_semi",
+      "parameter_list": "module_image_asset: images/sup_cult.jpg; nav_image_asset: images/icons/expand_circle_right.png;"
     },
     {
-      "type": "button",
+      "type": "plh_module_list_item",
+      "name": "item_superficie",
       "value": "Superficie Champs",
-      "action_list": "click | go_to: superficie"
+      "action_list": "click | go_to: superficie",
+      "parameter_list": "module_image_asset: images/superf_champ.jpg; nav_image_asset: images/icons/expand_circle_right.png;"
     },
     {
-      "type": "button",
+      "type": "plh_module_list_item",
+      "name": "item_recolte",
       "value": "Récolte",
-      "action_list": "click | go_to: recolte"
+      "action_list": "click | go_to: recolte",
+      "parameter_list": "module_image_asset: images/ratio_membre_terre.jpg; nav_image_asset: images/icons/expand_circle_right.png;"
+    },
+    {
+      "type": "title",
+      "value": "PLANIFICATION ANNUELLE"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_fumure",
+      "value": "Fumure organique",
+      "action_list": "click | go_to: section_fumure",
+      "parameter_list": "module_image_asset: images/fumure.jpg; nav_image_asset: images/icons/expand_circle_right.png; background: #F9FBE7;"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_humains",
+      "value": "Alimentation Humaine",
+      "action_list": "click | go_to: besoins_humains",
+      "parameter_list": "module_image_asset: images/membres.jpg; nav_image_asset: images/icons/expand_circle_right.png; background: #E8F5E9;"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_animaux",
+      "value": "Alimentation Animale",
+      "action_list": "click | go_to: besoins_animaux",
+      "parameter_list": "module_image_asset: images/fourrage.jpg; nav_image_asset: images/icons/expand_circle_right.png; background: #E3F2FD;"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_depenses",
+      "value": "Dépenses de l'UPA",
+      "action_list": "click | go_to: depenses",
+      "parameter_list": "module_image_asset: images/cfa_tot.jpg; nav_image_asset: images/icons/expand_circle_right.png; background: #FFF3E0;"
     }
   ]
 }

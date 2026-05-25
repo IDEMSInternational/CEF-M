@@ -1,0 +1,77 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_humains_page5",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "BESOINS FAMILIAUX"
+    },
+    {
+      "type": "html",
+      "value": "<h3 style=\"color: #1e3656; margin: 0 0 10px 0; font-size: 16px;\">PERSONNES À NOURRIR</h3>"
+    },
+    {
+      "type": "image",
+      "value": "images/membre_upa.jpg",
+      "style_list": "width: 80%; border-radius: 10px; margin-bottom: 15px;"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: #666; font-size: 13px; line-height: 1.5;\">Indiquez le nombre total de personnes (adultes et enfants) dont l'alimentation sera assurée par les récoltes de cette année sur 12 mois.</p>"
+    },
+    {
+      "type": "text_box",
+      "name": "personnes_nourrir",
+      "value": "@field.personnes_nourrir",
+      "action_list": "changed | set_field: personnes_nourrir : this.value;",
+      "parameter_list": "placeholder: Nombre de personnes;input_type: number;",
+      "style_list": "margin-top: 10px;"
+    },
+    {
+      "name": "v_besoin_sacs",
+      "value": "@calc(Number(@field.personnes_nourrir || 0) * 3)"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "prevision",
+      "condition": "@field.personnes_nourrir > 0",
+      "style_list": "background: #1e3656; padding: 15px; border-radius: 12px; color: white;"
+    },
+    {
+      "type": "image",
+      "value": "images/besoin_upa.jpg",
+      "style_list": "width: 25%; float: left; margin-right: 10px;"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"overflow: hidden;\">\n    <div style=\"text-transform: uppercase; font-size: 10px; color: #4f8ff1; font-weight: bold; margin-bottom: 2px;\">Objectif de production</div>\n    <div style=\"font-size: 22px; font-weight: bold; margin-bottom: 4px;\">\n        @local.v_besoin_sacs <span style=\"font-size: 14px; font-weight: normal;\">sacs de céréales</span>\n    </div>\n    <p style=\"font-size: 11px; color: #cbd5e0; line-height: 1.2; margin: 0;\">\n        Couvre les besoins de <b>@field.personnes_nourrir membres</b> / 12 mois.\n    </p>\n</div>\n<div style=\"clear: both;\"></div>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: besoin_cereale_exploitation : @local.v_besoin_sacs;\nclick | emit: completed",
+      "parameter_list": "style: navigation;\ndisabled: !@field.personnes_nourrir || @field.personnes_nourrir <= 0",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

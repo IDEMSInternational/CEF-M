@@ -1,0 +1,78 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_humains_page1",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "@global.titre_page1"
+    },
+    {
+      "type": "audio",
+      "name": "audio_scan",
+      "parameter_list": "variant: compact;\nsrc: audio/bHumains/qr_code_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_scan",
+      "style_list": "background: #f8f9fa; padding: 20px; text-align: center; margin-bottom: 20px;"
+    },
+    {
+      "type": "image",
+      "value": "images/qr_code.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: #666; font-size: 13px; margin-top: 10px;\">@global.info_page1</p>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Utilisez la camera pour scanner votre code",
+      "style_list": "text-align: center; font-weight: bold;"
+    },
+    {
+      "type": "text",
+      "value": "LOGIQUE DE RÉCUPÉRATION (PULLDATA) -- Pas encore dispo",
+      "style_list": "font-size:11px; color:gray;"
+    },
+    {
+      "type": "html",
+      "name": "pull_chef_upa",
+      "value": "<div style=\"display: flex; align-items: center; margin-bottom: 15px;\">\n  <div style=\"background: #1e3656; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 12px;\">........</div>\n  <div>\n    <div style=\"font-size: 16px; font-weight: bold; color: #1e3656;\">.......</div>\n    <div style=\"font-size: 12px; color: #4f8ff1;\">Chef d'exploitation</div>\n  </div>\n</div>",
+      "parameter_list": "placeholder: Nom et prénom de chef UPA"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"margin-top: 10px;\">\n  <div style=\"display: flex; justify-content: space-between; margin-bottom: 5px;\">\n    <span style=\"color: #999; font-size: 13px;\">Type d'UPA :</span>\n    <span style=\"font-weight: bold; color: #333;\">........</span>\n  </div>\n  <div style=\"display: flex; justify-content: space-between;\">\n    <span style=\"color: #999; font-size: 13px;\">Contact :</span>\n    <span style=\"font-weight: bold; color: #333;\">.......</span>\n  </div>\n</div>"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "@global.btn_continue",
+      "action_list": "click | emit: completed",
+      "parameter_list": "style: navigation;\n",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_humains_page10",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "FIN & RÉCAPITULATIF"
+    },
+    {
+      "type": "image",
+      "value": "images/obs_form.jpg",
+      "style_list": "width: 70%; border-radius: 10px; margin-bottom: 15px;"
+    },
+    {
+      "type": "html",
+      "value": "<h3 style=\"color: #1e3656; margin: 0 0 5px 0; font-size: 16px;\">VOTRE AVIS NOUS INTÉRESSE</h3>"
+    },
+    {
+      "type": "audio",
+      "name": "audio_appreciation",
+      "parameter_list": "variant: compact;\nsrc: audio/bHumains/appreciation_audio_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: #666; font-size: 13px;\">L'outil de calcul vous a-t-il été utile ? Partagez vos suggestions par audio :</p>"
+    },
+    {
+      "type": "text",
+      "value": "Enregistrer votre avis",
+      "style_list": "color: #4caf50;"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"background: linear-gradient(135deg, #1e3656 0%, #2c5282 100%); padding: 30px 20px; border-radius: 20px; text-align: center; color: white; margin: 15px;\">\n    \n    <div style=\"font-size: 22px; font-weight: bold; margin-bottom: 10px; letter-spacing: 1px;\">MERCI !</div>\n    <p style=\"font-size: 15px; color: #a5c7f9; line-height: 1.6; margin-bottom: 25px;\">\n        Votre planification céréalière est terminée avec succès.\n    </p>\n\n    <div style=\"text-align: left; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);\">\n        <b style=\"color: #4f8ff1; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\">Étapes suivantes suggérées :</b>\n        <ul style=\"list-style: none; padding: 0; margin: 15px 0 0 0; font-size: 13px; color: #e2e8f0; line-height: 2;\">\n            <li> L'alimentation animale de l'UPA</li>\n            <li> La fumure organique (fertilité)</li>\n            <li>Le budget annuel des dépenses</li>\n        </ul>\n    </div>\n</div>"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "ENREGISTRER",
+      "action_list": "click | go_to: home_screen;",
+      "parameter_list": "style: navigation;",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

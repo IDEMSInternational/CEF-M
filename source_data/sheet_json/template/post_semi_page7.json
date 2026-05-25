@@ -8,14 +8,6 @@
       "value": "@calc(Number(@field.current_culture_index) + 1)"
     },
     {
-      "name": "v_tot_cult",
-      "value": "@calc((Number(@field.final_cout_entre) || 0) + (Number(@field.final_count_fert) || 0) + (Number(@field.final_count_phyto) || 0))"
-    },
-    {
-      "name": "v_tot_fcfa",
-      "value": "@calc(@local.v_tot_cult * 5)"
-    },
-    {
       "type": "begin_display_group",
       "name": "header_top",
       "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
@@ -29,7 +21,7 @@
     },
     {
       "type": "title",
-      "value": "DÉTAILS DE LA CULTURE : BILAN & OBSERVATIONS"
+      "value": "DÉTAILS DE LA CULTURE : PROTECTION CHIMIQUE"
     },
     {
       "type": "begin_display_group",
@@ -49,136 +41,265 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<br><h3 style=\"color: #E65100; margin:0;\">TOTAL INVESTI : @local.v_tot_cult Dram</h3>"
+      "name": "v_q_herb_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_herb))"
+    },
+    {
+      "name": "v_q_herb_pos",
+      "value": "@calc(@local.v_q_herb_fmt && Number(@field.q_herb) > 0)"
+    },
+    {
+      "name": "v_q_herb_err",
+      "value": "@calc(!@local.v_q_herb_fmt || Number(@field.q_herb) < 0)"
     },
     {
       "type": "html",
-      "value": "<p style=\"color: #757575; font-size: 14px;\">Équivalent : <b>@local.v_tot_fcfa FCFA</b><br><small><i>(Base : 1 dram = 5 FCFA)</i></small></p>"
+      "value": "<br><b style=\"color: #e67e22\">1. HERBICIDAGE</b>"
     },
     {
       "type": "begin_display_group",
-      "name": "bilan_card",
+      "name": "npk_card",
       "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "parameter_list": "variant: compact;\nsrc: audio/postSemi/cout_cult_postsemis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/q_herbicide_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float: right;"
-    },
-    {
-      "type": "end_display_group"
     },
     {
       "type": "html",
-      "value": "<br><b style=\"color: #455A64\">COMMENT SOUHAITEZ-VOUS FAIRE VOTRE CONSTAT ?</b>"
+      "value": "Quantité Herbicide utilisée (Flacons)<span style=\"color: red;\">*</span>"
     },
     {
-      "type": "radio_button_grid",
-      "name": "obs_grid",
-      "value": "@field.obs_type",
-      "action_list": "changed | set_field: obs_type : this.value;",
-      "parameter_list": "answer_list: @data.group_observation;\nvariant: flex;\nitem_width: 60px;\ngrid_gap: 8px;"
+      "type": "image",
+      "value": "images/flacon.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
     },
     {
-      "type": "begin_display_group",
-      "name": "obs_audio",
-      "condition": "@field.obs_type == 'par_vocal'",
-      "style_list": "display: block; width: 100%"
-    },
-    {
-      "type": "audio",
-      "parameter_list": "variant: compact;\nsrc: audio/postSemi/Ob_audio_postsemis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
+      "type": "text_box",
+      "name": "q_herb",
+      "value": "@field.q_herb",
+      "action_list": "changed | set_field: q_herb : this.value;",
+      "parameter_list": "number_input: true; placeholder: 0;"
     },
     {
       "type": "text",
-      "value": "Enregistrez votre témoignage vocal ci-dessus."
+      "value": "Mettz une valeur positive.",
+      "condition": "@local.v_q_herb_err",
+      "style_list": "color: red; font-size: 12px;"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "begin_display_group",
-      "name": "obs_photo",
-      "condition": "@field.obs_type == 'par_photo'",
+      "name": "npk_cost_card",
+      "condition": "@local.v_q_herb_pos",
       "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "parameter_list": "variant: compact;\nsrc: audio/postSemi/Ob_photo_postsemis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/cout_herbicide_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Coût total Herbicide (Dram)<span style=\"color: red;\">*</span>"
     },
     {
       "type": "text",
-      "value": "Prenez une photo d'un point précis du champ."
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "c_herb",
+      "value": "@field.c_herb",
+      "action_list": "changed | set_field: c_herb : this.value;",
+      "parameter_list": "number_input: true; placeholder: Coût total herbicide...;"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "begin_display_group",
-      "name": "obs_video",
-      "condition": "@field.obs_type == 'par_video'",
+      "name": "npk_cost_card_zero",
+      "condition": "@field.q_herb == 0",
       "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "parameter_list": "variant: compact;\nsrc: audio/postSemi/Ob_video_postsemis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/cout_herbicide_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Coût total Herbicide (Dram)<span style=\"color: red;\">*</span>"
     },
     {
       "type": "text",
-      "value": "Filmez l'état général de la culture."
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "value": 0,
+      "parameter_list": "disabled:true;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "v_q_ins_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_ins))"
+    },
+    {
+      "name": "v_q_ins_pos",
+      "value": "@calc(@local.v_q_ins_fmt && Number(@field.q_ins) > 0)"
+    },
+    {
+      "name": "v_q_ins_err",
+      "value": "@calc(!@local.v_q_ins_fmt || Number(@field.q_ins) < 0)"
+    },
+    {
+      "type": "html",
+      "value": "<br><b style=\"color: #e67e22\">2. INSECTICIDAGE</b>"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "desherbage_card",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/q_insecticide_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Quantité Insecticide utilisée (Flacons)<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "q_ins",
+      "value": "@field.q_ins",
+      "action_list": "changed | set_field: q_ins : this.value;",
+      "parameter_list": "number_input: true; placeholder: 0;"
+    },
+    {
+      "type": "image",
+      "value": "images/flacon.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text",
+      "value": "Mettez une valeur positive.",
+      "condition": "@local.v_q_ins_err",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "card_cout",
+      "condition": "@local.v_q_ins_pos",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/cout_insecticide_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Coût total Insecticide (Dram)<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "c_ins",
+      "value": "@field.c_ins",
+      "action_list": "changed | set_field: c_ins : this.value;",
+      "parameter_list": "placeholder: Coût total insecticide...; number_input: true;"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "begin_display_group",
-      "name": "obs_text",
-      "condition": "@field.obs_type == 'par_text'",
+      "name": "card_cout_zero",
+      "condition": "@field.q_ins == 0",
       "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "parameter_list": "variant: compact;\nsrc: audio/postSemi/Ob_ecrit_postsemis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/cout_insecticide_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
-      "type": "text_area",
-      "name": "obs_text",
-      "value": "@field.obs_text",
-      "action_list": "changed | set_field: obs_text : this.value;",
-      "parameter_list": "placeholder: Saisissez vos remarques...;multiline: true;",
-      "style_list": "font-size: 12px; font-style: italic;"
+      "type": "html",
+      "value": "Coût total Insecticide (Dram)<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "c_ins_zero",
+      "value": 0,
+      "parameter_list": "disabled:true;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "end_data_items"
+      "name": "v_phyto_herb_ok",
+      "value": "@calc(@local.v_q_herb_fmt && (Number(@field.q_herb) === 0 || (Number(@field.c_herb) >= 0 && @field.c_herb !== '')))"
     },
     {
-      "name": "name",
-      "value": "@calc(@field.selected_cultures_list.split(',')[Number(@field.current_culture_index) + 1])"
+      "name": "v_phyto_ins_ok",
+      "value": "@calc(@local.v_q_ins_fmt && (Number(@field.q_ins) === 0 || (Number(@field.c_ins) >= 0 && @field.c_ins !== '')))"
     },
     {
-      "name": "v_new_total_global",
-      "value": "@calc((Number(@field.grand_total_post_semi) || 0) + Number(@local.v_tot_cult))"
-    },
-    {
-      "name": "v_current_obs_ok",
-      "value": "@calc(@field.obs_type !== '' && @field.obs_type !== null)"
+      "name": "v_total_phyto_culture",
+      "value": "@calc((Number(@field.c_herb) || 0) + (Number(@field.c_ins) || 0))"
     },
     {
       "name": "completed_enabled",
-      "value": "@local.v_current_obs_ok\n\n"
+      "value": "@calc(@local.v_phyto_herb_ok && @local.v_phyto_ins_ok)"
     },
     {
       "type": "begin_display_group",
@@ -196,18 +317,8 @@
       "type": "button",
       "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    sup_sarclage: @field.sup_sarclage,\n    cost_sarclage: @field.cost_sarclage,\n    sup_desherbage: @field.sup_desherbage,\n    cost_desherbage: @field.cost_desherbage,\n    sup_buttage: @field.sup_buttage,\n    cost_buttage: @field.cost_buttage,\n    q_npk: @field.q_npk,\n    c_npk: @field.c_npk,\n    q_uree: @field.q_ur,\n    c_uree: @field.c_ur,\n    q_herb: @field.q_herb,\n    c_herb: @field.c_herb,\n    q_ins: @field.q_ins,\n    c_ins: @field.c_ins,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult;\nclick | set_data | _list_id: post_semi_settings_pages, _index: 3, completed: false;\nclick | set_data | _list_id: post_semi_settings_pages, _index: 4, completed: false;\nclick | set_data | _list_id: post_semi_settings_pages, _index: 5, completed: false;\nclick | set_data | _list_id: post_semi_settings_pages, _index: 6, completed: false;\nclick | set_field: active_culture_name : @local.name;\nclick | set_field: current_culture_index : @calc(Number(@field.current_culture_index) + 1);\nclick | set_field: sup_sarclage :;\nclick | set_field: cost_sarclage :;\nclick | set_field: sup_desherbage :;\nclick | set_field: cost_desherbage :;\nclick | set_field: sup_buttage :;\nclick | set_field: cost_buttage :;\nclick | set_field: q_npk :;\nclick | set_field: c_npk :;\nclick | set_field: q_ur :;\nclick | set_field: c_ur :;\nclick | set_field: q_herb :;\nclick | set_field: c_herb :;\nclick | set_field: q_ins :;\nclick | set_field: c_ins :;\nclick | set_field: obs_type :;\nclick | set_field: grand_total_post_semi : @local.v_new_total_global;\nclick | emit: force_reprocess;",
+      "action_list": "click | set_field: final_count_phyto: @local.v_total_phyto_culture;\nclick | emit: completed",
       "parameter_list": "style: navigation;\ndisabled: !@local.completed_enabled",
-      "condition": "@calc(Number(@field.current_culture_index) < Number(@field.total_cultures_selected) - 1)",
-      "style_list": "flex: 1"
-    },
-    {
-      "type": "button",
-      "name": "button_completed",
-      "value": "Terminer",
-      "action_list": "click | set_field: grand_total_post_semi : @local.v_new_total_global;\nclick | emit: completed;\n",
-      "parameter_list": "style: navigation;\ndisabled: !@local.completed_enabled",
-      "condition": "@calc(Number(@field.current_culture_index) >= Number(@field.total_cultures_selected) - 1)",
       "style_list": "flex: 1"
     },
     {

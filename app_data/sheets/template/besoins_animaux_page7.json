@@ -1,0 +1,163 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_animaux_page7",
+  "status": "released",
+  "rows": [
+    {
+      "type": "template",
+      "name": "temp1",
+      "value": "sup_simple",
+      "condition": "@fields.type_regime == 'compl_faible'",
+      "rows": [],
+      "_nested_name": "temp1",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_regime == 'compl_faible'",
+            "matchedExpression": "@fields.type_regime",
+            "type": "fields",
+            "fieldName": "type_regime"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_regime": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "template",
+      "name": "temp2",
+      "value": "sup_ameliore",
+      "condition": "@fields.type_regime == 'compl_ameli'",
+      "rows": [],
+      "_nested_name": "temp2",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_regime == 'compl_ameli'",
+            "matchedExpression": "@fields.type_regime",
+            "type": "fields",
+            "fieldName": "type_regime"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_regime": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "template",
+      "name": "temp3",
+      "value": "stabulation",
+      "condition": "@fields.type_regime == 'stabulation'",
+      "rows": [],
+      "_nested_name": "temp3",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_regime == 'stabulation'",
+            "matchedExpression": "@fields.type_regime",
+            "type": "fields",
+            "fieldName": "type_regime"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_regime": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "template",
+      "name": "temp4",
+      "value": "paturage_transh",
+      "condition": "@fields.type_regime == 'paturage' || @fields.type_regime == 'transhumance'",
+      "rows": [],
+      "_nested_name": "temp4",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_regime == 'paturage' || @fields.type_regime == 'transhumance'",
+            "matchedExpression": "@fields.type_regime",
+            "type": "fields",
+            "fieldName": "type_regime"
+          },
+          {
+            "fullExpression": "@fields.type_regime == 'paturage' || @fields.type_regime == 'transhumance'",
+            "matchedExpression": "@fields.type_regime",
+            "type": "fields",
+            "fieldName": "type_regime"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_regime": [
+          "condition",
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page7_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "display_group_10.page7_button_back"
+        },
+        {
+          "type": "button",
+          "name": "page7_button_continue",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "_nested_name": "display_group_10.page7_button_continue"
+        }
+      ],
+      "name": "display_group_10",
+      "_nested_name": "display_group_10"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/besoins_animaux_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1U46sOmNeVPbt-HeQiPvQBjmJoqzQnjrSCBu93Ydt7Iw"
+  }
+}

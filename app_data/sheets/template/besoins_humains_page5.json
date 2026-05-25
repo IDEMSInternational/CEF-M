@@ -1,0 +1,334 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_humains_page5",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "BESOINS FAMILIAUX",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_2",
+      "_nested_name": "title_2"
+    },
+    {
+      "type": "html",
+      "value": "<h3 style=\"color: #1e3656; margin: 0 0 10px 0; font-size: 16px;\">PERSONNES À NOURRIR</h3>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_3",
+      "_nested_name": "html_3"
+    },
+    {
+      "type": "image",
+      "value": "images/membre_upa.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 80%",
+        "border-radius: 10px",
+        "margin-bottom: 15px"
+      ],
+      "name": "image_4",
+      "_nested_name": "image_4"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: #666; font-size: 13px; line-height: 1.5;\">Indiquez le nombre total de personnes (adultes et enfants) dont l'alimentation sera assurée par les récoltes de cette année sur 12 mois.</p>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_5",
+      "_nested_name": "html_5"
+    },
+    {
+      "type": "text_box",
+      "name": "personnes_nourrir",
+      "value": "@field.personnes_nourrir",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "personnes_nourrir",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: personnes_nourrir : this.value"
+        }
+      ],
+      "parameter_list": {
+        "placeholder": "Nombre de personnes",
+        "input_type": "number"
+      },
+      "style_list": [
+        "margin-top: 10px"
+      ],
+      "_nested_name": "personnes_nourrir",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@field.personnes_nourrir",
+            "matchedExpression": "@field.personnes_nourrir",
+            "type": "field",
+            "fieldName": "personnes_nourrir"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.personnes_nourrir": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_besoin_sacs",
+      "value": "@calc(Number(@field.personnes_nourrir || 0) * 3)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_besoin_sacs",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@field.personnes_nourrir || 0) * 3)",
+            "matchedExpression": "@field.personnes_nourrir",
+            "type": "field",
+            "fieldName": "personnes_nourrir"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.personnes_nourrir || 0) * 3)",
+            "matchedExpression": "@calc(Number(@field.personnes_nourrir || 0) * 3)",
+            "type": "calc",
+            "fieldName": "Number(@field.personnes_nourrir || 0) * 3"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.personnes_nourrir": [
+          "value"
+        ],
+        "@calc(Number(@field.personnes_nourrir || 0) * 3)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "prevision",
+      "condition": "@field.personnes_nourrir > 0",
+      "style_list": [
+        "background: #1e3656",
+        "padding: 15px",
+        "border-radius: 12px",
+        "color: white"
+      ],
+      "rows": [
+        {
+          "type": "image",
+          "value": "images/besoin_upa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 25%",
+            "float: left",
+            "margin-right: 10px"
+          ],
+          "name": "image_1",
+          "_nested_name": "prevision.image_1"
+        },
+        {
+          "type": "html",
+          "value": "<div style=\"overflow: hidden;\">\n    <div style=\"text-transform: uppercase; font-size: 10px; color: #4f8ff1; font-weight: bold; margin-bottom: 2px;\">Objectif de production</div>\n    <div style=\"font-size: 22px; font-weight: bold; margin-bottom: 4px;\">\n        @local.v_besoin_sacs <span style=\"font-size: 14px; font-weight: normal;\">sacs de céréales</span>\n    </div>\n    <p style=\"font-size: 11px; color: #cbd5e0; line-height: 1.2; margin: 0;\">\n        Couvre les besoins de <b>@field.personnes_nourrir membres</b> / 12 mois.\n    </p>\n</div>\n<div style=\"clear: both;\"></div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "prevision.html_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"overflow: hidden;\">\n    <div style=\"text-transform: uppercase; font-size: 10px; color: #4f8ff1; font-weight: bold; margin-bottom: 2px;\">Objectif de production</div>\n    <div style=\"font-size: 22px; font-weight: bold; margin-bottom: 4px;\">\n        @local.v_besoin_sacs <span style=\"font-size: 14px; font-weight: normal;\">sacs de céréales</span>\n    </div>\n    <p style=\"font-size: 11px; color: #cbd5e0; line-height: 1.2; margin: 0;\">\n        Couvre les besoins de <b>@field.personnes_nourrir membres</b> / 12 mois.\n    </p>\n</div>\n<div style=\"clear: both;\"></div>",
+                "matchedExpression": "@local.v_besoin_sacs",
+                "type": "local",
+                "fieldName": "v_besoin_sacs"
+              },
+              {
+                "fullExpression": "<div style=\"overflow: hidden;\">\n    <div style=\"text-transform: uppercase; font-size: 10px; color: #4f8ff1; font-weight: bold; margin-bottom: 2px;\">Objectif de production</div>\n    <div style=\"font-size: 22px; font-weight: bold; margin-bottom: 4px;\">\n        @local.v_besoin_sacs <span style=\"font-size: 14px; font-weight: normal;\">sacs de céréales</span>\n    </div>\n    <p style=\"font-size: 11px; color: #cbd5e0; line-height: 1.2; margin: 0;\">\n        Couvre les besoins de <b>@field.personnes_nourrir membres</b> / 12 mois.\n    </p>\n</div>\n<div style=\"clear: both;\"></div>",
+                "matchedExpression": "@field.personnes_nourrir",
+                "type": "field",
+                "fieldName": "personnes_nourrir"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_besoin_sacs": [
+              "value"
+            ],
+            "@field.personnes_nourrir": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "prevision",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@field.personnes_nourrir > 0",
+            "matchedExpression": "@field.personnes_nourrir",
+            "type": "field",
+            "fieldName": "personnes_nourrir"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.personnes_nourrir": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.button_back"
+        },
+        {
+          "type": "button",
+          "name": "button_completed",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "besoin_cereale_exploitation",
+                "@local.v_besoin_sacs"
+              ],
+              "_raw": "click | set_field: besoin_cereale_exploitation : @local.v_besoin_sacs"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "style": "navigation",
+            "disabled": "!@field.personnes_nourrir || @field.personnes_nourrir <= 0"
+          },
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_completed",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.v_besoin_sacs",
+                      "matchedExpression": "@local.v_besoin_sacs",
+                      "type": "local",
+                      "fieldName": "v_besoin_sacs"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: besoin_cereale_exploitation : @local.v_besoin_sacs",
+                    "matchedExpression": "@local.v_besoin_sacs",
+                    "type": "local",
+                    "fieldName": "v_besoin_sacs"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@field.personnes_nourrir || @field.personnes_nourrir <= 0",
+                  "matchedExpression": "!@field.personnes_nourrir",
+                  "type": "field",
+                  "fieldName": "personnes_nourrir"
+                },
+                {
+                  "fullExpression": "!@field.personnes_nourrir || @field.personnes_nourrir <= 0",
+                  "matchedExpression": "@field.personnes_nourrir",
+                  "type": "field",
+                  "fieldName": "personnes_nourrir"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "@local.v_besoin_sacs": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "!@field.personnes_nourrir": [
+              "parameter_list.disabled"
+            ],
+            "@field.personnes_nourrir": [
+              "parameter_list.disabled"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/besoins_humains_from_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1OefQZIQwnOJGlgrvSrE2aXNFWOTmp_kShf0ZkX_NNQs"
+  }
+}

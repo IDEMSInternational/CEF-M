@@ -1,0 +1,43 @@
+{
+  "flow_type": "template",
+  "flow_name": "depenses_page3",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_title"
+    },
+    {
+      "type": "text",
+      "name": "note_depense",
+      "value": "Les exploitations agricoles font face à plusieurs types de dépenses au cours d’une année, telles que les dépenses annuelles recurrentes (frais de condiments, éducation, santé, etc.), et les  grosses dépenses irrégulières (le mariage, achat d’équipement, construction, etc.). \n\nCette diversité de types de dépenses  pose une difficulté fondamentale d’agrégation pour la planification.\n\nCe formulaire a pour objectif d'aider les UPA à calculer et à additionner les depenses annuelles previsionnelles des afin de faciliter la planification."
+    },
+    {
+      "type": "image",
+      "value": "images/depenses_annuelles.jpg"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page_3_btn_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page_3_btn_continue",
+      "value": "@global.btn_continue",
+      "action_list": "click | emit: completed",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

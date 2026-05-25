@@ -8,10 +8,6 @@
       "value": "@calc(Number(@field.current_idx) + 1)"
     },
     {
-      "name": "v_is_last_crop",
-      "value": "@calc(Number(@field.current_idx) == (Number(@field.total_recolte_count) - 1))"
-    },
-    {
       "type": "begin_display_group",
       "name": "header",
       "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
@@ -24,162 +20,129 @@
       "type": "end_display_group"
     },
     {
-      "type": "audio",
-      "name": "aud_obs",
-      "parameter_list": "variant: compact;\nsrc: audio/recolte/canal_obser_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
+      "name": "v_has_file",
+      "value": "@calc(['coton', 'maïs', 'mil', 'sorgho', 'arachide'].includes(@local.v_crop_clean))"
+    },
+    {
+      "name": "v_crop_clean",
+      "value": "@calc(@field.active_crop_name.toLowerCase())"
+    },
+    {
+      "name": "v_res_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.production_residu_culture))"
+    },
+    {
+      "name": "v_res_err",
+      "value": "@calc(!@local.v_res_fmt || Number(@field.production_residu_culture) < 0)"
+    },
+    {
+      "name": "v_fane_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.nombre_botte))"
+    },
+    {
+      "name": "v_fane_err",
+      "value": "@calc(!@local.v_fane_fmt || Number(@field.nombre_botte) < 0)"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"color: black; font-weight: bold; font-size: 14px;\">VALORISATION DES RÉSIDUS</div>"
     },
     {
       "type": "begin_display_group",
       "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #FFCC80; border-radius: 12px; background: white; margin-bottom: 10px; overflow: hidden;"
     },
     {
-      "type": "image",
-      "value": "@calc(['coton', 'maïs', 'mil', 'sorgho', 'arachide', 'fourrage'].includes(@field.active_crop_name.toLowerCase()) ? 'images/' + @field.active_crop_name.toLowerCase() + '.jpg' : 'images/autre_cult_2.jpg')",
-      "style_list": "width: 60%; object-fit: contain;"
+      "type": "image ",
+      "value": "@calc(@local.v_has_file ? 'images/' + @local.v_crop_clean + '.jpg' : 'images/autre_cult_2.jpg')"
     },
     {
       "type": "html",
-      "value": "<div style=\"background: rgba(255,255,255,0.2); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.3);\">\n    <h3 style=\"color: black; margin: 0;\">Culture : <span style=\"color: #FFCC80;\">@field.active_crop_name</span></h3>\n</div>",
+      "value": "<div style=\"background: rgba(255,255,255,0.2); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.3);\">\n    <h3 style=\"color: black; margin: 0;\">Culture : <span style=\"color: #e3a730;\">@field.active_crop_name</span></h3>\n</div>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "grp_residus",
+      "condition": "@calc(@local.v_crop_clean == 'coton' || @local.v_crop_clean == 'maïs' || @local.v_crop_clean == 'mil' || @local.v_crop_clean == 'sorgho')",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "aud_residu",
+      "parameter_list": "variant: compact;\nsrc: audio/recolte/production_residu_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span>Collecte de résidus (charretée)",
       "style_list": "font-weight: bold;"
     },
     {
-      "type": "end_display_group"
+      "type": "image",
+      "value": "images/charrette.jpg",
+      "style_list": "width: 80%; object-fit: contain; margin-bottom: 10px;"
     },
     {
-      "name": "v_total_recolte_culture",
-      "value": "@calc((Number(@field.final_cout_prestation) || 0) + (Number(@field.final_cout_battage) || 0))"
-    },
-    {
-      "name": "v_total_recolte_culture_fcfa",
-      "value": "@calc(@local.v_total_recolte_culture * 5)"
-    },
-    {
-      "type": "begin_display_group",
-      "name": "bilan_financier",
-      "style_list": "background: #f8f9fa; padding: 20px; margin-bottom: 20px;"
-    },
-    {
-      "type": "html",
-      "value": "<div style=\"color: black; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;\">Bilan Récolte : @field.active_crop_name</div>"
-    },
-    {
-      "type": "html",
-      "value": "<div style=\"font-size: 28px; font-weight: bold; color: #e3a730; margin-top: 10px;\">@local.v_total_recolte_culture <span style=\"font-size: 16px;\">Dram</span></div>"
-    },
-    {
-      "type": "html",
-      "value": "<div style=\"color: #e3a730; font-size: 12px; margin-top: 5px;\">≈ @local.v_total_recolte_culture_fcfa FCFA</div>"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "html",
-      "value": "<h3 style=\"color: #e3a730; font-size: 16px;\">Une observation sur cette récolte ?</h3>"
-    },
-    {
-      "type": "radio_button_grid",
-      "name": "canal_observation",
-      "value": "@field.canal_observation",
-      "action_list": "changed | set_field: canal_observation : this.value;",
-      "parameter_list": "answer_list: @data.group_observation;\nvariant: flex;\nitem_width: 60px;\ngrid_gap: 8px;"
-    },
-    {
-      "type": "begin_display_group",
-      "name": "obs_audio",
-      "condition": "@field.canal_observation == 'par_vocal'",
-      "style_list": "display: block; width: 100%"
-    },
-    {
-      "type": "audio",
-      "parameter_list": "variant: compact;\nsrc: audio/recolte/Ob_audio_recoltes_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
+      "type": "text_box",
+      "name": "production_residu_culture",
+      "value": "@field.production_residu_culture",
+      "action_list": "changed | set_field: production_residu_culture : this.value;",
+      "parameter_list": "number_input: true;    placeholder: Nombre de charretées;"
     },
     {
       "type": "text",
-      "value": "Enregistrez votre témoignage vocal ci-dessus."
-    },
-    {
-      "action_list": "changed | set_field: @calc('obs_audio_' + @item.name) : this.value;"
+      "value": "Mettez un nombre positif valide",
+      "condition": "@local.v_res_err",
+      "style_list": "font-size: 12px; color: red;"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "begin_display_group",
-      "name": "obs_photo",
-      "condition": "@field.canal_observation == 'par_photo'",
+      "name": "grp_fanes",
+      "condition": "@calc(@local.v_crop_clean == 'arachide' || @local.v_crop_clean == 'fourrage')",
       "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "parameter_list": "variant: compact;\nsrc: audio/recolte/Ob_photo_recoltes_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "aud_residu",
+      "parameter_list": "variant: compact;\nsrc: audio/recolte/production_fane_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span>Production de fânes (botte)",
+      "style_list": "font-weight: bold;"
+    },
+    {
+      "type": "image",
+      "value": "images/botte.jpg",
+      "style_list": "width: 80%; object-fit: contain; margin-bottom: 10px;"
+    },
+    {
+      "type": "text_box ",
+      "name": "nombre_botte",
+      "value": "@field.nombre_botte",
+      "action_list": "changed | set_field: nombre_botte : this.value;",
+      "parameter_list": "number_input: true;    placeholder: Nombre de bottes;"
     },
     {
       "type": "text",
-      "value": "Prenez une photo d'un point précis du champ."
-    },
-    {
-      "action_list": "changed | set_field: @calc('obs_photo_' + @item.name) : this.value;"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "begin_display_group",
-      "name": "obs_video",
-      "condition": "@field.canal_observation == 'par_video'",
-      "style_list": "display: block; width: 100%"
-    },
-    {
-      "type": "audio",
-      "parameter_list": "variant: compact;\nsrc: audio/recolte/Ob_video_recoltes_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
-    },
-    {
-      "type": "text",
-      "value": "Filmez l'état général de la culture."
+      "value": "Mettez un nombre positif valide",
+      "condition": "@local.v_fane_err",
+      "style_list": "font-size: 12px; color: red;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "begin_display_group",
-      "name": "obs_text",
-      "condition": "@field.canal_observation == 'par_text'",
-      "style_list": "display: block; width: 100%"
-    },
-    {
-      "type": "audio",
-      "parameter_list": "variant: compact;\nsrc: audio/recolte/Ob_ecrit_recoltes_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
-    },
-    {
-      "type": "text_area",
-      "parameter_list": "placeholder: Saisissez vos remarques...;multiline: true;",
-      "style_list": "font-size: 12px; font-style: italic;"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "name": "v_page7_valid",
-      "value": "@calc(@field.canal_observation !== undefined && @field.canal_observation !== '')"
-    },
-    {
-      "name": "v_new_idx",
-      "value": "@calc(Number(@field.current_idx) + 1)"
-    },
-    {
-      "name": "v_new_total",
-      "value": "@calc((Number(@field.grand_total_recolte) || 0) + Number(@local.v_total_recolte_culture))"
+      "name": "v_page6_valid",
+      "value": "@calc((['coton', 'maïs', 'mil', 'sorgho'].includes(@local.v_crop_clean) ? (@local.v_res_fmt && Number(@field.production_residu_culture) >= 0) : true) && (['arachide', 'fourrage'].includes(@local.v_crop_clean) ? (@local.v_fane_fmt && Number(@field.nombre_botte) >= 0) : true))"
     },
     {
       "type": "begin_display_group",
@@ -197,18 +160,8 @@
       "type": "button",
       "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | add_data | \n    _list_id: recolte_summary_list, \n    culture: @field.active_crop_name,\n    superficie: @field.sup_prestation,\n    cout_prestation: @field.final_cout_prestation,\n    production_kg: @field.production,\n    cout_battage: @field.final_cout_battage,\n    residus_charretee: @field.production_residu_culture,\n    fanes_botte: @field.nombre_botte,\n    observation_canal: @field.canal_observation,\n    cout_total_culture: @local.v_total_recolte_culture;\n\nclick | set_field: grand_total_recolte : @local.v_new_total;\nclick | set_data | _list_id: recolte_settings_pages, _index: 3, completed: false;\nclick | set_data | _list_id: recolte_settings_pages, _index: 4, completed: false;\nclick | set_data | _list_id: recolte_settings_pages, _index: 5, completed: false;\nclick | set_data | _list_id: recolte_settings_pages, _index: 6, completed: false;\n\nclick | set_field: sup_prestation :;\nclick | set_field: cout_recolte_val :;\nclick | set_field: production :;\nclick | set_field: cout_total_battage_nonzero :\nclick | set_field: production_residu_culture :;\nclick | set_field: nombre_botte :;\nclick | set_field: canal_observation :;\nclick | set_field: current_idx : @local.v_new_idx;\nclick | set_field: active_crop_name : @calc(@field.selected_recolte_list.split(',')[@local.v_new_idx]);\n\nclick | emit: force_reprocess;\n",
-      "parameter_list": "style: navigation;\n\ndisabled: !@local.v_page7_valid;",
-      "condition": "!@local.v_is_last_crop",
-      "style_list": "flex: 1"
-    },
-    {
-      "type": "button",
-      "name": "button_completed",
-      "value": "Terminer",
-      "action_list": "click | set_field: total_recolte_culture : @local.v_total_recolte_culture;\nclick | set_field: grand_total_recolte : @local.v_new_total;\nclick | emit: completed;",
-      "parameter_list": "style: navigation;\ndisabled: !@local.v_page7_valid;",
-      "condition": "@local.v_is_last_crop",
+      "action_list": "click | emit: completed;",
+      "parameter_list": "style: navigation;\ndisabled: !@local.v_page6_valid",
       "style_list": "flex: 1"
     },
     {

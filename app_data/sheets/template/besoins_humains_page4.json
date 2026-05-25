@@ -1,0 +1,333 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_humains_page4",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "COMPRENDRE LES TYPES D'EXPLOITATION",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_2",
+      "_nested_name": "title_2"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: #666; font-size: 13px; line-height: 1.5;\">Les exploitations sont classées selon leur niveau d'équipement (boeufs, charrues) et leur cheptel. <br>Choisissez celle qui correspond le mieux à votre situation :</p>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_3",
+      "_nested_name": "html_3"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"font-size: 13px; color: #333;\">\n  <p><b>• Type A :</b> Grande Exploitation (Grand troupeau bovin + matériel complet)</p>\n  <p><b>• Type B :</b> Grande Exploitation (Matériel complet + quelques bovins)</p>\n  <p><b>• Type C :</b> Moyenne Exploitation (Matériel de base)</p>\n  <p><b>• Type D :</b> Petite Exploitation (Peu ou pas d'équipement)</p>\n</div>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_4",
+      "_nested_name": "html_4"
+    },
+    {
+      "type": "html",
+      "value": "<label style=\"color: #1e3656; font-weight: bold; display: block; margin-bottom: 15px;\"><span style=\"color: red;\">*</span>Sélectionnez le type de votre UPA :</label>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_5",
+      "_nested_name": "html_5"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "type_menage_id@field.type_menage_id",
+      "value": "@field.type_menage_id",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "type_menage_id",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: type_menage_id: this.value"
+        }
+      ],
+      "parameter_list": {
+        "answer_list": "@data.type_menage",
+        "columns": "2"
+      },
+      "_nested_name": "type_menage_id@field.type_menage_id",
+      "_dynamicFields": {
+        "name": [
+          {
+            "fullExpression": "type_menage_id@field.type_menage_id",
+            "matchedExpression": "@field.type_menage_id",
+            "type": "field",
+            "fieldName": "type_menage_id"
+          }
+        ],
+        "value": [
+          {
+            "fullExpression": "@field.type_menage_id",
+            "matchedExpression": "@field.type_menage_id",
+            "type": "field",
+            "fieldName": "type_menage_id"
+          }
+        ],
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@data.type_menage",
+              "matchedExpression": "@data.type_menage",
+              "type": "data",
+              "fieldName": "type_menage"
+            }
+          ]
+        },
+        "_nested_name": [
+          {
+            "fullExpression": "type_menage_id@field.type_menage_id",
+            "matchedExpression": "@field.type_menage_id",
+            "type": "field",
+            "fieldName": "type_menage_id"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.type_menage_id": [
+          "name",
+          "value",
+          "_nested_name"
+        ],
+        "@data.type_menage": [
+          "parameter_list.answer_list"
+        ]
+      }
+    },
+    {
+      "name": "v_type_nom_clair",
+      "value": "@calc(@field.type_menage_id== 'HRE-LH' ? 'Type A' : (@field.type_menage_id== 'HRE' ? 'Type B' : (@field.type_menage_id== 'MRE' ? 'Type C' : 'Type D')))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_type_nom_clair",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@field.type_menage_id== 'HRE-LH' ? 'Type A' : (@field.type_menage_id== 'HRE' ? 'Type B' : (@field.type_menage_id== 'MRE' ? 'Type C' : 'Type D')))",
+            "matchedExpression": "@field.type_menage_id",
+            "type": "field",
+            "fieldName": "type_menage_id"
+          },
+          {
+            "fullExpression": "@calc(@field.type_menage_id== 'HRE-LH' ? 'Type A' : (@field.type_menage_id== 'HRE' ? 'Type B' : (@field.type_menage_id== 'MRE' ? 'Type C' : 'Type D')))",
+            "matchedExpression": "@field.type_menage_id",
+            "type": "field",
+            "fieldName": "type_menage_id"
+          },
+          {
+            "fullExpression": "@calc(@field.type_menage_id== 'HRE-LH' ? 'Type A' : (@field.type_menage_id== 'HRE' ? 'Type B' : (@field.type_menage_id== 'MRE' ? 'Type C' : 'Type D')))",
+            "matchedExpression": "@field.type_menage_id",
+            "type": "field",
+            "fieldName": "type_menage_id"
+          },
+          {
+            "fullExpression": "@calc(@field.type_menage_id== 'HRE-LH' ? 'Type A' : (@field.type_menage_id== 'HRE' ? 'Type B' : (@field.type_menage_id== 'MRE' ? 'Type C' : 'Type D')))",
+            "matchedExpression": "@calc(@field.type_menage_id== 'HRE-LH' ? 'Type A' : (@field.type_menage_id== 'HRE' ? 'Type B' : (@field.type_menage_id== 'MRE' ? 'Type C' : 'Type D')))",
+            "type": "calc",
+            "fieldName": "@field.type_menage_id== 'HRE-LH' ? 'Type A' : (@field.type_menage_id== 'HRE' ? 'Type B' : (@field.type_menage_id== 'MRE' ? 'Type C' : 'Type D'))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.type_menage_id": [
+          "value",
+          "value",
+          "value"
+        ],
+        "@calc(@field.type_menage_id== 'HRE-LH' ? 'Type A' : (@field.type_menage_id== 'HRE' ? 'Type B' : (@field.type_menage_id== 'MRE' ? 'Type C' : 'Type D')))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@field.type_menage_id",
+      "rows": [
+        {
+          "type": "html",
+          "value": "Vous avez sélectionné le <b>Groupe @local.v_type_nom_clair</b>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "display_group_8.html_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "Vous avez sélectionné le <b>Groupe @local.v_type_nom_clair</b>",
+                "matchedExpression": "@local.v_type_nom_clair",
+                "type": "local",
+                "fieldName": "v_type_nom_clair"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_type_nom_clair": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_8",
+      "_nested_name": "display_group_8",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@field.type_menage_id",
+            "matchedExpression": "@field.type_menage_id",
+            "type": "field",
+            "fieldName": "type_menage_id"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.type_menage_id": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.button_back"
+        },
+        {
+          "type": "button",
+          "name": "button_completed",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "final_upa_type",
+                "@local.v_type_nom_clair"
+              ],
+              "_raw": "click | set_field: final_upa_type : @local.v_type_nom_clair"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "style": "navigation",
+            "disabled": "!@field.type_menage_id"
+          },
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_completed",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.v_type_nom_clair",
+                      "matchedExpression": "@local.v_type_nom_clair",
+                      "type": "local",
+                      "fieldName": "v_type_nom_clair"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: final_upa_type : @local.v_type_nom_clair",
+                    "matchedExpression": "@local.v_type_nom_clair",
+                    "type": "local",
+                    "fieldName": "v_type_nom_clair"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@field.type_menage_id",
+                  "matchedExpression": "!@field.type_menage_id",
+                  "type": "field",
+                  "fieldName": "type_menage_id"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "@local.v_type_nom_clair": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "!@field.type_menage_id": [
+              "parameter_list.disabled"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/besoins_humains_from_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1OefQZIQwnOJGlgrvSrE2aXNFWOTmp_kShf0ZkX_NNQs"
+  }
+}

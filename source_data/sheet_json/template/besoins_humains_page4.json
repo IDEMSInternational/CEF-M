@@ -1,0 +1,68 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_humains_page4",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "COMPRENDRE LES TYPES D'EXPLOITATION"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: #666; font-size: 13px; line-height: 1.5;\">Les exploitations sont classées selon leur niveau d'équipement (boeufs, charrues) et leur cheptel. <br>Choisissez celle qui correspond le mieux à votre situation :</p>"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"font-size: 13px; color: #333;\">\n  <p><b>• Type A :</b> Grande Exploitation (Grand troupeau bovin + matériel complet)</p>\n  <p><b>• Type B :</b> Grande Exploitation (Matériel complet + quelques bovins)</p>\n  <p><b>• Type C :</b> Moyenne Exploitation (Matériel de base)</p>\n  <p><b>• Type D :</b> Petite Exploitation (Peu ou pas d'équipement)</p>\n</div>"
+    },
+    {
+      "type": "html",
+      "value": "<label style=\"color: #1e3656; font-weight: bold; display: block; margin-bottom: 15px;\"><span style=\"color: red;\">*</span>Sélectionnez le type de votre UPA :</label>"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "type_menage_id@field.type_menage_id",
+      "value": "@field.type_menage_id",
+      "action_list": "changed | set_field: type_menage_id: this.value;",
+      "parameter_list": "answer_list: @data.type_menage;\ncolumns: 2;"
+    },
+    {
+      "name": "v_type_nom_clair",
+      "value": "@calc(@field.type_menage_id== 'HRE-LH' ? 'Type A' : (@field.type_menage_id== 'HRE' ? 'Type B' : (@field.type_menage_id== 'MRE' ? 'Type C' : 'Type D')))"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@field.type_menage_id"
+    },
+    {
+      "type": "html",
+      "value": "Vous avez sélectionné le <b>Groupe @local.v_type_nom_clair</b>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: final_upa_type : @local.v_type_nom_clair;\nclick | emit: completed;",
+      "parameter_list": "style: navigation;\ndisabled: !@field.type_menage_id",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}
