@@ -1,0 +1,595 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_humains_page8",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "SUPERFICIES DES CEREALES A CULTIVIER",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_2",
+      "_nested_name": "title_2"
+    },
+    {
+      "type": "image",
+      "value": "images/superf_unit.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 50%",
+        "object-fit: contain"
+      ],
+      "name": "image_3",
+      "_nested_name": "image_3"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"background: #f0f7ff; border-left: 4px solid #1e3656; padding: 15px; border-radius: 4px 8px 8px 4px; margin: 10px 0;\">\n    <p style=\"margin: 0; color: #1e3656; font-size: 13.5px; line-height: 1.5;\">\n        <span style=\"font-weight: bold; text-transform: uppercase; font-size: 11px; display: block; margin-bottom: 5px; color: #4f8ff1;\">Méthode de calcul</span>\n        Les superficies prévisionnelles sont calculées en fonction du <b>rendement moyen</b> des céréales (maïs, mil et sorgho) par type d'exploitation.\n    </p>\n</div>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_4",
+      "_nested_name": "html_4"
+    },
+    {
+      "name": "superf_mais",
+      "value": "@calc(Math.round(((@field.sac_mais * 100) / @field.rend_mais) * 10) / 10)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "superf_mais",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Math.round(((@field.sac_mais * 100) / @field.rend_mais) * 10) / 10)",
+            "matchedExpression": "@field.sac_mais",
+            "type": "field",
+            "fieldName": "sac_mais"
+          },
+          {
+            "fullExpression": "@calc(Math.round(((@field.sac_mais * 100) / @field.rend_mais) * 10) / 10)",
+            "matchedExpression": "@field.rend_mais",
+            "type": "field",
+            "fieldName": "rend_mais"
+          },
+          {
+            "fullExpression": "@calc(Math.round(((@field.sac_mais * 100) / @field.rend_mais) * 10) / 10)",
+            "matchedExpression": "@calc(Math.round(((@field.sac_mais * 100) / @field.rend_mais) * 10) / 10)",
+            "type": "calc",
+            "fieldName": "Math.round(((@field.sac_mais * 100) / @field.rend_mais) * 10) / 10"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.sac_mais": [
+          "value"
+        ],
+        "@field.rend_mais": [
+          "value"
+        ],
+        "@calc(Math.round(((@field.sac_mais * 100) / @field.rend_mais) * 10) / 10)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "superf_mil",
+      "value": "@calc(Math.round(((@field.sac_mil * 100) / @field.rend_mil) * 10) / 10)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "superf_mil",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Math.round(((@field.sac_mil * 100) / @field.rend_mil) * 10) / 10)",
+            "matchedExpression": "@field.sac_mil",
+            "type": "field",
+            "fieldName": "sac_mil"
+          },
+          {
+            "fullExpression": "@calc(Math.round(((@field.sac_mil * 100) / @field.rend_mil) * 10) / 10)",
+            "matchedExpression": "@field.rend_mil",
+            "type": "field",
+            "fieldName": "rend_mil"
+          },
+          {
+            "fullExpression": "@calc(Math.round(((@field.sac_mil * 100) / @field.rend_mil) * 10) / 10)",
+            "matchedExpression": "@calc(Math.round(((@field.sac_mil * 100) / @field.rend_mil) * 10) / 10)",
+            "type": "calc",
+            "fieldName": "Math.round(((@field.sac_mil * 100) / @field.rend_mil) * 10) / 10"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.sac_mil": [
+          "value"
+        ],
+        "@field.rend_mil": [
+          "value"
+        ],
+        "@calc(Math.round(((@field.sac_mil * 100) / @field.rend_mil) * 10) / 10)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "superf_sorgho",
+      "value": "@calc(Math.round(((@field.sac_sorgho * 100) / @field.rend_sorgho) * 10) / 10)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "superf_sorgho",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Math.round(((@field.sac_sorgho * 100) / @field.rend_sorgho) * 10) / 10)",
+            "matchedExpression": "@field.sac_sorgho",
+            "type": "field",
+            "fieldName": "sac_sorgho"
+          },
+          {
+            "fullExpression": "@calc(Math.round(((@field.sac_sorgho * 100) / @field.rend_sorgho) * 10) / 10)",
+            "matchedExpression": "@field.rend_sorgho",
+            "type": "field",
+            "fieldName": "rend_sorgho"
+          },
+          {
+            "fullExpression": "@calc(Math.round(((@field.sac_sorgho * 100) / @field.rend_sorgho) * 10) / 10)",
+            "matchedExpression": "@calc(Math.round(((@field.sac_sorgho * 100) / @field.rend_sorgho) * 10) / 10)",
+            "type": "calc",
+            "fieldName": "Math.round(((@field.sac_sorgho * 100) / @field.rend_sorgho) * 10) / 10"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.sac_sorgho": [
+          "value"
+        ],
+        "@field.rend_sorgho": [
+          "value"
+        ],
+        "@calc(Math.round(((@field.sac_sorgho * 100) / @field.rend_sorgho) * 10) / 10)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "superf_totale",
+      "value": "@calc(Math.round((@local.superf_mais + @local.superf_mil + @local.superf_sorgho) * 100) / 100)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "superf_totale",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Math.round((@local.superf_mais + @local.superf_mil + @local.superf_sorgho) * 100) / 100)",
+            "matchedExpression": "@local.superf_mais",
+            "type": "local",
+            "fieldName": "superf_mais"
+          },
+          {
+            "fullExpression": "@calc(Math.round((@local.superf_mais + @local.superf_mil + @local.superf_sorgho) * 100) / 100)",
+            "matchedExpression": "@local.superf_mil",
+            "type": "local",
+            "fieldName": "superf_mil"
+          },
+          {
+            "fullExpression": "@calc(Math.round((@local.superf_mais + @local.superf_mil + @local.superf_sorgho) * 100) / 100)",
+            "matchedExpression": "@local.superf_sorgho",
+            "type": "local",
+            "fieldName": "superf_sorgho"
+          },
+          {
+            "fullExpression": "@calc(Math.round((@local.superf_mais + @local.superf_mil + @local.superf_sorgho) * 100) / 100)",
+            "matchedExpression": "@calc(Math.round((@local.superf_mais + @local.superf_mil + @local.superf_sorgho) * 100) / 100)",
+            "type": "calc",
+            "fieldName": "Math.round((@local.superf_mais + @local.superf_mil + @local.superf_sorgho) * 100) / 100"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.superf_mais": [
+          "value"
+        ],
+        "@local.superf_mil": [
+          "value"
+        ],
+        "@local.superf_sorgho": [
+          "value"
+        ],
+        "@calc(Math.round((@local.superf_mais + @local.superf_mil + @local.superf_sorgho) * 100) / 100)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "result_total",
+      "style_list": [
+        "background: #1e3656",
+        "padding: 25px",
+        "text-align: center"
+      ],
+      "rows": [
+        {
+          "type": "html",
+          "value": "<div style=\"color: #4f8ff1; font-size: 13px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;\">Surface Totale à Cultiver</div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "result_total.html_1"
+        },
+        {
+          "type": "html",
+          "value": "<div style=\"color: white; font-size: 36px; font-weight: bold; margin: 10px 0;\">@local.superf_totale ha</div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "result_total.html_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"color: white; font-size: 36px; font-weight: bold; margin: 10px 0;\">@local.superf_totale ha</div>",
+                "matchedExpression": "@local.superf_totale",
+                "type": "local",
+                "fieldName": "superf_totale"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.superf_totale": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "html",
+          "value": "<div style=\"color: #a5c7f9; font-size: 12px; font-style: italic;\">Calculé selon les rendements de votre zone</div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_3",
+          "_nested_name": "result_total.html_3"
+        }
+      ],
+      "_nested_name": "result_total"
+    },
+    {
+      "type": "display_group",
+      "name": "item_mais",
+      "style_list": [
+        "background: #fff",
+        "padding: 15px",
+        "margin-bottom: 12px"
+      ],
+      "rows": [
+        {
+          "type": "image",
+          "value": "images/sup_mais.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 70px",
+            "border-radius: 8px",
+            "margin-right: 15px"
+          ],
+          "name": "image_1",
+          "_nested_name": "item_mais.image_1"
+        },
+        {
+          "type": "html",
+          "value": "<div style=\"flex: 1;\"><b style=\"color: #333;\">Maïs (@field.sac_mais sacs)</b><br><span style=\"color: #666; font-size: 12px;\">Rendement : @field.rend_mais kg/ha</span></div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "item_mais.html_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"flex: 1;\"><b style=\"color: #333;\">Maïs (@field.sac_mais sacs)</b><br><span style=\"color: #666; font-size: 12px;\">Rendement : @field.rend_mais kg/ha</span></div>",
+                "matchedExpression": "@field.sac_mais",
+                "type": "field",
+                "fieldName": "sac_mais"
+              },
+              {
+                "fullExpression": "<div style=\"flex: 1;\"><b style=\"color: #333;\">Maïs (@field.sac_mais sacs)</b><br><span style=\"color: #666; font-size: 12px;\">Rendement : @field.rend_mais kg/ha</span></div>",
+                "matchedExpression": "@field.rend_mais",
+                "type": "field",
+                "fieldName": "rend_mais"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.sac_mais": [
+              "value"
+            ],
+            "@field.rend_mais": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "html",
+          "value": "<div style=\"color: #1e3656; font-weight: bold; font-size: 18px;\">@local.superf_mais ha</div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_3",
+          "_nested_name": "item_mais.html_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"color: #1e3656; font-weight: bold; font-size: 18px;\">@local.superf_mais ha</div>",
+                "matchedExpression": "@local.superf_mais",
+                "type": "local",
+                "fieldName": "superf_mais"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.superf_mais": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "item_mais"
+    },
+    {
+      "type": "display_group",
+      "name": "item_mil",
+      "style_list": [
+        "background: #fff",
+        "padding: 15px",
+        "margin-bottom: 12px"
+      ],
+      "rows": [
+        {
+          "type": "image",
+          "value": "images/sup_mil.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 70px",
+            "border-radius: 8px",
+            "margin-right: 15px"
+          ],
+          "name": "image_1",
+          "_nested_name": "item_mil.image_1"
+        },
+        {
+          "type": "html",
+          "value": "<div style=\"flex: 1;\"><b style=\"color: #333;\">Mil (@field.sac_mais sacs)</b><br><span style=\"color: #666; font-size: 12px;\">Rendement : @field.rend_mil kg/ha</span></div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "item_mil.html_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"flex: 1;\"><b style=\"color: #333;\">Mil (@field.sac_mais sacs)</b><br><span style=\"color: #666; font-size: 12px;\">Rendement : @field.rend_mil kg/ha</span></div>",
+                "matchedExpression": "@field.sac_mais",
+                "type": "field",
+                "fieldName": "sac_mais"
+              },
+              {
+                "fullExpression": "<div style=\"flex: 1;\"><b style=\"color: #333;\">Mil (@field.sac_mais sacs)</b><br><span style=\"color: #666; font-size: 12px;\">Rendement : @field.rend_mil kg/ha</span></div>",
+                "matchedExpression": "@field.rend_mil",
+                "type": "field",
+                "fieldName": "rend_mil"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.sac_mais": [
+              "value"
+            ],
+            "@field.rend_mil": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "html",
+          "value": "<div style=\"color: #1e3656; font-weight: bold; font-size: 18px;\">@local.superf_mais ha</div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_3",
+          "_nested_name": "item_mil.html_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"color: #1e3656; font-weight: bold; font-size: 18px;\">@local.superf_mais ha</div>",
+                "matchedExpression": "@local.superf_mais",
+                "type": "local",
+                "fieldName": "superf_mais"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.superf_mais": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "item_mil"
+    },
+    {
+      "type": "display_group",
+      "name": "item_sorgho",
+      "style_list": [
+        "background: #fff",
+        "padding: 15px",
+        "margin-bottom: 12px"
+      ],
+      "rows": [
+        {
+          "type": "image",
+          "value": "images/sup_sorgho.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 70px",
+            "border-radius: 8px",
+            "margin-right: 15px"
+          ],
+          "name": "image_1",
+          "_nested_name": "item_sorgho.image_1"
+        },
+        {
+          "type": "html",
+          "value": "<div style=\"flex: 1;\"><b style=\"color: #333;\">Sorgho (@field.sac_sorgho sacs)</b><br><span style=\"color: #666; font-size: 12px;\">Rendement : @field.rend_sorgho kg/ha</span></div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "item_sorgho.html_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"flex: 1;\"><b style=\"color: #333;\">Sorgho (@field.sac_sorgho sacs)</b><br><span style=\"color: #666; font-size: 12px;\">Rendement : @field.rend_sorgho kg/ha</span></div>",
+                "matchedExpression": "@field.sac_sorgho",
+                "type": "field",
+                "fieldName": "sac_sorgho"
+              },
+              {
+                "fullExpression": "<div style=\"flex: 1;\"><b style=\"color: #333;\">Sorgho (@field.sac_sorgho sacs)</b><br><span style=\"color: #666; font-size: 12px;\">Rendement : @field.rend_sorgho kg/ha</span></div>",
+                "matchedExpression": "@field.rend_sorgho",
+                "type": "field",
+                "fieldName": "rend_sorgho"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.sac_sorgho": [
+              "value"
+            ],
+            "@field.rend_sorgho": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "html",
+          "value": "<div style=\"color: #1e3656; font-weight: bold; font-size: 18px;\">@local.superf_mais ha</div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_3",
+          "_nested_name": "item_sorgho.html_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"color: #1e3656; font-weight: bold; font-size: 18px;\">@local.superf_mais ha</div>",
+                "matchedExpression": "@local.superf_mais",
+                "type": "local",
+                "fieldName": "superf_mais"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.superf_mais": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "item_sorgho"
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.button_back"
+        },
+        {
+          "type": "button",
+          "name": "button_completed",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "style": "navigation"
+          },
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_completed",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/besoins_humains_from_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1OefQZIQwnOJGlgrvSrE2aXNFWOTmp_kShf0ZkX_NNQs"
+  }
+}

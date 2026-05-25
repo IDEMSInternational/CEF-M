@@ -1,0 +1,145 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_humains_page10",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "FIN & RÉCAPITULATIF",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_2",
+      "_nested_name": "title_2"
+    },
+    {
+      "type": "image",
+      "value": "images/obs_form.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 70%",
+        "border-radius: 10px",
+        "margin-bottom: 15px"
+      ],
+      "name": "image_3",
+      "_nested_name": "image_3"
+    },
+    {
+      "type": "html",
+      "value": "<h3 style=\"color: #1e3656; margin: 0 0 5px 0; font-size: 16px;\">VOTRE AVIS NOUS INTÉRESSE</h3>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_4",
+      "_nested_name": "html_4"
+    },
+    {
+      "type": "audio",
+      "name": "audio_appreciation",
+      "parameter_list": {
+        "variant": "compact",
+        "src": "audio/bHumains/appreciation_audio_fr.mp3",
+        "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+      },
+      "exclude_from_translation": true,
+      "style_list": [
+        "float: right"
+      ],
+      "_nested_name": "audio_appreciation"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: #666; font-size: 13px;\">L'outil de calcul vous a-t-il été utile ? Partagez vos suggestions par audio :</p>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_6",
+      "_nested_name": "html_6"
+    },
+    {
+      "type": "text",
+      "value": "Enregistrer votre avis",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: #4caf50"
+      ],
+      "name": "text_7",
+      "_nested_name": "text_7"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"background: linear-gradient(135deg, #1e3656 0%, #2c5282 100%); padding: 30px 20px; border-radius: 20px; text-align: center; color: white; margin: 15px;\">\n    \n    <div style=\"font-size: 22px; font-weight: bold; margin-bottom: 10px; letter-spacing: 1px;\">MERCI !</div>\n    <p style=\"font-size: 15px; color: #a5c7f9; line-height: 1.6; margin-bottom: 25px;\">\n        Votre planification céréalière est terminée avec succès.\n    </p>\n\n    <div style=\"text-align: left; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);\">\n        <b style=\"color: #4f8ff1; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\">Étapes suivantes suggérées :</b>\n        <ul style=\"list-style: none; padding: 0; margin: 15px 0 0 0; font-size: 13px; color: #e2e8f0; line-height: 2;\">\n            <li> L'alimentation animale de l'UPA</li>\n            <li> La fumure organique (fertilité)</li>\n            <li>Le budget annuel des dépenses</li>\n        </ul>\n    </div>\n</div>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_8",
+      "_nested_name": "html_8"
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.button_back"
+        },
+        {
+          "type": "button",
+          "name": "button_completed",
+          "value": "ENREGISTRER",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "go_to",
+              "args": [
+                "home_screen"
+              ],
+              "_raw": "click | go_to: home_screen"
+            }
+          ],
+          "parameter_list": {
+            "style": "navigation"
+          },
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_completed"
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/besoins_humains_from_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1OefQZIQwnOJGlgrvSrE2aXNFWOTmp_kShf0ZkX_NNQs"
+  }
+}

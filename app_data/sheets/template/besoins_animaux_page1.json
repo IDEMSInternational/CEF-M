@@ -385,6 +385,30 @@
       }
     },
     {
+      "name": "completed_enabled",
+      "value": "@local.valid_numero_upa",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@local.valid_numero_upa",
+            "matchedExpression": "@local.valid_numero_upa",
+            "type": "local",
+            "fieldName": "valid_numero_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.valid_numero_upa": [
+          "value"
+        ]
+      }
+    },
+    {
       "type": "display_group",
       "value": "",
       "parameter_list": {
@@ -411,7 +435,7 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_15.page1_button_back"
+          "_nested_name": "display_group_16.page1_button_back"
         },
         {
           "type": "button",
@@ -430,14 +454,34 @@
               "_raw": "click | emit: completed"
             }
           ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_15.page1_button_continue"
+          "_nested_name": "display_group_16.page1_button_continue",
+          "_dynamicFields": {
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ]
+          }
         }
       ],
-      "name": "display_group_15",
-      "_nested_name": "display_group_15"
+      "name": "display_group_16",
+      "_nested_name": "display_group_16"
     }
   ],
   "_source": {

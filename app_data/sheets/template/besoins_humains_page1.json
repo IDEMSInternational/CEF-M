@@ -1,0 +1,219 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_humains_page1",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "@global.titre_page1",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_2",
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.titre_page1",
+            "matchedExpression": "@global.titre_page1",
+            "type": "global",
+            "fieldName": "titre_page1"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.titre_page1": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "audio",
+      "name": "audio_scan",
+      "parameter_list": {
+        "variant": "compact",
+        "src": "audio/bHumains/qr_code_fr.mp3",
+        "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+      },
+      "exclude_from_translation": true,
+      "style_list": [
+        "float: right"
+      ],
+      "_nested_name": "audio_scan"
+    },
+    {
+      "type": "display_group",
+      "name": "dg_scan",
+      "style_list": [
+        "background: #f8f9fa",
+        "padding: 20px",
+        "text-align: center",
+        "margin-bottom: 20px"
+      ],
+      "rows": [
+        {
+          "type": "image",
+          "value": "images/qr_code.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_1",
+          "_nested_name": "dg_scan.image_1"
+        },
+        {
+          "type": "html",
+          "value": "<p style=\"color: #666; font-size: 13px; margin-top: 10px;\">@global.info_page1</p>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "dg_scan.html_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<p style=\"color: #666; font-size: 13px; margin-top: 10px;\">@global.info_page1</p>",
+                "matchedExpression": "@global.info_page1",
+                "type": "global",
+                "fieldName": "info_page1"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.info_page1": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_scan"
+    },
+    {
+      "type": "text",
+      "value": "Utilisez la camera pour scanner votre code",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "text-align: center",
+        "font-weight: bold"
+      ],
+      "name": "text_6",
+      "_nested_name": "text_6"
+    },
+    {
+      "type": "text",
+      "value": "LOGIQUE DE RÉCUPÉRATION (PULLDATA) -- Pas encore dispo",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "font-size:11px",
+        "color:gray"
+      ],
+      "name": "text_7",
+      "_nested_name": "text_7"
+    },
+    {
+      "type": "html",
+      "name": "pull_chef_upa",
+      "value": "<div style=\"display: flex; align-items: center; margin-bottom: 15px;\">\n  <div style=\"background: #1e3656; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 12px;\">........</div>\n  <div>\n    <div style=\"font-size: 16px; font-weight: bold; color: #1e3656;\">.......</div>\n    <div style=\"font-size: 12px; color: #4f8ff1;\">Chef d'exploitation</div>\n  </div>\n</div>",
+      "_translations": {
+        "value": {}
+      },
+      "parameter_list": {
+        "placeholder": "Nom et prénom de chef UPA"
+      },
+      "_nested_name": "pull_chef_upa"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"margin-top: 10px;\">\n  <div style=\"display: flex; justify-content: space-between; margin-bottom: 5px;\">\n    <span style=\"color: #999; font-size: 13px;\">Type d'UPA :</span>\n    <span style=\"font-weight: bold; color: #333;\">........</span>\n  </div>\n  <div style=\"display: flex; justify-content: space-between;\">\n    <span style=\"color: #999; font-size: 13px;\">Contact :</span>\n    <span style=\"font-weight: bold; color: #333;\">.......</span>\n  </div>\n</div>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_9",
+      "_nested_name": "html_9"
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.button_back"
+        },
+        {
+          "type": "button",
+          "name": "button_completed",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "style": "navigation"
+          },
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_completed",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/besoins_humains_from_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1OefQZIQwnOJGlgrvSrE2aXNFWOTmp_kShf0ZkX_NNQs"
+  }
+}

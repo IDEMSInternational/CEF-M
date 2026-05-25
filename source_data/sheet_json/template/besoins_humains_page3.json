@@ -1,0 +1,43 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_humains_page3",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "NOTE DE PLANIFICATION"
+    },
+    {
+      "type": "image",
+      "value": "images/grenier.jpg",
+      "style_list": "width: 100%; border-radius: 10px; margin-bottom: 15px;"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"color: #333; font-size: 14px; line-height: 1.6;\">\n    Dans le contexte du Sahel, où les populations rurales cultivent et consomment principalement les céréales (mil, sorgho et maïs), il est important de connaître le besoin annuel en denrées alimentaires de l'UPA avant la saison de production.\n    <br><br>\n    <div style=\"background: #e3f2fd; padding: 15px; border-radius: 10px; border-left: 5px solid #4f8ff1; font-weight: bold;\">\n        Il est conseillé de considérer 3 sacs/an/personne de céréales. \n    </div>\n    <br>\n    Les trois sacs sont largement suffisants pour couvrir les besoins alimentaires d'une personne durant les 12 mois et permettraient de faire face à des imprévus.\n    <br><br>\n    Ce formulaire a pour but d'aider votre UPA à connaître ses besoins en céréales et d'allouer assez de superficie à la production.\n</div>"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "@global.btn_continue",
+      "action_list": "click | emit: completed",
+      "parameter_list": "style: navigation;\n",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

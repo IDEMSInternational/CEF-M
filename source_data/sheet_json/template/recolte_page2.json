@@ -4,27 +4,28 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "value": "IMPORTANT : Gestion des coûts de la recolte"
+      "type": "text",
+      "value": "Choisissez l'année de la récolte",
+      "style_list": "margin-top: 20px; font-weight: 500;"
     },
     {
-      "type": "audio",
-      "name": "audio_note_fr",
-      "parameter_list": "variant: compact;\nsrc: audio/recolte/note_form_recolte_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float: right;"
-    },
-    {
-      "type": "begin_display_group",
-      "style_list": "display: block;width: 100%; background: #F4F7FA; border-radius: 12px; padding: 16px; margin-top: 10px;"
+      "type": "date_time_picker",
+      "name": "year_picker",
+      "action_list": "changed | set_field: campagne: this.value;",
+      "parameter_list": "type: year;\nmin: 2023; \nmax: @calc(now());"
     },
     {
       "type": "text",
-      "name": "note_formulaire_info_postsems",
-      "value": "@global.note_formulaire_info_recolte",
-      "style_list": "font-size: 16px; line-height: 1.5; color: #333;"
+      "value": "*La réponse doit être 2023 ou supérieur*",
+      "style_list": "color:red;font-size:12px;"
     },
     {
-      "type": "end_display_group"
+      "name": "v_year_ok",
+      "value": "@calc(!!@field.campagne)"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.v_year_ok"
     },
     {
       "type": "begin_display_group",
@@ -43,7 +44,7 @@
       "name": "button_completed",
       "value": "@global.btn_continue",
       "action_list": " click | emit: completed;",
-      "parameter_list": "style: navigation;\n",
+      "parameter_list": "style: navigation;\ndisabled: !@local.completed_enabled",
       "style_list": "flex: 1"
     },
     {

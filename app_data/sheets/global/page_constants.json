@@ -1,0 +1,316 @@
+{
+  "flow_type": "global",
+  "flow_name": "page_constants",
+  "status": "released",
+  "rows": [
+    {
+      "type": "declare_global_constant",
+      "name": "camera_scane_label",
+      "value": "Identification de l'Unité de Production Agricole (UPA) par QR code",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "camera_scane_hint",
+      "value": "Utilisez la camera pour scanner votre code",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "camera_scane_btn",
+      "value": "Scanner un code",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "introduction_formulaire",
+      "value": "La production de fumure organique est une nécessité pour une exploitation agricole afin de maintenir la fertilité du sol et améliorer la productivité des cultures.\n\nCe formulaire a pour but d'aider votre UPA à planifier la production de fumure organique pour l'appliquer dans toute sa superficie cultivée en trois ans.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "recommendation_fumure_organique",
+      "value": "Il est récommandé d'appliquer une quantité de fumure allant de 3 à 7 T/ha (ou 20 à 50 charrétées/ha) pour trois saisons (ou trois années pour le cas de saison unique par an) en fonction de la qualité.\n\nLes differentes qualités de fumure organique sont entre autres:\n\n**Fumure organique de très bonne qualité** : fumier riche, par exemple, 3T/ha (20 charrétées/ha);\n\n**Fumure organique de moyenne qualité** : compost de qualite riche à moyenne, par exemple, 5T/ha (35 charrétées/ha);\n\n**Fumure organique de mauvaise qualité** : tas d'ordures ou compost faiblement décomposés, par exemple, 7T/ha (50 charrétées/ha).",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "infos_rotations1",
+      "value": "Votre UPA doit produire assez de fumure organique  pour fertiliser un tiers de sa superficie totale, afin de boucler un cycle complet de rotation pour le maintien de la fertilité du sol. Quelle que soit la superficie de l'UPA, la quantité annuelle de fumure organique produite doit être suffisante pour entièrement couvrir un tiers de sa superficie. Par exemple, le schema ci-dessous illustre un système de rotation annuelle de coton-maïs-mil/sorgho sur trois ans.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "infos_rotations2",
+      "value": "Le schéma ci-dessous nous montre l'évolution de la fertilité du sol lorsque la production de fumure organique de l'UPA est suffisante pour respecter une rotation de trois. Ainsi, un nouveau cycle commence après; ainsi de suite.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "infos_rotations3",
+      "value": "Cependant, si la production de fumure est insuffisante pour boucler le cycle de trois ans, mais suffisante pour un cycle de quatre ans. Alors la parcelle sera epuisée après l'année 3  de fertilisation (S3) et serais cultivée dans une quatrième année (S4) alors qu'elle est déja épuisée. L'exploitation parcelle en quatrième année  (S4) sans apport de fumure organique entrainera la dégradation du sol. Il est donc nécessaire de faire un effort pour être dans le cycle de rotation de 3 ans.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "error_required_answer",
+      "value": "La reponse est obligatoire, aucune valeur n'a été donnée!",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficie_exploitation_label",
+      "value": "Donnez la superficie totale (ha) de votre UPA:",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficie_exploitation_hint",
+      "value": "Il s'agit du cumul des superficies de tous les champs cultivés de votre UPA.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "quantite_fumure_organique_label",
+      "value": "Donnez la quantité de fumure organique que votre UPA a produit cette année (charrétée)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "quantite_fumure_organique_hint",
+      "value": "Il s'agit de la quantité totale  de toutes les qualités de fumure organique produite par votre UPA, y compris les tas d'ordures, le fumier, le compost, etc.\n*1 charrétée = 150-200 kg, en fonction du type de fumure, de capacité de la charrette, de 1'actif, etc.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "portion_fertilisable_label",
+      "value": "Donnez la superficie fertilisable (ha) avec les @fields.quantite_fumure_organique charrétées de fumure organique:",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "portion_fertilisable_hint",
+      "value": "Il s'agit de la superficie de votre UPA ayant été fertilisée avec toute la quantité de differentes qualités de furmure organique produite cette année.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cycle_3_ans",
+      "value": "PRODUCTION ANNUELLE DE FUMURE ORGANIQUE EST SUFFSANTE POUR LA SUPERFICIE TOTALE EN TROIS ANS",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_infos_3",
+      "value": "Le niveau de production annuelle de la fumure organique (@fields.quantite_fumure_organique charrétées) de l'UPA permet de respecte un cycle de rotation de 3 ans.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_courage",
+      "value": "L'UPA est à encourager, car ce niveau de production de fumure organique permet de maintenir la fertilité et durabilité du sol.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cycle_4_ans",
+      "value": "PRODUCTION ANNUELLE DE FUMURE ORGANIQUE EST INSUFFISANTE POUR TROIS ANS",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_infos_4",
+      "value": "Le niveau de production annuelle de la fumure organique de l'UPA (@fields.quantite_fumure_organique charrétées) de l'UPA ne permet pas de fertiliser toute la superficie de l'UPA en trois ans.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "info_gap_4",
+      "value": "Après trois ans, @fields.gap_cycle ha ou @fields.gap_cycle_pour100 % de la superficie totale de l'UPA (@fields.superficie_exploitation ha) ne recevra pas de fumure organique.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "strategie_production_4",
+      "value": "# TECHNIQUE DE PRODUCTION DE LA FUMURE ORGANIQUE:\n\n1. **Tas d'ordures**: effet rapide (car disponible depuis l'année 1) et reste dans le sol de 2 à 4 ans;\n\n2. **Fumier**: effet rapide (car disponible depuis l'année 1) et reste dans le sol de  3 à 5 ans;\n\n3. **Compost**: effet rapide (car disponible depuis l'année 1) et reste dans le sol de 1 à 2 ans.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_strategie_4",
+      "value": "# STRATEGIES DE GESTION DE LA FERTILITE DU SOL:\n\n1. Pratiquez une rotation triennale (par example, coton-maïs-mil/sorgho) sur la partie fertilisable de la superficie totale (@fields.superficie_cycle ha) suivant l'apport annuel de la fumure organique sur @fields.portion_fertilisable ha de votre UPA;\n\n2. cultivez le reste de la superficie (@fields.gap_cycle ha) avec des legumineuses et d'autres cultures (plantes fourragères) qui restaurent la fertilité du sol.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cycle_5_ans",
+      "value": "PRODUCTION ANNUELLE DE FUMURE ORGANIQUE EST LARGEMENT INSUFFISANTE POUR TROIS ANS",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_infos_5",
+      "value": "Le niveau de production annuelle de la fumure organique de l'UPA (@fields.quantite_fumure_organique charrétées) de l'UPA ne permet pas de fertiliser toute sa superficie en trois ans.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "info_gap_5",
+      "value": "Après trois ans, @fields.gap_cycle ha ou @fields.gap_cycle_pour100 % de la superficie totale de l'UPA (@fields.superficie_exploitation ha) ne recevra pas de fumure organique.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "strategie_production_5",
+      "value": "# TECHNIQUE DE PRODUCTION DE LA FUMURE ORGANIQUE:\n\n1. **Tas d'ordures**: effet rapide (car disponible depuis l'année 1) et reste dans le sol de 2 à 4 ans;\n\n2. **Fumier**: effet rapide (car disponible depuis l'année 1) et reste dans le sol de  3 à 5 ans;\n\n3. **Compost**: effet rapide (car disponible depuis l'année 1) et reste dans le sol de 1 à 2 ans.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_strategie_5",
+      "value": "# STRATEGIES DE GESTION DE LA FERTILITE DU SOL:\n\n1. Pratiquez une rotation triennale (par exemple, coton-maïs-mil/sorgho) sur une partie de la superficie totale (@fields.superficie_cycle ha) suivant l'apport annuel de la fumure organique sur @fields.portion_fertilisable ha de votre UPA;\n\n2. cultivez des légumineuses ou d'autres cultures (plantes fourragères) qui restaurent la fertilité sur la partie du sol (@fields.gap_cycle ha) qui n'a pas reçu de fumure de organique depuis 3 ou 4 ans;\n\n3. Pratiquez la jachère améliorée avec des cultures de couverture (comme les légumineuses fourragères) sur l'autre partie du sol (@fields.gap_cycle ha) qui n'a pas reçu de fumure organique depuis 5 ans ou plus.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "observ_page_title",
+      "value": "OBSERVATIONS SUR LA PRODUCTION DE LA FUMURE ORGANIQUE PAR L'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "observ_appreciation_title",
+      "value": "APRECIATIONS ET OBSERVATIONS SUR LE FORMULAIRE",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "observ_appreciation_label",
+      "value": "Partagez vos appréciations, observations, ou suggestions d'amélioration sur le formulaire par audio",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "observ_appreciation",
+      "value": "*Il s'agit de partager à travers un enregistrement vocal toute appréciation (positive/négative) ou observation sur les éléments de ce formulaire, et aussi des suggestions d'amélioration.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "type_canal_info_label",
+      "value": "Séléctionnez le canal à utiliser pour faire votre observation sur la production de la fumure organique",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "info_text_label",
+      "value": "Observations par texte",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "info_video_label",
+      "value": "Observations par video",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "info_audio_label",
+      "value": "Observations par audio",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "info_image_label",
+      "value": "Observations par photo",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_fin",
+      "value": "Les autres formulaires de planification qui completent ce formulaire sont:\n\n- **l'alimentation humaine de l'UPA**;\n- **l'alimentation animale de l'UPA**;\n- **les depenses annuelles de l'UPA**.\n---\n\n**MERCI**",
+      "_translations": {
+        "value": {}
+      }
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/section_fumure_organique_data.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1LV6aWHUDWKstNTa5grgMiEosz0Wkb0icwg2jHvDsCrI"
+  }
+}

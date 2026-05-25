@@ -1,0 +1,636 @@
+{
+  "flow_type": "template",
+  "flow_name": "depenses_page11",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_title",
+      "value": "@global.observ_page_title",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "page_title",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.observ_page_title",
+            "matchedExpression": "@global.observ_page_title",
+            "type": "global",
+            "fieldName": "observ_page_title"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.observ_page_title": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "html",
+          "name": "type_canal_info_label",
+          "value": "<span style=\"color: red;\">*</span> @global.type_canal_info_label",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size:20px"
+          ],
+          "_nested_name": "display_group_3.type_canal_info_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<span style=\"color: red;\">*</span> @global.type_canal_info_label",
+                "matchedExpression": "@global.type_canal_info_label",
+                "type": "global",
+                "fieldName": "type_canal_info_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.type_canal_info_label": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_11_1",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/canal_obser_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_3.audio_11_1"
+        }
+      ],
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
+    },
+    {
+      "type": "text",
+      "name": "error_type_canal_info",
+      "value": "@global.error_required_answer",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@fields.type_canal_info",
+      "style_list": [
+        "color: red",
+        "font-size: 16px"
+      ],
+      "_nested_name": "error_type_canal_info",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@fields.type_canal_info",
+            "matchedExpression": "!@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "!@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "type_canal_info",
+      "value": "@fields.type_canal_info",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "type_canal_info",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : type_canal_info: this.value"
+        }
+      ],
+      "parameter_list": {
+        "answer_list": "@data.group_observation",
+        "variant": "flex",
+        "item_width": "60px",
+        "grid_gap": "8px"
+      },
+      "_nested_name": "type_canal_info",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.type_canal_info",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ],
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@data.group_observation",
+              "matchedExpression": "@data.group_observation",
+              "type": "data",
+              "fieldName": "group_observation"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "value"
+        ],
+        "@data.group_observation": [
+          "parameter_list.answer_list"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_info == \"par_text\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_text_label",
+          "value": "@global.info_text_label",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_7.info_text_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.info_text_label",
+                "matchedExpression": "@global.info_text_label",
+                "type": "global",
+                "fieldName": "info_text_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.info_text_label": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_11_2",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/oberv_ecrit_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_7.audio_11_2"
+        }
+      ],
+      "name": "display_group_7",
+      "_nested_name": "display_group_7",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_text\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_area",
+      "name": "info_text",
+      "value": "@fields.info_text",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "info_text",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : info_text: this.value"
+        }
+      ],
+      "parameter_list": {
+        "placeholder": "Info par écrit"
+      },
+      "condition": "@fields.type_canal_info == \"par_text\"",
+      "_nested_name": "info_text",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.info_text",
+            "matchedExpression": "@fields.info_text",
+            "type": "fields",
+            "fieldName": "info_text"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_text\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.info_text": [
+          "value"
+        ],
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_info == \"par_video\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_video_label",
+          "value": "@global.info_video_label",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_10.info_video_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.info_video_label",
+                "matchedExpression": "@global.info_video_label",
+                "type": "global",
+                "fieldName": "info_video_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.info_video_label": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_11_3",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/oberv_vid_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_10.audio_11_3"
+        }
+      ],
+      "name": "display_group_10",
+      "_nested_name": "display_group_10",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_video\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "info_video",
+      "value": "We would need a video recorder here",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.type_canal_info == \"par_video\"",
+      "_nested_name": "info_video",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_video\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_info == \"par_vocal\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_audio_label",
+          "value": "@global.info_audio_label",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_13.info_audio_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.info_audio_label",
+                "matchedExpression": "@global.info_audio_label",
+                "type": "global",
+                "fieldName": "info_audio_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.info_audio_label": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_11_4",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/oberv_audio_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_13.audio_11_4"
+        }
+      ],
+      "name": "display_group_13",
+      "_nested_name": "display_group_13",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_vocal\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "info_audio",
+      "value": "We would need a audio recorder here",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.type_canal_info == \"par_vocal\"",
+      "_nested_name": "info_audio",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_vocal\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_info == \"par_photo\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_image_label",
+          "value": "@global.info_image_label",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_16.info_image_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.info_image_label",
+                "matchedExpression": "@global.info_image_label",
+                "type": "global",
+                "fieldName": "info_image_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.info_image_label": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_11_5",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/oberv_phot_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_16.audio_11_5"
+        }
+      ],
+      "name": "display_group_16",
+      "_nested_name": "display_group_16",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_photo\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "info_image",
+      "value": "We would need a camera here",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.type_canal_info == \"par_photo\"",
+      "_nested_name": "info_image",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_photo\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "!!@local.type_canal_info",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "!!@local.type_canal_info",
+            "matchedExpression": "!@local.type_canal_info",
+            "type": "local",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.type_canal_info": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page_11_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.page_11_button_back"
+        },
+        {
+          "type": "button",
+          "name": "page_11_button_continue",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.page_11_button_continue",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/depenses_upa.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1u205CPpyJ0JxGF7f7BK6OcAcDpmyiiwflfFbjfk61VM"
+  }
+}

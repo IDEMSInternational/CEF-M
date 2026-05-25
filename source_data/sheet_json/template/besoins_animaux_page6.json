@@ -1,0 +1,117 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_animaux_page6",
+  "status": "released",
+  "rows": [
+    {
+      "type": "subtitle",
+      "value": "**NOMBRE DE TETES ET RÉGIME ALIMENTAIRE**"
+    },
+    {
+      "type": "text",
+      "value": "NOMBRE D'ANIMAUX"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.categorie_animaux",
+      "parameter_list": "filter: @item.name == @fields.current_cat_animaux"
+    },
+    {
+      "type": "text",
+      "value": "Donnez le nombre de @item.text à nourrir par l'UPA durant prochaine la saison sèche chaude"
+    },
+    {
+      "type": "image",
+      "value": "@item.image",
+      "style_list": "width:150px; height:150px; "
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\"> Il s’agit du nombre de têtes de @item.text que vous espérez alimenter pendant la saison sèche chaude. </p>"
+    },
+    {
+      "type": "text_box",
+      "name": "nb_animaux",
+      "value": "@fields.nb_animaux",
+      "action_list": "changed | set_field: nb_animaux : this.value;",
+      "parameter_list": "number_input: true\nplaceholder: Entrez le nombre d'animaux;",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@fields.nb_animaux "
+    },
+    {
+      "name": "valid_nb_animaux",
+      "value": "@calc((/^\\d+$/.test(@local.nb_animaux) && @local.nb_animaux>0 ) || @local.nb_animaux == '' || !@local.nb_animaux )"
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "condition": "!@local.valid_nb_animaux",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "text",
+      "value": "REGIME ALIMENTAIRE"
+    },
+    {
+      "type": "text",
+      "value": "Séléctionnez le regime alimentaire qui sera utilisé pour le (s) @item.text à durant la prochaine saison chaude"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "begin_radio_list",
+      "name": "type_regime",
+      "value": "@fields.type_regime",
+      "action_list": "changed | set_field: type_regime: this.value;"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.regime_animaux"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_radio_list"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@fields.type_regime"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.valid_nb_animaux && @fields.type_regime"
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page5_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page5_button_continue",
+      "value": "Continuer",
+      "action_list": "click | set_field: type_regime_@fields.current_cat_animaux : @local.type_regime;\nclick | set_field: nb_animaux_@fields.current_cat_animaux : @fields.nb_animaux;\nclick | emit: completed;",
+      "condition": "disabled: !@local.completed_enabled"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

@@ -21,11 +21,6 @@
       "value": " Séléctionnez les espèces animales de l'UPA"
     },
     {
-      "name": "valid_cat_animaux",
-      "value": "@calc(!!@fields.boeufs_labour || !!@fields.embouche_bovine || !!@fields.vache_laitiere\n || !!@fields.autres_bovins || !!@fields.asins || !!@fields.embouche_ovine || !!@fields.reste_ovins | !!@fields.caprins)",
-      "action_list": "\n\n\n\n\n"
-    },
-    {
       "type": "begin_data_items",
       "value": "@data.categorie_animaux"
     },
@@ -51,6 +46,16 @@
     },
     {
       "type": "end_data_items"
+    },
+    {
+      "name": "valid_cat_animaux",
+      "value": "@calc(!!@fields.boeufs_labour || !!@fields.embouche_bovine || !!@fields.vache_laitiere\n || !!@fields.autres_bovins || !!@fields.asins || !!@fields.embouche_ovine || !!@fields.reste_ovins | !!@fields.caprins)",
+      "action_list": "\n\n\n\n\n"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "!@local.valid_cat_animaux"
     },
     {
       "name": "cat_animaux_selected",

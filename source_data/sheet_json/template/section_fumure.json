@@ -2,6 +2,7 @@
   "flow_type": "template",
   "flow_name": "section_fumure",
   "status": "released",
+  "__EMPTY": "planning form",
   "rows": [
     {
       "name": "task_group",
@@ -66,7 +67,7 @@
     {
       "type": "begin_template",
       "name": "page",
-      "value": "section_semi_@item.id",
+      "value": "section_fumure_@item.id",
       "action_list": "completed | set_data |\n_list_id: section_fumure_settings_pages,\n_id: @item.id,\ncompleted: true;\n\nuncompleted | set_data | \n_list_id: section_fumure_settings_pages,\n_id: page@local.completed_count,\ncompleted: false;"
     },
     {

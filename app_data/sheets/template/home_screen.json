@@ -4,25 +4,30 @@
   "status": "released",
   "rows": [
     {
+      "type": "plh_module_details_header",
+      "value": "CEF-M",
+      "_translations": {
+        "value": {}
+      },
+      "parameter_list": {
+        "background": "#F9FBE7",
+        "hide_back_button": "true"
+      },
+      "name": "plh_module_details_header_2",
+      "_nested_name": "plh_module_details_header_2"
+    },
+    {
       "type": "title",
-      "value": "HI Everyone !",
+      "value": "SUIVI DE CAMPAGNE",
       "_translations": {
         "value": {}
       },
-      "name": "title_2",
-      "_nested_name": "title_2"
+      "name": "title_3",
+      "_nested_name": "title_3"
     },
     {
-      "type": "text",
-      "value": "Welcome to your app!",
-      "_translations": {
-        "value": {}
-      },
-      "name": "text_3",
-      "_nested_name": "text_3"
-    },
-    {
-      "type": "button",
+      "type": "plh_module_list_item",
+      "name": "item_enrolment",
       "value": "Enrolment",
       "_translations": {
         "value": {}
@@ -37,12 +42,16 @@
           "_raw": "click | go_to: enrolment"
         }
       ],
-      "name": "button_4",
-      "_nested_name": "button_4"
+      "parameter_list": {
+        "module_image_asset": "images/neo_alpha.jpg",
+        "nav_image_asset": "images/icons/expand_circle_right.png"
+      },
+      "_nested_name": "item_enrolment"
     },
     {
-      "type": "button",
-      "value": "Semi",
+      "type": "plh_module_list_item",
+      "name": "item_semi",
+      "value": "Semis",
       "_translations": {
         "value": {}
       },
@@ -56,12 +65,16 @@
           "_raw": "click | go_to: section_semi"
         }
       ],
-      "name": "button_5",
-      "_nested_name": "button_5"
+      "parameter_list": {
+        "module_image_asset": "images/seeding.png",
+        "nav_image_asset": "images/icons/expand_circle_right.png"
+      },
+      "_nested_name": "item_semi"
     },
     {
-      "type": "button",
-      "value": "Post Semi",
+      "type": "plh_module_list_item",
+      "name": "item_post_semi",
+      "value": "Post Semis",
       "_translations": {
         "value": {}
       },
@@ -75,11 +88,15 @@
           "_raw": "click | go_to: post_semi"
         }
       ],
-      "name": "button_6",
-      "_nested_name": "button_6"
+      "parameter_list": {
+        "module_image_asset": "images/sup_cult.jpg",
+        "nav_image_asset": "images/icons/expand_circle_right.png"
+      },
+      "_nested_name": "item_post_semi"
     },
     {
-      "type": "button",
+      "type": "plh_module_list_item",
+      "name": "item_superficie",
       "value": "Superficie Champs",
       "_translations": {
         "value": {}
@@ -94,11 +111,15 @@
           "_raw": "click | go_to: superficie"
         }
       ],
-      "name": "button_7",
-      "_nested_name": "button_7"
+      "parameter_list": {
+        "module_image_asset": "images/superf_champ.jpg",
+        "nav_image_asset": "images/icons/expand_circle_right.png"
+      },
+      "_nested_name": "item_superficie"
     },
     {
-      "type": "button",
+      "type": "plh_module_list_item",
+      "name": "item_recolte",
       "value": "Récolte",
       "_translations": {
         "value": {}
@@ -113,8 +134,116 @@
           "_raw": "click | go_to: recolte"
         }
       ],
-      "name": "button_8",
-      "_nested_name": "button_8"
+      "parameter_list": {
+        "module_image_asset": "images/ratio_membre_terre.jpg",
+        "nav_image_asset": "images/icons/expand_circle_right.png"
+      },
+      "_nested_name": "item_recolte"
+    },
+    {
+      "type": "title",
+      "value": "PLANIFICATION ANNUELLE",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_9",
+      "_nested_name": "title_9"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_fumure",
+      "value": "Fumure organique",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "section_fumure"
+          ],
+          "_raw": "click | go_to: section_fumure"
+        }
+      ],
+      "parameter_list": {
+        "module_image_asset": "images/fumure.jpg",
+        "nav_image_asset": "images/icons/expand_circle_right.png",
+        "background": "#F9FBE7"
+      },
+      "_nested_name": "item_fumure"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_humains",
+      "value": "Alimentation Humaine",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "besoins_humains"
+          ],
+          "_raw": "click | go_to: besoins_humains"
+        }
+      ],
+      "parameter_list": {
+        "module_image_asset": "images/membres.jpg",
+        "nav_image_asset": "images/icons/expand_circle_right.png",
+        "background": "#E8F5E9"
+      },
+      "_nested_name": "item_humains"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_animaux",
+      "value": "Alimentation Animale",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "besoins_animaux"
+          ],
+          "_raw": "click | go_to: besoins_animaux"
+        }
+      ],
+      "parameter_list": {
+        "module_image_asset": "images/fourrage.jpg",
+        "nav_image_asset": "images/icons/expand_circle_right.png",
+        "background": "#E3F2FD"
+      },
+      "_nested_name": "item_animaux"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_depenses",
+      "value": "Dépenses de l'UPA",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "depenses"
+          ],
+          "_raw": "click | go_to: depenses"
+        }
+      ],
+      "parameter_list": {
+        "module_image_asset": "images/cfa_tot.jpg",
+        "nav_image_asset": "images/icons/expand_circle_right.png",
+        "background": "#FFF3E0"
+      },
+      "_nested_name": "item_depenses"
     }
   ],
   "_source": {

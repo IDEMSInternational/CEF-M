@@ -82,6 +82,10 @@
       "style_list": "color: red; font-size: 16px;"
     },
     {
+      "name": "completed_enabled",
+      "value": "@local.valid_numero_upa"
+    },
+    {
       "type": "begin_display_group",
       "value": " ",
       "parameter_list": "sticky: bottom;",
@@ -98,6 +102,7 @@
       "name": "page1_button_continue",
       "value": "Continuer",
       "action_list": "click | emit: completed",
+      "parameter_list": "disabled: !@local.completed_enabled",
       "style_list": "flex: 1"
     },
     {
