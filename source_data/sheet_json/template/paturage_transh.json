@@ -35,17 +35,14 @@
       "type": "end_data_items"
     },
     {
-      "type": "set_field",
       "name": "paturage_transh_con",
       "value": 0
     },
     {
-      "type": "set_field",
       "name": "paturage_transh_resid",
       "value": 0
     },
     {
-      "type": "set_field",
       "name": "paturage_transh_fane",
       "value": 0
     },
@@ -60,7 +57,7 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés (sac):</strong> @fields.paturage_transh_con sac\n</div>"
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés (sac):</strong> @local.paturage_transh_con sac\n</div>"
     },
     {
       "type": "text",
@@ -73,7 +70,7 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales (charrétée):</strong> @fields.paturage_transh_resid charrétée</div>"
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales (charrétée):</strong> @local.paturage_transh_resid charrétée</div>"
     },
     {
       "type": "text",
@@ -81,12 +78,27 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes (botte):</strong> @fields.paturage_transh_fane botte</div>"
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes (botte):</strong> @local.paturage_transh_fane botte</div>"
     },
     {
       "type": "image",
       "value": "images/Fane.jpg",
       "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "set_field",
+      "name": "paturage_transh_con_@fields.current_cat_animaux",
+      "value": "@local.paturage_transh_con"
+    },
+    {
+      "type": "set_field",
+      "name": "paturage_transh_resid_@fields.current_cat_animaux",
+      "value": "@local.paturage_transh_resid"
+    },
+    {
+      "type": "set_field",
+      "name": "paturage_transh_fane_@fields.current_cat_animaux",
+      "value": "@local.paturage_transh_fane"
     }
   ]
 }

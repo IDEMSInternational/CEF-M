@@ -1,0 +1,267 @@
+{
+  "flow_type": "global",
+  "flow_name": "page_constants_depenses",
+  "status": "released",
+  "rows": [
+    {
+      "type": "declare_global_constant",
+      "name": "camera_scane_label",
+      "value": "Identification de l'Unité de Production Agricole (UPA) par QR code"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "camera_scane_hint",
+      "value": "Utilisez la camera pour scanner votre code"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "camera_scane_btn",
+      "value": "Scanner un code"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "hint_price",
+      "value": "1 drm = 5 FCFA"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_depense",
+      "value": "Les exploitations agricoles font face à plusieurs types de dépenses au cours d’une année, telles que les dépenses annuelles recurrentes (frais de condiments, éducation, santé, etc.), et les  grosses dépenses irrégulières (le mariage, achat d’équipement, construction, etc.). \n\nCette diversité de types de dépenses  pose une difficulté fondamentale d’agrégation pour la planification.\n\nCe formulaire a pour objectif d'aider les UPA à calculer et à additionner les depenses annuelles previsionnelles des afin de faciliter la planification."
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "petite_depenses",
+      "value": "PREVISIONS DES DEPENSES ANNUELLES RECURRENTES"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "depenses_condiments",
+      "value": "DEPENSES DE CONDIMENTS DE L'ANNEE PROCHAINE DE L'UPA"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_frais_condiment_info",
+      "value": "Approche d'estimation des dépenses annuelles previsionnelles de condiments de l'UPA :"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_frais_condiment_info_hint",
+      "value": "Montant journalier de frais de condiments est multiplié par 365 jours pour obtenir le montant prévisionnel des dépenses annuelles de condiments"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "frais_condiment_jour_label",
+      "value": "Donnez le frais de condiment journalier (drm) de votre UPA"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_frais_condiment",
+      "value": "Montant prévisionnel des dépenses annuelles de condiments de l'UPA:"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "depense_sante",
+      "value": "DEPENSES DE SANTE DE L'ANNEE PROCHAINE DE L'UPA"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_frais_sante_approche",
+      "value": "Approche d'estimation des dépenses annuelles de santé des membres de l'UPA:"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_frais_sante_approche_hint",
+      "value": "Il s'agit des dépenses de santé des personnes qui résideront dans l'UPA durant plus de 6 mois au cours l'année prochaine\n\nPour chaque personne qui résidera dans l'UPA, il faut prévoir 3000 drm/an comme frais médicaux du traitement d'une maladie très frequente telles que le paludisme, la fière typhoïde et bronchites. \n\nAinsi, le calcul est fait en multipliant 3000 drm par  le nombre de personnes qui résideront dans l'UPA."
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nombre_personne_upa_label",
+      "value": "Donnez le nombre de personnes qui résideront dans l'UPA"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nombre_personne_upa_hint",
+      "value": "Il s'agit des personnes qui resideront dans l'UPA au cours de la prochaine nouvelle année"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_frais_sante",
+      "value": "Montant prévisionnel des dépenses annuelles de santé humaine de l'UPA: "
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_frais_sante_hint",
+      "value": "Le calcul est fait en multipliant 3000 drm par le nombre de personnes qui résideront dans l'UPA"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "depense_education",
+      "value": "DEPENSES D'EDUCATION DE L'ANNEE PROCHAINE DE L'UPA"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_education_annuel",
+      "value": "Approche d'estimation des dépenses annuelles de l'éducation de l'UPA:"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_education_annuel_hint",
+      "value": "Il s'agit du frais de scolarité des enfants avant le niveau universitaire.\n\nPour ce faire, on calcul d'abord le montant prévisionnel par niveau de scolarité en multipliant le nombre d'enfants à scolariser et le frais de scolarité d'un enfant. \n\n- Le nombre d'enfants scolarisés *au niveau maternel* et le frais annuel de scolarité par enfant;\n\n- Le nombre d'enfants scolarisés *au niveau premier cycle* et le frais anuel de scolarité par enfant;\n\n- Le nombre d'enfants scolarisés *au niveau second cycle* et le frais anuel de scolarité par enfant;\n\n- Le nombre d'enfants scolarisés *au niveau lycée ou école professionnele* et le frais anuel de scolarité par enfant.\n\nEnsuite, on additionne les montants prévisionnels de tous les niveaux pour obtenir le montant total prévisionnel des dépenses annuelles de l'éducation."
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "frais_education_annuel_label",
+      "value": "Calculez et donnez le montant prévisionnel des dépenses annuelles de l'éducation (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_petit_depense",
+      "value": "AUTRES PETITES DEPENSES DE L'ANNEE PROCHAINE DE L'UPA"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_depense_yesno",
+      "value": "Indiquez s'il y a une autre petite dépénse de l'UPA à prendre en compte"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_depense_yesno_hint",
+      "value": "Il s'agit de toute autre dépénse recurrente non mentionnée"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nom_autre_frais_label",
+      "value": "Donnez le nom d'autre dépénse prévisionnelle de l'année à prendre en compte"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "montant_autre_frais_label",
+      "value": "Donnez le montant d'autre dépénse prévisionnelle: "
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "investissement",
+      "value": "PREVISONS DES INVESTISSEMENTS"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "invest_maison_label",
+      "value": "Donnez le montant prévisionnel des investissements pour la construction maison (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "invest_mariage_label",
+      "value": "Donnez le montant prévisionnel des investissement pour le mariage (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "invest_equipment_label",
+      "value": "Donnez le montant prévisionnel des investissement pour l'équipement (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "invest_equipment_hint",
+      "value": "Il s'agit du charue, charrettte, tracteur, moto, trycles, motoculteur, etc."
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_investissement",
+      "value": "PREVISONS  AUTRES INVESTISSEMENTS"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_invest_yesno",
+      "value": "Indiquez s'il y a une autre investissement de l'UPA à prendre en compte"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_invest_yesno_hint",
+      "value": "Il s'agit de toute autre investissement non mentionnée"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nom_autre_invest_label",
+      "value": "Donnez le nom d'autre investissement à prendre en compte"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "montant_autre_invest_label",
+      "value": "Donnez le montant d'autre dépénse d'investissement: "
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "calcul_depenses",
+      "value": "TOTAUX DES DEPENSES PREVUES"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "total_depenses_recurrentes",
+      "value": "Totaux des dépenses récurrentes de l'année (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "total_depenses_investissements",
+      "value": "Totaux des dépenses d'investissement de l'année (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "depenes_total_upa",
+      "value": "Dépenses totales de l'UPA de l'année (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "error_required_answer",
+      "value": "La reponse est obligatoire, aucune valeur n'a été donnée!"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "observ_page_title",
+      "value": "OBSERVATIONS SUR LA PREVISION DES DEPENSES ET INVESTISSEMENTS DE L'UPA"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "observ_appreciation_title",
+      "value": "APRECIATIONS ET OBSERVATIONS SUR LE FORMULAIRE"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "observ_appreciation_label",
+      "value": "Partagez vos appréciations, observations, ou suggestions d'amélioration sur le formulaire par audio"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "observ_appreciation",
+      "value": "*Il s'agit de partager à travers un enregistrement vocal toute appréciation (positive/négative) ou observation sur les éléments de ce formulaire, et aussi des suggestions d'amélioration. "
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "type_canal_info_label",
+      "value": "Séléctionnez le canal à utiliser pour faire votre observation sur la prevision des dépenses et investissements"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "info_text_label",
+      "value": "Observations par texte"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "info_video_label",
+      "value": "Observations par video"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "info_audio_label",
+      "value": "Observations par audio"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "info_image_label",
+      "value": "Observations par photo"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_fin",
+      "value": "Les autres formulaires de planification qui completent ce formulaire sont:\n\n- **l'alimentation humaine de l'UPA**;\n- **l'alimentation animale de l'UPA**;\n- **Fumure organique de l'UPA**.\n---\n\n**MERCI**\n"
+    }
+  ]
+}

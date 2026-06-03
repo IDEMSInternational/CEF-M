@@ -3,31 +3,31 @@
 
 | type | count |
 | --- | --- |
-| audio | 219 |
-| button | 182 |
+| audio | 225 |
+| button | 190 |
 | combo_box | 11 |
 | data_items | 90 |
 | date_time_picker | 13 |
 | declare_field_default | 2 |
-| display_group | 475 |
-| html | 296 |
-| image | 233 |
+| display_group | 489 |
+| html | 317 |
+| image | 249 |
 | plh_module_details_header | 1 |
 | plh_module_list_item | 9 |
-| radio_button_grid | 17 |
+| radio_button_grid | 18 |
 | radio_list | 16 |
-| round_button | 120 |
-| set_field | 13 |
-| set_variable | 411 |
+| round_button | 128 |
+| set_field | 23 |
+| set_variable | 431 |
 | simple_checkbox | 9 |
 | square_button | 2 |
-| subtitle | 30 |
+| subtitle | 36 |
 | task_progress_bar | 9 |
 | template | 13 |
-| text | 515 |
-| text_area | 9 |
-| text_box | 190 |
-| title | 105 |
+| text | 553 |
+| text_area | 10 |
+| text_box | 194 |
+| title | 107 |
 | toggle_bar | 1 |
 </details>
 
@@ -38,12 +38,12 @@
 | --- | --- |
 | add_data | 8 |
 | audio_play | 1 |
-| emit: completed | 123 |
+| emit: completed | 131 |
 | emit: force_reprocess | 2 |
-| emit: uncompleted | 118 |
+| emit: uncompleted | 126 |
 | go_to | 39 |
-| set_data | 56 |
-| set_field | 430 |
+| set_data | 57 |
+| set_field | 440 |
 | set_local | 31 |
 | undefined | 80 |
 </details>
@@ -278,8 +278,8 @@ Assets that have references within sheets but do not appear in app-data
 
 | path | count |
 | --- | --- |
-| audio/Enrolement/appreciation_audio_fr.mp3 | 5 |
-| audio/Enrolement/canal_obser_fr.mp3 | 4 |
+| audio/Enrolement/appreciation_audio_fr.mp3 | 6 |
+| audio/Enrolement/canal_obser_fr.mp3 | 5 |
 | audio/Superficie/annee_saison_fr.mp3 | 3 |
 | audio/Superficie/autre_engrais_fr.mp3 | 1 |
 | audio/Superficie/autre_fo_fr.mp3 | 1 |
@@ -327,13 +327,13 @@ Assets that have references within sheets but do not appear in app-data
 | audio/semis/oberv_vid_fr.mp3 | 2 |
 | audio/superficie/nbre_parcel_fr.mp3 | 1 |
 | click | audio_play:audio/Enrolement/pompe_fr.mp3 | 1 |
-| images/Fane.jpg | 4 |
-| images/Residus.jpg | 4 |
+| images/Fane.jpg | 5 |
+| images/Residus.jpg | 6 |
 | images/association.jpg | 1 |
 | images/autre_depense.jpg | 2 |
 | images/autres_bovins.jpg | 1 |
 | images/besoin_upa.jpg | 1 |
-| images/concentre.jpg | 4 |
+| images/concentre.jpg | 5 |
 | images/condiments.jpg | 1 |
 | images/cycle3.jpg | 2 |
 | images/cycle4.jpg | 2 |
@@ -356,10 +356,13 @@ Assets that have references within sheets but do not appear in app-data
 | images/saison_paturage.jpg | 1 |
 | images/sante.jpg | 1 |
 | images/soins_veto.jpg | 1 |
+| images/son_cereal.jpg | 2 |
+| images/sup_fourrage.jpg | 1 |
 | images/sup_mais.jpg | 1 |
 | images/sup_mil.jpg | 1 |
 | images/sup_sorgho.jpg | 1 |
 | images/superf_fumure.jpg | 1 |
+| images/tourteau.jpg | 2 |
 | images/transport_fumure.jpg | 1 |
 | images/type_fumure.jpg | 1 |
 | images/unit_fumure.jpg | 1 |
@@ -407,10 +410,10 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | audio/Enrolement/nom_chef_trvx_fr.mp3 | 25.9 | 1 |
 | audio/Enrolement/nom_chef_upa_fr.mp3 | 31.2 | 1 |
 | audio/Enrolement/nom_neo_alpha_fr.mp3 | 22.5 | 1 |
-| audio/Enrolement/oberv_audio_fr.mp3 | 20.2 | 4 |
-| audio/Enrolement/oberv_ecrit_fr.mp3 | 19.8 | 4 |
-| audio/Enrolement/oberv_phot_fr.mp3 | 18.1 | 4 |
-| audio/Enrolement/oberv_vid_fr.mp3 | 19.8 | 4 |
+| audio/Enrolement/oberv_audio_fr.mp3 | 20.2 | 5 |
+| audio/Enrolement/oberv_ecrit_fr.mp3 | 19.8 | 5 |
+| audio/Enrolement/oberv_phot_fr.mp3 | 18.1 | 5 |
+| audio/Enrolement/oberv_vid_fr.mp3 | 19.8 | 5 |
 | audio/Enrolement/phone_num_fr.mp3 | 35.6 | 1 |
 | audio/Enrolement/pigeon_fr.mp3 | 15.3 | 1 |
 | audio/Enrolement/pintade_fr.mp3 | 16.8 | 1 |
@@ -513,8 +516,8 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/bovin_embouche.jpg | 235.6 | 1 |
 | images/butter.jpg | 20.1 | 1 |
 | images/canard.jpg | 17.4 | 1 |
-| images/cfa.jpg | 2.6 | 29 |
-| images/cfa_tot.jpg | 2.9 | 9 |
+| images/cfa.jpg | 2.6 | 31 |
+| images/cfa_tot.jpg | 2.9 | 13 |
 | images/champ.jpg | 65.5 | 1 |
 | images/charrette.jpg | 4.2 | 4 |
 | images/charrue.jpg | 10.6 | 1 |
@@ -542,7 +545,7 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/herse.jpg | 17.4 | 1 |
 | images/holding.jpg | 14 | 1 |
 | images/homme_adult.jpg | 19 | 1 |
-| images/icons/audio/Speaker_Icon.svg | 0.5 | 220 |
+| images/icons/audio/Speaker_Icon.svg | 0.5 | 226 |
 | images/icons/expand_circle_right.png | 4 | 9 |
 | images/icons/scan.svg | 1.4 | 5 |
 | images/kg.jpg | 3.8 | 4 |
@@ -596,7 +599,7 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/video.jpg | 4.4 | 1 |
 | images/vieille.jpg | 23.5 | 1 |
 | images/vieux.jpg | 17.4 | 1 |
-| images/vocal.jpg | 4.2 | 8 |
+| images/vocal.jpg | 4.2 | 9 |
 | images/wouandzou.jpg | 5.4 | 3 |
 </details>
 
@@ -606,6 +609,6 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | type | subtype | total |
 | --- | --- | --- |
 | data_list |  | 54 |
-| global |  | 10 |
-| template |  | 146 |
+| global |  | 11 |
+| template |  | 154 |
 </details>

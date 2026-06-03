@@ -1,0 +1,111 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_animaux_page12",
+  "status": "released",
+  "rows": [
+    {
+      "type": "subtitle",
+      "value": "**DEPENSE DE TOURTEAU**"
+    },
+    {
+      "type": "text",
+      "value": "**La quantité de tourteau de coton à acheter**"
+    },
+    {
+      "type": "image",
+      "value": "images/tourteau.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "html",
+      "name": "note_quantite_sac_tourteau",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\nLa quantité de tourteau de coton à acheter: <strong> @fields.quantite_tourteau sacs\n</strong> </div>"
+    },
+    {
+      "type": "text",
+      "value": "**Le prix d'un sac de tourteau**"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text_box",
+      "name": "prix_sac_tourteau",
+      "value": "@fields.prix_sac_tourteau",
+      "action_list": "changed | set_field: prix_sac_tourteau : this.value;",
+      "parameter_list": "number_input: true;\nplaceholder: Donnez le prix d'un sac de sac tourteau;",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@fields.prix_sac_tourteau "
+    },
+    {
+      "name": "valid_prix_sac_tourteau",
+      "value": "@calc((/^\\d+$/.test(@fields.prix_sac_tourteau) && @fields.prix_sac_tourteau > 0 ) || @fields.prix_sac_tourteau == '' || !@fields.prix_sac_tourteau)"
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "condition": "!@local.valid_prix_sac_tourteau",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "text",
+      "value": "**Le montant prévisionnel pour l'achat du tourteau**",
+      "condition": "@fields.prix_sac_tourteau "
+    },
+    {
+      "type": "image",
+      "value": "images/cfa_tot.jpg",
+      "condition": "@fields.prix_sac_tourteau ",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "set_field",
+      "name": "cal_depense_tourteau",
+      "value": "@calc((Number(@fields.quantite_tourteau || 0) * Number(@fields.prix_sac_tourteau || 0)).toFixed(1))",
+      "condition": "@fields.prix_sac_tourteau "
+    },
+    {
+      "type": "text",
+      "value": "Le montant prévisionnel pour l'achat du tourteau est: **@fields.cal_depense_tourteau drm**",
+      "condition": "@fields.prix_sac_tourteau "
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\">Il s'agit de l'estimation du montant total nécessaire pour l'achat du tourteau. </p>",
+      "condition": "@fields.prix_sac_tourteau "
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page12_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page12_button_continue",
+      "value": "Continuer",
+      "action_list": "click | emit: completed;"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

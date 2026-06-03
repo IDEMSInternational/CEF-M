@@ -66,21 +66,20 @@
       "value": "@calc([@fields.boeufs_labour,@fields.embouche_bovine,@fields.vache_laitiere,@fields.autres_bovins,@fields.asins,@fields.embouche_ovine,@fields.reste_ovins,@fields.caprins].filter(v=>!!v).length)"
     },
     {
-      "name": "current_cat_animaux",
+      "name": "cat_animaux_loop_idx",
+      "value": "@calc(Number(0))"
+    },
+    {
+      "name": "current_cat_animauxpp",
       "value": "@calc(@fields.boeufs_labour ? 'boeufs_labour' :(@fields.embouche_bovine ? 'embouche_bovine' :(@fields.vache_laitiere ? 'vache_laitiere' :(@fields.autres_bovins ? 'autres_bovins' :(@fields.asins ? 'asins' :(@fields.embouche_ovine ? 'embouche_ovine' :(@fields.reste_ovins ? 'reste_ovins' :(@fields.caprins ? 'caprins' :''))))))))"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "@local.valid_espece_animaux"
+      "name": "current_cat_animaux",
+      "value": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')"
     },
     {
       "name": "completed_enabled",
       "value": "@local.valid_cat_animaux "
-    },
-    {
-      "name": "cat_animaux_loop_idx",
-      "value": 0
     },
     {
       "type": "begin_display_group",

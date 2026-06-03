@@ -6,11 +6,26 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "TOTAUX DES DEPENSES PREVUES",
+      "value": "@global.calcul_depenses",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "page_title"
+      "_nested_name": "page_title",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.calcul_depenses",
+            "matchedExpression": "@global.calcul_depenses",
+            "type": "global",
+            "fieldName": "calcul_depenses"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.calcul_depenses": [
+          "value"
+        ]
+      }
     },
     {
       "name": "total_depenses_recurrentes",
@@ -266,7 +281,7 @@
     },
     {
       "type": "text",
-      "value": "Totaux des dépenses récurrentes de l'année (drm)",
+      "value": "@global.total_depenses_recurrentes",
       "_translations": {
         "value": {}
       },
@@ -274,7 +289,22 @@
         "font-size:20px"
       ],
       "name": "text_9",
-      "_nested_name": "text_9"
+      "_nested_name": "text_9",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.total_depenses_recurrentes",
+            "matchedExpression": "@global.total_depenses_recurrentes",
+            "type": "global",
+            "fieldName": "total_depenses_recurrentes"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.total_depenses_recurrentes": [
+          "value"
+        ]
+      }
     },
     {
       "type": "image",
@@ -354,7 +384,7 @@
     },
     {
       "type": "text",
-      "value": "Totaux des dépenses d'investissement de l'année (drm)",
+      "value": "@global.total_depenses_investissements",
       "_translations": {
         "value": {}
       },
@@ -362,7 +392,22 @@
         "font-size:20px"
       ],
       "name": "text_13",
-      "_nested_name": "text_13"
+      "_nested_name": "text_13",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.total_depenses_investissements",
+            "matchedExpression": "@global.total_depenses_investissements",
+            "type": "global",
+            "fieldName": "total_depenses_investissements"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.total_depenses_investissements": [
+          "value"
+        ]
+      }
     },
     {
       "type": "image",
@@ -442,7 +487,7 @@
     },
     {
       "type": "text",
-      "value": "Dépenses totales de l'UPA de l'année (drm)",
+      "value": "@global.depenes_total_upa",
       "_translations": {
         "value": {}
       },
@@ -450,7 +495,22 @@
         "font-size:20px"
       ],
       "name": "text_17",
-      "_nested_name": "text_17"
+      "_nested_name": "text_17",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.depenes_total_upa",
+            "matchedExpression": "@global.depenes_total_upa",
+            "type": "global",
+            "fieldName": "depenes_total_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.depenes_total_upa": [
+          "value"
+        ]
+      }
     },
     {
       "type": "image",

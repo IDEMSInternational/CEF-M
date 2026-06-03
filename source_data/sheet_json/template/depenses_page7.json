@@ -6,7 +6,7 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "PREVISIONS DES DEPENSES ANNUELLES RECURRENTES"
+      "value": "@global.petite_depenses"
     },
     {
       "name": "attempt_submit",
@@ -15,17 +15,17 @@
     {
       "type": "text",
       "name": "autre_petit_depense",
-      "value": "AUTRES PETITES DEPENSES DE L'ANNEE PROCHAINE DE L'UPA"
+      "value": "@global.autre_petit_depense"
     },
     {
       "type": "text",
       "name": "autre_depense_yesno",
-      "value": "Indiquez s'il y a une autre petite dépénse de l'UPA à prendre en compte"
+      "value": "@global.autre_depense_yesno"
     },
     {
       "type": "text",
       "name": "autre_depense_yesno_hint",
-      "value": "Il s'agit de toute autre dépénse recurrente non mentionnée",
+      "value": "@global.autre_depense_yesno_hint",
       "style_list": "color: gray; font-size: 16px;"
     },
     {
@@ -61,7 +61,7 @@
     {
       "type": "html",
       "name": "nom_autre_frais_label",
-      "value": "<span style=\"color: red;\">*</span> Donnez le nom d'autre dépénse prévisionnelle de l'année à prendre en compte",
+      "value": "<span style=\"color: red;\">*</span> @global.nom_autre_frais_label",
       "style_list": "font-size:20px;"
     },
     {
@@ -89,7 +89,7 @@
     {
       "type": "html",
       "name": "montant_autre_frais_label",
-      "value": "<span style=\"color: red;\">*</span> Donnez le montant d'autre dépénse prévisionnelle: ",
+      "value": "<span style=\"color: red;\">*</span> @global.montant_autre_frais_label",
       "style_list": "font-size:20px; margin-top:20px;"
     },
     {

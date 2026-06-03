@@ -1,0 +1,129 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_animaux_page10",
+  "status": "released",
+  "rows": [
+    {
+      "type": "subtitle",
+      "value": "**REPARTITION DES BESOINS PREVISIONNELS EN CONCENTRES**"
+    },
+    {
+      "type": "text",
+      "value": "**La quantité totale de concentré est :** @fields.total_concentre sacs"
+    },
+    {
+      "type": "image",
+      "value": "images/Residus.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\"> Cette quantité totale peut être en tourteau de coton ou en son de céréales, ou les deux à la fois. </p>"
+    },
+    {
+      "type": "text",
+      "value": "**La quantité de son de céréales dans les @fields.total_concentre sacs de concentrés**"
+    },
+    {
+      "type": "image",
+      "value": "images/son_cereal.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_son",
+      "value": "@fields.quantite_son",
+      "action_list": "changed | set_field: quantite_son : this.value;",
+      "parameter_list": "number_input: true;\nplaceholder: Donnez la quantité de son de céréales;",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.quantite_son "
+    },
+    {
+      "name": "valid_quantite_son",
+      "value": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )"
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "condition": "!@local.valid_quantite_son",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "text",
+      "value": "**La quantité de tourteau de coton dans les @fields.total_concentre sacs de concentrés**",
+      "condition": "@fields.quantite_son"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\"> Pour une prévision de @fields.quantite_son sac de son, la quantité restante est le tourteau. </p>",
+      "condition": "@fields.quantite_son"
+    },
+    {
+      "type": "image",
+      "value": "images/tourteau.jpg",
+      "condition": "@fields.quantite_son",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "set_field",
+      "name": "quantite_tourteau",
+      "value": "@calc(Number(@fields.total_concentre) - Number(@fields.quantite_son))",
+      "condition": "@fields.quantite_son"
+    },
+    {
+      "type": "html",
+      "name": "note_tourteau",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n La quantité de tourteau de coton est :  <strong> @fields.quantite_tourteau sacs\n</strong> </div>",
+      "condition": "@fields.quantite_son"
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page10_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page10_button_continue",
+      "value": "Continuer",
+      "action_list": "click | emit: completed;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page9_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page9_button_continue",
+      "value": "Continuer",
+      "action_list": "click | emit: completed;",
+      "condition": "!@local.last_cat_animaux"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

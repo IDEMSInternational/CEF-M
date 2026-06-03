@@ -6,11 +6,26 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "PREVISIONS DES DEPENSES ANNUELLES RECURRENTES",
+      "value": "@global.petite_depenses",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "page_title"
+      "_nested_name": "page_title",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.petite_depenses",
+            "matchedExpression": "@global.petite_depenses",
+            "type": "global",
+            "fieldName": "petite_depenses"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.petite_depenses": [
+          "value"
+        ]
+      }
     },
     {
       "name": "attempt_submit",
@@ -39,20 +54,50 @@
     {
       "type": "text",
       "name": "depense_sante",
-      "value": "DEPENSES DE SANTE DE L'ANNEE PROCHAINE DE L'UPA",
+      "value": "@global.depense_sante",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "depense_sante"
+      "_nested_name": "depense_sante",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.depense_sante",
+            "matchedExpression": "@global.depense_sante",
+            "type": "global",
+            "fieldName": "depense_sante"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.depense_sante": [
+          "value"
+        ]
+      }
     },
     {
       "type": "text",
       "name": "note_frais_sante_approche",
-      "value": "Approche d'estimation des dépenses annuelles de santé des membres de l'UPA:",
+      "value": "@global.note_frais_sante_approche",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "note_frais_sante_approche"
+      "_nested_name": "note_frais_sante_approche",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.note_frais_sante_approche",
+            "matchedExpression": "@global.note_frais_sante_approche",
+            "type": "global",
+            "fieldName": "note_frais_sante_approche"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_frais_sante_approche": [
+          "value"
+        ]
+      }
     },
     {
       "type": "image",
@@ -66,7 +111,7 @@
     {
       "type": "text",
       "name": "note_frais_sante_approche_hint",
-      "value": "Il s'agit des dépenses de santé des personnes qui résideront dans l'UPA durant plus de 6 mois au cours l'année prochaine\n\nPour chaque personne qui résidera dans l'UPA, il faut prévoir 3000 drm/an comme frais médicaux du traitement d'une maladie très frequente telles que le paludisme, la fière typhoïde et bronchites. \n\nAinsi, le calcul est fait en multipliant 3000 drm par  le nombre de personnes qui résideront dans l'UPA.",
+      "value": "@global.note_frais_sante_approche_hint",
       "_translations": {
         "value": {}
       },
@@ -74,7 +119,22 @@
         "color: gray",
         "font-size: 16px"
       ],
-      "_nested_name": "note_frais_sante_approche_hint"
+      "_nested_name": "note_frais_sante_approche_hint",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.note_frais_sante_approche_hint",
+            "matchedExpression": "@global.note_frais_sante_approche_hint",
+            "type": "global",
+            "fieldName": "note_frais_sante_approche_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_frais_sante_approche_hint": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -82,14 +142,29 @@
         {
           "type": "html",
           "name": "nombre_personne_upa_label",
-          "value": "<span style=\"color: red;\">*</span> Donnez le nombre de personnes qui résideront dans l'UPA",
+          "value": "<span style=\"color: red;\">*</span> @global.nombre_personne_upa_label",
           "_translations": {
             "value": {}
           },
           "style_list": [
             "font-size:20px"
           ],
-          "_nested_name": "display_group_8.nombre_personne_upa_label"
+          "_nested_name": "display_group_8.nombre_personne_upa_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<span style=\"color: red;\">*</span> @global.nombre_personne_upa_label",
+                "matchedExpression": "@global.nombre_personne_upa_label",
+                "type": "global",
+                "fieldName": "nombre_personne_upa_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.nombre_personne_upa_label": [
+              "value"
+            ]
+          }
         }
       ],
       "name": "display_group_8",
@@ -179,7 +254,7 @@
     {
       "type": "text",
       "name": "nombre_personne_upa_hint",
-      "value": "Il s'agit des personnes qui resideront dans l'UPA au cours de la prochaine nouvelle année",
+      "value": "@global.nombre_personne_upa_hint",
       "_translations": {
         "value": {}
       },
@@ -187,7 +262,22 @@
         "color: gray",
         "font-size: 16px"
       ],
-      "_nested_name": "nombre_personne_upa_hint"
+      "_nested_name": "nombre_personne_upa_hint",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.nombre_personne_upa_hint",
+            "matchedExpression": "@global.nombre_personne_upa_hint",
+            "type": "global",
+            "fieldName": "nombre_personne_upa_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.nombre_personne_upa_hint": [
+          "value"
+        ]
+      }
     },
     {
       "name": "valid_nombre_personne_upa",
@@ -357,7 +447,7 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41;\">Montant prévisionnel des dépenses annuelles de santé humaine de l'UPA: \n</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.frais_sante_annuel drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.note_frais_sante_cfa FCFA\n    </span>\n  </div>\n</div>",
+      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41;\">@global.note_frais_sante\n</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.frais_sante_annuel drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.note_frais_sante_cfa FCFA\n    </span>\n  </div>\n</div>",
       "_translations": {
         "value": {}
       },
@@ -367,13 +457,19 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41;\">Montant prévisionnel des dépenses annuelles de santé humaine de l'UPA: \n</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.frais_sante_annuel drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.note_frais_sante_cfa FCFA\n    </span>\n  </div>\n</div>",
+            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41;\">@global.note_frais_sante\n</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.frais_sante_annuel drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.note_frais_sante_cfa FCFA\n    </span>\n  </div>\n</div>",
+            "matchedExpression": "@global.note_frais_sante",
+            "type": "global",
+            "fieldName": "note_frais_sante"
+          },
+          {
+            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41;\">@global.note_frais_sante\n</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.frais_sante_annuel drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.note_frais_sante_cfa FCFA\n    </span>\n  </div>\n</div>",
             "matchedExpression": "@local.frais_sante_annuel",
             "type": "local",
             "fieldName": "frais_sante_annuel"
           },
           {
-            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41;\">Montant prévisionnel des dépenses annuelles de santé humaine de l'UPA: \n</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.frais_sante_annuel drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.note_frais_sante_cfa FCFA\n    </span>\n  </div>\n</div>",
+            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41;\">@global.note_frais_sante\n</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.frais_sante_annuel drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.note_frais_sante_cfa FCFA\n    </span>\n  </div>\n</div>",
             "matchedExpression": "@local.note_frais_sante_cfa",
             "type": "local",
             "fieldName": "note_frais_sante_cfa"
@@ -389,6 +485,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.note_frais_sante": [
+          "value"
+        ],
         "@local.frais_sante_annuel": [
           "value"
         ],
