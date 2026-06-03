@@ -35,17 +35,14 @@
       "type": "end_data_items"
     },
     {
-      "type": "set_field",
       "name": "stabulation_con",
       "value": "@calc((Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 0, 'embouche_bovine': 4.5, 'vache_laitiere': 4.5, 'autres_bovins': 5, 'assins': 4.5, 'embouche_ovine': 1.1, 'reste_ovins': 2.3, 'caprins': 0}[@fields.current_cat_animaux] || 0)).toFixed(1))"
     },
     {
-      "type": "set_field",
       "name": "stabulation_resid",
       "value": "@calc((Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 0, 'embouche_bovine': 6.3, 'vache_laitiere': 5.4, 'autres_bovins': 0, 'assins': 3.6, 'embouche_ovine': 0, 'reste_ovins': 0, 'caprins': 0}[@fields.current_cat_animaux] || 0)).toFixed(1))"
     },
     {
-      "type": "set_field",
       "name": "stabulation_fane",
       "value": "@calc((Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 0, 'embouche_bovine': 120, 'vache_laitiere': 240, 'autres_bovins': 0, 'assins': 120, 'embouche_ovine': 90, 'reste_ovins': 180, 'caprins': 0}[@fields.current_cat_animaux] || 0)).toFixed(1))"
     },
@@ -60,7 +57,7 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés :</strong> @fields.stabulation_con sac\n</div>"
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés :</strong> @local.stabulation_con sac\n</div>"
     },
     {
       "type": "text",
@@ -73,7 +70,7 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales: </strong> @fields.stabulation_resid charrétée</div>"
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales: </strong> @local.stabulation_resid charrétée</div>"
     },
     {
       "type": "text",
@@ -81,12 +78,27 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes: </strong> @fields.stabulation_fane botte</div>"
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes: </strong> @local.stabulation_fane botte</div>"
     },
     {
       "type": "image",
       "value": "images/Fane.jpg",
       "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "set_field",
+      "name": "stabulation_con_@fields.current_cat_animaux",
+      "value": "@local.stabulation_con"
+    },
+    {
+      "type": "set_field",
+      "name": "stabulation_resid_@fields.current_cat_animaux",
+      "value": "@local.stabulation_resid"
+    },
+    {
+      "type": "set_field",
+      "name": "stabulation_fane_@fields.current_cat_animaux",
+      "value": "@local.stabulation_fane"
     }
   ]
 }

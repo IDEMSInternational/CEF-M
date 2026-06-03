@@ -208,12 +208,12 @@
       }
     },
     {
-      "type": "set_field",
       "name": "stabulation_con",
       "value": "@calc((Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 0, 'embouche_bovine': 4.5, 'vache_laitiere': 4.5, 'autres_bovins': 5, 'assins': 4.5, 'embouche_ovine': 1.1, 'reste_ovins': 2.3, 'caprins': 0}[@fields.current_cat_animaux] || 0)).toFixed(1))",
       "_translations": {
         "value": {}
       },
+      "type": "set_variable",
       "_nested_name": "stabulation_con",
       "_dynamicFields": {
         "value": [
@@ -250,12 +250,12 @@
       }
     },
     {
-      "type": "set_field",
       "name": "stabulation_resid",
       "value": "@calc((Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 0, 'embouche_bovine': 6.3, 'vache_laitiere': 5.4, 'autres_bovins': 0, 'assins': 3.6, 'embouche_ovine': 0, 'reste_ovins': 0, 'caprins': 0}[@fields.current_cat_animaux] || 0)).toFixed(1))",
       "_translations": {
         "value": {}
       },
+      "type": "set_variable",
       "_nested_name": "stabulation_resid",
       "_dynamicFields": {
         "value": [
@@ -292,12 +292,12 @@
       }
     },
     {
-      "type": "set_field",
       "name": "stabulation_fane",
       "value": "@calc((Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 0, 'embouche_bovine': 120, 'vache_laitiere': 240, 'autres_bovins': 0, 'assins': 120, 'embouche_ovine': 90, 'reste_ovins': 180, 'caprins': 0}[@fields.current_cat_animaux] || 0)).toFixed(1))",
       "_translations": {
         "value": {}
       },
+      "type": "set_variable",
       "_nested_name": "stabulation_fane",
       "_dynamicFields": {
         "value": [
@@ -359,7 +359,7 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés :</strong> @fields.stabulation_con sac\n</div>",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés :</strong> @local.stabulation_con sac\n</div>",
       "_translations": {
         "value": {}
       },
@@ -368,15 +368,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés :</strong> @fields.stabulation_con sac\n</div>",
-            "matchedExpression": "@fields.stabulation_con",
-            "type": "fields",
+            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés :</strong> @local.stabulation_con sac\n</div>",
+            "matchedExpression": "@local.stabulation_con",
+            "type": "local",
             "fieldName": "stabulation_con"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.stabulation_con": [
+        "@local.stabulation_con": [
           "value"
         ]
       }
@@ -407,7 +407,7 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales: </strong> @fields.stabulation_resid charrétée</div>",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales: </strong> @local.stabulation_resid charrétée</div>",
       "_translations": {
         "value": {}
       },
@@ -416,15 +416,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales: </strong> @fields.stabulation_resid charrétée</div>",
-            "matchedExpression": "@fields.stabulation_resid",
-            "type": "fields",
+            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales: </strong> @local.stabulation_resid charrétée</div>",
+            "matchedExpression": "@local.stabulation_resid",
+            "type": "local",
             "fieldName": "stabulation_resid"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.stabulation_resid": [
+        "@local.stabulation_resid": [
           "value"
         ]
       }
@@ -440,7 +440,7 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes: </strong> @fields.stabulation_fane botte</div>",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes: </strong> @local.stabulation_fane botte</div>",
       "_translations": {
         "value": {}
       },
@@ -449,15 +449,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes: </strong> @fields.stabulation_fane botte</div>",
-            "matchedExpression": "@fields.stabulation_fane",
-            "type": "fields",
+            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes: </strong> @local.stabulation_fane botte</div>",
+            "matchedExpression": "@local.stabulation_fane",
+            "type": "local",
             "fieldName": "stabulation_fane"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.stabulation_fane": [
+        "@local.stabulation_fane": [
           "value"
         ]
       }
@@ -476,6 +476,138 @@
       ],
       "name": "image_16",
       "_nested_name": "image_16"
+    },
+    {
+      "type": "set_field",
+      "name": "stabulation_con_@fields.current_cat_animaux",
+      "value": "@local.stabulation_con",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "stabulation_con_@fields.current_cat_animaux",
+      "_dynamicFields": {
+        "name": [
+          {
+            "fullExpression": "stabulation_con_@fields.current_cat_animaux",
+            "matchedExpression": "@fields.current_cat_animaux",
+            "type": "fields",
+            "fieldName": "current_cat_animaux"
+          }
+        ],
+        "value": [
+          {
+            "fullExpression": "@local.stabulation_con",
+            "matchedExpression": "@local.stabulation_con",
+            "type": "local",
+            "fieldName": "stabulation_con"
+          }
+        ],
+        "_nested_name": [
+          {
+            "fullExpression": "stabulation_con_@fields.current_cat_animaux",
+            "matchedExpression": "@fields.current_cat_animaux",
+            "type": "fields",
+            "fieldName": "current_cat_animaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.current_cat_animaux": [
+          "name",
+          "_nested_name"
+        ],
+        "@local.stabulation_con": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "set_field",
+      "name": "stabulation_resid_@fields.current_cat_animaux",
+      "value": "@local.stabulation_resid",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "stabulation_resid_@fields.current_cat_animaux",
+      "_dynamicFields": {
+        "name": [
+          {
+            "fullExpression": "stabulation_resid_@fields.current_cat_animaux",
+            "matchedExpression": "@fields.current_cat_animaux",
+            "type": "fields",
+            "fieldName": "current_cat_animaux"
+          }
+        ],
+        "value": [
+          {
+            "fullExpression": "@local.stabulation_resid",
+            "matchedExpression": "@local.stabulation_resid",
+            "type": "local",
+            "fieldName": "stabulation_resid"
+          }
+        ],
+        "_nested_name": [
+          {
+            "fullExpression": "stabulation_resid_@fields.current_cat_animaux",
+            "matchedExpression": "@fields.current_cat_animaux",
+            "type": "fields",
+            "fieldName": "current_cat_animaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.current_cat_animaux": [
+          "name",
+          "_nested_name"
+        ],
+        "@local.stabulation_resid": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "set_field",
+      "name": "stabulation_fane_@fields.current_cat_animaux",
+      "value": "@local.stabulation_fane",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "stabulation_fane_@fields.current_cat_animaux",
+      "_dynamicFields": {
+        "name": [
+          {
+            "fullExpression": "stabulation_fane_@fields.current_cat_animaux",
+            "matchedExpression": "@fields.current_cat_animaux",
+            "type": "fields",
+            "fieldName": "current_cat_animaux"
+          }
+        ],
+        "value": [
+          {
+            "fullExpression": "@local.stabulation_fane",
+            "matchedExpression": "@local.stabulation_fane",
+            "type": "local",
+            "fieldName": "stabulation_fane"
+          }
+        ],
+        "_nested_name": [
+          {
+            "fullExpression": "stabulation_fane_@fields.current_cat_animaux",
+            "matchedExpression": "@fields.current_cat_animaux",
+            "type": "fields",
+            "fieldName": "current_cat_animaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.current_cat_animaux": [
+          "name",
+          "_nested_name"
+        ],
+        "@local.stabulation_fane": [
+          "value"
+        ]
+      }
     }
   ],
   "_source": {

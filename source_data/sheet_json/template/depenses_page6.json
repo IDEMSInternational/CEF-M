@@ -6,7 +6,7 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "PREVISIONS DES DEPENSES ANNUELLES RECURRENTES"
+      "value": "@global.petite_depenses"
     },
     {
       "name": "attempt_submit",
@@ -14,13 +14,13 @@
     },
     {
       "type": "text",
-      "name": "depense_sante",
-      "value": "DEPENSES D'EDUCATION DE L'ANNEE PROCHAINE DE L'UPA"
+      "name": "depense_education",
+      "value": "@global.depense_education"
     },
     {
       "type": "text",
       "name": "note_education_annuel",
-      "value": "Approche d'estimation des dépenses annuelles de l'éducation de l'UPA:"
+      "value": "@global.note_education_annuel"
     },
     {
       "type": "image",
@@ -29,7 +29,7 @@
     {
       "type": "text",
       "name": "note_education_annuel_hint",
-      "value": "Il s'agit du frais de scolarité des enfants avant le niveau universitaire.\n\nPour ce faire, on calcul d'abord le montant prévisionnel par niveau de scolarité en multipliant le nombre d'enfants à scolariser et le frais de scolarité d'un enfant. \n\n- Le nombre d'enfants scolarisés *au niveau maternel* et le frais annuel de scolarité par enfant;\n\n- Le nombre d'enfants scolarisés *au niveau premier cycle* et le frais anuel de scolarité par enfant;\n\n- Le nombre d'enfants scolarisés *au niveau second cycle* et le frais anuel de scolarité par enfant;\n\n- Le nombre d'enfants scolarisés *au niveau lycée ou école professionnele* et le frais anuel de scolarité par enfant.\n\nEnsuite, on additionne les montants prévisionnels de tous les niveaux pour obtenir le montant total prévisionnel des dépenses annuelles de l'éducation.",
+      "value": "@global.note_education_annuel_hint",
       "style_list": "color: gray; font-size: 16px;"
     },
     {
@@ -38,7 +38,7 @@
     {
       "type": "html",
       "name": "frais_education_annuel_label",
-      "value": "<span style=\"color: red;\">*</span> Calculez et donnez le montant prévisionnel des dépenses annuelles de l'éducation (drm)",
+      "value": "<span style=\"color: red;\">*</span> @global.frais_education_annuel_label",
       "style_list": "font-size:20px;"
     },
     {

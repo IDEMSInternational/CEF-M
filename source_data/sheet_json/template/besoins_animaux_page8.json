@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "subtitle",
-      "value": "**SOINS VETERINAIRE**"
+      "value": "**SOINS VETERINAIRES**"
     },
     {
       "type": "begin_data_items",
@@ -58,7 +58,7 @@
       "type": "html",
       "name": "html_text",
       "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@fields.frais_veterinaire_tete "
+      "condition": "!@local.frais_veterinaire_tete "
     },
     {
       "name": "valid_frais_veterinaire_tete",
@@ -109,7 +109,15 @@
     },
     {
       "name": "last_cat_animaux",
-      "value": "@calc((Number(@fields.cat_animaux_loop_idx) + 1) <= Number(@fields.cat_animaux_selected_count))"
+      "value": "@calc((Number(@fields.cat_animaux_loop_idx) + 1) < Number(@fields.cat_animaux_selected_count))"
+    },
+    {
+      "name": "cat_animaux_loop_idx",
+      "value": "@calc(Number(@fields.cat_animaux_loop_idx) + 1)"
+    },
+    {
+      "name": "current_cat_animaux",
+      "value": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')"
     },
     {
       "type": "begin_display_group",
@@ -125,9 +133,9 @@
     },
     {
       "type": "button",
-      "name": "page8_next_cat_animaux",
+      "name": "button_next_cat_animaux",
       "value": "Continuer",
-      "action_list": "click | set_field: type_regime:;\nclick | set_field: nb_animaux:;\n\nclick | set_field: cat_animaux_loop_idx : @calc(Number(@fields.cat_animaux_loop_idx) + 1);\nclick | set_field: current_cat_animaux : @calc(@fields.cat_animaux_selected.split(',')[Number(@fields.cat_animaux_loop_idx) + 1])\n\nclick | set_data | _list_id: besoins_animaux_settings_pages, _index: 5, completed: false;\nclick | set_data | _list_id: besoins_animaux_settings_pages, _index: 6, completed: false;\nclick | set_data | _list_id: besoins_animaux_settings_pages, _index: 7, completed: false;\n\n",
+      "action_list": "click | set_field: frais_veterinaire_tete_@fields.current_cat_animaux: @fields.frais_veterinaire_tete;\nclick | set_field: frais_veterinaire_cat_@fields.current_cat_animaux: @fields.frais_veterinaire_cat;\n\nclick | set_field: type_regime:;\nclick | set_field: nb_animaux:;  \nclick | set_field: frais_veterinaire_tete:;  \nclick | set_field: frais_veterinaire_cat:; \n\nclick | set_field: current_cat_animaux : @local.current_cat_animaux;\n\nclick | set_field: cat_animaux_loop_idx : @local.cat_animaux_loop_idx;\nclick | set_data | _list_id: besoins_animaux_settings_pages, _index: 5, completed: false;\nclick | set_data | _list_id: besoins_animaux_settings_pages, _index: 6, completed: false;\nclick | set_data | _list_id: besoins_animaux_settings_pages, _index: 7, completed: false;\n",
       "condition": "@local.last_cat_animaux"
     },
     {

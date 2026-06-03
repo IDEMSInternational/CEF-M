@@ -35,17 +35,14 @@
       "type": "end_data_items"
     },
     {
-      "type": "set_field",
       "name": "comp_ameli_con",
       "value": "@calc((Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 4.2, 'embouche_bovine': 0, 'vache_laitiere': 4.5, 'autres_bovins': 0, 'assins': 0, 'embouche_ovine': 0, 'reste_ovins': 0, 'caprins': 0}[@fields.current_cat_animaux] || 0)).toFixed(1))"
     },
     {
-      "type": "set_field",
       "name": "comp_ameli_resid",
       "value": "@calc((Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 7.2, 'embouche_bovine': 0, 'vache_laitiere': 7.2, 'autres_bovins': 0, 'assins': 0, 'embouche_ovine': 0, 'reste_ovins': 0, 'caprins': 0}[@fields.current_cat_animaux] || 0)).toFixed(1))"
     },
     {
-      "type": "set_field",
       "name": "comp_ameli_fane",
       "value": "@calc((Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 180, 'embouche_bovine': 0, 'vache_laitiere': 180, 'autres_bovins': 0, 'assins': 0, 'embouche_ovine': 0, 'reste_ovins': 0, 'caprins': 0}[@fields.current_cat_animaux] || 0)).toFixed(1))"
     },
@@ -60,7 +57,7 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés :</strong> @fields.comp_ameli_con sac\n</div>"
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés :</strong> @local.comp_ameli_con sac\n</div>"
     },
     {
       "type": "text",
@@ -73,7 +70,7 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales: </strong> @fields.comp_ameli_resid charrétée</div>"
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales: </strong> @local.comp_ameli_resid charrétée</div>"
     },
     {
       "type": "text",
@@ -81,12 +78,27 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes: </strong> @fields.comp_ameli_fane botte</div>"
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes: </strong> @local.comp_ameli_fane botte</div>"
     },
     {
       "type": "image",
       "value": "images/Fane.jpg",
       "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "set_field",
+      "name": "comp_ameli_con_@fields.current_cat_animaux",
+      "value": "@local.comp_ameli_con"
+    },
+    {
+      "type": "set_field",
+      "name": "comp_ameli_resid_@fields.current_cat_animaux",
+      "value": "@local.comp_ameli_resid"
+    },
+    {
+      "type": "set_field",
+      "name": "comp_ameli_fane_@fields.current_cat_animaux",
+      "value": "@local.comp_ameli_fane"
     }
   ]
 }

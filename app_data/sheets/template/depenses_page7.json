@@ -6,11 +6,26 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "PREVISIONS DES DEPENSES ANNUELLES RECURRENTES",
+      "value": "@global.petite_depenses",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "page_title"
+      "_nested_name": "page_title",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.petite_depenses",
+            "matchedExpression": "@global.petite_depenses",
+            "type": "global",
+            "fieldName": "petite_depenses"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.petite_depenses": [
+          "value"
+        ]
+      }
     },
     {
       "name": "attempt_submit",
@@ -39,25 +54,55 @@
     {
       "type": "text",
       "name": "autre_petit_depense",
-      "value": "AUTRES PETITES DEPENSES DE L'ANNEE PROCHAINE DE L'UPA",
+      "value": "@global.autre_petit_depense",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "autre_petit_depense"
+      "_nested_name": "autre_petit_depense",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.autre_petit_depense",
+            "matchedExpression": "@global.autre_petit_depense",
+            "type": "global",
+            "fieldName": "autre_petit_depense"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.autre_petit_depense": [
+          "value"
+        ]
+      }
     },
     {
       "type": "text",
       "name": "autre_depense_yesno",
-      "value": "Indiquez s'il y a une autre petite dépénse de l'UPA à prendre en compte",
+      "value": "@global.autre_depense_yesno",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "autre_depense_yesno"
+      "_nested_name": "autre_depense_yesno",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.autre_depense_yesno",
+            "matchedExpression": "@global.autre_depense_yesno",
+            "type": "global",
+            "fieldName": "autre_depense_yesno"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.autre_depense_yesno": [
+          "value"
+        ]
+      }
     },
     {
       "type": "text",
       "name": "autre_depense_yesno_hint",
-      "value": "Il s'agit de toute autre dépénse recurrente non mentionnée",
+      "value": "@global.autre_depense_yesno_hint",
       "_translations": {
         "value": {}
       },
@@ -65,7 +110,22 @@
         "color: gray",
         "font-size: 16px"
       ],
-      "_nested_name": "autre_depense_yesno_hint"
+      "_nested_name": "autre_depense_yesno_hint",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.autre_depense_yesno_hint",
+            "matchedExpression": "@global.autre_depense_yesno_hint",
+            "type": "global",
+            "fieldName": "autre_depense_yesno_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.autre_depense_yesno_hint": [
+          "value"
+        ]
+      }
     },
     {
       "type": "radio_list",
@@ -287,14 +347,29 @@
         {
           "type": "html",
           "name": "nom_autre_frais_label",
-          "value": "<span style=\"color: red;\">*</span> Donnez le nom d'autre dépénse prévisionnelle de l'année à prendre en compte",
+          "value": "<span style=\"color: red;\">*</span> @global.nom_autre_frais_label",
           "_translations": {
             "value": {}
           },
           "style_list": [
             "font-size:20px"
           ],
-          "_nested_name": "display_group_11.nom_autre_frais_label"
+          "_nested_name": "display_group_11.nom_autre_frais_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<span style=\"color: red;\">*</span> @global.nom_autre_frais_label",
+                "matchedExpression": "@global.nom_autre_frais_label",
+                "type": "global",
+                "fieldName": "nom_autre_frais_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.nom_autre_frais_label": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -410,7 +485,7 @@
         {
           "type": "html",
           "name": "montant_autre_frais_label",
-          "value": "<span style=\"color: red;\">*</span> Donnez le montant d'autre dépénse prévisionnelle:",
+          "value": "<span style=\"color: red;\">*</span> @global.montant_autre_frais_label",
           "_translations": {
             "value": {}
           },
@@ -418,7 +493,22 @@
             "font-size:20px",
             "margin-top:20px"
           ],
-          "_nested_name": "display_group_11.montant_autre_frais_label"
+          "_nested_name": "display_group_11.montant_autre_frais_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<span style=\"color: red;\">*</span> @global.montant_autre_frais_label",
+                "matchedExpression": "@global.montant_autre_frais_label",
+                "type": "global",
+                "fieldName": "montant_autre_frais_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.montant_autre_frais_label": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",

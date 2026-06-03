@@ -6,7 +6,7 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "PREVISIONS DES DEPENSES ANNUELLES RECURRENTES"
+      "value": "@global.petite_depenses"
     },
     {
       "name": "attempt_submit",
@@ -15,12 +15,12 @@
     {
       "type": "text",
       "name": "depenses_condiments",
-      "value": "DEPENSES DE CONDIMENTS DE L'ANNEE PROCHAINE DE L'UPA"
+      "value": "@global.depenses_condiments"
     },
     {
       "type": "text",
       "name": "note_frais_condiment_info",
-      "value": "Approche d'estimation des dépenses annuelles previsionnelles de condiments de l'UPA :"
+      "value": "@global.note_frais_condiment_info"
     },
     {
       "type": "image",
@@ -29,7 +29,7 @@
     {
       "type": "text",
       "name": "note_frais_condiment_info_hint",
-      "value": "Montant journalier de frais de condiments est multiplié par 365 jours pour obtenir le montant prévisionnel des dépenses annuelles de condiments",
+      "value": "@global.note_frais_condiment_info_hint",
       "style_list": "color: gray; font-size: 16px;"
     },
     {
@@ -37,7 +37,7 @@
     },
     {
       "type": "html",
-      "value": "<span style=\"color: red;\">*</span> Donnez le frais de condiment journalier (drm) de votre UPA\n",
+      "value": "<span style=\"color: red;\">*</span> @global.frais_condiment_jour_label",
       "style_list": "font-size:20px;"
     },
     {
@@ -82,7 +82,7 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41;\">Montant prévisionnel des dépenses annuelles de condiments de l'UPA:\n</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.frais_condiment_annuel drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.note_frais_condiment_cfa FCFA\n    </span>\n  </div>\n</div>",
+      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41;\">@global.note_frais_condiment\n</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.frais_condiment_annuel drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.note_frais_condiment_cfa FCFA\n    </span>\n  </div>\n</div>",
       "condition": "@local.valid_frais_condiment_jour"
     },
     {

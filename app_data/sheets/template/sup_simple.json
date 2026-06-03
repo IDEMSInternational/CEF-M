@@ -250,22 +250,14 @@
       }
     },
     {
-      "type": "set_field",
-      "name": "comp_faible_resid_@fields.current_cat_animaux",
+      "name": "comp_faible_resid",
       "value": "@calc((Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 5.4, 'embouche_bovine': 0, 'vache_laitiere': 5.4, 'autres_bovins': 5.4, 'assins': 0, 'embouche_ovine': 0.5, 'reste_ovins': 0, 'caprins': 0}[@fields.current_cat_animaux] || 0)).toFixed(1))",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "comp_faible_resid_@fields.current_cat_animaux",
+      "type": "set_variable",
+      "_nested_name": "comp_faible_resid",
       "_dynamicFields": {
-        "name": [
-          {
-            "fullExpression": "comp_faible_resid_@fields.current_cat_animaux",
-            "matchedExpression": "@fields.current_cat_animaux",
-            "type": "fields",
-            "fieldName": "current_cat_animaux"
-          }
-        ],
         "value": [
           {
             "fullExpression": "@calc((Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 5.4, 'embouche_bovine': 0, 'vache_laitiere': 5.4, 'autres_bovins': 5.4, 'assins': 0, 'embouche_ovine': 0.5, 'reste_ovins': 0, 'caprins': 0}[@fields.current_cat_animaux] || 0)).toFixed(1))",
@@ -285,23 +277,13 @@
             "type": "calc",
             "fieldName": "(Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 5.4, 'embouche_bovine': 0, 'vache_laitiere': 5.4, 'autres_bovins': 5.4, 'assins': 0, 'embouche_ovine': 0.5, 'reste_ovins': 0, 'caprins': 0}[@fields.current_cat_animaux] || 0)).toFixed(1)"
           }
-        ],
-        "_nested_name": [
-          {
-            "fullExpression": "comp_faible_resid_@fields.current_cat_animaux",
-            "matchedExpression": "@fields.current_cat_animaux",
-            "type": "fields",
-            "fieldName": "current_cat_animaux"
-          }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.current_cat_animaux": [
-          "name",
-          "value",
-          "_nested_name"
-        ],
         "@fields.nb_animaux": [
+          "value"
+        ],
+        "@fields.current_cat_animaux": [
           "value"
         ],
         "@calc((Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 5.4, 'embouche_bovine': 0, 'vache_laitiere': 5.4, 'autres_bovins': 5.4, 'assins': 0, 'embouche_ovine': 0.5, 'reste_ovins': 0, 'caprins': 0}[@fields.current_cat_animaux] || 0)).toFixed(1))": [
@@ -310,22 +292,14 @@
       }
     },
     {
-      "type": "set_field",
-      "name": "comp_faible_fane_@fields.current_cat_animaux",
+      "name": "comp_faible_fane",
       "value": "@calc((Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 120, 'embouche_bovine': 67, 'vache_laitiere': 120, 'autres_bovins': 120, 'assins': 0, 'embouche_ovine': 0, 'reste_ovins': 60, 'caprins': 60}[@fields.current_cat_animaux] || 0)).toFixed(1))",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "comp_faible_fane_@fields.current_cat_animaux",
+      "type": "set_variable",
+      "_nested_name": "comp_faible_fane",
       "_dynamicFields": {
-        "name": [
-          {
-            "fullExpression": "comp_faible_fane_@fields.current_cat_animaux",
-            "matchedExpression": "@fields.current_cat_animaux",
-            "type": "fields",
-            "fieldName": "current_cat_animaux"
-          }
-        ],
         "value": [
           {
             "fullExpression": "@calc((Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 120, 'embouche_bovine': 67, 'vache_laitiere': 120, 'autres_bovins': 120, 'assins': 0, 'embouche_ovine': 0, 'reste_ovins': 60, 'caprins': 60}[@fields.current_cat_animaux] || 0)).toFixed(1))",
@@ -345,23 +319,13 @@
             "type": "calc",
             "fieldName": "(Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 120, 'embouche_bovine': 67, 'vache_laitiere': 120, 'autres_bovins': 120, 'assins': 0, 'embouche_ovine': 0, 'reste_ovins': 60, 'caprins': 60}[@fields.current_cat_animaux] || 0)).toFixed(1)"
           }
-        ],
-        "_nested_name": [
-          {
-            "fullExpression": "comp_faible_fane_@fields.current_cat_animaux",
-            "matchedExpression": "@fields.current_cat_animaux",
-            "type": "fields",
-            "fieldName": "current_cat_animaux"
-          }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.current_cat_animaux": [
-          "name",
-          "value",
-          "_nested_name"
-        ],
         "@fields.nb_animaux": [
+          "value"
+        ],
+        "@fields.current_cat_animaux": [
           "value"
         ],
         "@calc((Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 120, 'embouche_bovine': 67, 'vache_laitiere': 120, 'autres_bovins': 120, 'assins': 0, 'embouche_ovine': 0, 'reste_ovins': 60, 'caprins': 60}[@fields.current_cat_animaux] || 0)).toFixed(1))": [
@@ -395,7 +359,7 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés :</strong> @local.comp_faible_con\n</div>",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  Quantité de concentrés : <strong> @local.comp_faible_con sac  </strong>\n</div>",
       "_translations": {
         "value": {}
       },
@@ -404,7 +368,7 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés :</strong> @local.comp_faible_con\n</div>",
+            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  Quantité de concentrés : <strong> @local.comp_faible_con sac  </strong>\n</div>",
             "matchedExpression": "@local.comp_faible_con",
             "type": "local",
             "fieldName": "comp_faible_con"
@@ -443,7 +407,7 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales: </strong> @fields.comp_faible_resid_@fields.current_cat_animaux charrettée</div>",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales: </strong> @local.comp_faible_resid charrettée</div>",
       "_translations": {
         "value": {}
       },
@@ -452,24 +416,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales: </strong> @fields.comp_faible_resid_@fields.current_cat_animaux charrettée</div>",
-            "matchedExpression": "@fields.comp_faible_resid_",
-            "type": "fields",
-            "fieldName": "comp_faible_resid_"
-          },
-          {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales: </strong> @fields.comp_faible_resid_@fields.current_cat_animaux charrettée</div>",
-            "matchedExpression": "@fields.current_cat_animaux",
-            "type": "fields",
-            "fieldName": "current_cat_animaux"
+            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales: </strong> @local.comp_faible_resid charrettée</div>",
+            "matchedExpression": "@local.comp_faible_resid",
+            "type": "local",
+            "fieldName": "comp_faible_resid"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.comp_faible_resid_": [
-          "value"
-        ],
-        "@fields.current_cat_animaux": [
+        "@local.comp_faible_resid": [
           "value"
         ]
       }
@@ -484,39 +439,6 @@
       "_nested_name": "text_14"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes: </strong> @fields.comp_faible_fane_@fields.current_cat_animaux botte</div>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_15",
-      "_nested_name": "html_15",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes: </strong> @fields.comp_faible_fane_@fields.current_cat_animaux botte</div>",
-            "matchedExpression": "@fields.comp_faible_fane_",
-            "type": "fields",
-            "fieldName": "comp_faible_fane_"
-          },
-          {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes: </strong> @fields.comp_faible_fane_@fields.current_cat_animaux botte</div>",
-            "matchedExpression": "@fields.current_cat_animaux",
-            "type": "fields",
-            "fieldName": "current_cat_animaux"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.comp_faible_fane_": [
-          "value"
-        ],
-        "@fields.current_cat_animaux": [
-          "value"
-        ]
-      }
-    },
-    {
       "type": "image",
       "value": "images/Fane.jpg",
       "_translations": {
@@ -528,8 +450,32 @@
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_16",
-      "_nested_name": "image_16"
+      "name": "image_15",
+      "_nested_name": "image_15"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes: </strong> @local.comp_faible_fane botte</div>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_16",
+      "_nested_name": "html_16",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes: </strong> @local.comp_faible_fane botte</div>",
+            "matchedExpression": "@local.comp_faible_fane",
+            "type": "local",
+            "fieldName": "comp_faible_fane"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.comp_faible_fane": [
+          "value"
+        ]
+      }
     },
     {
       "type": "set_field",
@@ -571,6 +517,94 @@
           "_nested_name"
         ],
         "@local.comp_faible_con": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "set_field",
+      "name": "comp_faible_resid_@fields.current_cat_animaux",
+      "value": "@local.comp_faible_resid",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "comp_faible_resid_@fields.current_cat_animaux",
+      "_dynamicFields": {
+        "name": [
+          {
+            "fullExpression": "comp_faible_resid_@fields.current_cat_animaux",
+            "matchedExpression": "@fields.current_cat_animaux",
+            "type": "fields",
+            "fieldName": "current_cat_animaux"
+          }
+        ],
+        "value": [
+          {
+            "fullExpression": "@local.comp_faible_resid",
+            "matchedExpression": "@local.comp_faible_resid",
+            "type": "local",
+            "fieldName": "comp_faible_resid"
+          }
+        ],
+        "_nested_name": [
+          {
+            "fullExpression": "comp_faible_resid_@fields.current_cat_animaux",
+            "matchedExpression": "@fields.current_cat_animaux",
+            "type": "fields",
+            "fieldName": "current_cat_animaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.current_cat_animaux": [
+          "name",
+          "_nested_name"
+        ],
+        "@local.comp_faible_resid": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "set_field",
+      "name": "comp_faible_fane_@fields.current_cat_animaux",
+      "value": "@local.comp_faible_fane",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "comp_faible_fane_@fields.current_cat_animaux",
+      "_dynamicFields": {
+        "name": [
+          {
+            "fullExpression": "comp_faible_fane_@fields.current_cat_animaux",
+            "matchedExpression": "@fields.current_cat_animaux",
+            "type": "fields",
+            "fieldName": "current_cat_animaux"
+          }
+        ],
+        "value": [
+          {
+            "fullExpression": "@local.comp_faible_fane",
+            "matchedExpression": "@local.comp_faible_fane",
+            "type": "local",
+            "fieldName": "comp_faible_fane"
+          }
+        ],
+        "_nested_name": [
+          {
+            "fullExpression": "comp_faible_fane_@fields.current_cat_animaux",
+            "matchedExpression": "@fields.current_cat_animaux",
+            "type": "fields",
+            "fieldName": "current_cat_animaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.current_cat_animaux": [
+          "name",
+          "_nested_name"
+        ],
+        "@local.comp_faible_fane": [
           "value"
         ]
       }

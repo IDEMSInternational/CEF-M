@@ -208,21 +208,21 @@
       }
     },
     {
-      "type": "set_field",
       "name": "paturage_transh_con",
       "value": 0,
+      "type": "set_variable",
       "_nested_name": "paturage_transh_con"
     },
     {
-      "type": "set_field",
       "name": "paturage_transh_resid",
       "value": 0,
+      "type": "set_variable",
       "_nested_name": "paturage_transh_resid"
     },
     {
-      "type": "set_field",
       "name": "paturage_transh_fane",
       "value": 0,
+      "type": "set_variable",
       "_nested_name": "paturage_transh_fane"
     },
     {
@@ -251,7 +251,7 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés (sac):</strong> @fields.paturage_transh_con sac\n</div>",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés (sac):</strong> @local.paturage_transh_con sac\n</div>",
       "_translations": {
         "value": {}
       },
@@ -260,15 +260,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés (sac):</strong> @fields.paturage_transh_con sac\n</div>",
-            "matchedExpression": "@fields.paturage_transh_con",
-            "type": "fields",
+            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés (sac):</strong> @local.paturage_transh_con sac\n</div>",
+            "matchedExpression": "@local.paturage_transh_con",
+            "type": "local",
             "fieldName": "paturage_transh_con"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.paturage_transh_con": [
+        "@local.paturage_transh_con": [
           "value"
         ]
       }
@@ -299,7 +299,7 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales (charrétée):</strong> @fields.paturage_transh_resid charrétée</div>",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales (charrétée):</strong> @local.paturage_transh_resid charrétée</div>",
       "_translations": {
         "value": {}
       },
@@ -308,15 +308,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales (charrétée):</strong> @fields.paturage_transh_resid charrétée</div>",
-            "matchedExpression": "@fields.paturage_transh_resid",
-            "type": "fields",
+            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales (charrétée):</strong> @local.paturage_transh_resid charrétée</div>",
+            "matchedExpression": "@local.paturage_transh_resid",
+            "type": "local",
             "fieldName": "paturage_transh_resid"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.paturage_transh_resid": [
+        "@local.paturage_transh_resid": [
           "value"
         ]
       }
@@ -332,7 +332,7 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes (botte):</strong> @fields.paturage_transh_fane botte</div>",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes (botte):</strong> @local.paturage_transh_fane botte</div>",
       "_translations": {
         "value": {}
       },
@@ -341,15 +341,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes (botte):</strong> @fields.paturage_transh_fane botte</div>",
-            "matchedExpression": "@fields.paturage_transh_fane",
-            "type": "fields",
+            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes (botte):</strong> @local.paturage_transh_fane botte</div>",
+            "matchedExpression": "@local.paturage_transh_fane",
+            "type": "local",
             "fieldName": "paturage_transh_fane"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.paturage_transh_fane": [
+        "@local.paturage_transh_fane": [
           "value"
         ]
       }
@@ -368,6 +368,138 @@
       ],
       "name": "image_16",
       "_nested_name": "image_16"
+    },
+    {
+      "type": "set_field",
+      "name": "paturage_transh_con_@fields.current_cat_animaux",
+      "value": "@local.paturage_transh_con",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "paturage_transh_con_@fields.current_cat_animaux",
+      "_dynamicFields": {
+        "name": [
+          {
+            "fullExpression": "paturage_transh_con_@fields.current_cat_animaux",
+            "matchedExpression": "@fields.current_cat_animaux",
+            "type": "fields",
+            "fieldName": "current_cat_animaux"
+          }
+        ],
+        "value": [
+          {
+            "fullExpression": "@local.paturage_transh_con",
+            "matchedExpression": "@local.paturage_transh_con",
+            "type": "local",
+            "fieldName": "paturage_transh_con"
+          }
+        ],
+        "_nested_name": [
+          {
+            "fullExpression": "paturage_transh_con_@fields.current_cat_animaux",
+            "matchedExpression": "@fields.current_cat_animaux",
+            "type": "fields",
+            "fieldName": "current_cat_animaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.current_cat_animaux": [
+          "name",
+          "_nested_name"
+        ],
+        "@local.paturage_transh_con": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "set_field",
+      "name": "paturage_transh_resid_@fields.current_cat_animaux",
+      "value": "@local.paturage_transh_resid",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "paturage_transh_resid_@fields.current_cat_animaux",
+      "_dynamicFields": {
+        "name": [
+          {
+            "fullExpression": "paturage_transh_resid_@fields.current_cat_animaux",
+            "matchedExpression": "@fields.current_cat_animaux",
+            "type": "fields",
+            "fieldName": "current_cat_animaux"
+          }
+        ],
+        "value": [
+          {
+            "fullExpression": "@local.paturage_transh_resid",
+            "matchedExpression": "@local.paturage_transh_resid",
+            "type": "local",
+            "fieldName": "paturage_transh_resid"
+          }
+        ],
+        "_nested_name": [
+          {
+            "fullExpression": "paturage_transh_resid_@fields.current_cat_animaux",
+            "matchedExpression": "@fields.current_cat_animaux",
+            "type": "fields",
+            "fieldName": "current_cat_animaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.current_cat_animaux": [
+          "name",
+          "_nested_name"
+        ],
+        "@local.paturage_transh_resid": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "set_field",
+      "name": "paturage_transh_fane_@fields.current_cat_animaux",
+      "value": "@local.paturage_transh_fane",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "paturage_transh_fane_@fields.current_cat_animaux",
+      "_dynamicFields": {
+        "name": [
+          {
+            "fullExpression": "paturage_transh_fane_@fields.current_cat_animaux",
+            "matchedExpression": "@fields.current_cat_animaux",
+            "type": "fields",
+            "fieldName": "current_cat_animaux"
+          }
+        ],
+        "value": [
+          {
+            "fullExpression": "@local.paturage_transh_fane",
+            "matchedExpression": "@local.paturage_transh_fane",
+            "type": "local",
+            "fieldName": "paturage_transh_fane"
+          }
+        ],
+        "_nested_name": [
+          {
+            "fullExpression": "paturage_transh_fane_@fields.current_cat_animaux",
+            "matchedExpression": "@fields.current_cat_animaux",
+            "type": "fields",
+            "fieldName": "current_cat_animaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.current_cat_animaux": [
+          "name",
+          "_nested_name"
+        ],
+        "@local.paturage_transh_fane": [
+          "value"
+        ]
+      }
     }
   ],
   "_source": {

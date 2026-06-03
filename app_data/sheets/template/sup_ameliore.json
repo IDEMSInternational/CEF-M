@@ -208,12 +208,12 @@
       }
     },
     {
-      "type": "set_field",
       "name": "comp_ameli_con",
       "value": "@calc((Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 4.2, 'embouche_bovine': 0, 'vache_laitiere': 4.5, 'autres_bovins': 0, 'assins': 0, 'embouche_ovine': 0, 'reste_ovins': 0, 'caprins': 0}[@fields.current_cat_animaux] || 0)).toFixed(1))",
       "_translations": {
         "value": {}
       },
+      "type": "set_variable",
       "_nested_name": "comp_ameli_con",
       "_dynamicFields": {
         "value": [
@@ -250,12 +250,12 @@
       }
     },
     {
-      "type": "set_field",
       "name": "comp_ameli_resid",
       "value": "@calc((Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 7.2, 'embouche_bovine': 0, 'vache_laitiere': 7.2, 'autres_bovins': 0, 'assins': 0, 'embouche_ovine': 0, 'reste_ovins': 0, 'caprins': 0}[@fields.current_cat_animaux] || 0)).toFixed(1))",
       "_translations": {
         "value": {}
       },
+      "type": "set_variable",
       "_nested_name": "comp_ameli_resid",
       "_dynamicFields": {
         "value": [
@@ -292,12 +292,12 @@
       }
     },
     {
-      "type": "set_field",
       "name": "comp_ameli_fane",
       "value": "@calc((Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 180, 'embouche_bovine': 0, 'vache_laitiere': 180, 'autres_bovins': 0, 'assins': 0, 'embouche_ovine': 0, 'reste_ovins': 0, 'caprins': 0}[@fields.current_cat_animaux] || 0)).toFixed(1))",
       "_translations": {
         "value": {}
       },
+      "type": "set_variable",
       "_nested_name": "comp_ameli_fane",
       "_dynamicFields": {
         "value": [
@@ -359,7 +359,7 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés :</strong> @fields.comp_ameli_con sac\n</div>",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés :</strong> @local.comp_ameli_con sac\n</div>",
       "_translations": {
         "value": {}
       },
@@ -368,15 +368,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés :</strong> @fields.comp_ameli_con sac\n</div>",
-            "matchedExpression": "@fields.comp_ameli_con",
-            "type": "fields",
+            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés :</strong> @local.comp_ameli_con sac\n</div>",
+            "matchedExpression": "@local.comp_ameli_con",
+            "type": "local",
             "fieldName": "comp_ameli_con"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.comp_ameli_con": [
+        "@local.comp_ameli_con": [
           "value"
         ]
       }
@@ -407,7 +407,7 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales: </strong> @fields.comp_ameli_resid charrétée</div>",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales: </strong> @local.comp_ameli_resid charrétée</div>",
       "_translations": {
         "value": {}
       },
@@ -416,15 +416,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales: </strong> @fields.comp_ameli_resid charrétée</div>",
-            "matchedExpression": "@fields.comp_ameli_resid",
-            "type": "fields",
+            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales: </strong> @local.comp_ameli_resid charrétée</div>",
+            "matchedExpression": "@local.comp_ameli_resid",
+            "type": "local",
             "fieldName": "comp_ameli_resid"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.comp_ameli_resid": [
+        "@local.comp_ameli_resid": [
           "value"
         ]
       }
@@ -440,7 +440,7 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes: </strong> @fields.comp_ameli_fane botte</div>",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes: </strong> @local.comp_ameli_fane botte</div>",
       "_translations": {
         "value": {}
       },
@@ -449,15 +449,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes: </strong> @fields.comp_ameli_fane botte</div>",
-            "matchedExpression": "@fields.comp_ameli_fane",
-            "type": "fields",
+            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes: </strong> @local.comp_ameli_fane botte</div>",
+            "matchedExpression": "@local.comp_ameli_fane",
+            "type": "local",
             "fieldName": "comp_ameli_fane"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.comp_ameli_fane": [
+        "@local.comp_ameli_fane": [
           "value"
         ]
       }
@@ -476,6 +476,138 @@
       ],
       "name": "image_16",
       "_nested_name": "image_16"
+    },
+    {
+      "type": "set_field",
+      "name": "comp_ameli_con_@fields.current_cat_animaux",
+      "value": "@local.comp_ameli_con",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "comp_ameli_con_@fields.current_cat_animaux",
+      "_dynamicFields": {
+        "name": [
+          {
+            "fullExpression": "comp_ameli_con_@fields.current_cat_animaux",
+            "matchedExpression": "@fields.current_cat_animaux",
+            "type": "fields",
+            "fieldName": "current_cat_animaux"
+          }
+        ],
+        "value": [
+          {
+            "fullExpression": "@local.comp_ameli_con",
+            "matchedExpression": "@local.comp_ameli_con",
+            "type": "local",
+            "fieldName": "comp_ameli_con"
+          }
+        ],
+        "_nested_name": [
+          {
+            "fullExpression": "comp_ameli_con_@fields.current_cat_animaux",
+            "matchedExpression": "@fields.current_cat_animaux",
+            "type": "fields",
+            "fieldName": "current_cat_animaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.current_cat_animaux": [
+          "name",
+          "_nested_name"
+        ],
+        "@local.comp_ameli_con": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "set_field",
+      "name": "comp_ameli_resid_@fields.current_cat_animaux",
+      "value": "@local.comp_ameli_resid",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "comp_ameli_resid_@fields.current_cat_animaux",
+      "_dynamicFields": {
+        "name": [
+          {
+            "fullExpression": "comp_ameli_resid_@fields.current_cat_animaux",
+            "matchedExpression": "@fields.current_cat_animaux",
+            "type": "fields",
+            "fieldName": "current_cat_animaux"
+          }
+        ],
+        "value": [
+          {
+            "fullExpression": "@local.comp_ameli_resid",
+            "matchedExpression": "@local.comp_ameli_resid",
+            "type": "local",
+            "fieldName": "comp_ameli_resid"
+          }
+        ],
+        "_nested_name": [
+          {
+            "fullExpression": "comp_ameli_resid_@fields.current_cat_animaux",
+            "matchedExpression": "@fields.current_cat_animaux",
+            "type": "fields",
+            "fieldName": "current_cat_animaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.current_cat_animaux": [
+          "name",
+          "_nested_name"
+        ],
+        "@local.comp_ameli_resid": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "set_field",
+      "name": "comp_ameli_fane_@fields.current_cat_animaux",
+      "value": "@local.comp_ameli_fane",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "comp_ameli_fane_@fields.current_cat_animaux",
+      "_dynamicFields": {
+        "name": [
+          {
+            "fullExpression": "comp_ameli_fane_@fields.current_cat_animaux",
+            "matchedExpression": "@fields.current_cat_animaux",
+            "type": "fields",
+            "fieldName": "current_cat_animaux"
+          }
+        ],
+        "value": [
+          {
+            "fullExpression": "@local.comp_ameli_fane",
+            "matchedExpression": "@local.comp_ameli_fane",
+            "type": "local",
+            "fieldName": "comp_ameli_fane"
+          }
+        ],
+        "_nested_name": [
+          {
+            "fullExpression": "comp_ameli_fane_@fields.current_cat_animaux",
+            "matchedExpression": "@fields.current_cat_animaux",
+            "type": "fields",
+            "fieldName": "current_cat_animaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.current_cat_animaux": [
+          "name",
+          "_nested_name"
+        ],
+        "@local.comp_ameli_fane": [
+          "value"
+        ]
+      }
     }
   ],
   "_source": {

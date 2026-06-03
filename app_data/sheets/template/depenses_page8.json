@@ -6,11 +6,26 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "PREVISONS DES INVESTISSEMENTS",
+      "value": "@global.investissement",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "page_title"
+      "_nested_name": "page_title",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.investissement",
+            "matchedExpression": "@global.investissement",
+            "type": "global",
+            "fieldName": "investissement"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.investissement": [
+          "value"
+        ]
+      }
     },
     {
       "name": "attempt_submit",
@@ -42,14 +57,29 @@
         {
           "type": "html",
           "name": "invest_maison_label",
-          "value": "<span style=\"color: red;\">*</span> Donnez le montant prévisionnel des investissements pour la construction maison (drm)",
+          "value": "<span style=\"color: red;\">*</span> @global.invest_maison_label",
           "_translations": {
             "value": {}
           },
           "style_list": [
             "font-size:20px"
           ],
-          "_nested_name": "display_group_4.invest_maison_label"
+          "_nested_name": "display_group_4.invest_maison_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<span style=\"color: red;\">*</span> @global.invest_maison_label",
+                "matchedExpression": "@global.invest_maison_label",
+                "type": "global",
+                "fieldName": "invest_maison_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.invest_maison_label": [
+              "value"
+            ]
+          }
         }
       ],
       "name": "display_group_4",
@@ -243,14 +273,29 @@
         {
           "type": "html",
           "name": "invest_mariage_label",
-          "value": "<span style=\"color: red;\">*</span> Donnez le montant prévisionnel des investissement pour le mariage (drm)",
+          "value": "<span style=\"color: red;\">*</span> @global.invest_mariage_label",
           "_translations": {
             "value": {}
           },
           "style_list": [
             "font-size:20px"
           ],
-          "_nested_name": "display_group_11.invest_mariage_label"
+          "_nested_name": "display_group_11.invest_mariage_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<span style=\"color: red;\">*</span> @global.invest_mariage_label",
+                "matchedExpression": "@global.invest_mariage_label",
+                "type": "global",
+                "fieldName": "invest_mariage_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.invest_mariage_label": [
+              "value"
+            ]
+          }
         }
       ],
       "name": "display_group_11",
@@ -444,14 +489,29 @@
         {
           "type": "html",
           "name": "invest_equipment_label",
-          "value": "<span style=\"color: red;\">*</span> Donnez le montant prévisionnel des investissement pour l'équipement (drm)",
+          "value": "<span style=\"color: red;\">*</span> @global.invest_equipment_label",
           "_translations": {
             "value": {}
           },
           "style_list": [
             "font-size:20px"
           ],
-          "_nested_name": "display_group_18.invest_equipment_label"
+          "_nested_name": "display_group_18.invest_equipment_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<span style=\"color: red;\">*</span> @global.invest_equipment_label",
+                "matchedExpression": "@global.invest_equipment_label",
+                "type": "global",
+                "fieldName": "invest_equipment_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.invest_equipment_label": [
+              "value"
+            ]
+          }
         }
       ],
       "name": "display_group_18",
@@ -503,7 +563,7 @@
     {
       "type": "text",
       "name": "invest_equipment_hint",
-      "value": "Il s'agit du charue, charrettte, tracteur, moto, trycles, motoculteur, etc.",
+      "value": "@global.invest_equipment_hint",
       "_translations": {
         "value": {}
       },
@@ -511,7 +571,22 @@
         "color: gray",
         "font-size: 16px"
       ],
-      "_nested_name": "invest_equipment_hint"
+      "_nested_name": "invest_equipment_hint",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.invest_equipment_hint",
+            "matchedExpression": "@global.invest_equipment_hint",
+            "type": "global",
+            "fieldName": "invest_equipment_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.invest_equipment_hint": [
+          "value"
+        ]
+      }
     },
     {
       "type": "text_box",

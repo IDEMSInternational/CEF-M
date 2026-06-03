@@ -13,7 +13,7 @@ config.google_drive.assets_folders = [
 
 config.git = {
   content_repo: "https://github.com/IDEMSInternational/cef_m.git",
-  content_tag_latest: "0.0.13",
+  content_tag_latest: "0.0.14",
 };
 
 
