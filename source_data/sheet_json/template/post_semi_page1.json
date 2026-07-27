@@ -5,46 +5,26 @@
   "rows": [
     {
       "type": "title",
-      "value": "Identification de l'Unité de Production Agricole (UPA) par QR code\n"
-    },
-    {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "value": "Gestion des coûts de Post-Semis"
     },
     {
       "type": "audio",
-      "name": "audio_6_1",
-      "parameter_list": "variant: compact;\nsrc: audio/postSemi/qr_code_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
+      "name": "audio_note_fr",
+      "parameter_list": "variant: button_only;\nsrc: audio/postSemi/note_form_postsemis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "flex-shrink: 0;"
     },
     {
-      "type": "image",
-      "value": "images/qr_code.jpg",
-      "style_list": "width: 80%; object-fit: contain;"
+      "type": "begin_display_group",
+      "style_list": "display: block;width: 100%; background: #F4F7FA; border-radius: 12px; padding: 16px; margin-top: 10px;"
+    },
+    {
+      "type": "text",
+      "name": "note_formulaire_info_postsems",
+      "value": "@global.note_formulaire_info_postsems",
+      "style_list": "font-size: 16px; line-height: 1.5; color: #333;"
     },
     {
       "type": "end_display_group"
-    },
-    {
-      "type": "text",
-      "value": "Utilisez la camera pour scanner votre code",
-      "style_list": "text-align: center; font-weight: bold;"
-    },
-    {
-      "type": "text",
-      "value": "LOGIQUE DE RÉCUPÉRATION (PULLDATA) -- Pas encore dispo",
-      "style_list": "font-size:11px;color:gray;"
-    },
-    {
-      "type": "html",
-      "name": "pull_chef_upa",
-      "value": "<div style=\"display: flex; align-items: center; margin-bottom: 15px;\">\n  <div style=\"background: #1e3656; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 12px;\">  </div>\n  <div>\n    <div style=\"font-size: 16px; font-weight: bold; color: #1e3656;\">.....</div>\n    <div style=\"font-size: 12px; color: #4f8ff1;\">Chef d'exploitation</div>\n  </div>\n</div>",
-      "parameter_list": "placeholder: Nom et prénom de chef UPA"
-    },
-    {
-      "type": "html",
-      "value": "<div style=\"margin-top: 10px;\">\n  <div style=\"display: flex; justify-content: space-between; margin-bottom: 5px;\">\n    <span style=\"color: #999; font-size: 13px;\">Type d'UPA :</span>\n    <span style=\"font-weight: bold; color: #333;\"> .....</span>\n  </div>\n  <div style=\"display: flex; justify-content: space-between;\">\n    <span style=\"color: #999; font-size: 13px;\">Contact :</span>\n    <span style=\"font-weight: bold; color: #333;\">....</span>\n  </div>\n</div>"
     },
     {
       "type": "begin_display_group",
@@ -62,7 +42,7 @@
       "type": "button",
       "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | emit: completed",
+      "action_list": " click | emit: completed;",
       "parameter_list": "style: navigation;\n",
       "style_list": "flex: 1"
     },

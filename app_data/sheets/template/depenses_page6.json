@@ -4,30 +4,6 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "name": "page_title",
-      "value": "@global.petite_depenses",
-      "_translations": {
-        "value": {}
-      },
-      "_nested_name": "page_title",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.petite_depenses",
-            "matchedExpression": "@global.petite_depenses",
-            "type": "global",
-            "fieldName": "petite_depenses"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.petite_depenses": [
-          "value"
-        ]
-      }
-    },
-    {
       "name": "attempt_submit",
       "value": "@fields.attempt_submit",
       "_translations": {
@@ -52,7 +28,7 @@
       }
     },
     {
-      "type": "text",
+      "type": "title",
       "name": "depense_education",
       "value": "@global.depense_education",
       "_translations": {
@@ -76,63 +52,204 @@
       }
     },
     {
-      "type": "text",
-      "name": "note_education_annuel",
-      "value": "@global.note_education_annuel",
-      "_translations": {
-        "value": {}
+      "type": "data_items",
+      "value": "@data.niveau_scolaire",
+      "parameter_list": {
+        "filter": "@item.name == @fields.current_niveau_scolaire"
       },
-      "_nested_name": "note_education_annuel",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.note_education_annuel",
-            "matchedExpression": "@global.note_education_annuel",
-            "type": "global",
-            "fieldName": "note_education_annuel"
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "image",
+              "value": "@item.image",
+              "_translations": {
+                "value": {}
+              },
+              "style_list": [
+                "width:150px",
+                "height:150px"
+              ],
+              "name": "image_1",
+              "_nested_name": "data_items_4.display_group_1_@item.id.image_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@item.image",
+                    "matchedExpression": "@item.image",
+                    "type": "item",
+                    "fieldName": "image"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_4.display_group_1_@item.id.image_1",
+                    "matchedExpression": "@item.id.image_1",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.image": [
+                  "value"
+                ],
+                "@item.id.image_1": [
+                  "_nested_name"
+                ]
+              }
+            },
+            {
+              "type": "text",
+              "value": "**@item.text**",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_2",
+              "_nested_name": "data_items_4.display_group_1_@item.id.text_2",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "**@item.text**",
+                    "matchedExpression": "@item.text",
+                    "type": "item",
+                    "fieldName": "text"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_4.display_group_1_@item.id.text_2",
+                    "matchedExpression": "@item.id.text_2",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.text": [
+                  "value"
+                ],
+                "@item.id.text_2": [
+                  "_nested_name"
+                ]
+              }
+            }
+          ],
+          "name": "display_group_1_@item.id",
+          "_nested_name": "data_items_4.display_group_1_@item.id",
+          "_dynamicFields": {
+            "name": [
+              {
+                "fullExpression": "display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_4.display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
           }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.note_education_annuel": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "image",
-      "value": "images/education.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "name": "image_6",
-      "_nested_name": "image_6"
-    },
-    {
-      "type": "text",
-      "name": "note_education_annuel_hint",
-      "value": "@global.note_education_annuel_hint",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "color: gray",
-        "font-size: 16px"
+        },
+        {
+          "type": "set_field",
+          "name": "niveau_text",
+          "value": "@item.text",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "data_items_4.niveau_text",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@item.text",
+                "matchedExpression": "@item.text",
+                "type": "item",
+                "fieldName": "text"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.text": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "set_field",
+          "name": "niveau_label",
+          "value": "@item.name",
+          "_translations": {
+            "value": {}
+          },
+          "parameter_list": {},
+          "_nested_name": "data_items_4.niveau_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@item.name",
+                "matchedExpression": "@item.name",
+                "type": "item",
+                "fieldName": "name"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.name": [
+              "value"
+            ]
+          }
+        }
       ],
-      "_nested_name": "note_education_annuel_hint",
+      "name": "data_items_4",
+      "_nested_name": "data_items_4",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.note_education_annuel_hint",
-            "matchedExpression": "@global.note_education_annuel_hint",
-            "type": "global",
-            "fieldName": "note_education_annuel_hint"
+            "fullExpression": "@data.niveau_scolaire",
+            "matchedExpression": "@data.niveau_scolaire",
+            "type": "data",
+            "fieldName": "niveau_scolaire"
           }
-        ]
+        ],
+        "parameter_list": {
+          "filter": [
+            {
+              "fullExpression": "@item.name == @fields.current_niveau_scolaire",
+              "matchedExpression": "@item.name",
+              "type": "item",
+              "fieldName": "name"
+            },
+            {
+              "fullExpression": "@item.name == @fields.current_niveau_scolaire",
+              "matchedExpression": "@fields.current_niveau_scolaire",
+              "type": "fields",
+              "fieldName": "current_niveau_scolaire"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
-        "@global.note_education_annuel_hint": [
+        "@data.niveau_scolaire": [
           "value"
+        ],
+        "@item.name": [
+          "parameter_list.filter"
+        ],
+        "@fields.current_niveau_scolaire": [
+          "parameter_list.filter"
         ]
       }
     },
@@ -140,50 +257,541 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "name": "frais_education_annuel_label",
-          "value": "<span style=\"color: red;\">*</span> @global.frais_education_annuel_label",
+          "type": "text",
+          "name": "nombre_enfants_note",
+          "value": "**Donnez le nombre d'enfants de l'UPA inscrit au @fields.niveau_text**",
           "_translations": {
             "value": {}
           },
-          "style_list": [
-            "font-size:20px"
-          ],
-          "_nested_name": "display_group_8.frais_education_annuel_label",
+          "_nested_name": "display_group_6.nombre_enfants_note",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<span style=\"color: red;\">*</span> @global.frais_education_annuel_label",
-                "matchedExpression": "@global.frais_education_annuel_label",
-                "type": "global",
-                "fieldName": "frais_education_annuel_label"
+                "fullExpression": "**Donnez le nombre d'enfants de l'UPA inscrit au @fields.niveau_text**",
+                "matchedExpression": "@fields.niveau_text",
+                "type": "fields",
+                "fieldName": "niveau_text"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@global.frais_education_annuel_label": [
+            "@fields.niveau_text": [
               "value"
             ]
           }
+        },
+        {
+          "type": "audio",
+          "name": "audio_6_1",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/depensesRevenus/nombre_enfants_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_6.audio_6_1"
         }
       ],
-      "name": "display_group_8",
-      "_nested_name": "display_group_8"
+      "name": "display_group_6",
+      "_nested_name": "display_group_6"
     },
     {
-      "type": "image",
-      "value": "images/cfa_tot.jpg",
+      "type": "text_box",
+      "name": "nombre_enfants",
+      "value": "@fields.nombre_enfants",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "nombre_enfants",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: nombre_enfants: this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Entrez le nombre d'enfants"
+      },
+      "_nested_name": "nombre_enfants",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.nombre_enfants",
+            "matchedExpression": "@fields.nombre_enfants",
+            "type": "fields",
+            "fieldName": "nombre_enfants"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.nombre_enfants": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_nombre_enfants",
+      "value": "@calc((/^\\d+$/.test(@fields.nombre_enfants) && @fields.nombre_enfants >=0 ) || @fields.nombre_enfants == '' || !@fields.nombre_enfants )",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_nombre_enfants",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_enfants) && @fields.nombre_enfants >=0 ) || @fields.nombre_enfants == '' || !@fields.nombre_enfants )",
+            "matchedExpression": "@fields.nombre_enfants",
+            "type": "fields",
+            "fieldName": "nombre_enfants"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_enfants) && @fields.nombre_enfants >=0 ) || @fields.nombre_enfants == '' || !@fields.nombre_enfants )",
+            "matchedExpression": "@fields.nombre_enfants",
+            "type": "fields",
+            "fieldName": "nombre_enfants"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_enfants) && @fields.nombre_enfants >=0 ) || @fields.nombre_enfants == '' || !@fields.nombre_enfants )",
+            "matchedExpression": "@fields.nombre_enfants",
+            "type": "fields",
+            "fieldName": "nombre_enfants"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_enfants) && @fields.nombre_enfants >=0 ) || @fields.nombre_enfants == '' || !@fields.nombre_enfants )",
+            "matchedExpression": "!@fields.nombre_enfants",
+            "type": "fields",
+            "fieldName": "nombre_enfants"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_enfants) && @fields.nombre_enfants >=0 ) || @fields.nombre_enfants == '' || !@fields.nombre_enfants )",
+            "matchedExpression": "@calc((/^\\d+$/.test(@fields.nombre_enfants) && @fields.nombre_enfants >=0 ) || @fields.nombre_enfants == '' || !@fields.nombre_enfants )",
+            "type": "calc",
+            "fieldName": "(/^\\d+$/.test(@fields.nombre_enfants) && @fields.nombre_enfants >=0 ) || @fields.nombre_enfants == '' || !@fields.nombre_enfants "
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.nombre_enfants": [
+          "value",
+          "value",
+          "value"
+        ],
+        "!@fields.nombre_enfants": [
+          "value"
+        ],
+        "@calc((/^\\d+$/.test(@fields.nombre_enfants) && @fields.nombre_enfants >=0 ) || @fields.nombre_enfants == '' || !@fields.nombre_enfants )": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "error_nombre_enfants",
+      "value": "@global.error_required_answer",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@fields.nombre_enfants && @fields.attempt_submit",
+      "style_list": [
+        "color: red",
+        "font-size: 16px",
+        "background: #fff5f5",
+        "padding: 5px"
+      ],
+      "_nested_name": "error_nombre_enfants",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@fields.nombre_enfants && @fields.attempt_submit",
+            "matchedExpression": "!@fields.nombre_enfants",
+            "type": "fields",
+            "fieldName": "nombre_enfants"
+          },
+          {
+            "fullExpression": "!@fields.nombre_enfants && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "!@fields.nombre_enfants": [
+          "condition"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.valid_nombre_enfants",
+      "style_list": [
+        "color: #FF0000",
+        "font-size: 14px"
+      ],
+      "name": "text_11",
+      "_nested_name": "text_11",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.validite_nombre",
+            "matchedExpression": "@global.validite_nombre",
+            "type": "global",
+            "fieldName": "validite_nombre"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.valid_nombre_enfants",
+            "matchedExpression": "!@local.valid_nombre_enfants",
+            "type": "local",
+            "fieldName": "valid_nombre_enfants"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.validite_nombre": [
+          "value"
+        ],
+        "!@local.valid_nombre_enfants": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "name": "frais_annuel_scolarite_note",
+          "value": "**Donnez le frais annuel de scolarité d'un enfant au @fields.niveau_text en drm**",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_12.frais_annuel_scolarite_note",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "**Donnez le frais annuel de scolarité d'un enfant au @fields.niveau_text en drm**",
+                "matchedExpression": "@fields.niveau_text",
+                "type": "fields",
+                "fieldName": "niveau_text"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.niveau_text": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_6_2",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/depensesRevenus/scolarite_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_12.audio_6_2"
+        }
+      ],
+      "name": "display_group_12",
+      "_nested_name": "display_group_12"
+    },
+    {
+      "type": "text",
+      "value": "@global.hint_price",
       "_translations": {
         "value": {}
       },
       "style_list": [
-        "width:120px",
-        "height:120px",
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "name": "text_14",
+      "_nested_name": "text_14",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.hint_price",
+            "matchedExpression": "@global.hint_price",
+            "type": "global",
+            "fieldName": "hint_price"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.hint_price": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:100px",
+        "height:100px",
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_10",
-      "_nested_name": "image_10"
+      "name": "image_15",
+      "_nested_name": "image_15"
+    },
+    {
+      "type": "text_box",
+      "name": "frais_scolarite",
+      "value": "@fields.frais_scolarite",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "frais_scolarite",
+            "this.value"
+          ],
+          "_raw": "changed | set_field:  frais_scolarite: this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Entrez le  frais annuel scolarite"
+      },
+      "_nested_name": "frais_scolarite",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.frais_scolarite",
+            "matchedExpression": "@fields.frais_scolarite",
+            "type": "fields",
+            "fieldName": "frais_scolarite"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.frais_scolarite": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_frais_scolarite",
+      "value": "@calc(@fields.frais_scolarite >=0  || @fields.frais_scolarite == '' || !@fields.frais_scolarite )",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_frais_scolarite",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@fields.frais_scolarite >=0  || @fields.frais_scolarite == '' || !@fields.frais_scolarite )",
+            "matchedExpression": "@fields.frais_scolarite",
+            "type": "fields",
+            "fieldName": "frais_scolarite"
+          },
+          {
+            "fullExpression": "@calc(@fields.frais_scolarite >=0  || @fields.frais_scolarite == '' || !@fields.frais_scolarite )",
+            "matchedExpression": "@fields.frais_scolarite",
+            "type": "fields",
+            "fieldName": "frais_scolarite"
+          },
+          {
+            "fullExpression": "@calc(@fields.frais_scolarite >=0  || @fields.frais_scolarite == '' || !@fields.frais_scolarite )",
+            "matchedExpression": "!@fields.frais_scolarite",
+            "type": "fields",
+            "fieldName": "frais_scolarite"
+          },
+          {
+            "fullExpression": "@calc(@fields.frais_scolarite >=0  || @fields.frais_scolarite == '' || !@fields.frais_scolarite )",
+            "matchedExpression": "@calc(@fields.frais_scolarite >=0  || @fields.frais_scolarite == '' || !@fields.frais_scolarite )",
+            "type": "calc",
+            "fieldName": "@fields.frais_scolarite >=0  || @fields.frais_scolarite == '' || !@fields.frais_scolarite "
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.frais_scolarite": [
+          "value",
+          "value"
+        ],
+        "!@fields.frais_scolarite": [
+          "value"
+        ],
+        "@calc(@fields.frais_scolarite >=0  || @fields.frais_scolarite == '' || !@fields.frais_scolarite )": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.error_required_answer",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@fields.frais_scolarite && @fields.attempt_submit",
+      "style_list": [
+        "color: red",
+        "font-size: 16px",
+        "background: #fff5f5",
+        "padding: 5px"
+      ],
+      "name": "text_18",
+      "_nested_name": "text_18",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@fields.frais_scolarite && @fields.attempt_submit",
+            "matchedExpression": "!@fields.frais_scolarite",
+            "type": "fields",
+            "fieldName": "frais_scolarite"
+          },
+          {
+            "fullExpression": "!@fields.frais_scolarite && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "!@fields.frais_scolarite": [
+          "condition"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.valid_frais_scolarite",
+      "style_list": [
+        "color: #FF0000",
+        "font-size: 14px"
+      ],
+      "name": "text_19",
+      "_nested_name": "text_19",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.validite_nombre",
+            "matchedExpression": "@global.validite_nombre",
+            "type": "global",
+            "fieldName": "validite_nombre"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.valid_frais_scolarite",
+            "matchedExpression": "!@local.valid_frais_scolarite",
+            "type": "local",
+            "fieldName": "valid_frais_scolarite"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.validite_nombre": [
+          "value"
+        ],
+        "!@local.valid_frais_scolarite": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "name": "frais_fourniture_note",
+          "value": "**Donnez le frais annuel de fourniture scolaire d'un enfant au @fields.niveau_text en drm**",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_20.frais_fourniture_note",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "**Donnez le frais annuel de fourniture scolaire d'un enfant au @fields.niveau_text en drm**",
+                "matchedExpression": "@fields.niveau_text",
+                "type": "fields",
+                "fieldName": "niveau_text"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.niveau_text": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_6_3",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/depensesRevenus/fourniture_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_20.audio_6_3"
+        }
+      ],
+      "name": "display_group_20",
+      "_nested_name": "display_group_20"
     },
     {
       "type": "text",
@@ -214,9 +822,33 @@
       }
     },
     {
+      "type": "html",
+      "value": "<p style=\"color: black;\"> Il s'agit des frais de fournitures scolaires (sac, ardoise, crayon, bic, livres, la craie, etc.) d'un enfant  </p>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_23",
+      "_nested_name": "html_23"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:100px",
+        "height:100px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_24",
+      "_nested_name": "image_24"
+    },
+    {
       "type": "text_box",
-      "name": "frais_education_annuel",
-      "value": "@fields.frais_education_annuel",
+      "name": "frais_fourniture",
+      "value": "@fields.frais_fourniture",
       "_translations": {
         "value": {}
       },
@@ -225,96 +857,97 @@
           "trigger": "changed",
           "action_id": "set_field",
           "args": [
-            "frais_education_annuel",
+            "frais_fourniture",
             "this.value"
           ],
-          "_raw": "changed | set_field : frais_education_annuel: this.value"
+          "_raw": "changed | set_field:  frais_fourniture: this.value"
         }
       ],
       "parameter_list": {
-        "number_input": "true"
+        "number_input": "true",
+        "placeholder": "Entrez le frais des fournitures"
       },
-      "_nested_name": "frais_education_annuel",
+      "_nested_name": "frais_fourniture",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.frais_education_annuel",
-            "matchedExpression": "@fields.frais_education_annuel",
+            "fullExpression": "@fields.frais_fourniture",
+            "matchedExpression": "@fields.frais_fourniture",
             "type": "fields",
-            "fieldName": "frais_education_annuel"
+            "fieldName": "frais_fourniture"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.frais_education_annuel": [
+        "@fields.frais_fourniture": [
           "value"
         ]
       }
     },
     {
-      "name": "valid_frais_education_annuel",
-      "value": "@calc(!!@fields.frais_education_annuel && @fields.frais_education_annuel != \"\" && @fields.frais_education_annuel >= 0)",
+      "name": "valid_frais_fourniture",
+      "value": "@calc( @fields.frais_fourniture >=0 || @fields.frais_fourniture == '' || !@fields.frais_fourniture )",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "valid_frais_education_annuel",
+      "_nested_name": "valid_frais_fourniture",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(!!@fields.frais_education_annuel && @fields.frais_education_annuel != \"\" && @fields.frais_education_annuel >= 0)",
-            "matchedExpression": "!@fields.frais_education_annuel",
+            "fullExpression": "@calc( @fields.frais_fourniture >=0 || @fields.frais_fourniture == '' || !@fields.frais_fourniture )",
+            "matchedExpression": "@fields.frais_fourniture",
             "type": "fields",
-            "fieldName": "frais_education_annuel"
+            "fieldName": "frais_fourniture"
           },
           {
-            "fullExpression": "@calc(!!@fields.frais_education_annuel && @fields.frais_education_annuel != \"\" && @fields.frais_education_annuel >= 0)",
-            "matchedExpression": "@fields.frais_education_annuel",
+            "fullExpression": "@calc( @fields.frais_fourniture >=0 || @fields.frais_fourniture == '' || !@fields.frais_fourniture )",
+            "matchedExpression": "@fields.frais_fourniture",
             "type": "fields",
-            "fieldName": "frais_education_annuel"
+            "fieldName": "frais_fourniture"
           },
           {
-            "fullExpression": "@calc(!!@fields.frais_education_annuel && @fields.frais_education_annuel != \"\" && @fields.frais_education_annuel >= 0)",
-            "matchedExpression": "@fields.frais_education_annuel",
+            "fullExpression": "@calc( @fields.frais_fourniture >=0 || @fields.frais_fourniture == '' || !@fields.frais_fourniture )",
+            "matchedExpression": "!@fields.frais_fourniture",
             "type": "fields",
-            "fieldName": "frais_education_annuel"
+            "fieldName": "frais_fourniture"
           },
           {
-            "fullExpression": "@calc(!!@fields.frais_education_annuel && @fields.frais_education_annuel != \"\" && @fields.frais_education_annuel >= 0)",
-            "matchedExpression": "@calc(!!@fields.frais_education_annuel && @fields.frais_education_annuel != \"\" && @fields.frais_education_annuel >= 0)",
+            "fullExpression": "@calc( @fields.frais_fourniture >=0 || @fields.frais_fourniture == '' || !@fields.frais_fourniture )",
+            "matchedExpression": "@calc( @fields.frais_fourniture >=0 || @fields.frais_fourniture == '' || !@fields.frais_fourniture )",
             "type": "calc",
-            "fieldName": "!!@fields.frais_education_annuel && @fields.frais_education_annuel != \"\" && @fields.frais_education_annuel >= 0"
+            "fieldName": " @fields.frais_fourniture >=0 || @fields.frais_fourniture == '' || !@fields.frais_fourniture "
           }
         ]
       },
       "_dynamicDependencies": {
-        "!@fields.frais_education_annuel": [
-          "value"
-        ],
-        "@fields.frais_education_annuel": [
+        "@fields.frais_fourniture": [
           "value",
           "value"
         ],
-        "@calc(!!@fields.frais_education_annuel && @fields.frais_education_annuel != \"\" && @fields.frais_education_annuel >= 0)": [
+        "!@fields.frais_fourniture": [
+          "value"
+        ],
+        "@calc( @fields.frais_fourniture >=0 || @fields.frais_fourniture == '' || !@fields.frais_fourniture )": [
           "value"
         ]
       }
     },
     {
       "type": "text",
-      "name": "error_frais_education_annuel",
       "value": "@global.error_required_answer",
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.attempt_submit && !@local.valid_frais_education_annuel",
+      "condition": "!@fields.frais_fourniture && @fields.attempt_submit",
       "style_list": [
         "color: red",
         "font-size: 16px",
         "background: #fff5f5",
         "padding: 5px"
       ],
-      "_nested_name": "error_frais_education_annuel",
+      "name": "text_27",
+      "_nested_name": "text_27",
       "_dynamicFields": {
         "value": [
           {
@@ -326,16 +959,16 @@
         ],
         "condition": [
           {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_frais_education_annuel",
+            "fullExpression": "!@fields.frais_fourniture && @fields.attempt_submit",
+            "matchedExpression": "!@fields.frais_fourniture",
+            "type": "fields",
+            "fieldName": "frais_fourniture"
+          },
+          {
+            "fullExpression": "!@fields.frais_fourniture && @fields.attempt_submit",
             "matchedExpression": "@fields.attempt_submit",
             "type": "fields",
             "fieldName": "attempt_submit"
-          },
-          {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_frais_education_annuel",
-            "matchedExpression": "!@local.valid_frais_education_annuel",
-            "type": "local",
-            "fieldName": "valid_frais_education_annuel"
           }
         ]
       },
@@ -343,17 +976,589 @@
         "@global.error_required_answer": [
           "value"
         ],
-        "@fields.attempt_submit": [
+        "!@fields.frais_fourniture": [
           "condition"
         ],
-        "!@local.valid_frais_education_annuel": [
+        "@fields.attempt_submit": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.valid_frais_fourniture",
+      "style_list": [
+        "color: #FF0000",
+        "font-size: 14px"
+      ],
+      "name": "text_28",
+      "_nested_name": "text_28",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.validite_nombre",
+            "matchedExpression": "@global.validite_nombre",
+            "type": "global",
+            "fieldName": "validite_nombre"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.valid_frais_fourniture",
+            "matchedExpression": "!@local.valid_frais_fourniture",
+            "type": "local",
+            "fieldName": "valid_frais_fourniture"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.validite_nombre": [
+          "value"
+        ],
+        "!@local.valid_frais_fourniture": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "name": "frais_deplacement_note",
+          "value": "**Donnez les frais quotidiens de déplacement aller-retour entre la maison et l'école d'un enfant du @fields.niveau_text en drm**",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_29.frais_deplacement_note",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "**Donnez les frais quotidiens de déplacement aller-retour entre la maison et l'école d'un enfant du @fields.niveau_text en drm**",
+                "matchedExpression": "@fields.niveau_text",
+                "type": "fields",
+                "fieldName": "niveau_text"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.niveau_text": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_6_4",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/depensesRevenus/transport_jour_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_29.audio_6_4"
+        }
+      ],
+      "name": "display_group_29",
+      "_nested_name": "display_group_29"
+    },
+    {
+      "type": "text",
+      "value": "@global.hint_price",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "name": "text_31",
+      "_nested_name": "text_31",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.hint_price",
+            "matchedExpression": "@global.hint_price",
+            "type": "global",
+            "fieldName": "hint_price"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.hint_price": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:100px",
+        "height:100px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_32",
+      "_nested_name": "image_32"
+    },
+    {
+      "type": "text_box",
+      "name": "frais_deplacement",
+      "value": "@fields.frais_deplacement",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "frais_deplacement",
+            "this.value"
+          ],
+          "_raw": "changed | set_field:  frais_deplacement: this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Entrez le frais de deplacement"
+      },
+      "_nested_name": "frais_deplacement",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.frais_deplacement",
+            "matchedExpression": "@fields.frais_deplacement",
+            "type": "fields",
+            "fieldName": "frais_deplacement"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.frais_deplacement": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_frais_deplacement",
+      "value": "@calc(@fields.frais_deplacement >=0 || @fields.frais_deplacement == '' || !@fields.frais_deplacement )",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_frais_deplacement",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@fields.frais_deplacement >=0 || @fields.frais_deplacement == '' || !@fields.frais_deplacement )",
+            "matchedExpression": "@fields.frais_deplacement",
+            "type": "fields",
+            "fieldName": "frais_deplacement"
+          },
+          {
+            "fullExpression": "@calc(@fields.frais_deplacement >=0 || @fields.frais_deplacement == '' || !@fields.frais_deplacement )",
+            "matchedExpression": "@fields.frais_deplacement",
+            "type": "fields",
+            "fieldName": "frais_deplacement"
+          },
+          {
+            "fullExpression": "@calc(@fields.frais_deplacement >=0 || @fields.frais_deplacement == '' || !@fields.frais_deplacement )",
+            "matchedExpression": "!@fields.frais_deplacement",
+            "type": "fields",
+            "fieldName": "frais_deplacement"
+          },
+          {
+            "fullExpression": "@calc(@fields.frais_deplacement >=0 || @fields.frais_deplacement == '' || !@fields.frais_deplacement )",
+            "matchedExpression": "@calc(@fields.frais_deplacement >=0 || @fields.frais_deplacement == '' || !@fields.frais_deplacement )",
+            "type": "calc",
+            "fieldName": "@fields.frais_deplacement >=0 || @fields.frais_deplacement == '' || !@fields.frais_deplacement "
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.frais_deplacement": [
+          "value",
+          "value"
+        ],
+        "!@fields.frais_deplacement": [
+          "value"
+        ],
+        "@calc(@fields.frais_deplacement >=0 || @fields.frais_deplacement == '' || !@fields.frais_deplacement )": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.error_required_answer",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@fields.frais_deplacement && @fields.attempt_submit",
+      "style_list": [
+        "color: red",
+        "font-size: 16px",
+        "background: #fff5f5",
+        "padding: 5px"
+      ],
+      "name": "text_35",
+      "_nested_name": "text_35",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@fields.frais_deplacement && @fields.attempt_submit",
+            "matchedExpression": "!@fields.frais_deplacement",
+            "type": "fields",
+            "fieldName": "frais_deplacement"
+          },
+          {
+            "fullExpression": "!@fields.frais_deplacement && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "!@fields.frais_deplacement": [
+          "condition"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.valid_frais_deplacement",
+      "style_list": [
+        "color: #FF0000",
+        "font-size: 14px"
+      ],
+      "name": "text_36",
+      "_nested_name": "text_36",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.validite_nombre",
+            "matchedExpression": "@global.validite_nombre",
+            "type": "global",
+            "fieldName": "validite_nombre"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.valid_frais_deplacement",
+            "matchedExpression": "!@local.valid_frais_deplacement",
+            "type": "local",
+            "fieldName": "valid_frais_deplacement"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.validite_nombre": [
+          "value"
+        ],
+        "!@local.valid_frais_deplacement": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "name": "frais_recreation_note",
+          "value": "**Donnez le frais quotidien de récreation d'un enfant au @fields.niveau_text en drm**",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_37.frais_recreation_note",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "**Donnez le frais quotidien de récreation d'un enfant au @fields.niveau_text en drm**",
+                "matchedExpression": "@fields.niveau_text",
+                "type": "fields",
+                "fieldName": "niveau_text"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.niveau_text": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_6_5",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/depensesRevenus/recreation_jour_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_37.audio_6_5"
+        }
+      ],
+      "name": "display_group_37",
+      "_nested_name": "display_group_37"
+    },
+    {
+      "type": "text",
+      "value": "@global.hint_price",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "name": "text_39",
+      "_nested_name": "text_39",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.hint_price",
+            "matchedExpression": "@global.hint_price",
+            "type": "global",
+            "fieldName": "hint_price"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.hint_price": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:100px",
+        "height:100px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_40",
+      "_nested_name": "image_40"
+    },
+    {
+      "type": "text_box",
+      "name": "frais_recreation",
+      "value": "@fields.frais_recreation",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "frais_recreation",
+            "this.value"
+          ],
+          "_raw": "changed | set_field:  frais_recreation: this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Entrez le frais de recreation"
+      },
+      "_nested_name": "frais_recreation",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.frais_recreation",
+            "matchedExpression": "@fields.frais_recreation",
+            "type": "fields",
+            "fieldName": "frais_recreation"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.frais_recreation": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_frais_recreation",
+      "value": "@calc(@fields.frais_recreation >=0  || @fields.frais_recreation == '' || !@fields.frais_recreation )",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_frais_recreation",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@fields.frais_recreation >=0  || @fields.frais_recreation == '' || !@fields.frais_recreation )",
+            "matchedExpression": "@fields.frais_recreation",
+            "type": "fields",
+            "fieldName": "frais_recreation"
+          },
+          {
+            "fullExpression": "@calc(@fields.frais_recreation >=0  || @fields.frais_recreation == '' || !@fields.frais_recreation )",
+            "matchedExpression": "@fields.frais_recreation",
+            "type": "fields",
+            "fieldName": "frais_recreation"
+          },
+          {
+            "fullExpression": "@calc(@fields.frais_recreation >=0  || @fields.frais_recreation == '' || !@fields.frais_recreation )",
+            "matchedExpression": "!@fields.frais_recreation",
+            "type": "fields",
+            "fieldName": "frais_recreation"
+          },
+          {
+            "fullExpression": "@calc(@fields.frais_recreation >=0  || @fields.frais_recreation == '' || !@fields.frais_recreation )",
+            "matchedExpression": "@calc(@fields.frais_recreation >=0  || @fields.frais_recreation == '' || !@fields.frais_recreation )",
+            "type": "calc",
+            "fieldName": "@fields.frais_recreation >=0  || @fields.frais_recreation == '' || !@fields.frais_recreation "
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.frais_recreation": [
+          "value",
+          "value"
+        ],
+        "!@fields.frais_recreation": [
+          "value"
+        ],
+        "@calc(@fields.frais_recreation >=0  || @fields.frais_recreation == '' || !@fields.frais_recreation )": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.error_required_answer",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@fields.frais_recreation && @fields.attempt_submit",
+      "style_list": [
+        "color: red",
+        "font-size: 16px",
+        "background: #fff5f5",
+        "padding: 5px"
+      ],
+      "name": "text_43",
+      "_nested_name": "text_43",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@fields.frais_recreation && @fields.attempt_submit",
+            "matchedExpression": "!@fields.frais_recreation",
+            "type": "fields",
+            "fieldName": "frais_recreation"
+          },
+          {
+            "fullExpression": "!@fields.frais_recreation && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "!@fields.frais_recreation": [
+          "condition"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.valid_frais_recreation",
+      "style_list": [
+        "color: #FF0000",
+        "font-size: 14px"
+      ],
+      "name": "text_44",
+      "_nested_name": "text_44",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.validite_nombre",
+            "matchedExpression": "@global.validite_nombre",
+            "type": "global",
+            "fieldName": "validite_nombre"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.valid_frais_recreation",
+            "matchedExpression": "!@local.valid_frais_recreation",
+            "type": "local",
+            "fieldName": "valid_frais_recreation"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.validite_nombre": [
+          "value"
+        ],
+        "!@local.valid_frais_recreation": [
           "condition"
         ]
       }
     },
     {
       "name": "completed_enabled",
-      "value": "@local.valid_frais_education_annuel",
+      "value": "@fields.nombre_enfants && @fields.frais_scolarite && @fields.frais_fourniture && @fields.frais_deplacement && @fields.frais_recreation",
       "_translations": {
         "value": {}
       },
@@ -362,22 +1567,57 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@local.valid_frais_education_annuel",
-            "matchedExpression": "@local.valid_frais_education_annuel",
-            "type": "local",
-            "fieldName": "valid_frais_education_annuel"
+            "fullExpression": "@fields.nombre_enfants && @fields.frais_scolarite && @fields.frais_fourniture && @fields.frais_deplacement && @fields.frais_recreation",
+            "matchedExpression": "@fields.nombre_enfants",
+            "type": "fields",
+            "fieldName": "nombre_enfants"
+          },
+          {
+            "fullExpression": "@fields.nombre_enfants && @fields.frais_scolarite && @fields.frais_fourniture && @fields.frais_deplacement && @fields.frais_recreation",
+            "matchedExpression": "@fields.frais_scolarite",
+            "type": "fields",
+            "fieldName": "frais_scolarite"
+          },
+          {
+            "fullExpression": "@fields.nombre_enfants && @fields.frais_scolarite && @fields.frais_fourniture && @fields.frais_deplacement && @fields.frais_recreation",
+            "matchedExpression": "@fields.frais_fourniture",
+            "type": "fields",
+            "fieldName": "frais_fourniture"
+          },
+          {
+            "fullExpression": "@fields.nombre_enfants && @fields.frais_scolarite && @fields.frais_fourniture && @fields.frais_deplacement && @fields.frais_recreation",
+            "matchedExpression": "@fields.frais_deplacement",
+            "type": "fields",
+            "fieldName": "frais_deplacement"
+          },
+          {
+            "fullExpression": "@fields.nombre_enfants && @fields.frais_scolarite && @fields.frais_fourniture && @fields.frais_deplacement && @fields.frais_recreation",
+            "matchedExpression": "@fields.frais_recreation",
+            "type": "fields",
+            "fieldName": "frais_recreation"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.valid_frais_education_annuel": [
+        "@fields.nombre_enfants": [
+          "value"
+        ],
+        "@fields.frais_scolarite": [
+          "value"
+        ],
+        "@fields.frais_fourniture": [
+          "value"
+        ],
+        "@fields.frais_deplacement": [
+          "value"
+        ],
+        "@fields.frais_recreation": [
           "value"
         ]
       }
     },
     {
       "type": "display_group",
-      "name": "dg_footer",
       "value": "",
       "parameter_list": {
         "sticky": "bottom"
@@ -403,12 +1643,12 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_6_btn_back"
+          "_nested_name": "display_group_46.page_6_btn_back"
         },
         {
           "type": "button",
           "name": "page_6_btn_attempt_submit",
-          "value": "@global.btn_continue",
+          "value": "continuer",
           "_translations": {
             "value": {}
           },
@@ -427,16 +1667,8 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_6_btn_attempt_submit",
+          "_nested_name": "display_group_46.page_6_btn_attempt_submit",
           "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@global.btn_continue",
-                "matchedExpression": "@global.btn_continue",
-                "type": "global",
-                "fieldName": "btn_continue"
-              }
-            ],
             "condition": [
               {
                 "fullExpression": "!@local.completed_enabled",
@@ -447,9 +1679,6 @@
             ]
           },
           "_dynamicDependencies": {
-            "@global.btn_continue": [
-              "value"
-            ],
             "!@local.completed_enabled": [
               "condition"
             ]
@@ -457,12 +1686,21 @@
         },
         {
           "type": "button",
-          "name": "page_6_btn_continue",
+          "name": "page6_button_continue",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
           "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                false
+              ],
+              "_raw": "click | set_field: attempt_submit: false"
+            },
             {
               "trigger": "click",
               "action_id": "emit",
@@ -479,7 +1717,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_6_btn_continue",
+          "_nested_name": "display_group_46.page6_button_continue",
           "_dynamicFields": {
             "value": [
               {
@@ -521,7 +1759,8 @@
           }
         }
       ],
-      "_nested_name": "dg_footer"
+      "name": "display_group_46",
+      "_nested_name": "display_group_46"
     }
   ],
   "_source": {

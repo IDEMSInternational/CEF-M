@@ -4,22 +4,13 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
-      "value": "**NOMBRE DE TETES ET RÉGIME ALIMENTAIRE**",
+      "type": "title",
+      "value": "**SOINS VETERINAIRES**",
       "_translations": {
         "value": {}
       },
-      "name": "subtitle_2",
-      "_nested_name": "subtitle_2"
-    },
-    {
-      "type": "text",
-      "value": "NOMBRE D'ANIMAUX",
-      "_translations": {
-        "value": {}
-      },
-      "name": "text_3",
-      "_nested_name": "text_3"
+      "name": "title_2",
+      "_nested_name": "title_2"
     },
     {
       "type": "data_items",
@@ -29,25 +20,98 @@
       },
       "rows": [
         {
-          "type": "text",
-          "value": "Donnez le nombre de @item.text à nourrir par l'UPA durant prochaine la saison sèche chaude",
-          "_translations": {
-            "value": {}
-          },
-          "name": "text_1_@item.id",
-          "_nested_name": "data_items_4.text_1_@item.id",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "Donnez le nombre de @item.text à nourrir par l'UPA durant prochaine la saison sèche chaude",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "text",
+              "value": "@item.text: @fields.nb_animaux tête(s)",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_1",
+              "_nested_name": "data_items_3.display_group_1_@item.id.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@item.text: @fields.nb_animaux tête(s)",
+                    "matchedExpression": "@item.text",
+                    "type": "item",
+                    "fieldName": "text"
+                  },
+                  {
+                    "fullExpression": "@item.text: @fields.nb_animaux tête(s)",
+                    "matchedExpression": "@fields.nb_animaux",
+                    "type": "fields",
+                    "fieldName": "nb_animaux"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_3.display_group_1_@item.id.text_1",
+                    "matchedExpression": "@item.id.text_1",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.text": [
+                  "value"
+                ],
+                "@fields.nb_animaux": [
+                  "value"
+                ],
+                "@item.id.text_1": [
+                  "_nested_name"
+                ]
               }
-            ],
+            },
+            {
+              "type": "image",
+              "value": "@item.image",
+              "_translations": {
+                "value": {}
+              },
+              "style_list": [
+                "width:150px",
+                "height:150px"
+              ],
+              "name": "image_2",
+              "_nested_name": "data_items_3.display_group_1_@item.id.image_2",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@item.image",
+                    "matchedExpression": "@item.image",
+                    "type": "item",
+                    "fieldName": "image"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_3.display_group_1_@item.id.image_2",
+                    "matchedExpression": "@item.id.image_2",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.image": [
+                  "value"
+                ],
+                "@item.id.image_2": [
+                  "_nested_name"
+                ]
+              }
+            }
+          ],
+          "name": "display_group_1_@item.id",
+          "_nested_name": "data_items_3.display_group_1_@item.id",
+          "_dynamicFields": {
             "name": [
               {
-                "fullExpression": "text_1_@item.id",
+                "fullExpression": "display_group_1_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -55,7 +119,7 @@
             ],
             "_nested_name": [
               {
-                "fullExpression": "data_items_4.text_1_@item.id",
+                "fullExpression": "data_items_3.display_group_1_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -63,9 +127,6 @@
             ]
           },
           "_dynamicDependencies": {
-            "@item.text": [
-              "value"
-            ],
             "@item.id": [
               "name",
               "_nested_name"
@@ -73,29 +134,47 @@
           }
         },
         {
+          "type": "text",
+          "name": "note_soins_veto",
+          "value": "@global.note_soins_veto",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "data_items_3.note_soins_veto",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.note_soins_veto",
+                "matchedExpression": "@global.note_soins_veto",
+                "type": "global",
+                "fieldName": "note_soins_veto"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.note_soins_veto": [
+              "value"
+            ]
+          }
+        },
+        {
           "type": "image",
-          "value": "@item.image",
+          "value": "images/soins_veto.jpg",
           "_translations": {
             "value": {}
           },
           "style_list": [
-            "width:150px",
-            "height:150px"
+            "width:120px",
+            "height:120px",
+            "object-fit:contain",
+            "flex-shrink:0"
           ],
-          "name": "image_2_@item.id",
-          "_nested_name": "data_items_4.image_2_@item.id",
+          "name": "image_3_@item.id",
+          "_nested_name": "data_items_3.image_3_@item.id",
           "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@item.image",
-                "matchedExpression": "@item.image",
-                "type": "item",
-                "fieldName": "image"
-              }
-            ],
             "name": [
               {
-                "fullExpression": "image_2_@item.id",
+                "fullExpression": "image_3_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -103,7 +182,7 @@
             ],
             "_nested_name": [
               {
-                "fullExpression": "data_items_4.image_2_@item.id",
+                "fullExpression": "data_items_3.image_3_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -111,7 +190,48 @@
             ]
           },
           "_dynamicDependencies": {
-            "@item.image": [
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.prix_unit_veto",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_4_@item.id",
+          "_nested_name": "data_items_3.text_4_@item.id",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.prix_unit_veto",
+                "matchedExpression": "@global.prix_unit_veto",
+                "type": "global",
+                "fieldName": "prix_unit_veto"
+              }
+            ],
+            "name": [
+              {
+                "fullExpression": "text_4_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_3.text_4_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.prix_unit_veto": [
               "value"
             ],
             "@item.id": [
@@ -122,24 +242,24 @@
         },
         {
           "type": "html",
-          "value": "<p style=\"color: black;\"> Il s’agit du nombre de têtes de @item.text que vous espérez alimenter pendant la saison sèche chaude. </p>",
+          "value": "<p style=\"color: black;\"> @global.hint_prix_unit_veto</p>",
           "_translations": {
             "value": {}
           },
-          "name": "html_3_@item.id",
-          "_nested_name": "data_items_4.html_3_@item.id",
+          "name": "html_5_@item.id",
+          "_nested_name": "data_items_3.html_5_@item.id",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<p style=\"color: black;\"> Il s’agit du nombre de têtes de @item.text que vous espérez alimenter pendant la saison sèche chaude. </p>",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
+                "fullExpression": "<p style=\"color: black;\"> @global.hint_prix_unit_veto</p>",
+                "matchedExpression": "@global.hint_prix_unit_veto",
+                "type": "global",
+                "fieldName": "hint_prix_unit_veto"
               }
             ],
             "name": [
               {
-                "fullExpression": "html_3_@item.id",
+                "fullExpression": "html_5_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -147,7 +267,7 @@
             ],
             "_nested_name": [
               {
-                "fullExpression": "data_items_4.html_3_@item.id",
+                "fullExpression": "data_items_3.html_5_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -155,7 +275,7 @@
             ]
           },
           "_dynamicDependencies": {
-            "@item.text": [
+            "@global.hint_prix_unit_veto": [
               "value"
             ],
             "@item.id": [
@@ -165,9 +285,81 @@
           }
         },
         {
+          "type": "html",
+          "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_6_@item.id",
+          "_nested_name": "data_items_3.html_6_@item.id",
+          "_dynamicFields": {
+            "name": [
+              {
+                "fullExpression": "html_6_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_3.html_6_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:120px",
+            "height:120px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_7_@item.id",
+          "_nested_name": "data_items_3.image_7_@item.id",
+          "_dynamicFields": {
+            "name": [
+              {
+                "fullExpression": "image_7_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_3.image_7_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        },
+        {
           "type": "text_box",
-          "name": "nb_animaux",
-          "value": "@fields.nb_animaux",
+          "name": "frais_veterinaire_tete",
+          "value": "@fields.frais_veterinaire_tete",
           "_translations": {
             "value": {}
           },
@@ -176,29 +368,29 @@
               "trigger": "changed",
               "action_id": "set_field",
               "args": [
-                "nb_animaux",
+                "frais_veterinaire_tete",
                 "this.value"
               ],
-              "_raw": "changed | set_field: nb_animaux : this.value"
+              "_raw": "changed | set_field: frais_veterinaire_tete : this.value"
             }
           ],
           "parameter_list": {
             "number_input": "true\nplaceholder"
           },
           "exclude_from_translation": true,
-          "_nested_name": "data_items_4.nb_animaux",
+          "_nested_name": "data_items_3.frais_veterinaire_tete",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@fields.nb_animaux",
-                "matchedExpression": "@fields.nb_animaux",
+                "fullExpression": "@fields.frais_veterinaire_tete",
+                "matchedExpression": "@fields.frais_veterinaire_tete",
                 "type": "fields",
-                "fieldName": "nb_animaux"
+                "fieldName": "frais_veterinaire_tete"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.nb_animaux": [
+            "@fields.frais_veterinaire_tete": [
               "value"
             ]
           }
@@ -210,8 +402,8 @@
           "_translations": {
             "value": {}
           },
-          "condition": "!@fields.nb_animaux",
-          "_nested_name": "data_items_4.html_text",
+          "condition": "!@local.frais_veterinaire_tete",
+          "_nested_name": "data_items_3.html_text",
           "_dynamicFields": {
             "value": [
               {
@@ -223,10 +415,10 @@
             ],
             "condition": [
               {
-                "fullExpression": "!@fields.nb_animaux",
-                "matchedExpression": "!@fields.nb_animaux",
-                "type": "fields",
-                "fieldName": "nb_animaux"
+                "fullExpression": "!@local.frais_veterinaire_tete",
+                "matchedExpression": "!@local.frais_veterinaire_tete",
+                "type": "local",
+                "fieldName": "frais_veterinaire_tete"
               }
             ]
           },
@@ -234,63 +426,63 @@
             "@global.warning_message": [
               "value"
             ],
-            "!@fields.nb_animaux": [
+            "!@local.frais_veterinaire_tete": [
               "condition"
             ]
           }
         },
         {
-          "name": "valid_nb_animaux",
-          "value": "@calc((/^\\d+$/.test(@local.nb_animaux) && @local.nb_animaux>0 ) || @local.nb_animaux == '' || !@local.nb_animaux )",
+          "name": "valid_frais_veterinaire_tete",
+          "value": "@calc((/^\\d+$/.test(@local.frais_veterinaire_tete) && @local.frais_veterinaire_tete>0 ) || @local.frais_veterinaire_tete == '' || !@local.frais_veterinaire_tete )",
           "_translations": {
             "value": {}
           },
           "type": "set_variable",
-          "_nested_name": "data_items_4.valid_nb_animaux",
+          "_nested_name": "data_items_3.valid_frais_veterinaire_tete",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@calc((/^\\d+$/.test(@local.nb_animaux) && @local.nb_animaux>0 ) || @local.nb_animaux == '' || !@local.nb_animaux )",
-                "matchedExpression": "@local.nb_animaux",
+                "fullExpression": "@calc((/^\\d+$/.test(@local.frais_veterinaire_tete) && @local.frais_veterinaire_tete>0 ) || @local.frais_veterinaire_tete == '' || !@local.frais_veterinaire_tete )",
+                "matchedExpression": "@local.frais_veterinaire_tete",
                 "type": "local",
-                "fieldName": "nb_animaux"
+                "fieldName": "frais_veterinaire_tete"
               },
               {
-                "fullExpression": "@calc((/^\\d+$/.test(@local.nb_animaux) && @local.nb_animaux>0 ) || @local.nb_animaux == '' || !@local.nb_animaux )",
-                "matchedExpression": "@local.nb_animaux",
+                "fullExpression": "@calc((/^\\d+$/.test(@local.frais_veterinaire_tete) && @local.frais_veterinaire_tete>0 ) || @local.frais_veterinaire_tete == '' || !@local.frais_veterinaire_tete )",
+                "matchedExpression": "@local.frais_veterinaire_tete",
                 "type": "local",
-                "fieldName": "nb_animaux"
+                "fieldName": "frais_veterinaire_tete"
               },
               {
-                "fullExpression": "@calc((/^\\d+$/.test(@local.nb_animaux) && @local.nb_animaux>0 ) || @local.nb_animaux == '' || !@local.nb_animaux )",
-                "matchedExpression": "@local.nb_animaux",
+                "fullExpression": "@calc((/^\\d+$/.test(@local.frais_veterinaire_tete) && @local.frais_veterinaire_tete>0 ) || @local.frais_veterinaire_tete == '' || !@local.frais_veterinaire_tete )",
+                "matchedExpression": "@local.frais_veterinaire_tete",
                 "type": "local",
-                "fieldName": "nb_animaux"
+                "fieldName": "frais_veterinaire_tete"
               },
               {
-                "fullExpression": "@calc((/^\\d+$/.test(@local.nb_animaux) && @local.nb_animaux>0 ) || @local.nb_animaux == '' || !@local.nb_animaux )",
-                "matchedExpression": "!@local.nb_animaux",
+                "fullExpression": "@calc((/^\\d+$/.test(@local.frais_veterinaire_tete) && @local.frais_veterinaire_tete>0 ) || @local.frais_veterinaire_tete == '' || !@local.frais_veterinaire_tete )",
+                "matchedExpression": "!@local.frais_veterinaire_tete",
                 "type": "local",
-                "fieldName": "nb_animaux"
+                "fieldName": "frais_veterinaire_tete"
               },
               {
-                "fullExpression": "@calc((/^\\d+$/.test(@local.nb_animaux) && @local.nb_animaux>0 ) || @local.nb_animaux == '' || !@local.nb_animaux )",
-                "matchedExpression": "@calc((/^\\d+$/.test(@local.nb_animaux) && @local.nb_animaux>0 ) || @local.nb_animaux == '' || !@local.nb_animaux )",
+                "fullExpression": "@calc((/^\\d+$/.test(@local.frais_veterinaire_tete) && @local.frais_veterinaire_tete>0 ) || @local.frais_veterinaire_tete == '' || !@local.frais_veterinaire_tete )",
+                "matchedExpression": "@calc((/^\\d+$/.test(@local.frais_veterinaire_tete) && @local.frais_veterinaire_tete>0 ) || @local.frais_veterinaire_tete == '' || !@local.frais_veterinaire_tete )",
                 "type": "calc",
-                "fieldName": "(/^\\d+$/.test(@local.nb_animaux) && @local.nb_animaux>0 ) || @local.nb_animaux == '' || !@local.nb_animaux "
+                "fieldName": "(/^\\d+$/.test(@local.frais_veterinaire_tete) && @local.frais_veterinaire_tete>0 ) || @local.frais_veterinaire_tete == '' || !@local.frais_veterinaire_tete "
               }
             ]
           },
           "_dynamicDependencies": {
-            "@local.nb_animaux": [
+            "@local.frais_veterinaire_tete": [
               "value",
               "value",
               "value"
             ],
-            "!@local.nb_animaux": [
+            "!@local.frais_veterinaire_tete": [
               "value"
             ],
-            "@calc((/^\\d+$/.test(@local.nb_animaux) && @local.nb_animaux>0 ) || @local.nb_animaux == '' || !@local.nb_animaux )": [
+            "@calc((/^\\d+$/.test(@local.frais_veterinaire_tete) && @local.frais_veterinaire_tete>0 ) || @local.frais_veterinaire_tete == '' || !@local.frais_veterinaire_tete )": [
               "value"
             ]
           }
@@ -301,14 +493,14 @@
           "_translations": {
             "value": {}
           },
-          "condition": "!@local.valid_nb_animaux",
+          "condition": "!@local.valid_frais_veterinaire_tete",
           "exclude_from_translation": true,
           "style_list": [
             "color: #FF0000",
             "font-size: 14px"
           ],
-          "name": "text_7_@item.id",
-          "_nested_name": "data_items_4.text_7_@item.id",
+          "name": "text_11_@item.id",
+          "_nested_name": "data_items_3.text_11_@item.id",
           "_dynamicFields": {
             "value": [
               {
@@ -320,15 +512,15 @@
             ],
             "condition": [
               {
-                "fullExpression": "!@local.valid_nb_animaux",
-                "matchedExpression": "!@local.valid_nb_animaux",
+                "fullExpression": "!@local.valid_frais_veterinaire_tete",
+                "matchedExpression": "!@local.valid_frais_veterinaire_tete",
                 "type": "local",
-                "fieldName": "valid_nb_animaux"
+                "fieldName": "valid_frais_veterinaire_tete"
               }
             ],
             "name": [
               {
-                "fullExpression": "text_7_@item.id",
+                "fullExpression": "text_11_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -336,7 +528,7 @@
             ],
             "_nested_name": [
               {
-                "fullExpression": "data_items_4.text_7_@item.id",
+                "fullExpression": "data_items_3.text_11_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -347,7 +539,7 @@
             "@global.validite_nombre": [
               "value"
             ],
-            "!@local.valid_nb_animaux": [
+            "!@local.valid_frais_veterinaire_tete": [
               "condition"
             ],
             "@item.id": [
@@ -358,16 +550,33 @@
         },
         {
           "type": "text",
-          "value": "REGIME ALIMENTAIRE",
+          "value": "@global.note_frais_totaux_veto",
           "_translations": {
             "value": {}
           },
-          "name": "text_8_@item.id",
-          "_nested_name": "data_items_4.text_8_@item.id",
+          "condition": "@fields.frais_veterinaire_tete > 0",
+          "name": "text_12_@item.id",
+          "_nested_name": "data_items_3.text_12_@item.id",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.note_frais_totaux_veto",
+                "matchedExpression": "@global.note_frais_totaux_veto",
+                "type": "global",
+                "fieldName": "note_frais_totaux_veto"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.frais_veterinaire_tete > 0",
+                "matchedExpression": "@fields.frais_veterinaire_tete",
+                "type": "fields",
+                "fieldName": "frais_veterinaire_tete"
+              }
+            ],
             "name": [
               {
-                "fullExpression": "text_8_@item.id",
+                "fullExpression": "text_12_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -375,7 +584,7 @@
             ],
             "_nested_name": [
               {
-                "fullExpression": "data_items_4.text_8_@item.id",
+                "fullExpression": "data_items_3.text_12_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -383,6 +592,234 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.note_frais_totaux_veto": [
+              "value"
+            ],
+            "@fields.frais_veterinaire_tete": [
+              "condition"
+            ],
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        },
+        {
+          "type": "set_field",
+          "name": "frais_veterinaire_cat",
+          "value": "@calc((Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0)))",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.frais_veterinaire_tete > 0",
+          "_nested_name": "data_items_3.frais_veterinaire_cat",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@calc((Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0)))",
+                "matchedExpression": "@fields.frais_veterinaire_tete",
+                "type": "fields",
+                "fieldName": "frais_veterinaire_tete"
+              },
+              {
+                "fullExpression": "@calc((Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0)))",
+                "matchedExpression": "@fields.nb_animaux",
+                "type": "fields",
+                "fieldName": "nb_animaux"
+              },
+              {
+                "fullExpression": "@calc((Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0)))",
+                "matchedExpression": "@calc((Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0)))",
+                "type": "calc",
+                "fieldName": "(Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0))"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.frais_veterinaire_tete > 0",
+                "matchedExpression": "@fields.frais_veterinaire_tete",
+                "type": "fields",
+                "fieldName": "frais_veterinaire_tete"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.frais_veterinaire_tete": [
+              "value",
+              "condition"
+            ],
+            "@fields.nb_animaux": [
+              "value"
+            ],
+            "@calc((Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0)))": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "html",
+          "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.frais_veterinaire_tete > 0",
+          "name": "html_14_@item.id",
+          "_nested_name": "data_items_3.html_14_@item.id",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "@fields.frais_veterinaire_tete > 0",
+                "matchedExpression": "@fields.frais_veterinaire_tete",
+                "type": "fields",
+                "fieldName": "frais_veterinaire_tete"
+              }
+            ],
+            "name": [
+              {
+                "fullExpression": "html_14_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_3.html_14_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.frais_veterinaire_tete": [
+              "condition"
+            ],
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "value": "images/cfa_tot.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.frais_veterinaire_tete > 0",
+          "style_list": [
+            "width:120px",
+            "height:120px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_15_@item.id",
+          "_nested_name": "data_items_3.image_15_@item.id",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "@fields.frais_veterinaire_tete > 0",
+                "matchedExpression": "@fields.frais_veterinaire_tete",
+                "type": "fields",
+                "fieldName": "frais_veterinaire_tete"
+              }
+            ],
+            "name": [
+              {
+                "fullExpression": "image_15_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_3.image_15_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.frais_veterinaire_tete": [
+              "condition"
+            ],
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        },
+        {
+          "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n Les frais totaux pour le(s) @fields.nb_animaux tête (s) de @item.text sont :  <strong> @fields.frais_veterinaire_cat drm\n</strong> </div>",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.frais_veterinaire_tete > 0",
+          "name": "undefined_16_@item.id",
+          "type": "set_variable",
+          "_nested_name": "data_items_3.undefined_16_@item.id",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n Les frais totaux pour le(s) @fields.nb_animaux tête (s) de @item.text sont :  <strong> @fields.frais_veterinaire_cat drm\n</strong> </div>",
+                "matchedExpression": "@fields.nb_animaux",
+                "type": "fields",
+                "fieldName": "nb_animaux"
+              },
+              {
+                "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n Les frais totaux pour le(s) @fields.nb_animaux tête (s) de @item.text sont :  <strong> @fields.frais_veterinaire_cat drm\n</strong> </div>",
+                "matchedExpression": "@item.text",
+                "type": "item",
+                "fieldName": "text"
+              },
+              {
+                "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n Les frais totaux pour le(s) @fields.nb_animaux tête (s) de @item.text sont :  <strong> @fields.frais_veterinaire_cat drm\n</strong> </div>",
+                "matchedExpression": "@fields.frais_veterinaire_cat",
+                "type": "fields",
+                "fieldName": "frais_veterinaire_cat"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.frais_veterinaire_tete > 0",
+                "matchedExpression": "@fields.frais_veterinaire_tete",
+                "type": "fields",
+                "fieldName": "frais_veterinaire_tete"
+              }
+            ],
+            "name": [
+              {
+                "fullExpression": "undefined_16_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_3.undefined_16_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.nb_animaux": [
+              "value"
+            ],
+            "@item.text": [
+              "value"
+            ],
+            "@fields.frais_veterinaire_cat": [
+              "value"
+            ],
+            "@fields.frais_veterinaire_tete": [
+              "condition"
+            ],
             "@item.id": [
               "name",
               "_nested_name"
@@ -391,51 +828,88 @@
         },
         {
           "type": "text",
-          "value": "Séléctionnez le regime alimentaire qui sera utilisé pour le (s) @item.text à durant la prochaine saison chaude",
+          "name": "note_totaux",
+          "value": "@global.frais_totaux_veto",
           "_translations": {
             "value": {}
           },
-          "name": "text_9_@item.id",
-          "_nested_name": "data_items_4.text_9_@item.id",
+          "condition": "@fields.frais_veterinaire_tete > 0",
+          "style_list": [
+            "background-color: #f0f4f8",
+            "border-left-width: 4px",
+            "border-left-style: solid",
+            "border-left-color: #0056b3"
+          ],
+          "_nested_name": "data_items_3.note_totaux",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "Séléctionnez le regime alimentaire qui sera utilisé pour le (s) @item.text à durant la prochaine saison chaude",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
+                "fullExpression": "@global.frais_totaux_veto",
+                "matchedExpression": "@global.frais_totaux_veto",
+                "type": "global",
+                "fieldName": "frais_totaux_veto"
               }
             ],
-            "name": [
+            "condition": [
               {
-                "fullExpression": "text_9_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ],
-            "_nested_name": [
-              {
-                "fullExpression": "data_items_4.text_9_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
+                "fullExpression": "@fields.frais_veterinaire_tete > 0",
+                "matchedExpression": "@fields.frais_veterinaire_tete",
+                "type": "fields",
+                "fieldName": "frais_veterinaire_tete"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@item.text": [
+            "@global.frais_totaux_veto": [
               "value"
             ],
-            "@item.id": [
-              "name",
-              "_nested_name"
+            "@fields.frais_veterinaire_tete": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "name": "note_hint",
+          "value": "@global.hint_frais_totaux_veto",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.frais_veterinaire_tete > 0",
+          "style_list": [
+            "font-size: 14px"
+          ],
+          "_nested_name": "data_items_3.note_hint",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.hint_frais_totaux_veto",
+                "matchedExpression": "@global.hint_frais_totaux_veto",
+                "type": "global",
+                "fieldName": "hint_frais_totaux_veto"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.frais_veterinaire_tete > 0",
+                "matchedExpression": "@fields.frais_veterinaire_tete",
+                "type": "fields",
+                "fieldName": "frais_veterinaire_tete"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.hint_frais_totaux_veto": [
+              "value"
+            ],
+            "@fields.frais_veterinaire_tete": [
+              "condition"
             ]
           }
         }
       ],
-      "name": "data_items_4",
-      "_nested_name": "data_items_4",
+      "name": "data_items_3",
+      "_nested_name": "data_items_3",
       "_dynamicFields": {
         "value": [
           {
@@ -475,100 +949,188 @@
       }
     },
     {
-      "type": "radio_list",
-      "name": "type_regime",
-      "value": "@fields.type_regime",
-      "action_list": [
-        {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "type_regime",
-            "this.value"
-          ],
-          "_raw": "changed | set_field: type_regime: this.value"
-        }
-      ],
-      "rows": [
-        {
-          "type": "data_items",
-          "value": "@data.regime_animaux",
-          "rows": [],
-          "name": "data_items_1",
-          "_nested_name": "type_regime.data_items_1",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@data.regime_animaux",
-                "matchedExpression": "@data.regime_animaux",
-                "type": "data",
-                "fieldName": "regime_animaux"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@data.regime_animaux": [
-              "value"
-            ]
-          }
-        }
-      ],
-      "_nested_name": "type_regime",
+      "name": "last_cat_animaux",
+      "value": "@calc((Number(@fields.cat_animaux_loop_idx) + 1) < Number(@fields.cat_animaux_selected_count))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "last_cat_animaux",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.type_regime",
-            "matchedExpression": "@fields.type_regime",
+            "fullExpression": "@calc((Number(@fields.cat_animaux_loop_idx) + 1) < Number(@fields.cat_animaux_selected_count))",
+            "matchedExpression": "@fields.cat_animaux_loop_idx",
             "type": "fields",
-            "fieldName": "type_regime"
+            "fieldName": "cat_animaux_loop_idx"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.cat_animaux_loop_idx) + 1) < Number(@fields.cat_animaux_selected_count))",
+            "matchedExpression": "@fields.cat_animaux_selected_count",
+            "type": "fields",
+            "fieldName": "cat_animaux_selected_count"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.cat_animaux_loop_idx) + 1) < Number(@fields.cat_animaux_selected_count))",
+            "matchedExpression": "@calc((Number(@fields.cat_animaux_loop_idx) + 1) < Number(@fields.cat_animaux_selected_count))",
+            "type": "calc",
+            "fieldName": "(Number(@fields.cat_animaux_loop_idx) + 1) < Number(@fields.cat_animaux_selected_count)"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.type_regime": [
+        "@fields.cat_animaux_loop_idx": [
+          "value"
+        ],
+        "@fields.cat_animaux_selected_count": [
+          "value"
+        ],
+        "@calc((Number(@fields.cat_animaux_loop_idx) + 1) < Number(@fields.cat_animaux_selected_count))": [
           "value"
         ]
       }
     },
     {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "name": "cat_animaux_loop_idx",
+      "value": "@calc(Number(@fields.cat_animaux_loop_idx) + 1)",
       "_translations": {
         "value": {}
       },
-      "condition": "!@fields.type_regime",
-      "_nested_name": "html_text",
+      "type": "set_variable",
+      "_nested_name": "cat_animaux_loop_idx",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
-            "matchedExpression": "@global.warning_message",
-            "type": "global",
-            "fieldName": "warning_message"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "!@fields.type_regime",
-            "matchedExpression": "!@fields.type_regime",
+            "fullExpression": "@calc(Number(@fields.cat_animaux_loop_idx) + 1)",
+            "matchedExpression": "@fields.cat_animaux_loop_idx",
             "type": "fields",
-            "fieldName": "type_regime"
+            "fieldName": "cat_animaux_loop_idx"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.cat_animaux_loop_idx) + 1)",
+            "matchedExpression": "@calc(Number(@fields.cat_animaux_loop_idx) + 1)",
+            "type": "calc",
+            "fieldName": "Number(@fields.cat_animaux_loop_idx) + 1"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.warning_message": [
+        "@fields.cat_animaux_loop_idx": [
           "value"
         ],
-        "!@fields.type_regime": [
-          "condition"
+        "@calc(Number(@fields.cat_animaux_loop_idx) + 1)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "current_cat_animaux",
+      "value": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "current_cat_animaux",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
+            "matchedExpression": "@fields.boeufs_labour",
+            "type": "fields",
+            "fieldName": "boeufs_labour"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
+            "matchedExpression": "@fields.embouche_bovine",
+            "type": "fields",
+            "fieldName": "embouche_bovine"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
+            "matchedExpression": "@fields.vache_laitiere",
+            "type": "fields",
+            "fieldName": "vache_laitiere"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
+            "matchedExpression": "@fields.autres_bovins",
+            "type": "fields",
+            "fieldName": "autres_bovins"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
+            "matchedExpression": "@fields.asins",
+            "type": "fields",
+            "fieldName": "asins"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
+            "matchedExpression": "@fields.embouche_ovine",
+            "type": "fields",
+            "fieldName": "embouche_ovine"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
+            "matchedExpression": "@fields.reste_ovins",
+            "type": "fields",
+            "fieldName": "reste_ovins"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
+            "matchedExpression": "@fields.caprins",
+            "type": "fields",
+            "fieldName": "caprins"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
+            "matchedExpression": "@local.cat_animaux_loop_idx",
+            "type": "local",
+            "fieldName": "cat_animaux_loop_idx"
+          },
+          {
+            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
+            "matchedExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
+            "type": "calc",
+            "fieldName": "[@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || ''"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.boeufs_labour": [
+          "value"
+        ],
+        "@fields.embouche_bovine": [
+          "value"
+        ],
+        "@fields.vache_laitiere": [
+          "value"
+        ],
+        "@fields.autres_bovins": [
+          "value"
+        ],
+        "@fields.asins": [
+          "value"
+        ],
+        "@fields.embouche_ovine": [
+          "value"
+        ],
+        "@fields.reste_ovins": [
+          "value"
+        ],
+        "@fields.caprins": [
+          "value"
+        ],
+        "@local.cat_animaux_loop_idx": [
+          "value"
+        ],
+        "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')": [
+          "value"
         ]
       }
     },
     {
       "name": "completed_enabled",
-      "value": "@local.valid_nb_animaux && @fields.type_regime",
+      "value": "@fields.frais_veterinaire_tete",
       "_translations": {
         "value": {}
       },
@@ -577,24 +1139,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@local.valid_nb_animaux && @fields.type_regime",
-            "matchedExpression": "@local.valid_nb_animaux",
-            "type": "local",
-            "fieldName": "valid_nb_animaux"
-          },
-          {
-            "fullExpression": "@local.valid_nb_animaux && @fields.type_regime",
-            "matchedExpression": "@fields.type_regime",
+            "fullExpression": "@fields.frais_veterinaire_tete",
+            "matchedExpression": "@fields.frais_veterinaire_tete",
             "type": "fields",
-            "fieldName": "type_regime"
+            "fieldName": "frais_veterinaire_tete"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.valid_nb_animaux": [
-          "value"
-        ],
-        "@fields.type_regime": [
+        "@fields.frais_veterinaire_tete": [
           "value"
         ]
       }
@@ -611,7 +1164,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page6_button_back",
+          "name": "page8_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -626,11 +1179,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_10.page6_button_back"
+          "_nested_name": "display_group_9.page8_button_back"
         },
         {
           "type": "button",
-          "name": "page6_button_continue",
+          "name": "button_next_cat_animaux",
           "value": "Continuer",
           "_translations": {
             "value": {}
@@ -640,38 +1193,123 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "type_regime_@fields.current_cat_animaux",
-                "@local.type_regime"
+                "frais_veterinaire_tete_@fields.current_cat_animaux",
+                "@fields.frais_veterinaire_tete"
               ],
-              "_raw": "click | set_field: type_regime_@fields.current_cat_animaux : @local.type_regime"
+              "_raw": "click | set_field: frais_veterinaire_tete_@fields.current_cat_animaux: @fields.frais_veterinaire_tete"
             },
             {
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "nb_animaux_@fields.current_cat_animaux",
-                "@fields.nb_animaux"
+                "frais_veterinaire_cat_@fields.current_cat_animaux",
+                "@fields.frais_veterinaire_cat"
               ],
-              "_raw": "click | set_field: nb_animaux_@fields.current_cat_animaux : @fields.nb_animaux"
+              "_raw": "click | set_field: frais_veterinaire_cat_@fields.current_cat_animaux: @fields.frais_veterinaire_cat"
             },
             {
               "trigger": "click",
-              "action_id": "emit",
+              "action_id": "set_field",
               "args": [
-                "completed"
+                "type_regime",
+                ""
               ],
-              "_raw": "click | emit: completed"
+              "_raw": "click | set_field: type_regime:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "nb_animaux",
+                ""
+              ],
+              "_raw": "click | set_field: nb_animaux:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "frais_veterinaire_tete",
+                ""
+              ],
+              "_raw": "click | set_field: frais_veterinaire_tete:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "frais_veterinaire_cat",
+                ""
+              ],
+              "_raw": "click | set_field: frais_veterinaire_cat:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "current_cat_animaux",
+                "@local.current_cat_animaux"
+              ],
+              "_raw": "click | set_field: current_cat_animaux : @local.current_cat_animaux"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cat_animaux_loop_idx",
+                "@local.cat_animaux_loop_idx"
+              ],
+              "_raw": "click | set_field: cat_animaux_loop_idx : @local.cat_animaux_loop_idx"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: besoins_animaux_settings_pages, _index: 3, completed: false",
+              "params": {
+                "_list_id": "besoins_animaux_settings_pages",
+                "_index": 3,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: besoins_animaux_settings_pages, _index: 4, completed: false",
+              "params": {
+                "_list_id": "besoins_animaux_settings_pages",
+                "_index": 4,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: besoins_animaux_settings_pages, _index: 5, completed: false",
+              "params": {
+                "_list_id": "besoins_animaux_settings_pages",
+                "_index": 5,
+                "completed": false
+              }
             }
           ],
-          "condition": "disabled: !@local.completed_enabled",
-          "_nested_name": "display_group_10.page6_button_continue",
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "condition": "@local.last_cat_animaux",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_9.button_next_cat_animaux",
           "_dynamicFields": {
             "action_list": {
               "0": {
                 "args": {
                   "0": [
                     {
-                      "fullExpression": "type_regime_@fields.current_cat_animaux",
+                      "fullExpression": "frais_veterinaire_tete_@fields.current_cat_animaux",
                       "matchedExpression": "@fields.current_cat_animaux",
                       "type": "fields",
                       "fieldName": "current_cat_animaux"
@@ -679,25 +1317,25 @@
                   ],
                   "1": [
                     {
-                      "fullExpression": "@local.type_regime",
-                      "matchedExpression": "@local.type_regime",
-                      "type": "local",
-                      "fieldName": "type_regime"
+                      "fullExpression": "@fields.frais_veterinaire_tete",
+                      "matchedExpression": "@fields.frais_veterinaire_tete",
+                      "type": "fields",
+                      "fieldName": "frais_veterinaire_tete"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: type_regime_@fields.current_cat_animaux : @local.type_regime",
+                    "fullExpression": "click | set_field: frais_veterinaire_tete_@fields.current_cat_animaux: @fields.frais_veterinaire_tete",
                     "matchedExpression": "@fields.current_cat_animaux",
                     "type": "fields",
                     "fieldName": "current_cat_animaux"
                   },
                   {
-                    "fullExpression": "click | set_field: type_regime_@fields.current_cat_animaux : @local.type_regime",
-                    "matchedExpression": "@local.type_regime",
-                    "type": "local",
-                    "fieldName": "type_regime"
+                    "fullExpression": "click | set_field: frais_veterinaire_tete_@fields.current_cat_animaux: @fields.frais_veterinaire_tete",
+                    "matchedExpression": "@fields.frais_veterinaire_tete",
+                    "type": "fields",
+                    "fieldName": "frais_veterinaire_tete"
                   }
                 ]
               },
@@ -705,7 +1343,7 @@
                 "args": {
                   "0": [
                     {
-                      "fullExpression": "nb_animaux_@fields.current_cat_animaux",
+                      "fullExpression": "frais_veterinaire_cat_@fields.current_cat_animaux",
                       "matchedExpression": "@fields.current_cat_animaux",
                       "type": "fields",
                       "fieldName": "current_cat_animaux"
@@ -713,35 +1351,85 @@
                   ],
                   "1": [
                     {
-                      "fullExpression": "@fields.nb_animaux",
-                      "matchedExpression": "@fields.nb_animaux",
+                      "fullExpression": "@fields.frais_veterinaire_cat",
+                      "matchedExpression": "@fields.frais_veterinaire_cat",
                       "type": "fields",
-                      "fieldName": "nb_animaux"
+                      "fieldName": "frais_veterinaire_cat"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: nb_animaux_@fields.current_cat_animaux : @fields.nb_animaux",
+                    "fullExpression": "click | set_field: frais_veterinaire_cat_@fields.current_cat_animaux: @fields.frais_veterinaire_cat",
                     "matchedExpression": "@fields.current_cat_animaux",
                     "type": "fields",
                     "fieldName": "current_cat_animaux"
                   },
                   {
-                    "fullExpression": "click | set_field: nb_animaux_@fields.current_cat_animaux : @fields.nb_animaux",
-                    "matchedExpression": "@fields.nb_animaux",
+                    "fullExpression": "click | set_field: frais_veterinaire_cat_@fields.current_cat_animaux: @fields.frais_veterinaire_cat",
+                    "matchedExpression": "@fields.frais_veterinaire_cat",
                     "type": "fields",
-                    "fieldName": "nb_animaux"
+                    "fieldName": "frais_veterinaire_cat"
+                  }
+                ]
+              },
+              "6": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.current_cat_animaux",
+                      "matchedExpression": "@local.current_cat_animaux",
+                      "type": "local",
+                      "fieldName": "current_cat_animaux"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: current_cat_animaux : @local.current_cat_animaux",
+                    "matchedExpression": "@local.current_cat_animaux",
+                    "type": "local",
+                    "fieldName": "current_cat_animaux"
+                  }
+                ]
+              },
+              "7": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.cat_animaux_loop_idx",
+                      "matchedExpression": "@local.cat_animaux_loop_idx",
+                      "type": "local",
+                      "fieldName": "cat_animaux_loop_idx"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: cat_animaux_loop_idx : @local.cat_animaux_loop_idx",
+                    "matchedExpression": "@local.cat_animaux_loop_idx",
+                    "type": "local",
+                    "fieldName": "cat_animaux_loop_idx"
                   }
                 ]
               }
             },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            },
             "condition": [
               {
-                "fullExpression": "disabled: !@local.completed_enabled",
-                "matchedExpression": "!@local.completed_enabled",
+                "fullExpression": "@local.last_cat_animaux",
+                "matchedExpression": "@local.last_cat_animaux",
                 "type": "local",
-                "fieldName": "completed_enabled"
+                "fieldName": "last_cat_animaux"
               }
             ]
           },
@@ -752,22 +1440,87 @@
               "action_list.1.args.0",
               "action_list.1._raw"
             ],
-            "@local.type_regime": [
+            "@fields.frais_veterinaire_tete": [
               "action_list.0.args.1",
               "action_list.0._raw"
             ],
-            "@fields.nb_animaux": [
+            "@fields.frais_veterinaire_cat": [
               "action_list.1.args.1",
               "action_list.1._raw"
             ],
+            "@local.current_cat_animaux": [
+              "action_list.6.args.1",
+              "action_list.6._raw"
+            ],
+            "@local.cat_animaux_loop_idx": [
+              "action_list.7.args.1",
+              "action_list.7._raw"
+            ],
             "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ],
+            "@local.last_cat_animaux": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "name": "page8_button_continue",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "condition": "!@local.last_cat_animaux",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_9.page8_button_continue",
+          "_dynamicFields": {
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            },
+            "condition": [
+              {
+                "fullExpression": "!@local.last_cat_animaux",
+                "matchedExpression": "!@local.last_cat_animaux",
+                "type": "local",
+                "fieldName": "last_cat_animaux"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ],
+            "!@local.last_cat_animaux": [
               "condition"
             ]
           }
         }
       ],
-      "name": "display_group_10",
-      "_nested_name": "display_group_10"
+      "name": "display_group_9",
+      "_nested_name": "display_group_9"
     }
   ],
   "_source": {

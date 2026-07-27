@@ -1,0 +1,57 @@
+{
+  "flow_type": "data_list",
+  "flow_name": "semis_summary_list",
+  "status": "released",
+  "data_list_name": "semis_summary_list",
+  "rows": [
+    {
+      "id": "s1",
+      "culture": "test",
+      "quantite_pnt": 1,
+      "cout_pnt": 0,
+      "superficie_labouree": 6,
+      "cout_labour": 6,
+      "quantite_semence": 0,
+      "cout_semence": 0,
+      "quantite_herbicide": 5,
+      "cout_herbicide": 8,
+      "observation_canal": "par-test",
+      "observation_media": "asss",
+      "cout_total_culture": 10000
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/section_semis_data.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1JIhjbjWlcorGBwu27zBrwsZsTzJBvWRv4dBuPDCtQUw"
+  },
+  "_metadata": {
+    "quantite_pnt": {
+      "type": "number"
+    },
+    "cout_pnt": {
+      "type": "number"
+    },
+    "superficie_labouree": {
+      "type": "number"
+    },
+    "cout_labour": {
+      "type": "number"
+    },
+    "quantite_semence": {
+      "type": "number"
+    },
+    "cout_semence": {
+      "type": "number"
+    },
+    "quantite_herbicide": {
+      "type": "number"
+    },
+    "cout_herbicide": {
+      "type": "number"
+    },
+    "cout_total_culture": {
+      "type": "number"
+    }
+  }
+}

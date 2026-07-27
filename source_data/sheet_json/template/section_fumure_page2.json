@@ -4,36 +4,30 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "name": "page_title"
-    },
-    {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "name": "campaign_year_label",
-      "value": "<span style=\"color: red;\">*</span> @global.campaign_year_label",
-      "style_list": "font-size:20px;"
+      "type": "title",
+      "name": "page_title",
+      "value": "RECOMMENDATIONS DE LA RECHERCHE:"
     },
     {
       "type": "audio",
       "name": "audio_2_1",
-      "parameter_list": "variant: compact;\nsrc: audio/semis/annee_saison_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "style_list": "float : right;"
+      "parameter_list": "variant: button_only;\nsrc: audio/fumureOrganique/rech_reco_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
     },
     {
       "type": "end_display_group"
     },
     {
-      "name": "year_campaign"
+      "type": "text",
+      "name": "introduction_formulaire",
+      "value": "@global.recommendation_fumure_organique_recherche"
     },
     {
-      "type": "date_time_picker",
-      "name": "year_campaign",
-      "value": "@fields.year_campaign",
-      "action_list": "changed | set_local: year_campaign: this.value;",
-      "parameter_list": "type: date;"
+      "type": "image",
+      "value": "images/product_fumure.jpg",
+      "style_list": "width:200px; height:200px; object-fit:contain; flex-shrink:0;"
     },
     {
       "type": "begin_display_group",
@@ -53,7 +47,6 @@
       "name": "page_2_btn_continue",
       "value": "@global.btn_continue",
       "action_list": "click | emit: completed",
-      "parameter_list": "disabled: !@local.year_campaign ;",
       "style_list": "flex: 1"
     },
     {

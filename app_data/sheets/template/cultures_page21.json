@@ -1,0 +1,191 @@
+{
+  "flow_type": "template",
+  "flow_name": "cultures_page21",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "**APRECIATIONS ET OBSERVATIONS SUR LE FORMULAIRE**",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_2",
+      "_nested_name": "title_2"
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "name": "observation_label",
+          "value": "@global.observation_label",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_3.observation_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.observation_label",
+                "matchedExpression": "@global.observation_label",
+                "type": "global",
+                "fieldName": "observation_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.observation_label": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_8_1",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/appreciation_audio_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_3.audio_8_1"
+        }
+      ],
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
+    },
+    {
+      "type": "image",
+      "value": "images/vocal.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:110px",
+        "height:110px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_5",
+      "_nested_name": "image_5"
+    },
+    {
+      "type": "text",
+      "name": "observation_hint",
+      "value": "@global.observation_hint",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "_nested_name": "observation_hint",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.observation_hint",
+            "matchedExpression": "@global.observation_hint",
+            "type": "global",
+            "fieldName": "observation_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.observation_hint": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "obser_appreciation",
+      "value": "We would need a recorder here in order to transmit observations or feedback regarding the form.",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 14px"
+      ],
+      "_nested_name": "obser_appreciation"
+    },
+    {
+      "type": "display_group",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page_15_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "display_group_8.page_15_button_back"
+        },
+        {
+          "type": "button",
+          "name": "page_15_button_continue",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_8.page_15_button_continue",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_8",
+      "_nested_name": "display_group_8"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Cultures_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1BAP12cPkFZaHtm0Xozys0kLOqnVOi1h2UUBMoZbmKQI"
+  }
+}

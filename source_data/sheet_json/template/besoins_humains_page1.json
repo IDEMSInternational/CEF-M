@@ -4,52 +4,50 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "value": "@global.titre_page1"
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "**PLANIFICATION**"
     },
     {
       "type": "audio",
-      "name": "audio_scan",
-      "parameter_list": "variant: compact;\nsrc: audio/bHumains/qr_code_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
-    },
-    {
-      "type": "begin_display_group",
-      "name": "dg_scan",
-      "style_list": "background: #f8f9fa; padding: 20px; text-align: center; margin-bottom: 20px;"
-    },
-    {
-      "type": "image",
-      "value": "images/qr_code.jpg",
-      "style_list": "width: 80%; object-fit: contain;"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: #666; font-size: 13px; margin-top: 10px;\">@global.info_page1</p>"
+      "name": "audio_3_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/besoins_annuels_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float : right;"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "text",
-      "value": "Utilisez la camera pour scanner votre code",
-      "style_list": "text-align: center; font-weight: bold;"
+      "value": "Dans le contexte du sahel, où les populations rurales cultivent et consomment principales les céreales (mil, sorgho, maïs et riz). Il est important de connaitre le besoin annuel en denrées alimentaires de l'UPA avant la saison de production et d'allouer assez de superficies à la production des céréales. \nCe formulaire a pour but d'aider votre UPA à connaitre ses besoins en céréales et d'allouer assez de superficie à la production de céréales au cours de la saison hivernale pour satisfaire les besoins.\n\n ",
+      "style_list": "font-size: 16px;"
+    },
+    {
+      "type": "begin_display_group"
     },
     {
       "type": "text",
-      "value": "LOGIQUE DE RÉCUPÉRATION (PULLDATA) -- Pas encore dispo",
-      "style_list": "font-size:11px; color:gray;"
+      "value": "**NOTE APPROCHE BESOIN**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_3_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/besoins_cereales_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "html",
-      "name": "pull_chef_upa",
-      "value": "<div style=\"display: flex; align-items: center; margin-bottom: 15px;\">\n  <div style=\"background: #1e3656; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 12px;\">........</div>\n  <div>\n    <div style=\"font-size: 16px; font-weight: bold; color: #1e3656;\">.......</div>\n    <div style=\"font-size: 12px; color: #4f8ff1;\">Chef d'exploitation</div>\n  </div>\n</div>",
-      "parameter_list": "placeholder: Nom et prénom de chef UPA"
+      "value": "    <br><br>\n    <div style=\"background: #e3f2fd; padding: 15px; border-radius: 10px; border-left: 5px solid #4f8ff1; font-weight: bold;\">\n        Pour bien planifier les besoins alimentaires de l’UPA, on conseille de prévoir trois sacs de céréales par personne pour une année.\n    </div>\n    <br>\n    Cette quantité peut couvrir l’alimentation d’une personne pendant les douze mois, avec une petite réserve en cas d’imprévu. Pour connaître le besoin total, on multiplie donc trois sacs par le nombre de personnes qui seront nourries avec les récoltes de la prochaine campagne agricole. Ensuite, cette quantité totale est partagée entre les quatre céréales selon les habitudes alimentaires de l’UPA. Enfin, on calcule la superficie à cultiver pour chaque céréale à partir du rendement moyen obtenu habituellement dans l’UPA.\n</div>"
     },
     {
-      "type": "html",
-      "value": "<div style=\"margin-top: 10px;\">\n  <div style=\"display: flex; justify-content: space-between; margin-bottom: 5px;\">\n    <span style=\"color: #999; font-size: 13px;\">Type d'UPA :</span>\n    <span style=\"font-weight: bold; color: #333;\">........</span>\n  </div>\n  <div style=\"display: flex; justify-content: space-between;\">\n    <span style=\"color: #999; font-size: 13px;\">Contact :</span>\n    <span style=\"font-weight: bold; color: #333;\">.......</span>\n  </div>\n</div>"
+      "type": "image",
+      "value": "images/grenier.jpg",
+      "style_list": "width:180px; height:180px;"
     },
     {
       "type": "begin_display_group",
@@ -59,16 +57,15 @@
     },
     {
       "type": "round_button",
-      "name": "button_back",
-      "action_list": "click | emit: uncompleted",
+      "name": "page3_button_back",
+      "action_list": "click | set_field: attempt_submit: false;\nclick | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "button_completed",
+      "name": "page3_button_completed",
       "value": "@global.btn_continue",
       "action_list": "click | emit: completed",
-      "parameter_list": "style: navigation;\n",
       "style_list": "flex: 1"
     },
     {

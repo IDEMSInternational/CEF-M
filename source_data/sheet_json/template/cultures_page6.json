@@ -1,0 +1,221 @@
+{
+  "flow_type": "template",
+  "flow_name": "cultures_page6",
+  "status": "released",
+  "rows": [
+    {
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.planif_cultures_primaires",
+      "parameter_list": "filter: @item.name == @fields.culture_label"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "image",
+      "value": "@item.image",
+      "style_list": "width:150px; height:150px; "
+    },
+    {
+      "type": "text",
+      "value": "**@item.text**"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "title",
+      "value": "VARIETE DE SEMENCE"
+    },
+    {
+      "type": "text",
+      "value": "**Les prévisions pour @fields.superficie_ha_prevue ha de @fields.culture_label sont:**"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "**Quantité de semence de la variété @fields.variete_label (kg)**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_6_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/semis/q_semence_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/kg.jpg",
+      "style_list": "width:100px; height:100px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_variete",
+      "value": "@fields.quantite_variete",
+      "action_list": "changed | set_field : quantite_variete: this.value;",
+      "parameter_list": "number_input: true"
+    },
+    {
+      "name": "valid_quantite_variete",
+      "value": "@calc(!!@fields.quantite_variete && @fields.quantite_variete != \"\" && @fields.quantite_variete >= 0)"
+    },
+    {
+      "type": "text",
+      "value": "@global.error_required_answer",
+      "condition": "@fields.attempt_submit && !@local.valid_quantite_variete",
+      "style_list": "color: red; font-size: 16px; background: #fff5f5; padding: 5px;"
+    },
+    {
+      "type": "text",
+      "value": "**Sélectionnez la source d'approvisionnement de la variété @fields.variete_label**"
+    },
+    {
+      "type": "text",
+      "value": "La superficie totale peut être cultivée avec une ou plusieurs variétés de semences",
+      "style_list": "color: gray; font-size: 16px;"
+    },
+    {
+      "type": "begin_radio_list",
+      "name": "variete_approvisionnement",
+      "value": "@fields.variete_approvisionnement",
+      "action_list": "changed | set_field : variete_approvisionnement: this.value;"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.source_approvision"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_radio_list"
+    },
+    {
+      "type": "begin_display_group",
+      "parameter_list": "style: column",
+      "condition": "@fields.variete_approvisionnement == 'autre_source'"
+    },
+    {
+      "type": "text",
+      "value": "**Ecrivez le nom de l'autre source d'approvisionnement de la variété @fields.variete_label**"
+    },
+    {
+      "type": "image",
+      "value": "images/ecrire.jpg",
+      "style_list": "width: 40%; object-fit: contain; "
+    },
+    {
+      "type": "text",
+      "value": "*Il s'agit d'une autre source qui n'existe pas dans la liste des sources ci-dessus*",
+      "style_list": "color: gray; font-size: 16px;"
+    },
+    {
+      "type": "text_box",
+      "name": "autre_source_approvision_variete",
+      "value": "@fields.autre_source_approvision_variete",
+      "action_list": "changed | set_field : autre_source_approvision_variete: this.value;",
+      "parameter_list": "number_input: true"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "parameter_list": "style: column",
+      "condition": "@fields.variete_approvisionnement"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "**Coût total de la varété @fields.variete_label(drm)**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_6_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/semis/cout_semence_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width:100px; height:100px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text",
+      "value": "*1 drm=5 FCFA. Mettez \"0\" si aucune semence achétée*",
+      "style_list": "color: gray; font-size: 16px;"
+    },
+    {
+      "type": "text_box",
+      "name": "cout_prevu_variete",
+      "value": "@fields.cout_prevu_variete",
+      "action_list": "changed | set_field : cout_prevu_variete: this.value;",
+      "parameter_list": "number_input: true"
+    },
+    {
+      "name": "valid_cout_prevu_variete",
+      "value": "@calc(!!@fields.cout_prevu_variete && @fields.cout_prevu_variete != \"\" && @fields.cout_prevu_variete >= 0)"
+    },
+    {
+      "type": "text",
+      "value": "@global.error_required_answer",
+      "condition": "@fields.attempt_submit && !@local.valid_cout_prevu_variete",
+      "style_list": "color: red; font-size: 16px; background: #fff5f5; padding: 5px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.valid_quantite_variete && @local.valid_cout_prevu_variete"
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page_6_btn_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page_6_btn_attempt_submit",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: attempt_submit: true;",
+      "condition": "!@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "button",
+      "name": "page_6_btn_continue",
+      "value": "Continuer",
+      "action_list": "click | set_field: quantite_variete_@fields.variete_label : @fields.quantite_variete;\nclick | set_field: variete_approvisionnement_@fields.variete_label : @fields.variete_approvisionnement;\nclick | set_field: cout_prevu_variete_@fields.variete_label : @fields.cout_prevu_variete;\nclick | set_field: cout_prevu_semence_achetee : @fields.cout_prevu_variete;\n\n\nclick | emit: completed",
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "condition": "@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

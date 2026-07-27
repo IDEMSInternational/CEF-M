@@ -4,38 +4,868 @@
   "status": "released",
   "rows": [
     {
-      "type": "audio",
-      "name": "audio_3_1",
-      "parameter_list": {
-        "variant": "compact",
-        "src": "audio/semis/note_form_semis_fr.mp3",
-        "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-      },
-      "style_list": [
-        "float : right"
-      ],
-      "_nested_name": "audio_3_1"
-    },
-    {
-      "type": "text",
-      "name": "note_consentement",
-      "value": "@global.note_info_semis",
+      "name": "v_current_human",
+      "value": "@calc(Number(@field.current_culture_index) + 1)",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "note_consentement",
+      "type": "set_variable",
+      "_nested_name": "v_current_human",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.note_info_semis",
-            "matchedExpression": "@global.note_info_semis",
-            "type": "global",
-            "fieldName": "note_info_semis"
+            "fullExpression": "@calc(Number(@field.current_culture_index) + 1)",
+            "matchedExpression": "@field.current_culture_index",
+            "type": "field",
+            "fieldName": "current_culture_index"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.current_culture_index) + 1)",
+            "matchedExpression": "@calc(Number(@field.current_culture_index) + 1)",
+            "type": "calc",
+            "fieldName": "Number(@field.current_culture_index) + 1"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.note_info_semis": [
+        "@field.current_culture_index": [
+          "value"
+        ],
+        "@calc(Number(@field.current_culture_index) + 1)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_fum_fmt",
+      "value": "@calc(/^\\d+$/.test(@field.quantite_fumure_organique))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_fum_fmt",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+$/.test(@field.quantite_fumure_organique))",
+            "matchedExpression": "@field.quantite_fumure_organique",
+            "type": "field",
+            "fieldName": "quantite_fumure_organique"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+$/.test(@field.quantite_fumure_organique))",
+            "matchedExpression": "@calc(/^\\d+$/.test(@field.quantite_fumure_organique))",
+            "type": "calc",
+            "fieldName": "/^\\d+$/.test(@field.quantite_fumure_organique)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.quantite_fumure_organique": [
+          "value"
+        ],
+        "@calc(/^\\d+$/.test(@field.quantite_fumure_organique))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_fum_err",
+      "value": "@calc(!@local.v_fum_fmt || Number(@field.quantite_fumure_organique) < 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_fum_err",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!@local.v_fum_fmt || Number(@field.quantite_fumure_organique) < 0)",
+            "matchedExpression": "!@local.v_fum_fmt",
+            "type": "local",
+            "fieldName": "v_fum_fmt"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_fum_fmt || Number(@field.quantite_fumure_organique) < 0)",
+            "matchedExpression": "@field.quantite_fumure_organique",
+            "type": "field",
+            "fieldName": "quantite_fumure_organique"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_fum_fmt || Number(@field.quantite_fumure_organique) < 0)",
+            "matchedExpression": "@calc(!@local.v_fum_fmt || Number(@field.quantite_fumure_organique) < 0)",
+            "type": "calc",
+            "fieldName": "!@local.v_fum_fmt || Number(@field.quantite_fumure_organique) < 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.v_fum_fmt": [
+          "value"
+        ],
+        "@field.quantite_fumure_organique": [
+          "value"
+        ],
+        "@calc(!@local.v_fum_fmt || Number(@field.quantite_fumure_organique) < 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_trans_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_transport_nonzero))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_trans_fmt",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_transport_nonzero))",
+            "matchedExpression": "@field.cout_transport_nonzero",
+            "type": "field",
+            "fieldName": "cout_transport_nonzero"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_transport_nonzero))",
+            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_transport_nonzero))",
+            "type": "calc",
+            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@field.cout_transport_nonzero)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.cout_transport_nonzero": [
+          "value"
+        ],
+        "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_transport_nonzero))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_trans_err",
+      "value": "@calc(!@local.v_trans_fmt || Number(@field.cout_transport_nonzero) < 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_trans_err",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!@local.v_trans_fmt || Number(@field.cout_transport_nonzero) < 0)",
+            "matchedExpression": "!@local.v_trans_fmt",
+            "type": "local",
+            "fieldName": "v_trans_fmt"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_trans_fmt || Number(@field.cout_transport_nonzero) < 0)",
+            "matchedExpression": "@field.cout_transport_nonzero",
+            "type": "field",
+            "fieldName": "cout_transport_nonzero"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_trans_fmt || Number(@field.cout_transport_nonzero) < 0)",
+            "matchedExpression": "@calc(!@local.v_trans_fmt || Number(@field.cout_transport_nonzero) < 0)",
+            "type": "calc",
+            "fieldName": "!@local.v_trans_fmt || Number(@field.cout_transport_nonzero) < 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.v_trans_fmt": [
+          "value"
+        ],
+        "@field.cout_transport_nonzero": [
+          "value"
+        ],
+        "@calc(!@local.v_trans_fmt || Number(@field.cout_transport_nonzero) < 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "header",
+      "style_list": [
+        "background: #00adcc",
+        "padding: 15px",
+        "border-radius: 0 0 15px 15px",
+        "margin-bottom: 20px"
+      ],
+      "rows": [
+        {
+          "type": "html",
+          "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "header.html_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "matchedExpression": "@local.v_current_human",
+                "type": "local",
+                "fieldName": "v_current_human"
+              },
+              {
+                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "matchedExpression": "@field.total_cultures_selected",
+                "type": "field",
+                "fieldName": "total_cultures_selected"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_current_human": [
+              "value"
+            ],
+            "@field.total_cultures_selected": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "header"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "width: 100%",
+        "display: flex",
+        "flex-direction: column",
+        "align-items: center",
+        "border: 1px solid #FFCC80",
+        "border-radius: 12px",
+        "background: white",
+        "margin-bottom: 10px",
+        "overflow: hidden"
+      ],
+      "rows": [
+        {
+          "type": "image",
+          "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 60%",
+            "object-fit: contain"
+          ],
+          "name": "image_1",
+          "_nested_name": "display_group_9.image_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+                "matchedExpression": "@field.active_culture_name",
+                "type": "field",
+                "fieldName": "active_culture_name"
+              },
+              {
+                "fullExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+                "matchedExpression": "@field.active_culture_name",
+                "type": "field",
+                "fieldName": "active_culture_name"
+              },
+              {
+                "fullExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+                "matchedExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+                "type": "calc",
+                "fieldName": "['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg'"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.active_culture_name": [
+              "value",
+              "value"
+            ],
+            "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 18px"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_9.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+                "matchedExpression": "@field.active_culture_name",
+                "type": "field",
+                "fieldName": "active_culture_name"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.active_culture_name": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_9",
+      "_nested_name": "display_group_9"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"color: #e67e22; font-weight: bold; font-size: 14px; margin-bottom: 10px;\">APPORT FUMURE ORGANIQUE</div>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_11",
+      "_nested_name": "html_11"
+    },
+    {
+      "type": "display_group",
+      "name": "grp_quantite_fumure",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "name": "aud_prod",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/semis/Q_fumure_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "grp_quantite_fumure.aud_prod"
+        },
+        {
+          "type": "html",
+          "value": "<span style=\"color: red;\">*</span> Quantité de fumure organique (charretée)",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight: bold"
+          ],
+          "name": "html_2",
+          "_nested_name": "grp_quantite_fumure.html_2"
+        },
+        {
+          "type": "text",
+          "value": "*Mettez 0 si aucune fumure organique* <br> <span style=\"font-size: 12px; color: gray;\"></span>",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "grp_quantite_fumure.text_3"
+        },
+        {
+          "type": "image",
+          "value": "images/charrette.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "grp_quantite_fumure.image_4"
+        }
+      ],
+      "_nested_name": "grp_quantite_fumure"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_fumure_organique",
+      "value": "@field.quantite_fumure_organique",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "quantite_fumure_organique",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: quantite_fumure_organique: this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Nombre de charretées"
+      },
+      "_nested_name": "quantite_fumure_organique",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@field.quantite_fumure_organique",
+            "matchedExpression": "@field.quantite_fumure_organique",
+            "type": "field",
+            "fieldName": "quantite_fumure_organique"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.quantite_fumure_organique": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "Mettez une valeur positive.<br><span style=\"font-size:11px;\"></span>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.v_fum_err",
+      "style_list": [
+        "font-size: 12px",
+        "color: red"
+      ],
+      "name": "text_15",
+      "_nested_name": "text_15",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.v_fum_err",
+            "matchedExpression": "@local.v_fum_err",
+            "type": "local",
+            "fieldName": "v_fum_err"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_fum_err": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "cout_trans_zero",
+      "condition": "@calc(Number(@field.quantite_fumure_organique) == 0)",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "name": "aud_trans_z_fr",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/semis/cout_transport_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "cout_trans_zero.aud_trans_z_fr"
+        },
+        {
+          "type": "html",
+          "value": "Coût transport de fumure organique (Dram) <br> <span style=\"font-size: 14px; color: #555;\"></span>",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight: bold"
+          ],
+          "name": "html_2",
+          "_nested_name": "cout_trans_zero.html_2"
+        },
+        {
+          "type": "text",
+          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "cout_trans_zero.text_3"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80px",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "cout_trans_zero.image_4"
+        },
+        {
+          "type": "text_box",
+          "value": 0,
+          "parameter_list": {
+            "disabled": "true"
+          },
+          "name": "text_box_5",
+          "_nested_name": "cout_trans_zero.text_box_5"
+        },
+        {
+          "type": "text",
+          "value": "Coût bloqué à 0 car aucune fumure organique apportée",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 12px",
+            "color: #999"
+          ],
+          "name": "text_6",
+          "_nested_name": "cout_trans_zero.text_6"
+        }
+      ],
+      "_nested_name": "cout_trans_zero",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@calc(Number(@field.quantite_fumure_organique) == 0)",
+            "matchedExpression": "@field.quantite_fumure_organique",
+            "type": "field",
+            "fieldName": "quantite_fumure_organique"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.quantite_fumure_organique) == 0)",
+            "matchedExpression": "@calc(Number(@field.quantite_fumure_organique) == 0)",
+            "type": "calc",
+            "fieldName": "Number(@field.quantite_fumure_organique) == 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.quantite_fumure_organique": [
+          "condition"
+        ],
+        "@calc(Number(@field.quantite_fumure_organique) == 0)": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "cout_trans_nonzero",
+      "condition": "@calc(Number(@field.quantite_fumure_organique) > 0)",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "name": "aud_trans_z_fr",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/semis/cout_transport_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "cout_trans_nonzero.aud_trans_z_fr"
+        },
+        {
+          "type": "html",
+          "value": "Coût transport de fumure organique (Dram) <br> <span style=\"font-size: 14px; color: #555;\"></span>",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight: bold"
+          ],
+          "name": "html_2",
+          "_nested_name": "cout_trans_nonzero.html_2"
+        },
+        {
+          "type": "text",
+          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "cout_trans_nonzero.text_3"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80px",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "cout_trans_nonzero.image_4"
+        },
+        {
+          "type": "text_box",
+          "name": "cout_transport_nonzero",
+          "value": "@field.cout_transport_nonzero",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "cout_transport_nonzero",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: cout_transport_nonzero : this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "Montant en Dram"
+          },
+          "_nested_name": "cout_trans_nonzero.cout_transport_nonzero",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.cout_transport_nonzero",
+                "matchedExpression": "@field.cout_transport_nonzero",
+                "type": "field",
+                "fieldName": "cout_transport_nonzero"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.cout_transport_nonzero": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "Mettez une valeur positive.<br><span style=\"font-size:11px;\"></span>",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@local.v_trans_err",
+          "style_list": [
+            "font-size: 12px",
+            "color: red"
+          ],
+          "name": "text_6",
+          "_nested_name": "cout_trans_nonzero.text_6",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "@local.v_trans_err",
+                "matchedExpression": "@local.v_trans_err",
+                "type": "local",
+                "fieldName": "v_trans_err"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_trans_err": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "cout_trans_nonzero",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@calc(Number(@field.quantite_fumure_organique) > 0)",
+            "matchedExpression": "@field.quantite_fumure_organique",
+            "type": "field",
+            "fieldName": "quantite_fumure_organique"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.quantite_fumure_organique) > 0)",
+            "matchedExpression": "@calc(Number(@field.quantite_fumure_organique) > 0)",
+            "type": "calc",
+            "fieldName": "Number(@field.quantite_fumure_organique) > 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.quantite_fumure_organique": [
+          "condition"
+        ],
+        "@calc(Number(@field.quantite_fumure_organique) > 0)": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "v_val_trans_nz",
+      "value": "@calc(Number(@field.cout_transport_nonzero) || 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_val_trans_nz",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@field.cout_transport_nonzero) || 0)",
+            "matchedExpression": "@field.cout_transport_nonzero",
+            "type": "field",
+            "fieldName": "cout_transport_nonzero"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.cout_transport_nonzero) || 0)",
+            "matchedExpression": "@calc(Number(@field.cout_transport_nonzero) || 0)",
+            "type": "calc",
+            "fieldName": "Number(@field.cout_transport_nonzero) || 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.cout_transport_nonzero": [
+          "value"
+        ],
+        "@calc(Number(@field.cout_transport_nonzero) || 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_final_trans",
+      "value": "@calc(Number(@field.quantite_fumure_organique) == 0 ? 0 : @local.v_val_trans_nz)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_final_trans",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@field.quantite_fumure_organique) == 0 ? 0 : @local.v_val_trans_nz)",
+            "matchedExpression": "@field.quantite_fumure_organique",
+            "type": "field",
+            "fieldName": "quantite_fumure_organique"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.quantite_fumure_organique) == 0 ? 0 : @local.v_val_trans_nz)",
+            "matchedExpression": "@local.v_val_trans_nz",
+            "type": "local",
+            "fieldName": "v_val_trans_nz"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.quantite_fumure_organique) == 0 ? 0 : @local.v_val_trans_nz)",
+            "matchedExpression": "@calc(Number(@field.quantite_fumure_organique) == 0 ? 0 : @local.v_val_trans_nz)",
+            "type": "calc",
+            "fieldName": "Number(@field.quantite_fumure_organique) == 0 ? 0 : @local.v_val_trans_nz"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.quantite_fumure_organique": [
+          "value"
+        ],
+        "@local.v_val_trans_nz": [
+          "value"
+        ],
+        "@calc(Number(@field.quantite_fumure_organique) == 0 ? 0 : @local.v_val_trans_nz)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_page3_valid",
+      "value": "@calc(@local.v_fum_fmt && Number(@field.quantite_fumure_organique) >= 0 && (Number(@field.quantite_fumure_organique) == 0 || (@local.v_trans_fmt && Number(@field.cout_transport_nonzero) >= 0)))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_page3_valid",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@local.v_fum_fmt && Number(@field.quantite_fumure_organique) >= 0 && (Number(@field.quantite_fumure_organique) == 0 || (@local.v_trans_fmt && Number(@field.cout_transport_nonzero) >= 0)))",
+            "matchedExpression": "@local.v_fum_fmt",
+            "type": "local",
+            "fieldName": "v_fum_fmt"
+          },
+          {
+            "fullExpression": "@calc(@local.v_fum_fmt && Number(@field.quantite_fumure_organique) >= 0 && (Number(@field.quantite_fumure_organique) == 0 || (@local.v_trans_fmt && Number(@field.cout_transport_nonzero) >= 0)))",
+            "matchedExpression": "@field.quantite_fumure_organique",
+            "type": "field",
+            "fieldName": "quantite_fumure_organique"
+          },
+          {
+            "fullExpression": "@calc(@local.v_fum_fmt && Number(@field.quantite_fumure_organique) >= 0 && (Number(@field.quantite_fumure_organique) == 0 || (@local.v_trans_fmt && Number(@field.cout_transport_nonzero) >= 0)))",
+            "matchedExpression": "@field.quantite_fumure_organique",
+            "type": "field",
+            "fieldName": "quantite_fumure_organique"
+          },
+          {
+            "fullExpression": "@calc(@local.v_fum_fmt && Number(@field.quantite_fumure_organique) >= 0 && (Number(@field.quantite_fumure_organique) == 0 || (@local.v_trans_fmt && Number(@field.cout_transport_nonzero) >= 0)))",
+            "matchedExpression": "@local.v_trans_fmt",
+            "type": "local",
+            "fieldName": "v_trans_fmt"
+          },
+          {
+            "fullExpression": "@calc(@local.v_fum_fmt && Number(@field.quantite_fumure_organique) >= 0 && (Number(@field.quantite_fumure_organique) == 0 || (@local.v_trans_fmt && Number(@field.cout_transport_nonzero) >= 0)))",
+            "matchedExpression": "@field.cout_transport_nonzero",
+            "type": "field",
+            "fieldName": "cout_transport_nonzero"
+          },
+          {
+            "fullExpression": "@calc(@local.v_fum_fmt && Number(@field.quantite_fumure_organique) >= 0 && (Number(@field.quantite_fumure_organique) == 0 || (@local.v_trans_fmt && Number(@field.cout_transport_nonzero) >= 0)))",
+            "matchedExpression": "@calc(@local.v_fum_fmt && Number(@field.quantite_fumure_organique) >= 0 && (Number(@field.quantite_fumure_organique) == 0 || (@local.v_trans_fmt && Number(@field.cout_transport_nonzero) >= 0)))",
+            "type": "calc",
+            "fieldName": "@local.v_fum_fmt && Number(@field.quantite_fumure_organique) >= 0 && (Number(@field.quantite_fumure_organique) == 0 || (@local.v_trans_fmt && Number(@field.cout_transport_nonzero) >= 0))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_fum_fmt": [
+          "value"
+        ],
+        "@field.quantite_fumure_organique": [
+          "value",
+          "value"
+        ],
+        "@local.v_trans_fmt": [
+          "value"
+        ],
+        "@field.cout_transport_nonzero": [
+          "value"
+        ],
+        "@calc(@local.v_fum_fmt && Number(@field.quantite_fumure_organique) >= 0 && (Number(@field.quantite_fumure_organique) == 0 || (@local.v_trans_fmt && Number(@field.cout_transport_nonzero) >= 0)))": [
           "value"
         ]
       }
@@ -43,7 +873,6 @@
     {
       "type": "display_group",
       "name": "dg_footer",
-      "value": "",
       "parameter_list": {
         "sticky": "bottom"
       },
@@ -53,7 +882,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_3_btn_back",
+          "name": "button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -68,16 +897,25 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_3_btn_back"
+          "_nested_name": "dg_footer.button_back"
         },
         {
           "type": "button",
-          "name": "page_3_btn_continue",
+          "name": "button_completed",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
           "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cout_transport",
+                "@local.v_final_trans"
+              ],
+              "_raw": "click | set_field: cout_transport : @local.v_final_trans"
+            },
             {
               "trigger": "click",
               "action_id": "emit",
@@ -87,10 +925,14 @@
               "_raw": "click | emit: completed"
             }
           ],
+          "parameter_list": {
+            "style": "navigation",
+            "disabled": "!@local.v_page3_valid"
+          },
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_3_btn_continue",
+          "_nested_name": "dg_footer.button_completed",
           "_dynamicFields": {
             "value": [
               {
@@ -99,11 +941,50 @@
                 "type": "global",
                 "fieldName": "btn_continue"
               }
-            ]
+            ],
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.v_final_trans",
+                      "matchedExpression": "@local.v_final_trans",
+                      "type": "local",
+                      "fieldName": "v_final_trans"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: cout_transport : @local.v_final_trans",
+                    "matchedExpression": "@local.v_final_trans",
+                    "type": "local",
+                    "fieldName": "v_final_trans"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.v_page3_valid",
+                  "matchedExpression": "!@local.v_page3_valid",
+                  "type": "local",
+                  "fieldName": "v_page3_valid"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
+            ],
+            "@local.v_final_trans": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "!@local.v_page3_valid": [
+              "parameter_list.disabled"
             ]
           }
         }

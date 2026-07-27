@@ -4,277 +4,400 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "name": "page_title",
-      "value": "APPORT FUMURE ORGANIQUE",
-      "_translations": {
-        "value": {}
-      },
-      "_nested_name": "page_title"
-    },
-    {
-      "name": "attempt_submit",
-      "value": "@fields.attempt_submit",
+      "name": "v_current_human",
+      "value": "@calc(Number(@field.current_culture_index) + 1)",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "attempt_submit",
+      "_nested_name": "v_current_human",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.attempt_submit",
-            "matchedExpression": "@fields.attempt_submit",
-            "type": "fields",
-            "fieldName": "attempt_submit"
+            "fullExpression": "@calc(Number(@field.current_culture_index) + 1)",
+            "matchedExpression": "@field.current_culture_index",
+            "type": "field",
+            "fieldName": "current_culture_index"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.current_culture_index) + 1)",
+            "matchedExpression": "@calc(Number(@field.current_culture_index) + 1)",
+            "type": "calc",
+            "fieldName": "Number(@field.current_culture_index) + 1"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.attempt_submit": [
+        "@field.current_culture_index": [
+          "value"
+        ],
+        "@calc(Number(@field.current_culture_index) + 1)": [
           "value"
         ]
       }
     },
     {
-      "type": "data_items",
-      "value": "@data.primary_crops",
-      "parameter_list": {
-        "filter": "@item.name == @fields.current_primary_crop"
+      "name": "v_herbi_fmt",
+      "value": "@calc(/^\\d+$/.test(@field.quantite_herbicide_prelevee))",
+      "_translations": {
+        "value": {}
       },
-      "style_list": [
-        "display: flex",
-        "flex-wrap: wrap",
-        "justify-content: space-between",
-        "width: 100%",
-        "gap: 10px"
-      ],
-      "rows": [
-        {
-          "type": "display_group",
-          "rows": [
-            {
-              "type": "image",
-              "value": "@item.image",
-              "_translations": {
-                "value": {}
-              },
-              "name": "image_1",
-              "_nested_name": "data_items_4.display_group_1_@item.id.image_1",
-              "_dynamicFields": {
-                "value": [
-                  {
-                    "fullExpression": "@item.image",
-                    "matchedExpression": "@item.image",
-                    "type": "item",
-                    "fieldName": "image"
-                  }
-                ],
-                "_nested_name": [
-                  {
-                    "fullExpression": "data_items_4.display_group_1_@item.id.image_1",
-                    "matchedExpression": "@item.id.image_1",
-                    "type": "item",
-                    "fieldName": "id"
-                  }
-                ]
-              },
-              "_dynamicDependencies": {
-                "@item.image": [
-                  "value"
-                ],
-                "@item.id.image_1": [
-                  "_nested_name"
-                ]
-              }
-            },
-            {
-              "type": "text",
-              "value": "**@item.text**",
-              "_translations": {
-                "value": {}
-              },
-              "style_list": [
-                "font-weight: bold",
-                "font-size: 18px"
-              ],
-              "name": "text_2",
-              "_nested_name": "data_items_4.display_group_1_@item.id.text_2",
-              "_dynamicFields": {
-                "value": [
-                  {
-                    "fullExpression": "**@item.text**",
-                    "matchedExpression": "@item.text",
-                    "type": "item",
-                    "fieldName": "text"
-                  }
-                ],
-                "_nested_name": [
-                  {
-                    "fullExpression": "data_items_4.display_group_1_@item.id.text_2",
-                    "matchedExpression": "@item.id.text_2",
-                    "type": "item",
-                    "fieldName": "id"
-                  }
-                ]
-              },
-              "_dynamicDependencies": {
-                "@item.text": [
-                  "value"
-                ],
-                "@item.id.text_2": [
-                  "_nested_name"
-                ]
-              }
-            }
-          ],
-          "name": "display_group_1_@item.id",
-          "_nested_name": "data_items_4.display_group_1_@item.id",
-          "_dynamicFields": {
-            "name": [
-              {
-                "fullExpression": "display_group_1_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ],
-            "_nested_name": [
-              {
-                "fullExpression": "data_items_4.display_group_1_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@item.id": [
-              "name",
-              "_nested_name"
-            ]
-          }
-        }
-      ],
-      "name": "data_items_4",
-      "_nested_name": "data_items_4",
+      "type": "set_variable",
+      "_nested_name": "v_herbi_fmt",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@data.primary_crops",
-            "matchedExpression": "@data.primary_crops",
-            "type": "data",
-            "fieldName": "primary_crops"
+            "fullExpression": "@calc(/^\\d+$/.test(@field.quantite_herbicide_prelevee))",
+            "matchedExpression": "@field.quantite_herbicide_prelevee",
+            "type": "field",
+            "fieldName": "quantite_herbicide_prelevee"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+$/.test(@field.quantite_herbicide_prelevee))",
+            "matchedExpression": "@calc(/^\\d+$/.test(@field.quantite_herbicide_prelevee))",
+            "type": "calc",
+            "fieldName": "/^\\d+$/.test(@field.quantite_herbicide_prelevee)"
           }
-        ],
-        "parameter_list": {
-          "filter": [
-            {
-              "fullExpression": "@item.name == @fields.current_primary_crop",
-              "matchedExpression": "@item.name",
-              "type": "item",
-              "fieldName": "name"
-            },
-            {
-              "fullExpression": "@item.name == @fields.current_primary_crop",
-              "matchedExpression": "@fields.current_primary_crop",
-              "type": "fields",
-              "fieldName": "current_primary_crop"
-            }
-          ]
-        }
+        ]
       },
       "_dynamicDependencies": {
-        "@data.primary_crops": [
+        "@field.quantite_herbicide_prelevee": [
           "value"
         ],
-        "@item.name": [
-          "parameter_list.filter"
+        "@calc(/^\\d+$/.test(@field.quantite_herbicide_prelevee))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_herbi_err",
+      "value": "@calc(!@local.v_herbi_fmt || Number(@field.quantite_herbicide_prelevee) < 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_herbi_err",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!@local.v_herbi_fmt || Number(@field.quantite_herbicide_prelevee) < 0)",
+            "matchedExpression": "!@local.v_herbi_fmt",
+            "type": "local",
+            "fieldName": "v_herbi_fmt"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_herbi_fmt || Number(@field.quantite_herbicide_prelevee) < 0)",
+            "matchedExpression": "@field.quantite_herbicide_prelevee",
+            "type": "field",
+            "fieldName": "quantite_herbicide_prelevee"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_herbi_fmt || Number(@field.quantite_herbicide_prelevee) < 0)",
+            "matchedExpression": "@calc(!@local.v_herbi_fmt || Number(@field.quantite_herbicide_prelevee) < 0)",
+            "type": "calc",
+            "fieldName": "!@local.v_herbi_fmt || Number(@field.quantite_herbicide_prelevee) < 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.v_herbi_fmt": [
+          "value"
         ],
-        "@fields.current_primary_crop": [
-          "parameter_list.filter"
+        "@field.quantite_herbicide_prelevee": [
+          "value"
+        ],
+        "@calc(!@local.v_herbi_fmt || Number(@field.quantite_herbicide_prelevee) < 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_cout_herbi_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_herbicide_prelevee_nonzero))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_cout_herbi_fmt",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_herbicide_prelevee_nonzero))",
+            "matchedExpression": "@field.cout_herbicide_prelevee_nonzero",
+            "type": "field",
+            "fieldName": "cout_herbicide_prelevee_nonzero"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_herbicide_prelevee_nonzero))",
+            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_herbicide_prelevee_nonzero))",
+            "type": "calc",
+            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@field.cout_herbicide_prelevee_nonzero)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.cout_herbicide_prelevee_nonzero": [
+          "value"
+        ],
+        "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_herbicide_prelevee_nonzero))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_cout_herbi_err",
+      "value": "@calc(!@local.v_cout_herbi_fmt || Number(@field.cout_herbicide_prelevee_nonzero) < 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_cout_herbi_err",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!@local.v_cout_herbi_fmt || Number(@field.cout_herbicide_prelevee_nonzero) < 0)",
+            "matchedExpression": "!@local.v_cout_herbi_fmt",
+            "type": "local",
+            "fieldName": "v_cout_herbi_fmt"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_cout_herbi_fmt || Number(@field.cout_herbicide_prelevee_nonzero) < 0)",
+            "matchedExpression": "@field.cout_herbicide_prelevee_nonzero",
+            "type": "field",
+            "fieldName": "cout_herbicide_prelevee_nonzero"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_cout_herbi_fmt || Number(@field.cout_herbicide_prelevee_nonzero) < 0)",
+            "matchedExpression": "@calc(!@local.v_cout_herbi_fmt || Number(@field.cout_herbicide_prelevee_nonzero) < 0)",
+            "type": "calc",
+            "fieldName": "!@local.v_cout_herbi_fmt || Number(@field.cout_herbicide_prelevee_nonzero) < 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.v_cout_herbi_fmt": [
+          "value"
+        ],
+        "@field.cout_herbicide_prelevee_nonzero": [
+          "value"
+        ],
+        "@calc(!@local.v_cout_herbi_fmt || Number(@field.cout_herbicide_prelevee_nonzero) < 0)": [
+          "value"
         ]
       }
     },
     {
       "type": "display_group",
+      "name": "header",
+      "style_list": [
+        "background: #00adcc",
+        "padding: 15px",
+        "border-radius: 0 0 15px 15px",
+        "margin-bottom: 20px"
+      ],
       "rows": [
         {
           "type": "html",
-          "name": "q_fum_label",
-          "value": "<span style=\"color: red;\">*</span> Quantité de fumure organique (charretée) @fields.current_primary_crop",
+          "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
           "_translations": {
             "value": {}
           },
-          "style_list": [
-            "font-size:20px"
-          ],
-          "_nested_name": "display_group_6.q_fum_label",
+          "name": "html_1",
+          "_nested_name": "header.html_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<span style=\"color: red;\">*</span> Quantité de fumure organique (charretée) @fields.current_primary_crop",
-                "matchedExpression": "@fields.current_primary_crop",
-                "type": "fields",
-                "fieldName": "current_primary_crop"
+                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "matchedExpression": "@local.v_current_human",
+                "type": "local",
+                "fieldName": "v_current_human"
+              },
+              {
+                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "matchedExpression": "@field.total_cultures_selected",
+                "type": "field",
+                "fieldName": "total_cultures_selected"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.current_primary_crop": [
+            "@local.v_current_human": [
+              "value"
+            ],
+            "@field.total_cultures_selected": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "header"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "width: 100%",
+        "display: flex",
+        "flex-direction: column",
+        "align-items: center",
+        "border: 1px solid #FFCC80",
+        "border-radius: 12px",
+        "background: white",
+        "margin-bottom: 10px",
+        "overflow: hidden"
+      ],
+      "rows": [
+        {
+          "type": "image",
+          "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 60%",
+            "object-fit: contain"
+          ],
+          "name": "image_1",
+          "_nested_name": "display_group_9.image_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+                "matchedExpression": "@field.active_culture_name",
+                "type": "field",
+                "fieldName": "active_culture_name"
+              },
+              {
+                "fullExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+                "matchedExpression": "@field.active_culture_name",
+                "type": "field",
+                "fieldName": "active_culture_name"
+              },
+              {
+                "fullExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+                "matchedExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+                "type": "calc",
+                "fieldName": "['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg'"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.active_culture_name": [
+              "value",
+              "value"
+            ],
+            "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')": [
               "value"
             ]
           }
         },
         {
+          "type": "text",
+          "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 18px"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_9.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+                "matchedExpression": "@field.active_culture_name",
+                "type": "field",
+                "fieldName": "active_culture_name"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.active_culture_name": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_9",
+      "_nested_name": "display_group_9"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"color: #e67e22; font-weight: bold; font-size: 14px; margin-bottom: 10px;\"> HERBICIDAGE PRE-LEVEE</div>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_11",
+      "_nested_name": "html_11"
+    },
+    {
+      "type": "display_group",
+      "name": "grp_quantite_herbicide",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
           "type": "audio",
-          "name": "audio_8_1",
+          "name": "aud_herbi_fr",
           "parameter_list": {
-            "variant": "compact",
-            "src": "audio/semis/Q_fumure_fr.mp3",
+            "variant": "button_only",
+            "src": "audio/semis/q_herbicide_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
+          "exclude_from_translation": true,
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_6.audio_8_1"
+          "_nested_name": "grp_quantite_herbicide.aud_herbi_fr"
+        },
+        {
+          "type": "html",
+          "value": "<span style=\"color: red;\">*</span> Quantité herbicide pré-levé (flacon)",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight: bold"
+          ],
+          "name": "html_2",
+          "_nested_name": "grp_quantite_herbicide.html_2"
+        },
+        {
+          "type": "text",
+          "value": "*Mettez 0 si aucun herbicide pré-levé*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "grp_quantite_herbicide.text_3"
+        },
+        {
+          "type": "image",
+          "value": "images/flacon.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "grp_quantite_herbicide.image_4"
         }
       ],
-      "name": "display_group_6",
-      "_nested_name": "display_group_6"
-    },
-    {
-      "type": "image",
-      "value": "images/charrette.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "width:120px",
-        "height:120px",
-        "object-fit:contain",
-        "flex-shrink:0"
-      ],
-      "name": "image_8",
-      "_nested_name": "image_8"
-    },
-    {
-      "type": "text",
-      "name": "q_fum_hint",
-      "value": "Mettez 0 si aucune fumure organique",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "color: gray",
-        "font-size: 16px"
-      ],
-      "_nested_name": "q_fum_hint"
+      "_nested_name": "grp_quantite_herbicide"
     },
     {
       "type": "text_box",
-      "name": "q_fum",
-      "value": "@fields.q_fum",
+      "name": "quantite_herbicide_prelevee",
+      "value": "@field.quantite_herbicide_prelevee",
       "_translations": {
         "value": {}
       },
@@ -283,374 +406,466 @@
           "trigger": "changed",
           "action_id": "set_field",
           "args": [
-            "q_fum",
+            "quantite_herbicide_prelevee",
             "this.value"
           ],
-          "_raw": "changed | set_field : q_fum: this.value"
+          "_raw": "changed | set_field: quantite_herbicide_prelevee: this.value"
         }
       ],
       "parameter_list": {
-        "number_input": "true"
+        "number_input": "true",
+        "placeholder": "Nombre de flacons"
       },
-      "_nested_name": "q_fum",
+      "_nested_name": "quantite_herbicide_prelevee",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.q_fum",
-            "matchedExpression": "@fields.q_fum",
-            "type": "fields",
-            "fieldName": "q_fum"
+            "fullExpression": "@field.quantite_herbicide_prelevee",
+            "matchedExpression": "@field.quantite_herbicide_prelevee",
+            "type": "field",
+            "fieldName": "quantite_herbicide_prelevee"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.q_fum": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "valid_q_fum",
-      "value": "@calc(!!@fields.q_fum && @fields.q_fum != \"\" && @fields.q_fum >= 0)",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "valid_q_fum",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(!!@fields.q_fum && @fields.q_fum != \"\" && @fields.q_fum >= 0)",
-            "matchedExpression": "!@fields.q_fum",
-            "type": "fields",
-            "fieldName": "q_fum"
-          },
-          {
-            "fullExpression": "@calc(!!@fields.q_fum && @fields.q_fum != \"\" && @fields.q_fum >= 0)",
-            "matchedExpression": "@fields.q_fum",
-            "type": "fields",
-            "fieldName": "q_fum"
-          },
-          {
-            "fullExpression": "@calc(!!@fields.q_fum && @fields.q_fum != \"\" && @fields.q_fum >= 0)",
-            "matchedExpression": "@fields.q_fum",
-            "type": "fields",
-            "fieldName": "q_fum"
-          },
-          {
-            "fullExpression": "@calc(!!@fields.q_fum && @fields.q_fum != \"\" && @fields.q_fum >= 0)",
-            "matchedExpression": "@calc(!!@fields.q_fum && @fields.q_fum != \"\" && @fields.q_fum >= 0)",
-            "type": "calc",
-            "fieldName": "!!@fields.q_fum && @fields.q_fum != \"\" && @fields.q_fum >= 0"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "!@fields.q_fum": [
-          "value"
-        ],
-        "@fields.q_fum": [
-          "value",
-          "value"
-        ],
-        "@calc(!!@fields.q_fum && @fields.q_fum != \"\" && @fields.q_fum >= 0)": [
+        "@field.quantite_herbicide_prelevee": [
           "value"
         ]
       }
     },
     {
       "type": "text",
-      "name": "error_q_fum",
-      "value": "@global.error_positive_value",
+      "value": "Mettez une valeur positive<span style=\"font-size:11px;\"></span>",
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.attempt_submit && !@local.valid_q_fum",
+      "condition": "@local.v_herbi_err",
       "style_list": [
-        "color: red",
-        "font-size: 16px",
-        "background: #fff5f5",
-        "padding: 5px"
+        "font-size: 12px",
+        "color: red"
       ],
-      "_nested_name": "error_q_fum",
+      "name": "text_15",
+      "_nested_name": "text_15",
       "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.error_positive_value",
-            "matchedExpression": "@global.error_positive_value",
-            "type": "global",
-            "fieldName": "error_positive_value"
-          }
-        ],
         "condition": [
           {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_q_fum",
-            "matchedExpression": "@fields.attempt_submit",
-            "type": "fields",
-            "fieldName": "attempt_submit"
-          },
-          {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_q_fum",
-            "matchedExpression": "!@local.valid_q_fum",
+            "fullExpression": "@local.v_herbi_err",
+            "matchedExpression": "@local.v_herbi_err",
             "type": "local",
-            "fieldName": "valid_q_fum"
+            "fieldName": "v_herbi_err"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.error_positive_value": [
-          "value"
-        ],
-        "@fields.attempt_submit": [
-          "condition"
-        ],
-        "!@local.valid_q_fum": [
+        "@local.v_herbi_err": [
           "condition"
         ]
       }
     },
     {
       "type": "display_group",
+      "name": "cout_herbicide_zero",
+      "condition": "@calc(Number(@field.quantite_herbicide_prelevee) == 0)",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
       "rows": [
         {
+          "type": "audio",
+          "name": "aud_chaux_z_fr",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/semis/cout_herbicide_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "cout_herbicide_zero.aud_chaux_z_fr"
+        },
+        {
           "type": "html",
-          "name": "c_fum_label",
-          "value": "<span style=\"color: red;\">*</span> Coût transport de fumure organique (drm)",
+          "value": "Coût herbicide pré-levé (Dram)",
           "_translations": {
             "value": {}
           },
           "style_list": [
-            "font-size:20px"
+            "font-weight: bold"
           ],
-          "_nested_name": "display_group_13.c_fum_label"
+          "name": "html_2",
+          "_nested_name": "cout_herbicide_zero.html_2"
         },
         {
-          "type": "audio",
-          "name": "audio_8_2",
+          "type": "text",
+          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "cout_herbicide_zero.text_3"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80px",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "cout_herbicide_zero.image_4"
+        },
+        {
+          "type": "text_box",
+          "value": 0,
           "parameter_list": {
-            "variant": "compact",
-            "src": "audio/semis/cout_transport_fr.mp3",
+            "disabled": "true"
+          },
+          "name": "text_box_5",
+          "_nested_name": "cout_herbicide_zero.text_box_5"
+        },
+        {
+          "type": "text",
+          "value": "Coût bloqué à 0 car aucun herbicide pré-levé utilisé",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 12px",
+            "color: #999"
+          ],
+          "name": "text_6",
+          "_nested_name": "cout_herbicide_zero.text_6"
+        }
+      ],
+      "_nested_name": "cout_herbicide_zero",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@calc(Number(@field.quantite_herbicide_prelevee) == 0)",
+            "matchedExpression": "@field.quantite_herbicide_prelevee",
+            "type": "field",
+            "fieldName": "quantite_herbicide_prelevee"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.quantite_herbicide_prelevee) == 0)",
+            "matchedExpression": "@calc(Number(@field.quantite_herbicide_prelevee) == 0)",
+            "type": "calc",
+            "fieldName": "Number(@field.quantite_herbicide_prelevee) == 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.quantite_herbicide_prelevee": [
+          "condition"
+        ],
+        "@calc(Number(@field.quantite_herbicide_prelevee) == 0)": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "cout_herbicide_nonzero",
+      "condition": "@calc(Number(@field.quantite_herbicide_prelevee) > 0)",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "name": "aud_herbi_nz_fr",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/semis/cout_herbicide_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
+          "exclude_from_translation": true,
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_13.audio_8_2"
-        }
-      ],
-      "name": "display_group_13",
-      "_nested_name": "display_group_13"
-    },
-    {
-      "type": "image",
-      "value": "images/cfa.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "width:120px",
-        "height:120px",
-        "object-fit:contain",
-        "flex-shrink:0"
-      ],
-      "name": "image_15",
-      "_nested_name": "image_15"
-    },
-    {
-      "type": "text",
-      "name": "c_fum_hint",
-      "value": "@global.hint_price",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "color: gray",
-        "font-size: 16px"
-      ],
-      "_nested_name": "c_fum_hint",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.hint_price",
-            "matchedExpression": "@global.hint_price",
-            "type": "global",
-            "fieldName": "hint_price"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.hint_price": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "text_box",
-      "name": "c_fum",
-      "value": "@fields.c_fum",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
+          "_nested_name": "cout_herbicide_nonzero.aud_herbi_nz_fr"
+        },
         {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "c_fum",
-            "this.value"
+          "type": "html",
+          "value": "<span style=\"color: red;\">*</span> Coût herbicide pré-levé (Dram) <br>",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight: bold"
           ],
-          "_raw": "changed | set_field : c_fum: this.value"
+          "name": "html_2",
+          "_nested_name": "cout_herbicide_nonzero.html_2"
+        },
+        {
+          "type": "text",
+          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "cout_herbicide_nonzero.text_3"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80px",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "cout_herbicide_nonzero.image_4"
+        },
+        {
+          "type": "text_box",
+          "name": "cout_herbicide_prelevee_nonzero",
+          "value": "@field.cout_herbicide_prelevee_nonzero",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "cout_herbicide_prelevee_nonzero",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: cout_herbicide_prelevee_nonzero: this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "Montant en Dram"
+          },
+          "_nested_name": "cout_herbicide_nonzero.cout_herbicide_prelevee_nonzero",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.cout_herbicide_prelevee_nonzero",
+                "matchedExpression": "@field.cout_herbicide_prelevee_nonzero",
+                "type": "field",
+                "fieldName": "cout_herbicide_prelevee_nonzero"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.cout_herbicide_prelevee_nonzero": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "Mettez une valeur positive.<br>",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@local.v_cout_herbi_err",
+          "style_list": [
+            "font-size: 12px",
+            "color: red"
+          ],
+          "name": "text_6",
+          "_nested_name": "cout_herbicide_nonzero.text_6",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "@local.v_cout_herbi_err",
+                "matchedExpression": "@local.v_cout_herbi_err",
+                "type": "local",
+                "fieldName": "v_cout_herbi_err"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_cout_herbi_err": [
+              "condition"
+            ]
+          }
         }
       ],
-      "parameter_list": {
-        "number_input": "true"
-      },
-      "_nested_name": "c_fum",
+      "_nested_name": "cout_herbicide_nonzero",
       "_dynamicFields": {
-        "value": [
+        "condition": [
           {
-            "fullExpression": "@fields.c_fum",
-            "matchedExpression": "@fields.c_fum",
-            "type": "fields",
-            "fieldName": "c_fum"
+            "fullExpression": "@calc(Number(@field.quantite_herbicide_prelevee) > 0)",
+            "matchedExpression": "@field.quantite_herbicide_prelevee",
+            "type": "field",
+            "fieldName": "quantite_herbicide_prelevee"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.quantite_herbicide_prelevee) > 0)",
+            "matchedExpression": "@calc(Number(@field.quantite_herbicide_prelevee) > 0)",
+            "type": "calc",
+            "fieldName": "Number(@field.quantite_herbicide_prelevee) > 0"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.c_fum": [
-          "value"
+        "@field.quantite_herbicide_prelevee": [
+          "condition"
+        ],
+        "@calc(Number(@field.quantite_herbicide_prelevee) > 0)": [
+          "condition"
         ]
       }
     },
     {
-      "name": "valid_c_fum",
-      "value": "@calc(!!@fields.c_fum && @fields.c_fum != \"\" && @fields.c_fum >= 0)",
+      "name": "v_val_herbi_nz",
+      "value": "@calc(Number(@field.cout_herbicide_prelevee_nonzero) || 0)",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "valid_c_fum",
+      "_nested_name": "v_val_herbi_nz",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(!!@fields.c_fum && @fields.c_fum != \"\" && @fields.c_fum >= 0)",
-            "matchedExpression": "!@fields.c_fum",
-            "type": "fields",
-            "fieldName": "c_fum"
+            "fullExpression": "@calc(Number(@field.cout_herbicide_prelevee_nonzero) || 0)",
+            "matchedExpression": "@field.cout_herbicide_prelevee_nonzero",
+            "type": "field",
+            "fieldName": "cout_herbicide_prelevee_nonzero"
           },
           {
-            "fullExpression": "@calc(!!@fields.c_fum && @fields.c_fum != \"\" && @fields.c_fum >= 0)",
-            "matchedExpression": "@fields.c_fum",
-            "type": "fields",
-            "fieldName": "c_fum"
-          },
-          {
-            "fullExpression": "@calc(!!@fields.c_fum && @fields.c_fum != \"\" && @fields.c_fum >= 0)",
-            "matchedExpression": "@fields.c_fum",
-            "type": "fields",
-            "fieldName": "c_fum"
-          },
-          {
-            "fullExpression": "@calc(!!@fields.c_fum && @fields.c_fum != \"\" && @fields.c_fum >= 0)",
-            "matchedExpression": "@calc(!!@fields.c_fum && @fields.c_fum != \"\" && @fields.c_fum >= 0)",
+            "fullExpression": "@calc(Number(@field.cout_herbicide_prelevee_nonzero) || 0)",
+            "matchedExpression": "@calc(Number(@field.cout_herbicide_prelevee_nonzero) || 0)",
             "type": "calc",
-            "fieldName": "!!@fields.c_fum && @fields.c_fum != \"\" && @fields.c_fum >= 0"
+            "fieldName": "Number(@field.cout_herbicide_prelevee_nonzero) || 0"
           }
         ]
       },
       "_dynamicDependencies": {
-        "!@fields.c_fum": [
+        "@field.cout_herbicide_prelevee_nonzero": [
           "value"
         ],
-        "@fields.c_fum": [
+        "@calc(Number(@field.cout_herbicide_prelevee_nonzero) || 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_final_herbi",
+      "value": "@calc(Number(@field.quantite_herbicide_prelevee) == 0 ? 0 : @local.v_val_herbi_nz)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_final_herbi",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@field.quantite_herbicide_prelevee) == 0 ? 0 : @local.v_val_herbi_nz)",
+            "matchedExpression": "@field.quantite_herbicide_prelevee",
+            "type": "field",
+            "fieldName": "quantite_herbicide_prelevee"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.quantite_herbicide_prelevee) == 0 ? 0 : @local.v_val_herbi_nz)",
+            "matchedExpression": "@local.v_val_herbi_nz",
+            "type": "local",
+            "fieldName": "v_val_herbi_nz"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.quantite_herbicide_prelevee) == 0 ? 0 : @local.v_val_herbi_nz)",
+            "matchedExpression": "@calc(Number(@field.quantite_herbicide_prelevee) == 0 ? 0 : @local.v_val_herbi_nz)",
+            "type": "calc",
+            "fieldName": "Number(@field.quantite_herbicide_prelevee) == 0 ? 0 : @local.v_val_herbi_nz"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.quantite_herbicide_prelevee": [
+          "value"
+        ],
+        "@local.v_val_herbi_nz": [
+          "value"
+        ],
+        "@calc(Number(@field.quantite_herbicide_prelevee) == 0 ? 0 : @local.v_val_herbi_nz)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_page8_valid",
+      "value": "@calc(@local.v_herbi_fmt && Number(@field.quantite_herbicide_prelevee) >= 0 && (Number(@field.quantite_herbicide_prelevee) == 0 || (@local.v_cout_herbi_fmt && Number(@field.cout_herbicide_prelevee_nonzero) >= 0)))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_page8_valid",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@local.v_herbi_fmt && Number(@field.quantite_herbicide_prelevee) >= 0 && (Number(@field.quantite_herbicide_prelevee) == 0 || (@local.v_cout_herbi_fmt && Number(@field.cout_herbicide_prelevee_nonzero) >= 0)))",
+            "matchedExpression": "@local.v_herbi_fmt",
+            "type": "local",
+            "fieldName": "v_herbi_fmt"
+          },
+          {
+            "fullExpression": "@calc(@local.v_herbi_fmt && Number(@field.quantite_herbicide_prelevee) >= 0 && (Number(@field.quantite_herbicide_prelevee) == 0 || (@local.v_cout_herbi_fmt && Number(@field.cout_herbicide_prelevee_nonzero) >= 0)))",
+            "matchedExpression": "@field.quantite_herbicide_prelevee",
+            "type": "field",
+            "fieldName": "quantite_herbicide_prelevee"
+          },
+          {
+            "fullExpression": "@calc(@local.v_herbi_fmt && Number(@field.quantite_herbicide_prelevee) >= 0 && (Number(@field.quantite_herbicide_prelevee) == 0 || (@local.v_cout_herbi_fmt && Number(@field.cout_herbicide_prelevee_nonzero) >= 0)))",
+            "matchedExpression": "@field.quantite_herbicide_prelevee",
+            "type": "field",
+            "fieldName": "quantite_herbicide_prelevee"
+          },
+          {
+            "fullExpression": "@calc(@local.v_herbi_fmt && Number(@field.quantite_herbicide_prelevee) >= 0 && (Number(@field.quantite_herbicide_prelevee) == 0 || (@local.v_cout_herbi_fmt && Number(@field.cout_herbicide_prelevee_nonzero) >= 0)))",
+            "matchedExpression": "@local.v_cout_herbi_fmt",
+            "type": "local",
+            "fieldName": "v_cout_herbi_fmt"
+          },
+          {
+            "fullExpression": "@calc(@local.v_herbi_fmt && Number(@field.quantite_herbicide_prelevee) >= 0 && (Number(@field.quantite_herbicide_prelevee) == 0 || (@local.v_cout_herbi_fmt && Number(@field.cout_herbicide_prelevee_nonzero) >= 0)))",
+            "matchedExpression": "@field.cout_herbicide_prelevee_nonzero",
+            "type": "field",
+            "fieldName": "cout_herbicide_prelevee_nonzero"
+          },
+          {
+            "fullExpression": "@calc(@local.v_herbi_fmt && Number(@field.quantite_herbicide_prelevee) >= 0 && (Number(@field.quantite_herbicide_prelevee) == 0 || (@local.v_cout_herbi_fmt && Number(@field.cout_herbicide_prelevee_nonzero) >= 0)))",
+            "matchedExpression": "@calc(@local.v_herbi_fmt && Number(@field.quantite_herbicide_prelevee) >= 0 && (Number(@field.quantite_herbicide_prelevee) == 0 || (@local.v_cout_herbi_fmt && Number(@field.cout_herbicide_prelevee_nonzero) >= 0)))",
+            "type": "calc",
+            "fieldName": "@local.v_herbi_fmt && Number(@field.quantite_herbicide_prelevee) >= 0 && (Number(@field.quantite_herbicide_prelevee) == 0 || (@local.v_cout_herbi_fmt && Number(@field.cout_herbicide_prelevee_nonzero) >= 0))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_herbi_fmt": [
+          "value"
+        ],
+        "@field.quantite_herbicide_prelevee": [
           "value",
           "value"
         ],
-        "@calc(!!@fields.c_fum && @fields.c_fum != \"\" && @fields.c_fum >= 0)": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "name": "error_c_fum",
-      "value": "@global.error_required_answer",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.attempt_submit && !@local.valid_c_fum",
-      "style_list": [
-        "color: red",
-        "font-size: 16px",
-        "background: #fff5f5",
-        "padding: 5px"
-      ],
-      "_nested_name": "error_c_fum",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.error_required_answer",
-            "matchedExpression": "@global.error_required_answer",
-            "type": "global",
-            "fieldName": "error_required_answer"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_c_fum",
-            "matchedExpression": "@fields.attempt_submit",
-            "type": "fields",
-            "fieldName": "attempt_submit"
-          },
-          {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_c_fum",
-            "matchedExpression": "!@local.valid_c_fum",
-            "type": "local",
-            "fieldName": "valid_c_fum"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.error_required_answer": [
+        "@local.v_cout_herbi_fmt": [
           "value"
         ],
-        "@fields.attempt_submit": [
-          "condition"
-        ],
-        "!@local.valid_c_fum": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "name": "completed_enabled",
-      "value": "@local.valid_q_fum && @local.valid_c_fum",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "completed_enabled",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@local.valid_q_fum && @local.valid_c_fum",
-            "matchedExpression": "@local.valid_q_fum",
-            "type": "local",
-            "fieldName": "valid_q_fum"
-          },
-          {
-            "fullExpression": "@local.valid_q_fum && @local.valid_c_fum",
-            "matchedExpression": "@local.valid_c_fum",
-            "type": "local",
-            "fieldName": "valid_c_fum"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.valid_q_fum": [
+        "@field.cout_herbicide_prelevee_nonzero": [
           "value"
         ],
-        "@local.valid_c_fum": [
+        "@calc(@local.v_herbi_fmt && Number(@field.quantite_herbicide_prelevee) >= 0 && (Number(@field.quantite_herbicide_prelevee) == 0 || (@local.v_cout_herbi_fmt && Number(@field.cout_herbicide_prelevee_nonzero) >= 0)))": [
           "value"
         ]
       }
@@ -658,7 +873,6 @@
     {
       "type": "display_group",
       "name": "dg_footer",
-      "value": "",
       "parameter_list": {
         "sticky": "bottom"
       },
@@ -668,7 +882,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_8_button_back",
+          "name": "button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -683,11 +897,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_8_button_back"
+          "_nested_name": "dg_footer.button_back"
         },
         {
           "type": "button",
-          "name": "page_8_btn_attempt_submit",
+          "name": "button_completed",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -697,96 +911,10 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "attempt_submit",
-                true
+                "cout_herbicide_prelevee",
+                "@local.v_final_herbi"
               ],
-              "_raw": "click | set_field: attempt_submit: true"
-            }
-          ],
-          "condition": "!@local.completed_enabled",
-          "style_list": [
-            "flex: 1"
-          ],
-          "_nested_name": "dg_footer.page_8_btn_attempt_submit",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@global.btn_continue",
-                "matchedExpression": "@global.btn_continue",
-                "type": "global",
-                "fieldName": "btn_continue"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "!@local.completed_enabled",
-                "matchedExpression": "!@local.completed_enabled",
-                "type": "local",
-                "fieldName": "completed_enabled"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@global.btn_continue": [
-              "value"
-            ],
-            "!@local.completed_enabled": [
-              "condition"
-            ]
-          }
-        },
-        {
-          "type": "button",
-          "name": "page_8_button_continue",
-          "value": "@global.btn_continue",
-          "_translations": {
-            "value": {}
-          },
-          "action_list": [
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "@calc('quantite_fumure_organique_' + @fields.current_primary_crop)",
-                "@fields.q_fum"
-              ],
-              "_raw": "click | set_field: @calc('quantite_fumure_organique_' + @fields.current_primary_crop) : @fields.q_fum"
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "@calc('cout_transport_fumure_organique_' + @fields.current_primary_crop)",
-                "@fields.c_fum"
-              ],
-              "_raw": "click | set_field: @calc('cout_transport_fumure_organique_' + @fields.current_primary_crop) : @fields.c_fum"
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "q_fum",
-                ""
-              ],
-              "_raw": "click | set_field: q_fum:"
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "c_fum",
-                ""
-              ],
-              "_raw": "click | set_field: c_fum:"
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "attempt_submit",
-                false
-              ],
-              "_raw": "click | set_field: attempt_submit: false"
+              "_raw": "click | set_field: cout_herbicide_prelevee : @local.v_final_herbi"
             },
             {
               "trigger": "click",
@@ -798,13 +926,13 @@
             }
           ],
           "parameter_list": {
-            "disabled": "!@local.completed_enabled"
+            "style": "navigation",
+            "disabled": "!@local.v_page8_valid"
           },
-          "condition": "@local.completed_enabled",
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_8_button_continue",
+          "_nested_name": "dg_footer.button_completed",
           "_dynamicFields": {
             "value": [
               {
@@ -817,81 +945,21 @@
             "action_list": {
               "0": {
                 "args": {
-                  "0": [
-                    {
-                      "fullExpression": "@calc('quantite_fumure_organique_' + @fields.current_primary_crop)",
-                      "matchedExpression": "@fields.current_primary_crop",
-                      "type": "fields",
-                      "fieldName": "current_primary_crop"
-                    },
-                    {
-                      "fullExpression": "@calc('quantite_fumure_organique_' + @fields.current_primary_crop)",
-                      "matchedExpression": "@calc('quantite_fumure_organique_' + @fields.current_primary_crop)",
-                      "type": "calc",
-                      "fieldName": "'quantite_fumure_organique_' + @fields.current_primary_crop"
-                    }
-                  ],
                   "1": [
                     {
-                      "fullExpression": "@fields.q_fum",
-                      "matchedExpression": "@fields.q_fum",
-                      "type": "fields",
-                      "fieldName": "q_fum"
+                      "fullExpression": "@local.v_final_herbi",
+                      "matchedExpression": "@local.v_final_herbi",
+                      "type": "local",
+                      "fieldName": "v_final_herbi"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('quantite_fumure_organique_' + @fields.current_primary_crop) : @fields.q_fum",
-                    "matchedExpression": "@fields.current_primary_crop",
-                    "type": "fields",
-                    "fieldName": "current_primary_crop"
-                  },
-                  {
-                    "fullExpression": "click | set_field: @calc('quantite_fumure_organique_' + @fields.current_primary_crop) : @fields.q_fum",
-                    "matchedExpression": "@fields.q_fum",
-                    "type": "fields",
-                    "fieldName": "q_fum"
-                  }
-                ]
-              },
-              "1": {
-                "args": {
-                  "0": [
-                    {
-                      "fullExpression": "@calc('cout_transport_fumure_organique_' + @fields.current_primary_crop)",
-                      "matchedExpression": "@fields.current_primary_crop",
-                      "type": "fields",
-                      "fieldName": "current_primary_crop"
-                    },
-                    {
-                      "fullExpression": "@calc('cout_transport_fumure_organique_' + @fields.current_primary_crop)",
-                      "matchedExpression": "@calc('cout_transport_fumure_organique_' + @fields.current_primary_crop)",
-                      "type": "calc",
-                      "fieldName": "'cout_transport_fumure_organique_' + @fields.current_primary_crop"
-                    }
-                  ],
-                  "1": [
-                    {
-                      "fullExpression": "@fields.c_fum",
-                      "matchedExpression": "@fields.c_fum",
-                      "type": "fields",
-                      "fieldName": "c_fum"
-                    }
-                  ]
-                },
-                "_raw": [
-                  {
-                    "fullExpression": "click | set_field: @calc('cout_transport_fumure_organique_' + @fields.current_primary_crop) : @fields.c_fum",
-                    "matchedExpression": "@fields.current_primary_crop",
-                    "type": "fields",
-                    "fieldName": "current_primary_crop"
-                  },
-                  {
-                    "fullExpression": "click | set_field: @calc('cout_transport_fumure_organique_' + @fields.current_primary_crop) : @fields.c_fum",
-                    "matchedExpression": "@fields.c_fum",
-                    "type": "fields",
-                    "fieldName": "c_fum"
+                    "fullExpression": "click | set_field: cout_herbicide_prelevee : @local.v_final_herbi",
+                    "matchedExpression": "@local.v_final_herbi",
+                    "type": "local",
+                    "fieldName": "v_final_herbi"
                   }
                 ]
               }
@@ -899,51 +967,24 @@
             "parameter_list": {
               "disabled": [
                 {
-                  "fullExpression": "!@local.completed_enabled",
-                  "matchedExpression": "!@local.completed_enabled",
+                  "fullExpression": "!@local.v_page8_valid",
+                  "matchedExpression": "!@local.v_page8_valid",
                   "type": "local",
-                  "fieldName": "completed_enabled"
+                  "fieldName": "v_page8_valid"
                 }
               ]
-            },
-            "condition": [
-              {
-                "fullExpression": "@local.completed_enabled",
-                "matchedExpression": "@local.completed_enabled",
-                "type": "local",
-                "fieldName": "completed_enabled"
-              }
-            ]
+            }
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
             ],
-            "@fields.current_primary_crop": [
-              "action_list.0.args.0",
-              "action_list.0._raw",
-              "action_list.1.args.0",
-              "action_list.1._raw"
-            ],
-            "@calc('quantite_fumure_organique_' + @fields.current_primary_crop)": [
-              "action_list.0.args.0"
-            ],
-            "@fields.q_fum": [
+            "@local.v_final_herbi": [
               "action_list.0.args.1",
               "action_list.0._raw"
             ],
-            "@calc('cout_transport_fumure_organique_' + @fields.current_primary_crop)": [
-              "action_list.1.args.0"
-            ],
-            "@fields.c_fum": [
-              "action_list.1.args.1",
-              "action_list.1._raw"
-            ],
-            "!@local.completed_enabled": [
+            "!@local.v_page8_valid": [
               "parameter_list.disabled"
-            ],
-            "@local.completed_enabled": [
-              "condition"
             ]
           }
         }

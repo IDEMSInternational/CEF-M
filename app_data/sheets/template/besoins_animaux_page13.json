@@ -4,442 +4,113 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
-      "value": "**RECAPITULATIF DES PREVISIONS**",
+      "type": "title",
+      "value": "**APRECIATIONS ET OBSERVATIONS SUR LE FORMULAIRE**",
       "_translations": {
         "value": {}
       },
-      "name": "subtitle_2",
-      "_nested_name": "subtitle_2"
+      "name": "title_2",
+      "_nested_name": "title_2"
     },
     {
-      "type": "set_field",
-      "name": "cal_superficie",
-      "value": "@calc((Number(@fields.total_fane || 0) / 1700).toFixed(1))",
-      "_translations": {
-        "value": {}
-      },
-      "_nested_name": "cal_superficie",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc((Number(@fields.total_fane || 0) / 1700).toFixed(1))",
-            "matchedExpression": "@fields.total_fane",
-            "type": "fields",
-            "fieldName": "total_fane"
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "name": "observation_label",
+          "value": "@global.observation_label",
+          "_translations": {
+            "value": {}
           },
-          {
-            "fullExpression": "@calc((Number(@fields.total_fane || 0) / 1700).toFixed(1))",
-            "matchedExpression": "@calc((Number(@fields.total_fane || 0) / 1700).toFixed(1))",
-            "type": "calc",
-            "fieldName": "(Number(@fields.total_fane || 0) / 1700).toFixed(1)"
+          "_nested_name": "display_group_3.observation_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.observation_label",
+                "matchedExpression": "@global.observation_label",
+                "type": "global",
+                "fieldName": "observation_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.observation_label": [
+              "value"
+            ]
           }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.total_fane": [
-          "value"
-        ],
-        "@calc((Number(@fields.total_fane || 0) / 1700).toFixed(1))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "set_field",
-      "name": "cal_depense_total",
-      "value": "@calc((Number(@fields.cal_depense_son || 0) + Number(@fields.cal_depense_tourteau || 0)).toFixed(1))",
-      "_translations": {
-        "value": {}
-      },
-      "_nested_name": "cal_depense_total",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc((Number(@fields.cal_depense_son || 0) + Number(@fields.cal_depense_tourteau || 0)).toFixed(1))",
-            "matchedExpression": "@fields.cal_depense_son",
-            "type": "fields",
-            "fieldName": "cal_depense_son"
+        },
+        {
+          "type": "audio",
+          "name": "audio_8_1",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/appreciation_audio_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
-          {
-            "fullExpression": "@calc((Number(@fields.cal_depense_son || 0) + Number(@fields.cal_depense_tourteau || 0)).toFixed(1))",
-            "matchedExpression": "@fields.cal_depense_tourteau",
-            "type": "fields",
-            "fieldName": "cal_depense_tourteau"
-          },
-          {
-            "fullExpression": "@calc((Number(@fields.cal_depense_son || 0) + Number(@fields.cal_depense_tourteau || 0)).toFixed(1))",
-            "matchedExpression": "@calc((Number(@fields.cal_depense_son || 0) + Number(@fields.cal_depense_tourteau || 0)).toFixed(1))",
-            "type": "calc",
-            "fieldName": "(Number(@fields.cal_depense_son || 0) + Number(@fields.cal_depense_tourteau || 0)).toFixed(1)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.cal_depense_son": [
-          "value"
-        ],
-        "@fields.cal_depense_tourteau": [
-          "value"
-        ],
-        "@calc((Number(@fields.cal_depense_son || 0) + Number(@fields.cal_depense_tourteau || 0)).toFixed(1))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "set_field",
-      "name": "cal_depense_soins",
-      "value": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))",
-      "_translations": {
-        "value": {}
-      },
-      "_nested_name": "cal_depense_soins",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))",
-            "matchedExpression": "@fields.frais_veterinaire_cat_boeufs_labour",
-            "type": "fields",
-            "fieldName": "frais_veterinaire_cat_boeufs_labour"
-          },
-          {
-            "fullExpression": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))",
-            "matchedExpression": "@fields.frais_veterinaire_cat_embouche_bovine",
-            "type": "fields",
-            "fieldName": "frais_veterinaire_cat_embouche_bovine"
-          },
-          {
-            "fullExpression": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))",
-            "matchedExpression": "@fields.frais_veterinaire_cat_vache_laitiere",
-            "type": "fields",
-            "fieldName": "frais_veterinaire_cat_vache_laitiere"
-          },
-          {
-            "fullExpression": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))",
-            "matchedExpression": "@fields.frais_veterinaire_cat_autres_bovins",
-            "type": "fields",
-            "fieldName": "frais_veterinaire_cat_autres_bovins"
-          },
-          {
-            "fullExpression": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))",
-            "matchedExpression": "@fields.frais_veterinaire_cat_asins",
-            "type": "fields",
-            "fieldName": "frais_veterinaire_cat_asins"
-          },
-          {
-            "fullExpression": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))",
-            "matchedExpression": "@fields.frais_veterinaire_cat_embouche_ovine",
-            "type": "fields",
-            "fieldName": "frais_veterinaire_cat_embouche_ovine"
-          },
-          {
-            "fullExpression": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))",
-            "matchedExpression": "@fields.frais_veterinaire_cat_reste_ovins",
-            "type": "fields",
-            "fieldName": "frais_veterinaire_cat_reste_ovins"
-          },
-          {
-            "fullExpression": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))",
-            "matchedExpression": "@fields.frais_veterinaire_cat_caprins",
-            "type": "fields",
-            "fieldName": "frais_veterinaire_cat_caprins"
-          },
-          {
-            "fullExpression": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))",
-            "matchedExpression": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))",
-            "type": "calc",
-            "fieldName": "(Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.frais_veterinaire_cat_boeufs_labour": [
-          "value"
-        ],
-        "@fields.frais_veterinaire_cat_embouche_bovine": [
-          "value"
-        ],
-        "@fields.frais_veterinaire_cat_vache_laitiere": [
-          "value"
-        ],
-        "@fields.frais_veterinaire_cat_autres_bovins": [
-          "value"
-        ],
-        "@fields.frais_veterinaire_cat_asins": [
-          "value"
-        ],
-        "@fields.frais_veterinaire_cat_embouche_ovine": [
-          "value"
-        ],
-        "@fields.frais_veterinaire_cat_reste_ovins": [
-          "value"
-        ],
-        "@fields.frais_veterinaire_cat_caprins": [
-          "value"
-        ],
-        "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "name": "note_cat_animales",
-      "value": "Categories animales de l'UPA selectionnées: **@fields.cat_animaux_selected**",
-      "_translations": {
-        "value": {}
-      },
-      "_nested_name": "note_cat_animales",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "Categories animales de l'UPA selectionnées: **@fields.cat_animaux_selected**",
-            "matchedExpression": "@fields.cat_animaux_selected",
-            "type": "fields",
-            "fieldName": "cat_animaux_selected"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.cat_animaux_selected": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "value": "**La superficie de cultures fourragères**",
-      "_translations": {
-        "value": {}
-      },
-      "name": "text_7",
-      "_nested_name": "text_7"
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_3.audio_8_1"
+        }
+      ],
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
     },
     {
       "type": "image",
-      "value": "images/sup_fourrage.jpg",
+      "value": "images/vocal.jpg",
       "_translations": {
         "value": {}
       },
       "style_list": [
-        "width:120px",
-        "height:120px",
+        "width:110px",
+        "height:110px",
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_8",
-      "_nested_name": "image_8"
+      "name": "image_5",
+      "_nested_name": "image_5"
     },
     {
       "type": "text",
-      "name": "note_cal_superficie",
-      "value": "La superficie de cultures fourragères pour produire les @fields.total_fane bottes de fânes est estimée à: **@fields.cal_superficie ha**",
+      "name": "observation_hint",
+      "value": "@global.observation_hint",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "note_cal_superficie",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "La superficie de cultures fourragères pour produire les @fields.total_fane bottes de fânes est estimée à: **@fields.cal_superficie ha**",
-            "matchedExpression": "@fields.total_fane",
-            "type": "fields",
-            "fieldName": "total_fane"
-          },
-          {
-            "fullExpression": "La superficie de cultures fourragères pour produire les @fields.total_fane bottes de fânes est estimée à: **@fields.cal_superficie ha**",
-            "matchedExpression": "@fields.cal_superficie",
-            "type": "fields",
-            "fieldName": "cal_superficie"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.total_fane": [
-          "value"
-        ],
-        "@fields.cal_superficie": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: black;\">\n-1 ha de niébé fourrager peut produire 2500 kgMS, soit environ 1700 bottes (Falconnier et al. 2016).\n-1 ha de mucuna pruriens peut produire 6000kgMS (Ba et al.2023)\n-1 ha de brachiaria peut produire 7200 kgMS (Ba et al.2023)\n<strong> Pour vos @fields.total_fane bottes, on a considéré le rendement du niébé fourrager en divisant @fields.total_fane par les 1700 bottes </strong> </p>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_10",
-      "_nested_name": "html_10",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<p style=\"color: black;\">\n-1 ha de niébé fourrager peut produire 2500 kgMS, soit environ 1700 bottes (Falconnier et al. 2016).\n-1 ha de mucuna pruriens peut produire 6000kgMS (Ba et al.2023)\n-1 ha de brachiaria peut produire 7200 kgMS (Ba et al.2023)\n<strong> Pour vos @fields.total_fane bottes, on a considéré le rendement du niébé fourrager en divisant @fields.total_fane par les 1700 bottes </strong> </p>",
-            "matchedExpression": "@fields.total_fane",
-            "type": "fields",
-            "fieldName": "total_fane"
-          },
-          {
-            "fullExpression": "<p style=\"color: black;\">\n-1 ha de niébé fourrager peut produire 2500 kgMS, soit environ 1700 bottes (Falconnier et al. 2016).\n-1 ha de mucuna pruriens peut produire 6000kgMS (Ba et al.2023)\n-1 ha de brachiaria peut produire 7200 kgMS (Ba et al.2023)\n<strong> Pour vos @fields.total_fane bottes, on a considéré le rendement du niébé fourrager en divisant @fields.total_fane par les 1700 bottes </strong> </p>",
-            "matchedExpression": "@fields.total_fane",
-            "type": "fields",
-            "fieldName": "total_fane"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.total_fane": [
-          "value",
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "value": "**Le montant prévisionnel des depenses d'achat des aliments pour bétail**",
-      "_translations": {
-        "value": {}
-      },
-      "name": "text_11",
-      "_nested_name": "text_11"
-    },
-    {
-      "type": "image",
-      "value": "images/cfa_tot.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.prix_sac_son",
       "style_list": [
-        "width:120px",
-        "height:120px",
-        "object-fit:contain",
-        "flex-shrink:0"
+        "color: gray",
+        "font-size: 16px"
       ],
-      "name": "image_12",
-      "_nested_name": "image_12",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@fields.prix_sac_son",
-            "matchedExpression": "@fields.prix_sac_son",
-            "type": "fields",
-            "fieldName": "prix_sac_son"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.prix_sac_son": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "name": "depense",
-      "value": "Le montant prévisionnel des depenses d'achat des aliments pour bétail  est : **@fields.cal_depense_total drm**",
-      "_translations": {
-        "value": {}
-      },
-      "_nested_name": "depense",
+      "_nested_name": "observation_hint",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "Le montant prévisionnel des depenses d'achat des aliments pour bétail  est : **@fields.cal_depense_total drm**",
-            "matchedExpression": "@fields.cal_depense_total",
-            "type": "fields",
-            "fieldName": "cal_depense_total"
+            "fullExpression": "@global.observation_hint",
+            "matchedExpression": "@global.observation_hint",
+            "type": "global",
+            "fieldName": "observation_hint"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.cal_depense_total": [
+        "@global.observation_hint": [
           "value"
         ]
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">Ce montant est obtenu en additionnant les montants prévisionnels des achats du son de céréales et du tourteau pour toutes les catégories animales. </p>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_14",
-      "_nested_name": "html_14"
-    },
-    {
       "type": "text",
-      "value": "**Le montant prévisionnel des dépenses des soins vétérinaire**",
+      "name": "obser_appreciation",
+      "value": "We would need a recorder here in order to transmit observations or feedback regarding the form.",
       "_translations": {
         "value": {}
       },
-      "name": "text_15",
-      "_nested_name": "text_15"
-    },
-    {
-      "type": "image",
-      "value": "images/cfa_tot.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.prix_sac_son",
       "style_list": [
-        "width:120px",
-        "height:120px",
-        "object-fit:contain",
-        "flex-shrink:0"
+        "color: gray",
+        "font-size: 14px"
       ],
-      "name": "image_16",
-      "_nested_name": "image_16",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@fields.prix_sac_son",
-            "matchedExpression": "@fields.prix_sac_son",
-            "type": "fields",
-            "fieldName": "prix_sac_son"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.prix_sac_son": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "name": "total_frais_soins",
-      "value": "Le montant prévisionnel des dépenses des soins vétérinaires est: **@fields.cal_depense_soins drm**",
-      "_translations": {
-        "value": {}
-      },
-      "_nested_name": "total_frais_soins",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "Le montant prévisionnel des dépenses des soins vétérinaires est: **@fields.cal_depense_soins drm**",
-            "matchedExpression": "@fields.cal_depense_soins",
-            "type": "fields",
-            "fieldName": "cal_depense_soins"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.cal_depense_soins": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: black;\">Ce montant est obtenu en additionnant des frais prévisionnels de soins vétérinaires pour toutes les catégories d'animaux.</p>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_18",
-      "_nested_name": "html_18"
+      "_nested_name": "obser_appreciation"
     },
     {
       "type": "display_group",
@@ -453,7 +124,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page13_button_back",
+          "name": "page_15_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -468,12 +139,12 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_19.page13_button_back"
+          "_nested_name": "display_group_8.page_15_button_back"
         },
         {
           "type": "button",
-          "name": "page13_button_continue",
-          "value": "Continuer",
+          "name": "page_15_button_continue",
+          "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
@@ -487,11 +158,29 @@
               "_raw": "click | emit: completed"
             }
           ],
-          "_nested_name": "display_group_19.page13_button_continue"
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_8.page_15_button_continue",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ]
+          }
         }
       ],
-      "name": "display_group_19",
-      "_nested_name": "display_group_19"
+      "name": "display_group_8",
+      "_nested_name": "display_group_8"
     }
   ],
   "_source": {

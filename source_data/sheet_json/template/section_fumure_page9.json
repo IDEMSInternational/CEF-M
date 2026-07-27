@@ -28,25 +28,30 @@
       "value": "@calc(@fields.superficie_exploitation % @fields.portion_fertilisable == 0 ? (@fields.superficie_exploitation / @fields.portion_fertilisable) : Math.floor(@fields.superficie_exploitation / @fields.portion_fertilisable) + 1)"
     },
     {
-      "type": "title",
-      "name": "cycle_3_ans",
-      "value": "@global.cycle_3_ans",
-      "condition": "@local.nb_annee <= 3"
-    },
-    {
-      "name": "cycle_4_ans",
-      "value": "@global.cycle_4_ans",
-      "condition": "@local.nb_annee == 4"
-    },
-    {
-      "name": "cycle_5_ans",
-      "value": "@global.cycle_5_ans",
-      "condition": "@local.nb_annee > 4"
+      "type": "text",
+      "value": "**@local.nb_annee**"
     },
     {
       "type": "begin_display_group",
-      "condition": "@local.nb_annee <= 3",
+      "parameter_list": "style: column;",
+      "condition": "@local.nb_annee <= 3"
+    },
+    {
+      "type": "begin_display_group",
       "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "title",
+      "name": "cycle_3_ans",
+      "value": "@global.cycle_3_ans"
+    },
+    {
+      "type": "audio",
+      "name": "audio_9_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/fumureOrganique/cycle_3ans_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "text",
@@ -61,21 +66,43 @@
     {
       "type": "text",
       "name": "note_courage",
-      "value": "@global.note_courage",
-      "style_list": "color: gray; font-size: 16px;"
+      "value": "@global.note_courage"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "begin_display_group",
-      "condition": "@local.nb_annee == 4",
+      "parameter_list": "style: column;",
+      "condition": "@local.nb_annee == 4"
+    },
+    {
+      "type": "begin_display_group",
       "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "title",
+      "name": "cycle_4_ans",
+      "value": "@global.cycle_4_ans"
+    },
+    {
+      "type": "audio",
+      "name": "audio_9_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/fumureOrganique/cycle_4ansplus_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "text",
       "name": "note_infos_4",
       "value": "@global.note_infos_4"
+    },
+    {
+      "type": "text",
+      "name": "note_infos_4_hint",
+      "value": "@global.note_infos_4_hint",
+      "style_list": "color: gray; font-size: 16px;"
     },
     {
       "type": "image",
@@ -89,8 +116,29 @@
     },
     {
       "type": "text",
+      "name": "info_gap_4_hint",
+      "value": "@global.info_gap_4_hint",
+      "style_list": "color: gray; font-size: 16px;"
+    },
+    {
+      "type": "text",
       "name": "strategie_production_4",
       "value": "@global.strategie_production_4"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "STRATEGIES DE GESTION DE LA FERTILITE DU SOL:"
+    },
+    {
+      "type": "audio",
+      "name": "audio_9_3",
+      "parameter_list": "variant: button_only;\nsrc: audio/fumureOrganique/strategie_4ans_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "text",
@@ -102,13 +150,36 @@
     },
     {
       "type": "begin_display_group",
+      "parameter_list": "style: column;",
       "condition": "@local.nb_annee > 4",
       "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "title",
+      "name": "cycle_5_ans",
+      "value": "@global.cycle_5_ans"
+    },
+    {
+      "type": "audio",
+      "name": "audio_9_3",
+      "parameter_list": "variant: button_only;\nsrc: audio/fumureOrganique/cycle_4ansplus_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "text",
       "name": "note_infos_5",
       "value": "@global.note_infos_5"
+    },
+    {
+      "type": "text",
+      "name": "note_infos_5_hint",
+      "value": "@global.note_infos_5_hint",
+      "style_list": "color: gray; font-size: 16px;"
     },
     {
       "type": "image",
@@ -122,18 +193,39 @@
     },
     {
       "type": "text",
-      "name": "strategie_production_5",
-      "value": "@global.strategie_production_5"
+      "name": "info_gap_5_hint",
+      "value": "@global.info_gap_5_hint",
+      "style_list": "color: gray; font-size: 16px;"
     },
     {
       "type": "text",
-      "name": "note_strategie_5",
-      "value": "@global.note_strategie_5"
+      "name": "strategie_production_5",
+      "value": "@global.strategie_production_5"
     },
     {
       "type": "image",
       "name": "note_strategie_5_img",
       "value": "images/type_fumure.jpg"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "STRATEGIES DE GESTION DE LA FERTILITE DU SOL:"
+    },
+    {
+      "type": "audio",
+      "name": "audio_9_4",
+      "parameter_list": "variant: button_only;\nsrc: audio/fumureOrganique/strategie_5ans_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "note_strategie_5",
+      "value": "@global.note_strategie_5"
     },
     {
       "type": "end_display_group"

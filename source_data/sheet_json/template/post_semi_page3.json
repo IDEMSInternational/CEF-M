@@ -4,27 +4,308 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "value": "IMPORTANT : Gestion des coûts de Post-Semis"
-    },
-    {
-      "type": "audio",
-      "name": "audio_note_fr",
-      "parameter_list": "variant: compact;\nsrc: audio/postSemi/note_form_postsemis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float: right;"
+      "name": "v_current_human",
+      "value": "@calc(Number(@field.current_culture_index) + 1)"
     },
     {
       "type": "begin_display_group",
-      "style_list": "display: block;width: 100%; background: #F4F7FA; border-radius: 12px; padding: 16px; margin-top: 10px;"
+      "name": "header_top",
+      "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
     },
     {
-      "type": "text",
-      "name": "note_formulaire_info_postsems",
-      "value": "@global.note_formulaire_info_postsems",
-      "style_list": "font-size: 16px; line-height: 1.5; color: #333;"
+      "type": "html",
+      "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>"
     },
     {
       "type": "end_display_group"
+    },
+    {
+      "type": "title",
+      "value": "DÉTAILS DE LA CULTURE : FERTILISATION"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #FFCC80; border-radius: 12px; background: white; margin-bottom: 10px; overflow: hidden;"
+    },
+    {
+      "type": "image",
+      "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+      "style_list": "width: 60%; object-fit: contain;"
+    },
+    {
+      "type": "text",
+      "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+      "style_list": "font-weight: bold; font-size: 18px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "v_quantite_npk_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_npk))"
+    },
+    {
+      "name": "v_quantite_npk_pos",
+      "value": "@calc(@local.v_quantite_npk_fmt && Number(@field.quantite_npk) > 0)"
+    },
+    {
+      "name": "v_quantite_npk_err",
+      "value": "@calc(!@local.v_quantite_npk_fmt || Number(@field.quantite_npk) < 0)"
+    },
+    {
+      "type": "html",
+      "value": "<br><b style=\"color: #e67e22\">1. APPORT NPK (Engrais de fond)</b>"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "npk_card",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: button_only;\nsrc: audio/postSemi/q_npk_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<br>Quantité NPK utilisée (Sacs de 50kg)<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "image",
+      "value": "images/sac.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_npk",
+      "value": "@field.quantite_npk",
+      "action_list": "changed | set_field: quantite_npk : this.value;",
+      "parameter_list": "number_input: true; placeholder: 0;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Mettez une valeur positive.",
+      "condition": "@local.v_quantite_npk_err",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "npk_cost_card",
+      "condition": "@local.v_quantite_npk_pos",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: button_only;\nsrc: audio/postSemi/cout_npk_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Coût total NPK payé (Dram)<span style=\"color: red;\">*</span>",
+      "condition": "@field.quantite_npk > 0"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "condition": "@field.quantite_npk > 0\n",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "cout_npk_nonzero",
+      "value": "@field.cout_npk_nonzero",
+      "action_list": "changed | set_field: cout_npk_nonzero : this.value;",
+      "parameter_list": "number_input: true; placeholder: Prix total NPK...;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "cout_npk_zero",
+      "condition": "@field.quantite_npk == 0",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: button_only;\nsrc: audio/postSemi/q_ur_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Coût total NPK payé (Dram)<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "condition": "\n",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "cout_npk_zero",
+      "value": 0,
+      "parameter_list": "disabled:true;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "v_quantite_uree_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_uree))"
+    },
+    {
+      "name": "v_quantite_uree_pos",
+      "value": "@calc(@local.v_quantite_uree_fmt && Number(@field.quantite_uree) > 0)"
+    },
+    {
+      "name": "v_quantite_uree_err",
+      "value": "@calc(!@local.v_quantite_uree_fmt || Number(@field.quantite_uree) < 0)"
+    },
+    {
+      "type": "html",
+      "value": "<br><b style=\"color: #e67e22\">2. APPORT URÉE (Engrais de couverture)</b>"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "uree_group",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "npk_note",
+      "parameter_list": "variant: button_only;\nsrc: audio/postSemi/q_ur_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<br>Quantité Urée utilisée (Sacs de 50kg)<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/sac.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_uree",
+      "value": "@field.quantite_uree",
+      "action_list": "changed | set_field: quantite_uree : this.value;",
+      "parameter_list": "number_input: true; placeholder: 0;"
+    },
+    {
+      "type": "text",
+      "value": "Mettez une valeur positive.",
+      "condition": "@local.v_quantite_uree_err",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "card_cout",
+      "condition": "@local.v_quantite_uree_pos",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "uree_note",
+      "parameter_list": "variant: button_only;\nsrc: audio/postSemi/cout_ur_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Coût total Urée payé (Dram)<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "cout_uree_nonzero",
+      "value": "@field.cout_uree_nonzero",
+      "action_list": "changed | set_field: cout_uree_nonzero : this.value;",
+      "parameter_list": "placeholder: Prix total Urée...; number_input: true;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "card_cout_zero",
+      "condition": "@field.quantite_uree == 0",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: button_only;\nsrc: audio/postSemi/cout_ur_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Coût total Urée payé (Dram)<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "cout_uree_zero",
+      "value": 0,
+      "parameter_list": "disabled:true;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "v_fert_npk_ok",
+      "value": "@calc(@local.v_quantite_npk_fmt && (Number(@field.quantite_npk) === 0 || (Number(@field.cout_npk_nonzero) >= 0 && @field.cout_npk_nonzero !== '')))"
+    },
+    {
+      "name": "v_fert_ur_ok",
+      "value": "@calc(@local.v_quantite_uree_fmt && (Number(@field.quantite_uree) === 0 || (Number(@field.cout_uree_nonzero) >= 0 && @field.cout_uree_nonzero !== '')))"
+    },
+    {
+      "name": "v_total_fert_culture",
+      "value": "@calc((Number(@field.cout_npk_nonzero) || 0) + (Number(@field.cout_uree_nonzero) || 0))"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@calc(@local.v_fert_npk_ok && @local.v_fert_ur_ok)"
     },
     {
       "type": "begin_display_group",
@@ -42,8 +323,8 @@
       "type": "button",
       "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": " click | emit: completed;",
-      "parameter_list": "style: navigation;\n",
+      "action_list": "click | set_field: final_count_fert : @local.v_total_fert_culture;\nclick | emit: completed",
+      "parameter_list": "style: navigation;\ndisabled: !@local.completed_enabled",
       "style_list": "flex: 1"
     },
     {

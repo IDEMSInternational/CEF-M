@@ -4,17 +4,17 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
-      "value": "**REPARTITION DES BESOINS PREVISIONNELS EN CONCENTRES**",
+      "type": "title",
+      "value": "**DEPENSE DE TOURTEAU**",
       "_translations": {
         "value": {}
       },
-      "name": "subtitle_2",
-      "_nested_name": "subtitle_2"
+      "name": "title_2",
+      "_nested_name": "title_2"
     },
     {
       "type": "text",
-      "value": "**La quantité totale de concentré est :** @fields.total_concentre sacs",
+      "value": "@global.note_qtite_tourteau_achete",
       "_translations": {
         "value": {}
       },
@@ -23,22 +23,22 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "**La quantité totale de concentré est :** @fields.total_concentre sacs",
-            "matchedExpression": "@fields.total_concentre",
-            "type": "fields",
-            "fieldName": "total_concentre"
+            "fullExpression": "@global.note_qtite_tourteau_achete",
+            "matchedExpression": "@global.note_qtite_tourteau_achete",
+            "type": "global",
+            "fieldName": "note_qtite_tourteau_achete"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.total_concentre": [
+        "@global.note_qtite_tourteau_achete": [
           "value"
         ]
       }
     },
     {
       "type": "image",
-      "value": "images/Residus.jpg",
+      "value": "images/tourteau.jpg",
       "_translations": {
         "value": {}
       },
@@ -53,16 +53,31 @@
     },
     {
       "type": "html",
-      "value": "<p style=\"color: black;\"> Cette quantité totale peut être en tourteau de coton ou en son de céréales, ou les deux à la fois. </p>",
+      "name": "note_quantite_sac_tourteau",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\nLa quantité de tourteau de coton à acheter: <strong> @fields.quantite_tourteau sacs\n</strong> </div>",
       "_translations": {
         "value": {}
       },
-      "name": "html_5",
-      "_nested_name": "html_5"
+      "_nested_name": "note_quantite_sac_tourteau",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\nLa quantité de tourteau de coton à acheter: <strong> @fields.quantite_tourteau sacs\n</strong> </div>",
+            "matchedExpression": "@fields.quantite_tourteau",
+            "type": "fields",
+            "fieldName": "quantite_tourteau"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_tourteau": [
+          "value"
+        ]
+      }
     },
     {
       "type": "text",
-      "value": "**La quantité de son de céréales dans les @fields.total_concentre sacs de concentrés**",
+      "value": "@global.note_prix_sac_tourteau",
       "_translations": {
         "value": {}
       },
@@ -71,22 +86,31 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "**La quantité de son de céréales dans les @fields.total_concentre sacs de concentrés**",
-            "matchedExpression": "@fields.total_concentre",
-            "type": "fields",
-            "fieldName": "total_concentre"
+            "fullExpression": "@global.note_prix_sac_tourteau",
+            "matchedExpression": "@global.note_prix_sac_tourteau",
+            "type": "global",
+            "fieldName": "note_prix_sac_tourteau"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.total_concentre": [
+        "@global.note_prix_sac_tourteau": [
           "value"
         ]
       }
     },
     {
+      "type": "html",
+      "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_7",
+      "_nested_name": "html_7"
+    },
+    {
       "type": "image",
-      "value": "images/son_cereal.jpg",
+      "value": "images/cfa.jpg",
       "_translations": {
         "value": {}
       },
@@ -96,13 +120,13 @@
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_7",
-      "_nested_name": "image_7"
+      "name": "image_8",
+      "_nested_name": "image_8"
     },
     {
       "type": "text_box",
-      "name": "quantite_son",
-      "value": "@fields.quantite_son",
+      "name": "prix_sac_tourteau",
+      "value": "@fields.prix_sac_tourteau",
       "_translations": {
         "value": {}
       },
@@ -111,30 +135,30 @@
           "trigger": "changed",
           "action_id": "set_field",
           "args": [
-            "quantite_son",
+            "prix_sac_tourteau",
             "this.value"
           ],
-          "_raw": "changed | set_field: quantite_son : this.value"
+          "_raw": "changed | set_field: prix_sac_tourteau : this.value"
         }
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Donnez la quantité de son de céréales"
+        "placeholder": "Donnez le prix d'un sac de sac tourteau"
       },
       "exclude_from_translation": true,
-      "_nested_name": "quantite_son",
+      "_nested_name": "prix_sac_tourteau",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.quantite_son",
-            "matchedExpression": "@fields.quantite_son",
+            "fullExpression": "@fields.prix_sac_tourteau",
+            "matchedExpression": "@fields.prix_sac_tourteau",
             "type": "fields",
-            "fieldName": "quantite_son"
+            "fieldName": "prix_sac_tourteau"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.quantite_son": [
+        "@fields.prix_sac_tourteau": [
           "value"
         ]
       }
@@ -146,7 +170,7 @@
       "_translations": {
         "value": {}
       },
-      "condition": "!@local.quantite_son",
+      "condition": "!@fields.prix_sac_tourteau",
       "_nested_name": "html_text",
       "_dynamicFields": {
         "value": [
@@ -159,10 +183,10 @@
         ],
         "condition": [
           {
-            "fullExpression": "!@local.quantite_son",
-            "matchedExpression": "!@local.quantite_son",
-            "type": "local",
-            "fieldName": "quantite_son"
+            "fullExpression": "!@fields.prix_sac_tourteau",
+            "matchedExpression": "!@fields.prix_sac_tourteau",
+            "type": "fields",
+            "fieldName": "prix_sac_tourteau"
           }
         ]
       },
@@ -170,72 +194,63 @@
         "@global.warning_message": [
           "value"
         ],
-        "!@local.quantite_son": [
+        "!@fields.prix_sac_tourteau": [
           "condition"
         ]
       }
     },
     {
-      "name": "valid_quantite_son",
-      "value": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
+      "name": "valid_prix_sac_tourteau",
+      "value": "@calc((/^\\d+$/.test(@fields.prix_sac_tourteau) && @fields.prix_sac_tourteau > 0 ) || @fields.prix_sac_tourteau == '' || !@fields.prix_sac_tourteau)",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "valid_quantite_son",
+      "_nested_name": "valid_prix_sac_tourteau",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
-            "matchedExpression": "@fields.quantite_son",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.prix_sac_tourteau) && @fields.prix_sac_tourteau > 0 ) || @fields.prix_sac_tourteau == '' || !@fields.prix_sac_tourteau)",
+            "matchedExpression": "@fields.prix_sac_tourteau",
             "type": "fields",
-            "fieldName": "quantite_son"
+            "fieldName": "prix_sac_tourteau"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
-            "matchedExpression": "@fields.quantite_son",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.prix_sac_tourteau) && @fields.prix_sac_tourteau > 0 ) || @fields.prix_sac_tourteau == '' || !@fields.prix_sac_tourteau)",
+            "matchedExpression": "@fields.prix_sac_tourteau",
             "type": "fields",
-            "fieldName": "quantite_son"
+            "fieldName": "prix_sac_tourteau"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
-            "matchedExpression": "@fields.total_concentre",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.prix_sac_tourteau) && @fields.prix_sac_tourteau > 0 ) || @fields.prix_sac_tourteau == '' || !@fields.prix_sac_tourteau)",
+            "matchedExpression": "@fields.prix_sac_tourteau",
             "type": "fields",
-            "fieldName": "total_concentre"
+            "fieldName": "prix_sac_tourteau"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
-            "matchedExpression": "@fields.quantite_son",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.prix_sac_tourteau) && @fields.prix_sac_tourteau > 0 ) || @fields.prix_sac_tourteau == '' || !@fields.prix_sac_tourteau)",
+            "matchedExpression": "!@fields.prix_sac_tourteau",
             "type": "fields",
-            "fieldName": "quantite_son"
+            "fieldName": "prix_sac_tourteau"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
-            "matchedExpression": "!@fields.quantite_son",
-            "type": "fields",
-            "fieldName": "quantite_son"
-          },
-          {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
-            "matchedExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.prix_sac_tourteau) && @fields.prix_sac_tourteau > 0 ) || @fields.prix_sac_tourteau == '' || !@fields.prix_sac_tourteau)",
+            "matchedExpression": "@calc((/^\\d+$/.test(@fields.prix_sac_tourteau) && @fields.prix_sac_tourteau > 0 ) || @fields.prix_sac_tourteau == '' || !@fields.prix_sac_tourteau)",
             "type": "calc",
-            "fieldName": "(/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son "
+            "fieldName": "(/^\\d+$/.test(@fields.prix_sac_tourteau) && @fields.prix_sac_tourteau > 0 ) || @fields.prix_sac_tourteau == '' || !@fields.prix_sac_tourteau"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.quantite_son": [
+        "@fields.prix_sac_tourteau": [
           "value",
           "value",
           "value"
         ],
-        "@fields.total_concentre": [
+        "!@fields.prix_sac_tourteau": [
           "value"
         ],
-        "!@fields.quantite_son": [
-          "value"
-        ],
-        "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )": [
+        "@calc((/^\\d+$/.test(@fields.prix_sac_tourteau) && @fields.prix_sac_tourteau > 0 ) || @fields.prix_sac_tourteau == '' || !@fields.prix_sac_tourteau)": [
           "value"
         ]
       }
@@ -246,14 +261,14 @@
       "_translations": {
         "value": {}
       },
-      "condition": "!@local.valid_quantite_son",
+      "condition": "!@local.valid_prix_sac_tourteau",
       "exclude_from_translation": true,
       "style_list": [
         "color: #FF0000",
         "font-size: 14px"
       ],
-      "name": "text_11",
-      "_nested_name": "text_11",
+      "name": "text_12",
+      "_nested_name": "text_12",
       "_dynamicFields": {
         "value": [
           {
@@ -265,10 +280,10 @@
         ],
         "condition": [
           {
-            "fullExpression": "!@local.valid_quantite_son",
-            "matchedExpression": "!@local.valid_quantite_son",
+            "fullExpression": "!@local.valid_prix_sac_tourteau",
+            "matchedExpression": "!@local.valid_prix_sac_tourteau",
             "type": "local",
-            "fieldName": "valid_quantite_son"
+            "fieldName": "valid_prix_sac_tourteau"
           }
         ]
       },
@@ -276,188 +291,139 @@
         "@global.validite_nombre": [
           "value"
         ],
-        "!@local.valid_quantite_son": [
+        "!@local.valid_prix_sac_tourteau": [
           "condition"
         ]
       }
     },
     {
       "type": "text",
-      "value": "**La quantité de tourteau de coton dans les @fields.total_concentre sacs de concentrés**",
+      "value": "@global.note_montant_tourteau",
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.quantite_son",
-      "name": "text_12",
-      "_nested_name": "text_12",
+      "condition": "@fields.prix_sac_tourteau",
+      "name": "text_13",
+      "_nested_name": "text_13",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "**La quantité de tourteau de coton dans les @fields.total_concentre sacs de concentrés**",
-            "matchedExpression": "@fields.total_concentre",
-            "type": "fields",
-            "fieldName": "total_concentre"
+            "fullExpression": "@global.note_montant_tourteau",
+            "matchedExpression": "@global.note_montant_tourteau",
+            "type": "global",
+            "fieldName": "note_montant_tourteau"
           }
         ],
         "condition": [
           {
-            "fullExpression": "@fields.quantite_son",
-            "matchedExpression": "@fields.quantite_son",
+            "fullExpression": "@fields.prix_sac_tourteau",
+            "matchedExpression": "@fields.prix_sac_tourteau",
             "type": "fields",
-            "fieldName": "quantite_son"
+            "fieldName": "prix_sac_tourteau"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.total_concentre": [
+        "@global.note_montant_tourteau": [
           "value"
         ],
-        "@fields.quantite_son": [
+        "@fields.prix_sac_tourteau": [
           "condition"
         ]
       }
     },
     {
       "type": "html",
-      "value": "<p style=\"color: black;\"> Pour une prévision de @fields.quantite_son sac de son, la quantité restante est le tourteau. </p>",
+      "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>",
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.quantite_son",
-      "name": "html_13",
-      "_nested_name": "html_13",
+      "condition": "@fields.prix_sac_tourteau",
+      "name": "html_14",
+      "_nested_name": "html_14",
       "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<p style=\"color: black;\"> Pour une prévision de @fields.quantite_son sac de son, la quantité restante est le tourteau. </p>",
-            "matchedExpression": "@fields.quantite_son",
-            "type": "fields",
-            "fieldName": "quantite_son"
-          }
-        ],
         "condition": [
           {
-            "fullExpression": "@fields.quantite_son",
-            "matchedExpression": "@fields.quantite_son",
+            "fullExpression": "@fields.prix_sac_tourteau",
+            "matchedExpression": "@fields.prix_sac_tourteau",
             "type": "fields",
-            "fieldName": "quantite_son"
+            "fieldName": "prix_sac_tourteau"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.quantite_son": [
-          "value",
+        "@fields.prix_sac_tourteau": [
           "condition"
         ]
       }
     },
     {
       "type": "image",
-      "value": "images/tourteau.jpg",
+      "value": "images/cfa_tot.jpg",
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.quantite_son",
+      "condition": "@fields.prix_sac_tourteau",
       "style_list": [
         "width:120px",
         "height:120px",
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_14",
-      "_nested_name": "image_14",
+      "name": "image_15",
+      "_nested_name": "image_15",
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@fields.quantite_son",
-            "matchedExpression": "@fields.quantite_son",
+            "fullExpression": "@fields.prix_sac_tourteau",
+            "matchedExpression": "@fields.prix_sac_tourteau",
             "type": "fields",
-            "fieldName": "quantite_son"
+            "fieldName": "prix_sac_tourteau"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.quantite_son": [
+        "@fields.prix_sac_tourteau": [
           "condition"
         ]
       }
     },
     {
       "type": "set_field",
-      "name": "quantite_tourteau",
-      "value": "@calc(Number(@fields.total_concentre) - Number(@fields.quantite_son))",
+      "name": "cal_depense_tourteau",
+      "value": "@calc((Number(@fields.quantite_tourteau || 0) * Number(@fields.prix_sac_tourteau || 0)).toFixed(1))",
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.quantite_son",
-      "_nested_name": "quantite_tourteau",
+      "condition": "@fields.prix_sac_tourteau",
+      "_nested_name": "cal_depense_tourteau",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(Number(@fields.total_concentre) - Number(@fields.quantite_son))",
-            "matchedExpression": "@fields.total_concentre",
-            "type": "fields",
-            "fieldName": "total_concentre"
-          },
-          {
-            "fullExpression": "@calc(Number(@fields.total_concentre) - Number(@fields.quantite_son))",
-            "matchedExpression": "@fields.quantite_son",
-            "type": "fields",
-            "fieldName": "quantite_son"
-          },
-          {
-            "fullExpression": "@calc(Number(@fields.total_concentre) - Number(@fields.quantite_son))",
-            "matchedExpression": "@calc(Number(@fields.total_concentre) - Number(@fields.quantite_son))",
-            "type": "calc",
-            "fieldName": "Number(@fields.total_concentre) - Number(@fields.quantite_son)"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "@fields.quantite_son",
-            "matchedExpression": "@fields.quantite_son",
-            "type": "fields",
-            "fieldName": "quantite_son"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.total_concentre": [
-          "value"
-        ],
-        "@fields.quantite_son": [
-          "value",
-          "condition"
-        ],
-        "@calc(Number(@fields.total_concentre) - Number(@fields.quantite_son))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "html",
-      "name": "note_tourteau",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n La quantité de tourteau de coton est :  <strong> @fields.quantite_tourteau sacs\n</strong> </div>",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.quantite_son",
-      "_nested_name": "note_tourteau",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n La quantité de tourteau de coton est :  <strong> @fields.quantite_tourteau sacs\n</strong> </div>",
+            "fullExpression": "@calc((Number(@fields.quantite_tourteau || 0) * Number(@fields.prix_sac_tourteau || 0)).toFixed(1))",
             "matchedExpression": "@fields.quantite_tourteau",
             "type": "fields",
             "fieldName": "quantite_tourteau"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.quantite_tourteau || 0) * Number(@fields.prix_sac_tourteau || 0)).toFixed(1))",
+            "matchedExpression": "@fields.prix_sac_tourteau",
+            "type": "fields",
+            "fieldName": "prix_sac_tourteau"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.quantite_tourteau || 0) * Number(@fields.prix_sac_tourteau || 0)).toFixed(1))",
+            "matchedExpression": "@calc((Number(@fields.quantite_tourteau || 0) * Number(@fields.prix_sac_tourteau || 0)).toFixed(1))",
+            "type": "calc",
+            "fieldName": "(Number(@fields.quantite_tourteau || 0) * Number(@fields.prix_sac_tourteau || 0)).toFixed(1)"
           }
         ],
         "condition": [
           {
-            "fullExpression": "@fields.quantite_son",
-            "matchedExpression": "@fields.quantite_son",
+            "fullExpression": "@fields.prix_sac_tourteau",
+            "matchedExpression": "@fields.prix_sac_tourteau",
             "type": "fields",
-            "fieldName": "quantite_son"
+            "fieldName": "prix_sac_tourteau"
           }
         ]
       },
@@ -465,8 +431,114 @@
         "@fields.quantite_tourteau": [
           "value"
         ],
-        "@fields.quantite_son": [
+        "@fields.prix_sac_tourteau": [
+          "value",
           "condition"
+        ],
+        "@calc((Number(@fields.quantite_tourteau || 0) * Number(@fields.prix_sac_tourteau || 0)).toFixed(1))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.montant_tourteau",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.prix_sac_tourteau",
+      "style_list": [
+        "background-color: #f0f4f8",
+        "border-left-width: 4px",
+        "border-left-style: solid",
+        "border-left-color: #0056b3"
+      ],
+      "name": "text_17",
+      "_nested_name": "text_17",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.montant_tourteau",
+            "matchedExpression": "@global.montant_tourteau",
+            "type": "global",
+            "fieldName": "montant_tourteau"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.prix_sac_tourteau",
+            "matchedExpression": "@fields.prix_sac_tourteau",
+            "type": "fields",
+            "fieldName": "prix_sac_tourteau"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.montant_tourteau": [
+          "value"
+        ],
+        "@fields.prix_sac_tourteau": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\">@global.hint_montant_tourteau</p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.prix_sac_tourteau",
+      "name": "html_18",
+      "_nested_name": "html_18",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: black;\">@global.hint_montant_tourteau</p>",
+            "matchedExpression": "@global.hint_montant_tourteau",
+            "type": "global",
+            "fieldName": "hint_montant_tourteau"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.prix_sac_tourteau",
+            "matchedExpression": "@fields.prix_sac_tourteau",
+            "type": "fields",
+            "fieldName": "prix_sac_tourteau"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.hint_montant_tourteau": [
+          "value"
+        ],
+        "@fields.prix_sac_tourteau": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@fields.prix_sac_tourteau",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.prix_sac_tourteau",
+            "matchedExpression": "@fields.prix_sac_tourteau",
+            "type": "fields",
+            "fieldName": "prix_sac_tourteau"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.prix_sac_tourteau": [
+          "value"
         ]
       }
     },
@@ -482,7 +554,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page10_button_back",
+          "name": "page12_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -497,11 +569,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_17.page10_button_back"
+          "_nested_name": "display_group_20.page12_button_back"
         },
         {
           "type": "button",
-          "name": "page10_button_continue",
+          "name": "page12_button_continue",
           "value": "Continuer",
           "_translations": {
             "value": {}
@@ -514,81 +586,36 @@
                 "completed"
               ],
               "_raw": "click | emit: completed"
-            }
-          ],
-          "_nested_name": "display_group_17.page10_button_continue"
-        }
-      ],
-      "name": "display_group_17",
-      "_nested_name": "display_group_17"
-    },
-    {
-      "type": "display_group",
-      "value": "",
-      "parameter_list": {
-        "sticky": "bottom"
-      },
-      "style_list": [
-        "padding: 12px 24px"
-      ],
-      "rows": [
-        {
-          "type": "round_button",
-          "name": "page9_button_back",
-          "action_list": [
-            {
-              "trigger": "click",
-              "action_id": "emit",
-              "args": [
-                "uncompleted"
-              ],
-              "_raw": "click | emit: uncompleted"
             }
           ],
           "parameter_list": {
-            "icon_src": "arrow-back",
-            "variant": "no-background"
+            "disabled": "!@local.completed_enabled"
           },
-          "_nested_name": "display_group_19.page9_button_back"
-        },
-        {
-          "type": "button",
-          "name": "page9_button_continue",
-          "value": "Continuer",
-          "_translations": {
-            "value": {}
-          },
-          "action_list": [
-            {
-              "trigger": "click",
-              "action_id": "emit",
-              "args": [
-                "completed"
-              ],
-              "_raw": "click | emit: completed"
-            }
+          "style_list": [
+            "flex: 1"
           ],
-          "condition": "!@local.last_cat_animaux",
-          "_nested_name": "display_group_19.page9_button_continue",
+          "_nested_name": "display_group_20.page12_button_continue",
           "_dynamicFields": {
-            "condition": [
-              {
-                "fullExpression": "!@local.last_cat_animaux",
-                "matchedExpression": "!@local.last_cat_animaux",
-                "type": "local",
-                "fieldName": "last_cat_animaux"
-              }
-            ]
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
-            "!@local.last_cat_animaux": [
-              "condition"
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
             ]
           }
         }
       ],
-      "name": "display_group_19",
-      "_nested_name": "display_group_19"
+      "name": "display_group_20",
+      "_nested_name": "display_group_20"
     }
   ],
   "_source": {

@@ -4,144 +4,119 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
-      "value": "**Semence cultivée dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**"
+      "name": "valid_nbre_arbre",
+      "value": "@calc(/^\\d+$/.test(@fields.nombre_arbre) && Number(@fields.nombre_arbre) >= 0)"
     },
     {
-      "type": "begin_display_group"
+      "name": "valid_nom_arbre",
+      "value": "@calc(Number(@fields.nombre_arbre) === 0 || (Number(@fields.nombre_arbre) > 0 && !!@fields.nom_arbre && @fields.nom_arbre.trim() !== ''))"
     },
     {
-      "type": "text",
-      "value": "**Sélectionnez la date de semis de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle** "
+      "name": "completed_enabled",
+      "value": "@calc(!!@fields.nombre_arbre && @local.valid_nbre_arbre && @local.valid_nom_arbre)"
     },
     {
-      "type": "audio",
-      "name": "audio_9_1",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/date_semence_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float : right;"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "date_time_picker",
-      "name": "date_semis",
-      "action_list": "changed | set_field: date_semis : this.value;",
-      "parameter_list": "type: date"
-    },
-    {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@fields.date_semis"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "text",
-      "value": "**La quantité de semence (kg) de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**"
-    },
-    {
-      "type": "audio",
-      "name": "audio_9_2",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/q_semence_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "image",
-      "value": "images/kg.jpg",
-      "style_list": "width:100px; height:100px; "
-    },
-    {
-      "type": "text",
-      "value": "@global.semence_kg"
-    },
-    {
-      "type": "text_box",
-      "name": "quantite_semence",
-      "value": "@fields.quantite_semence",
-      "action_list": "changed | set_field: quantite_semence : this.value;",
-      "parameter_list": "number_input: true\nplaceholder: Entrez la quantite en kg;",
-      "condition": "!!@fields.quantite_semence",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "text_box",
-      "name": "quantite_semence",
-      "action_list": "changed | set_field: quantite_semence : this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez la quantite en kg;",
-      "condition": "!@field.quantite_semence",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@fields.quantite_semence "
-    },
-    {
-      "name": "valid_quantite_semence",
-      "value": "@calc((/^\\d+$/.test(@local.quantite_semence) && @local.quantite_semence>0 ) || @local.quantite_semence == '' || !@local.quantite_semence )"
-    },
-    {
-      "type": "text",
-      "value": "@global.validite_nombre",
-      "condition": "!@local.valid_quantite_semence",
-      "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 14px"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "text",
-      "value": "**Sélectionnez la source de la semence de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**"
-    },
-    {
-      "type": "audio",
-      "name": "audio_9_3",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/source_semence_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "begin_radio_list",
-      "name": "source_semence",
-      "value": "@fields.source_semence",
-      "action_list": "changed | set_field: source_semence: this.value;"
+      "type": "title",
+      "value": "**La diversité culturale dans la parcelle  N⁰@fields.num_parcelle de @fields.nom_champ**"
     },
     {
       "type": "begin_data_items",
-      "value": "@data.source_semence"
+      "value": "@data.cult_princip",
+      "parameter_list": "filter: @item.name == @fields.cult_princip"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "image",
+      "value": "@item.image",
+      "style_list": "width: 80%; object-fit: contain;\n"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"font-size: 16px; font-weight: bold; color: #1e3656;\">Culture principale : @item.name</span>"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "end_data_items"
     },
     {
-      "type": "end_radio_list"
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%; margin-top: 10px; padding: 10px; background: #f4f7fc;"
+    },
+    {
+      "type": "html",
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Nombre d'arbres présents dans la parcelle :</label>"
+    },
+    {
+      "type": "audio",
+      "name": "audio_10_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/nbre_arbre_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: flex; align-items: center; grid_gap: 15px; margin-top: 10px;"
+    },
+    {
+      "type": "image",
+      "value": "images/arbre.jpg",
+      "style_list": "width: 80%; object-fit: contain;\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_arbre",
+      "value": "@fields.nombre_arbre",
+      "action_list": "changed | set_field: nombre_arbre : this.value;",
+      "parameter_list": "number_input: true\nplaceholder: Entrez le nombre;",
+      "exclude_from_translation": true
     },
     {
       "type": "html",
       "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@fields.source_semence"
+      "value": "<span style=\"color: red; font-size: 13px;\">La réponse est obligatoire !</span>",
+      "style_list": "@fields.attempt_submit_p10 && !@fields.nombre_arbre"
     },
     {
-      "type": "begin_display_group",
-      "condition": "@fields.source_semence == 'semence_autre_source'"
+      "type": "html",
+      "name": "html_text",
+      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez entrer un nombre entier positif ou 0 !</span>",
+      "condition": "!@fields.nombre_arbre",
+      "style_list": "!!@fields.nombre_arbre && !@local.valid_nbre_arbre"
+    },
+    {
+      "name": "valid_nombre_arbre",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_arbre) && @local.nombre_arbre>= 0 ) || @local.nombre_arbre == '' || !@local.nombre_arbre)",
+      "exclude_from_translation": true
     },
     {
       "type": "text",
-      "value": "@global.autre_message"
+      "value": "@global.validite_nombre",
+      "condition": "!@local.valid_nombre_arbre",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.nombre_arbre > 0",
+      "style_list": "display: block; width: 100%; margin-top: 15px; padding: 12px; background: #f8f9fa;"
+    },
+    {
+      "type": "html",
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Écrivez le(s) nom(s) de(s) l'arbre(s) :</label>"
     },
     {
       "type": "audio",
-      "name": "audio_9_4",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/nom_autre_source_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "audio_10_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/nom_arbre_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "style_list": "float : right;"
     },
     {
@@ -149,11 +124,17 @@
     },
     {
       "type": "text_box",
-      "name": "source_semence",
-      "value": "@fields.source_semence",
-      "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom de la source",
-      "condition": "@fields.source_semence == 'semence_autre_source'",
-      "exclude_from_translation_1": true
+      "name": "nom_arbre",
+      "value": "@fields.nom_arbre",
+      "action_list": "changed | set_field: nom_arbre : this.value;",
+      "parameter_list": "placeholder: Entrez le nom de l'arbre;",
+      "condition": "@fields.nombre_arbre > 0"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez préciser le nom de l'arbre !</span>",
+      "condition": "@fields.attempt_submit_p10 && @fields.nombre_arbre > 0 && !@fields.nom_arbre",
+      "exclude_from_translation": true
     },
     {
       "type": "begin_display_group",
@@ -162,21 +143,16 @@
       "exclude_from_translation": "padding: 12px 24px;"
     },
     {
-      "name": "completed_enabled",
-      "value": "@fields.date_semis && @fields.source_semence && @fields.quantite_semence",
-      "exclude_from_translation": true
-    },
-    {
       "type": "round_button",
-      "name": "page9_button_back",
+      "name": "page10_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page9_button_continue",
+      "name": "page10_button_continue",
       "value": "Continuer",
-      "action_list": "click | set_field: @calc('date_semis_parcelle_N' + @fields.num_parcelle) : @fields.date_semis;\nclick | set_field: @calc('source_semence_parcelle_N' + @fields.num_parcelle) : @fields.source_semence;\nclick | set_field: @calc('quantite_semence_parcelle_N' + @fields.num_parcelle) : @fields.quantite_semence;\nclick | emit: completed;",
+      "action_list": "click | set_field: @calc('nombre_arbre_parcelle_N' + @fields.num_parcelle) : @fields.nombre_arbre;\n        click | set_field: @calc('nom_arbre_parcelle_N' + @fields.num_parcelle) : @fields.nom_arbre;\n        click | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled"
     },
     {

@@ -1,0 +1,630 @@
+{
+  "flow_type": "template",
+  "flow_name": "cultures_page20",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "OBSERVATION PLANIFICATION",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_2",
+      "_nested_name": "title_2"
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "html",
+          "name": "type_canal_observ_label",
+          "value": "<span style=\"color: red;\">*</span> Séléctionnez le canal à utiliser pour faire votre observation",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size:20px"
+          ],
+          "_nested_name": "display_group_3.type_canal_observ_label"
+        },
+        {
+          "type": "audio",
+          "name": "audio_20_1",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/canal_obser_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_3.audio_20_1"
+        }
+      ],
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "type_canal_observ",
+      "value": "@fields.type_canal_observ",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "type_canal_observ",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : type_canal_observ: this.value"
+        }
+      ],
+      "parameter_list": {
+        "answer_list": "@data.group_observation",
+        "variant": "flex",
+        "item_width": "60px",
+        "grid_gap": "8px"
+      },
+      "_nested_name": "type_canal_observ",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.type_canal_observ",
+            "matchedExpression": "@fields.type_canal_observ",
+            "type": "fields",
+            "fieldName": "type_canal_observ"
+          }
+        ],
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@data.group_observation",
+              "matchedExpression": "@data.group_observation",
+              "type": "data",
+              "fieldName": "group_observation"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_observ": [
+          "value"
+        ],
+        "@data.group_observation": [
+          "parameter_list.answer_list"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.warning_message",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@fields.type_canal_observ",
+      "style_list": [
+        "color: red",
+        "font-size: 16px"
+      ],
+      "name": "text_6",
+      "_nested_name": "text_6",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.warning_message",
+            "matchedExpression": "@global.warning_message",
+            "type": "global",
+            "fieldName": "warning_message"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@fields.type_canal_observ",
+            "matchedExpression": "!@fields.type_canal_observ",
+            "type": "fields",
+            "fieldName": "type_canal_observ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.warning_message": [
+          "value"
+        ],
+        "!@fields.type_canal_observ": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "Les cultures prevues: @fields.culture_list_all",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_7",
+      "_nested_name": "text_7",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "Les cultures prevues: @fields.culture_list_all",
+            "matchedExpression": "@fields.culture_list_all",
+            "type": "fields",
+            "fieldName": "culture_list_all"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.culture_list_all": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_observ == \"par_text\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_text_label",
+          "value": "@global.info_text_label",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_8.info_text_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.info_text_label",
+                "matchedExpression": "@global.info_text_label",
+                "type": "global",
+                "fieldName": "info_text_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.info_text_label": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_20_2",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/oberv_ecrit_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_8.audio_20_2"
+        }
+      ],
+      "name": "display_group_8",
+      "_nested_name": "display_group_8",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_observ == \"par_text\"",
+            "matchedExpression": "@fields.type_canal_observ",
+            "type": "fields",
+            "fieldName": "type_canal_observ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_observ": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_area",
+      "name": "info_text",
+      "value": "@fields.info_text",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "info_text",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : info_text: this.value"
+        }
+      ],
+      "parameter_list": {
+        "placeholder": "Info par écrit"
+      },
+      "condition": "@fields.type_canal_observ == \"par_text\"",
+      "_nested_name": "info_text",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.info_text",
+            "matchedExpression": "@fields.info_text",
+            "type": "fields",
+            "fieldName": "info_text"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_observ == \"par_text\"",
+            "matchedExpression": "@fields.type_canal_observ",
+            "type": "fields",
+            "fieldName": "type_canal_observ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.info_text": [
+          "value"
+        ],
+        "@fields.type_canal_observ": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_observ == \"par_video\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_video_label",
+          "value": "@global.info_video_label",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_11.info_video_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.info_video_label",
+                "matchedExpression": "@global.info_video_label",
+                "type": "global",
+                "fieldName": "info_video_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.info_video_label": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_20_3",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/oberv_vid_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_11.audio_20_3"
+        }
+      ],
+      "name": "display_group_11",
+      "_nested_name": "display_group_11",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_observ == \"par_video\"",
+            "matchedExpression": "@fields.type_canal_observ",
+            "type": "fields",
+            "fieldName": "type_canal_observ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_observ": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "info_video",
+      "value": "We would need a video recorder here",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.type_canal_observ == \"par_video\"",
+      "_nested_name": "info_video",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_observ == \"par_video\"",
+            "matchedExpression": "@fields.type_canal_observ",
+            "type": "fields",
+            "fieldName": "type_canal_observ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_observ": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_observ == \"par_vocal\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_audio_label",
+          "value": "@global.info_audio_label",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_14.info_audio_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.info_audio_label",
+                "matchedExpression": "@global.info_audio_label",
+                "type": "global",
+                "fieldName": "info_audio_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.info_audio_label": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_20_4",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/oberv_audio_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_14.audio_20_4"
+        }
+      ],
+      "name": "display_group_14",
+      "_nested_name": "display_group_14",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_observ == \"par_vocal\"",
+            "matchedExpression": "@fields.type_canal_observ",
+            "type": "fields",
+            "fieldName": "type_canal_observ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_observ": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "info_audio",
+      "value": "We would need a audio recorder here",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.type_canal_observ == \"par_vocal\"",
+      "_nested_name": "info_audio",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_observ == \"par_vocal\"",
+            "matchedExpression": "@fields.type_canal_observ",
+            "type": "fields",
+            "fieldName": "type_canal_observ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_observ": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_observ == \"par_photo\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_image_label",
+          "value": "@global.info_image_label",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_17.info_image_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.info_image_label",
+                "matchedExpression": "@global.info_image_label",
+                "type": "global",
+                "fieldName": "info_image_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.info_image_label": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_20_5",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/oberv_phot_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_17.audio_20_5"
+        }
+      ],
+      "name": "display_group_17",
+      "_nested_name": "display_group_17",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_observ == \"par_photo\"",
+            "matchedExpression": "@fields.type_canal_observ",
+            "type": "fields",
+            "fieldName": "type_canal_observ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_observ": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "info_image",
+      "value": "We would need a camera here",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.type_canal_observ == \"par_photo\"",
+      "_nested_name": "info_image",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_observ == \"par_photo\"",
+            "matchedExpression": "@fields.type_canal_observ",
+            "type": "fields",
+            "fieldName": "type_canal_observ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_observ": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "!!@local.type_canal_observ",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "!!@local.type_canal_observ",
+            "matchedExpression": "!@local.type_canal_observ",
+            "type": "local",
+            "fieldName": "type_canal_observ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.type_canal_observ": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page_20_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "display_group_21.page_20_button_back"
+        },
+        {
+          "type": "button",
+          "name": "page_20_button_continue",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_21.page_20_button_continue",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_21",
+      "_nested_name": "display_group_21"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Cultures_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1BAP12cPkFZaHtm0Xozys0kLOqnVOi1h2UUBMoZbmKQI"
+  }
+}

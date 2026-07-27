@@ -4,973 +4,509 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
-      "value": "**SOINS VETERINAIRES**",
+      "type": "title",
+      "value": "**REPARTITION DES BESOINS PREVISIONNELS EN CONCENTRES**",
       "_translations": {
         "value": {}
       },
-      "name": "subtitle_2",
-      "_nested_name": "subtitle_2"
+      "name": "title_2",
+      "_nested_name": "title_2"
     },
     {
-      "type": "data_items",
-      "value": "@data.categorie_animaux",
-      "parameter_list": {
-        "filter": "@item.name == @fields.current_cat_animaux"
+      "type": "text",
+      "value": "@global.note_total_concentre",
+      "_translations": {
+        "value": {}
       },
-      "rows": [
+      "name": "text_3",
+      "_nested_name": "text_3",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.note_total_concentre",
+            "matchedExpression": "@global.note_total_concentre",
+            "type": "global",
+            "fieldName": "note_total_concentre"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_total_concentre": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "value": "images/Residus.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_4",
+      "_nested_name": "image_4"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\"> @global.hint_total_concentre </p>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_5",
+      "_nested_name": "html_5",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: black;\"> @global.hint_total_concentre </p>",
+            "matchedExpression": "@global.hint_total_concentre",
+            "type": "global",
+            "fieldName": "hint_total_concentre"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.hint_total_concentre": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.note_qtite_son",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_6",
+      "_nested_name": "text_6",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.note_qtite_son",
+            "matchedExpression": "@global.note_qtite_son",
+            "type": "global",
+            "fieldName": "note_qtite_son"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_qtite_son": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "value": "images/son_cereal.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_7",
+      "_nested_name": "image_7"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_son",
+      "value": "@fields.quantite_son",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
         {
-          "type": "display_group",
-          "rows": [
-            {
-              "type": "text",
-              "value": "@item.text: @fields.nb_animaux tête(s)",
-              "_translations": {
-                "value": {}
-              },
-              "name": "text_1",
-              "_nested_name": "data_items_3.display_group_1_@item.id.text_1",
-              "_dynamicFields": {
-                "value": [
-                  {
-                    "fullExpression": "@item.text: @fields.nb_animaux tête(s)",
-                    "matchedExpression": "@item.text",
-                    "type": "item",
-                    "fieldName": "text"
-                  },
-                  {
-                    "fullExpression": "@item.text: @fields.nb_animaux tête(s)",
-                    "matchedExpression": "@fields.nb_animaux",
-                    "type": "fields",
-                    "fieldName": "nb_animaux"
-                  }
-                ],
-                "_nested_name": [
-                  {
-                    "fullExpression": "data_items_3.display_group_1_@item.id.text_1",
-                    "matchedExpression": "@item.id.text_1",
-                    "type": "item",
-                    "fieldName": "id"
-                  }
-                ]
-              },
-              "_dynamicDependencies": {
-                "@item.text": [
-                  "value"
-                ],
-                "@fields.nb_animaux": [
-                  "value"
-                ],
-                "@item.id.text_1": [
-                  "_nested_name"
-                ]
-              }
-            },
-            {
-              "type": "image",
-              "value": "@item.image",
-              "_translations": {
-                "value": {}
-              },
-              "style_list": [
-                "width:150px",
-                "height:150px"
-              ],
-              "name": "image_2",
-              "_nested_name": "data_items_3.display_group_1_@item.id.image_2",
-              "_dynamicFields": {
-                "value": [
-                  {
-                    "fullExpression": "@item.image",
-                    "matchedExpression": "@item.image",
-                    "type": "item",
-                    "fieldName": "image"
-                  }
-                ],
-                "_nested_name": [
-                  {
-                    "fullExpression": "data_items_3.display_group_1_@item.id.image_2",
-                    "matchedExpression": "@item.id.image_2",
-                    "type": "item",
-                    "fieldName": "id"
-                  }
-                ]
-              },
-              "_dynamicDependencies": {
-                "@item.image": [
-                  "value"
-                ],
-                "@item.id.image_2": [
-                  "_nested_name"
-                ]
-              }
-            }
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "quantite_son",
+            "this.value"
           ],
-          "name": "display_group_1_@item.id",
-          "_nested_name": "data_items_3.display_group_1_@item.id",
-          "_dynamicFields": {
-            "name": [
-              {
-                "fullExpression": "display_group_1_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ],
-            "_nested_name": [
-              {
-                "fullExpression": "data_items_3.display_group_1_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@item.id": [
-              "name",
-              "_nested_name"
-            ]
-          }
-        },
-        {
-          "type": "text",
-          "name": "note_soins_veto",
-          "value": "Traitement et vacination",
-          "_translations": {
-            "value": {}
-          },
-          "_nested_name": "data_items_3.note_soins_veto"
-        },
-        {
-          "type": "image",
-          "value": "images/soins_veto.jpg",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "width:120px",
-            "height:120px",
-            "object-fit:contain",
-            "flex-shrink:0"
-          ],
-          "name": "image_3_@item.id",
-          "_nested_name": "data_items_3.image_3_@item.id",
-          "_dynamicFields": {
-            "name": [
-              {
-                "fullExpression": "image_3_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ],
-            "_nested_name": [
-              {
-                "fullExpression": "data_items_3.image_3_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@item.id": [
-              "name",
-              "_nested_name"
-            ]
-          }
-        },
-        {
-          "type": "html",
-          "value": "<p style=\"color: black;\"> Donnez le prix unitaire du soins vétérinaire pour une tête de @item.text . Il s'agit des frais de medicaments et de préstations vétérinaires.</p>",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_4_@item.id",
-          "_nested_name": "data_items_3.html_4_@item.id",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "<p style=\"color: black;\"> Donnez le prix unitaire du soins vétérinaire pour une tête de @item.text . Il s'agit des frais de medicaments et de préstations vétérinaires.</p>",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
-              }
-            ],
-            "name": [
-              {
-                "fullExpression": "html_4_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ],
-            "_nested_name": [
-              {
-                "fullExpression": "data_items_3.html_4_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@item.text": [
-              "value"
-            ],
-            "@item.id": [
-              "name",
-              "_nested_name"
-            ]
-          }
-        },
-        {
-          "type": "image",
-          "value": "images/cfa.jpg",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "width:120px",
-            "height:120px",
-            "object-fit:contain",
-            "flex-shrink:0"
-          ],
-          "name": "image_5_@item.id",
-          "_nested_name": "data_items_3.image_5_@item.id",
-          "_dynamicFields": {
-            "name": [
-              {
-                "fullExpression": "image_5_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ],
-            "_nested_name": [
-              {
-                "fullExpression": "data_items_3.image_5_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@item.id": [
-              "name",
-              "_nested_name"
-            ]
-          }
-        },
-        {
-          "type": "text_box",
-          "name": "frais_veterinaire_tete",
-          "value": "@fields.frais_veterinaire_tete",
-          "_translations": {
-            "value": {}
-          },
-          "action_list": [
-            {
-              "trigger": "changed",
-              "action_id": "set_field",
-              "args": [
-                "frais_veterinaire_tete",
-                "this.value"
-              ],
-              "_raw": "changed | set_field: frais_veterinaire_tete : this.value"
-            }
-          ],
-          "parameter_list": {
-            "number_input": "true\nplaceholder"
-          },
-          "exclude_from_translation": true,
-          "_nested_name": "data_items_3.frais_veterinaire_tete",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@fields.frais_veterinaire_tete",
-                "matchedExpression": "@fields.frais_veterinaire_tete",
-                "type": "fields",
-                "fieldName": "frais_veterinaire_tete"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@fields.frais_veterinaire_tete": [
-              "value"
-            ]
-          }
-        },
-        {
-          "type": "html",
-          "name": "html_text",
-          "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "!@local.frais_veterinaire_tete",
-          "_nested_name": "data_items_3.html_text",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
-                "matchedExpression": "@global.warning_message",
-                "type": "global",
-                "fieldName": "warning_message"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "!@local.frais_veterinaire_tete",
-                "matchedExpression": "!@local.frais_veterinaire_tete",
-                "type": "local",
-                "fieldName": "frais_veterinaire_tete"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@global.warning_message": [
-              "value"
-            ],
-            "!@local.frais_veterinaire_tete": [
-              "condition"
-            ]
-          }
-        },
-        {
-          "name": "valid_frais_veterinaire_tete",
-          "value": "@calc((/^\\d+$/.test(@local.frais_veterinaire_tete) && @local.frais_veterinaire_tete>0 ) || @local.frais_veterinaire_tete == '' || !@local.frais_veterinaire_tete )",
-          "_translations": {
-            "value": {}
-          },
-          "type": "set_variable",
-          "_nested_name": "data_items_3.valid_frais_veterinaire_tete",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@calc((/^\\d+$/.test(@local.frais_veterinaire_tete) && @local.frais_veterinaire_tete>0 ) || @local.frais_veterinaire_tete == '' || !@local.frais_veterinaire_tete )",
-                "matchedExpression": "@local.frais_veterinaire_tete",
-                "type": "local",
-                "fieldName": "frais_veterinaire_tete"
-              },
-              {
-                "fullExpression": "@calc((/^\\d+$/.test(@local.frais_veterinaire_tete) && @local.frais_veterinaire_tete>0 ) || @local.frais_veterinaire_tete == '' || !@local.frais_veterinaire_tete )",
-                "matchedExpression": "@local.frais_veterinaire_tete",
-                "type": "local",
-                "fieldName": "frais_veterinaire_tete"
-              },
-              {
-                "fullExpression": "@calc((/^\\d+$/.test(@local.frais_veterinaire_tete) && @local.frais_veterinaire_tete>0 ) || @local.frais_veterinaire_tete == '' || !@local.frais_veterinaire_tete )",
-                "matchedExpression": "@local.frais_veterinaire_tete",
-                "type": "local",
-                "fieldName": "frais_veterinaire_tete"
-              },
-              {
-                "fullExpression": "@calc((/^\\d+$/.test(@local.frais_veterinaire_tete) && @local.frais_veterinaire_tete>0 ) || @local.frais_veterinaire_tete == '' || !@local.frais_veterinaire_tete )",
-                "matchedExpression": "!@local.frais_veterinaire_tete",
-                "type": "local",
-                "fieldName": "frais_veterinaire_tete"
-              },
-              {
-                "fullExpression": "@calc((/^\\d+$/.test(@local.frais_veterinaire_tete) && @local.frais_veterinaire_tete>0 ) || @local.frais_veterinaire_tete == '' || !@local.frais_veterinaire_tete )",
-                "matchedExpression": "@calc((/^\\d+$/.test(@local.frais_veterinaire_tete) && @local.frais_veterinaire_tete>0 ) || @local.frais_veterinaire_tete == '' || !@local.frais_veterinaire_tete )",
-                "type": "calc",
-                "fieldName": "(/^\\d+$/.test(@local.frais_veterinaire_tete) && @local.frais_veterinaire_tete>0 ) || @local.frais_veterinaire_tete == '' || !@local.frais_veterinaire_tete "
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@local.frais_veterinaire_tete": [
-              "value",
-              "value",
-              "value"
-            ],
-            "!@local.frais_veterinaire_tete": [
-              "value"
-            ],
-            "@calc((/^\\d+$/.test(@local.frais_veterinaire_tete) && @local.frais_veterinaire_tete>0 ) || @local.frais_veterinaire_tete == '' || !@local.frais_veterinaire_tete )": [
-              "value"
-            ]
-          }
-        },
-        {
-          "type": "text",
-          "value": "@global.validite_nombre",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "!@local.valid_frais_veterinaire_tete",
-          "exclude_from_translation": true,
-          "style_list": [
-            "color: #FF0000",
-            "font-size: 14px"
-          ],
-          "name": "text_9_@item.id",
-          "_nested_name": "data_items_3.text_9_@item.id",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@global.validite_nombre",
-                "matchedExpression": "@global.validite_nombre",
-                "type": "global",
-                "fieldName": "validite_nombre"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "!@local.valid_frais_veterinaire_tete",
-                "matchedExpression": "!@local.valid_frais_veterinaire_tete",
-                "type": "local",
-                "fieldName": "valid_frais_veterinaire_tete"
-              }
-            ],
-            "name": [
-              {
-                "fullExpression": "text_9_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ],
-            "_nested_name": [
-              {
-                "fullExpression": "data_items_3.text_9_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@global.validite_nombre": [
-              "value"
-            ],
-            "!@local.valid_frais_veterinaire_tete": [
-              "condition"
-            ],
-            "@item.id": [
-              "name",
-              "_nested_name"
-            ]
-          }
-        },
-        {
-          "type": "text",
-          "value": "Les frais totaux prévisionnels de soins vétérinaires",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "@fields.frais_veterinaire_tete > 0",
-          "name": "text_10_@item.id",
-          "_nested_name": "data_items_3.text_10_@item.id",
-          "_dynamicFields": {
-            "condition": [
-              {
-                "fullExpression": "@fields.frais_veterinaire_tete > 0",
-                "matchedExpression": "@fields.frais_veterinaire_tete",
-                "type": "fields",
-                "fieldName": "frais_veterinaire_tete"
-              }
-            ],
-            "name": [
-              {
-                "fullExpression": "text_10_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ],
-            "_nested_name": [
-              {
-                "fullExpression": "data_items_3.text_10_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@fields.frais_veterinaire_tete": [
-              "condition"
-            ],
-            "@item.id": [
-              "name",
-              "_nested_name"
-            ]
-          }
-        },
-        {
-          "type": "set_field",
-          "name": "frais_veterinaire_cat",
-          "value": "@calc((Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0)))",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "@fields.frais_veterinaire_tete > 0",
-          "_nested_name": "data_items_3.frais_veterinaire_cat",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@calc((Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0)))",
-                "matchedExpression": "@fields.frais_veterinaire_tete",
-                "type": "fields",
-                "fieldName": "frais_veterinaire_tete"
-              },
-              {
-                "fullExpression": "@calc((Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0)))",
-                "matchedExpression": "@fields.nb_animaux",
-                "type": "fields",
-                "fieldName": "nb_animaux"
-              },
-              {
-                "fullExpression": "@calc((Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0)))",
-                "matchedExpression": "@calc((Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0)))",
-                "type": "calc",
-                "fieldName": "(Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0))"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "@fields.frais_veterinaire_tete > 0",
-                "matchedExpression": "@fields.frais_veterinaire_tete",
-                "type": "fields",
-                "fieldName": "frais_veterinaire_tete"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@fields.frais_veterinaire_tete": [
-              "value",
-              "condition"
-            ],
-            "@fields.nb_animaux": [
-              "value"
-            ],
-            "@calc((Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0)))": [
-              "value"
-            ]
-          }
-        },
-        {
-          "type": "image",
-          "value": "images/cfa_tot.jpg",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "@fields.frais_veterinaire_tete > 0",
-          "style_list": [
-            "width:120px",
-            "height:120px",
-            "object-fit:contain",
-            "flex-shrink:0"
-          ],
-          "name": "image_12_@item.id",
-          "_nested_name": "data_items_3.image_12_@item.id",
-          "_dynamicFields": {
-            "condition": [
-              {
-                "fullExpression": "@fields.frais_veterinaire_tete > 0",
-                "matchedExpression": "@fields.frais_veterinaire_tete",
-                "type": "fields",
-                "fieldName": "frais_veterinaire_tete"
-              }
-            ],
-            "name": [
-              {
-                "fullExpression": "image_12_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ],
-            "_nested_name": [
-              {
-                "fullExpression": "data_items_3.image_12_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@fields.frais_veterinaire_tete": [
-              "condition"
-            ],
-            "@item.id": [
-              "name",
-              "_nested_name"
-            ]
-          }
-        },
-        {
-          "type": "text",
-          "name": "note_totaux",
-          "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n Les frais totaux pour le(s) @fields.nb_animaux tête (s) de @item.text sont :  <strong> @fields.frais_veterinaire_cat drm\n</strong> </div>",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "@fields.frais_veterinaire_tete > 0",
-          "_nested_name": "data_items_3.note_totaux",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n Les frais totaux pour le(s) @fields.nb_animaux tête (s) de @item.text sont :  <strong> @fields.frais_veterinaire_cat drm\n</strong> </div>",
-                "matchedExpression": "@fields.nb_animaux",
-                "type": "fields",
-                "fieldName": "nb_animaux"
-              },
-              {
-                "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n Les frais totaux pour le(s) @fields.nb_animaux tête (s) de @item.text sont :  <strong> @fields.frais_veterinaire_cat drm\n</strong> </div>",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
-              },
-              {
-                "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n Les frais totaux pour le(s) @fields.nb_animaux tête (s) de @item.text sont :  <strong> @fields.frais_veterinaire_cat drm\n</strong> </div>",
-                "matchedExpression": "@fields.frais_veterinaire_cat",
-                "type": "fields",
-                "fieldName": "frais_veterinaire_cat"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "@fields.frais_veterinaire_tete > 0",
-                "matchedExpression": "@fields.frais_veterinaire_tete",
-                "type": "fields",
-                "fieldName": "frais_veterinaire_tete"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@fields.nb_animaux": [
-              "value"
-            ],
-            "@item.text": [
-              "value"
-            ],
-            "@fields.frais_veterinaire_cat": [
-              "value"
-            ],
-            "@fields.frais_veterinaire_tete": [
-              "condition"
-            ]
-          }
-        },
-        {
-          "condition": "@fields.frais_veterinaire_tete > 0",
-          "name": "undefined_14_@item.id",
-          "type": "set_variable",
-          "_nested_name": "data_items_3.undefined_14_@item.id",
-          "_dynamicFields": {
-            "condition": [
-              {
-                "fullExpression": "@fields.frais_veterinaire_tete > 0",
-                "matchedExpression": "@fields.frais_veterinaire_tete",
-                "type": "fields",
-                "fieldName": "frais_veterinaire_tete"
-              }
-            ],
-            "name": [
-              {
-                "fullExpression": "undefined_14_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ],
-            "_nested_name": [
-              {
-                "fullExpression": "data_items_3.undefined_14_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@fields.frais_veterinaire_tete": [
-              "condition"
-            ],
-            "@item.id": [
-              "name",
-              "_nested_name"
-            ]
-          }
-        },
-        {
-          "type": "text",
-          "name": "note_hint",
-          "value": "Ce montant est obtenu en multipliant le prix unitaire de soins (@fields.frais_veterinaire_tete drm) par le nombre d'animaux @fields.nb_animaux de @item.text",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "@fields.frais_veterinaire_tete > 0",
-          "style_list": [
-            "font-size: 14px"
-          ],
-          "_nested_name": "data_items_3.note_hint",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "Ce montant est obtenu en multipliant le prix unitaire de soins (@fields.frais_veterinaire_tete drm) par le nombre d'animaux @fields.nb_animaux de @item.text",
-                "matchedExpression": "@fields.frais_veterinaire_tete",
-                "type": "fields",
-                "fieldName": "frais_veterinaire_tete"
-              },
-              {
-                "fullExpression": "Ce montant est obtenu en multipliant le prix unitaire de soins (@fields.frais_veterinaire_tete drm) par le nombre d'animaux @fields.nb_animaux de @item.text",
-                "matchedExpression": "@fields.nb_animaux",
-                "type": "fields",
-                "fieldName": "nb_animaux"
-              },
-              {
-                "fullExpression": "Ce montant est obtenu en multipliant le prix unitaire de soins (@fields.frais_veterinaire_tete drm) par le nombre d'animaux @fields.nb_animaux de @item.text",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "@fields.frais_veterinaire_tete > 0",
-                "matchedExpression": "@fields.frais_veterinaire_tete",
-                "type": "fields",
-                "fieldName": "frais_veterinaire_tete"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@fields.frais_veterinaire_tete": [
-              "value",
-              "condition"
-            ],
-            "@fields.nb_animaux": [
-              "value"
-            ],
-            "@item.text": [
-              "value"
-            ]
-          }
+          "_raw": "changed | set_field: quantite_son : this.value"
         }
       ],
-      "name": "data_items_3",
-      "_nested_name": "data_items_3",
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Donnez la quantité de son de céréales"
+      },
+      "exclude_from_translation": true,
+      "_nested_name": "quantite_son",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@data.categorie_animaux",
-            "matchedExpression": "@data.categorie_animaux",
-            "type": "data",
-            "fieldName": "categorie_animaux"
-          }
-        ],
-        "parameter_list": {
-          "filter": [
-            {
-              "fullExpression": "@item.name == @fields.current_cat_animaux",
-              "matchedExpression": "@item.name",
-              "type": "item",
-              "fieldName": "name"
-            },
-            {
-              "fullExpression": "@item.name == @fields.current_cat_animaux",
-              "matchedExpression": "@fields.current_cat_animaux",
-              "type": "fields",
-              "fieldName": "current_cat_animaux"
-            }
-          ]
-        }
-      },
-      "_dynamicDependencies": {
-        "@data.categorie_animaux": [
-          "value"
-        ],
-        "@item.name": [
-          "parameter_list.filter"
-        ],
-        "@fields.current_cat_animaux": [
-          "parameter_list.filter"
-        ]
-      }
-    },
-    {
-      "name": "last_cat_animaux",
-      "value": "@calc((Number(@fields.cat_animaux_loop_idx) + 1) < Number(@fields.cat_animaux_selected_count))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "last_cat_animaux",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc((Number(@fields.cat_animaux_loop_idx) + 1) < Number(@fields.cat_animaux_selected_count))",
-            "matchedExpression": "@fields.cat_animaux_loop_idx",
+            "fullExpression": "@fields.quantite_son",
+            "matchedExpression": "@fields.quantite_son",
             "type": "fields",
-            "fieldName": "cat_animaux_loop_idx"
-          },
-          {
-            "fullExpression": "@calc((Number(@fields.cat_animaux_loop_idx) + 1) < Number(@fields.cat_animaux_selected_count))",
-            "matchedExpression": "@fields.cat_animaux_selected_count",
-            "type": "fields",
-            "fieldName": "cat_animaux_selected_count"
-          },
-          {
-            "fullExpression": "@calc((Number(@fields.cat_animaux_loop_idx) + 1) < Number(@fields.cat_animaux_selected_count))",
-            "matchedExpression": "@calc((Number(@fields.cat_animaux_loop_idx) + 1) < Number(@fields.cat_animaux_selected_count))",
-            "type": "calc",
-            "fieldName": "(Number(@fields.cat_animaux_loop_idx) + 1) < Number(@fields.cat_animaux_selected_count)"
+            "fieldName": "quantite_son"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.cat_animaux_loop_idx": [
-          "value"
-        ],
-        "@fields.cat_animaux_selected_count": [
-          "value"
-        ],
-        "@calc((Number(@fields.cat_animaux_loop_idx) + 1) < Number(@fields.cat_animaux_selected_count))": [
+        "@fields.quantite_son": [
           "value"
         ]
       }
     },
     {
-      "name": "cat_animaux_loop_idx",
-      "value": "@calc(Number(@fields.cat_animaux_loop_idx) + 1)",
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
       "_translations": {
         "value": {}
       },
-      "type": "set_variable",
-      "_nested_name": "cat_animaux_loop_idx",
+      "condition": "!@local.quantite_son",
+      "_nested_name": "html_text",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(Number(@fields.cat_animaux_loop_idx) + 1)",
-            "matchedExpression": "@fields.cat_animaux_loop_idx",
-            "type": "fields",
-            "fieldName": "cat_animaux_loop_idx"
-          },
-          {
-            "fullExpression": "@calc(Number(@fields.cat_animaux_loop_idx) + 1)",
-            "matchedExpression": "@calc(Number(@fields.cat_animaux_loop_idx) + 1)",
-            "type": "calc",
-            "fieldName": "Number(@fields.cat_animaux_loop_idx) + 1"
+            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "matchedExpression": "@global.warning_message",
+            "type": "global",
+            "fieldName": "warning_message"
           }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.cat_animaux_loop_idx": [
-          "value"
         ],
-        "@calc(Number(@fields.cat_animaux_loop_idx) + 1)": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "current_cat_animaux",
-      "value": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "current_cat_animaux",
-      "_dynamicFields": {
-        "value": [
+        "condition": [
           {
-            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
-            "matchedExpression": "@fields.boeufs_labour",
-            "type": "fields",
-            "fieldName": "boeufs_labour"
-          },
-          {
-            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
-            "matchedExpression": "@fields.embouche_bovine",
-            "type": "fields",
-            "fieldName": "embouche_bovine"
-          },
-          {
-            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
-            "matchedExpression": "@fields.vache_laitiere",
-            "type": "fields",
-            "fieldName": "vache_laitiere"
-          },
-          {
-            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
-            "matchedExpression": "@fields.autres_bovins",
-            "type": "fields",
-            "fieldName": "autres_bovins"
-          },
-          {
-            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
-            "matchedExpression": "@fields.asins",
-            "type": "fields",
-            "fieldName": "asins"
-          },
-          {
-            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
-            "matchedExpression": "@fields.embouche_ovine",
-            "type": "fields",
-            "fieldName": "embouche_ovine"
-          },
-          {
-            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
-            "matchedExpression": "@fields.reste_ovins",
-            "type": "fields",
-            "fieldName": "reste_ovins"
-          },
-          {
-            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
-            "matchedExpression": "@fields.caprins",
-            "type": "fields",
-            "fieldName": "caprins"
-          },
-          {
-            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
-            "matchedExpression": "@local.cat_animaux_loop_idx",
+            "fullExpression": "!@local.quantite_son",
+            "matchedExpression": "!@local.quantite_son",
             "type": "local",
-            "fieldName": "cat_animaux_loop_idx"
-          },
-          {
-            "fullExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
-            "matchedExpression": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')",
-            "type": "calc",
-            "fieldName": "[@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || ''"
+            "fieldName": "quantite_son"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.boeufs_labour": [
+        "@global.warning_message": [
           "value"
         ],
-        "@fields.embouche_bovine": [
+        "!@local.quantite_son": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "valid_quantite_son",
+      "value": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_quantite_son",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
+            "matchedExpression": "@fields.quantite_son",
+            "type": "fields",
+            "fieldName": "quantite_son"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
+            "matchedExpression": "@fields.quantite_son",
+            "type": "fields",
+            "fieldName": "quantite_son"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
+            "matchedExpression": "@fields.total_concentre",
+            "type": "fields",
+            "fieldName": "total_concentre"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
+            "matchedExpression": "@fields.quantite_son",
+            "type": "fields",
+            "fieldName": "quantite_son"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
+            "matchedExpression": "!@fields.quantite_son",
+            "type": "fields",
+            "fieldName": "quantite_son"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
+            "matchedExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
+            "type": "calc",
+            "fieldName": "(/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son "
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_son": [
+          "value",
+          "value",
           "value"
         ],
-        "@fields.vache_laitiere": [
+        "@fields.total_concentre": [
           "value"
         ],
-        "@fields.autres_bovins": [
+        "!@fields.quantite_son": [
           "value"
         ],
-        "@fields.asins": [
+        "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.valid_quantite_son",
+      "exclude_from_translation": true,
+      "style_list": [
+        "color: #FF0000",
+        "font-size: 14px"
+      ],
+      "name": "text_11",
+      "_nested_name": "text_11",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.validite_nombre",
+            "matchedExpression": "@global.validite_nombre",
+            "type": "global",
+            "fieldName": "validite_nombre"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.valid_quantite_son",
+            "matchedExpression": "!@local.valid_quantite_son",
+            "type": "local",
+            "fieldName": "valid_quantite_son"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.validite_nombre": [
           "value"
         ],
-        "@fields.embouche_ovine": [
+        "!@local.valid_quantite_son": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.note_qtite_tourteau",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.quantite_son > 0",
+      "name": "text_12",
+      "_nested_name": "text_12",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.note_qtite_tourteau",
+            "matchedExpression": "@global.note_qtite_tourteau",
+            "type": "global",
+            "fieldName": "note_qtite_tourteau"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.quantite_son > 0",
+            "matchedExpression": "@fields.quantite_son",
+            "type": "fields",
+            "fieldName": "quantite_son"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_qtite_tourteau": [
           "value"
         ],
-        "@fields.reste_ovins": [
+        "@fields.quantite_son": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\"> @global.hint_qtite_tourteau </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.quantite_son > 0",
+      "name": "html_13",
+      "_nested_name": "html_13",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: black;\"> @global.hint_qtite_tourteau </p>",
+            "matchedExpression": "@global.hint_qtite_tourteau",
+            "type": "global",
+            "fieldName": "hint_qtite_tourteau"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.quantite_son > 0",
+            "matchedExpression": "@fields.quantite_son",
+            "type": "fields",
+            "fieldName": "quantite_son"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.hint_qtite_tourteau": [
           "value"
         ],
-        "@fields.caprins": [
+        "@fields.quantite_son": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "value": "images/tourteau.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.quantite_son > 0",
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_14",
+      "_nested_name": "image_14",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.quantite_son > 0",
+            "matchedExpression": "@fields.quantite_son",
+            "type": "fields",
+            "fieldName": "quantite_son"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_son": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "set_field",
+      "name": "quantite_tourteau",
+      "value": "@calc(Number(@fields.total_concentre) - Number(@fields.quantite_son))",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.quantite_son > 0",
+      "_nested_name": "quantite_tourteau",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@fields.total_concentre) - Number(@fields.quantite_son))",
+            "matchedExpression": "@fields.total_concentre",
+            "type": "fields",
+            "fieldName": "total_concentre"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.total_concentre) - Number(@fields.quantite_son))",
+            "matchedExpression": "@fields.quantite_son",
+            "type": "fields",
+            "fieldName": "quantite_son"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.total_concentre) - Number(@fields.quantite_son))",
+            "matchedExpression": "@calc(Number(@fields.total_concentre) - Number(@fields.quantite_son))",
+            "type": "calc",
+            "fieldName": "Number(@fields.total_concentre) - Number(@fields.quantite_son)"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.quantite_son > 0",
+            "matchedExpression": "@fields.quantite_son",
+            "type": "fields",
+            "fieldName": "quantite_son"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.total_concentre": [
           "value"
         ],
-        "@local.cat_animaux_loop_idx": [
+        "@fields.quantite_son": [
+          "value",
+          "condition"
+        ],
+        "@calc(Number(@fields.total_concentre) - Number(@fields.quantite_son))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "name": "note_tourteau",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n La quantité de tourteau de coton est :  <strong> @fields.quantite_tourteau sacs\n</strong> </div>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.quantite_son > 0",
+      "_nested_name": "note_tourteau",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n La quantité de tourteau de coton est :  <strong> @fields.quantite_tourteau sacs\n</strong> </div>",
+            "matchedExpression": "@fields.quantite_tourteau",
+            "type": "fields",
+            "fieldName": "quantite_tourteau"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.quantite_son > 0",
+            "matchedExpression": "@fields.quantite_son",
+            "type": "fields",
+            "fieldName": "quantite_son"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_tourteau": [
           "value"
         ],
-        "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')": [
+        "@fields.quantite_son": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "!!@fields.quantite_son",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "!!@fields.quantite_son",
+            "matchedExpression": "!@fields.quantite_son",
+            "type": "fields",
+            "fieldName": "quantite_son"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.quantite_son": [
           "value"
         ]
       }
@@ -987,7 +523,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page8_button_back",
+          "name": "page10_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -1002,275 +538,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_8.page8_button_back"
+          "_nested_name": "display_group_18.page10_button_back"
         },
         {
           "type": "button",
-          "name": "button_next_cat_animaux",
-          "value": "Continuer",
-          "_translations": {
-            "value": {}
-          },
-          "action_list": [
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "frais_veterinaire_tete_@fields.current_cat_animaux",
-                "@fields.frais_veterinaire_tete"
-              ],
-              "_raw": "click | set_field: frais_veterinaire_tete_@fields.current_cat_animaux: @fields.frais_veterinaire_tete"
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "frais_veterinaire_cat_@fields.current_cat_animaux",
-                "@fields.frais_veterinaire_cat"
-              ],
-              "_raw": "click | set_field: frais_veterinaire_cat_@fields.current_cat_animaux: @fields.frais_veterinaire_cat"
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "type_regime",
-                ""
-              ],
-              "_raw": "click | set_field: type_regime:"
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "nb_animaux",
-                ""
-              ],
-              "_raw": "click | set_field: nb_animaux:"
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "frais_veterinaire_tete",
-                ""
-              ],
-              "_raw": "click | set_field: frais_veterinaire_tete:"
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "frais_veterinaire_cat",
-                ""
-              ],
-              "_raw": "click | set_field: frais_veterinaire_cat:"
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "current_cat_animaux",
-                "@local.current_cat_animaux"
-              ],
-              "_raw": "click | set_field: current_cat_animaux : @local.current_cat_animaux"
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "cat_animaux_loop_idx",
-                "@local.cat_animaux_loop_idx"
-              ],
-              "_raw": "click | set_field: cat_animaux_loop_idx : @local.cat_animaux_loop_idx"
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_data",
-              "args": [],
-              "_raw": "click | set_data | _list_id: besoins_animaux_settings_pages, _index: 5, completed: false",
-              "params": {
-                "_list_id": "besoins_animaux_settings_pages",
-                "_index": 5,
-                "completed": false
-              }
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_data",
-              "args": [],
-              "_raw": "click | set_data | _list_id: besoins_animaux_settings_pages, _index: 6, completed: false",
-              "params": {
-                "_list_id": "besoins_animaux_settings_pages",
-                "_index": 6,
-                "completed": false
-              }
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_data",
-              "args": [],
-              "_raw": "click | set_data | _list_id: besoins_animaux_settings_pages, _index: 7, completed: false",
-              "params": {
-                "_list_id": "besoins_animaux_settings_pages",
-                "_index": 7,
-                "completed": false
-              }
-            }
-          ],
-          "condition": "@local.last_cat_animaux",
-          "_nested_name": "display_group_8.button_next_cat_animaux",
-          "_dynamicFields": {
-            "action_list": {
-              "0": {
-                "args": {
-                  "0": [
-                    {
-                      "fullExpression": "frais_veterinaire_tete_@fields.current_cat_animaux",
-                      "matchedExpression": "@fields.current_cat_animaux",
-                      "type": "fields",
-                      "fieldName": "current_cat_animaux"
-                    }
-                  ],
-                  "1": [
-                    {
-                      "fullExpression": "@fields.frais_veterinaire_tete",
-                      "matchedExpression": "@fields.frais_veterinaire_tete",
-                      "type": "fields",
-                      "fieldName": "frais_veterinaire_tete"
-                    }
-                  ]
-                },
-                "_raw": [
-                  {
-                    "fullExpression": "click | set_field: frais_veterinaire_tete_@fields.current_cat_animaux: @fields.frais_veterinaire_tete",
-                    "matchedExpression": "@fields.current_cat_animaux",
-                    "type": "fields",
-                    "fieldName": "current_cat_animaux"
-                  },
-                  {
-                    "fullExpression": "click | set_field: frais_veterinaire_tete_@fields.current_cat_animaux: @fields.frais_veterinaire_tete",
-                    "matchedExpression": "@fields.frais_veterinaire_tete",
-                    "type": "fields",
-                    "fieldName": "frais_veterinaire_tete"
-                  }
-                ]
-              },
-              "1": {
-                "args": {
-                  "0": [
-                    {
-                      "fullExpression": "frais_veterinaire_cat_@fields.current_cat_animaux",
-                      "matchedExpression": "@fields.current_cat_animaux",
-                      "type": "fields",
-                      "fieldName": "current_cat_animaux"
-                    }
-                  ],
-                  "1": [
-                    {
-                      "fullExpression": "@fields.frais_veterinaire_cat",
-                      "matchedExpression": "@fields.frais_veterinaire_cat",
-                      "type": "fields",
-                      "fieldName": "frais_veterinaire_cat"
-                    }
-                  ]
-                },
-                "_raw": [
-                  {
-                    "fullExpression": "click | set_field: frais_veterinaire_cat_@fields.current_cat_animaux: @fields.frais_veterinaire_cat",
-                    "matchedExpression": "@fields.current_cat_animaux",
-                    "type": "fields",
-                    "fieldName": "current_cat_animaux"
-                  },
-                  {
-                    "fullExpression": "click | set_field: frais_veterinaire_cat_@fields.current_cat_animaux: @fields.frais_veterinaire_cat",
-                    "matchedExpression": "@fields.frais_veterinaire_cat",
-                    "type": "fields",
-                    "fieldName": "frais_veterinaire_cat"
-                  }
-                ]
-              },
-              "6": {
-                "args": {
-                  "1": [
-                    {
-                      "fullExpression": "@local.current_cat_animaux",
-                      "matchedExpression": "@local.current_cat_animaux",
-                      "type": "local",
-                      "fieldName": "current_cat_animaux"
-                    }
-                  ]
-                },
-                "_raw": [
-                  {
-                    "fullExpression": "click | set_field: current_cat_animaux : @local.current_cat_animaux",
-                    "matchedExpression": "@local.current_cat_animaux",
-                    "type": "local",
-                    "fieldName": "current_cat_animaux"
-                  }
-                ]
-              },
-              "7": {
-                "args": {
-                  "1": [
-                    {
-                      "fullExpression": "@local.cat_animaux_loop_idx",
-                      "matchedExpression": "@local.cat_animaux_loop_idx",
-                      "type": "local",
-                      "fieldName": "cat_animaux_loop_idx"
-                    }
-                  ]
-                },
-                "_raw": [
-                  {
-                    "fullExpression": "click | set_field: cat_animaux_loop_idx : @local.cat_animaux_loop_idx",
-                    "matchedExpression": "@local.cat_animaux_loop_idx",
-                    "type": "local",
-                    "fieldName": "cat_animaux_loop_idx"
-                  }
-                ]
-              }
-            },
-            "condition": [
-              {
-                "fullExpression": "@local.last_cat_animaux",
-                "matchedExpression": "@local.last_cat_animaux",
-                "type": "local",
-                "fieldName": "last_cat_animaux"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@fields.current_cat_animaux": [
-              "action_list.0.args.0",
-              "action_list.0._raw",
-              "action_list.1.args.0",
-              "action_list.1._raw"
-            ],
-            "@fields.frais_veterinaire_tete": [
-              "action_list.0.args.1",
-              "action_list.0._raw"
-            ],
-            "@fields.frais_veterinaire_cat": [
-              "action_list.1.args.1",
-              "action_list.1._raw"
-            ],
-            "@local.current_cat_animaux": [
-              "action_list.6.args.1",
-              "action_list.6._raw"
-            ],
-            "@local.cat_animaux_loop_idx": [
-              "action_list.7.args.1",
-              "action_list.7._raw"
-            ],
-            "@local.last_cat_animaux": [
-              "condition"
-            ]
-          }
-        },
-        {
-          "type": "button",
-          "name": "page8_button_continue",
+          "name": "page10_button_continue",
           "value": "Continuer",
           "_translations": {
             "value": {}
@@ -1285,27 +557,34 @@
               "_raw": "click | emit: completed"
             }
           ],
-          "condition": "!@local.last_cat_animaux",
-          "_nested_name": "display_group_8.page8_button_continue",
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_18.page10_button_continue",
           "_dynamicFields": {
-            "condition": [
-              {
-                "fullExpression": "!@local.last_cat_animaux",
-                "matchedExpression": "!@local.last_cat_animaux",
-                "type": "local",
-                "fieldName": "last_cat_animaux"
-              }
-            ]
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
-            "!@local.last_cat_animaux": [
-              "condition"
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
             ]
           }
         }
       ],
-      "name": "display_group_8",
-      "_nested_name": "display_group_8"
+      "name": "display_group_18",
+      "_nested_name": "display_group_18"
     }
   ],
   "_source": {

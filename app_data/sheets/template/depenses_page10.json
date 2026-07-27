@@ -6,7 +6,7 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "@global.calcul_depenses",
+      "value": "@global.investissement",
       "_translations": {
         "value": {}
       },
@@ -14,576 +14,757 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.calcul_depenses",
-            "matchedExpression": "@global.calcul_depenses",
+            "fullExpression": "@global.investissement",
+            "matchedExpression": "@global.investissement",
             "type": "global",
-            "fieldName": "calcul_depenses"
+            "fieldName": "investissement"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.calcul_depenses": [
+        "@global.investissement": [
           "value"
         ]
       }
     },
     {
-      "name": "total_depenses_recurrentes",
-      "value": "@calc((Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + (Number(@fields.montant_autre_frais) || 0)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "total_depenses_recurrentes",
+      "_nested_name": "attempt_submit",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + (Number(@fields.montant_autre_frais) || 0)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@fields.frais_condiment_annuel",
+            "fullExpression": "@fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
             "type": "fields",
-            "fieldName": "frais_condiment_annuel"
-          },
-          {
-            "fullExpression": "@calc((Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + (Number(@fields.montant_autre_frais) || 0)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@fields.frais_sante_annuel",
-            "type": "fields",
-            "fieldName": "frais_sante_annuel"
-          },
-          {
-            "fullExpression": "@calc((Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + (Number(@fields.montant_autre_frais) || 0)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@fields.frais_education_annuel",
-            "type": "fields",
-            "fieldName": "frais_education_annuel"
-          },
-          {
-            "fullExpression": "@calc((Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + (Number(@fields.montant_autre_frais) || 0)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@fields.montant_autre_frais",
-            "type": "fields",
-            "fieldName": "montant_autre_frais"
-          },
-          {
-            "fullExpression": "@calc((Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + (Number(@fields.montant_autre_frais) || 0)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@calc((Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + (Number(@fields.montant_autre_frais) || 0)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "type": "calc",
-            "fieldName": "(Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + (Number(@fields.montant_autre_frais) || 0)).toLocaleString('fr-FR').replace(/\\u202f/g, ' ')"
+            "fieldName": "attempt_submit"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.frais_condiment_annuel": [
-          "value"
-        ],
-        "@fields.frais_sante_annuel": [
-          "value"
-        ],
-        "@fields.frais_education_annuel": [
-          "value"
-        ],
-        "@fields.montant_autre_frais": [
-          "value"
-        ],
-        "@calc((Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + (Number(@fields.montant_autre_frais) || 0)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))": [
+        "@fields.attempt_submit": [
           "value"
         ]
       }
     },
     {
-      "name": "total_depenses_investissements",
-      "value": "@calc((Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "html",
+          "name": "invest_maison_label",
+          "value": "<span style=\"color: red;\">*</span> @global.invest_maison_label",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size:20px"
+          ],
+          "_nested_name": "display_group_4.invest_maison_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<span style=\"color: red;\">*</span> @global.invest_maison_label",
+                "matchedExpression": "@global.invest_maison_label",
+                "type": "global",
+                "fieldName": "invest_maison_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.invest_maison_label": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_4",
+      "_nested_name": "display_group_4"
+    },
+    {
+      "type": "image",
+      "value": "images/maison.jpg",
       "_translations": {
         "value": {}
       },
-      "type": "set_variable",
-      "_nested_name": "total_depenses_investissements",
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_6",
+      "_nested_name": "image_6"
+    },
+    {
+      "type": "text",
+      "value": "@global.hint_price",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "name": "text_7",
+      "_nested_name": "text_7",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+            "fullExpression": "@global.hint_price",
+            "matchedExpression": "@global.hint_price",
+            "type": "global",
+            "fieldName": "hint_price"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.hint_price": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "invest_maison",
+      "value": "@fields.invest_maison",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "invest_maison",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : invest_maison: this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true"
+      },
+      "_nested_name": "invest_maison",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.invest_maison",
             "matchedExpression": "@fields.invest_maison",
             "type": "fields",
             "fieldName": "invest_maison"
-          },
-          {
-            "fullExpression": "@calc((Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@fields.invest_mariage",
-            "type": "fields",
-            "fieldName": "invest_mariage"
-          },
-          {
-            "fullExpression": "@calc((Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@fields.invest_equipment",
-            "type": "fields",
-            "fieldName": "invest_equipment"
-          },
-          {
-            "fullExpression": "@calc((Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@calc((Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "type": "calc",
-            "fieldName": "(Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)).toLocaleString('fr-FR').replace(/\\u202f/g, ' ')"
           }
         ]
       },
       "_dynamicDependencies": {
         "@fields.invest_maison": [
           "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_invest_maison",
+      "value": "@calc(!!@fields.invest_maison && @fields.invest_maison != \"\" && @fields.invest_maison >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_invest_maison",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.invest_maison && @fields.invest_maison != \"\" && @fields.invest_maison >= 0)",
+            "matchedExpression": "!@fields.invest_maison",
+            "type": "fields",
+            "fieldName": "invest_maison"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.invest_maison && @fields.invest_maison != \"\" && @fields.invest_maison >= 0)",
+            "matchedExpression": "@fields.invest_maison",
+            "type": "fields",
+            "fieldName": "invest_maison"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.invest_maison && @fields.invest_maison != \"\" && @fields.invest_maison >= 0)",
+            "matchedExpression": "@fields.invest_maison",
+            "type": "fields",
+            "fieldName": "invest_maison"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.invest_maison && @fields.invest_maison != \"\" && @fields.invest_maison >= 0)",
+            "matchedExpression": "@calc(!!@fields.invest_maison && @fields.invest_maison != \"\" && @fields.invest_maison >= 0)",
+            "type": "calc",
+            "fieldName": "!!@fields.invest_maison && @fields.invest_maison != \"\" && @fields.invest_maison >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.invest_maison": [
+          "value"
+        ],
+        "@fields.invest_maison": [
+          "value",
+          "value"
+        ],
+        "@calc(!!@fields.invest_maison && @fields.invest_maison != \"\" && @fields.invest_maison >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "error_invest_maison",
+      "value": "@global.error_required_answer",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.attempt_submit && !@local.valid_invest_maison",
+      "style_list": [
+        "color: red",
+        "font-size: 16px",
+        "background: #fff5f5",
+        "padding: 5px",
+        "margin-top:10px"
+      ],
+      "_nested_name": "error_invest_maison",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_invest_maison",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_invest_maison",
+            "matchedExpression": "!@local.valid_invest_maison",
+            "type": "local",
+            "fieldName": "valid_invest_maison"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "!@local.valid_invest_maison": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "html",
+          "name": "invest_mariage_label",
+          "value": "<span style=\"color: red;\">*</span> @global.invest_mariage_label",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size:20px"
+          ],
+          "_nested_name": "display_group_11.invest_mariage_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<span style=\"color: red;\">*</span> @global.invest_mariage_label",
+                "matchedExpression": "@global.invest_mariage_label",
+                "type": "global",
+                "fieldName": "invest_mariage_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.invest_mariage_label": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_11",
+      "_nested_name": "display_group_11"
+    },
+    {
+      "type": "image",
+      "value": "images/mariage.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_13",
+      "_nested_name": "image_13"
+    },
+    {
+      "type": "text",
+      "value": "@global.hint_price",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "name": "text_14",
+      "_nested_name": "text_14",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.hint_price",
+            "matchedExpression": "@global.hint_price",
+            "type": "global",
+            "fieldName": "hint_price"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.hint_price": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "invest_mariage",
+      "value": "@fields.invest_mariage",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "invest_mariage",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : invest_mariage: this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true"
+      },
+      "_nested_name": "invest_mariage",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.invest_mariage",
+            "matchedExpression": "@fields.invest_mariage",
+            "type": "fields",
+            "fieldName": "invest_mariage"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.invest_mariage": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_invest_mariage",
+      "value": "@calc(!!@fields.invest_mariage && @fields.invest_mariage != \"\" && @fields.invest_mariage >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_invest_mariage",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.invest_mariage && @fields.invest_mariage != \"\" && @fields.invest_mariage >= 0)",
+            "matchedExpression": "!@fields.invest_mariage",
+            "type": "fields",
+            "fieldName": "invest_mariage"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.invest_mariage && @fields.invest_mariage != \"\" && @fields.invest_mariage >= 0)",
+            "matchedExpression": "@fields.invest_mariage",
+            "type": "fields",
+            "fieldName": "invest_mariage"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.invest_mariage && @fields.invest_mariage != \"\" && @fields.invest_mariage >= 0)",
+            "matchedExpression": "@fields.invest_mariage",
+            "type": "fields",
+            "fieldName": "invest_mariage"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.invest_mariage && @fields.invest_mariage != \"\" && @fields.invest_mariage >= 0)",
+            "matchedExpression": "@calc(!!@fields.invest_mariage && @fields.invest_mariage != \"\" && @fields.invest_mariage >= 0)",
+            "type": "calc",
+            "fieldName": "!!@fields.invest_mariage && @fields.invest_mariage != \"\" && @fields.invest_mariage >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.invest_mariage": [
+          "value"
         ],
         "@fields.invest_mariage": [
+          "value",
+          "value"
+        ],
+        "@calc(!!@fields.invest_mariage && @fields.invest_mariage != \"\" && @fields.invest_mariage >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "error_invest_mariage",
+      "value": "@global.error_required_answer",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.attempt_submit && !@local.valid_invest_mariage",
+      "style_list": [
+        "color: red",
+        "font-size: 16px",
+        "background: #fff5f5",
+        "padding: 5px",
+        "margin-top:10px"
+      ],
+      "_nested_name": "error_invest_mariage",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_invest_mariage",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_invest_mariage",
+            "matchedExpression": "!@local.valid_invest_mariage",
+            "type": "local",
+            "fieldName": "valid_invest_mariage"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "!@local.valid_invest_mariage": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "html",
+          "name": "invest_equipment_label",
+          "value": "<span style=\"color: red;\">*</span> @global.invest_equipment_label",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size:20px"
+          ],
+          "_nested_name": "display_group_18.invest_equipment_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<span style=\"color: red;\">*</span> @global.invest_equipment_label",
+                "matchedExpression": "@global.invest_equipment_label",
+                "type": "global",
+                "fieldName": "invest_equipment_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.invest_equipment_label": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_18",
+      "_nested_name": "display_group_18"
+    },
+    {
+      "type": "image",
+      "value": "images/equipement.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_20",
+      "_nested_name": "image_20"
+    },
+    {
+      "type": "text",
+      "value": "@global.hint_price",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "name": "text_21",
+      "_nested_name": "text_21",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.hint_price",
+            "matchedExpression": "@global.hint_price",
+            "type": "global",
+            "fieldName": "hint_price"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.hint_price": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.invest_equipment_hint",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "name": "text_22",
+      "_nested_name": "text_22",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.invest_equipment_hint",
+            "matchedExpression": "@global.invest_equipment_hint",
+            "type": "global",
+            "fieldName": "invest_equipment_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.invest_equipment_hint": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "invest_equipment",
+      "value": "@fields.invest_equipment",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "invest_equipment",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : invest_equipment: this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true"
+      },
+      "_nested_name": "invest_equipment",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.invest_equipment",
+            "matchedExpression": "@fields.invest_equipment",
+            "type": "fields",
+            "fieldName": "invest_equipment"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.invest_equipment": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_invest_equipment",
+      "value": "@calc(!!@fields.invest_equipment && @fields.invest_equipment != \"\" && @fields.invest_equipment >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_invest_equipment",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.invest_equipment && @fields.invest_equipment != \"\" && @fields.invest_equipment >= 0)",
+            "matchedExpression": "!@fields.invest_equipment",
+            "type": "fields",
+            "fieldName": "invest_equipment"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.invest_equipment && @fields.invest_equipment != \"\" && @fields.invest_equipment >= 0)",
+            "matchedExpression": "@fields.invest_equipment",
+            "type": "fields",
+            "fieldName": "invest_equipment"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.invest_equipment && @fields.invest_equipment != \"\" && @fields.invest_equipment >= 0)",
+            "matchedExpression": "@fields.invest_equipment",
+            "type": "fields",
+            "fieldName": "invest_equipment"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.invest_equipment && @fields.invest_equipment != \"\" && @fields.invest_equipment >= 0)",
+            "matchedExpression": "@calc(!!@fields.invest_equipment && @fields.invest_equipment != \"\" && @fields.invest_equipment >= 0)",
+            "type": "calc",
+            "fieldName": "!!@fields.invest_equipment && @fields.invest_equipment != \"\" && @fields.invest_equipment >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.invest_equipment": [
           "value"
         ],
         "@fields.invest_equipment": [
+          "value",
           "value"
         ],
-        "@calc((Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))": [
+        "@calc(!!@fields.invest_equipment && @fields.invest_equipment != \"\" && @fields.invest_equipment >= 0)": [
           "value"
         ]
       }
     },
     {
-      "name": "depenes_total_upa",
-      "value": "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) + Number(@local.total_depenses_investissements.replace(/\\s/g, ''))).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+      "type": "text",
+      "value": "@global.error_required_answer",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.attempt_submit && !@local.valid_invest_equipment",
+      "style_list": [
+        "color: red",
+        "font-size: 16px",
+        "background: #fff5f5",
+        "padding: 5px",
+        "margin-top:10px"
+      ],
+      "name": "text_25",
+      "_nested_name": "text_25",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_invest_equipment",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_invest_equipment",
+            "matchedExpression": "!@local.valid_invest_equipment",
+            "type": "local",
+            "fieldName": "valid_invest_equipment"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "!@local.valid_invest_equipment": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.valid_invest_maison && @local.valid_invest_mariage && @local.valid_invest_equipment",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "depenes_total_upa",
+      "_nested_name": "completed_enabled",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) + Number(@local.total_depenses_investissements.replace(/\\s/g, ''))).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@local.total_depenses_recurrentes.replace",
+            "fullExpression": "@local.valid_invest_maison && @local.valid_invest_mariage && @local.valid_invest_equipment",
+            "matchedExpression": "@local.valid_invest_maison",
             "type": "local",
-            "fieldName": "total_depenses_recurrentes"
+            "fieldName": "valid_invest_maison"
           },
           {
-            "fullExpression": "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) + Number(@local.total_depenses_investissements.replace(/\\s/g, ''))).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@local.total_depenses_investissements.replace",
+            "fullExpression": "@local.valid_invest_maison && @local.valid_invest_mariage && @local.valid_invest_equipment",
+            "matchedExpression": "@local.valid_invest_mariage",
             "type": "local",
-            "fieldName": "total_depenses_investissements"
+            "fieldName": "valid_invest_mariage"
           },
           {
-            "fullExpression": "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) + Number(@local.total_depenses_investissements.replace(/\\s/g, ''))).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) + Number(@local.total_depenses_investissements.replace(/\\s/g, ''))).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "type": "calc",
-            "fieldName": "(Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) + Number(@local.total_depenses_investissements.replace(/\\s/g, ''))).toLocaleString('fr-FR').replace(/\\u202f/g, ' ')"
+            "fullExpression": "@local.valid_invest_maison && @local.valid_invest_mariage && @local.valid_invest_equipment",
+            "matchedExpression": "@local.valid_invest_equipment",
+            "type": "local",
+            "fieldName": "valid_invest_equipment"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.total_depenses_recurrentes.replace": [
+        "@local.valid_invest_maison": [
           "value"
         ],
-        "@local.total_depenses_investissements.replace": [
+        "@local.valid_invest_mariage": [
           "value"
         ],
-        "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) + Number(@local.total_depenses_investissements.replace(/\\s/g, ''))).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "total_depenses_recurrentes_cfa",
-      "value": "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "total_depenses_recurrentes_cfa",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@local.total_depenses_recurrentes.replace",
-            "type": "local",
-            "fieldName": "total_depenses_recurrentes"
-          },
-          {
-            "fullExpression": "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "type": "calc",
-            "fieldName": "(Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' ')"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.total_depenses_recurrentes.replace": [
-          "value"
-        ],
-        "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "total_depenses_investissements_cfa",
-      "value": "@calc((Number(@local.total_depenses_investissements.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "total_depenses_investissements_cfa",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc((Number(@local.total_depenses_investissements.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@local.total_depenses_investissements.replace",
-            "type": "local",
-            "fieldName": "total_depenses_investissements"
-          },
-          {
-            "fullExpression": "@calc((Number(@local.total_depenses_investissements.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@calc((Number(@local.total_depenses_investissements.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "type": "calc",
-            "fieldName": "(Number(@local.total_depenses_investissements.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' ')"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.total_depenses_investissements.replace": [
-          "value"
-        ],
-        "@calc((Number(@local.total_depenses_investissements.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "depenes_total_upa_cfa",
-      "value": "@calc((Number(@local.depenes_total_upa.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "depenes_total_upa_cfa",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc((Number(@local.depenes_total_upa.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@local.depenes_total_upa.replace",
-            "type": "local",
-            "fieldName": "depenes_total_upa"
-          },
-          {
-            "fullExpression": "@calc((Number(@local.depenes_total_upa.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@calc((Number(@local.depenes_total_upa.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "type": "calc",
-            "fieldName": "(Number(@local.depenes_total_upa.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' ')"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.depenes_total_upa.replace": [
-          "value"
-        ],
-        "@calc((Number(@local.depenes_total_upa.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "value": "@global.total_depenses_recurrentes",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "font-size:20px"
-      ],
-      "name": "text_9",
-      "_nested_name": "text_9",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.total_depenses_recurrentes",
-            "matchedExpression": "@global.total_depenses_recurrentes",
-            "type": "global",
-            "fieldName": "total_depenses_recurrentes"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.total_depenses_recurrentes": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "image",
-      "value": "images/cfa_tot.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "width:120px",
-        "height:120px",
-        "object-fit:contain",
-        "flex-shrink:0"
-      ],
-      "name": "image_10",
-      "_nested_name": "image_10"
-    },
-    {
-      "type": "text",
-      "name": "hint_price_1",
-      "value": "@global.hint_price",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "color: gray",
-        "font-size: 16px"
-      ],
-      "_nested_name": "hint_price_1",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.hint_price",
-            "matchedExpression": "@global.hint_price",
-            "type": "global",
-            "fieldName": "hint_price"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.hint_price": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "html",
-      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.total_depenses_recurrentes drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.total_depenses_recurrentes_cfa FCFA\n    </span>\n  </div>\n</div>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_12",
-      "_nested_name": "html_12",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.total_depenses_recurrentes drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.total_depenses_recurrentes_cfa FCFA\n    </span>\n  </div>\n</div>",
-            "matchedExpression": "@local.total_depenses_recurrentes",
-            "type": "local",
-            "fieldName": "total_depenses_recurrentes"
-          },
-          {
-            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.total_depenses_recurrentes drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.total_depenses_recurrentes_cfa FCFA\n    </span>\n  </div>\n</div>",
-            "matchedExpression": "@local.total_depenses_recurrentes_cfa",
-            "type": "local",
-            "fieldName": "total_depenses_recurrentes_cfa"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.total_depenses_recurrentes": [
-          "value"
-        ],
-        "@local.total_depenses_recurrentes_cfa": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "value": "@global.total_depenses_investissements",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "font-size:20px"
-      ],
-      "name": "text_13",
-      "_nested_name": "text_13",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.total_depenses_investissements",
-            "matchedExpression": "@global.total_depenses_investissements",
-            "type": "global",
-            "fieldName": "total_depenses_investissements"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.total_depenses_investissements": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "image",
-      "value": "images/cfa_tot.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "width:120px",
-        "height:120px",
-        "object-fit:contain",
-        "flex-shrink:0"
-      ],
-      "name": "image_14",
-      "_nested_name": "image_14"
-    },
-    {
-      "type": "text",
-      "name": "hint_price_2",
-      "value": "@global.hint_price",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "color: gray",
-        "font-size: 16px"
-      ],
-      "_nested_name": "hint_price_2",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.hint_price",
-            "matchedExpression": "@global.hint_price",
-            "type": "global",
-            "fieldName": "hint_price"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.hint_price": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "html",
-      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.total_depenses_investissements drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.total_depenses_investissements_cfa FCFA\n    </span>\n  </div>\n</div>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_16",
-      "_nested_name": "html_16",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.total_depenses_investissements drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.total_depenses_investissements_cfa FCFA\n    </span>\n  </div>\n</div>",
-            "matchedExpression": "@local.total_depenses_investissements",
-            "type": "local",
-            "fieldName": "total_depenses_investissements"
-          },
-          {
-            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.total_depenses_investissements drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.total_depenses_investissements_cfa FCFA\n    </span>\n  </div>\n</div>",
-            "matchedExpression": "@local.total_depenses_investissements_cfa",
-            "type": "local",
-            "fieldName": "total_depenses_investissements_cfa"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.total_depenses_investissements": [
-          "value"
-        ],
-        "@local.total_depenses_investissements_cfa": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "value": "@global.depenes_total_upa",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "font-size:20px"
-      ],
-      "name": "text_17",
-      "_nested_name": "text_17",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.depenes_total_upa",
-            "matchedExpression": "@global.depenes_total_upa",
-            "type": "global",
-            "fieldName": "depenes_total_upa"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.depenes_total_upa": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "image",
-      "value": "images/cfa_tot.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "width:120px",
-        "height:120px",
-        "object-fit:contain",
-        "flex-shrink:0"
-      ],
-      "name": "image_18",
-      "_nested_name": "image_18"
-    },
-    {
-      "type": "text",
-      "name": "hint_price_3",
-      "value": "@global.hint_price",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "color: gray",
-        "font-size: 16px"
-      ],
-      "_nested_name": "hint_price_3",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.hint_price",
-            "matchedExpression": "@global.hint_price",
-            "type": "global",
-            "fieldName": "hint_price"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.hint_price": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "html",
-      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.depenes_total_upa drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.depenes_total_upa_cfa FCFA\n    </span>\n  </div>\n</div>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_20",
-      "_nested_name": "html_20",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.depenes_total_upa drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.depenes_total_upa_cfa FCFA\n    </span>\n  </div>\n</div>",
-            "matchedExpression": "@local.depenes_total_upa",
-            "type": "local",
-            "fieldName": "depenes_total_upa"
-          },
-          {
-            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.depenes_total_upa drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.depenes_total_upa_cfa FCFA\n    </span>\n  </div>\n</div>",
-            "matchedExpression": "@local.depenes_total_upa_cfa",
-            "type": "local",
-            "fieldName": "depenes_total_upa_cfa"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.depenes_total_upa": [
-          "value"
-        ],
-        "@local.depenes_total_upa_cfa": [
+        "@local.valid_invest_equipment": [
           "value"
         ]
       }
@@ -620,6 +801,56 @@
         },
         {
           "type": "button",
+          "name": "page_10_btn_attempt_submit",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                true
+              ],
+              "_raw": "click | set_field: attempt_submit: true"
+            }
+          ],
+          "condition": "!@local.completed_enabled",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.page_10_btn_attempt_submit",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!@local.completed_enabled",
+                "matchedExpression": "!@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "!@local.completed_enabled": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
           "name": "page_10_btn_continue",
           "value": "@global.btn_continue",
           "_translations": {
@@ -635,6 +866,10 @@
               "_raw": "click | emit: completed"
             }
           ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "condition": "@local.completed_enabled",
           "style_list": [
             "flex: 1"
           ],
@@ -647,11 +882,35 @@
                 "type": "global",
                 "fieldName": "btn_continue"
               }
+            ],
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.completed_enabled",
+                "matchedExpression": "@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
             ]
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ],
+            "@local.completed_enabled": [
+              "condition"
             ]
           }
         }

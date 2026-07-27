@@ -1,0 +1,1397 @@
+{
+  "flow_type": "template",
+  "flow_name": "cultures_page16",
+  "status": "released",
+  "rows": [
+    {
+      "type": "text",
+      "value": "**Besoins en engrais des cultures prevues : @fields.culture_list_all**",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_2",
+      "_nested_name": "text_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "**Besoins en engrais des cultures prevues : @fields.culture_list_all**",
+            "matchedExpression": "@fields.culture_list_all",
+            "type": "fields",
+            "fieldName": "culture_list_all"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.culture_list_all": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "besoins_prevue_npk_coton_14_18_18",
+      "value": "@calc(Number(@fields.npk_coton_14_18_18_prevue_achat_mais || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_mil || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sorgho || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_coton || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_arachide || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fourrage || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_niebe || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_soja || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fonio || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_riz || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sesame || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_wouandzou || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_patate_douce || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_bissap || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2 || 0))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "besoins_prevue_npk_coton_14_18_18",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@fields.npk_coton_14_18_18_prevue_achat_mais || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_mil || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sorgho || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_coton || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_arachide || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fourrage || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_niebe || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_soja || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fonio || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_riz || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sesame || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_wouandzou || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_patate_douce || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_bissap || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_coton_14_18_18_prevue_achat_mais",
+            "type": "fields",
+            "fieldName": "npk_coton_14_18_18_prevue_achat_mais"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_coton_14_18_18_prevue_achat_mais || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_mil || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sorgho || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_coton || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_arachide || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fourrage || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_niebe || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_soja || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fonio || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_riz || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sesame || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_wouandzou || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_patate_douce || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_bissap || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_coton_14_18_18_prevue_achat_mil",
+            "type": "fields",
+            "fieldName": "npk_coton_14_18_18_prevue_achat_mil"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_coton_14_18_18_prevue_achat_mais || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_mil || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sorgho || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_coton || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_arachide || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fourrage || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_niebe || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_soja || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fonio || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_riz || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sesame || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_wouandzou || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_patate_douce || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_bissap || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_coton_14_18_18_prevue_achat_sorgho",
+            "type": "fields",
+            "fieldName": "npk_coton_14_18_18_prevue_achat_sorgho"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_coton_14_18_18_prevue_achat_mais || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_mil || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sorgho || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_coton || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_arachide || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fourrage || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_niebe || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_soja || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fonio || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_riz || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sesame || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_wouandzou || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_patate_douce || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_bissap || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_coton_14_18_18_prevue_achat_coton",
+            "type": "fields",
+            "fieldName": "npk_coton_14_18_18_prevue_achat_coton"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_coton_14_18_18_prevue_achat_mais || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_mil || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sorgho || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_coton || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_arachide || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fourrage || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_niebe || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_soja || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fonio || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_riz || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sesame || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_wouandzou || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_patate_douce || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_bissap || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_coton_14_18_18_prevue_achat_arachide",
+            "type": "fields",
+            "fieldName": "npk_coton_14_18_18_prevue_achat_arachide"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_coton_14_18_18_prevue_achat_mais || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_mil || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sorgho || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_coton || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_arachide || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fourrage || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_niebe || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_soja || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fonio || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_riz || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sesame || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_wouandzou || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_patate_douce || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_bissap || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_coton_14_18_18_prevue_achat_fourrage",
+            "type": "fields",
+            "fieldName": "npk_coton_14_18_18_prevue_achat_fourrage"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_coton_14_18_18_prevue_achat_mais || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_mil || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sorgho || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_coton || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_arachide || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fourrage || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_niebe || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_soja || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fonio || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_riz || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sesame || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_wouandzou || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_patate_douce || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_bissap || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_coton_14_18_18_prevue_achat_niebe",
+            "type": "fields",
+            "fieldName": "npk_coton_14_18_18_prevue_achat_niebe"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_coton_14_18_18_prevue_achat_mais || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_mil || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sorgho || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_coton || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_arachide || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fourrage || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_niebe || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_soja || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fonio || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_riz || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sesame || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_wouandzou || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_patate_douce || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_bissap || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_coton_14_18_18_prevue_achat_soja",
+            "type": "fields",
+            "fieldName": "npk_coton_14_18_18_prevue_achat_soja"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_coton_14_18_18_prevue_achat_mais || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_mil || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sorgho || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_coton || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_arachide || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fourrage || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_niebe || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_soja || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fonio || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_riz || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sesame || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_wouandzou || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_patate_douce || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_bissap || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_coton_14_18_18_prevue_achat_fonio",
+            "type": "fields",
+            "fieldName": "npk_coton_14_18_18_prevue_achat_fonio"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_coton_14_18_18_prevue_achat_mais || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_mil || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sorgho || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_coton || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_arachide || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fourrage || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_niebe || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_soja || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fonio || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_riz || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sesame || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_wouandzou || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_patate_douce || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_bissap || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_coton_14_18_18_prevue_achat_riz",
+            "type": "fields",
+            "fieldName": "npk_coton_14_18_18_prevue_achat_riz"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_coton_14_18_18_prevue_achat_mais || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_mil || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sorgho || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_coton || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_arachide || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fourrage || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_niebe || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_soja || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fonio || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_riz || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sesame || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_wouandzou || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_patate_douce || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_bissap || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_coton_14_18_18_prevue_achat_sesame",
+            "type": "fields",
+            "fieldName": "npk_coton_14_18_18_prevue_achat_sesame"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_coton_14_18_18_prevue_achat_mais || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_mil || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sorgho || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_coton || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_arachide || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fourrage || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_niebe || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_soja || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fonio || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_riz || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sesame || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_wouandzou || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_patate_douce || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_bissap || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_coton_14_18_18_prevue_achat_wouandzou",
+            "type": "fields",
+            "fieldName": "npk_coton_14_18_18_prevue_achat_wouandzou"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_coton_14_18_18_prevue_achat_mais || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_mil || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sorgho || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_coton || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_arachide || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fourrage || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_niebe || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_soja || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fonio || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_riz || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sesame || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_wouandzou || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_patate_douce || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_bissap || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_coton_14_18_18_prevue_achat_patate_douce",
+            "type": "fields",
+            "fieldName": "npk_coton_14_18_18_prevue_achat_patate_douce"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_coton_14_18_18_prevue_achat_mais || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_mil || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sorgho || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_coton || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_arachide || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fourrage || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_niebe || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_soja || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fonio || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_riz || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sesame || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_wouandzou || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_patate_douce || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_bissap || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_coton_14_18_18_prevue_achat_bissap",
+            "type": "fields",
+            "fieldName": "npk_coton_14_18_18_prevue_achat_bissap"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_coton_14_18_18_prevue_achat_mais || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_mil || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sorgho || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_coton || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_arachide || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fourrage || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_niebe || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_soja || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fonio || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_riz || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sesame || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_wouandzou || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_patate_douce || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_bissap || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1",
+            "type": "fields",
+            "fieldName": "npk_coton_14_18_18_prevue_achat_autre_cult_1"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_coton_14_18_18_prevue_achat_mais || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_mil || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sorgho || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_coton || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_arachide || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fourrage || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_niebe || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_soja || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fonio || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_riz || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sesame || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_wouandzou || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_patate_douce || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_bissap || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2",
+            "type": "fields",
+            "fieldName": "npk_coton_14_18_18_prevue_achat_autre_cult_2"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_coton_14_18_18_prevue_achat_mais || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_mil || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sorgho || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_coton || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_arachide || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fourrage || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_niebe || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_soja || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fonio || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_riz || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sesame || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_wouandzou || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_patate_douce || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_bissap || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@calc(Number(@fields.npk_coton_14_18_18_prevue_achat_mais || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_mil || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sorgho || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_coton || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_arachide || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fourrage || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_niebe || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_soja || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fonio || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_riz || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sesame || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_wouandzou || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_patate_douce || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_bissap || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2 || 0))",
+            "type": "calc",
+            "fieldName": "Number(@fields.npk_coton_14_18_18_prevue_achat_mais || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_mil || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sorgho || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_coton || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_arachide || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fourrage || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_niebe || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_soja || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fonio || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_riz || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sesame || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_wouandzou || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_patate_douce || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_bissap || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2 || 0)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.npk_coton_14_18_18_prevue_achat_mais": [
+          "value"
+        ],
+        "@fields.npk_coton_14_18_18_prevue_achat_mil": [
+          "value"
+        ],
+        "@fields.npk_coton_14_18_18_prevue_achat_sorgho": [
+          "value"
+        ],
+        "@fields.npk_coton_14_18_18_prevue_achat_coton": [
+          "value"
+        ],
+        "@fields.npk_coton_14_18_18_prevue_achat_arachide": [
+          "value"
+        ],
+        "@fields.npk_coton_14_18_18_prevue_achat_fourrage": [
+          "value"
+        ],
+        "@fields.npk_coton_14_18_18_prevue_achat_niebe": [
+          "value"
+        ],
+        "@fields.npk_coton_14_18_18_prevue_achat_soja": [
+          "value"
+        ],
+        "@fields.npk_coton_14_18_18_prevue_achat_fonio": [
+          "value"
+        ],
+        "@fields.npk_coton_14_18_18_prevue_achat_riz": [
+          "value"
+        ],
+        "@fields.npk_coton_14_18_18_prevue_achat_sesame": [
+          "value"
+        ],
+        "@fields.npk_coton_14_18_18_prevue_achat_wouandzou": [
+          "value"
+        ],
+        "@fields.npk_coton_14_18_18_prevue_achat_patate_douce": [
+          "value"
+        ],
+        "@fields.npk_coton_14_18_18_prevue_achat_bissap": [
+          "value"
+        ],
+        "@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1": [
+          "value"
+        ],
+        "@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2": [
+          "value"
+        ],
+        "@calc(Number(@fields.npk_coton_14_18_18_prevue_achat_mais || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_mil || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sorgho || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_coton || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_arachide || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fourrage || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_niebe || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_soja || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_fonio || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_riz || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_sesame || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_wouandzou || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_patate_douce || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_bissap || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_coton_14_18_18_prevue_achat_autre_cult_2 || 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "besoins_prevue_npk_cereale_15_15_15",
+      "value": "@calc(Number(@fields.npk_cereale_15_15_15_prevue_achat_mais || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_mil || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_coton || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_soja || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_riz || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2 || 0))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "besoins_prevue_npk_cereale_15_15_15",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_15_15_15_prevue_achat_mais || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_mil || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_coton || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_soja || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_riz || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_15_15_15_prevue_achat_mais",
+            "type": "fields",
+            "fieldName": "npk_cereale_15_15_15_prevue_achat_mais"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_15_15_15_prevue_achat_mais || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_mil || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_coton || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_soja || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_riz || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_15_15_15_prevue_achat_mil",
+            "type": "fields",
+            "fieldName": "npk_cereale_15_15_15_prevue_achat_mil"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_15_15_15_prevue_achat_mais || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_mil || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_coton || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_soja || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_riz || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_15_15_15_prevue_achat_sorgho",
+            "type": "fields",
+            "fieldName": "npk_cereale_15_15_15_prevue_achat_sorgho"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_15_15_15_prevue_achat_mais || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_mil || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_coton || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_soja || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_riz || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_15_15_15_prevue_achat_coton",
+            "type": "fields",
+            "fieldName": "npk_cereale_15_15_15_prevue_achat_coton"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_15_15_15_prevue_achat_mais || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_mil || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_coton || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_soja || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_riz || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_15_15_15_prevue_achat_arachide",
+            "type": "fields",
+            "fieldName": "npk_cereale_15_15_15_prevue_achat_arachide"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_15_15_15_prevue_achat_mais || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_mil || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_coton || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_soja || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_riz || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_15_15_15_prevue_achat_fourrage",
+            "type": "fields",
+            "fieldName": "npk_cereale_15_15_15_prevue_achat_fourrage"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_15_15_15_prevue_achat_mais || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_mil || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_coton || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_soja || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_riz || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_15_15_15_prevue_achat_niebe",
+            "type": "fields",
+            "fieldName": "npk_cereale_15_15_15_prevue_achat_niebe"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_15_15_15_prevue_achat_mais || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_mil || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_coton || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_soja || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_riz || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_15_15_15_prevue_achat_soja",
+            "type": "fields",
+            "fieldName": "npk_cereale_15_15_15_prevue_achat_soja"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_15_15_15_prevue_achat_mais || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_mil || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_coton || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_soja || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_riz || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_15_15_15_prevue_achat_fonio",
+            "type": "fields",
+            "fieldName": "npk_cereale_15_15_15_prevue_achat_fonio"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_15_15_15_prevue_achat_mais || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_mil || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_coton || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_soja || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_riz || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_15_15_15_prevue_achat_riz",
+            "type": "fields",
+            "fieldName": "npk_cereale_15_15_15_prevue_achat_riz"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_15_15_15_prevue_achat_mais || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_mil || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_coton || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_soja || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_riz || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_15_15_15_prevue_achat_sesame",
+            "type": "fields",
+            "fieldName": "npk_cereale_15_15_15_prevue_achat_sesame"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_15_15_15_prevue_achat_mais || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_mil || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_coton || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_soja || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_riz || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_15_15_15_prevue_achat_wouandzou",
+            "type": "fields",
+            "fieldName": "npk_cereale_15_15_15_prevue_achat_wouandzou"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_15_15_15_prevue_achat_mais || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_mil || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_coton || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_soja || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_riz || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_15_15_15_prevue_achat_patate_douce",
+            "type": "fields",
+            "fieldName": "npk_cereale_15_15_15_prevue_achat_patate_douce"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_15_15_15_prevue_achat_mais || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_mil || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_coton || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_soja || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_riz || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_15_15_15_prevue_achat_bissap",
+            "type": "fields",
+            "fieldName": "npk_cereale_15_15_15_prevue_achat_bissap"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_15_15_15_prevue_achat_mais || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_mil || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_coton || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_soja || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_riz || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1",
+            "type": "fields",
+            "fieldName": "npk_cereale_15_15_15_prevue_achat_autre_cult_1"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_15_15_15_prevue_achat_mais || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_mil || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_coton || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_soja || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_riz || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2",
+            "type": "fields",
+            "fieldName": "npk_cereale_15_15_15_prevue_achat_autre_cult_2"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_15_15_15_prevue_achat_mais || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_mil || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_coton || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_soja || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_riz || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@calc(Number(@fields.npk_cereale_15_15_15_prevue_achat_mais || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_mil || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_coton || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_soja || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_riz || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2 || 0))",
+            "type": "calc",
+            "fieldName": "Number(@fields.npk_cereale_15_15_15_prevue_achat_mais || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_mil || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_coton || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_soja || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_riz || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2 || 0)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.npk_cereale_15_15_15_prevue_achat_mais": [
+          "value"
+        ],
+        "@fields.npk_cereale_15_15_15_prevue_achat_mil": [
+          "value"
+        ],
+        "@fields.npk_cereale_15_15_15_prevue_achat_sorgho": [
+          "value"
+        ],
+        "@fields.npk_cereale_15_15_15_prevue_achat_coton": [
+          "value"
+        ],
+        "@fields.npk_cereale_15_15_15_prevue_achat_arachide": [
+          "value"
+        ],
+        "@fields.npk_cereale_15_15_15_prevue_achat_fourrage": [
+          "value"
+        ],
+        "@fields.npk_cereale_15_15_15_prevue_achat_niebe": [
+          "value"
+        ],
+        "@fields.npk_cereale_15_15_15_prevue_achat_soja": [
+          "value"
+        ],
+        "@fields.npk_cereale_15_15_15_prevue_achat_fonio": [
+          "value"
+        ],
+        "@fields.npk_cereale_15_15_15_prevue_achat_riz": [
+          "value"
+        ],
+        "@fields.npk_cereale_15_15_15_prevue_achat_sesame": [
+          "value"
+        ],
+        "@fields.npk_cereale_15_15_15_prevue_achat_wouandzou": [
+          "value"
+        ],
+        "@fields.npk_cereale_15_15_15_prevue_achat_patate_douce": [
+          "value"
+        ],
+        "@fields.npk_cereale_15_15_15_prevue_achat_bissap": [
+          "value"
+        ],
+        "@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1": [
+          "value"
+        ],
+        "@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2": [
+          "value"
+        ],
+        "@calc(Number(@fields.npk_cereale_15_15_15_prevue_achat_mais || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_mil || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_coton || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_soja || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_riz || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_15_15_15_prevue_achat_autre_cult_2 || 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "besoins_prevue_npk_cereale_17_17_17",
+      "value": "@calc(Number(@fields.npk_cereale_17_17_17_prevue_achat_mais || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_mil || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_coton || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_soja || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_riz || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2 || 0))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "besoins_prevue_npk_cereale_17_17_17",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_17_17_17_prevue_achat_mais || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_mil || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_coton || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_soja || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_riz || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_17_17_17_prevue_achat_mais",
+            "type": "fields",
+            "fieldName": "npk_cereale_17_17_17_prevue_achat_mais"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_17_17_17_prevue_achat_mais || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_mil || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_coton || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_soja || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_riz || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_17_17_17_prevue_achat_mil",
+            "type": "fields",
+            "fieldName": "npk_cereale_17_17_17_prevue_achat_mil"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_17_17_17_prevue_achat_mais || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_mil || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_coton || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_soja || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_riz || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_17_17_17_prevue_achat_sorgho",
+            "type": "fields",
+            "fieldName": "npk_cereale_17_17_17_prevue_achat_sorgho"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_17_17_17_prevue_achat_mais || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_mil || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_coton || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_soja || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_riz || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_17_17_17_prevue_achat_coton",
+            "type": "fields",
+            "fieldName": "npk_cereale_17_17_17_prevue_achat_coton"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_17_17_17_prevue_achat_mais || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_mil || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_coton || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_soja || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_riz || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_17_17_17_prevue_achat_arachide",
+            "type": "fields",
+            "fieldName": "npk_cereale_17_17_17_prevue_achat_arachide"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_17_17_17_prevue_achat_mais || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_mil || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_coton || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_soja || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_riz || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_17_17_17_prevue_achat_fourrage",
+            "type": "fields",
+            "fieldName": "npk_cereale_17_17_17_prevue_achat_fourrage"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_17_17_17_prevue_achat_mais || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_mil || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_coton || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_soja || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_riz || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_17_17_17_prevue_achat_niebe",
+            "type": "fields",
+            "fieldName": "npk_cereale_17_17_17_prevue_achat_niebe"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_17_17_17_prevue_achat_mais || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_mil || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_coton || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_soja || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_riz || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_17_17_17_prevue_achat_soja",
+            "type": "fields",
+            "fieldName": "npk_cereale_17_17_17_prevue_achat_soja"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_17_17_17_prevue_achat_mais || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_mil || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_coton || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_soja || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_riz || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_17_17_17_prevue_achat_fonio",
+            "type": "fields",
+            "fieldName": "npk_cereale_17_17_17_prevue_achat_fonio"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_17_17_17_prevue_achat_mais || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_mil || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_coton || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_soja || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_riz || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_17_17_17_prevue_achat_riz",
+            "type": "fields",
+            "fieldName": "npk_cereale_17_17_17_prevue_achat_riz"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_17_17_17_prevue_achat_mais || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_mil || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_coton || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_soja || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_riz || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_17_17_17_prevue_achat_sesame",
+            "type": "fields",
+            "fieldName": "npk_cereale_17_17_17_prevue_achat_sesame"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_17_17_17_prevue_achat_mais || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_mil || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_coton || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_soja || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_riz || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_17_17_17_prevue_achat_wouandzou",
+            "type": "fields",
+            "fieldName": "npk_cereale_17_17_17_prevue_achat_wouandzou"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_17_17_17_prevue_achat_mais || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_mil || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_coton || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_soja || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_riz || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_17_17_17_prevue_achat_patate_douce",
+            "type": "fields",
+            "fieldName": "npk_cereale_17_17_17_prevue_achat_patate_douce"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_17_17_17_prevue_achat_mais || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_mil || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_coton || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_soja || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_riz || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_17_17_17_prevue_achat_bissap",
+            "type": "fields",
+            "fieldName": "npk_cereale_17_17_17_prevue_achat_bissap"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_17_17_17_prevue_achat_mais || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_mil || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_coton || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_soja || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_riz || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1",
+            "type": "fields",
+            "fieldName": "npk_cereale_17_17_17_prevue_achat_autre_cult_1"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_17_17_17_prevue_achat_mais || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_mil || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_coton || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_soja || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_riz || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2",
+            "type": "fields",
+            "fieldName": "npk_cereale_17_17_17_prevue_achat_autre_cult_2"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.npk_cereale_17_17_17_prevue_achat_mais || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_mil || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_coton || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_soja || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_riz || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@calc(Number(@fields.npk_cereale_17_17_17_prevue_achat_mais || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_mil || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_coton || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_soja || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_riz || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2 || 0))",
+            "type": "calc",
+            "fieldName": "Number(@fields.npk_cereale_17_17_17_prevue_achat_mais || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_mil || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_coton || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_soja || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_riz || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2 || 0)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.npk_cereale_17_17_17_prevue_achat_mais": [
+          "value"
+        ],
+        "@fields.npk_cereale_17_17_17_prevue_achat_mil": [
+          "value"
+        ],
+        "@fields.npk_cereale_17_17_17_prevue_achat_sorgho": [
+          "value"
+        ],
+        "@fields.npk_cereale_17_17_17_prevue_achat_coton": [
+          "value"
+        ],
+        "@fields.npk_cereale_17_17_17_prevue_achat_arachide": [
+          "value"
+        ],
+        "@fields.npk_cereale_17_17_17_prevue_achat_fourrage": [
+          "value"
+        ],
+        "@fields.npk_cereale_17_17_17_prevue_achat_niebe": [
+          "value"
+        ],
+        "@fields.npk_cereale_17_17_17_prevue_achat_soja": [
+          "value"
+        ],
+        "@fields.npk_cereale_17_17_17_prevue_achat_fonio": [
+          "value"
+        ],
+        "@fields.npk_cereale_17_17_17_prevue_achat_riz": [
+          "value"
+        ],
+        "@fields.npk_cereale_17_17_17_prevue_achat_sesame": [
+          "value"
+        ],
+        "@fields.npk_cereale_17_17_17_prevue_achat_wouandzou": [
+          "value"
+        ],
+        "@fields.npk_cereale_17_17_17_prevue_achat_patate_douce": [
+          "value"
+        ],
+        "@fields.npk_cereale_17_17_17_prevue_achat_bissap": [
+          "value"
+        ],
+        "@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1": [
+          "value"
+        ],
+        "@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2": [
+          "value"
+        ],
+        "@calc(Number(@fields.npk_cereale_17_17_17_prevue_achat_mais || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_mil || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sorgho || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_coton || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_arachide || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fourrage || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_niebe || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_soja || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_fonio || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_riz || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_sesame || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_wouandzou || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_patate_douce || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_bissap || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_1 || 0) + Number(@fields.npk_cereale_17_17_17_prevue_achat_autre_cult_2 || 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "besoins_prevue_dap",
+      "value": "@calc(Number(@fields.dap_prevue_achat_mais || 0) + Number(@fields.dap_prevue_achat_mil || 0) + Number(@fields.dap_prevue_achat_sorgho || 0) + Number(@fields.dap_prevue_achat_coton || 0) + Number(@fields.dap_prevue_achat_arachide || 0) + Number(@fields.dap_prevue_achat_fourrage || 0) + Number(@fields.dap_prevue_achat_niebe || 0) + Number(@fields.dap_prevue_achat_soja || 0) + Number(@fields.dap_prevue_achat_fonio || 0) + Number(@fields.dap_prevue_achat_riz || 0) + Number(@fields.dap_prevue_achat_sesame || 0) + Number(@fields.dap_prevue_achat_wouandzou || 0) + Number(@fields.dap_prevue_achat_patate_douce || 0) + Number(@fields.dap_prevue_achat_bissap || 0) + Number(@fields.dap_prevue_achat_autre_cult_1 || 0) + Number(@fields.dap_prevue_achat_autre_cult_2 || 0))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "besoins_prevue_dap",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@fields.dap_prevue_achat_mais || 0) + Number(@fields.dap_prevue_achat_mil || 0) + Number(@fields.dap_prevue_achat_sorgho || 0) + Number(@fields.dap_prevue_achat_coton || 0) + Number(@fields.dap_prevue_achat_arachide || 0) + Number(@fields.dap_prevue_achat_fourrage || 0) + Number(@fields.dap_prevue_achat_niebe || 0) + Number(@fields.dap_prevue_achat_soja || 0) + Number(@fields.dap_prevue_achat_fonio || 0) + Number(@fields.dap_prevue_achat_riz || 0) + Number(@fields.dap_prevue_achat_sesame || 0) + Number(@fields.dap_prevue_achat_wouandzou || 0) + Number(@fields.dap_prevue_achat_patate_douce || 0) + Number(@fields.dap_prevue_achat_bissap || 0) + Number(@fields.dap_prevue_achat_autre_cult_1 || 0) + Number(@fields.dap_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.dap_prevue_achat_mais",
+            "type": "fields",
+            "fieldName": "dap_prevue_achat_mais"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.dap_prevue_achat_mais || 0) + Number(@fields.dap_prevue_achat_mil || 0) + Number(@fields.dap_prevue_achat_sorgho || 0) + Number(@fields.dap_prevue_achat_coton || 0) + Number(@fields.dap_prevue_achat_arachide || 0) + Number(@fields.dap_prevue_achat_fourrage || 0) + Number(@fields.dap_prevue_achat_niebe || 0) + Number(@fields.dap_prevue_achat_soja || 0) + Number(@fields.dap_prevue_achat_fonio || 0) + Number(@fields.dap_prevue_achat_riz || 0) + Number(@fields.dap_prevue_achat_sesame || 0) + Number(@fields.dap_prevue_achat_wouandzou || 0) + Number(@fields.dap_prevue_achat_patate_douce || 0) + Number(@fields.dap_prevue_achat_bissap || 0) + Number(@fields.dap_prevue_achat_autre_cult_1 || 0) + Number(@fields.dap_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.dap_prevue_achat_mil",
+            "type": "fields",
+            "fieldName": "dap_prevue_achat_mil"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.dap_prevue_achat_mais || 0) + Number(@fields.dap_prevue_achat_mil || 0) + Number(@fields.dap_prevue_achat_sorgho || 0) + Number(@fields.dap_prevue_achat_coton || 0) + Number(@fields.dap_prevue_achat_arachide || 0) + Number(@fields.dap_prevue_achat_fourrage || 0) + Number(@fields.dap_prevue_achat_niebe || 0) + Number(@fields.dap_prevue_achat_soja || 0) + Number(@fields.dap_prevue_achat_fonio || 0) + Number(@fields.dap_prevue_achat_riz || 0) + Number(@fields.dap_prevue_achat_sesame || 0) + Number(@fields.dap_prevue_achat_wouandzou || 0) + Number(@fields.dap_prevue_achat_patate_douce || 0) + Number(@fields.dap_prevue_achat_bissap || 0) + Number(@fields.dap_prevue_achat_autre_cult_1 || 0) + Number(@fields.dap_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.dap_prevue_achat_sorgho",
+            "type": "fields",
+            "fieldName": "dap_prevue_achat_sorgho"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.dap_prevue_achat_mais || 0) + Number(@fields.dap_prevue_achat_mil || 0) + Number(@fields.dap_prevue_achat_sorgho || 0) + Number(@fields.dap_prevue_achat_coton || 0) + Number(@fields.dap_prevue_achat_arachide || 0) + Number(@fields.dap_prevue_achat_fourrage || 0) + Number(@fields.dap_prevue_achat_niebe || 0) + Number(@fields.dap_prevue_achat_soja || 0) + Number(@fields.dap_prevue_achat_fonio || 0) + Number(@fields.dap_prevue_achat_riz || 0) + Number(@fields.dap_prevue_achat_sesame || 0) + Number(@fields.dap_prevue_achat_wouandzou || 0) + Number(@fields.dap_prevue_achat_patate_douce || 0) + Number(@fields.dap_prevue_achat_bissap || 0) + Number(@fields.dap_prevue_achat_autre_cult_1 || 0) + Number(@fields.dap_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.dap_prevue_achat_coton",
+            "type": "fields",
+            "fieldName": "dap_prevue_achat_coton"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.dap_prevue_achat_mais || 0) + Number(@fields.dap_prevue_achat_mil || 0) + Number(@fields.dap_prevue_achat_sorgho || 0) + Number(@fields.dap_prevue_achat_coton || 0) + Number(@fields.dap_prevue_achat_arachide || 0) + Number(@fields.dap_prevue_achat_fourrage || 0) + Number(@fields.dap_prevue_achat_niebe || 0) + Number(@fields.dap_prevue_achat_soja || 0) + Number(@fields.dap_prevue_achat_fonio || 0) + Number(@fields.dap_prevue_achat_riz || 0) + Number(@fields.dap_prevue_achat_sesame || 0) + Number(@fields.dap_prevue_achat_wouandzou || 0) + Number(@fields.dap_prevue_achat_patate_douce || 0) + Number(@fields.dap_prevue_achat_bissap || 0) + Number(@fields.dap_prevue_achat_autre_cult_1 || 0) + Number(@fields.dap_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.dap_prevue_achat_arachide",
+            "type": "fields",
+            "fieldName": "dap_prevue_achat_arachide"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.dap_prevue_achat_mais || 0) + Number(@fields.dap_prevue_achat_mil || 0) + Number(@fields.dap_prevue_achat_sorgho || 0) + Number(@fields.dap_prevue_achat_coton || 0) + Number(@fields.dap_prevue_achat_arachide || 0) + Number(@fields.dap_prevue_achat_fourrage || 0) + Number(@fields.dap_prevue_achat_niebe || 0) + Number(@fields.dap_prevue_achat_soja || 0) + Number(@fields.dap_prevue_achat_fonio || 0) + Number(@fields.dap_prevue_achat_riz || 0) + Number(@fields.dap_prevue_achat_sesame || 0) + Number(@fields.dap_prevue_achat_wouandzou || 0) + Number(@fields.dap_prevue_achat_patate_douce || 0) + Number(@fields.dap_prevue_achat_bissap || 0) + Number(@fields.dap_prevue_achat_autre_cult_1 || 0) + Number(@fields.dap_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.dap_prevue_achat_fourrage",
+            "type": "fields",
+            "fieldName": "dap_prevue_achat_fourrage"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.dap_prevue_achat_mais || 0) + Number(@fields.dap_prevue_achat_mil || 0) + Number(@fields.dap_prevue_achat_sorgho || 0) + Number(@fields.dap_prevue_achat_coton || 0) + Number(@fields.dap_prevue_achat_arachide || 0) + Number(@fields.dap_prevue_achat_fourrage || 0) + Number(@fields.dap_prevue_achat_niebe || 0) + Number(@fields.dap_prevue_achat_soja || 0) + Number(@fields.dap_prevue_achat_fonio || 0) + Number(@fields.dap_prevue_achat_riz || 0) + Number(@fields.dap_prevue_achat_sesame || 0) + Number(@fields.dap_prevue_achat_wouandzou || 0) + Number(@fields.dap_prevue_achat_patate_douce || 0) + Number(@fields.dap_prevue_achat_bissap || 0) + Number(@fields.dap_prevue_achat_autre_cult_1 || 0) + Number(@fields.dap_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.dap_prevue_achat_niebe",
+            "type": "fields",
+            "fieldName": "dap_prevue_achat_niebe"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.dap_prevue_achat_mais || 0) + Number(@fields.dap_prevue_achat_mil || 0) + Number(@fields.dap_prevue_achat_sorgho || 0) + Number(@fields.dap_prevue_achat_coton || 0) + Number(@fields.dap_prevue_achat_arachide || 0) + Number(@fields.dap_prevue_achat_fourrage || 0) + Number(@fields.dap_prevue_achat_niebe || 0) + Number(@fields.dap_prevue_achat_soja || 0) + Number(@fields.dap_prevue_achat_fonio || 0) + Number(@fields.dap_prevue_achat_riz || 0) + Number(@fields.dap_prevue_achat_sesame || 0) + Number(@fields.dap_prevue_achat_wouandzou || 0) + Number(@fields.dap_prevue_achat_patate_douce || 0) + Number(@fields.dap_prevue_achat_bissap || 0) + Number(@fields.dap_prevue_achat_autre_cult_1 || 0) + Number(@fields.dap_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.dap_prevue_achat_soja",
+            "type": "fields",
+            "fieldName": "dap_prevue_achat_soja"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.dap_prevue_achat_mais || 0) + Number(@fields.dap_prevue_achat_mil || 0) + Number(@fields.dap_prevue_achat_sorgho || 0) + Number(@fields.dap_prevue_achat_coton || 0) + Number(@fields.dap_prevue_achat_arachide || 0) + Number(@fields.dap_prevue_achat_fourrage || 0) + Number(@fields.dap_prevue_achat_niebe || 0) + Number(@fields.dap_prevue_achat_soja || 0) + Number(@fields.dap_prevue_achat_fonio || 0) + Number(@fields.dap_prevue_achat_riz || 0) + Number(@fields.dap_prevue_achat_sesame || 0) + Number(@fields.dap_prevue_achat_wouandzou || 0) + Number(@fields.dap_prevue_achat_patate_douce || 0) + Number(@fields.dap_prevue_achat_bissap || 0) + Number(@fields.dap_prevue_achat_autre_cult_1 || 0) + Number(@fields.dap_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.dap_prevue_achat_fonio",
+            "type": "fields",
+            "fieldName": "dap_prevue_achat_fonio"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.dap_prevue_achat_mais || 0) + Number(@fields.dap_prevue_achat_mil || 0) + Number(@fields.dap_prevue_achat_sorgho || 0) + Number(@fields.dap_prevue_achat_coton || 0) + Number(@fields.dap_prevue_achat_arachide || 0) + Number(@fields.dap_prevue_achat_fourrage || 0) + Number(@fields.dap_prevue_achat_niebe || 0) + Number(@fields.dap_prevue_achat_soja || 0) + Number(@fields.dap_prevue_achat_fonio || 0) + Number(@fields.dap_prevue_achat_riz || 0) + Number(@fields.dap_prevue_achat_sesame || 0) + Number(@fields.dap_prevue_achat_wouandzou || 0) + Number(@fields.dap_prevue_achat_patate_douce || 0) + Number(@fields.dap_prevue_achat_bissap || 0) + Number(@fields.dap_prevue_achat_autre_cult_1 || 0) + Number(@fields.dap_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.dap_prevue_achat_riz",
+            "type": "fields",
+            "fieldName": "dap_prevue_achat_riz"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.dap_prevue_achat_mais || 0) + Number(@fields.dap_prevue_achat_mil || 0) + Number(@fields.dap_prevue_achat_sorgho || 0) + Number(@fields.dap_prevue_achat_coton || 0) + Number(@fields.dap_prevue_achat_arachide || 0) + Number(@fields.dap_prevue_achat_fourrage || 0) + Number(@fields.dap_prevue_achat_niebe || 0) + Number(@fields.dap_prevue_achat_soja || 0) + Number(@fields.dap_prevue_achat_fonio || 0) + Number(@fields.dap_prevue_achat_riz || 0) + Number(@fields.dap_prevue_achat_sesame || 0) + Number(@fields.dap_prevue_achat_wouandzou || 0) + Number(@fields.dap_prevue_achat_patate_douce || 0) + Number(@fields.dap_prevue_achat_bissap || 0) + Number(@fields.dap_prevue_achat_autre_cult_1 || 0) + Number(@fields.dap_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.dap_prevue_achat_sesame",
+            "type": "fields",
+            "fieldName": "dap_prevue_achat_sesame"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.dap_prevue_achat_mais || 0) + Number(@fields.dap_prevue_achat_mil || 0) + Number(@fields.dap_prevue_achat_sorgho || 0) + Number(@fields.dap_prevue_achat_coton || 0) + Number(@fields.dap_prevue_achat_arachide || 0) + Number(@fields.dap_prevue_achat_fourrage || 0) + Number(@fields.dap_prevue_achat_niebe || 0) + Number(@fields.dap_prevue_achat_soja || 0) + Number(@fields.dap_prevue_achat_fonio || 0) + Number(@fields.dap_prevue_achat_riz || 0) + Number(@fields.dap_prevue_achat_sesame || 0) + Number(@fields.dap_prevue_achat_wouandzou || 0) + Number(@fields.dap_prevue_achat_patate_douce || 0) + Number(@fields.dap_prevue_achat_bissap || 0) + Number(@fields.dap_prevue_achat_autre_cult_1 || 0) + Number(@fields.dap_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.dap_prevue_achat_wouandzou",
+            "type": "fields",
+            "fieldName": "dap_prevue_achat_wouandzou"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.dap_prevue_achat_mais || 0) + Number(@fields.dap_prevue_achat_mil || 0) + Number(@fields.dap_prevue_achat_sorgho || 0) + Number(@fields.dap_prevue_achat_coton || 0) + Number(@fields.dap_prevue_achat_arachide || 0) + Number(@fields.dap_prevue_achat_fourrage || 0) + Number(@fields.dap_prevue_achat_niebe || 0) + Number(@fields.dap_prevue_achat_soja || 0) + Number(@fields.dap_prevue_achat_fonio || 0) + Number(@fields.dap_prevue_achat_riz || 0) + Number(@fields.dap_prevue_achat_sesame || 0) + Number(@fields.dap_prevue_achat_wouandzou || 0) + Number(@fields.dap_prevue_achat_patate_douce || 0) + Number(@fields.dap_prevue_achat_bissap || 0) + Number(@fields.dap_prevue_achat_autre_cult_1 || 0) + Number(@fields.dap_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.dap_prevue_achat_patate_douce",
+            "type": "fields",
+            "fieldName": "dap_prevue_achat_patate_douce"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.dap_prevue_achat_mais || 0) + Number(@fields.dap_prevue_achat_mil || 0) + Number(@fields.dap_prevue_achat_sorgho || 0) + Number(@fields.dap_prevue_achat_coton || 0) + Number(@fields.dap_prevue_achat_arachide || 0) + Number(@fields.dap_prevue_achat_fourrage || 0) + Number(@fields.dap_prevue_achat_niebe || 0) + Number(@fields.dap_prevue_achat_soja || 0) + Number(@fields.dap_prevue_achat_fonio || 0) + Number(@fields.dap_prevue_achat_riz || 0) + Number(@fields.dap_prevue_achat_sesame || 0) + Number(@fields.dap_prevue_achat_wouandzou || 0) + Number(@fields.dap_prevue_achat_patate_douce || 0) + Number(@fields.dap_prevue_achat_bissap || 0) + Number(@fields.dap_prevue_achat_autre_cult_1 || 0) + Number(@fields.dap_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.dap_prevue_achat_bissap",
+            "type": "fields",
+            "fieldName": "dap_prevue_achat_bissap"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.dap_prevue_achat_mais || 0) + Number(@fields.dap_prevue_achat_mil || 0) + Number(@fields.dap_prevue_achat_sorgho || 0) + Number(@fields.dap_prevue_achat_coton || 0) + Number(@fields.dap_prevue_achat_arachide || 0) + Number(@fields.dap_prevue_achat_fourrage || 0) + Number(@fields.dap_prevue_achat_niebe || 0) + Number(@fields.dap_prevue_achat_soja || 0) + Number(@fields.dap_prevue_achat_fonio || 0) + Number(@fields.dap_prevue_achat_riz || 0) + Number(@fields.dap_prevue_achat_sesame || 0) + Number(@fields.dap_prevue_achat_wouandzou || 0) + Number(@fields.dap_prevue_achat_patate_douce || 0) + Number(@fields.dap_prevue_achat_bissap || 0) + Number(@fields.dap_prevue_achat_autre_cult_1 || 0) + Number(@fields.dap_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.dap_prevue_achat_autre_cult_1",
+            "type": "fields",
+            "fieldName": "dap_prevue_achat_autre_cult_1"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.dap_prevue_achat_mais || 0) + Number(@fields.dap_prevue_achat_mil || 0) + Number(@fields.dap_prevue_achat_sorgho || 0) + Number(@fields.dap_prevue_achat_coton || 0) + Number(@fields.dap_prevue_achat_arachide || 0) + Number(@fields.dap_prevue_achat_fourrage || 0) + Number(@fields.dap_prevue_achat_niebe || 0) + Number(@fields.dap_prevue_achat_soja || 0) + Number(@fields.dap_prevue_achat_fonio || 0) + Number(@fields.dap_prevue_achat_riz || 0) + Number(@fields.dap_prevue_achat_sesame || 0) + Number(@fields.dap_prevue_achat_wouandzou || 0) + Number(@fields.dap_prevue_achat_patate_douce || 0) + Number(@fields.dap_prevue_achat_bissap || 0) + Number(@fields.dap_prevue_achat_autre_cult_1 || 0) + Number(@fields.dap_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.dap_prevue_achat_autre_cult_2",
+            "type": "fields",
+            "fieldName": "dap_prevue_achat_autre_cult_2"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.dap_prevue_achat_mais || 0) + Number(@fields.dap_prevue_achat_mil || 0) + Number(@fields.dap_prevue_achat_sorgho || 0) + Number(@fields.dap_prevue_achat_coton || 0) + Number(@fields.dap_prevue_achat_arachide || 0) + Number(@fields.dap_prevue_achat_fourrage || 0) + Number(@fields.dap_prevue_achat_niebe || 0) + Number(@fields.dap_prevue_achat_soja || 0) + Number(@fields.dap_prevue_achat_fonio || 0) + Number(@fields.dap_prevue_achat_riz || 0) + Number(@fields.dap_prevue_achat_sesame || 0) + Number(@fields.dap_prevue_achat_wouandzou || 0) + Number(@fields.dap_prevue_achat_patate_douce || 0) + Number(@fields.dap_prevue_achat_bissap || 0) + Number(@fields.dap_prevue_achat_autre_cult_1 || 0) + Number(@fields.dap_prevue_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@calc(Number(@fields.dap_prevue_achat_mais || 0) + Number(@fields.dap_prevue_achat_mil || 0) + Number(@fields.dap_prevue_achat_sorgho || 0) + Number(@fields.dap_prevue_achat_coton || 0) + Number(@fields.dap_prevue_achat_arachide || 0) + Number(@fields.dap_prevue_achat_fourrage || 0) + Number(@fields.dap_prevue_achat_niebe || 0) + Number(@fields.dap_prevue_achat_soja || 0) + Number(@fields.dap_prevue_achat_fonio || 0) + Number(@fields.dap_prevue_achat_riz || 0) + Number(@fields.dap_prevue_achat_sesame || 0) + Number(@fields.dap_prevue_achat_wouandzou || 0) + Number(@fields.dap_prevue_achat_patate_douce || 0) + Number(@fields.dap_prevue_achat_bissap || 0) + Number(@fields.dap_prevue_achat_autre_cult_1 || 0) + Number(@fields.dap_prevue_achat_autre_cult_2 || 0))",
+            "type": "calc",
+            "fieldName": "Number(@fields.dap_prevue_achat_mais || 0) + Number(@fields.dap_prevue_achat_mil || 0) + Number(@fields.dap_prevue_achat_sorgho || 0) + Number(@fields.dap_prevue_achat_coton || 0) + Number(@fields.dap_prevue_achat_arachide || 0) + Number(@fields.dap_prevue_achat_fourrage || 0) + Number(@fields.dap_prevue_achat_niebe || 0) + Number(@fields.dap_prevue_achat_soja || 0) + Number(@fields.dap_prevue_achat_fonio || 0) + Number(@fields.dap_prevue_achat_riz || 0) + Number(@fields.dap_prevue_achat_sesame || 0) + Number(@fields.dap_prevue_achat_wouandzou || 0) + Number(@fields.dap_prevue_achat_patate_douce || 0) + Number(@fields.dap_prevue_achat_bissap || 0) + Number(@fields.dap_prevue_achat_autre_cult_1 || 0) + Number(@fields.dap_prevue_achat_autre_cult_2 || 0)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.dap_prevue_achat_mais": [
+          "value"
+        ],
+        "@fields.dap_prevue_achat_mil": [
+          "value"
+        ],
+        "@fields.dap_prevue_achat_sorgho": [
+          "value"
+        ],
+        "@fields.dap_prevue_achat_coton": [
+          "value"
+        ],
+        "@fields.dap_prevue_achat_arachide": [
+          "value"
+        ],
+        "@fields.dap_prevue_achat_fourrage": [
+          "value"
+        ],
+        "@fields.dap_prevue_achat_niebe": [
+          "value"
+        ],
+        "@fields.dap_prevue_achat_soja": [
+          "value"
+        ],
+        "@fields.dap_prevue_achat_fonio": [
+          "value"
+        ],
+        "@fields.dap_prevue_achat_riz": [
+          "value"
+        ],
+        "@fields.dap_prevue_achat_sesame": [
+          "value"
+        ],
+        "@fields.dap_prevue_achat_wouandzou": [
+          "value"
+        ],
+        "@fields.dap_prevue_achat_patate_douce": [
+          "value"
+        ],
+        "@fields.dap_prevue_achat_bissap": [
+          "value"
+        ],
+        "@fields.dap_prevue_achat_autre_cult_1": [
+          "value"
+        ],
+        "@fields.dap_prevue_achat_autre_cult_2": [
+          "value"
+        ],
+        "@calc(Number(@fields.dap_prevue_achat_mais || 0) + Number(@fields.dap_prevue_achat_mil || 0) + Number(@fields.dap_prevue_achat_sorgho || 0) + Number(@fields.dap_prevue_achat_coton || 0) + Number(@fields.dap_prevue_achat_arachide || 0) + Number(@fields.dap_prevue_achat_fourrage || 0) + Number(@fields.dap_prevue_achat_niebe || 0) + Number(@fields.dap_prevue_achat_soja || 0) + Number(@fields.dap_prevue_achat_fonio || 0) + Number(@fields.dap_prevue_achat_riz || 0) + Number(@fields.dap_prevue_achat_sesame || 0) + Number(@fields.dap_prevue_achat_wouandzou || 0) + Number(@fields.dap_prevue_achat_patate_douce || 0) + Number(@fields.dap_prevue_achat_bissap || 0) + Number(@fields.dap_prevue_achat_autre_cult_1 || 0) + Number(@fields.dap_prevue_achat_autre_cult_2 || 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "besoins_prevus_uree",
+      "value": "@calc(Number(@fields.uree_prevu_achat_mais || 0) + Number(@fields.uree_prevu_achat_mil || 0) + Number(@fields.uree_prevu_achat_sorgho || 0) + Number(@fields.uree_prevu_achat_coton || 0) + Number(@fields.uree_prevu_achat_arachide || 0) + Number(@fields.uree_prevu_achat_fourrage || 0) + Number(@fields.uree_prevu_achat_niebe || 0) + Number(@fields.uree_prevu_achat_soja || 0) + Number(@fields.uree_prevu_achat_fonio || 0) + Number(@fields.uree_prevu_achat_riz || 0) + Number(@fields.uree_prevu_achat_sesame || 0) + Number(@fields.uree_prevu_achat_wouandzou || 0) + Number(@fields.uree_prevu_achat_patate_douce || 0) + Number(@fields.uree_prevu_achat_bissap || 0) + Number(@fields.uree_prevu_achat_autre_cult_1 || 0) + Number(@fields.uree_prevu_achat_autre_cult_2 || 0))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "besoins_prevus_uree",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@fields.uree_prevu_achat_mais || 0) + Number(@fields.uree_prevu_achat_mil || 0) + Number(@fields.uree_prevu_achat_sorgho || 0) + Number(@fields.uree_prevu_achat_coton || 0) + Number(@fields.uree_prevu_achat_arachide || 0) + Number(@fields.uree_prevu_achat_fourrage || 0) + Number(@fields.uree_prevu_achat_niebe || 0) + Number(@fields.uree_prevu_achat_soja || 0) + Number(@fields.uree_prevu_achat_fonio || 0) + Number(@fields.uree_prevu_achat_riz || 0) + Number(@fields.uree_prevu_achat_sesame || 0) + Number(@fields.uree_prevu_achat_wouandzou || 0) + Number(@fields.uree_prevu_achat_patate_douce || 0) + Number(@fields.uree_prevu_achat_bissap || 0) + Number(@fields.uree_prevu_achat_autre_cult_1 || 0) + Number(@fields.uree_prevu_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.uree_prevu_achat_mais",
+            "type": "fields",
+            "fieldName": "uree_prevu_achat_mais"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.uree_prevu_achat_mais || 0) + Number(@fields.uree_prevu_achat_mil || 0) + Number(@fields.uree_prevu_achat_sorgho || 0) + Number(@fields.uree_prevu_achat_coton || 0) + Number(@fields.uree_prevu_achat_arachide || 0) + Number(@fields.uree_prevu_achat_fourrage || 0) + Number(@fields.uree_prevu_achat_niebe || 0) + Number(@fields.uree_prevu_achat_soja || 0) + Number(@fields.uree_prevu_achat_fonio || 0) + Number(@fields.uree_prevu_achat_riz || 0) + Number(@fields.uree_prevu_achat_sesame || 0) + Number(@fields.uree_prevu_achat_wouandzou || 0) + Number(@fields.uree_prevu_achat_patate_douce || 0) + Number(@fields.uree_prevu_achat_bissap || 0) + Number(@fields.uree_prevu_achat_autre_cult_1 || 0) + Number(@fields.uree_prevu_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.uree_prevu_achat_mil",
+            "type": "fields",
+            "fieldName": "uree_prevu_achat_mil"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.uree_prevu_achat_mais || 0) + Number(@fields.uree_prevu_achat_mil || 0) + Number(@fields.uree_prevu_achat_sorgho || 0) + Number(@fields.uree_prevu_achat_coton || 0) + Number(@fields.uree_prevu_achat_arachide || 0) + Number(@fields.uree_prevu_achat_fourrage || 0) + Number(@fields.uree_prevu_achat_niebe || 0) + Number(@fields.uree_prevu_achat_soja || 0) + Number(@fields.uree_prevu_achat_fonio || 0) + Number(@fields.uree_prevu_achat_riz || 0) + Number(@fields.uree_prevu_achat_sesame || 0) + Number(@fields.uree_prevu_achat_wouandzou || 0) + Number(@fields.uree_prevu_achat_patate_douce || 0) + Number(@fields.uree_prevu_achat_bissap || 0) + Number(@fields.uree_prevu_achat_autre_cult_1 || 0) + Number(@fields.uree_prevu_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.uree_prevu_achat_sorgho",
+            "type": "fields",
+            "fieldName": "uree_prevu_achat_sorgho"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.uree_prevu_achat_mais || 0) + Number(@fields.uree_prevu_achat_mil || 0) + Number(@fields.uree_prevu_achat_sorgho || 0) + Number(@fields.uree_prevu_achat_coton || 0) + Number(@fields.uree_prevu_achat_arachide || 0) + Number(@fields.uree_prevu_achat_fourrage || 0) + Number(@fields.uree_prevu_achat_niebe || 0) + Number(@fields.uree_prevu_achat_soja || 0) + Number(@fields.uree_prevu_achat_fonio || 0) + Number(@fields.uree_prevu_achat_riz || 0) + Number(@fields.uree_prevu_achat_sesame || 0) + Number(@fields.uree_prevu_achat_wouandzou || 0) + Number(@fields.uree_prevu_achat_patate_douce || 0) + Number(@fields.uree_prevu_achat_bissap || 0) + Number(@fields.uree_prevu_achat_autre_cult_1 || 0) + Number(@fields.uree_prevu_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.uree_prevu_achat_coton",
+            "type": "fields",
+            "fieldName": "uree_prevu_achat_coton"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.uree_prevu_achat_mais || 0) + Number(@fields.uree_prevu_achat_mil || 0) + Number(@fields.uree_prevu_achat_sorgho || 0) + Number(@fields.uree_prevu_achat_coton || 0) + Number(@fields.uree_prevu_achat_arachide || 0) + Number(@fields.uree_prevu_achat_fourrage || 0) + Number(@fields.uree_prevu_achat_niebe || 0) + Number(@fields.uree_prevu_achat_soja || 0) + Number(@fields.uree_prevu_achat_fonio || 0) + Number(@fields.uree_prevu_achat_riz || 0) + Number(@fields.uree_prevu_achat_sesame || 0) + Number(@fields.uree_prevu_achat_wouandzou || 0) + Number(@fields.uree_prevu_achat_patate_douce || 0) + Number(@fields.uree_prevu_achat_bissap || 0) + Number(@fields.uree_prevu_achat_autre_cult_1 || 0) + Number(@fields.uree_prevu_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.uree_prevu_achat_arachide",
+            "type": "fields",
+            "fieldName": "uree_prevu_achat_arachide"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.uree_prevu_achat_mais || 0) + Number(@fields.uree_prevu_achat_mil || 0) + Number(@fields.uree_prevu_achat_sorgho || 0) + Number(@fields.uree_prevu_achat_coton || 0) + Number(@fields.uree_prevu_achat_arachide || 0) + Number(@fields.uree_prevu_achat_fourrage || 0) + Number(@fields.uree_prevu_achat_niebe || 0) + Number(@fields.uree_prevu_achat_soja || 0) + Number(@fields.uree_prevu_achat_fonio || 0) + Number(@fields.uree_prevu_achat_riz || 0) + Number(@fields.uree_prevu_achat_sesame || 0) + Number(@fields.uree_prevu_achat_wouandzou || 0) + Number(@fields.uree_prevu_achat_patate_douce || 0) + Number(@fields.uree_prevu_achat_bissap || 0) + Number(@fields.uree_prevu_achat_autre_cult_1 || 0) + Number(@fields.uree_prevu_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.uree_prevu_achat_fourrage",
+            "type": "fields",
+            "fieldName": "uree_prevu_achat_fourrage"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.uree_prevu_achat_mais || 0) + Number(@fields.uree_prevu_achat_mil || 0) + Number(@fields.uree_prevu_achat_sorgho || 0) + Number(@fields.uree_prevu_achat_coton || 0) + Number(@fields.uree_prevu_achat_arachide || 0) + Number(@fields.uree_prevu_achat_fourrage || 0) + Number(@fields.uree_prevu_achat_niebe || 0) + Number(@fields.uree_prevu_achat_soja || 0) + Number(@fields.uree_prevu_achat_fonio || 0) + Number(@fields.uree_prevu_achat_riz || 0) + Number(@fields.uree_prevu_achat_sesame || 0) + Number(@fields.uree_prevu_achat_wouandzou || 0) + Number(@fields.uree_prevu_achat_patate_douce || 0) + Number(@fields.uree_prevu_achat_bissap || 0) + Number(@fields.uree_prevu_achat_autre_cult_1 || 0) + Number(@fields.uree_prevu_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.uree_prevu_achat_niebe",
+            "type": "fields",
+            "fieldName": "uree_prevu_achat_niebe"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.uree_prevu_achat_mais || 0) + Number(@fields.uree_prevu_achat_mil || 0) + Number(@fields.uree_prevu_achat_sorgho || 0) + Number(@fields.uree_prevu_achat_coton || 0) + Number(@fields.uree_prevu_achat_arachide || 0) + Number(@fields.uree_prevu_achat_fourrage || 0) + Number(@fields.uree_prevu_achat_niebe || 0) + Number(@fields.uree_prevu_achat_soja || 0) + Number(@fields.uree_prevu_achat_fonio || 0) + Number(@fields.uree_prevu_achat_riz || 0) + Number(@fields.uree_prevu_achat_sesame || 0) + Number(@fields.uree_prevu_achat_wouandzou || 0) + Number(@fields.uree_prevu_achat_patate_douce || 0) + Number(@fields.uree_prevu_achat_bissap || 0) + Number(@fields.uree_prevu_achat_autre_cult_1 || 0) + Number(@fields.uree_prevu_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.uree_prevu_achat_soja",
+            "type": "fields",
+            "fieldName": "uree_prevu_achat_soja"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.uree_prevu_achat_mais || 0) + Number(@fields.uree_prevu_achat_mil || 0) + Number(@fields.uree_prevu_achat_sorgho || 0) + Number(@fields.uree_prevu_achat_coton || 0) + Number(@fields.uree_prevu_achat_arachide || 0) + Number(@fields.uree_prevu_achat_fourrage || 0) + Number(@fields.uree_prevu_achat_niebe || 0) + Number(@fields.uree_prevu_achat_soja || 0) + Number(@fields.uree_prevu_achat_fonio || 0) + Number(@fields.uree_prevu_achat_riz || 0) + Number(@fields.uree_prevu_achat_sesame || 0) + Number(@fields.uree_prevu_achat_wouandzou || 0) + Number(@fields.uree_prevu_achat_patate_douce || 0) + Number(@fields.uree_prevu_achat_bissap || 0) + Number(@fields.uree_prevu_achat_autre_cult_1 || 0) + Number(@fields.uree_prevu_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.uree_prevu_achat_fonio",
+            "type": "fields",
+            "fieldName": "uree_prevu_achat_fonio"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.uree_prevu_achat_mais || 0) + Number(@fields.uree_prevu_achat_mil || 0) + Number(@fields.uree_prevu_achat_sorgho || 0) + Number(@fields.uree_prevu_achat_coton || 0) + Number(@fields.uree_prevu_achat_arachide || 0) + Number(@fields.uree_prevu_achat_fourrage || 0) + Number(@fields.uree_prevu_achat_niebe || 0) + Number(@fields.uree_prevu_achat_soja || 0) + Number(@fields.uree_prevu_achat_fonio || 0) + Number(@fields.uree_prevu_achat_riz || 0) + Number(@fields.uree_prevu_achat_sesame || 0) + Number(@fields.uree_prevu_achat_wouandzou || 0) + Number(@fields.uree_prevu_achat_patate_douce || 0) + Number(@fields.uree_prevu_achat_bissap || 0) + Number(@fields.uree_prevu_achat_autre_cult_1 || 0) + Number(@fields.uree_prevu_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.uree_prevu_achat_riz",
+            "type": "fields",
+            "fieldName": "uree_prevu_achat_riz"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.uree_prevu_achat_mais || 0) + Number(@fields.uree_prevu_achat_mil || 0) + Number(@fields.uree_prevu_achat_sorgho || 0) + Number(@fields.uree_prevu_achat_coton || 0) + Number(@fields.uree_prevu_achat_arachide || 0) + Number(@fields.uree_prevu_achat_fourrage || 0) + Number(@fields.uree_prevu_achat_niebe || 0) + Number(@fields.uree_prevu_achat_soja || 0) + Number(@fields.uree_prevu_achat_fonio || 0) + Number(@fields.uree_prevu_achat_riz || 0) + Number(@fields.uree_prevu_achat_sesame || 0) + Number(@fields.uree_prevu_achat_wouandzou || 0) + Number(@fields.uree_prevu_achat_patate_douce || 0) + Number(@fields.uree_prevu_achat_bissap || 0) + Number(@fields.uree_prevu_achat_autre_cult_1 || 0) + Number(@fields.uree_prevu_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.uree_prevu_achat_sesame",
+            "type": "fields",
+            "fieldName": "uree_prevu_achat_sesame"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.uree_prevu_achat_mais || 0) + Number(@fields.uree_prevu_achat_mil || 0) + Number(@fields.uree_prevu_achat_sorgho || 0) + Number(@fields.uree_prevu_achat_coton || 0) + Number(@fields.uree_prevu_achat_arachide || 0) + Number(@fields.uree_prevu_achat_fourrage || 0) + Number(@fields.uree_prevu_achat_niebe || 0) + Number(@fields.uree_prevu_achat_soja || 0) + Number(@fields.uree_prevu_achat_fonio || 0) + Number(@fields.uree_prevu_achat_riz || 0) + Number(@fields.uree_prevu_achat_sesame || 0) + Number(@fields.uree_prevu_achat_wouandzou || 0) + Number(@fields.uree_prevu_achat_patate_douce || 0) + Number(@fields.uree_prevu_achat_bissap || 0) + Number(@fields.uree_prevu_achat_autre_cult_1 || 0) + Number(@fields.uree_prevu_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.uree_prevu_achat_wouandzou",
+            "type": "fields",
+            "fieldName": "uree_prevu_achat_wouandzou"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.uree_prevu_achat_mais || 0) + Number(@fields.uree_prevu_achat_mil || 0) + Number(@fields.uree_prevu_achat_sorgho || 0) + Number(@fields.uree_prevu_achat_coton || 0) + Number(@fields.uree_prevu_achat_arachide || 0) + Number(@fields.uree_prevu_achat_fourrage || 0) + Number(@fields.uree_prevu_achat_niebe || 0) + Number(@fields.uree_prevu_achat_soja || 0) + Number(@fields.uree_prevu_achat_fonio || 0) + Number(@fields.uree_prevu_achat_riz || 0) + Number(@fields.uree_prevu_achat_sesame || 0) + Number(@fields.uree_prevu_achat_wouandzou || 0) + Number(@fields.uree_prevu_achat_patate_douce || 0) + Number(@fields.uree_prevu_achat_bissap || 0) + Number(@fields.uree_prevu_achat_autre_cult_1 || 0) + Number(@fields.uree_prevu_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.uree_prevu_achat_patate_douce",
+            "type": "fields",
+            "fieldName": "uree_prevu_achat_patate_douce"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.uree_prevu_achat_mais || 0) + Number(@fields.uree_prevu_achat_mil || 0) + Number(@fields.uree_prevu_achat_sorgho || 0) + Number(@fields.uree_prevu_achat_coton || 0) + Number(@fields.uree_prevu_achat_arachide || 0) + Number(@fields.uree_prevu_achat_fourrage || 0) + Number(@fields.uree_prevu_achat_niebe || 0) + Number(@fields.uree_prevu_achat_soja || 0) + Number(@fields.uree_prevu_achat_fonio || 0) + Number(@fields.uree_prevu_achat_riz || 0) + Number(@fields.uree_prevu_achat_sesame || 0) + Number(@fields.uree_prevu_achat_wouandzou || 0) + Number(@fields.uree_prevu_achat_patate_douce || 0) + Number(@fields.uree_prevu_achat_bissap || 0) + Number(@fields.uree_prevu_achat_autre_cult_1 || 0) + Number(@fields.uree_prevu_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.uree_prevu_achat_bissap",
+            "type": "fields",
+            "fieldName": "uree_prevu_achat_bissap"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.uree_prevu_achat_mais || 0) + Number(@fields.uree_prevu_achat_mil || 0) + Number(@fields.uree_prevu_achat_sorgho || 0) + Number(@fields.uree_prevu_achat_coton || 0) + Number(@fields.uree_prevu_achat_arachide || 0) + Number(@fields.uree_prevu_achat_fourrage || 0) + Number(@fields.uree_prevu_achat_niebe || 0) + Number(@fields.uree_prevu_achat_soja || 0) + Number(@fields.uree_prevu_achat_fonio || 0) + Number(@fields.uree_prevu_achat_riz || 0) + Number(@fields.uree_prevu_achat_sesame || 0) + Number(@fields.uree_prevu_achat_wouandzou || 0) + Number(@fields.uree_prevu_achat_patate_douce || 0) + Number(@fields.uree_prevu_achat_bissap || 0) + Number(@fields.uree_prevu_achat_autre_cult_1 || 0) + Number(@fields.uree_prevu_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.uree_prevu_achat_autre_cult_1",
+            "type": "fields",
+            "fieldName": "uree_prevu_achat_autre_cult_1"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.uree_prevu_achat_mais || 0) + Number(@fields.uree_prevu_achat_mil || 0) + Number(@fields.uree_prevu_achat_sorgho || 0) + Number(@fields.uree_prevu_achat_coton || 0) + Number(@fields.uree_prevu_achat_arachide || 0) + Number(@fields.uree_prevu_achat_fourrage || 0) + Number(@fields.uree_prevu_achat_niebe || 0) + Number(@fields.uree_prevu_achat_soja || 0) + Number(@fields.uree_prevu_achat_fonio || 0) + Number(@fields.uree_prevu_achat_riz || 0) + Number(@fields.uree_prevu_achat_sesame || 0) + Number(@fields.uree_prevu_achat_wouandzou || 0) + Number(@fields.uree_prevu_achat_patate_douce || 0) + Number(@fields.uree_prevu_achat_bissap || 0) + Number(@fields.uree_prevu_achat_autre_cult_1 || 0) + Number(@fields.uree_prevu_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@fields.uree_prevu_achat_autre_cult_2",
+            "type": "fields",
+            "fieldName": "uree_prevu_achat_autre_cult_2"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.uree_prevu_achat_mais || 0) + Number(@fields.uree_prevu_achat_mil || 0) + Number(@fields.uree_prevu_achat_sorgho || 0) + Number(@fields.uree_prevu_achat_coton || 0) + Number(@fields.uree_prevu_achat_arachide || 0) + Number(@fields.uree_prevu_achat_fourrage || 0) + Number(@fields.uree_prevu_achat_niebe || 0) + Number(@fields.uree_prevu_achat_soja || 0) + Number(@fields.uree_prevu_achat_fonio || 0) + Number(@fields.uree_prevu_achat_riz || 0) + Number(@fields.uree_prevu_achat_sesame || 0) + Number(@fields.uree_prevu_achat_wouandzou || 0) + Number(@fields.uree_prevu_achat_patate_douce || 0) + Number(@fields.uree_prevu_achat_bissap || 0) + Number(@fields.uree_prevu_achat_autre_cult_1 || 0) + Number(@fields.uree_prevu_achat_autre_cult_2 || 0))",
+            "matchedExpression": "@calc(Number(@fields.uree_prevu_achat_mais || 0) + Number(@fields.uree_prevu_achat_mil || 0) + Number(@fields.uree_prevu_achat_sorgho || 0) + Number(@fields.uree_prevu_achat_coton || 0) + Number(@fields.uree_prevu_achat_arachide || 0) + Number(@fields.uree_prevu_achat_fourrage || 0) + Number(@fields.uree_prevu_achat_niebe || 0) + Number(@fields.uree_prevu_achat_soja || 0) + Number(@fields.uree_prevu_achat_fonio || 0) + Number(@fields.uree_prevu_achat_riz || 0) + Number(@fields.uree_prevu_achat_sesame || 0) + Number(@fields.uree_prevu_achat_wouandzou || 0) + Number(@fields.uree_prevu_achat_patate_douce || 0) + Number(@fields.uree_prevu_achat_bissap || 0) + Number(@fields.uree_prevu_achat_autre_cult_1 || 0) + Number(@fields.uree_prevu_achat_autre_cult_2 || 0))",
+            "type": "calc",
+            "fieldName": "Number(@fields.uree_prevu_achat_mais || 0) + Number(@fields.uree_prevu_achat_mil || 0) + Number(@fields.uree_prevu_achat_sorgho || 0) + Number(@fields.uree_prevu_achat_coton || 0) + Number(@fields.uree_prevu_achat_arachide || 0) + Number(@fields.uree_prevu_achat_fourrage || 0) + Number(@fields.uree_prevu_achat_niebe || 0) + Number(@fields.uree_prevu_achat_soja || 0) + Number(@fields.uree_prevu_achat_fonio || 0) + Number(@fields.uree_prevu_achat_riz || 0) + Number(@fields.uree_prevu_achat_sesame || 0) + Number(@fields.uree_prevu_achat_wouandzou || 0) + Number(@fields.uree_prevu_achat_patate_douce || 0) + Number(@fields.uree_prevu_achat_bissap || 0) + Number(@fields.uree_prevu_achat_autre_cult_1 || 0) + Number(@fields.uree_prevu_achat_autre_cult_2 || 0)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.uree_prevu_achat_mais": [
+          "value"
+        ],
+        "@fields.uree_prevu_achat_mil": [
+          "value"
+        ],
+        "@fields.uree_prevu_achat_sorgho": [
+          "value"
+        ],
+        "@fields.uree_prevu_achat_coton": [
+          "value"
+        ],
+        "@fields.uree_prevu_achat_arachide": [
+          "value"
+        ],
+        "@fields.uree_prevu_achat_fourrage": [
+          "value"
+        ],
+        "@fields.uree_prevu_achat_niebe": [
+          "value"
+        ],
+        "@fields.uree_prevu_achat_soja": [
+          "value"
+        ],
+        "@fields.uree_prevu_achat_fonio": [
+          "value"
+        ],
+        "@fields.uree_prevu_achat_riz": [
+          "value"
+        ],
+        "@fields.uree_prevu_achat_sesame": [
+          "value"
+        ],
+        "@fields.uree_prevu_achat_wouandzou": [
+          "value"
+        ],
+        "@fields.uree_prevu_achat_patate_douce": [
+          "value"
+        ],
+        "@fields.uree_prevu_achat_bissap": [
+          "value"
+        ],
+        "@fields.uree_prevu_achat_autre_cult_1": [
+          "value"
+        ],
+        "@fields.uree_prevu_achat_autre_cult_2": [
+          "value"
+        ],
+        "@calc(Number(@fields.uree_prevu_achat_mais || 0) + Number(@fields.uree_prevu_achat_mil || 0) + Number(@fields.uree_prevu_achat_sorgho || 0) + Number(@fields.uree_prevu_achat_coton || 0) + Number(@fields.uree_prevu_achat_arachide || 0) + Number(@fields.uree_prevu_achat_fourrage || 0) + Number(@fields.uree_prevu_achat_niebe || 0) + Number(@fields.uree_prevu_achat_soja || 0) + Number(@fields.uree_prevu_achat_fonio || 0) + Number(@fields.uree_prevu_achat_riz || 0) + Number(@fields.uree_prevu_achat_sesame || 0) + Number(@fields.uree_prevu_achat_wouandzou || 0) + Number(@fields.uree_prevu_achat_patate_douce || 0) + Number(@fields.uree_prevu_achat_bissap || 0) + Number(@fields.uree_prevu_achat_autre_cult_1 || 0) + Number(@fields.uree_prevu_achat_autre_cult_2 || 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "Besoins prévisionnels en complexe coton 14-18-18:  **@local.besoins_prevue_npk_coton_14_18_18 sacs**",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_8",
+      "_nested_name": "text_8",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "Besoins prévisionnels en complexe coton 14-18-18:  **@local.besoins_prevue_npk_coton_14_18_18 sacs**",
+            "matchedExpression": "@local.besoins_prevue_npk_coton_14_18_18",
+            "type": "local",
+            "fieldName": "besoins_prevue_npk_coton_14_18_18"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.besoins_prevue_npk_coton_14_18_18": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "*1 sac= 50kg*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: gray",
+            "font-size: 16px"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_9.text_1"
+        },
+        {
+          "type": "image",
+          "value": "images/sac.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_9.image_2"
+        }
+      ],
+      "name": "display_group_9",
+      "_nested_name": "display_group_9"
+    },
+    {
+      "type": "text",
+      "value": "Besoins prévisionnels en complexe céréales 15-15-15: **@local.besoins_prevue_npk_cereale_15_15_15 sac**",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_11",
+      "_nested_name": "text_11",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "Besoins prévisionnels en complexe céréales 15-15-15: **@local.besoins_prevue_npk_cereale_15_15_15 sac**",
+            "matchedExpression": "@local.besoins_prevue_npk_cereale_15_15_15",
+            "type": "local",
+            "fieldName": "besoins_prevue_npk_cereale_15_15_15"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.besoins_prevue_npk_cereale_15_15_15": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "*1 sac= 50kg*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: gray",
+            "font-size: 16px"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_12.text_1"
+        },
+        {
+          "type": "image",
+          "value": "images/sac.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_12.image_2"
+        }
+      ],
+      "name": "display_group_12",
+      "_nested_name": "display_group_12"
+    },
+    {
+      "type": "text",
+      "value": "Besoins prévisionnels en complexe céréales 17-17-17: **@local.besoins_prevue_npk_cereale_17_17_17 sac**",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_14",
+      "_nested_name": "text_14",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "Besoins prévisionnels en complexe céréales 17-17-17: **@local.besoins_prevue_npk_cereale_17_17_17 sac**",
+            "matchedExpression": "@local.besoins_prevue_npk_cereale_17_17_17",
+            "type": "local",
+            "fieldName": "besoins_prevue_npk_cereale_17_17_17"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.besoins_prevue_npk_cereale_17_17_17": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "*1 sac= 50kg*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: gray",
+            "font-size: 16px"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_15.text_1"
+        },
+        {
+          "type": "image",
+          "value": "images/sac.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_15.image_2"
+        }
+      ],
+      "name": "display_group_15",
+      "_nested_name": "display_group_15"
+    },
+    {
+      "type": "text",
+      "value": "Besoins prévisionnels en DAP: **@local.besoins_prevue_dap sac**",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_17",
+      "_nested_name": "text_17",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "Besoins prévisionnels en DAP: **@local.besoins_prevue_dap sac**",
+            "matchedExpression": "@local.besoins_prevue_dap",
+            "type": "local",
+            "fieldName": "besoins_prevue_dap"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.besoins_prevue_dap": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "*1 sac= 50kg*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: gray",
+            "font-size: 16px"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_18.text_1"
+        },
+        {
+          "type": "image",
+          "value": "images/sac.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_18.image_2"
+        }
+      ],
+      "name": "display_group_18",
+      "_nested_name": "display_group_18"
+    },
+    {
+      "type": "text",
+      "value": "Besoins prévisionnels en urée: **@local.besoins_prevus_uree sac**",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_20",
+      "_nested_name": "text_20",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "Besoins prévisionnels en urée: **@local.besoins_prevus_uree sac**",
+            "matchedExpression": "@local.besoins_prevus_uree",
+            "type": "local",
+            "fieldName": "besoins_prevus_uree"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.besoins_prevus_uree": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "*1 sac= 50kg*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: gray",
+            "font-size: 16px"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_21.text_1"
+        },
+        {
+          "type": "image",
+          "value": "images/sac.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_21.image_2"
+        }
+      ],
+      "name": "display_group_21",
+      "_nested_name": "display_group_21"
+    },
+    {
+      "type": "display_group",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page_16_btn_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "display_group_23.page_16_btn_back"
+        },
+        {
+          "type": "button",
+          "name": "page_16_btn_continue",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "besoins_prevue_npk_coton_14_18_18",
+                "@local.besoins_prevue_npk_coton_14_18_18"
+              ],
+              "_raw": "click | set_field: besoins_prevue_npk_coton_14_18_18 : @local.besoins_prevue_npk_coton_14_18_18"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "besoins_prevue_npk_cereale_15_15_15",
+                "@local.besoins_prevue_npk_cereale_15_15_15"
+              ],
+              "_raw": "click | set_field: besoins_prevue_npk_cereale_15_15_15 : @local.besoins_prevue_npk_cereale_15_15_15"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "besoins_prevue_npk_cereale_17_17_17",
+                "@local.besoins_prevue_npk_cereale_17_17_17"
+              ],
+              "_raw": "click | set_field: besoins_prevue_npk_cereale_17_17_17 : @local.besoins_prevue_npk_cereale_17_17_17"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "besoins_prevue_dap",
+                "@local.besoins_prevue_dap"
+              ],
+              "_raw": "click | set_field: besoins_prevue_dap : @local.besoins_prevue_dap"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "besoins_prevus_uree",
+                "@local.besoins_prevus_uree"
+              ],
+              "_raw": "click | set_field: besoins_prevus_uree : @local.besoins_prevus_uree"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_23.page_16_btn_continue",
+          "_dynamicFields": {
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.besoins_prevue_npk_coton_14_18_18",
+                      "matchedExpression": "@local.besoins_prevue_npk_coton_14_18_18",
+                      "type": "local",
+                      "fieldName": "besoins_prevue_npk_coton_14_18_18"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: besoins_prevue_npk_coton_14_18_18 : @local.besoins_prevue_npk_coton_14_18_18",
+                    "matchedExpression": "@local.besoins_prevue_npk_coton_14_18_18",
+                    "type": "local",
+                    "fieldName": "besoins_prevue_npk_coton_14_18_18"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.besoins_prevue_npk_cereale_15_15_15",
+                      "matchedExpression": "@local.besoins_prevue_npk_cereale_15_15_15",
+                      "type": "local",
+                      "fieldName": "besoins_prevue_npk_cereale_15_15_15"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: besoins_prevue_npk_cereale_15_15_15 : @local.besoins_prevue_npk_cereale_15_15_15",
+                    "matchedExpression": "@local.besoins_prevue_npk_cereale_15_15_15",
+                    "type": "local",
+                    "fieldName": "besoins_prevue_npk_cereale_15_15_15"
+                  }
+                ]
+              },
+              "2": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.besoins_prevue_npk_cereale_17_17_17",
+                      "matchedExpression": "@local.besoins_prevue_npk_cereale_17_17_17",
+                      "type": "local",
+                      "fieldName": "besoins_prevue_npk_cereale_17_17_17"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: besoins_prevue_npk_cereale_17_17_17 : @local.besoins_prevue_npk_cereale_17_17_17",
+                    "matchedExpression": "@local.besoins_prevue_npk_cereale_17_17_17",
+                    "type": "local",
+                    "fieldName": "besoins_prevue_npk_cereale_17_17_17"
+                  }
+                ]
+              },
+              "3": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.besoins_prevue_dap",
+                      "matchedExpression": "@local.besoins_prevue_dap",
+                      "type": "local",
+                      "fieldName": "besoins_prevue_dap"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: besoins_prevue_dap : @local.besoins_prevue_dap",
+                    "matchedExpression": "@local.besoins_prevue_dap",
+                    "type": "local",
+                    "fieldName": "besoins_prevue_dap"
+                  }
+                ]
+              },
+              "4": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.besoins_prevus_uree",
+                      "matchedExpression": "@local.besoins_prevus_uree",
+                      "type": "local",
+                      "fieldName": "besoins_prevus_uree"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: besoins_prevus_uree : @local.besoins_prevus_uree",
+                    "matchedExpression": "@local.besoins_prevus_uree",
+                    "type": "local",
+                    "fieldName": "besoins_prevus_uree"
+                  }
+                ]
+              }
+            }
+          },
+          "_dynamicDependencies": {
+            "@local.besoins_prevue_npk_coton_14_18_18": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "@local.besoins_prevue_npk_cereale_15_15_15": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
+            "@local.besoins_prevue_npk_cereale_17_17_17": [
+              "action_list.2.args.1",
+              "action_list.2._raw"
+            ],
+            "@local.besoins_prevue_dap": [
+              "action_list.3.args.1",
+              "action_list.3._raw"
+            ],
+            "@local.besoins_prevus_uree": [
+              "action_list.4.args.1",
+              "action_list.4._raw"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_23",
+      "_nested_name": "display_group_23"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Cultures_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1BAP12cPkFZaHtm0Xozys0kLOqnVOi1h2UUBMoZbmKQI"
+  }
+}

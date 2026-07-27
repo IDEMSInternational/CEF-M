@@ -5,16 +5,258 @@
   "rows": [
     {
       "type": "title",
-      "value": "NOTE DE PLANIFICATION"
+      "value": "REPARTITION DES BESOINS EN CEREALES"
     },
     {
-      "type": "image",
-      "value": "images/grenier.jpg",
-      "style_list": "width: 100%; border-radius: 10px; margin-bottom: 15px;"
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "recap_besoin",
+      "style_list": "background: #1e3656; padding: 15px; text-align: center;"
     },
     {
       "type": "html",
-      "value": "<div style=\"color: #333; font-size: 14px; line-height: 1.6;\">\n    Dans le contexte du Sahel, où les populations rurales cultivent et consomment principalement les céréales (mil, sorgho et maïs), il est important de connaître le besoin annuel en denrées alimentaires de l'UPA avant la saison de production.\n    <br><br>\n    <div style=\"background: #e3f2fd; padding: 15px; border-radius: 10px; border-left: 5px solid #4f8ff1; font-weight: bold;\">\n        Il est conseillé de considérer 3 sacs/an/personne de céréales. \n    </div>\n    <br>\n    Les trois sacs sont largement suffisants pour couvrir les besoins alimentaires d'une personne durant les 12 mois et permettraient de faire face à des imprévus.\n    <br><br>\n    Ce formulaire a pour but d'aider votre UPA à connaître ses besoins en céréales et d'allouer assez de superficie à la production.\n</div>"
+      "value": "<div style=\"color: #4f8ff1; font-size: 12px; font-weight: bold; text-transform: uppercase;\">Répartition de la quantité totale de céréales nécessaire entre le maïs, mil, sorgho et riz en fonction de l'importance de chacune dans la consommation de votre UPA.</div>"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"color: white; font-size: 24px; font-weight: bold;\">@fields.besoin_cereale_exploitation sacs</div>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: black;\">Attention: le cumul des sacs des quatre types de céréales doit être égal aux besoins de céréales de l'exploitation de @fields.besoin_cereale_exploitation sacs.</span>"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span>Donnez le nombre de sac de maïs à prevoir"
+    },
+    {
+      "type": "audio",
+      "name": "audio_5_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/sac_mais_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/sac_mais.jpg",
+      "style_list": "width:100px; height:100px;"
+    },
+    {
+      "type": "text_box",
+      "name": "sac_mais",
+      "value": "@fields.sac_mais",
+      "action_list": "changed | set_field: sac_mais : this.value;",
+      "parameter_list": "input_type: number;placeholder:Nombre de sac de maïs;",
+      "style_list": "margin: 10px;"
+    },
+    {
+      "name": "valid_sac_mais",
+      "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_mais) && Number(@local.sac_mais) < @fields.besoin_cereale_exploitation) || !@local.sac_mais)"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "!@fields.sac_mais && @fields.attempt_submit"
+    },
+    {
+      "type": "text",
+      "value": "@global.erreur_sacs",
+      "condition": "!@local.valid_sac_mais",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span>Donnez le nombre de sac de mil à prevoir"
+    },
+    {
+      "type": "audio",
+      "name": "audio_5_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/sac_mil_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/sac_mil.jpg",
+      "style_list": "width:100px; height:100px;"
+    },
+    {
+      "type": "text_box",
+      "name": "sac_mil",
+      "value": "@field.sac_mil",
+      "action_list": "changed | set_field: sac_mil : this.value;",
+      "parameter_list": "input_type: number;placeholder:Nombre de sac de mil;",
+      "style_list": "margin: 10px;"
+    },
+    {
+      "name": "valid_sac_mil",
+      "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_mil) && Number(@local.sac_mil) < @fields.besoin_cereale_exploitation) || !@local.sac_mil)"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "!@fields.sac_mil && @fields.attempt_submit"
+    },
+    {
+      "type": "text",
+      "value": "@global.erreur_sacs",
+      "condition": "!@local.valid_sac_mil",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span>Donnez le nombre de sac de sorgho à prevoir."
+    },
+    {
+      "type": "audio",
+      "name": "audio_5_3",
+      "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/sac_sorgho_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/sac_sorgho.jpg",
+      "style_list": "width:100px; height:100px;"
+    },
+    {
+      "type": "text_box",
+      "name": "sac_sorgho",
+      "value": "@field.sac_sorgho",
+      "action_list": "changed | set_field: sac_sorgho : this.value;",
+      "parameter_list": "input_type: number;\nplaceholder:Nombre de sac de sorgho;",
+      "style_list": "margin: 10px;"
+    },
+    {
+      "name": "valid_sac_sorgho",
+      "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_sorgho) && Number(@local.sac_sorgho) < @fields.besoin_cereale_exploitation) || !@local.sac_sorgho)"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "!@fields.sac_sorgho && @fields.attempt_submit"
+    },
+    {
+      "type": "text",
+      "value": "@global.erreur_sacs",
+      "condition": "!@local.valid_sac_sorgho",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span>Donnez le nombre de sac de riz à prevoir"
+    },
+    {
+      "type": "audio",
+      "name": "audio_5_4",
+      "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/sac_riz_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/sac_riz.jpg",
+      "style_list": "width:100px; height:100px;"
+    },
+    {
+      "type": "text_box",
+      "name": "sac_riz",
+      "value": "@fields.sac_riz",
+      "action_list": "changed | set_field: sac_riz : this.value;",
+      "parameter_list": "input_type: number;\nplaceholder:Nombre de sac de riz;",
+      "style_list": "margin: 10px;"
+    },
+    {
+      "name": "valid_sac_riz",
+      "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_riz) && Number(@local.sac_riz) < @fields.besoin_cereale_exploitation) || !@local.sac_riz)"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "!@fields.sac_riz && @fields.attempt_submit"
+    },
+    {
+      "type": "text",
+      "value": "@global.erreur_sacs",
+      "condition": "!@local.valid_sac_riz",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "name": "v_cumul_sacs",
+      "value": "@calc(Number(@field.sac_mais || 0) + Number(@field.sac_mil || 0) + Number(@field.sac_sorgho || 0) + Number(@fields.sac_riz || 0))"
+    },
+    {
+      "name": "v_diff_sacs",
+      "value": "@calc(Math.abs(@local.v_cumul_sacs - @fields.besoin_cereale_exploitation))"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "msg_ok",
+      "condition": "@local.v_cumul_sacs == @fields.besoin_cereale_exploitation",
+      "style_list": "background: #e8f5e9; padding: 15px; margin: 15px; text-align: center;"
+    },
+    {
+      "type": "html",
+      "value": "<b style=\"color: #2e7d32;\"> COMPTE CORRECT</b><br><span style=\"color: #4caf50;\">Le total de @local.v_cumul_sacs sacs correspond exactement au besoin.</span>\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "msg_sup",
+      "condition": "@local.v_cumul_sacs > @field.besoin_cereale_exploitation",
+      "style_list": "background: #ffebee; padding: 15px; margin: 15px; text-align: center;"
+    },
+    {
+      "type": "html",
+      "value": "<b style=\"color: #c62828;\"> TOTAL TROP ÉLEVÉ</b><br><span style=\"color: #d32f2f;\">Diminuez le nombre de <b>@local.v_diff_sacs sac(s)</b> </span>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "msg_inf",
+      "condition": "@local.v_cumul_sacs < @field.besoin_cereale_exploitation && @local.v_cumul_sacs > 0",
+      "style_list": "background: #fff3e0; padding: 15px; margin: 15px; text-align: center;"
+    },
+    {
+      "type": "html",
+      "value": "<b style=\"color: #ef6c00;\"> TOTAL INSUFFISANT</b><br><span style=\"color: #f57c00;\">Augmentez le nombre de <b>@local.v_diff_sacs sac(s)</b></span>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.v_cumul_sacs == @field.besoin_cereale_exploitation"
     },
     {
       "type": "begin_display_group",
@@ -24,16 +266,25 @@
     },
     {
       "type": "round_button",
-      "name": "button_back",
-      "action_list": "click | emit: uncompleted",
+      "name": "page5_button_back",
+      "action_list": "click | set_field: attempt_submit: false;\nclick | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "button_completed",
+      "name": "button_continue_attempt_submit",
+      "value": "Continuer",
+      "action_list": "click | set_field: attempt_submit: true;\n",
+      "condition": "!@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "button",
+      "name": "page5_button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | emit: completed",
-      "parameter_list": "style: navigation;\n",
+      "action_list": "click | set_field: attempt_submit: false;\nclick | emit: completed",
+      "parameter_list": "\ndisabled: !@local.completed_enabled\n",
+      "condition": "@local.completed_enabled",
       "style_list": "flex: 1"
     },
     {

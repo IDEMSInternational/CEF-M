@@ -4,101 +4,33 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "value": "@global.title_page1"
-    },
-    {
       "type": "text",
-      "value": "@global.name_type_upa"
-    },
-    {
-      "type": "text_box",
-      "name": "chef_UPA",
-      "value": "@fields.chef_UPA",
-      "parameter_list": "max_length: 30;\nplaceholder: Nom et prénom du chef UPA",
-      "condition": "!!@fields.chef_UPA",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "text_box",
-      "name": "chef_UPA",
-      "value": "@fields.chef_UPA",
-      "parameter_list": "max_length: 30;\nplaceholder: Nom et prénom du chef UPA",
-      "condition": "!@fields.chef_UPA",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "text",
-      "value": "Type d'exploitation du chef de l'UPA "
-    },
-    {
-      "type": "text_box",
-      "name": "type_upa",
-      "value": "@fields.type_upa",
-      "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom du type d'exploitation",
-      "condition": "!!@fields.type_upa"
-    },
-    {
-      "type": "text_box",
-      "name": "type_upa",
-      "value": "@fields.type_upa",
-      "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom du type d'exploitation",
-      "condition": "!@fields.type_upa"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "html",
-      "name": "camera_scane_label",
-      "value": "@global.camera_scane_label",
-      "style_list": "@global.label_style"
+      "name": "note_superficie",
+      "value": "@global.note_superficie",
+      "parameter_list": "style: contextual"
     },
     {
       "type": "audio",
-      "name": "audio_1_1",
-      "parameter_list": "variant: compact;\nsrc: audio/semis/qr_code_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "style_list": "@global.audio_style"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "image",
-      "value": "images/icons/scan.svg",
-      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
-    },
-    {
-      "type": "text",
-      "name": "camera_scane_hint",
-      "value": "@global.camera_scane_hint",
-      "style_list": "@global.hint_style"
-    },
-    {
-      "type": "button",
-      "name": "button_camera_scane",
-      "value": "@global.camera_scane_btn",
-      "parameter_list": "button_align: centre; style: flexible"
+      "name": "audio_2_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/annee_saison_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;"
     },
     {
       "type": "begin_display_group",
-      "name": "dg_footer",
       "value": " ",
       "parameter_list": "sticky: bottom;",
       "style_list": "padding: 12px 24px;"
     },
     {
       "type": "round_button",
-      "name": "page1_button_back",
-      "action_list": "click | emit: uncompleted",
+      "name": "page2_button_back",
+      "action_list": "click | emit: uncompleted;",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page1_button_continue",
-      "value": "@global.btn_continue",
-      "action_list": "click | set_field: chef_UPA: @local.chef_UPA;\nclick | set_field: type_upa: @local.type_upa;\nclick | emit: completed",
-      "style_list": "flex: 1"
+      "name": "page2_button_continue",
+      "value": "Continuer",
+      "action_list": "click | emit: completed;"
     },
     {
       "type": "end_display_group"

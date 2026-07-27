@@ -13,9 +13,33 @@
       "_nested_name": "consentement"
     },
     {
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "attempt_submit",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.attempt_submit": [
+          "value"
+        ]
+      }
+    },
+    {
       "type": "text",
       "name": "note_consentement",
-      "value": "@global.note_consentement",
+      "value": "@global.consentement_note",
       "_translations": {
         "value": {}
       },
@@ -23,103 +47,173 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.note_consentement",
-            "matchedExpression": "@global.note_consentement",
+            "fullExpression": "@global.consentement_note",
+            "matchedExpression": "@global.consentement_note",
             "type": "global",
-            "fieldName": "note_consentement"
+            "fieldName": "consentement_note"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.note_consentement": [
+        "@global.consentement_note": [
           "value"
         ]
       }
     },
     {
-      "name": "user_oui_non",
-      "type": "set_variable",
-      "_nested_name": "user_oui_non"
-    },
-    {
-      "name": "answer_oui_non",
-      "value": "name: Oui | text: Oui;\nname: Non | text: Non;",
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span> @global.consentement_question",
       "_translations": {
         "value": {}
       },
-      "type": "set_variable",
-      "_nested_name": "answer_oui_non"
+      "style_list": [
+        "font-size:20px"
+      ],
+      "name": "html_5",
+      "_nested_name": "html_5",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<span style=\"color: red;\">*</span> @global.consentement_question",
+            "matchedExpression": "@global.consentement_question",
+            "type": "global",
+            "fieldName": "consentement_question"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.consentement_question": [
+          "value"
+        ]
+      }
     },
     {
-      "type": "display_group",
+      "type": "radio_list",
+      "value": "@fields.user_oui_non",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "user_oui_non",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : user_oui_non: this.value"
+        }
+      ],
       "rows": [
         {
-          "type": "text",
-          "value": "Voudriez-vous participer ?",
-          "_translations": {
-            "value": {}
-          },
-          "name": "text_2",
-          "_nested_name": "display_group_4.text_2"
-        },
-        {
-          "type": "radio_list",
-          "name": "user_respone",
-          "value": "@fields.user_oui_non",
-          "_translations": {
-            "value": {}
-          },
-          "action_list": [
-            {
-              "trigger": "changed",
-              "action_id": "set_local",
-              "args": [
-                "user_oui_non",
-                "this.value"
-              ],
-              "_raw": "changed | set_local : user_oui_non: this.value"
-            }
-          ],
-          "parameter_list": {
-            "answer_list": "@local.answer_oui_non"
-          },
-          "_nested_name": "display_group_4.user_respone",
+          "type": "data_items",
+          "value": "@data.oui_non",
+          "rows": [],
+          "name": "data_items_1",
+          "_nested_name": "radio_list_6.data_items_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@fields.user_oui_non",
-                "matchedExpression": "@fields.user_oui_non",
-                "type": "fields",
-                "fieldName": "user_oui_non"
+                "fullExpression": "@data.oui_non",
+                "matchedExpression": "@data.oui_non",
+                "type": "data",
+                "fieldName": "oui_non"
               }
-            ],
-            "parameter_list": {
-              "answer_list": [
-                {
-                  "fullExpression": "@local.answer_oui_non",
-                  "matchedExpression": "@local.answer_oui_non",
-                  "type": "local",
-                  "fieldName": "answer_oui_non"
-                }
-              ]
-            }
+            ]
           },
           "_dynamicDependencies": {
-            "@fields.user_oui_non": [
+            "@data.oui_non": [
               "value"
-            ],
-            "@local.answer_oui_non": [
-              "parameter_list.answer_list"
             ]
           }
         }
       ],
-      "name": "display_group_4",
-      "_nested_name": "display_group_4"
+      "name": "radio_list_6",
+      "_nested_name": "radio_list_6",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.user_oui_non",
+            "matchedExpression": "@fields.user_oui_non",
+            "type": "fields",
+            "fieldName": "user_oui_non"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.user_oui_non": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@fields.user_oui_non && @fields.attempt_submit",
+      "name": "html_8",
+      "_nested_name": "html_8",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@fields.user_oui_non && @fields.attempt_submit",
+            "matchedExpression": "!@fields.user_oui_non",
+            "type": "fields",
+            "fieldName": "user_oui_non"
+          },
+          {
+            "fullExpression": "!@fields.user_oui_non && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@fields.user_oui_non": [
+          "condition"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@fields.user_oui_non",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.user_oui_non",
+            "matchedExpression": "@fields.user_oui_non",
+            "type": "fields",
+            "fieldName": "user_oui_non"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.user_oui_non": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
-      "name": "dg_footer",
       "value": "",
       "parameter_list": {
         "sticky": "bottom"
@@ -128,6 +222,25 @@
         "padding: 12px 24px"
       ],
       "rows": [
+        {
+          "type": "round_button",
+          "name": "page1_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "display_group_10.page1_button_back"
+        },
         {
           "type": "button",
           "name": "button_continue_no",
@@ -138,15 +251,6 @@
           "action_list": [
             {
               "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "user_oui_non",
-                "@field.user_oui_non"
-              ],
-              "_raw": "click | set_field: user_oui_non: @field.user_oui_non"
-            },
-            {
-              "trigger": "click",
               "action_id": "go_to",
               "args": [
                 "enrolment_page18"
@@ -154,77 +258,92 @@
               "_raw": "click | go_to: enrolment_page18"
             }
           ],
-          "parameter_list": {
-            "disabled": "!@local.user_oui_non"
-          },
-          "condition": "@local.user_oui_non =='Non'",
+          "condition": "@fields.user_oui_non == 'non'",
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.button_continue_no",
+          "_nested_name": "display_group_10.button_continue_no",
           "_dynamicFields": {
-            "action_list": {
-              "0": {
-                "args": {
-                  "1": [
-                    {
-                      "fullExpression": "@field.user_oui_non",
-                      "matchedExpression": "@field.user_oui_non",
-                      "type": "field",
-                      "fieldName": "user_oui_non"
-                    }
-                  ]
-                },
-                "_raw": [
-                  {
-                    "fullExpression": "click | set_field: user_oui_non: @field.user_oui_non",
-                    "matchedExpression": "@field.user_oui_non",
-                    "type": "field",
-                    "fieldName": "user_oui_non"
-                  }
-                ]
-              }
-            },
-            "parameter_list": {
-              "disabled": [
-                {
-                  "fullExpression": "!@local.user_oui_non",
-                  "matchedExpression": "!@local.user_oui_non",
-                  "type": "local",
-                  "fieldName": "user_oui_non"
-                }
-              ]
-            },
             "condition": [
               {
-                "fullExpression": "@local.user_oui_non =='Non'",
-                "matchedExpression": "@local.user_oui_non",
-                "type": "local",
+                "fullExpression": "@fields.user_oui_non == 'non'",
+                "matchedExpression": "@fields.user_oui_non",
+                "type": "fields",
                 "fieldName": "user_oui_non"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@field.user_oui_non": [
-              "action_list.0.args.1",
-              "action_list.0._raw"
-            ],
-            "!@local.user_oui_non": [
-              "parameter_list.disabled"
-            ],
-            "@local.user_oui_non": [
+            "@fields.user_oui_non": [
               "condition"
             ]
           }
         },
         {
           "type": "button",
-          "name": "button_continue_1",
+          "name": "button_continue_attempt_submit",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                true
+              ],
+              "_raw": "click | set_field: attempt_submit: true"
+            }
+          ],
+          "condition": "!@local.completed_enabled",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_10.button_continue_attempt_submit",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "!@local.completed_enabled",
+                "matchedExpression": "!@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "!@local.completed_enabled": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "name": "page_1_button_continue",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
           "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "user_oui_non",
+                "@fields.user_oui_non"
+              ],
+              "_raw": "click | set_field: user_oui_non: @fields.user_oui_non"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                false
+              ],
+              "_raw": "click | set_field: attempt_submit: false"
+            },
             {
               "trigger": "click",
               "action_id": "emit",
@@ -235,13 +354,13 @@
             }
           ],
           "parameter_list": {
-            "disabled": "!@local.user_oui_non"
+            "disabled": "!@local.completed_enabled"
           },
-          "condition": "@local.user_oui_non =='Oui'",
+          "condition": "@local.completed_enabled && @fields.user_oui_non == 'oui'",
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.button_continue_1",
+          "_nested_name": "display_group_10.page_1_button_continue",
           "_dynamicFields": {
             "value": [
               {
@@ -251,21 +370,49 @@
                 "fieldName": "btn_continue"
               }
             ],
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@fields.user_oui_non",
+                      "matchedExpression": "@fields.user_oui_non",
+                      "type": "fields",
+                      "fieldName": "user_oui_non"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: user_oui_non: @fields.user_oui_non",
+                    "matchedExpression": "@fields.user_oui_non",
+                    "type": "fields",
+                    "fieldName": "user_oui_non"
+                  }
+                ]
+              }
+            },
             "parameter_list": {
               "disabled": [
                 {
-                  "fullExpression": "!@local.user_oui_non",
-                  "matchedExpression": "!@local.user_oui_non",
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
                   "type": "local",
-                  "fieldName": "user_oui_non"
+                  "fieldName": "completed_enabled"
                 }
               ]
             },
             "condition": [
               {
-                "fullExpression": "@local.user_oui_non =='Oui'",
-                "matchedExpression": "@local.user_oui_non",
+                "fullExpression": "@local.completed_enabled && @fields.user_oui_non == 'oui'",
+                "matchedExpression": "@local.completed_enabled",
                 "type": "local",
+                "fieldName": "completed_enabled"
+              },
+              {
+                "fullExpression": "@local.completed_enabled && @fields.user_oui_non == 'oui'",
+                "matchedExpression": "@fields.user_oui_non",
+                "type": "fields",
                 "fieldName": "user_oui_non"
               }
             ]
@@ -274,16 +421,22 @@
             "@global.btn_continue": [
               "value"
             ],
-            "!@local.user_oui_non": [
+            "@fields.user_oui_non": [
+              "action_list.0.args.1",
+              "action_list.0._raw",
+              "condition"
+            ],
+            "!@local.completed_enabled": [
               "parameter_list.disabled"
             ],
-            "@local.user_oui_non": [
+            "@local.completed_enabled": [
               "condition"
             ]
           }
         }
       ],
-      "_nested_name": "dg_footer"
+      "name": "display_group_10",
+      "_nested_name": "display_group_10"
     }
   ],
   "_source": {

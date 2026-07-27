@@ -4,70 +4,1297 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "value": "IMPORTANT : Gestion des coûts de Post-Semis",
+      "name": "v_current_human",
+      "value": "@calc(Number(@field.current_culture_index) + 1)",
       "_translations": {
         "value": {}
       },
-      "name": "title_2",
-      "_nested_name": "title_2"
-    },
-    {
-      "type": "audio",
-      "name": "audio_note_fr",
-      "parameter_list": {
-        "variant": "compact",
-        "src": "audio/postSemi/note_form_postsemis_fr.mp3",
-        "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+      "type": "set_variable",
+      "_nested_name": "v_current_human",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@field.current_culture_index) + 1)",
+            "matchedExpression": "@field.current_culture_index",
+            "type": "field",
+            "fieldName": "current_culture_index"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.current_culture_index) + 1)",
+            "matchedExpression": "@calc(Number(@field.current_culture_index) + 1)",
+            "type": "calc",
+            "fieldName": "Number(@field.current_culture_index) + 1"
+          }
+        ]
       },
-      "style_list": [
-        "float: right"
-      ],
-      "_nested_name": "audio_note_fr"
+      "_dynamicDependencies": {
+        "@field.current_culture_index": [
+          "value"
+        ],
+        "@calc(Number(@field.current_culture_index) + 1)": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
+      "name": "header_top",
       "style_list": [
-        "display: block",
-        "width: 100%",
-        "background: #F4F7FA",
-        "border-radius: 12px",
-        "padding: 16px",
-        "margin-top: 10px"
+        "background: #00adcc",
+        "padding: 15px",
+        "border-radius: 0 0 15px 15px",
+        "margin-bottom: 20px"
       ],
       "rows": [
         {
-          "type": "text",
-          "name": "note_formulaire_info_postsems",
-          "value": "@global.note_formulaire_info_postsems",
+          "type": "html",
+          "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
           "_translations": {
             "value": {}
           },
-          "style_list": [
-            "font-size: 16px",
-            "line-height: 1.5",
-            "color: #333"
-          ],
-          "_nested_name": "display_group_4.note_formulaire_info_postsems",
+          "name": "html_1",
+          "_nested_name": "header_top.html_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.note_formulaire_info_postsems",
-                "matchedExpression": "@global.note_formulaire_info_postsems",
-                "type": "global",
-                "fieldName": "note_formulaire_info_postsems"
+                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "matchedExpression": "@local.v_current_human",
+                "type": "local",
+                "fieldName": "v_current_human"
+              },
+              {
+                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "matchedExpression": "@field.total_cultures_selected",
+                "type": "field",
+                "fieldName": "total_cultures_selected"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@global.note_formulaire_info_postsems": [
+            "@local.v_current_human": [
+              "value"
+            ],
+            "@field.total_cultures_selected": [
               "value"
             ]
           }
         }
       ],
-      "name": "display_group_4",
-      "_nested_name": "display_group_4"
+      "_nested_name": "header_top"
+    },
+    {
+      "type": "title",
+      "value": "DÉTAILS DE LA CULTURE : FERTILISATION",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_5",
+      "_nested_name": "title_5"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "width: 100%",
+        "display: flex",
+        "flex-direction: column",
+        "align-items: center",
+        "border: 1px solid #FFCC80",
+        "border-radius: 12px",
+        "background: white",
+        "margin-bottom: 10px",
+        "overflow: hidden"
+      ],
+      "rows": [
+        {
+          "type": "image",
+          "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 60%",
+            "object-fit: contain"
+          ],
+          "name": "image_1",
+          "_nested_name": "display_group_6.image_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+                "matchedExpression": "@field.active_culture_name",
+                "type": "field",
+                "fieldName": "active_culture_name"
+              },
+              {
+                "fullExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+                "matchedExpression": "@field.active_culture_name",
+                "type": "field",
+                "fieldName": "active_culture_name"
+              },
+              {
+                "fullExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+                "matchedExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+                "type": "calc",
+                "fieldName": "['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg'"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.active_culture_name": [
+              "value",
+              "value"
+            ],
+            "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 18px"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_6.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+                "matchedExpression": "@field.active_culture_name",
+                "type": "field",
+                "fieldName": "active_culture_name"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.active_culture_name": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_6",
+      "_nested_name": "display_group_6"
+    },
+    {
+      "name": "v_quantite_npk_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_npk))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_quantite_npk_fmt",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_npk))",
+            "matchedExpression": "@field.quantite_npk",
+            "type": "field",
+            "fieldName": "quantite_npk"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_npk))",
+            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_npk))",
+            "type": "calc",
+            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@field.quantite_npk)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.quantite_npk": [
+          "value"
+        ],
+        "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_npk))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_quantite_npk_pos",
+      "value": "@calc(@local.v_quantite_npk_fmt && Number(@field.quantite_npk) > 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_quantite_npk_pos",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@local.v_quantite_npk_fmt && Number(@field.quantite_npk) > 0)",
+            "matchedExpression": "@local.v_quantite_npk_fmt",
+            "type": "local",
+            "fieldName": "v_quantite_npk_fmt"
+          },
+          {
+            "fullExpression": "@calc(@local.v_quantite_npk_fmt && Number(@field.quantite_npk) > 0)",
+            "matchedExpression": "@field.quantite_npk",
+            "type": "field",
+            "fieldName": "quantite_npk"
+          },
+          {
+            "fullExpression": "@calc(@local.v_quantite_npk_fmt && Number(@field.quantite_npk) > 0)",
+            "matchedExpression": "@calc(@local.v_quantite_npk_fmt && Number(@field.quantite_npk) > 0)",
+            "type": "calc",
+            "fieldName": "@local.v_quantite_npk_fmt && Number(@field.quantite_npk) > 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_quantite_npk_fmt": [
+          "value"
+        ],
+        "@field.quantite_npk": [
+          "value"
+        ],
+        "@calc(@local.v_quantite_npk_fmt && Number(@field.quantite_npk) > 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_quantite_npk_err",
+      "value": "@calc(!@local.v_quantite_npk_fmt || Number(@field.quantite_npk) < 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_quantite_npk_err",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!@local.v_quantite_npk_fmt || Number(@field.quantite_npk) < 0)",
+            "matchedExpression": "!@local.v_quantite_npk_fmt",
+            "type": "local",
+            "fieldName": "v_quantite_npk_fmt"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_quantite_npk_fmt || Number(@field.quantite_npk) < 0)",
+            "matchedExpression": "@field.quantite_npk",
+            "type": "field",
+            "fieldName": "quantite_npk"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_quantite_npk_fmt || Number(@field.quantite_npk) < 0)",
+            "matchedExpression": "@calc(!@local.v_quantite_npk_fmt || Number(@field.quantite_npk) < 0)",
+            "type": "calc",
+            "fieldName": "!@local.v_quantite_npk_fmt || Number(@field.quantite_npk) < 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.v_quantite_npk_fmt": [
+          "value"
+        ],
+        "@field.quantite_npk": [
+          "value"
+        ],
+        "@calc(!@local.v_quantite_npk_fmt || Number(@field.quantite_npk) < 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<br><b style=\"color: #e67e22\">1. APPORT NPK (Engrais de fond)</b>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_11",
+      "_nested_name": "html_11"
+    },
+    {
+      "type": "display_group",
+      "name": "npk_card",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/postSemi/q_npk_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "npk_card.audio_1"
+        },
+        {
+          "type": "html",
+          "value": "<br>Quantité NPK utilisée (Sacs de 50kg)<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "npk_card.html_2"
+        },
+        {
+          "type": "image",
+          "value": "images/sac.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_3",
+          "_nested_name": "npk_card.image_3"
+        },
+        {
+          "type": "text_box",
+          "name": "quantite_npk",
+          "value": "@field.quantite_npk",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "quantite_npk",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: quantite_npk : this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "0"
+          },
+          "_nested_name": "npk_card.quantite_npk",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.quantite_npk",
+                "matchedExpression": "@field.quantite_npk",
+                "type": "field",
+                "fieldName": "quantite_npk"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.quantite_npk": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "npk_card"
+    },
+    {
+      "type": "text",
+      "value": "Mettez une valeur positive.",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.v_quantite_npk_err",
+      "style_list": [
+        "color: red",
+        "font-size: 12px"
+      ],
+      "name": "text_14",
+      "_nested_name": "text_14",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.v_quantite_npk_err",
+            "matchedExpression": "@local.v_quantite_npk_err",
+            "type": "local",
+            "fieldName": "v_quantite_npk_err"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_quantite_npk_err": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "npk_cost_card",
+      "condition": "@local.v_quantite_npk_pos",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/postSemi/cout_npk_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "npk_cost_card.audio_1"
+        },
+        {
+          "type": "html",
+          "value": "Coût total NPK payé (Dram)<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@field.quantite_npk > 0",
+          "name": "html_2",
+          "_nested_name": "npk_cost_card.html_2",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "@field.quantite_npk > 0",
+                "matchedExpression": "@field.quantite_npk",
+                "type": "field",
+                "fieldName": "quantite_npk"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.quantite_npk": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@field.quantite_npk > 0",
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "npk_cost_card.text_3",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "@field.quantite_npk > 0",
+                "matchedExpression": "@field.quantite_npk",
+                "type": "field",
+                "fieldName": "quantite_npk"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.quantite_npk": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "npk_cost_card.image_4"
+        },
+        {
+          "type": "text_box",
+          "name": "cout_npk_nonzero",
+          "value": "@field.cout_npk_nonzero",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "cout_npk_nonzero",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: cout_npk_nonzero : this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "Prix total NPK..."
+          },
+          "_nested_name": "npk_cost_card.cout_npk_nonzero",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.cout_npk_nonzero",
+                "matchedExpression": "@field.cout_npk_nonzero",
+                "type": "field",
+                "fieldName": "cout_npk_nonzero"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.cout_npk_nonzero": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "npk_cost_card",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.v_quantite_npk_pos",
+            "matchedExpression": "@local.v_quantite_npk_pos",
+            "type": "local",
+            "fieldName": "v_quantite_npk_pos"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_quantite_npk_pos": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "cout_npk_zero",
+      "condition": "@field.quantite_npk == 0",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/postSemi/q_ur_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "cout_npk_zero.audio_1"
+        },
+        {
+          "type": "html",
+          "value": "Coût total NPK payé (Dram)<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "cout_npk_zero.html_2"
+        },
+        {
+          "type": "text",
+          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "",
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "cout_npk_zero.text_3"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "cout_npk_zero.image_4"
+        },
+        {
+          "type": "text_box",
+          "name": "cout_npk_zero",
+          "value": 0,
+          "parameter_list": {
+            "disabled": "true"
+          },
+          "_nested_name": "cout_npk_zero.cout_npk_zero"
+        }
+      ],
+      "_nested_name": "cout_npk_zero",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@field.quantite_npk == 0",
+            "matchedExpression": "@field.quantite_npk",
+            "type": "field",
+            "fieldName": "quantite_npk"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.quantite_npk": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "v_quantite_uree_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_uree))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_quantite_uree_fmt",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_uree))",
+            "matchedExpression": "@field.quantite_uree",
+            "type": "field",
+            "fieldName": "quantite_uree"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_uree))",
+            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_uree))",
+            "type": "calc",
+            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@field.quantite_uree)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.quantite_uree": [
+          "value"
+        ],
+        "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_uree))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_quantite_uree_pos",
+      "value": "@calc(@local.v_quantite_uree_fmt && Number(@field.quantite_uree) > 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_quantite_uree_pos",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@local.v_quantite_uree_fmt && Number(@field.quantite_uree) > 0)",
+            "matchedExpression": "@local.v_quantite_uree_fmt",
+            "type": "local",
+            "fieldName": "v_quantite_uree_fmt"
+          },
+          {
+            "fullExpression": "@calc(@local.v_quantite_uree_fmt && Number(@field.quantite_uree) > 0)",
+            "matchedExpression": "@field.quantite_uree",
+            "type": "field",
+            "fieldName": "quantite_uree"
+          },
+          {
+            "fullExpression": "@calc(@local.v_quantite_uree_fmt && Number(@field.quantite_uree) > 0)",
+            "matchedExpression": "@calc(@local.v_quantite_uree_fmt && Number(@field.quantite_uree) > 0)",
+            "type": "calc",
+            "fieldName": "@local.v_quantite_uree_fmt && Number(@field.quantite_uree) > 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_quantite_uree_fmt": [
+          "value"
+        ],
+        "@field.quantite_uree": [
+          "value"
+        ],
+        "@calc(@local.v_quantite_uree_fmt && Number(@field.quantite_uree) > 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_quantite_uree_err",
+      "value": "@calc(!@local.v_quantite_uree_fmt || Number(@field.quantite_uree) < 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_quantite_uree_err",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!@local.v_quantite_uree_fmt || Number(@field.quantite_uree) < 0)",
+            "matchedExpression": "!@local.v_quantite_uree_fmt",
+            "type": "local",
+            "fieldName": "v_quantite_uree_fmt"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_quantite_uree_fmt || Number(@field.quantite_uree) < 0)",
+            "matchedExpression": "@field.quantite_uree",
+            "type": "field",
+            "fieldName": "quantite_uree"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_quantite_uree_fmt || Number(@field.quantite_uree) < 0)",
+            "matchedExpression": "@calc(!@local.v_quantite_uree_fmt || Number(@field.quantite_uree) < 0)",
+            "type": "calc",
+            "fieldName": "!@local.v_quantite_uree_fmt || Number(@field.quantite_uree) < 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.v_quantite_uree_fmt": [
+          "value"
+        ],
+        "@field.quantite_uree": [
+          "value"
+        ],
+        "@calc(!@local.v_quantite_uree_fmt || Number(@field.quantite_uree) < 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<br><b style=\"color: #e67e22\">2. APPORT URÉE (Engrais de couverture)</b>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_22",
+      "_nested_name": "html_22"
+    },
+    {
+      "type": "display_group",
+      "name": "uree_group",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "name": "npk_note",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/postSemi/q_ur_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "uree_group.npk_note"
+        },
+        {
+          "type": "html",
+          "value": "<br>Quantité Urée utilisée (Sacs de 50kg)<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "uree_group.html_2"
+        }
+      ],
+      "_nested_name": "uree_group"
+    },
+    {
+      "type": "image",
+      "value": "images/sac.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 80%",
+        "object-fit: contain"
+      ],
+      "name": "image_25",
+      "_nested_name": "image_25"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_uree",
+      "value": "@field.quantite_uree",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "quantite_uree",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: quantite_uree : this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "0"
+      },
+      "_nested_name": "quantite_uree",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@field.quantite_uree",
+            "matchedExpression": "@field.quantite_uree",
+            "type": "field",
+            "fieldName": "quantite_uree"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.quantite_uree": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "Mettez une valeur positive.",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.v_quantite_uree_err",
+      "style_list": [
+        "color: red",
+        "font-size: 12px"
+      ],
+      "name": "text_27",
+      "_nested_name": "text_27",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.v_quantite_uree_err",
+            "matchedExpression": "@local.v_quantite_uree_err",
+            "type": "local",
+            "fieldName": "v_quantite_uree_err"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_quantite_uree_err": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "card_cout",
+      "condition": "@local.v_quantite_uree_pos",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "name": "uree_note",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/postSemi/cout_ur_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "card_cout.uree_note"
+        },
+        {
+          "type": "html",
+          "value": "Coût total Urée payé (Dram)<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "card_cout.html_2"
+        },
+        {
+          "type": "text",
+          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "card_cout.text_3"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "card_cout.image_4"
+        },
+        {
+          "type": "text_box",
+          "name": "cout_uree_nonzero",
+          "value": "@field.cout_uree_nonzero",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "cout_uree_nonzero",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: cout_uree_nonzero : this.value"
+            }
+          ],
+          "parameter_list": {
+            "placeholder": "Prix total Urée...",
+            "number_input": "true"
+          },
+          "_nested_name": "card_cout.cout_uree_nonzero",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.cout_uree_nonzero",
+                "matchedExpression": "@field.cout_uree_nonzero",
+                "type": "field",
+                "fieldName": "cout_uree_nonzero"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.cout_uree_nonzero": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "card_cout",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.v_quantite_uree_pos",
+            "matchedExpression": "@local.v_quantite_uree_pos",
+            "type": "local",
+            "fieldName": "v_quantite_uree_pos"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_quantite_uree_pos": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "card_cout_zero",
+      "condition": "@field.quantite_uree == 0",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/postSemi/cout_ur_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "card_cout_zero.audio_1"
+        },
+        {
+          "type": "html",
+          "value": "Coût total Urée payé (Dram)<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "card_cout_zero.html_2"
+        },
+        {
+          "type": "text",
+          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "card_cout_zero.text_3"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "card_cout_zero.image_4"
+        },
+        {
+          "type": "text_box",
+          "name": "cout_uree_zero",
+          "value": 0,
+          "parameter_list": {
+            "disabled": "true"
+          },
+          "_nested_name": "card_cout_zero.cout_uree_zero"
+        }
+      ],
+      "_nested_name": "card_cout_zero",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@field.quantite_uree == 0",
+            "matchedExpression": "@field.quantite_uree",
+            "type": "field",
+            "fieldName": "quantite_uree"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.quantite_uree": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "v_fert_npk_ok",
+      "value": "@calc(@local.v_quantite_npk_fmt && (Number(@field.quantite_npk) === 0 || (Number(@field.cout_npk_nonzero) >= 0 && @field.cout_npk_nonzero !== '')))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_fert_npk_ok",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@local.v_quantite_npk_fmt && (Number(@field.quantite_npk) === 0 || (Number(@field.cout_npk_nonzero) >= 0 && @field.cout_npk_nonzero !== '')))",
+            "matchedExpression": "@local.v_quantite_npk_fmt",
+            "type": "local",
+            "fieldName": "v_quantite_npk_fmt"
+          },
+          {
+            "fullExpression": "@calc(@local.v_quantite_npk_fmt && (Number(@field.quantite_npk) === 0 || (Number(@field.cout_npk_nonzero) >= 0 && @field.cout_npk_nonzero !== '')))",
+            "matchedExpression": "@field.quantite_npk",
+            "type": "field",
+            "fieldName": "quantite_npk"
+          },
+          {
+            "fullExpression": "@calc(@local.v_quantite_npk_fmt && (Number(@field.quantite_npk) === 0 || (Number(@field.cout_npk_nonzero) >= 0 && @field.cout_npk_nonzero !== '')))",
+            "matchedExpression": "@field.cout_npk_nonzero",
+            "type": "field",
+            "fieldName": "cout_npk_nonzero"
+          },
+          {
+            "fullExpression": "@calc(@local.v_quantite_npk_fmt && (Number(@field.quantite_npk) === 0 || (Number(@field.cout_npk_nonzero) >= 0 && @field.cout_npk_nonzero !== '')))",
+            "matchedExpression": "@field.cout_npk_nonzero",
+            "type": "field",
+            "fieldName": "cout_npk_nonzero"
+          },
+          {
+            "fullExpression": "@calc(@local.v_quantite_npk_fmt && (Number(@field.quantite_npk) === 0 || (Number(@field.cout_npk_nonzero) >= 0 && @field.cout_npk_nonzero !== '')))",
+            "matchedExpression": "@calc(@local.v_quantite_npk_fmt && (Number(@field.quantite_npk) === 0 || (Number(@field.cout_npk_nonzero) >= 0 && @field.cout_npk_nonzero !== '')))",
+            "type": "calc",
+            "fieldName": "@local.v_quantite_npk_fmt && (Number(@field.quantite_npk) === 0 || (Number(@field.cout_npk_nonzero) >= 0 && @field.cout_npk_nonzero !== ''))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_quantite_npk_fmt": [
+          "value"
+        ],
+        "@field.quantite_npk": [
+          "value"
+        ],
+        "@field.cout_npk_nonzero": [
+          "value",
+          "value"
+        ],
+        "@calc(@local.v_quantite_npk_fmt && (Number(@field.quantite_npk) === 0 || (Number(@field.cout_npk_nonzero) >= 0 && @field.cout_npk_nonzero !== '')))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_fert_ur_ok",
+      "value": "@calc(@local.v_quantite_uree_fmt && (Number(@field.quantite_uree) === 0 || (Number(@field.cout_uree_nonzero) >= 0 && @field.cout_uree_nonzero !== '')))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_fert_ur_ok",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@local.v_quantite_uree_fmt && (Number(@field.quantite_uree) === 0 || (Number(@field.cout_uree_nonzero) >= 0 && @field.cout_uree_nonzero !== '')))",
+            "matchedExpression": "@local.v_quantite_uree_fmt",
+            "type": "local",
+            "fieldName": "v_quantite_uree_fmt"
+          },
+          {
+            "fullExpression": "@calc(@local.v_quantite_uree_fmt && (Number(@field.quantite_uree) === 0 || (Number(@field.cout_uree_nonzero) >= 0 && @field.cout_uree_nonzero !== '')))",
+            "matchedExpression": "@field.quantite_uree",
+            "type": "field",
+            "fieldName": "quantite_uree"
+          },
+          {
+            "fullExpression": "@calc(@local.v_quantite_uree_fmt && (Number(@field.quantite_uree) === 0 || (Number(@field.cout_uree_nonzero) >= 0 && @field.cout_uree_nonzero !== '')))",
+            "matchedExpression": "@field.cout_uree_nonzero",
+            "type": "field",
+            "fieldName": "cout_uree_nonzero"
+          },
+          {
+            "fullExpression": "@calc(@local.v_quantite_uree_fmt && (Number(@field.quantite_uree) === 0 || (Number(@field.cout_uree_nonzero) >= 0 && @field.cout_uree_nonzero !== '')))",
+            "matchedExpression": "@field.cout_uree_nonzero",
+            "type": "field",
+            "fieldName": "cout_uree_nonzero"
+          },
+          {
+            "fullExpression": "@calc(@local.v_quantite_uree_fmt && (Number(@field.quantite_uree) === 0 || (Number(@field.cout_uree_nonzero) >= 0 && @field.cout_uree_nonzero !== '')))",
+            "matchedExpression": "@calc(@local.v_quantite_uree_fmt && (Number(@field.quantite_uree) === 0 || (Number(@field.cout_uree_nonzero) >= 0 && @field.cout_uree_nonzero !== '')))",
+            "type": "calc",
+            "fieldName": "@local.v_quantite_uree_fmt && (Number(@field.quantite_uree) === 0 || (Number(@field.cout_uree_nonzero) >= 0 && @field.cout_uree_nonzero !== ''))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_quantite_uree_fmt": [
+          "value"
+        ],
+        "@field.quantite_uree": [
+          "value"
+        ],
+        "@field.cout_uree_nonzero": [
+          "value",
+          "value"
+        ],
+        "@calc(@local.v_quantite_uree_fmt && (Number(@field.quantite_uree) === 0 || (Number(@field.cout_uree_nonzero) >= 0 && @field.cout_uree_nonzero !== '')))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_total_fert_culture",
+      "value": "@calc((Number(@field.cout_npk_nonzero) || 0) + (Number(@field.cout_uree_nonzero) || 0))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_total_fert_culture",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((Number(@field.cout_npk_nonzero) || 0) + (Number(@field.cout_uree_nonzero) || 0))",
+            "matchedExpression": "@field.cout_npk_nonzero",
+            "type": "field",
+            "fieldName": "cout_npk_nonzero"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.cout_npk_nonzero) || 0) + (Number(@field.cout_uree_nonzero) || 0))",
+            "matchedExpression": "@field.cout_uree_nonzero",
+            "type": "field",
+            "fieldName": "cout_uree_nonzero"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.cout_npk_nonzero) || 0) + (Number(@field.cout_uree_nonzero) || 0))",
+            "matchedExpression": "@calc((Number(@field.cout_npk_nonzero) || 0) + (Number(@field.cout_uree_nonzero) || 0))",
+            "type": "calc",
+            "fieldName": "(Number(@field.cout_npk_nonzero) || 0) + (Number(@field.cout_uree_nonzero) || 0)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.cout_npk_nonzero": [
+          "value"
+        ],
+        "@field.cout_uree_nonzero": [
+          "value"
+        ],
+        "@calc((Number(@field.cout_npk_nonzero) || 0) + (Number(@field.cout_uree_nonzero) || 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@calc(@local.v_fert_npk_ok && @local.v_fert_ur_ok)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@local.v_fert_npk_ok && @local.v_fert_ur_ok)",
+            "matchedExpression": "@local.v_fert_npk_ok",
+            "type": "local",
+            "fieldName": "v_fert_npk_ok"
+          },
+          {
+            "fullExpression": "@calc(@local.v_fert_npk_ok && @local.v_fert_ur_ok)",
+            "matchedExpression": "@local.v_fert_ur_ok",
+            "type": "local",
+            "fieldName": "v_fert_ur_ok"
+          },
+          {
+            "fullExpression": "@calc(@local.v_fert_npk_ok && @local.v_fert_ur_ok)",
+            "matchedExpression": "@calc(@local.v_fert_npk_ok && @local.v_fert_ur_ok)",
+            "type": "calc",
+            "fieldName": "@local.v_fert_npk_ok && @local.v_fert_ur_ok"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_fert_npk_ok": [
+          "value"
+        ],
+        "@local.v_fert_ur_ok": [
+          "value"
+        ],
+        "@calc(@local.v_fert_npk_ok && @local.v_fert_ur_ok)": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -108,6 +1335,15 @@
           "action_list": [
             {
               "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "final_count_fert",
+                "@local.v_total_fert_culture"
+              ],
+              "_raw": "click | set_field: final_count_fert : @local.v_total_fert_culture"
+            },
+            {
+              "trigger": "click",
               "action_id": "emit",
               "args": [
                 "completed"
@@ -116,7 +1352,8 @@
             }
           ],
           "parameter_list": {
-            "style": "navigation"
+            "style": "navigation",
+            "disabled": "!@local.completed_enabled"
           },
           "style_list": [
             "flex: 1"
@@ -130,11 +1367,50 @@
                 "type": "global",
                 "fieldName": "btn_continue"
               }
-            ]
+            ],
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.v_total_fert_culture",
+                      "matchedExpression": "@local.v_total_fert_culture",
+                      "type": "local",
+                      "fieldName": "v_total_fert_culture"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: final_count_fert : @local.v_total_fert_culture",
+                    "matchedExpression": "@local.v_total_fert_culture",
+                    "type": "local",
+                    "fieldName": "v_total_fert_culture"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
+            ],
+            "@local.v_total_fert_culture": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
             ]
           }
         }

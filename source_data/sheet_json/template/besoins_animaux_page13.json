@@ -4,84 +4,42 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
-      "value": "**RECAPITULATIF DES PREVISIONS**"
+      "type": "title",
+      "value": "**APRECIATIONS ET OBSERVATIONS SUR LE FORMULAIRE**"
     },
     {
-      "type": "set_field",
-      "name": "cal_superficie",
-      "value": "@calc((Number(@fields.total_fane || 0) / 1700).toFixed(1))"
-    },
-    {
-      "type": "set_field",
-      "name": "cal_depense_total",
-      "value": "@calc((Number(@fields.cal_depense_son || 0) + Number(@fields.cal_depense_tourteau || 0)).toFixed(1))"
-    },
-    {
-      "type": "set_field",
-      "name": "cal_depense_soins",
-      "value": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))"
+      "type": "begin_display_group"
     },
     {
       "type": "text",
-      "name": "note_cat_animales",
-      "value": "Categories animales de l'UPA selectionnées: **@fields.cat_animaux_selected**"
+      "name": "observation_label",
+      "value": "@global.observation_label"
     },
     {
-      "type": "text",
-      "value": "**La superficie de cultures fourragères**"
+      "type": "audio",
+      "name": "audio_8_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/appreciation_audio_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "image",
-      "value": "images/sup_fourrage.jpg",
-      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+      "value": "images/vocal.jpg",
+      "style_list": "width:110px; height:110px; object-fit:contain; flex-shrink:0;"
     },
     {
       "type": "text",
-      "name": "note_cal_superficie",
-      "value": "La superficie de cultures fourragères pour produire les @fields.total_fane bottes de fânes est estimée à: **@fields.cal_superficie ha**"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: black;\">\n-1 ha de niébé fourrager peut produire 2500 kgMS, soit environ 1700 bottes (Falconnier et al. 2016).\n-1 ha de mucuna pruriens peut produire 6000kgMS (Ba et al.2023)\n-1 ha de brachiaria peut produire 7200 kgMS (Ba et al.2023)\n<strong> Pour vos @fields.total_fane bottes, on a considéré le rendement du niébé fourrager en divisant @fields.total_fane par les 1700 bottes </strong> </p>"
+      "name": "observation_hint",
+      "value": "@global.observation_hint",
+      "style_list": "color: gray; font-size: 16px;"
     },
     {
       "type": "text",
-      "value": "**Le montant prévisionnel des depenses d'achat des aliments pour bétail** "
-    },
-    {
-      "type": "image",
-      "value": "images/cfa_tot.jpg",
-      "condition": "@fields.prix_sac_son ",
-      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
-    },
-    {
-      "type": "text",
-      "name": "depense",
-      "value": "Le montant prévisionnel des depenses d'achat des aliments pour bétail  est : **@fields.cal_depense_total drm**"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: black;\">Ce montant est obtenu en additionnant les montants prévisionnels des achats du son de céréales et du tourteau pour toutes les catégories animales. </p>"
-    },
-    {
-      "type": "text",
-      "value": "**Le montant prévisionnel des dépenses des soins vétérinaire**"
-    },
-    {
-      "type": "image",
-      "value": "images/cfa_tot.jpg",
-      "condition": "@fields.prix_sac_son ",
-      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
-    },
-    {
-      "type": "text",
-      "name": "total_frais_soins",
-      "value": "Le montant prévisionnel des dépenses des soins vétérinaires est: **@fields.cal_depense_soins drm**"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: black;\">Ce montant est obtenu en additionnant des frais prévisionnels de soins vétérinaires pour toutes les catégories d'animaux.</p>"
+      "name": "obser_appreciation",
+      "value": "We would need a recorder here in order to transmit observations or feedback regarding the form.",
+      "style_list": "color: gray; font-size: 14px;\n"
     },
     {
       "type": "begin_display_group",
@@ -91,15 +49,16 @@
     },
     {
       "type": "round_button",
-      "name": "page13_button_back",
+      "name": "page_15_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page13_button_continue",
-      "value": "Continuer",
-      "action_list": "click | emit: completed;"
+      "name": "page_15_button_continue",
+      "value": "@global.btn_continue",
+      "action_list": "click | emit: completed",
+      "style_list": "flex: 1"
     },
     {
       "type": "end_display_group"

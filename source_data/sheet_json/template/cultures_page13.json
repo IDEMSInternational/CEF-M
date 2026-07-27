@@ -1,0 +1,223 @@
+{
+  "flow_type": "template",
+  "flow_name": "cultures_page13",
+  "status": "released",
+  "rows": [
+    {
+      "type": "begin_data_items",
+      "value": "@data.planif_cultures_primaires",
+      "parameter_list": "filter: @item.name == @fields.culture_label"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "image",
+      "value": "@item.image",
+      "style_list": "width:150px; height:150px; "
+    },
+    {
+      "type": "text",
+      "value": "**@item.text**"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "title",
+      "value": "COÛTS TOTAUX ET BENEFICES PREVISIONNELS"
+    },
+    {
+      "type": "audio",
+      "name": "audio_13_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/semis/cout_cult_semis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Coûts totaux prévisionnels: **@fields.couts_totaux_prevus drm**"
+    },
+    {
+      "type": "text",
+      "value": "Ces coûts totaux prévisionnels couvrent uniquement les charges payables.",
+      "style_list": "color: gray; font-size: 16px;"
+    },
+    {
+      "type": "text",
+      "value": "**Donnez le prix prévisionnel du produit de @fields.culture_label (drm/kg)**"
+    },
+    {
+      "type": "text",
+      "value": "*1 drm=5 FCFA*",
+      "style_list": "color: gray; font-size: 16px;"
+    },
+    {
+      "type": "text_box",
+      "name": "prix_prevu_vente",
+      "value": "@fields.prix_prevu_vente",
+      "action_list": "changed | set_field : prix_prevu_vente: this.value;",
+      "parameter_list": "number_input: true"
+    },
+    {
+      "name": "valid_prix_prevu_vente",
+      "value": "@calc(!!@fields.prix_prevu_vente && @fields.prix_prevu_vente != \"\" && @fields.prix_prevu_vente > 0)"
+    },
+    {
+      "type": "text",
+      "value": "@global.error_required_answer",
+      "condition": "!@local.valid_prix_prevu_vente",
+      "style_list": "color: red; font-size: 16px; background: #fff5f5; padding: 5px;"
+    },
+    {
+      "name": "chiffre_affaire_prevu",
+      "value": "@calc(Number(@fields.prix_prevu_vente) * Number(@fields.production_prevue))"
+    },
+    {
+      "name": "marge_brute_prevue",
+      "value": "@calc(Number(@local.chiffre_affaire_prevu) - Number(@fields.couts_totaux_prevus))"
+    },
+    {
+      "type": "begin_display_group",
+      "parameter_list": "style: column",
+      "condition": "@fields.prix_prevu_vente > 0"
+    },
+    {
+      "type": "text",
+      "value": "Le chiffre d'affaire prévisionnel de la production total de @fields.culture_label : **@local.chiffre_affaire_prevu drm**",
+      "style_list": "background: #fdf6f0; color: #a44c20; border: 1px solid #f5decb; border-radius: 12px; padding: 14px 18px; margin: 12px 0px; box-shadow: 0 4px 6px rgba(164, 76, 32, 0.02); font-size: 20px; font-weight: 500;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width:100px; height:100px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text",
+      "value": "Calcul: @fields.prix_prevu_vente * @fields.production_prevue\n*1 drm=5 FCFA*",
+      "style_list": "color: gray; font-size: 16px;"
+    },
+    {
+      "type": "begin_display_group",
+      "parameter_list": "style: column",
+      "condition": "@fields.prix_prevu_vente > 0"
+    },
+    {
+      "type": "text",
+      "value": "La marge brute prévisionnelle: **@local.marge_brute_prevue drm**",
+      "style_list": "background: #fdf6f0; color: #a44c20; border: 1px solid #f5decb; border-radius: 12px; padding: 14px 18px; margin: 12px 0px; box-shadow: 0 4px 6px rgba(164, 76, 32, 0.02); font-size: 20px; font-weight: 500;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa_tot.jpg",
+      "style_list": "width:100px; height:100px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text",
+      "value": "Calcul: @local.chiffre_affaire_prevu - @fields.couts_totaux_prevus\n*1 drm=5 FCFA*",
+      "style_list": "color: gray; font-size: 16px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "parameter_list": "style: column",
+      "condition": "@local.marge_brute_prevue >= 0"
+    },
+    {
+      "type": "text",
+      "value": "**La Mage brute est positive: @fields.prix_prevu_vente drm/kg**",
+      "style_list": "background: #f0fdf4; color: #166534; border: 1.5px solid #bbf7d0; border-radius: 8px; padding: 12px 16px; margin: 10px 0px; font-size: 15px; font-weight: 500;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "parameter_list": "style: column",
+      "condition": "@local.marge_brute_prevue == 0"
+    },
+    {
+      "type": "text",
+      "value": "**La marge brute est nulle: @fields.prix_prevu_vente drm/kg**",
+      "style_list": "background: #fefce8; color: #854d0e; border: 1.5px solid #fef08a; border-radius: 8px; padding: 12px 16px; margin: 10px 0px; font-size: 15px; font-weight: 500;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "parameter_list": "style: column",
+      "condition": "@local.marge_brute_prevue <=0"
+    },
+    {
+      "type": "text",
+      "value": "**La Marge brute négative à @fields.prix_prevu_vente drm/kg**",
+      "style_list": "background: #fef2f2; color: #991b1b; border: 1.5px solid #fecaca; border-radius: 8px; padding: 12px 16px; margin: 10px 0px; font-size: 15px; font-weight: 500;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "last_culture_label",
+      "value": "@calc((Number(@fields.culture_loop_idx) + 1) < Number(@fields.liste_cult_select_count))"
+    },
+    {
+      "name": "culture_loop_idx",
+      "value": "@calc(Number(@fields.culture_loop_idx) + 1)"
+    },
+    {
+      "name": "culture_label",
+      "value": "@calc([@fields.culture_mais ? 'mais' : null,@fields.culture_mil ? 'mil' : null,@fields.culture_sorgho ? 'sorgho' : null,@fields.culture_coton ? 'coton' : null,@fields.culture_arachide ? 'arachide' : null,@fields.culture_fourrage ? 'fourrage' : null,@fields.culture_niebe ? 'niebe' : null,@fields.culture_soja ? 'soja' : null,@fields.culture_fonio ? 'fonio' : null,@fields.culture_riz ? 'riz' : null,@fields.culture_sesame ? 'sesame' : null,@fields.culture_wouandzou ? 'wouandzou' : null,@fields.culture_patate_douce ? 'patate_douce' : null,@fields.culture_bissap ? 'bissap' : null,@fields.culture_autre_cult_1 ? 'autre_cult_1' : null,@fields.culture_autre_cult_2 ? 'autre_cult_2' : null].filter(v => v !== null).at(Number(@local.culture_loop_idx)) || '')"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@fields.prix_prevu_vente"
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page_13_btn_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page_13_next_culture",
+      "value": "Prochaine culture",
+      "action_list": "click | set_field: chiffre_affaire_prevu_@fields.culture_label : @local.chiffre_affaire_prevu;\nclick | set_field: marge_brute_prevue_@fields.culture_label : @local.marge_brute_prevue;\nclick | set_field: culture_label : @local.culture_label;\n\nclick | set_field: cout_prevu_superficie_labour_nonzero : ;\nclick | set_field: prix_prevu_vente : ;\nclick | set_field: no_autre_cout_prevu : ;\nclick | set_field: superficie_prevue_labour : ;\nclick | set_field: superficie_ha_prevue : ;\nclick | set_field: variete_approvisionnement : ;\nclick | set_field: cout_prevue_superficie_labour : ;\nclick | set_field: cout_prevu_fumure : ;\nclick | set_field: cout_prevu_transport_fumure : ;\nclick | set_field: cout_prevu_variete : ;\nclick | set_field: cout_total_fumure : ;\nclick | set_field: liste_type_engrais_select : ;\nclick | set_field: precision_autre_engrais : ;\nclick | set_field: quantite_prevue_npk_coton_14_18_18 : ;\nclick | set_field: quantite_prevue_npk_cereale_15_15_15 : ;\nclick | set_field: quantite_prevue_npk_cereale_17_17_17 : ;\nclick | set_field: quantite_prevue_dap : ;\nclick | set_field: quantite_prevue_uree : ;\nclick | set_field: quantite_prevue_autre_engrais : ;\nclick | set_field: quantite_variete : ;\nclick | set_field: cout_prevu_engrais : ;\nclick | set_field: cout_prevu_herbicide_prelevee : ;\nclick | set_field: cout_prevu_herbicide : ;\nclick | set_field: cout_prevu_sarclage : ;\nclick | set_field: cout_prevu_desherbage : ;\nclick | set_field: cout_prevu_buttage : ;\nclick | set_field: cout_prevu_insecticide : ;\nclick | set_field: production_prevue : ;\nclick | set_field: cout_prevu_total_prestation_recolte : ;\nclick | set_field: cout_prevu_total_battage : ;\nclick | set_field: cout_prevu_recolte_battage : ;\nclick | set_field: nom_autre_cout_prevu : ;\nclick | set_field: autre_cout_prevu : ;\nclick | set_field: couts_totaux_prevus_autres_intrants : ;\nclick | set_field: couts_totaux_prevus : ;\n\nclick | set_field: culture_loop_idx : @local.culture_loop_idx;\nclick | set_data | _list_id: cultures_settings_pages, _index: 2, completed: false;\nclick | set_data | _list_id: cultures_settings_pages, _index: 3, completed: false;\nclick | set_data | _list_id: cultures_settings_pages, _index: 4, completed: false;\nclick | set_data | _list_id: cultures_settings_pages, _index: 5, completed: false;\nclick | set_data | _list_id: cultures_settings_pages, _index: 6, completed: false;\nclick | set_data | _list_id: cultures_settings_pages, _index: 7, completed: false;\nclick | set_data | _list_id: cultures_settings_pages, _index: 8, completed: false;\nclick | set_data | _list_id: cultures_settings_pages, _index: 9, completed: false;\nclick | set_data | _list_id: cultures_settings_pages, _index: 10, completed: false;\nclick | set_data | _list_id: cultures_settings_pages, _index: 11, completed: false;\nclick | set_data | _list_id: cultures_settings_pages, _index: 12, completed: false;\n",
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "condition": "@local.last_culture_label",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "button",
+      "name": "page13_button_continue",
+      "value": "Continuer",
+      "action_list": "click | set_field: chiffre_affaire_prevu_@fields.culture_label : @local.chiffre_affaire_prevu;\nclick | set_field: marge_brute_prevue_@fields.culture_label : @local.marge_brute_prevue;\nclick | emit: completed",
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "condition": "!@local.last_culture_label",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

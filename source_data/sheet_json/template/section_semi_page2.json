@@ -4,56 +4,107 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "name": "page_title"
+      "name": "v_current_human",
+      "value": "@calc(Number(@field.current_culture_index) + 1)"
     },
     {
-      "type": "begin_display_group"
+      "name": "v_sup_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_ha))"
+    },
+    {
+      "name": "v_sup_err",
+      "value": "@calc(!@local.v_sup_fmt || Number(@field.superficie_ha) <= 0)"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "header",
+      "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
     },
     {
       "type": "html",
-      "name": "campaign_year_label",
-      "value": "<span style=\"color: red;\">*</span> @global.campaign_year_label",
-      "style_list": "font-size:20px;"
-    },
-    {
-      "type": "audio",
-      "name": "audio_2_1",
-      "parameter_list": "variant: compact;\nsrc: audio/semis/annee_saison_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "style_list": "float : right;"
+      "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>"
     },
     {
       "type": "end_display_group"
     },
     {
-      "name": "year_campaign"
+      "type": "begin_display_group",
+      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #FFCC80; border-radius: 12px; background: white; margin-bottom: 10px; overflow: hidden;"
     },
     {
-      "type": "date_time_picker",
-      "name": "year_campaign",
-      "value": "@fields.year_campaign",
-      "action_list": "changed | set_local: year_campaign: this.value;",
-      "parameter_list": "type: date;"
+      "type": "image",
+      "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+      "style_list": "width: 60%; object-fit: contain;"
+    },
+    {
+      "type": "text",
+      "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+      "style_list": "font-weight: bold; font-size: 18px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "sup_details",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "aud_prod",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/sup_culture_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span> Superficie totale (ha) <br> ",
+      "style_list": "font-weight: bold;"
+    },
+    {
+      "type": "text",
+      "value": "*Superficie cumulée de toutes les parcelles de @field.active_culture_name* <br> <span style=\"font-size: 12px; color: gray;\">*@field.active_culture_name  *</span>",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/superf_unit.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "superficie_ha",
+      "value": "@field.superficie_ha",
+      "action_list": "changed | set_field: superficie_ha : this.value;",
+      "parameter_list": "number_input: true;"
+    },
+    {
+      "type": "text",
+      "value": "La valeur doit être supérieure à 0. Si erreur, retournez décocher la culture.",
+      "condition": "@local.v_sup_err",
+      "style_list": "font-size: 12px; color: red;"
     },
     {
       "type": "begin_display_group",
       "name": "dg_footer",
-      "value": " ",
       "parameter_list": "sticky: bottom;",
       "style_list": "padding: 12px 24px;"
     },
     {
       "type": "round_button",
-      "name": "page_2_btn_back",
+      "name": "button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page_2_btn_continue",
+      "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | emit: completed",
-      "parameter_list": "disabled: !@local.year_campaign ;",
+      "action_list": "click | emit: completed;",
+      "parameter_list": "style: navigation;\ndisabled:@local.v_sup_err",
       "style_list": "flex: 1"
     },
     {

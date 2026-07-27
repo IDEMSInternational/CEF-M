@@ -4,47 +4,68 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
-      "value": "**Niveau de fertilité de la parcelle N⁰ @fields.num_parcelle de @fields.nom_champ**"
+      "type": "title",
+      "value": "**Culture précédente dans la parcelle N⁰@fields.num_parcelle lors de la saison passée du champ @fields.nom_champ** "
     },
     {
       "type": "begin_display_group"
     },
     {
       "type": "text",
-      "value": "Indiquez le niveau de fertilité de la parcelle N⁰ @fields.num_parcelle"
+      "value": "@global.culture_preced_hint"
     },
     {
       "type": "audio",
-      "name": "audio_5_1",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/fertilite_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "audio_6_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/cult_preced_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "style_list": "float : right;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "image",
-      "value": "images/fertilite.jpg",
-      "style_list": "width:100px; height:100px; "
-    },
-    {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: black;\"> Sélectionner un niveau en dessous !</p>"
-    },
-    {
       "type": "radio_button_grid",
-      "name": "fertilite_sol",
-      "value": "@fields.fertilite_sol",
-      "action_list": "changed | set_field : fertilite_sol: this.value;",
-      "parameter_list": "answer_list: @data.fertilite_sol; \nstyle: secondary;\nitem_width: 60px;\ngrid_gap: 8px;"
+      "name": "cult_prev",
+      "value": "@fields.cult_prev",
+      "action_list": "changed | set_field: cult_prev: this.value;",
+      "parameter_list": "answer_list: @data.cult_princip;\nitem_width: 80px;\ngrid_width: 150%;\ngrid_gap: 10px;\nvariant: circle-icon;"
     },
     {
       "type": "html",
       "name": "html_text",
       "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@local.fertilite_sol"
+      "condition": "!@fields.cult_prev"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.cult_prev == 'autre'"
+    },
+    {
+      "type": "text",
+      "value": "@global.autre_message"
+    },
+    {
+      "type": "audio",
+      "name": "audio_6_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/autre_cult_nom1_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "autre_cult_prev",
+      "value": "@fields.autre_cult_prev",
+      "action_list": "changed | set_field: autre_cult_prev : this.value;",
+      "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom de la culture",
+      "condition": "@fields.cult_prev == 'autre'",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@fields.cult_prev ",
+      "style_list": true
     },
     {
       "type": "begin_display_group",
@@ -53,21 +74,16 @@
       "style_list": "padding: 12px 24px;"
     },
     {
-      "name": "completed_enabled",
-      "value": "!!@local.fertilite_sol ",
-      "style_list": true
-    },
-    {
       "type": "round_button",
-      "name": "page5_button_back",
+      "name": "page6_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page5_button_continue",
+      "name": "page6_button_continue",
       "value": "Continuer",
-      "action_list": "click | set_field: @calc('fertilite_sol_parcelle_N' + @fields.num_parcelle) : @fields.fertilite_sol;\nclick | emit: completed;",
+      "action_list": "click | set_field: @calc('cult_prev_parcelle_N' + @fields.num_parcelle) : @fields.cult_prev;\nclick | set_field: @calc('autre_cult_prev_parcelle_N' + @fields.num_parcelle) : @fields.autre_cult_prev;\nclick | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled"
     },
     {

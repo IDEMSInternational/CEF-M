@@ -61,7 +61,7 @@
           "type": "audio",
           "name": "audio_7_1",
           "parameter_list": {
-            "variant": "compact",
+            "variant": "button_only",
             "src": "audio/Enrolement/canal_obser_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
@@ -181,7 +181,7 @@
           "type": "audio",
           "name": "audio_7_2",
           "parameter_list": {
-            "variant": "compact",
+            "variant": "button_only",
             "src": "audio/Enrolement/oberv_ecrit_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
@@ -276,7 +276,7 @@
           "type": "audio",
           "name": "audio_7_3",
           "parameter_list": {
-            "variant": "compact",
+            "variant": "button_only",
             "src": "audio/Enrolement/oberv_vid_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
@@ -346,7 +346,7 @@
           "type": "audio",
           "name": "audio_7_4",
           "parameter_list": {
-            "variant": "compact",
+            "variant": "button_only",
             "src": "audio/Enrolement/oberv_audio_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
@@ -416,7 +416,7 @@
           "type": "audio",
           "name": "audio_7_5",
           "parameter_list": {
-            "variant": "compact",
+            "variant": "button_only",
             "src": "audio/Enrolement/oberv_phot_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
@@ -577,19 +577,19 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "@calc('observation_' + @fields.num_parcelle)",
+                "@calc('observation_P' + @fields.num_parcelle)",
                 "@fields.info_text"
               ],
-              "_raw": "click | set_field: @calc('observation_' + @fields.num_parcelle) : @fields.info_text"
+              "_raw": "click | set_field: @calc('observation_P' + @fields.num_parcelle) : @fields.info_text"
             },
             {
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "@calc('type_observation_' + @fields.num_parcelle)",
+                "@calc('type_observation_P' + @fields.num_parcelle)",
                 "@fields.type_observation"
               ],
-              "_raw": "click | set_field: @calc('type_observation_' + @fields.num_parcelle) : @fields.type_observation"
+              "_raw": "click | set_field: @calc('type_observation_P' + @fields.num_parcelle) : @fields.type_observation"
             },
             {
               "trigger": "click",
@@ -608,24 +608,6 @@
                 ""
               ],
               "_raw": "click | set_field: type_observation:"
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "cult_princip",
-                ""
-              ],
-              "_raw": "click | set_field: cult_princip:"
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "autre_cult_princip",
-                ""
-              ],
-              "_raw": "click | set_field: autre_cult_princip:"
             },
             {
               "trigger": "click",
@@ -667,37 +649,64 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "type_variete",
+                "autre_cult_princip",
                 ""
               ],
-              "_raw": "click | set_field: type_variete:"
+              "_raw": "click | set_field: autre_cult_princip:"
             },
             {
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "nom_variete",
+                "variete_semence",
                 ""
               ],
-              "_raw": "click | set_field: nom_variete:"
+              "_raw": "click | set_field: variete_semence:"
             },
             {
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "date_semis",
+                "nom_autre_variete",
                 ""
               ],
-              "_raw": "click | set_field: date_semis:"
+              "_raw": "click | set_field: nom_autre_variete:"
             },
             {
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "source_semence",
+                "type_variete_culture",
                 ""
               ],
-              "_raw": "click | set_field: source_semence:"
+              "_raw": "click | set_field: type_variete_culture:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "source_semence_culture",
+                ""
+              ],
+              "_raw": "click | set_field: source_semence_culture:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "autre_source_semence_culture",
+                ""
+              ],
+              "_raw": "click | set_field: autre_source_semence_culture:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "date_semence",
+                ""
+              ],
+              "_raw": "click | set_field: date_semence:"
             },
             {
               "trigger": "click",
@@ -721,10 +730,37 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
+                "nom_arbre",
+                ""
+              ],
+              "_raw": "click | set_field: nom_arbre:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
                 "association_oui_non",
                 ""
               ],
               "_raw": "click | set_field: association_oui_non:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "autre_cult_asso1",
+                ""
+              ],
+              "_raw": "click | set_field: autre_cult_asso1:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "autre_cult_asso2",
+                ""
+              ],
+              "_raw": "click | set_field: autre_cult_asso2:"
             },
             {
               "trigger": "click",
@@ -739,10 +775,37 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "quantite_npk",
+                "autre_fumier_texte",
                 ""
               ],
-              "_raw": "click | set_field: quantite_npk:"
+              "_raw": "click | set_field: autre_fumier_texte:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "on_fertilisant_info",
+                ""
+              ],
+              "_raw": "click | set_field: on_fertilisant_info:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "quantite_npk_coton",
+                ""
+              ],
+              "_raw": "click | set_field: quantite_npk_coton:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "quantite_npk_cereale",
+                ""
+              ],
+              "_raw": "click | set_field: quantite_npk_cereale:"
             },
             {
               "trigger": "click",
@@ -757,19 +820,64 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "autre_engrais_oui_non",
+                "quantite_dap",
                 ""
               ],
-              "_raw": "click | set_field: autre_engrais_oui_non:"
+              "_raw": "click | set_field: quantite_dap:"
             },
             {
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "autre_engrais",
+                "autre_engrais_mineral",
                 ""
               ],
-              "_raw": "click | set_field: autre_engrais:"
+              "_raw": "click | set_field: autre_engrais_mineral:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "nom_autre_engrais",
+                ""
+              ],
+              "_raw": "click | set_field: nom_autre_engrais:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "quantite_autre_engrais",
+                ""
+              ],
+              "_raw": "click | set_field: quantite_autre_engrais:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "on_production_info",
+                ""
+              ],
+              "_raw": "click | set_field: on_production_info:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "production_parcelle_culture1",
+                ""
+              ],
+              "_raw": "click | set_field: production_parcelle_culture1:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "production_parcelle_culture2",
+                ""
+              ],
+              "_raw": "click | set_field: production_parcelle_culture2:"
             },
             {
               "trigger": "click",
@@ -784,10 +892,52 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
+                "superficie_geo",
+                ""
+              ],
+              "_raw": "click | set_field: superficie_geo:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
                 "num_parcelle",
                 "@calc(Number(@fields.num_parcelle) + 1)"
               ],
               "_raw": "click | set_field: num_parcelle : @calc(Number(@fields.num_parcelle) + 1)"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: superficie_settings_pages, _index: 2, completed: false",
+              "params": {
+                "_list_id": "superficie_settings_pages",
+                "_index": 2,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: superficie_settings_pages, _index: 3, completed: false",
+              "params": {
+                "_list_id": "superficie_settings_pages",
+                "_index": 3,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: superficie_settings_pages, _index: 4, completed: false",
+              "params": {
+                "_list_id": "superficie_settings_pages",
+                "_index": 4,
+                "completed": false
+              }
             },
             {
               "trigger": "click",
@@ -909,17 +1059,6 @@
                 "_index": 15,
                 "completed": false
               }
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_data",
-              "args": [],
-              "_raw": "click | set_data | _list_id: superficie_settings_pages, _index: 16, completed: false",
-              "params": {
-                "_list_id": "superficie_settings_pages",
-                "_index": 16,
-                "completed": false
-              }
             }
           ],
           "condition": "@local.last_parcelle",
@@ -941,16 +1080,16 @@
                 "args": {
                   "0": [
                     {
-                      "fullExpression": "@calc('observation_' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('observation_P' + @fields.num_parcelle)",
                       "matchedExpression": "@fields.num_parcelle",
                       "type": "fields",
                       "fieldName": "num_parcelle"
                     },
                     {
-                      "fullExpression": "@calc('observation_' + @fields.num_parcelle)",
-                      "matchedExpression": "@calc('observation_' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('observation_P' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('observation_P' + @fields.num_parcelle)",
                       "type": "calc",
-                      "fieldName": "'observation_' + @fields.num_parcelle"
+                      "fieldName": "'observation_P' + @fields.num_parcelle"
                     }
                   ],
                   "1": [
@@ -964,13 +1103,13 @@
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('observation_' + @fields.num_parcelle) : @fields.info_text",
+                    "fullExpression": "click | set_field: @calc('observation_P' + @fields.num_parcelle) : @fields.info_text",
                     "matchedExpression": "@fields.num_parcelle",
                     "type": "fields",
                     "fieldName": "num_parcelle"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('observation_' + @fields.num_parcelle) : @fields.info_text",
+                    "fullExpression": "click | set_field: @calc('observation_P' + @fields.num_parcelle) : @fields.info_text",
                     "matchedExpression": "@fields.info_text",
                     "type": "fields",
                     "fieldName": "info_text"
@@ -981,16 +1120,16 @@
                 "args": {
                   "0": [
                     {
-                      "fullExpression": "@calc('type_observation_' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('type_observation_P' + @fields.num_parcelle)",
                       "matchedExpression": "@fields.num_parcelle",
                       "type": "fields",
                       "fieldName": "num_parcelle"
                     },
                     {
-                      "fullExpression": "@calc('type_observation_' + @fields.num_parcelle)",
-                      "matchedExpression": "@calc('type_observation_' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('type_observation_P' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('type_observation_P' + @fields.num_parcelle)",
                       "type": "calc",
-                      "fieldName": "'type_observation_' + @fields.num_parcelle"
+                      "fieldName": "'type_observation_P' + @fields.num_parcelle"
                     }
                   ],
                   "1": [
@@ -1004,20 +1143,20 @@
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('type_observation_' + @fields.num_parcelle) : @fields.type_observation",
+                    "fullExpression": "click | set_field: @calc('type_observation_P' + @fields.num_parcelle) : @fields.type_observation",
                     "matchedExpression": "@fields.num_parcelle",
                     "type": "fields",
                     "fieldName": "num_parcelle"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('type_observation_' + @fields.num_parcelle) : @fields.type_observation",
+                    "fullExpression": "click | set_field: @calc('type_observation_P' + @fields.num_parcelle) : @fields.type_observation",
                     "matchedExpression": "@fields.type_observation",
                     "type": "fields",
                     "fieldName": "type_observation"
                   }
                 ]
               },
-              "23": {
+              "36": {
                 "args": {
                   "1": [
                     {
@@ -1068,17 +1207,17 @@
               "action_list.0._raw",
               "action_list.1.args.0",
               "action_list.1._raw",
-              "action_list.23.args.1",
-              "action_list.23._raw"
+              "action_list.36.args.1",
+              "action_list.36._raw"
             ],
-            "@calc('observation_' + @fields.num_parcelle)": [
+            "@calc('observation_P' + @fields.num_parcelle)": [
               "action_list.0.args.0"
             ],
             "@fields.info_text": [
               "action_list.0.args.1",
               "action_list.0._raw"
             ],
-            "@calc('type_observation_' + @fields.num_parcelle)": [
+            "@calc('type_observation_P' + @fields.num_parcelle)": [
               "action_list.1.args.0"
             ],
             "@fields.type_observation": [
@@ -1086,8 +1225,8 @@
               "action_list.1._raw"
             ],
             "@calc(Number(@fields.num_parcelle) + 1)": [
-              "action_list.23.args.1",
-              "action_list.23._raw"
+              "action_list.36.args.1",
+              "action_list.36._raw"
             ],
             "@local.last_parcelle": [
               "condition"

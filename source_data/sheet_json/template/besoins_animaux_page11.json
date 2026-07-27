@@ -4,70 +4,51 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
-      "value": "**SOURCES ET DÉPENSE DE SON**"
-    },
-    {
-      "type": "text",
-      "value": "**La quantité de son de céréales qui sera auto-produite par votre UPA dans les @fields.quantite_son sacs de son que vous aviez indiqués.**"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> Il s'agit de la quantité de son de céréales qui sera obtenue à partir du décorticage des céréales de votre UPA.</p>"
-    },
-    {
-      "type": "text_box",
-      "name": "concentre_produit",
-      "value": "@fields.concentre_produit",
-      "action_list": "changed | set_field: concentre_produit : this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Donnez la quantité de son de céréales;",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@local.concentre_produit "
-    },
-    {
-      "name": "valid_concentre_produit",
-      "value": "@calc((/^\\d+$/.test(@fields.concentre_produit) && @fields.concentre_produit <= @fields.quantite_son ) || @fields.concentre_produit == '' || !@fields.concentre_produit)"
-    },
-    {
-      "type": "text",
-      "value": "@global.validite_nombre",
-      "condition": "!@local.valid_concentre_produit",
-      "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 14px"
-    },
-    {
-      "type": "text",
-      "value": "**Quantité de son à achéter**"
-    },
-    {
-      "type": "image",
-      "value": "images/son_cereal.jpg",
-      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+      "type": "title",
+      "value": "**RECAPITULATIF DES PREVISIONS**"
     },
     {
       "type": "set_field",
-      "name": "achat_son_quantite",
-      "value": "@calc(Number(@fields.quantite_son) - Number(@fields.concentre_produit))",
-      "condition": "@fields.concentre_produit"
+      "name": "cal_superficie",
+      "value": "@calc((Number(@fields.total_fane || 0) / 1700).toFixed(1))"
+    },
+    {
+      "type": "set_field",
+      "name": "cal_depense_total",
+      "value": "@calc((Number(@fields.cal_depense_son || 0) + Number(@fields.cal_depense_tourteau || 0)).toFixed(1))"
+    },
+    {
+      "type": "set_field",
+      "name": "cal_depense_soins",
+      "value": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))"
+    },
+    {
+      "type": "text",
+      "name": "note_cat_animales",
+      "value": "Categories animales de l'UPA selectionnées: **@fields.cat_animaux_selected**"
+    },
+    {
+      "type": "text",
+      "value": "@global.note_sup_fouragere"
+    },
+    {
+      "type": "image",
+      "value": "images/sup_fourrage.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text",
+      "name": "note_cal_superficie",
+      "value": "@global.sup_fouragere",
+      "style_list": "background-color: #f0f4f8 ;border-left-width: 4px; border-left-style: solid; border-left-color: #0056b3;"
     },
     {
       "type": "html",
-      "name": "note_achat_son",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n Quantité de son à achéter: <strong> @fields.achat_son_quantite sacs\n</strong> </div>",
-      "condition": "@fields.concentre_produit"
+      "value": "<p style=\"color: black;\">@global.hint_sup_fouragere</strong> </p>"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> Pour une prevision d'auto production de @fields.concentre_produit sacs de son, il restera @fields.achat_son_quantite sacs de son a achéter.</p>",
-      "condition": "@fields.concentre_produit"
-    },
-    {
-      "value": "Donnez le prix d'un sac de son de céréales:"
+      "type": "text",
+      "value": "@global.note_mot_alim_betail"
     },
     {
       "type": "html",
@@ -75,60 +56,41 @@
     },
     {
       "type": "image",
-      "value": "images/cfa.jpg",
+      "value": "images/cfa_tot.jpg",
       "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
     },
     {
-      "type": "text_box",
-      "name": "prix_sac_son",
-      "value": "@fields.prix_sac_son",
-      "action_list": "changed | set_field: prix_sac_son : this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Donnez le prix d'un sac de son de céréales;",
-      "exclude_from_translation": true
+      "type": "text",
+      "name": "depense",
+      "value": "@global.mot_alim_betail",
+      "style_list": "background-color: #f0f4f8 ;border-left-width: 4px; border-left-style: solid; border-left-color: #0056b3;"
     },
     {
       "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@fields.prix_sac_son "
-    },
-    {
-      "name": "valid_prix_sac_son",
-      "value": "@calc((/^\\d+$/.test(@fields.prix_sac_son) && @fields.prix_sac_son > 0 ) || @fields.prix_sac_son == '' || !@fields.prix_sac_son)"
+      "value": "<p style=\"color: black;\">@global.hint_mot_alim_betail</p>"
     },
     {
       "type": "text",
-      "value": "@global.validite_nombre",
-      "condition": "!@local.valid_prix_sac_son",
-      "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 14px"
+      "value": "@global.note_montant_soin"
     },
     {
-      "type": "text",
-      "value": "**Le montant prévisionnel pour l'achat du son**",
-      "condition": "@fields.prix_sac_son "
+      "type": "html",
+      "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>"
     },
     {
       "type": "image",
       "value": "images/cfa_tot.jpg",
-      "condition": "@fields.prix_sac_son ",
       "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
     },
     {
-      "type": "set_field",
-      "name": "cal_depense_son",
-      "value": "@calc(Number(@fields.achat_son_quantite) * Number(@fields.prix_sac_son))",
-      "condition": "@fields.prix_sac_son "
-    },
-    {
       "type": "text",
-      "value": "Le montant prévisionnel pour l'achat du son est: **@fields.cal_depense_son drm**",
-      "condition": "@fields.prix_sac_son "
+      "name": "total_frais_soins",
+      "value": "@global.montant_soin",
+      "style_list": "background-color: #f0f4f8 ;border-left-width: 4px; border-left-style: solid; border-left-color: #0056b3;"
     },
     {
       "type": "html",
-      "value": "<p style=\"color: black;\">Il s'agit de l'estimation du montant total nécessaire pour achéter @fields.achat_son_quantite sacs de son</p>",
-      "condition": "@fields.prix_sac_son "
+      "value": "<p style=\"color: black;\">@global.hint_montant_soin</p>"
     },
     {
       "type": "begin_display_group",
@@ -138,15 +100,16 @@
     },
     {
       "type": "round_button",
-      "name": "page11_button_back",
-      "action_list": "click | emit: uncompleted",
+      "name": "page13_button_back",
+      "action_list": "click | emit: uncompleted;",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page11_button_continue",
+      "name": "page13_button_continue",
       "value": "Continuer",
-      "action_list": "click | emit: completed;"
+      "action_list": "click | emit: completed;",
+      "style_list": "flex: 1"
     },
     {
       "type": "end_display_group"

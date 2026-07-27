@@ -4,18 +4,28 @@
   "status": "released",
   "rows": [
     {
+      "type": "begin_display_group"
+    },
+    {
       "type": "title",
-      "name": "page_title",
-      "value": "NOTE"
+      "value": "RECOMMENDATIONS DES PRODUCTEURS:\n"
+    },
+    {
+      "type": "audio",
+      "name": "audio_3_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/fumureOrganique/prod_reco_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "text",
-      "name": "introduction_formulaire",
-      "value": "@global.introduction_formulaire"
+      "value": "@global.recommendation_fumure_organique_producteurs"
     },
     {
       "type": "image",
-      "value": "images/transport_fumure.jpg"
+      "value": "images/product_fumure.jpg",
+      "style_list": "width:200px; height:200px; object-fit:contain; flex-shrink:0;"
     },
     {
       "type": "begin_display_group",

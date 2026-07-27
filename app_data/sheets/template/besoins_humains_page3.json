@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "NOTE DE PLANIFICATION",
+      "value": "REPARTITION DES BESOINS EN CEREALES",
       "_translations": {
         "value": {}
       },
@@ -13,27 +13,1333 @@
       "_nested_name": "title_2"
     },
     {
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "attempt_submit",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.attempt_submit": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "recap_besoin",
+      "style_list": [
+        "background: #1e3656",
+        "padding: 15px",
+        "text-align: center"
+      ],
+      "rows": [
+        {
+          "type": "html",
+          "value": "<div style=\"color: #4f8ff1; font-size: 12px; font-weight: bold; text-transform: uppercase;\">Répartition de la quantité totale de céréales nécessaire entre le maïs, mil, sorgho et riz en fonction de l'importance de chacune dans la consommation de votre UPA.</div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "recap_besoin.html_1"
+        },
+        {
+          "type": "html",
+          "value": "<div style=\"color: white; font-size: 24px; font-weight: bold;\">@fields.besoin_cereale_exploitation sacs</div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "recap_besoin.html_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"color: white; font-size: 24px; font-weight: bold;\">@fields.besoin_cereale_exploitation sacs</div>",
+                "matchedExpression": "@fields.besoin_cereale_exploitation",
+                "type": "fields",
+                "fieldName": "besoin_cereale_exploitation"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.besoin_cereale_exploitation": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "recap_besoin"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: black;\">Attention: le cumul des sacs des quatre types de céréales doit être égal aux besoins de céréales de l'exploitation de @fields.besoin_cereale_exploitation sacs.</span>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_6",
+      "_nested_name": "html_6",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<span style=\"color: black;\">Attention: le cumul des sacs des quatre types de céréales doit être égal aux besoins de céréales de l'exploitation de @fields.besoin_cereale_exploitation sacs.</span>",
+            "matchedExpression": "@fields.besoin_cereale_exploitation",
+            "type": "fields",
+            "fieldName": "besoin_cereale_exploitation"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.besoin_cereale_exploitation": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "html",
+          "value": "<span style=\"color: red;\">*</span>Donnez le nombre de sac de maïs à prevoir",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "display_group_7.html_1"
+        },
+        {
+          "type": "audio",
+          "name": "audio_5_1",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/alimentationHumaine/sac_mais_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_7.audio_5_1"
+        }
+      ],
+      "name": "display_group_7",
+      "_nested_name": "display_group_7"
+    },
+    {
       "type": "image",
-      "value": "images/grenier.jpg",
+      "value": "images/sac_mais.jpg",
       "_translations": {
         "value": {}
       },
       "style_list": [
-        "width: 100%",
-        "border-radius: 10px",
-        "margin-bottom: 15px"
+        "width:100px",
+        "height:100px"
       ],
-      "name": "image_3",
-      "_nested_name": "image_3"
+      "name": "image_9",
+      "_nested_name": "image_9"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: #333; font-size: 14px; line-height: 1.6;\">\n    Dans le contexte du Sahel, où les populations rurales cultivent et consomment principalement les céréales (mil, sorgho et maïs), il est important de connaître le besoin annuel en denrées alimentaires de l'UPA avant la saison de production.\n    <br><br>\n    <div style=\"background: #e3f2fd; padding: 15px; border-radius: 10px; border-left: 5px solid #4f8ff1; font-weight: bold;\">\n        Il est conseillé de considérer 3 sacs/an/personne de céréales. \n    </div>\n    <br>\n    Les trois sacs sont largement suffisants pour couvrir les besoins alimentaires d'une personne durant les 12 mois et permettraient de faire face à des imprévus.\n    <br><br>\n    Ce formulaire a pour but d'aider votre UPA à connaître ses besoins en céréales et d'allouer assez de superficie à la production.\n</div>",
+      "type": "text_box",
+      "name": "sac_mais",
+      "value": "@fields.sac_mais",
       "_translations": {
         "value": {}
       },
-      "name": "html_4",
-      "_nested_name": "html_4"
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "sac_mais",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: sac_mais : this.value"
+        }
+      ],
+      "parameter_list": {
+        "input_type": "number",
+        "placeholder": "Nombre de sac de maïs"
+      },
+      "style_list": [
+        "margin: 10px"
+      ],
+      "_nested_name": "sac_mais",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.sac_mais",
+            "matchedExpression": "@fields.sac_mais",
+            "type": "fields",
+            "fieldName": "sac_mais"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.sac_mais": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_sac_mais",
+      "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_mais) && Number(@local.sac_mais) < @fields.besoin_cereale_exploitation) || !@local.sac_mais)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_sac_mais",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_mais) && Number(@local.sac_mais) < @fields.besoin_cereale_exploitation) || !@local.sac_mais)",
+            "matchedExpression": "@local.sac_mais",
+            "type": "local",
+            "fieldName": "sac_mais"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_mais) && Number(@local.sac_mais) < @fields.besoin_cereale_exploitation) || !@local.sac_mais)",
+            "matchedExpression": "@local.sac_mais",
+            "type": "local",
+            "fieldName": "sac_mais"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_mais) && Number(@local.sac_mais) < @fields.besoin_cereale_exploitation) || !@local.sac_mais)",
+            "matchedExpression": "@fields.besoin_cereale_exploitation",
+            "type": "fields",
+            "fieldName": "besoin_cereale_exploitation"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_mais) && Number(@local.sac_mais) < @fields.besoin_cereale_exploitation) || !@local.sac_mais)",
+            "matchedExpression": "!@local.sac_mais",
+            "type": "local",
+            "fieldName": "sac_mais"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_mais) && Number(@local.sac_mais) < @fields.besoin_cereale_exploitation) || !@local.sac_mais)",
+            "matchedExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_mais) && Number(@local.sac_mais) < @fields.besoin_cereale_exploitation) || !@local.sac_mais)",
+            "type": "calc",
+            "fieldName": "(/^\\d+(\\.\\d+)?$/.test(@local.sac_mais) && Number(@local.sac_mais) < @fields.besoin_cereale_exploitation) || !@local.sac_mais"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.sac_mais": [
+          "value",
+          "value"
+        ],
+        "@fields.besoin_cereale_exploitation": [
+          "value"
+        ],
+        "!@local.sac_mais": [
+          "value"
+        ],
+        "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_mais) && Number(@local.sac_mais) < @fields.besoin_cereale_exploitation) || !@local.sac_mais)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@fields.sac_mais && @fields.attempt_submit",
+      "name": "html_12",
+      "_nested_name": "html_12",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@fields.sac_mais && @fields.attempt_submit",
+            "matchedExpression": "!@fields.sac_mais",
+            "type": "fields",
+            "fieldName": "sac_mais"
+          },
+          {
+            "fullExpression": "!@fields.sac_mais && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@fields.sac_mais": [
+          "condition"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.erreur_sacs",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.valid_sac_mais",
+      "style_list": [
+        "color: red",
+        "font-size: 12px"
+      ],
+      "name": "text_13",
+      "_nested_name": "text_13",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.erreur_sacs",
+            "matchedExpression": "@global.erreur_sacs",
+            "type": "global",
+            "fieldName": "erreur_sacs"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.valid_sac_mais",
+            "matchedExpression": "!@local.valid_sac_mais",
+            "type": "local",
+            "fieldName": "valid_sac_mais"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.erreur_sacs": [
+          "value"
+        ],
+        "!@local.valid_sac_mais": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "html",
+          "value": "<span style=\"color: red;\">*</span>Donnez le nombre de sac de mil à prevoir",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "display_group_14.html_1"
+        },
+        {
+          "type": "audio",
+          "name": "audio_5_2",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/alimentationHumaine/sac_mil_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_14.audio_5_2"
+        }
+      ],
+      "name": "display_group_14",
+      "_nested_name": "display_group_14"
+    },
+    {
+      "type": "image",
+      "value": "images/sac_mil.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:100px",
+        "height:100px"
+      ],
+      "name": "image_16",
+      "_nested_name": "image_16"
+    },
+    {
+      "type": "text_box",
+      "name": "sac_mil",
+      "value": "@field.sac_mil",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "sac_mil",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: sac_mil : this.value"
+        }
+      ],
+      "parameter_list": {
+        "input_type": "number",
+        "placeholder": "Nombre de sac de mil"
+      },
+      "style_list": [
+        "margin: 10px"
+      ],
+      "_nested_name": "sac_mil",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@field.sac_mil",
+            "matchedExpression": "@field.sac_mil",
+            "type": "field",
+            "fieldName": "sac_mil"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.sac_mil": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_sac_mil",
+      "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_mil) && Number(@local.sac_mil) < @fields.besoin_cereale_exploitation) || !@local.sac_mil)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_sac_mil",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_mil) && Number(@local.sac_mil) < @fields.besoin_cereale_exploitation) || !@local.sac_mil)",
+            "matchedExpression": "@local.sac_mil",
+            "type": "local",
+            "fieldName": "sac_mil"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_mil) && Number(@local.sac_mil) < @fields.besoin_cereale_exploitation) || !@local.sac_mil)",
+            "matchedExpression": "@local.sac_mil",
+            "type": "local",
+            "fieldName": "sac_mil"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_mil) && Number(@local.sac_mil) < @fields.besoin_cereale_exploitation) || !@local.sac_mil)",
+            "matchedExpression": "@fields.besoin_cereale_exploitation",
+            "type": "fields",
+            "fieldName": "besoin_cereale_exploitation"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_mil) && Number(@local.sac_mil) < @fields.besoin_cereale_exploitation) || !@local.sac_mil)",
+            "matchedExpression": "!@local.sac_mil",
+            "type": "local",
+            "fieldName": "sac_mil"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_mil) && Number(@local.sac_mil) < @fields.besoin_cereale_exploitation) || !@local.sac_mil)",
+            "matchedExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_mil) && Number(@local.sac_mil) < @fields.besoin_cereale_exploitation) || !@local.sac_mil)",
+            "type": "calc",
+            "fieldName": "(/^\\d+(\\.\\d+)?$/.test(@local.sac_mil) && Number(@local.sac_mil) < @fields.besoin_cereale_exploitation) || !@local.sac_mil"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.sac_mil": [
+          "value",
+          "value"
+        ],
+        "@fields.besoin_cereale_exploitation": [
+          "value"
+        ],
+        "!@local.sac_mil": [
+          "value"
+        ],
+        "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_mil) && Number(@local.sac_mil) < @fields.besoin_cereale_exploitation) || !@local.sac_mil)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@fields.sac_mil && @fields.attempt_submit",
+      "name": "html_19",
+      "_nested_name": "html_19",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@fields.sac_mil && @fields.attempt_submit",
+            "matchedExpression": "!@fields.sac_mil",
+            "type": "fields",
+            "fieldName": "sac_mil"
+          },
+          {
+            "fullExpression": "!@fields.sac_mil && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@fields.sac_mil": [
+          "condition"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.erreur_sacs",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.valid_sac_mil",
+      "style_list": [
+        "color: red",
+        "font-size: 12px"
+      ],
+      "name": "text_20",
+      "_nested_name": "text_20",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.erreur_sacs",
+            "matchedExpression": "@global.erreur_sacs",
+            "type": "global",
+            "fieldName": "erreur_sacs"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.valid_sac_mil",
+            "matchedExpression": "!@local.valid_sac_mil",
+            "type": "local",
+            "fieldName": "valid_sac_mil"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.erreur_sacs": [
+          "value"
+        ],
+        "!@local.valid_sac_mil": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "html",
+          "value": "<span style=\"color: red;\">*</span>Donnez le nombre de sac de sorgho à prevoir.",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "display_group_21.html_1"
+        },
+        {
+          "type": "audio",
+          "name": "audio_5_3",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/alimentationHumaine/sac_sorgho_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_21.audio_5_3"
+        }
+      ],
+      "name": "display_group_21",
+      "_nested_name": "display_group_21"
+    },
+    {
+      "type": "image",
+      "value": "images/sac_sorgho.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:100px",
+        "height:100px"
+      ],
+      "name": "image_23",
+      "_nested_name": "image_23"
+    },
+    {
+      "type": "text_box",
+      "name": "sac_sorgho",
+      "value": "@field.sac_sorgho",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "sac_sorgho",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: sac_sorgho : this.value"
+        }
+      ],
+      "parameter_list": {
+        "input_type": "number",
+        "placeholder": "Nombre de sac de sorgho"
+      },
+      "style_list": [
+        "margin: 10px"
+      ],
+      "_nested_name": "sac_sorgho",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@field.sac_sorgho",
+            "matchedExpression": "@field.sac_sorgho",
+            "type": "field",
+            "fieldName": "sac_sorgho"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.sac_sorgho": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_sac_sorgho",
+      "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_sorgho) && Number(@local.sac_sorgho) < @fields.besoin_cereale_exploitation) || !@local.sac_sorgho)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_sac_sorgho",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_sorgho) && Number(@local.sac_sorgho) < @fields.besoin_cereale_exploitation) || !@local.sac_sorgho)",
+            "matchedExpression": "@local.sac_sorgho",
+            "type": "local",
+            "fieldName": "sac_sorgho"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_sorgho) && Number(@local.sac_sorgho) < @fields.besoin_cereale_exploitation) || !@local.sac_sorgho)",
+            "matchedExpression": "@local.sac_sorgho",
+            "type": "local",
+            "fieldName": "sac_sorgho"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_sorgho) && Number(@local.sac_sorgho) < @fields.besoin_cereale_exploitation) || !@local.sac_sorgho)",
+            "matchedExpression": "@fields.besoin_cereale_exploitation",
+            "type": "fields",
+            "fieldName": "besoin_cereale_exploitation"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_sorgho) && Number(@local.sac_sorgho) < @fields.besoin_cereale_exploitation) || !@local.sac_sorgho)",
+            "matchedExpression": "!@local.sac_sorgho",
+            "type": "local",
+            "fieldName": "sac_sorgho"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_sorgho) && Number(@local.sac_sorgho) < @fields.besoin_cereale_exploitation) || !@local.sac_sorgho)",
+            "matchedExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_sorgho) && Number(@local.sac_sorgho) < @fields.besoin_cereale_exploitation) || !@local.sac_sorgho)",
+            "type": "calc",
+            "fieldName": "(/^\\d+(\\.\\d+)?$/.test(@local.sac_sorgho) && Number(@local.sac_sorgho) < @fields.besoin_cereale_exploitation) || !@local.sac_sorgho"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.sac_sorgho": [
+          "value",
+          "value"
+        ],
+        "@fields.besoin_cereale_exploitation": [
+          "value"
+        ],
+        "!@local.sac_sorgho": [
+          "value"
+        ],
+        "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_sorgho) && Number(@local.sac_sorgho) < @fields.besoin_cereale_exploitation) || !@local.sac_sorgho)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@fields.sac_sorgho && @fields.attempt_submit",
+      "name": "html_26",
+      "_nested_name": "html_26",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@fields.sac_sorgho && @fields.attempt_submit",
+            "matchedExpression": "!@fields.sac_sorgho",
+            "type": "fields",
+            "fieldName": "sac_sorgho"
+          },
+          {
+            "fullExpression": "!@fields.sac_sorgho && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@fields.sac_sorgho": [
+          "condition"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.erreur_sacs",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.valid_sac_sorgho",
+      "style_list": [
+        "color: red",
+        "font-size: 12px"
+      ],
+      "name": "text_27",
+      "_nested_name": "text_27",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.erreur_sacs",
+            "matchedExpression": "@global.erreur_sacs",
+            "type": "global",
+            "fieldName": "erreur_sacs"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.valid_sac_sorgho",
+            "matchedExpression": "!@local.valid_sac_sorgho",
+            "type": "local",
+            "fieldName": "valid_sac_sorgho"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.erreur_sacs": [
+          "value"
+        ],
+        "!@local.valid_sac_sorgho": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "html",
+          "value": "<span style=\"color: red;\">*</span>Donnez le nombre de sac de riz à prevoir",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "display_group_28.html_1"
+        },
+        {
+          "type": "audio",
+          "name": "audio_5_4",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/alimentationHumaine/sac_riz_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_28.audio_5_4"
+        }
+      ],
+      "name": "display_group_28",
+      "_nested_name": "display_group_28"
+    },
+    {
+      "type": "image",
+      "value": "images/sac_riz.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:100px",
+        "height:100px"
+      ],
+      "name": "image_30",
+      "_nested_name": "image_30"
+    },
+    {
+      "type": "text_box",
+      "name": "sac_riz",
+      "value": "@fields.sac_riz",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "sac_riz",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: sac_riz : this.value"
+        }
+      ],
+      "parameter_list": {
+        "input_type": "number",
+        "placeholder": "Nombre de sac de riz"
+      },
+      "style_list": [
+        "margin: 10px"
+      ],
+      "_nested_name": "sac_riz",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.sac_riz",
+            "matchedExpression": "@fields.sac_riz",
+            "type": "fields",
+            "fieldName": "sac_riz"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.sac_riz": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_sac_riz",
+      "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_riz) && Number(@local.sac_riz) < @fields.besoin_cereale_exploitation) || !@local.sac_riz)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_sac_riz",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_riz) && Number(@local.sac_riz) < @fields.besoin_cereale_exploitation) || !@local.sac_riz)",
+            "matchedExpression": "@local.sac_riz",
+            "type": "local",
+            "fieldName": "sac_riz"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_riz) && Number(@local.sac_riz) < @fields.besoin_cereale_exploitation) || !@local.sac_riz)",
+            "matchedExpression": "@local.sac_riz",
+            "type": "local",
+            "fieldName": "sac_riz"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_riz) && Number(@local.sac_riz) < @fields.besoin_cereale_exploitation) || !@local.sac_riz)",
+            "matchedExpression": "@fields.besoin_cereale_exploitation",
+            "type": "fields",
+            "fieldName": "besoin_cereale_exploitation"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_riz) && Number(@local.sac_riz) < @fields.besoin_cereale_exploitation) || !@local.sac_riz)",
+            "matchedExpression": "!@local.sac_riz",
+            "type": "local",
+            "fieldName": "sac_riz"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_riz) && Number(@local.sac_riz) < @fields.besoin_cereale_exploitation) || !@local.sac_riz)",
+            "matchedExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_riz) && Number(@local.sac_riz) < @fields.besoin_cereale_exploitation) || !@local.sac_riz)",
+            "type": "calc",
+            "fieldName": "(/^\\d+(\\.\\d+)?$/.test(@local.sac_riz) && Number(@local.sac_riz) < @fields.besoin_cereale_exploitation) || !@local.sac_riz"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.sac_riz": [
+          "value",
+          "value"
+        ],
+        "@fields.besoin_cereale_exploitation": [
+          "value"
+        ],
+        "!@local.sac_riz": [
+          "value"
+        ],
+        "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_riz) && Number(@local.sac_riz) < @fields.besoin_cereale_exploitation) || !@local.sac_riz)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@fields.sac_riz && @fields.attempt_submit",
+      "name": "html_33",
+      "_nested_name": "html_33",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@fields.sac_riz && @fields.attempt_submit",
+            "matchedExpression": "!@fields.sac_riz",
+            "type": "fields",
+            "fieldName": "sac_riz"
+          },
+          {
+            "fullExpression": "!@fields.sac_riz && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@fields.sac_riz": [
+          "condition"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.erreur_sacs",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.valid_sac_riz",
+      "style_list": [
+        "color: red",
+        "font-size: 12px"
+      ],
+      "name": "text_34",
+      "_nested_name": "text_34",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.erreur_sacs",
+            "matchedExpression": "@global.erreur_sacs",
+            "type": "global",
+            "fieldName": "erreur_sacs"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.valid_sac_riz",
+            "matchedExpression": "!@local.valid_sac_riz",
+            "type": "local",
+            "fieldName": "valid_sac_riz"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.erreur_sacs": [
+          "value"
+        ],
+        "!@local.valid_sac_riz": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "v_cumul_sacs",
+      "value": "@calc(Number(@field.sac_mais || 0) + Number(@field.sac_mil || 0) + Number(@field.sac_sorgho || 0) + Number(@fields.sac_riz || 0))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_cumul_sacs",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@field.sac_mais || 0) + Number(@field.sac_mil || 0) + Number(@field.sac_sorgho || 0) + Number(@fields.sac_riz || 0))",
+            "matchedExpression": "@field.sac_mais",
+            "type": "field",
+            "fieldName": "sac_mais"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.sac_mais || 0) + Number(@field.sac_mil || 0) + Number(@field.sac_sorgho || 0) + Number(@fields.sac_riz || 0))",
+            "matchedExpression": "@field.sac_mil",
+            "type": "field",
+            "fieldName": "sac_mil"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.sac_mais || 0) + Number(@field.sac_mil || 0) + Number(@field.sac_sorgho || 0) + Number(@fields.sac_riz || 0))",
+            "matchedExpression": "@field.sac_sorgho",
+            "type": "field",
+            "fieldName": "sac_sorgho"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.sac_mais || 0) + Number(@field.sac_mil || 0) + Number(@field.sac_sorgho || 0) + Number(@fields.sac_riz || 0))",
+            "matchedExpression": "@fields.sac_riz",
+            "type": "fields",
+            "fieldName": "sac_riz"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.sac_mais || 0) + Number(@field.sac_mil || 0) + Number(@field.sac_sorgho || 0) + Number(@fields.sac_riz || 0))",
+            "matchedExpression": "@calc(Number(@field.sac_mais || 0) + Number(@field.sac_mil || 0) + Number(@field.sac_sorgho || 0) + Number(@fields.sac_riz || 0))",
+            "type": "calc",
+            "fieldName": "Number(@field.sac_mais || 0) + Number(@field.sac_mil || 0) + Number(@field.sac_sorgho || 0) + Number(@fields.sac_riz || 0)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.sac_mais": [
+          "value"
+        ],
+        "@field.sac_mil": [
+          "value"
+        ],
+        "@field.sac_sorgho": [
+          "value"
+        ],
+        "@fields.sac_riz": [
+          "value"
+        ],
+        "@calc(Number(@field.sac_mais || 0) + Number(@field.sac_mil || 0) + Number(@field.sac_sorgho || 0) + Number(@fields.sac_riz || 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_diff_sacs",
+      "value": "@calc(Math.abs(@local.v_cumul_sacs - @fields.besoin_cereale_exploitation))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_diff_sacs",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Math.abs(@local.v_cumul_sacs - @fields.besoin_cereale_exploitation))",
+            "matchedExpression": "@local.v_cumul_sacs",
+            "type": "local",
+            "fieldName": "v_cumul_sacs"
+          },
+          {
+            "fullExpression": "@calc(Math.abs(@local.v_cumul_sacs - @fields.besoin_cereale_exploitation))",
+            "matchedExpression": "@fields.besoin_cereale_exploitation",
+            "type": "fields",
+            "fieldName": "besoin_cereale_exploitation"
+          },
+          {
+            "fullExpression": "@calc(Math.abs(@local.v_cumul_sacs - @fields.besoin_cereale_exploitation))",
+            "matchedExpression": "@calc(Math.abs(@local.v_cumul_sacs - @fields.besoin_cereale_exploitation))",
+            "type": "calc",
+            "fieldName": "Math.abs(@local.v_cumul_sacs - @fields.besoin_cereale_exploitation)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_cumul_sacs": [
+          "value"
+        ],
+        "@fields.besoin_cereale_exploitation": [
+          "value"
+        ],
+        "@calc(Math.abs(@local.v_cumul_sacs - @fields.besoin_cereale_exploitation))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "msg_ok",
+      "condition": "@local.v_cumul_sacs == @fields.besoin_cereale_exploitation",
+      "style_list": [
+        "background: #e8f5e9",
+        "padding: 15px",
+        "margin: 15px",
+        "text-align: center"
+      ],
+      "rows": [
+        {
+          "type": "html",
+          "value": "<b style=\"color: #2e7d32;\"> COMPTE CORRECT</b><br><span style=\"color: #4caf50;\">Le total de @local.v_cumul_sacs sacs correspond exactement au besoin.</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "msg_ok.html_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<b style=\"color: #2e7d32;\"> COMPTE CORRECT</b><br><span style=\"color: #4caf50;\">Le total de @local.v_cumul_sacs sacs correspond exactement au besoin.</span>",
+                "matchedExpression": "@local.v_cumul_sacs",
+                "type": "local",
+                "fieldName": "v_cumul_sacs"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_cumul_sacs": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "msg_ok",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.v_cumul_sacs == @fields.besoin_cereale_exploitation",
+            "matchedExpression": "@local.v_cumul_sacs",
+            "type": "local",
+            "fieldName": "v_cumul_sacs"
+          },
+          {
+            "fullExpression": "@local.v_cumul_sacs == @fields.besoin_cereale_exploitation",
+            "matchedExpression": "@fields.besoin_cereale_exploitation",
+            "type": "fields",
+            "fieldName": "besoin_cereale_exploitation"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_cumul_sacs": [
+          "condition"
+        ],
+        "@fields.besoin_cereale_exploitation": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "msg_sup",
+      "condition": "@local.v_cumul_sacs > @field.besoin_cereale_exploitation",
+      "style_list": [
+        "background: #ffebee",
+        "padding: 15px",
+        "margin: 15px",
+        "text-align: center"
+      ],
+      "rows": [
+        {
+          "type": "html",
+          "value": "<b style=\"color: #c62828;\"> TOTAL TROP ÉLEVÉ</b><br><span style=\"color: #d32f2f;\">Diminuez le nombre de <b>@local.v_diff_sacs sac(s)</b> </span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "msg_sup.html_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<b style=\"color: #c62828;\"> TOTAL TROP ÉLEVÉ</b><br><span style=\"color: #d32f2f;\">Diminuez le nombre de <b>@local.v_diff_sacs sac(s)</b> </span>",
+                "matchedExpression": "@local.v_diff_sacs",
+                "type": "local",
+                "fieldName": "v_diff_sacs"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_diff_sacs": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "msg_sup",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.v_cumul_sacs > @field.besoin_cereale_exploitation",
+            "matchedExpression": "@local.v_cumul_sacs",
+            "type": "local",
+            "fieldName": "v_cumul_sacs"
+          },
+          {
+            "fullExpression": "@local.v_cumul_sacs > @field.besoin_cereale_exploitation",
+            "matchedExpression": "@field.besoin_cereale_exploitation",
+            "type": "field",
+            "fieldName": "besoin_cereale_exploitation"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_cumul_sacs": [
+          "condition"
+        ],
+        "@field.besoin_cereale_exploitation": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "msg_inf",
+      "condition": "@local.v_cumul_sacs < @field.besoin_cereale_exploitation && @local.v_cumul_sacs > 0",
+      "style_list": [
+        "background: #fff3e0",
+        "padding: 15px",
+        "margin: 15px",
+        "text-align: center"
+      ],
+      "rows": [
+        {
+          "type": "html",
+          "value": "<b style=\"color: #ef6c00;\"> TOTAL INSUFFISANT</b><br><span style=\"color: #f57c00;\">Augmentez le nombre de <b>@local.v_diff_sacs sac(s)</b></span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "msg_inf.html_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<b style=\"color: #ef6c00;\"> TOTAL INSUFFISANT</b><br><span style=\"color: #f57c00;\">Augmentez le nombre de <b>@local.v_diff_sacs sac(s)</b></span>",
+                "matchedExpression": "@local.v_diff_sacs",
+                "type": "local",
+                "fieldName": "v_diff_sacs"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_diff_sacs": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "msg_inf",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.v_cumul_sacs < @field.besoin_cereale_exploitation && @local.v_cumul_sacs > 0",
+            "matchedExpression": "@local.v_cumul_sacs",
+            "type": "local",
+            "fieldName": "v_cumul_sacs"
+          },
+          {
+            "fullExpression": "@local.v_cumul_sacs < @field.besoin_cereale_exploitation && @local.v_cumul_sacs > 0",
+            "matchedExpression": "@field.besoin_cereale_exploitation",
+            "type": "field",
+            "fieldName": "besoin_cereale_exploitation"
+          },
+          {
+            "fullExpression": "@local.v_cumul_sacs < @field.besoin_cereale_exploitation && @local.v_cumul_sacs > 0",
+            "matchedExpression": "@local.v_cumul_sacs",
+            "type": "local",
+            "fieldName": "v_cumul_sacs"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_cumul_sacs": [
+          "condition",
+          "condition"
+        ],
+        "@field.besoin_cereale_exploitation": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.v_cumul_sacs == @field.besoin_cereale_exploitation",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@local.v_cumul_sacs == @field.besoin_cereale_exploitation",
+            "matchedExpression": "@local.v_cumul_sacs",
+            "type": "local",
+            "fieldName": "v_cumul_sacs"
+          },
+          {
+            "fullExpression": "@local.v_cumul_sacs == @field.besoin_cereale_exploitation",
+            "matchedExpression": "@field.besoin_cereale_exploitation",
+            "type": "field",
+            "fieldName": "besoin_cereale_exploitation"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_cumul_sacs": [
+          "value"
+        ],
+        "@field.besoin_cereale_exploitation": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -47,8 +1353,17 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "button_back",
+          "name": "page5_button_back",
           "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                false
+              ],
+              "_raw": "click | set_field: attempt_submit: false"
+            },
             {
               "trigger": "click",
               "action_id": "emit",
@@ -62,16 +1377,64 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.button_back"
+          "_nested_name": "dg_footer.page5_button_back"
         },
         {
           "type": "button",
-          "name": "button_completed",
+          "name": "button_continue_attempt_submit",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                true
+              ],
+              "_raw": "click | set_field: attempt_submit: true"
+            }
+          ],
+          "condition": "!@local.completed_enabled",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_continue_attempt_submit",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "!@local.completed_enabled",
+                "matchedExpression": "!@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "!@local.completed_enabled": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "name": "page5_button_completed",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
           "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                false
+              ],
+              "_raw": "click | set_field: attempt_submit: false"
+            },
             {
               "trigger": "click",
               "action_id": "emit",
@@ -82,12 +1445,13 @@
             }
           ],
           "parameter_list": {
-            "style": "navigation"
+            "disabled": "!@local.completed_enabled"
           },
+          "condition": "@local.completed_enabled",
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.button_completed",
+          "_nested_name": "dg_footer.page5_button_completed",
           "_dynamicFields": {
             "value": [
               {
@@ -96,11 +1460,35 @@
                 "type": "global",
                 "fieldName": "btn_continue"
               }
+            ],
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.completed_enabled",
+                "matchedExpression": "@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
             ]
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ],
+            "@local.completed_enabled": [
+              "condition"
             ]
           }
         }

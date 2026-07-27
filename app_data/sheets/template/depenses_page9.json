@@ -6,7 +6,7 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "@global.autre_investissement",
+      "value": "@global.petite_depenses",
       "_translations": {
         "value": {}
       },
@@ -14,15 +14,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.autre_investissement",
-            "matchedExpression": "@global.autre_investissement",
+            "fullExpression": "@global.petite_depenses",
+            "matchedExpression": "@global.petite_depenses",
             "type": "global",
-            "fieldName": "autre_investissement"
+            "fieldName": "petite_depenses"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.autre_investissement": [
+        "@global.petite_depenses": [
           "value"
         ]
       }
@@ -53,32 +53,55 @@
     },
     {
       "type": "text",
-      "name": "autre_invest_yesno",
-      "value": "@global.autre_invest_yesno",
+      "value": "@global.autre_petit_depense",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "autre_invest_yesno",
+      "name": "text_4",
+      "_nested_name": "text_4",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.autre_invest_yesno",
-            "matchedExpression": "@global.autre_invest_yesno",
+            "fullExpression": "@global.autre_petit_depense",
+            "matchedExpression": "@global.autre_petit_depense",
             "type": "global",
-            "fieldName": "autre_invest_yesno"
+            "fieldName": "autre_petit_depense"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.autre_invest_yesno": [
+        "@global.autre_petit_depense": [
           "value"
         ]
       }
     },
     {
       "type": "text",
-      "name": "autre_invest_yesno_hint",
-      "value": "@global.autre_invest_yesno_hint",
+      "value": "@global.autre_depense_yesno_note",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_5",
+      "_nested_name": "text_5",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.autre_depense_yesno_note",
+            "matchedExpression": "@global.autre_depense_yesno_note",
+            "type": "global",
+            "fieldName": "autre_depense_yesno_note"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.autre_depense_yesno_note": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.autre_depense_yesno_hint",
       "_translations": {
         "value": {}
       },
@@ -86,33 +109,46 @@
         "color: gray",
         "font-size: 16px"
       ],
-      "_nested_name": "autre_invest_yesno_hint",
+      "name": "text_6",
+      "_nested_name": "text_6",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.autre_invest_yesno_hint",
-            "matchedExpression": "@global.autre_invest_yesno_hint",
+            "fullExpression": "@global.autre_depense_yesno_hint",
+            "matchedExpression": "@global.autre_depense_yesno_hint",
             "type": "global",
-            "fieldName": "autre_invest_yesno_hint"
+            "fieldName": "autre_depense_yesno_hint"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.autre_invest_yesno_hint": [
+        "@global.autre_depense_yesno_hint": [
           "value"
         ]
       }
     },
     {
       "type": "radio_list",
-      "name": "autre_invest",
+      "name": "autre_depense_yesno",
+      "value": "@fields.autre_depense_yesno",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "autre_depense_yesno",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : autre_depense_yesno: this.value"
+        }
+      ],
       "rows": [
         {
           "type": "data_items",
           "value": "@data.yes_no",
           "rows": [],
           "name": "data_items_1",
-          "_nested_name": "autre_invest.data_items_1",
+          "_nested_name": "autre_depense_yesno.data_items_1",
           "_dynamicFields": {
             "value": [
               {
@@ -130,40 +166,55 @@
           }
         }
       ],
-      "_nested_name": "autre_invest"
-    },
-    {
-      "name": "valid_autre_invest",
-      "value": "@local.autre_invest != null && @local.autre_invest != undefined && @local.autre_invest != \"\"",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "valid_autre_invest",
+      "_nested_name": "autre_depense_yesno",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@local.autre_invest != null && @local.autre_invest != undefined && @local.autre_invest != \"\"",
-            "matchedExpression": "@local.autre_invest",
-            "type": "local",
-            "fieldName": "autre_invest"
-          },
-          {
-            "fullExpression": "@local.autre_invest != null && @local.autre_invest != undefined && @local.autre_invest != \"\"",
-            "matchedExpression": "@local.autre_invest",
-            "type": "local",
-            "fieldName": "autre_invest"
-          },
-          {
-            "fullExpression": "@local.autre_invest != null && @local.autre_invest != undefined && @local.autre_invest != \"\"",
-            "matchedExpression": "@local.autre_invest",
-            "type": "local",
-            "fieldName": "autre_invest"
+            "fullExpression": "@fields.autre_depense_yesno",
+            "matchedExpression": "@fields.autre_depense_yesno",
+            "type": "fields",
+            "fieldName": "autre_depense_yesno"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.autre_invest": [
+        "@fields.autre_depense_yesno": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_autre_depense",
+      "value": "@local.autre_depense_yesno != null && @local.autre_depense_yesno != undefined && @local.autre_depense_yesno != \"\"",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_autre_depense",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@local.autre_depense_yesno != null && @local.autre_depense_yesno != undefined && @local.autre_depense_yesno != \"\"",
+            "matchedExpression": "@local.autre_depense_yesno",
+            "type": "local",
+            "fieldName": "autre_depense_yesno"
+          },
+          {
+            "fullExpression": "@local.autre_depense_yesno != null && @local.autre_depense_yesno != undefined && @local.autre_depense_yesno != \"\"",
+            "matchedExpression": "@local.autre_depense_yesno",
+            "type": "local",
+            "fieldName": "autre_depense_yesno"
+          },
+          {
+            "fullExpression": "@local.autre_depense_yesno != null && @local.autre_depense_yesno != undefined && @local.autre_depense_yesno != \"\"",
+            "matchedExpression": "@local.autre_depense_yesno",
+            "type": "local",
+            "fieldName": "autre_depense_yesno"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.autre_depense_yesno": [
           "value",
           "value",
           "value"
@@ -172,19 +223,19 @@
     },
     {
       "type": "text",
-      "name": "error_autre_invest",
       "value": "@global.error_required_answer",
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.attempt_submit && !@local.valid_autre_invest",
+      "condition": "@fields.attempt_submit && !@local.valid_autre_depense",
       "style_list": [
         "color: red",
         "font-size: 16px",
         "background: #fff5f5",
         "padding: 5px"
       ],
-      "_nested_name": "error_autre_invest",
+      "name": "text_10",
+      "_nested_name": "text_10",
       "_dynamicFields": {
         "value": [
           {
@@ -196,16 +247,16 @@
         ],
         "condition": [
           {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_autre_invest",
+            "fullExpression": "@fields.attempt_submit && !@local.valid_autre_depense",
             "matchedExpression": "@fields.attempt_submit",
             "type": "fields",
             "fieldName": "attempt_submit"
           },
           {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_autre_invest",
-            "matchedExpression": "!@local.valid_autre_invest",
+            "fullExpression": "@fields.attempt_submit && !@local.valid_autre_depense",
+            "matchedExpression": "!@local.valid_autre_depense",
             "type": "local",
-            "fieldName": "valid_autre_invest"
+            "fieldName": "valid_autre_depense"
           }
         ]
       },
@@ -216,105 +267,105 @@
         "@fields.attempt_submit": [
           "condition"
         ],
-        "!@local.valid_autre_invest": [
+        "!@local.valid_autre_depense": [
           "condition"
         ]
       }
     },
     {
-      "name": "valid_nom_autre_invest",
-      "value": "@calc(!!@fields.nom_autre_invest && @fields.nom_autre_invest != \"\")",
+      "name": "valid_nom_autre_frais",
+      "value": "@calc(!!@fields.nom_autre_frais && @fields.nom_autre_frais != \"\")",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "valid_nom_autre_invest",
+      "_nested_name": "valid_nom_autre_frais",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(!!@fields.nom_autre_invest && @fields.nom_autre_invest != \"\")",
-            "matchedExpression": "!@fields.nom_autre_invest",
+            "fullExpression": "@calc(!!@fields.nom_autre_frais && @fields.nom_autre_frais != \"\")",
+            "matchedExpression": "!@fields.nom_autre_frais",
             "type": "fields",
-            "fieldName": "nom_autre_invest"
+            "fieldName": "nom_autre_frais"
           },
           {
-            "fullExpression": "@calc(!!@fields.nom_autre_invest && @fields.nom_autre_invest != \"\")",
-            "matchedExpression": "@fields.nom_autre_invest",
+            "fullExpression": "@calc(!!@fields.nom_autre_frais && @fields.nom_autre_frais != \"\")",
+            "matchedExpression": "@fields.nom_autre_frais",
             "type": "fields",
-            "fieldName": "nom_autre_invest"
+            "fieldName": "nom_autre_frais"
           },
           {
-            "fullExpression": "@calc(!!@fields.nom_autre_invest && @fields.nom_autre_invest != \"\")",
-            "matchedExpression": "@calc(!!@fields.nom_autre_invest && @fields.nom_autre_invest != \"\")",
+            "fullExpression": "@calc(!!@fields.nom_autre_frais && @fields.nom_autre_frais != \"\")",
+            "matchedExpression": "@calc(!!@fields.nom_autre_frais && @fields.nom_autre_frais != \"\")",
             "type": "calc",
-            "fieldName": "!!@fields.nom_autre_invest && @fields.nom_autre_invest != \"\""
+            "fieldName": "!!@fields.nom_autre_frais && @fields.nom_autre_frais != \"\""
           }
         ]
       },
       "_dynamicDependencies": {
-        "!@fields.nom_autre_invest": [
+        "!@fields.nom_autre_frais": [
           "value"
         ],
-        "@fields.nom_autre_invest": [
+        "@fields.nom_autre_frais": [
           "value"
         ],
-        "@calc(!!@fields.nom_autre_invest && @fields.nom_autre_invest != \"\")": [
+        "@calc(!!@fields.nom_autre_frais && @fields.nom_autre_frais != \"\")": [
           "value"
         ]
       }
     },
     {
-      "name": "valid_montant_autre_invest",
-      "value": "@calc(!!@fields.montant_autre_invest && @fields.montant_autre_invest != \"\" && @fields.montant_autre_invest >= 0)",
+      "name": "valid_montant_autre_frais",
+      "value": "@calc(!!@fields.montant_autre_frais && @fields.montant_autre_frais != \"\" && @fields.montant_autre_frais >= 0)",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "valid_montant_autre_invest",
+      "_nested_name": "valid_montant_autre_frais",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(!!@fields.montant_autre_invest && @fields.montant_autre_invest != \"\" && @fields.montant_autre_invest >= 0)",
-            "matchedExpression": "!@fields.montant_autre_invest",
+            "fullExpression": "@calc(!!@fields.montant_autre_frais && @fields.montant_autre_frais != \"\" && @fields.montant_autre_frais >= 0)",
+            "matchedExpression": "!@fields.montant_autre_frais",
             "type": "fields",
-            "fieldName": "montant_autre_invest"
+            "fieldName": "montant_autre_frais"
           },
           {
-            "fullExpression": "@calc(!!@fields.montant_autre_invest && @fields.montant_autre_invest != \"\" && @fields.montant_autre_invest >= 0)",
-            "matchedExpression": "@fields.montant_autre_invest",
+            "fullExpression": "@calc(!!@fields.montant_autre_frais && @fields.montant_autre_frais != \"\" && @fields.montant_autre_frais >= 0)",
+            "matchedExpression": "@fields.montant_autre_frais",
             "type": "fields",
-            "fieldName": "montant_autre_invest"
+            "fieldName": "montant_autre_frais"
           },
           {
-            "fullExpression": "@calc(!!@fields.montant_autre_invest && @fields.montant_autre_invest != \"\" && @fields.montant_autre_invest >= 0)",
-            "matchedExpression": "@fields.montant_autre_invest",
+            "fullExpression": "@calc(!!@fields.montant_autre_frais && @fields.montant_autre_frais != \"\" && @fields.montant_autre_frais >= 0)",
+            "matchedExpression": "@fields.montant_autre_frais",
             "type": "fields",
-            "fieldName": "montant_autre_invest"
+            "fieldName": "montant_autre_frais"
           },
           {
-            "fullExpression": "@calc(!!@fields.montant_autre_invest && @fields.montant_autre_invest != \"\" && @fields.montant_autre_invest >= 0)",
-            "matchedExpression": "@calc(!!@fields.montant_autre_invest && @fields.montant_autre_invest != \"\" && @fields.montant_autre_invest >= 0)",
+            "fullExpression": "@calc(!!@fields.montant_autre_frais && @fields.montant_autre_frais != \"\" && @fields.montant_autre_frais >= 0)",
+            "matchedExpression": "@calc(!!@fields.montant_autre_frais && @fields.montant_autre_frais != \"\" && @fields.montant_autre_frais >= 0)",
             "type": "calc",
-            "fieldName": "!!@fields.montant_autre_invest && @fields.montant_autre_invest != \"\" && @fields.montant_autre_invest >= 0"
+            "fieldName": "!!@fields.montant_autre_frais && @fields.montant_autre_frais != \"\" && @fields.montant_autre_frais >= 0"
           }
         ]
       },
       "_dynamicDependencies": {
-        "!@fields.montant_autre_invest": [
+        "!@fields.montant_autre_frais": [
           "value"
         ],
-        "@fields.montant_autre_invest": [
+        "@fields.montant_autre_frais": [
           "value",
           "value"
         ],
-        "@calc(!!@fields.montant_autre_invest && @fields.montant_autre_invest != \"\" && @fields.montant_autre_invest >= 0)": [
+        "@calc(!!@fields.montant_autre_frais && @fields.montant_autre_frais != \"\" && @fields.montant_autre_frais >= 0)": [
           "value"
         ]
       }
     },
     {
       "type": "display_group",
-      "condition": "@local.autre_invest == \"yes\"",
+      "condition": "@local.autre_depense_yesno == \"yes\"",
       "style_list": [
         "width: 100%",
         "display: block"
@@ -322,27 +373,27 @@
       "rows": [
         {
           "type": "html",
-          "name": "nom_autre_invest_label",
-          "value": "<span style=\"color: red;\">*</span> @global.nom_autre_invest_label",
+          "name": "nom_autre_frais_label",
+          "value": "<span style=\"color: red;\">*</span> @global.nom_autre_frais_label",
           "_translations": {
             "value": {}
           },
           "style_list": [
             "font-size:20px"
           ],
-          "_nested_name": "display_group_10.nom_autre_invest_label",
+          "_nested_name": "display_group_11.nom_autre_frais_label",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<span style=\"color: red;\">*</span> @global.nom_autre_invest_label",
-                "matchedExpression": "@global.nom_autre_invest_label",
+                "fullExpression": "<span style=\"color: red;\">*</span> @global.nom_autre_frais_label",
+                "matchedExpression": "@global.nom_autre_frais_label",
                 "type": "global",
-                "fieldName": "nom_autre_invest_label"
+                "fieldName": "nom_autre_frais_label"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@global.nom_autre_invest_label": [
+            "@global.nom_autre_frais_label": [
               "value"
             ]
           }
@@ -360,12 +411,12 @@
             "flex-shrink:0"
           ],
           "name": "image_2",
-          "_nested_name": "display_group_10.image_2"
+          "_nested_name": "display_group_11.image_2"
         },
         {
           "type": "text_box",
-          "name": "nom_autre_invest",
-          "value": "@fields.nom_autre_invest",
+          "name": "nom_autre_frais",
+          "value": "@fields.nom_autre_frais",
           "_translations": {
             "value": {}
           },
@@ -374,37 +425,39 @@
               "trigger": "changed",
               "action_id": "set_field",
               "args": [
-                "nom_autre_invest",
+                "nom_autre_frais",
                 "this.value"
               ],
-              "_raw": "changed | set_field : nom_autre_invest: this.value"
+              "_raw": "changed | set_field : nom_autre_frais: this.value"
             }
           ],
-          "_nested_name": "display_group_10.nom_autre_invest",
+          "parameter_list": {
+            "placeholder": "Ecrivez le nom"
+          },
+          "_nested_name": "display_group_11.nom_autre_frais",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@fields.nom_autre_invest",
-                "matchedExpression": "@fields.nom_autre_invest",
+                "fullExpression": "@fields.nom_autre_frais",
+                "matchedExpression": "@fields.nom_autre_frais",
                 "type": "fields",
-                "fieldName": "nom_autre_invest"
+                "fieldName": "nom_autre_frais"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.nom_autre_invest": [
+            "@fields.nom_autre_frais": [
               "value"
             ]
           }
         },
         {
           "type": "text",
-          "name": "error_nom_autre_invest",
           "value": "@global.error_required_answer",
           "_translations": {
             "value": {}
           },
-          "condition": "@local.autre_invest == \"yes\" && @fields.attempt_submit && !@local.valid_nom_autre_invest",
+          "condition": "@local.autre_depense_yesno == \"yes\" && @fields.attempt_submit && !@local.valid_nom_autre_frais",
           "style_list": [
             "color: red",
             "font-size: 16px",
@@ -412,7 +465,8 @@
             "padding: 5px",
             "margin-top:10px"
           ],
-          "_nested_name": "display_group_10.error_nom_autre_invest",
+          "name": "text_5",
+          "_nested_name": "display_group_11.text_5",
           "_dynamicFields": {
             "value": [
               {
@@ -424,22 +478,22 @@
             ],
             "condition": [
               {
-                "fullExpression": "@local.autre_invest == \"yes\" && @fields.attempt_submit && !@local.valid_nom_autre_invest",
-                "matchedExpression": "@local.autre_invest",
+                "fullExpression": "@local.autre_depense_yesno == \"yes\" && @fields.attempt_submit && !@local.valid_nom_autre_frais",
+                "matchedExpression": "@local.autre_depense_yesno",
                 "type": "local",
-                "fieldName": "autre_invest"
+                "fieldName": "autre_depense_yesno"
               },
               {
-                "fullExpression": "@local.autre_invest == \"yes\" && @fields.attempt_submit && !@local.valid_nom_autre_invest",
+                "fullExpression": "@local.autre_depense_yesno == \"yes\" && @fields.attempt_submit && !@local.valid_nom_autre_frais",
                 "matchedExpression": "@fields.attempt_submit",
                 "type": "fields",
                 "fieldName": "attempt_submit"
               },
               {
-                "fullExpression": "@local.autre_invest == \"yes\" && @fields.attempt_submit && !@local.valid_nom_autre_invest",
-                "matchedExpression": "!@local.valid_nom_autre_invest",
+                "fullExpression": "@local.autre_depense_yesno == \"yes\" && @fields.attempt_submit && !@local.valid_nom_autre_frais",
+                "matchedExpression": "!@local.valid_nom_autre_frais",
                 "type": "local",
-                "fieldName": "valid_nom_autre_invest"
+                "fieldName": "valid_nom_autre_frais"
               }
             ]
           },
@@ -447,21 +501,21 @@
             "@global.error_required_answer": [
               "value"
             ],
-            "@local.autre_invest": [
+            "@local.autre_depense_yesno": [
               "condition"
             ],
             "@fields.attempt_submit": [
               "condition"
             ],
-            "!@local.valid_nom_autre_invest": [
+            "!@local.valid_nom_autre_frais": [
               "condition"
             ]
           }
         },
         {
           "type": "html",
-          "name": "montant_autre_invest_label",
-          "value": "<span style=\"color: red;\">*</span> @global.montant_autre_invest_label",
+          "name": "montant_autre_frais_label",
+          "value": "<span style=\"color: red;\">*</span> @global.montant_autre_frais_label",
           "_translations": {
             "value": {}
           },
@@ -469,19 +523,19 @@
             "font-size:20px",
             "margin-top:20px"
           ],
-          "_nested_name": "display_group_10.montant_autre_invest_label",
+          "_nested_name": "display_group_11.montant_autre_frais_label",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<span style=\"color: red;\">*</span> @global.montant_autre_invest_label",
-                "matchedExpression": "@global.montant_autre_invest_label",
+                "fullExpression": "<span style=\"color: red;\">*</span> @global.montant_autre_frais_label",
+                "matchedExpression": "@global.montant_autre_frais_label",
                 "type": "global",
-                "fieldName": "montant_autre_invest_label"
+                "fieldName": "montant_autre_frais_label"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@global.montant_autre_invest_label": [
+            "@global.montant_autre_frais_label": [
               "value"
             ]
           }
@@ -499,11 +553,10 @@
             "flex-shrink:0"
           ],
           "name": "image_7",
-          "_nested_name": "display_group_10.image_7"
+          "_nested_name": "display_group_11.image_7"
         },
         {
           "type": "text",
-          "name": "hint_price",
           "value": "@global.hint_price",
           "_translations": {
             "value": {}
@@ -512,7 +565,8 @@
             "color: gray",
             "font-size: 16px"
           ],
-          "_nested_name": "display_group_10.hint_price",
+          "name": "text_8",
+          "_nested_name": "display_group_11.text_8",
           "_dynamicFields": {
             "value": [
               {
@@ -531,8 +585,8 @@
         },
         {
           "type": "text_box",
-          "name": "montant_autre_invest",
-          "value": "@fields.montant_autre_invest",
+          "name": "montant_autre_frais",
+          "value": "@fields.montant_autre_frais",
           "_translations": {
             "value": {}
           },
@@ -541,40 +595,40 @@
               "trigger": "changed",
               "action_id": "set_field",
               "args": [
-                "montant_autre_invest",
+                "montant_autre_frais",
                 "this.value"
               ],
-              "_raw": "changed | set_field : montant_autre_invest: this.value"
+              "_raw": "changed | set_field : montant_autre_frais: this.value"
             }
           ],
           "parameter_list": {
-            "number_input": "true"
+            "number_input": "true",
+            "placeholder": "Ecrivez le montant"
           },
-          "_nested_name": "display_group_10.montant_autre_invest",
+          "_nested_name": "display_group_11.montant_autre_frais",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@fields.montant_autre_invest",
-                "matchedExpression": "@fields.montant_autre_invest",
+                "fullExpression": "@fields.montant_autre_frais",
+                "matchedExpression": "@fields.montant_autre_frais",
                 "type": "fields",
-                "fieldName": "montant_autre_invest"
+                "fieldName": "montant_autre_frais"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.montant_autre_invest": [
+            "@fields.montant_autre_frais": [
               "value"
             ]
           }
         },
         {
           "type": "text",
-          "name": "error_nom_autre_invest",
           "value": "@global.error_required_answer",
           "_translations": {
             "value": {}
           },
-          "condition": "@local.autre_invest == \"yes\" && @fields.attempt_submit && !@local.valid_montant_autre_invest",
+          "condition": "@local.autre_depense_yesno == \"yes\" && @fields.attempt_submit && !@local.valid_montant_autre_frais",
           "style_list": [
             "color: red",
             "font-size: 16px",
@@ -582,7 +636,8 @@
             "padding: 5px",
             "margin-top:10px"
           ],
-          "_nested_name": "display_group_10.error_nom_autre_invest",
+          "name": "text_11",
+          "_nested_name": "display_group_11.text_11",
           "_dynamicFields": {
             "value": [
               {
@@ -594,22 +649,22 @@
             ],
             "condition": [
               {
-                "fullExpression": "@local.autre_invest == \"yes\" && @fields.attempt_submit && !@local.valid_montant_autre_invest",
-                "matchedExpression": "@local.autre_invest",
+                "fullExpression": "@local.autre_depense_yesno == \"yes\" && @fields.attempt_submit && !@local.valid_montant_autre_frais",
+                "matchedExpression": "@local.autre_depense_yesno",
                 "type": "local",
-                "fieldName": "autre_invest"
+                "fieldName": "autre_depense_yesno"
               },
               {
-                "fullExpression": "@local.autre_invest == \"yes\" && @fields.attempt_submit && !@local.valid_montant_autre_invest",
+                "fullExpression": "@local.autre_depense_yesno == \"yes\" && @fields.attempt_submit && !@local.valid_montant_autre_frais",
                 "matchedExpression": "@fields.attempt_submit",
                 "type": "fields",
                 "fieldName": "attempt_submit"
               },
               {
-                "fullExpression": "@local.autre_invest == \"yes\" && @fields.attempt_submit && !@local.valid_montant_autre_invest",
-                "matchedExpression": "!@local.valid_montant_autre_invest",
+                "fullExpression": "@local.autre_depense_yesno == \"yes\" && @fields.attempt_submit && !@local.valid_montant_autre_frais",
+                "matchedExpression": "!@local.valid_montant_autre_frais",
                 "type": "local",
-                "fieldName": "valid_montant_autre_invest"
+                "fieldName": "valid_montant_autre_frais"
               }
             ]
           },
@@ -617,39 +672,39 @@
             "@global.error_required_answer": [
               "value"
             ],
-            "@local.autre_invest": [
+            "@local.autre_depense_yesno": [
               "condition"
             ],
             "@fields.attempt_submit": [
               "condition"
             ],
-            "!@local.valid_montant_autre_invest": [
+            "!@local.valid_montant_autre_frais": [
               "condition"
             ]
           }
         }
       ],
-      "name": "display_group_10",
-      "_nested_name": "display_group_10",
+      "name": "display_group_11",
+      "_nested_name": "display_group_11",
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@local.autre_invest == \"yes\"",
-            "matchedExpression": "@local.autre_invest",
+            "fullExpression": "@local.autre_depense_yesno == \"yes\"",
+            "matchedExpression": "@local.autre_depense_yesno",
             "type": "local",
-            "fieldName": "autre_invest"
+            "fieldName": "autre_depense_yesno"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.autre_invest": [
+        "@local.autre_depense_yesno": [
           "condition"
         ]
       }
     },
     {
       "name": "completed_enabled",
-      "value": "@calc(@local.autre_invest == \"no\" || (@local.autre_invest == \"yes\" && @local.valid_nom_autre_invest && @local.valid_montant_autre_invest))",
+      "value": "@calc(@local.autre_depense_yesno == \"no\" || (@local.autre_depense_yesno == \"yes\" && @local.valid_nom_autre_frais && @local.valid_montant_autre_frais))",
       "_translations": {
         "value": {}
       },
@@ -658,49 +713,49 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(@local.autre_invest == \"no\" || (@local.autre_invest == \"yes\" && @local.valid_nom_autre_invest && @local.valid_montant_autre_invest))",
-            "matchedExpression": "@local.autre_invest",
+            "fullExpression": "@calc(@local.autre_depense_yesno == \"no\" || (@local.autre_depense_yesno == \"yes\" && @local.valid_nom_autre_frais && @local.valid_montant_autre_frais))",
+            "matchedExpression": "@local.autre_depense_yesno",
             "type": "local",
-            "fieldName": "autre_invest"
+            "fieldName": "autre_depense_yesno"
           },
           {
-            "fullExpression": "@calc(@local.autre_invest == \"no\" || (@local.autre_invest == \"yes\" && @local.valid_nom_autre_invest && @local.valid_montant_autre_invest))",
-            "matchedExpression": "@local.autre_invest",
+            "fullExpression": "@calc(@local.autre_depense_yesno == \"no\" || (@local.autre_depense_yesno == \"yes\" && @local.valid_nom_autre_frais && @local.valid_montant_autre_frais))",
+            "matchedExpression": "@local.autre_depense_yesno",
             "type": "local",
-            "fieldName": "autre_invest"
+            "fieldName": "autre_depense_yesno"
           },
           {
-            "fullExpression": "@calc(@local.autre_invest == \"no\" || (@local.autre_invest == \"yes\" && @local.valid_nom_autre_invest && @local.valid_montant_autre_invest))",
-            "matchedExpression": "@local.valid_nom_autre_invest",
+            "fullExpression": "@calc(@local.autre_depense_yesno == \"no\" || (@local.autre_depense_yesno == \"yes\" && @local.valid_nom_autre_frais && @local.valid_montant_autre_frais))",
+            "matchedExpression": "@local.valid_nom_autre_frais",
             "type": "local",
-            "fieldName": "valid_nom_autre_invest"
+            "fieldName": "valid_nom_autre_frais"
           },
           {
-            "fullExpression": "@calc(@local.autre_invest == \"no\" || (@local.autre_invest == \"yes\" && @local.valid_nom_autre_invest && @local.valid_montant_autre_invest))",
-            "matchedExpression": "@local.valid_montant_autre_invest",
+            "fullExpression": "@calc(@local.autre_depense_yesno == \"no\" || (@local.autre_depense_yesno == \"yes\" && @local.valid_nom_autre_frais && @local.valid_montant_autre_frais))",
+            "matchedExpression": "@local.valid_montant_autre_frais",
             "type": "local",
-            "fieldName": "valid_montant_autre_invest"
+            "fieldName": "valid_montant_autre_frais"
           },
           {
-            "fullExpression": "@calc(@local.autre_invest == \"no\" || (@local.autre_invest == \"yes\" && @local.valid_nom_autre_invest && @local.valid_montant_autre_invest))",
-            "matchedExpression": "@calc(@local.autre_invest == \"no\" || (@local.autre_invest == \"yes\" && @local.valid_nom_autre_invest && @local.valid_montant_autre_invest))",
+            "fullExpression": "@calc(@local.autre_depense_yesno == \"no\" || (@local.autre_depense_yesno == \"yes\" && @local.valid_nom_autre_frais && @local.valid_montant_autre_frais))",
+            "matchedExpression": "@calc(@local.autre_depense_yesno == \"no\" || (@local.autre_depense_yesno == \"yes\" && @local.valid_nom_autre_frais && @local.valid_montant_autre_frais))",
             "type": "calc",
-            "fieldName": "@local.autre_invest == \"no\" || (@local.autre_invest == \"yes\" && @local.valid_nom_autre_invest && @local.valid_montant_autre_invest)"
+            "fieldName": "@local.autre_depense_yesno == \"no\" || (@local.autre_depense_yesno == \"yes\" && @local.valid_nom_autre_frais && @local.valid_montant_autre_frais)"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.autre_invest": [
+        "@local.autre_depense_yesno": [
           "value",
           "value"
         ],
-        "@local.valid_nom_autre_invest": [
+        "@local.valid_nom_autre_frais": [
           "value"
         ],
-        "@local.valid_montant_autre_invest": [
+        "@local.valid_montant_autre_frais": [
           "value"
         ],
-        "@calc(@local.autre_invest == \"no\" || (@local.autre_invest == \"yes\" && @local.valid_nom_autre_invest && @local.valid_montant_autre_invest))": [
+        "@calc(@local.autre_depense_yesno == \"no\" || (@local.autre_depense_yesno == \"yes\" && @local.valid_nom_autre_frais && @local.valid_montant_autre_frais))": [
           "value"
         ]
       }

@@ -4,23 +4,23 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
-      "value": "**Niveau de fertilité de la parcelle N⁰ @fields.num_parcelle de @fields.nom_champ**",
+      "type": "title",
+      "value": "**Culture précédente dans la parcelle N⁰@fields.num_parcelle lors de la saison passée du champ @fields.nom_champ**",
       "_translations": {
         "value": {}
       },
-      "name": "subtitle_2",
-      "_nested_name": "subtitle_2",
+      "name": "title_2",
+      "_nested_name": "title_2",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "**Niveau de fertilité de la parcelle N⁰ @fields.num_parcelle de @fields.nom_champ**",
+            "fullExpression": "**Culture précédente dans la parcelle N⁰@fields.num_parcelle lors de la saison passée du champ @fields.nom_champ**",
             "matchedExpression": "@fields.num_parcelle",
             "type": "fields",
             "fieldName": "num_parcelle"
           },
           {
-            "fullExpression": "**Niveau de fertilité de la parcelle N⁰ @fields.num_parcelle de @fields.nom_champ**",
+            "fullExpression": "**Culture précédente dans la parcelle N⁰@fields.num_parcelle lors de la saison passée du champ @fields.nom_champ**",
             "matchedExpression": "@fields.nom_champ",
             "type": "fields",
             "fieldName": "nom_champ"
@@ -41,7 +41,7 @@
       "rows": [
         {
           "type": "text",
-          "value": "Indiquez le niveau de fertilité de la parcelle N⁰ @fields.num_parcelle",
+          "value": "@global.culture_preced_hint",
           "_translations": {
             "value": {}
           },
@@ -50,62 +50,40 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "Indiquez le niveau de fertilité de la parcelle N⁰ @fields.num_parcelle",
-                "matchedExpression": "@fields.num_parcelle",
-                "type": "fields",
-                "fieldName": "num_parcelle"
+                "fullExpression": "@global.culture_preced_hint",
+                "matchedExpression": "@global.culture_preced_hint",
+                "type": "global",
+                "fieldName": "culture_preced_hint"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.num_parcelle": [
+            "@global.culture_preced_hint": [
               "value"
             ]
           }
         },
         {
           "type": "audio",
-          "name": "audio_5_1",
+          "name": "audio_6_1",
           "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Superficie/fertilite_fr.mp3",
+            "variant": "button_only",
+            "src": "audio/Superficie/cult_preced_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "style_list": [
             "float : right"
           ],
-          "_nested_name": "display_group_3.audio_5_1"
+          "_nested_name": "display_group_3.audio_6_1"
         }
       ],
       "name": "display_group_3",
       "_nested_name": "display_group_3"
     },
     {
-      "type": "image",
-      "value": "images/fertilite.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "width:100px",
-        "height:100px"
-      ],
-      "name": "image_5",
-      "_nested_name": "image_5"
-    },
-    {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: black;\"> Sélectionner un niveau en dessous !</p>",
-      "_translations": {
-        "value": {}
-      },
-      "_nested_name": "html_text"
-    },
-    {
       "type": "radio_button_grid",
-      "name": "fertilite_sol",
-      "value": "@fields.fertilite_sol",
+      "name": "cult_prev",
+      "value": "@fields.cult_prev",
       "_translations": {
         "value": {}
       },
@@ -114,44 +92,45 @@
           "trigger": "changed",
           "action_id": "set_field",
           "args": [
-            "fertilite_sol",
+            "cult_prev",
             "this.value"
           ],
-          "_raw": "changed | set_field : fertilite_sol: this.value"
+          "_raw": "changed | set_field: cult_prev: this.value"
         }
       ],
       "parameter_list": {
-        "answer_list": "@data.fertilite_sol",
-        "style": "secondary",
-        "item_width": "60px",
-        "grid_gap": "8px"
+        "answer_list": "@data.cult_princip",
+        "item_width": "80px",
+        "grid_width": "150%",
+        "grid_gap": "10px",
+        "variant": "circle-icon"
       },
-      "_nested_name": "fertilite_sol",
+      "_nested_name": "cult_prev",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.fertilite_sol",
-            "matchedExpression": "@fields.fertilite_sol",
+            "fullExpression": "@fields.cult_prev",
+            "matchedExpression": "@fields.cult_prev",
             "type": "fields",
-            "fieldName": "fertilite_sol"
+            "fieldName": "cult_prev"
           }
         ],
         "parameter_list": {
           "answer_list": [
             {
-              "fullExpression": "@data.fertilite_sol",
-              "matchedExpression": "@data.fertilite_sol",
+              "fullExpression": "@data.cult_princip",
+              "matchedExpression": "@data.cult_princip",
               "type": "data",
-              "fieldName": "fertilite_sol"
+              "fieldName": "cult_princip"
             }
           ]
         }
       },
       "_dynamicDependencies": {
-        "@fields.fertilite_sol": [
+        "@fields.cult_prev": [
           "value"
         ],
-        "@data.fertilite_sol": [
+        "@data.cult_princip": [
           "parameter_list.answer_list"
         ]
       }
@@ -163,7 +142,7 @@
       "_translations": {
         "value": {}
       },
-      "condition": "!@local.fertilite_sol",
+      "condition": "!@fields.cult_prev",
       "_nested_name": "html_text",
       "_dynamicFields": {
         "value": [
@@ -176,10 +155,10 @@
         ],
         "condition": [
           {
-            "fullExpression": "!@local.fertilite_sol",
-            "matchedExpression": "!@local.fertilite_sol",
-            "type": "local",
-            "fieldName": "fertilite_sol"
+            "fullExpression": "!@fields.cult_prev",
+            "matchedExpression": "!@fields.cult_prev",
+            "type": "fields",
+            "fieldName": "cult_prev"
           }
         ]
       },
@@ -187,14 +166,126 @@
         "@global.warning_message": [
           "value"
         ],
-        "!@local.fertilite_sol": [
+        "!@fields.cult_prev": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.cult_prev == 'autre'",
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.autre_message",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_7.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.autre_message",
+                "matchedExpression": "@global.autre_message",
+                "type": "global",
+                "fieldName": "autre_message"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.autre_message": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_6_2",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Superficie/autre_cult_nom1_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_7.audio_6_2"
+        }
+      ],
+      "name": "display_group_7",
+      "_nested_name": "display_group_7",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.cult_prev == 'autre'",
+            "matchedExpression": "@fields.cult_prev",
+            "type": "fields",
+            "fieldName": "cult_prev"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.cult_prev": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "autre_cult_prev",
+      "value": "@fields.autre_cult_prev",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "autre_cult_prev",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: autre_cult_prev : this.value"
+        }
+      ],
+      "parameter_list": {
+        "max_length": "30",
+        "placeholder": "Entrez le nom de la culture"
+      },
+      "condition": "@fields.cult_prev == 'autre'",
+      "exclude_from_translation": true,
+      "_nested_name": "autre_cult_prev",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.autre_cult_prev",
+            "matchedExpression": "@fields.autre_cult_prev",
+            "type": "fields",
+            "fieldName": "autre_cult_prev"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.cult_prev == 'autre'",
+            "matchedExpression": "@fields.cult_prev",
+            "type": "fields",
+            "fieldName": "cult_prev"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.autre_cult_prev": [
+          "value"
+        ],
+        "@fields.cult_prev": [
           "condition"
         ]
       }
     },
     {
       "name": "completed_enabled",
-      "value": "!!@local.fertilite_sol",
+      "value": "@fields.cult_prev",
       "_translations": {
         "value": {}
       },
@@ -204,15 +295,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "!!@local.fertilite_sol",
-            "matchedExpression": "!@local.fertilite_sol",
-            "type": "local",
-            "fieldName": "fertilite_sol"
+            "fullExpression": "@fields.cult_prev",
+            "matchedExpression": "@fields.cult_prev",
+            "type": "fields",
+            "fieldName": "cult_prev"
           }
         ]
       },
       "_dynamicDependencies": {
-        "!@local.fertilite_sol": [
+        "@fields.cult_prev": [
           "value"
         ]
       }
@@ -229,7 +320,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page5_button_back",
+          "name": "page6_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -244,11 +335,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_9.page5_button_back"
+          "_nested_name": "display_group_11.page6_button_back"
         },
         {
           "type": "button",
-          "name": "page5_button_continue",
+          "name": "page6_button_continue",
           "value": "Continuer",
           "_translations": {
             "value": {}
@@ -258,10 +349,19 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "@calc('fertilite_sol_parcelle_N' + @fields.num_parcelle)",
-                "@fields.fertilite_sol"
+                "@calc('cult_prev_parcelle_N' + @fields.num_parcelle)",
+                "@fields.cult_prev"
               ],
-              "_raw": "click | set_field: @calc('fertilite_sol_parcelle_N' + @fields.num_parcelle) : @fields.fertilite_sol"
+              "_raw": "click | set_field: @calc('cult_prev_parcelle_N' + @fields.num_parcelle) : @fields.cult_prev"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "@calc('autre_cult_prev_parcelle_N' + @fields.num_parcelle)",
+                "@fields.autre_cult_prev"
+              ],
+              "_raw": "click | set_field: @calc('autre_cult_prev_parcelle_N' + @fields.num_parcelle) : @fields.autre_cult_prev"
             },
             {
               "trigger": "click",
@@ -275,46 +375,86 @@
           "parameter_list": {
             "disabled": "!@local.completed_enabled"
           },
-          "_nested_name": "display_group_9.page5_button_continue",
+          "_nested_name": "display_group_11.page6_button_continue",
           "_dynamicFields": {
             "action_list": {
               "0": {
                 "args": {
                   "0": [
                     {
-                      "fullExpression": "@calc('fertilite_sol_parcelle_N' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('cult_prev_parcelle_N' + @fields.num_parcelle)",
                       "matchedExpression": "@fields.num_parcelle",
                       "type": "fields",
                       "fieldName": "num_parcelle"
                     },
                     {
-                      "fullExpression": "@calc('fertilite_sol_parcelle_N' + @fields.num_parcelle)",
-                      "matchedExpression": "@calc('fertilite_sol_parcelle_N' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('cult_prev_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('cult_prev_parcelle_N' + @fields.num_parcelle)",
                       "type": "calc",
-                      "fieldName": "'fertilite_sol_parcelle_N' + @fields.num_parcelle"
+                      "fieldName": "'cult_prev_parcelle_N' + @fields.num_parcelle"
                     }
                   ],
                   "1": [
                     {
-                      "fullExpression": "@fields.fertilite_sol",
-                      "matchedExpression": "@fields.fertilite_sol",
+                      "fullExpression": "@fields.cult_prev",
+                      "matchedExpression": "@fields.cult_prev",
                       "type": "fields",
-                      "fieldName": "fertilite_sol"
+                      "fieldName": "cult_prev"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('fertilite_sol_parcelle_N' + @fields.num_parcelle) : @fields.fertilite_sol",
+                    "fullExpression": "click | set_field: @calc('cult_prev_parcelle_N' + @fields.num_parcelle) : @fields.cult_prev",
                     "matchedExpression": "@fields.num_parcelle",
                     "type": "fields",
                     "fieldName": "num_parcelle"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('fertilite_sol_parcelle_N' + @fields.num_parcelle) : @fields.fertilite_sol",
-                    "matchedExpression": "@fields.fertilite_sol",
+                    "fullExpression": "click | set_field: @calc('cult_prev_parcelle_N' + @fields.num_parcelle) : @fields.cult_prev",
+                    "matchedExpression": "@fields.cult_prev",
                     "type": "fields",
-                    "fieldName": "fertilite_sol"
+                    "fieldName": "cult_prev"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "@calc('autre_cult_prev_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@fields.num_parcelle",
+                      "type": "fields",
+                      "fieldName": "num_parcelle"
+                    },
+                    {
+                      "fullExpression": "@calc('autre_cult_prev_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('autre_cult_prev_parcelle_N' + @fields.num_parcelle)",
+                      "type": "calc",
+                      "fieldName": "'autre_cult_prev_parcelle_N' + @fields.num_parcelle"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.autre_cult_prev",
+                      "matchedExpression": "@fields.autre_cult_prev",
+                      "type": "fields",
+                      "fieldName": "autre_cult_prev"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: @calc('autre_cult_prev_parcelle_N' + @fields.num_parcelle) : @fields.autre_cult_prev",
+                    "matchedExpression": "@fields.num_parcelle",
+                    "type": "fields",
+                    "fieldName": "num_parcelle"
+                  },
+                  {
+                    "fullExpression": "click | set_field: @calc('autre_cult_prev_parcelle_N' + @fields.num_parcelle) : @fields.autre_cult_prev",
+                    "matchedExpression": "@fields.autre_cult_prev",
+                    "type": "fields",
+                    "fieldName": "autre_cult_prev"
                   }
                 ]
               }
@@ -333,14 +473,23 @@
           "_dynamicDependencies": {
             "@fields.num_parcelle": [
               "action_list.0.args.0",
-              "action_list.0._raw"
+              "action_list.0._raw",
+              "action_list.1.args.0",
+              "action_list.1._raw"
             ],
-            "@calc('fertilite_sol_parcelle_N' + @fields.num_parcelle)": [
+            "@calc('cult_prev_parcelle_N' + @fields.num_parcelle)": [
               "action_list.0.args.0"
             ],
-            "@fields.fertilite_sol": [
+            "@fields.cult_prev": [
               "action_list.0.args.1",
               "action_list.0._raw"
+            ],
+            "@calc('autre_cult_prev_parcelle_N' + @fields.num_parcelle)": [
+              "action_list.1.args.0"
+            ],
+            "@fields.autre_cult_prev": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
             ],
             "!@local.completed_enabled": [
               "parameter_list.disabled"
@@ -348,8 +497,8 @@
           }
         }
       ],
-      "name": "display_group_9",
-      "_nested_name": "display_group_9"
+      "name": "display_group_11",
+      "_nested_name": "display_group_11"
     }
   ],
   "_source": {

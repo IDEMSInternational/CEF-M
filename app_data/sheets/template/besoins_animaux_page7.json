@@ -4,101 +4,944 @@
   "status": "released",
   "rows": [
     {
-      "type": "template",
-      "name": "temp1",
-      "value": "sup_simple",
-      "condition": "@fields.type_regime == 'compl_faible'",
-      "rows": [],
-      "_nested_name": "temp1",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@fields.type_regime == 'compl_faible'",
-            "matchedExpression": "@fields.type_regime",
-            "type": "fields",
-            "fieldName": "type_regime"
-          }
-        ]
+      "type": "title",
+      "value": "**TOTAUX PREVISIONELS DES BESOINS ALIMENTAIRES**",
+      "_translations": {
+        "value": {}
       },
-      "_dynamicDependencies": {
-        "@fields.type_regime": [
-          "condition"
-        ]
-      }
+      "name": "title_2",
+      "_nested_name": "title_2"
     },
     {
-      "type": "template",
-      "name": "temp2",
-      "value": "sup_ameliore",
-      "condition": "@fields.type_regime == 'compl_ameli'",
-      "rows": [],
-      "_nested_name": "temp2",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@fields.type_regime == 'compl_ameli'",
-            "matchedExpression": "@fields.type_regime",
-            "type": "fields",
-            "fieldName": "type_regime"
-          }
-        ]
+      "type": "set_field",
+      "name": "total_concentre",
+      "value": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+      "_translations": {
+        "value": {}
       },
-      "_dynamicDependencies": {
-        "@fields.type_regime": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "template",
-      "name": "temp3",
-      "value": "stabulation",
-      "condition": "@fields.type_regime == 'stabulation'",
-      "rows": [],
-      "_nested_name": "temp3",
+      "_nested_name": "total_concentre",
       "_dynamicFields": {
-        "condition": [
+        "value": [
           {
-            "fullExpression": "@fields.type_regime == 'stabulation'",
-            "matchedExpression": "@fields.type_regime",
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_con_boeufs_labour",
             "type": "fields",
-            "fieldName": "type_regime"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.type_regime": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "template",
-      "name": "temp4",
-      "value": "paturage_transh",
-      "condition": "@fields.type_regime == 'paturage' || @fields.type_regime == 'transhumance'",
-      "rows": [],
-      "_nested_name": "temp4",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@fields.type_regime == 'paturage' || @fields.type_regime == 'transhumance'",
-            "matchedExpression": "@fields.type_regime",
-            "type": "fields",
-            "fieldName": "type_regime"
+            "fieldName": "comp_faible_con_boeufs_labour"
           },
           {
-            "fullExpression": "@fields.type_regime == 'paturage' || @fields.type_regime == 'transhumance'",
-            "matchedExpression": "@fields.type_regime",
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_con_embouche_bovine",
             "type": "fields",
-            "fieldName": "type_regime"
+            "fieldName": "comp_faible_con_embouche_bovine"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_con_vache_laitiere",
+            "type": "fields",
+            "fieldName": "comp_faible_con_vache_laitiere"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_con_autres_bovins",
+            "type": "fields",
+            "fieldName": "comp_faible_con_autres_bovins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_con_asins",
+            "type": "fields",
+            "fieldName": "comp_faible_con_asins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_con_embouche_ovine",
+            "type": "fields",
+            "fieldName": "comp_faible_con_embouche_ovine"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_con_reste_ovins",
+            "type": "fields",
+            "fieldName": "comp_faible_con_reste_ovins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_con_caprins",
+            "type": "fields",
+            "fieldName": "comp_faible_con_caprins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_con_boeufs_labour",
+            "type": "fields",
+            "fieldName": "comp_ameli_con_boeufs_labour"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_con_embouche_bovine",
+            "type": "fields",
+            "fieldName": "comp_ameli_con_embouche_bovine"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_con_vache_laitiere",
+            "type": "fields",
+            "fieldName": "comp_ameli_con_vache_laitiere"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_con_autres_bovins",
+            "type": "fields",
+            "fieldName": "comp_ameli_con_autres_bovins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_con_asins",
+            "type": "fields",
+            "fieldName": "comp_ameli_con_asins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_con_embouche_ovine",
+            "type": "fields",
+            "fieldName": "comp_ameli_con_embouche_ovine"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_con_reste_ovins",
+            "type": "fields",
+            "fieldName": "comp_ameli_con_reste_ovins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_con_caprins",
+            "type": "fields",
+            "fieldName": "comp_ameli_con_caprins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_con_boeufs_labour",
+            "type": "fields",
+            "fieldName": "stabulation_con_boeufs_labour"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_con_embouche_bovine",
+            "type": "fields",
+            "fieldName": "stabulation_con_embouche_bovine"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_con_vache_laitiere",
+            "type": "fields",
+            "fieldName": "stabulation_con_vache_laitiere"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_con_autres_bovins",
+            "type": "fields",
+            "fieldName": "stabulation_con_autres_bovins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_con_asins",
+            "type": "fields",
+            "fieldName": "stabulation_con_asins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_con_embouche_ovine",
+            "type": "fields",
+            "fieldName": "stabulation_con_embouche_ovine"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_con_reste_ovins",
+            "type": "fields",
+            "fieldName": "stabulation_con_reste_ovins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_con_caprins",
+            "type": "fields",
+            "fieldName": "stabulation_con_caprins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))",
+            "type": "calc",
+            "fieldName": "(Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1)"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.type_regime": [
-          "condition",
-          "condition"
+        "@fields.comp_faible_con_boeufs_labour": [
+          "value"
+        ],
+        "@fields.comp_faible_con_embouche_bovine": [
+          "value"
+        ],
+        "@fields.comp_faible_con_vache_laitiere": [
+          "value"
+        ],
+        "@fields.comp_faible_con_autres_bovins": [
+          "value"
+        ],
+        "@fields.comp_faible_con_asins": [
+          "value"
+        ],
+        "@fields.comp_faible_con_embouche_ovine": [
+          "value"
+        ],
+        "@fields.comp_faible_con_reste_ovins": [
+          "value"
+        ],
+        "@fields.comp_faible_con_caprins": [
+          "value"
+        ],
+        "@fields.comp_ameli_con_boeufs_labour": [
+          "value"
+        ],
+        "@fields.comp_ameli_con_embouche_bovine": [
+          "value"
+        ],
+        "@fields.comp_ameli_con_vache_laitiere": [
+          "value"
+        ],
+        "@fields.comp_ameli_con_autres_bovins": [
+          "value"
+        ],
+        "@fields.comp_ameli_con_asins": [
+          "value"
+        ],
+        "@fields.comp_ameli_con_embouche_ovine": [
+          "value"
+        ],
+        "@fields.comp_ameli_con_reste_ovins": [
+          "value"
+        ],
+        "@fields.comp_ameli_con_caprins": [
+          "value"
+        ],
+        "@fields.stabulation_con_boeufs_labour": [
+          "value"
+        ],
+        "@fields.stabulation_con_embouche_bovine": [
+          "value"
+        ],
+        "@fields.stabulation_con_vache_laitiere": [
+          "value"
+        ],
+        "@fields.stabulation_con_autres_bovins": [
+          "value"
+        ],
+        "@fields.stabulation_con_asins": [
+          "value"
+        ],
+        "@fields.stabulation_con_embouche_ovine": [
+          "value"
+        ],
+        "@fields.stabulation_con_reste_ovins": [
+          "value"
+        ],
+        "@fields.stabulation_con_caprins": [
+          "value"
+        ],
+        "@calc((Number(@fields.comp_faible_con_boeufs_labour || 0) + Number(@fields.comp_faible_con_embouche_bovine || 0) + Number(@fields.comp_faible_con_vache_laitiere || 0) + Number(@fields.comp_faible_con_autres_bovins || 0) + Number(@fields.comp_faible_con_asins || 0) + Number(@fields.comp_faible_con_embouche_ovine || 0) + Number(@fields.comp_faible_con_reste_ovins  || 0) + Number(@fields.comp_faible_con_caprins || 0) + Number(@fields.comp_ameli_con_boeufs_labour || 0) + Number(@fields.comp_ameli_con_embouche_bovine || 0) + Number(@fields.comp_ameli_con_vache_laitiere || 0) + Number(@fields.comp_ameli_con_autres_bovins || 0) + Number(@fields.comp_ameli_con_asins || 0) + Number(@fields.comp_ameli_con_embouche_ovine || 0) + Number(@fields.comp_ameli_con_reste_ovins || 0) + Number(@fields.comp_ameli_con_caprins || 0) + Number(@fields.stabulation_con_boeufs_labour || 0) + Number(@fields.stabulation_con_embouche_bovine || 0) + Number(@fields.stabulation_con_vache_laitiere || 0) + Number(@fields.stabulation_con_autres_bovins || 0) + Number(@fields.stabulation_con_asins || 0) + Number(@fields.stabulation_con_embouche_ovine || 0) + Number(@fields.stabulation_con_reste_ovins || 0) + Number(@fields.stabulation_con_caprins || 0)).toFixed(1))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "set_field",
+      "name": "total_residu",
+      "value": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "total_residu",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_resid_boeufs_labour",
+            "type": "fields",
+            "fieldName": "comp_faible_resid_boeufs_labour"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_resid_embouche_bovine",
+            "type": "fields",
+            "fieldName": "comp_faible_resid_embouche_bovine"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_resid_vache_laitiere",
+            "type": "fields",
+            "fieldName": "comp_faible_resid_vache_laitiere"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_resid_autres_bovins",
+            "type": "fields",
+            "fieldName": "comp_faible_resid_autres_bovins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_resid_asins",
+            "type": "fields",
+            "fieldName": "comp_faible_resid_asins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_resid_embouche_ovine",
+            "type": "fields",
+            "fieldName": "comp_faible_resid_embouche_ovine"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_resid_reste_ovins",
+            "type": "fields",
+            "fieldName": "comp_faible_resid_reste_ovins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_resid_caprins",
+            "type": "fields",
+            "fieldName": "comp_faible_resid_caprins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_resid_boeufs_labour",
+            "type": "fields",
+            "fieldName": "comp_ameli_resid_boeufs_labour"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_resid_embouche_bovine",
+            "type": "fields",
+            "fieldName": "comp_ameli_resid_embouche_bovine"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_resid_vache_laitiere",
+            "type": "fields",
+            "fieldName": "comp_ameli_resid_vache_laitiere"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_resid_autres_bovins",
+            "type": "fields",
+            "fieldName": "comp_ameli_resid_autres_bovins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_resid_asins",
+            "type": "fields",
+            "fieldName": "comp_ameli_resid_asins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_resid_embouche_ovine",
+            "type": "fields",
+            "fieldName": "comp_ameli_resid_embouche_ovine"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_resid_reste_ovins",
+            "type": "fields",
+            "fieldName": "comp_ameli_resid_reste_ovins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_resid_caprins",
+            "type": "fields",
+            "fieldName": "comp_ameli_resid_caprins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_resid_boeufs_labour",
+            "type": "fields",
+            "fieldName": "stabulation_resid_boeufs_labour"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_resid_embouche_bovine",
+            "type": "fields",
+            "fieldName": "stabulation_resid_embouche_bovine"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_resid_vache_laitiere",
+            "type": "fields",
+            "fieldName": "stabulation_resid_vache_laitiere"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_resid_autres_bovins",
+            "type": "fields",
+            "fieldName": "stabulation_resid_autres_bovins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_resid_asins",
+            "type": "fields",
+            "fieldName": "stabulation_resid_asins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_resid_embouche_ovine",
+            "type": "fields",
+            "fieldName": "stabulation_resid_embouche_ovine"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_resid_reste_ovins",
+            "type": "fields",
+            "fieldName": "stabulation_resid_reste_ovins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_resid_caprins",
+            "type": "fields",
+            "fieldName": "stabulation_resid_caprins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))",
+            "type": "calc",
+            "fieldName": "(Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.comp_faible_resid_boeufs_labour": [
+          "value"
+        ],
+        "@fields.comp_faible_resid_embouche_bovine": [
+          "value"
+        ],
+        "@fields.comp_faible_resid_vache_laitiere": [
+          "value"
+        ],
+        "@fields.comp_faible_resid_autres_bovins": [
+          "value"
+        ],
+        "@fields.comp_faible_resid_asins": [
+          "value"
+        ],
+        "@fields.comp_faible_resid_embouche_ovine": [
+          "value"
+        ],
+        "@fields.comp_faible_resid_reste_ovins": [
+          "value"
+        ],
+        "@fields.comp_faible_resid_caprins": [
+          "value"
+        ],
+        "@fields.comp_ameli_resid_boeufs_labour": [
+          "value"
+        ],
+        "@fields.comp_ameli_resid_embouche_bovine": [
+          "value"
+        ],
+        "@fields.comp_ameli_resid_vache_laitiere": [
+          "value"
+        ],
+        "@fields.comp_ameli_resid_autres_bovins": [
+          "value"
+        ],
+        "@fields.comp_ameli_resid_asins": [
+          "value"
+        ],
+        "@fields.comp_ameli_resid_embouche_ovine": [
+          "value"
+        ],
+        "@fields.comp_ameli_resid_reste_ovins": [
+          "value"
+        ],
+        "@fields.comp_ameli_resid_caprins": [
+          "value"
+        ],
+        "@fields.stabulation_resid_boeufs_labour": [
+          "value"
+        ],
+        "@fields.stabulation_resid_embouche_bovine": [
+          "value"
+        ],
+        "@fields.stabulation_resid_vache_laitiere": [
+          "value"
+        ],
+        "@fields.stabulation_resid_autres_bovins": [
+          "value"
+        ],
+        "@fields.stabulation_resid_asins": [
+          "value"
+        ],
+        "@fields.stabulation_resid_embouche_ovine": [
+          "value"
+        ],
+        "@fields.stabulation_resid_reste_ovins": [
+          "value"
+        ],
+        "@fields.stabulation_resid_caprins": [
+          "value"
+        ],
+        "@calc((Number(@fields.comp_faible_resid_boeufs_labour || 0 ) + Number(@fields.comp_faible_resid_embouche_bovine || 0 ) + Number(@fields.comp_faible_resid_vache_laitiere || 0 ) + Number(@fields.comp_faible_resid_autres_bovins || 0 ) + Number(@fields.comp_faible_resid_asins || 0 ) + Number(@fields.comp_faible_resid_embouche_ovine || 0 ) + Number(@fields.comp_faible_resid_reste_ovins || 0 ) + Number(@fields.comp_faible_resid_caprins || 0 ) + Number(@fields.comp_ameli_resid_boeufs_labour || 0 ) + Number(@fields.comp_ameli_resid_embouche_bovine || 0 ) + Number(@fields.comp_ameli_resid_vache_laitiere || 0 ) + Number(@fields.comp_ameli_resid_autres_bovins || 0 ) + Number(@fields.comp_ameli_resid_asins || 0 ) + Number(@fields.comp_ameli_resid_embouche_ovine || 0 ) + Number(@fields.comp_ameli_resid_reste_ovins || 0 ) + Number(@fields.comp_ameli_resid_caprins || 0 ) + Number(@fields.stabulation_resid_boeufs_labour || 0 ) + Number(@fields.stabulation_resid_embouche_bovine || 0 ) + Number(@fields.stabulation_resid_vache_laitiere || 0 ) + Number(@fields.stabulation_resid_autres_bovins || 0 ) + Number(@fields.stabulation_resid_asins || 0 ) + Number(@fields.stabulation_resid_embouche_ovine || 0 ) + Number(@fields.stabulation_resid_reste_ovins || 0 ) + Number(@fields.stabulation_resid_caprins || 0)).toFixed(1))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "set_field",
+      "name": "total_fane",
+      "value": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "total_fane",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_fane_boeufs_labour",
+            "type": "fields",
+            "fieldName": "comp_faible_fane_boeufs_labour"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_fane_embouche_bovine",
+            "type": "fields",
+            "fieldName": "comp_faible_fane_embouche_bovine"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_fane_vache_laitiere",
+            "type": "fields",
+            "fieldName": "comp_faible_fane_vache_laitiere"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_fane_autres_bovins",
+            "type": "fields",
+            "fieldName": "comp_faible_fane_autres_bovins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_fane_asins",
+            "type": "fields",
+            "fieldName": "comp_faible_fane_asins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_fane_embouche_ovine",
+            "type": "fields",
+            "fieldName": "comp_faible_fane_embouche_ovine"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_fane_reste_ovins",
+            "type": "fields",
+            "fieldName": "comp_faible_fane_reste_ovins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_faible_fane_caprins",
+            "type": "fields",
+            "fieldName": "comp_faible_fane_caprins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_fane_boeufs_labour",
+            "type": "fields",
+            "fieldName": "comp_ameli_fane_boeufs_labour"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_fane_embouche_bovine",
+            "type": "fields",
+            "fieldName": "comp_ameli_fane_embouche_bovine"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_fane_vache_laitiere",
+            "type": "fields",
+            "fieldName": "comp_ameli_fane_vache_laitiere"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_fane_autres_bovins",
+            "type": "fields",
+            "fieldName": "comp_ameli_fane_autres_bovins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_fane_asins",
+            "type": "fields",
+            "fieldName": "comp_ameli_fane_asins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_fane_embouche_ovine",
+            "type": "fields",
+            "fieldName": "comp_ameli_fane_embouche_ovine"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_fane_reste_ovins",
+            "type": "fields",
+            "fieldName": "comp_ameli_fane_reste_ovins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.comp_ameli_fane_caprins",
+            "type": "fields",
+            "fieldName": "comp_ameli_fane_caprins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_fane_boeufs_labour",
+            "type": "fields",
+            "fieldName": "stabulation_fane_boeufs_labour"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_fane_embouche_bovine",
+            "type": "fields",
+            "fieldName": "stabulation_fane_embouche_bovine"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_fane_vache_laitiere",
+            "type": "fields",
+            "fieldName": "stabulation_fane_vache_laitiere"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_fane_autres_bovins",
+            "type": "fields",
+            "fieldName": "stabulation_fane_autres_bovins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_fane_asins",
+            "type": "fields",
+            "fieldName": "stabulation_fane_asins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_fane_embouche_ovine",
+            "type": "fields",
+            "fieldName": "stabulation_fane_embouche_ovine"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_fane_reste_ovins",
+            "type": "fields",
+            "fieldName": "stabulation_fane_reste_ovins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@fields.stabulation_fane_caprins",
+            "type": "fields",
+            "fieldName": "stabulation_fane_caprins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "matchedExpression": "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))",
+            "type": "calc",
+            "fieldName": "(Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.comp_faible_fane_boeufs_labour": [
+          "value"
+        ],
+        "@fields.comp_faible_fane_embouche_bovine": [
+          "value"
+        ],
+        "@fields.comp_faible_fane_vache_laitiere": [
+          "value"
+        ],
+        "@fields.comp_faible_fane_autres_bovins": [
+          "value"
+        ],
+        "@fields.comp_faible_fane_asins": [
+          "value"
+        ],
+        "@fields.comp_faible_fane_embouche_ovine": [
+          "value"
+        ],
+        "@fields.comp_faible_fane_reste_ovins": [
+          "value"
+        ],
+        "@fields.comp_faible_fane_caprins": [
+          "value"
+        ],
+        "@fields.comp_ameli_fane_boeufs_labour": [
+          "value"
+        ],
+        "@fields.comp_ameli_fane_embouche_bovine": [
+          "value"
+        ],
+        "@fields.comp_ameli_fane_vache_laitiere": [
+          "value"
+        ],
+        "@fields.comp_ameli_fane_autres_bovins": [
+          "value"
+        ],
+        "@fields.comp_ameli_fane_asins": [
+          "value"
+        ],
+        "@fields.comp_ameli_fane_embouche_ovine": [
+          "value"
+        ],
+        "@fields.comp_ameli_fane_reste_ovins": [
+          "value"
+        ],
+        "@fields.comp_ameli_fane_caprins": [
+          "value"
+        ],
+        "@fields.stabulation_fane_boeufs_labour": [
+          "value"
+        ],
+        "@fields.stabulation_fane_embouche_bovine": [
+          "value"
+        ],
+        "@fields.stabulation_fane_vache_laitiere": [
+          "value"
+        ],
+        "@fields.stabulation_fane_autres_bovins": [
+          "value"
+        ],
+        "@fields.stabulation_fane_asins": [
+          "value"
+        ],
+        "@fields.stabulation_fane_embouche_ovine": [
+          "value"
+        ],
+        "@fields.stabulation_fane_reste_ovins": [
+          "value"
+        ],
+        "@fields.stabulation_fane_caprins": [
+          "value"
+        ],
+        "@calc((Number(@fields.comp_faible_fane_boeufs_labour || 0 ) + Number(@fields.comp_faible_fane_embouche_bovine || 0 ) + Number(@fields.comp_faible_fane_vache_laitiere || 0 ) + Number(@fields.comp_faible_fane_autres_bovins || 0 ) + Number(@fields.comp_faible_fane_asins || 0 ) + Number(@fields.comp_faible_fane_embouche_ovine || 0 ) + Number(@fields.comp_faible_fane_reste_ovins || 0 ) + Number(@fields.comp_faible_fane_caprins || 0 ) + Number(@fields.comp_ameli_fane_boeufs_labour || 0 ) + Number(@fields.comp_ameli_fane_embouche_bovine || 0 ) + Number(@fields.comp_ameli_fane_vache_laitiere || 0 ) + Number(@fields.comp_ameli_fane_autres_bovins || 0 ) + Number(@fields.comp_ameli_fane_asins || 0 ) + Number(@fields.comp_ameli_fane_embouche_ovine || 0 ) + Number(@fields.comp_ameli_fane_reste_ovins || 0 ) + Number(@fields.comp_ameli_fane_caprins || 0 ) + Number(@fields.stabulation_fane_boeufs_labour || 0 ) + Number(@fields.stabulation_fane_embouche_bovine || 0 ) + Number(@fields.stabulation_fane_vache_laitiere || 0 ) + Number(@fields.stabulation_fane_autres_bovins || 0 ) + Number(@fields.stabulation_fane_asins || 0 ) + Number(@fields.stabulation_fane_embouche_ovine || 0 ) + Number(@fields.stabulation_fane_reste_ovins || 0 ) + Number(@fields.stabulation_fane_caprins || 0)).toFixed(1))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.note_totaux_besoin_animaux",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_6",
+      "_nested_name": "text_6",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.note_totaux_besoin_animaux",
+            "matchedExpression": "@global.note_totaux_besoin_animaux",
+            "type": "global",
+            "fieldName": "note_totaux_besoin_animaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_totaux_besoin_animaux": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.hint_concentre",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_7",
+      "_nested_name": "text_7",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.hint_concentre",
+            "matchedExpression": "@global.hint_concentre",
+            "type": "global",
+            "fieldName": "hint_concentre"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.hint_concentre": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "value": "images/concentre.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_8",
+      "_nested_name": "image_8"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\nQuantité totale de concentrés:  :<strong> @fields.total_concentre sacs </strong>\n</div>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_9",
+      "_nested_name": "html_9",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\nQuantité totale de concentrés:  :<strong> @fields.total_concentre sacs </strong>\n</div>",
+            "matchedExpression": "@fields.total_concentre",
+            "type": "fields",
+            "fieldName": "total_concentre"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.total_concentre": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.hint_residu",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_10",
+      "_nested_name": "text_10",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.hint_residu",
+            "matchedExpression": "@global.hint_residu",
+            "type": "global",
+            "fieldName": "hint_residu"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.hint_residu": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "value": "images/Residus.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_11",
+      "_nested_name": "image_11"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  Quantité totale de résidus de céréales: <strong> @fields.total_residu charrettée </strong></div>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_12",
+      "_nested_name": "html_12",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  Quantité totale de résidus de céréales: <strong> @fields.total_residu charrettée </strong></div>",
+            "matchedExpression": "@fields.total_residu",
+            "type": "fields",
+            "fieldName": "total_residu"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.total_residu": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.hint_fane",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_13",
+      "_nested_name": "text_13",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.hint_fane",
+            "matchedExpression": "@global.hint_fane",
+            "type": "global",
+            "fieldName": "hint_fane"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.hint_fane": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "value": "images/Fane.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_14",
+      "_nested_name": "image_14"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  Quantité totale de fânes: <strong> @fields.total_fane botte </strong> </div>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_15",
+      "_nested_name": "html_15",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  Quantité totale de fânes: <strong> @fields.total_fane botte </strong> </div>",
+            "matchedExpression": "@fields.total_fane",
+            "type": "fields",
+            "fieldName": "total_fane"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.total_fane": [
+          "value"
         ]
       }
     },
@@ -114,7 +957,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page7_button_back",
+          "name": "page9_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -129,11 +972,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_10.page7_button_back"
+          "_nested_name": "display_group_16.page9_button_back"
         },
         {
           "type": "button",
-          "name": "page7_button_continue",
+          "name": "page9_button_continue",
           "value": "Continuer",
           "_translations": {
             "value": {}
@@ -148,11 +991,14 @@
               "_raw": "click | emit: completed"
             }
           ],
-          "_nested_name": "display_group_10.page7_button_continue"
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_16.page9_button_continue"
         }
       ],
-      "name": "display_group_10",
-      "_nested_name": "display_group_10"
+      "name": "display_group_16",
+      "_nested_name": "display_group_16"
     }
   ],
   "_source": {

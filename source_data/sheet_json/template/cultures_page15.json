@@ -1,0 +1,87 @@
+{
+  "flow_type": "template",
+  "flow_name": "cultures_page15",
+  "status": "released",
+  "rows": [
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "**Comptes prévisionnels des cultures : @fields.culture_list_all**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_15_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/semis/cout_tot_semis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "**Les coûts totaux prévisionnels des cultures: @fields.couts_globaux_prevus_cultures drm, soit @fields.couts_globaux_prevus_cultures_fcfa FCFA**",
+      "style_list": "background: #fdf6f0; color: #a44c20; border: 1px solid #f5decb; border-radius: 12px; padding: 14px 18px; margin: 12px 0px; box-shadow: 0 4px 6px rgba(164, 76, 32, 0.02); font-size: 20px; font-weight: 500;"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa_tot.jpg",
+      "style_list": "width:100px; height:100px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text",
+      "value": "*1 drm=5 FCFA*",
+      "style_list": "color: gray; font-size: 16px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "La superficie totale à labourer par prestation: **@fields.total_superficie_prevue_labour ha**",
+      "style_list": "background: #fdf6f0; color: #a44c20; border: 1px solid #f5decb; border-radius: 12px; padding: 14px 18px; margin: 12px 0px; box-shadow: 0 4px 6px rgba(164, 76, 32, 0.02); font-size: 20px; font-weight: 500;"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa_tot.jpg",
+      "style_list": "width:100px; height:100px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text",
+      "value": "*1 drm=5 FCFA*",
+      "style_list": "color: gray; font-size: 16px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page_15_btn_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page_15_btn_continue",
+      "value": "Continuer",
+      "action_list": "\n\nclick | emit: completed",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

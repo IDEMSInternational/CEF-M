@@ -4,316 +4,246 @@
   "status": "released",
   "rows": [
     {
-      "type": "display_group",
-      "parameter_list": {
-        "filter": "@fields.cult_princip"
-      },
-      "rows": [
-        {
-          "type": "subtitle",
-          "value": "**Variété utilisée de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
-          "_translations": {
-            "value": {}
-          },
-          "name": "subtitle_1",
-          "_nested_name": "display_group_2.subtitle_1",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "**Variété utilisée de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
-                "matchedExpression": "@fields.cult_princip",
-                "type": "fields",
-                "fieldName": "cult_princip"
-              },
-              {
-                "fullExpression": "**Variété utilisée de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
-                "matchedExpression": "@fields.num_parcelle",
-                "type": "fields",
-                "fieldName": "num_parcelle"
-              },
-              {
-                "fullExpression": "**Variété utilisée de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
-                "matchedExpression": "@fields.nom_champ",
-                "type": "fields",
-                "fieldName": "nom_champ"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@fields.cult_princip": [
-              "value"
-            ],
-            "@fields.num_parcelle": [
-              "value"
-            ],
-            "@fields.nom_champ": [
-              "value"
-            ]
-          }
-        },
-        {
-          "type": "audio",
-          "name": "audio_8_1",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Superficie/var_seme_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "style_list": [
-            "float : right"
-          ],
-          "_nested_name": "display_group_2.audio_8_1"
-        }
-      ],
-      "name": "display_group_2",
-      "_nested_name": "display_group_2",
-      "_dynamicFields": {
-        "parameter_list": {
-          "filter": [
-            {
-              "fullExpression": "@fields.cult_princip",
-              "matchedExpression": "@fields.cult_princip",
-              "type": "fields",
-              "fieldName": "cult_princip"
-            }
-          ]
-        }
-      },
-      "_dynamicDependencies": {
-        "@fields.cult_princip": [
-          "parameter_list.filter"
-        ]
-      }
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: black;\">@global.variete_hint </p>",
+      "type": "title",
+      "value": "DATE ET QUANTITÉ DE SEMIS",
       "_translations": {
         "value": {}
       },
-      "name": "html_4",
-      "_nested_name": "html_4",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<p style=\"color: black;\">@global.variete_hint </p>",
-            "matchedExpression": "@global.variete_hint",
-            "type": "global",
-            "fieldName": "variete_hint"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.variete_hint": [
-          "value"
-        ]
-      }
+      "name": "title_2",
+      "_nested_name": "title_2"
     },
     {
-      "type": "text_box",
-      "name": "nom_variete",
-      "value": "@fields.nom_variete",
+      "name": "attempt_submit_p9",
+      "value": "@fields.attempt_submit_p9",
       "_translations": {
         "value": {}
       },
-      "action_list": [
-        {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "nom_variete",
-            "this.value"
-          ],
-          "_raw": "changed | set_field: nom_variete: this.value"
-        }
-      ],
-      "parameter_list": {
-        "max_length": "30",
-        "placeholder": "Écrivez le nom de la variété cultivée"
-      },
-      "exclude_from_translation_1": true,
-      "_nested_name": "nom_variete",
+      "type": "set_variable",
+      "_nested_name": "attempt_submit_p9",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.nom_variete",
-            "matchedExpression": "@fields.nom_variete",
+            "fullExpression": "@fields.attempt_submit_p9",
+            "matchedExpression": "@fields.attempt_submit_p9",
             "type": "fields",
-            "fieldName": "nom_variete"
+            "fieldName": "attempt_submit_p9"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.nom_variete": [
+        "@fields.attempt_submit_p9": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_qte",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_semence) && Number(@fields.quantite_semence) >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_qte",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_semence) && Number(@fields.quantite_semence) >= 0)",
+            "matchedExpression": "@fields.quantite_semence",
+            "type": "fields",
+            "fieldName": "quantite_semence"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_semence) && Number(@fields.quantite_semence) >= 0)",
+            "matchedExpression": "@fields.quantite_semence",
+            "type": "fields",
+            "fieldName": "quantite_semence"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_semence) && Number(@fields.quantite_semence) >= 0)",
+            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_semence) && Number(@fields.quantite_semence) >= 0)",
+            "type": "calc",
+            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@fields.quantite_semence) && Number(@fields.quantite_semence) >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_semence": [
+          "value",
+          "value"
+        ],
+        "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_semence) && Number(@fields.quantite_semence) >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_p9",
+      "value": "@calc(!!@fields.date_semence && !!@fields.quantite_semence && @local.valid_qte)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_p9",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.date_semence && !!@fields.quantite_semence && @local.valid_qte)",
+            "matchedExpression": "!@fields.date_semence",
+            "type": "fields",
+            "fieldName": "date_semence"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.date_semence && !!@fields.quantite_semence && @local.valid_qte)",
+            "matchedExpression": "!@fields.quantite_semence",
+            "type": "fields",
+            "fieldName": "quantite_semence"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.date_semence && !!@fields.quantite_semence && @local.valid_qte)",
+            "matchedExpression": "@local.valid_qte",
+            "type": "local",
+            "fieldName": "valid_qte"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.date_semence && !!@fields.quantite_semence && @local.valid_qte)",
+            "matchedExpression": "@calc(!!@fields.date_semence && !!@fields.quantite_semence && @local.valid_qte)",
+            "type": "calc",
+            "fieldName": "!!@fields.date_semence && !!@fields.quantite_semence && @local.valid_qte"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.date_semence": [
+          "value"
+        ],
+        "!@fields.quantite_semence": [
+          "value"
+        ],
+        "@local.valid_qte": [
+          "value"
+        ],
+        "@calc(!!@fields.date_semence && !!@fields.quantite_semence && @local.valid_qte)": [
           "value"
         ]
       }
     },
     {
       "type": "html",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "value": "<h1 style=\"color: #1e3656; margin: 0; font-size: 15px; text-transform: uppercase;\">Semis de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle</h1>",
       "_translations": {
         "value": {}
       },
-      "condition": "!@local.nom_variete",
       "name": "html_6",
       "_nested_name": "html_6",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
-            "matchedExpression": "@global.warning_message",
-            "type": "global",
-            "fieldName": "warning_message"
-          }
-        ],
-        "condition": [
+            "fullExpression": "<h1 style=\"color: #1e3656; margin: 0; font-size: 15px; text-transform: uppercase;\">Semis de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle</h1>",
+            "matchedExpression": "@fields.cult_princip",
+            "type": "fields",
+            "fieldName": "cult_princip"
+          },
           {
-            "fullExpression": "!@local.nom_variete",
-            "matchedExpression": "!@local.nom_variete",
-            "type": "local",
-            "fieldName": "nom_variete"
+            "fullExpression": "<h1 style=\"color: #1e3656; margin: 0; font-size: 15px; text-transform: uppercase;\">Semis de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle</h1>",
+            "matchedExpression": "@fields.num_parcelle",
+            "type": "fields",
+            "fieldName": "num_parcelle"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.warning_message": [
+        "@fields.cult_princip": [
           "value"
         ],
-        "!@local.nom_variete": [
-          "condition"
+        "@fields.num_parcelle": [
+          "value"
         ]
       }
     },
     {
       "type": "display_group",
+      "style_list": [
+        "width: 100%",
+        "padding: 10px",
+        "background: #f4f7fc",
+        "border-radius: 8px"
+      ],
       "rows": [
         {
-          "type": "text",
-          "value": "**Le type de variété de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**",
+          "type": "html",
+          "value": "<label font-weight: bold;\"><span style=\"color: red;\">*</span> Date de semis de <b>@fields.cult_princip</b> :</label>",
           "_translations": {
             "value": {}
           },
-          "name": "text_1",
-          "_nested_name": "display_group_7.text_1",
+          "name": "html_1",
+          "_nested_name": "display_group_7.html_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "**Le type de variété de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**",
+                "fullExpression": "<label font-weight: bold;\"><span style=\"color: red;\">*</span> Date de semis de <b>@fields.cult_princip</b> :</label>",
                 "matchedExpression": "@fields.cult_princip",
                 "type": "fields",
                 "fieldName": "cult_princip"
-              },
-              {
-                "fullExpression": "**Le type de variété de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**",
-                "matchedExpression": "@fields.num_parcelle",
-                "type": "fields",
-                "fieldName": "num_parcelle"
               }
             ]
           },
           "_dynamicDependencies": {
             "@fields.cult_princip": [
               "value"
-            ],
-            "@fields.num_parcelle": [
-              "value"
             ]
           }
         },
         {
           "type": "audio",
-          "name": "audio_8_2",
+          "name": "audio_9_1",
           "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Superficie/var_type_fr.mp3",
+            "variant": "button_only",
+            "src": "audio/Superficie/date_semence_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "style_list": [
             "float : right"
           ],
-          "_nested_name": "display_group_7.audio_8_2"
+          "_nested_name": "display_group_7.audio_9_1"
         }
       ],
       "name": "display_group_7",
       "_nested_name": "display_group_7"
     },
     {
-      "type": "text",
-      "value": "Sélectionnez le type de variété de @fields.cult_princip",
+      "type": "date_time_picker",
+      "name": "date_semence",
+      "value": "@fields.date_semence",
       "_translations": {
         "value": {}
       },
-      "name": "text_9",
-      "_nested_name": "text_9",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "Sélectionnez le type de variété de @fields.cult_princip",
-            "matchedExpression": "@fields.cult_princip",
-            "type": "fields",
-            "fieldName": "cult_princip"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.cult_princip": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "radio_list",
-      "name": "type_variete",
-      "value": "@fields.type_variete",
       "action_list": [
         {
           "trigger": "changed",
           "action_id": "set_field",
           "args": [
-            "type_variete",
+            "date_semence",
             "this.value"
           ],
-          "_raw": "changed | set_field: type_variete: this.value"
+          "_raw": "changed | set_field: date_semence: this.value"
         }
       ],
-      "rows": [
-        {
-          "type": "data_items",
-          "value": "@data.type_variete",
-          "rows": [],
-          "name": "data_items_1",
-          "_nested_name": "type_variete.data_items_1",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@data.type_variete",
-                "matchedExpression": "@data.type_variete",
-                "type": "data",
-                "fieldName": "type_variete"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@data.type_variete": [
-              "value"
-            ]
-          }
-        }
-      ],
-      "_nested_name": "type_variete",
+      "parameter_list": {
+        "type": "date"
+      },
+      "_nested_name": "date_semence",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.type_variete",
-            "matchedExpression": "@fields.type_variete",
+            "fullExpression": "@fields.date_semence",
+            "matchedExpression": "@fields.date_semence",
             "type": "fields",
-            "fieldName": "type_variete"
+            "fieldName": "date_semence"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.type_variete": [
+        "@fields.date_semence": [
           "value"
         ]
       }
@@ -321,70 +251,268 @@
     {
       "type": "html",
       "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "value": "<span style=\"color: red; font-size: 13px;\">La date est obligatoire ! </span>",
       "_translations": {
         "value": {}
       },
-      "condition": "!@local.type_variete",
+      "condition": "@fields.attempt_submit_p9 && !@fields.date_semence",
       "_nested_name": "html_text",
       "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
-            "matchedExpression": "@global.warning_message",
-            "type": "global",
-            "fieldName": "warning_message"
-          }
-        ],
         "condition": [
           {
-            "fullExpression": "!@local.type_variete",
-            "matchedExpression": "!@local.type_variete",
-            "type": "local",
-            "fieldName": "type_variete"
+            "fullExpression": "@fields.attempt_submit_p9 && !@fields.date_semence",
+            "matchedExpression": "@fields.attempt_submit_p9",
+            "type": "fields",
+            "fieldName": "attempt_submit_p9"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit_p9 && !@fields.date_semence",
+            "matchedExpression": "!@fields.date_semence",
+            "type": "fields",
+            "fieldName": "date_semence"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.warning_message": [
-          "value"
+        "@fields.attempt_submit_p9": [
+          "condition"
         ],
-        "!@local.type_variete": [
+        "!@fields.date_semence": [
           "condition"
         ]
       }
     },
     {
-      "name": "completed_enabled",
-      "value": "@fields.nom_variete && @fields.type_variete",
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "audio",
+          "name": "audio_9_2",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Superficie/q_semence_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "_nested_name": "display_group_11.audio_9_2"
+        },
+        {
+          "type": "html",
+          "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Quantité de semence de @fields.cult_princip (en kg) :</label",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "display_group_11.html_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Quantité de semence de @fields.cult_princip (en kg) :</label",
+                "matchedExpression": "@fields.cult_princip",
+                "type": "fields",
+                "fieldName": "cult_princip"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.cult_princip": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_11",
+      "_nested_name": "display_group_11"
+    },
+    {
+      "type": "image",
+      "value": "images/kg.jpg",
       "_translations": {
         "value": {}
       },
-      "exclude_from_translation": true,
-      "type": "set_variable",
-      "_nested_name": "completed_enabled",
+      "style_list": [
+        "width: 60%",
+        "object-fit: contain"
+      ],
+      "name": "image_13",
+      "_nested_name": "image_13"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: #555; font-size: 14px;\">@global.semence_kg</p>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_14",
+      "_nested_name": "html_14",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.nom_variete && @fields.type_variete",
-            "matchedExpression": "@fields.nom_variete",
-            "type": "fields",
-            "fieldName": "nom_variete"
-          },
-          {
-            "fullExpression": "@fields.nom_variete && @fields.type_variete",
-            "matchedExpression": "@fields.type_variete",
-            "type": "fields",
-            "fieldName": "type_variete"
+            "fullExpression": "<p style=\"color: #555; font-size: 14px;\">@global.semence_kg</p>",
+            "matchedExpression": "@global.semence_kg",
+            "type": "global",
+            "fieldName": "semence_kg"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.nom_variete": [
+        "@global.semence_kg": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_semence",
+      "value": "@fields.quantite_semence",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "quantite_semence",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: quantite_semence : this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true\nplaceholder"
+      },
+      "condition": "!!@fields.quantite_semence",
+      "exclude_from_translation": true,
+      "_nested_name": "quantite_semence",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.quantite_semence",
+            "matchedExpression": "@fields.quantite_semence",
+            "type": "fields",
+            "fieldName": "quantite_semence"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!!@fields.quantite_semence",
+            "matchedExpression": "!@fields.quantite_semence",
+            "type": "fields",
+            "fieldName": "quantite_semence"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_semence": [
           "value"
         ],
-        "@fields.type_variete": [
-          "value"
+        "!@fields.quantite_semence": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_semence",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "quantite_semence",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: quantite_semence : this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Entrez la quantite en kg"
+      },
+      "condition": "!@field.quantite_semence",
+      "exclude_from_translation": true,
+      "_nested_name": "quantite_semence",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!@field.quantite_semence",
+            "matchedExpression": "!@field.quantite_semence",
+            "type": "field",
+            "fieldName": "quantite_semence"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@field.quantite_semence": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<span style=\"color: red; font-size: 13px;\">La quantité est obligatoire !</span>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.attempt_submit_p9 && !@fields.quantite_semence",
+      "_nested_name": "html_text",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit_p9 && !@fields.quantite_semence",
+            "matchedExpression": "@fields.attempt_submit_p9",
+            "type": "fields",
+            "fieldName": "attempt_submit_p9"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit_p9 && !@fields.quantite_semence",
+            "matchedExpression": "!@fields.quantite_semence",
+            "type": "fields",
+            "fieldName": "quantite_semence"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.attempt_submit_p9": [
+          "condition"
+        ],
+        "!@fields.quantite_semence": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez saisir un nombre valide (>= 0) !</span>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!!@fields.quantite_semence && !@local.valid_qte",
+      "name": "html_18",
+      "_nested_name": "html_18",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!!@fields.quantite_semence && !@local.valid_qte",
+            "matchedExpression": "!@fields.quantite_semence",
+            "type": "fields",
+            "fieldName": "quantite_semence"
+          },
+          {
+            "fullExpression": "!!@fields.quantite_semence && !@local.valid_qte",
+            "matchedExpression": "!@local.valid_qte",
+            "type": "local",
+            "fieldName": "valid_qte"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.quantite_semence": [
+          "condition"
+        ],
+        "!@local.valid_qte": [
+          "condition"
         ]
       }
     },
@@ -398,7 +526,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page8_button_back",
+          "name": "page9_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -413,11 +541,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_13.page8_button_back"
+          "_nested_name": "display_group_19.page9_button_back"
         },
         {
           "type": "button",
-          "name": "page8_button_continue",
+          "name": "page9_button_continue",
           "value": "Continuer",
           "_translations": {
             "value": {}
@@ -427,19 +555,28 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "@calc('nom_variete_parcelle_N' + @fields.num_parcelle)",
-                "@fields.nom_variete"
+                "@calc('date_semis_parcelle_N' + @fields.num_parcelle)",
+                "@fields.date_semence"
               ],
-              "_raw": "click | set_field: @calc('nom_variete_parcelle_N' + @fields.num_parcelle) : @fields.nom_variete"
+              "_raw": "click | set_field: @calc('date_semis_parcelle_N' + @fields.num_parcelle) : @fields.date_semence"
             },
             {
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "@calc('type_variete_parcelle_N' + @fields.num_parcelle)",
-                "@fields.type_variete"
+                "@calc('quantite_semence_parcelle_N' + @fields.num_parcelle)",
+                "@fields.quantite_semence"
               ],
-              "_raw": "click | set_field: @calc('type_variete_parcelle_N' + @fields.num_parcelle) : @fields.type_variete"
+              "_raw": "click | set_field: @calc('quantite_semence_parcelle_N' + @fields.num_parcelle) : @fields.quantite_semence"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit_p9",
+                false
+              ],
+              "_raw": "click | set_field: attempt_submit_p9: false"
             },
             {
               "trigger": "click",
@@ -451,48 +588,48 @@
             }
           ],
           "parameter_list": {
-            "disabled": "!@local.completed_enabled"
+            "disabled": "!@local.valid_p9"
           },
-          "_nested_name": "display_group_13.page8_button_continue",
+          "_nested_name": "display_group_19.page9_button_continue",
           "_dynamicFields": {
             "action_list": {
               "0": {
                 "args": {
                   "0": [
                     {
-                      "fullExpression": "@calc('nom_variete_parcelle_N' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('date_semis_parcelle_N' + @fields.num_parcelle)",
                       "matchedExpression": "@fields.num_parcelle",
                       "type": "fields",
                       "fieldName": "num_parcelle"
                     },
                     {
-                      "fullExpression": "@calc('nom_variete_parcelle_N' + @fields.num_parcelle)",
-                      "matchedExpression": "@calc('nom_variete_parcelle_N' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('date_semis_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('date_semis_parcelle_N' + @fields.num_parcelle)",
                       "type": "calc",
-                      "fieldName": "'nom_variete_parcelle_N' + @fields.num_parcelle"
+                      "fieldName": "'date_semis_parcelle_N' + @fields.num_parcelle"
                     }
                   ],
                   "1": [
                     {
-                      "fullExpression": "@fields.nom_variete",
-                      "matchedExpression": "@fields.nom_variete",
+                      "fullExpression": "@fields.date_semence",
+                      "matchedExpression": "@fields.date_semence",
                       "type": "fields",
-                      "fieldName": "nom_variete"
+                      "fieldName": "date_semence"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('nom_variete_parcelle_N' + @fields.num_parcelle) : @fields.nom_variete",
+                    "fullExpression": "click | set_field: @calc('date_semis_parcelle_N' + @fields.num_parcelle) : @fields.date_semence",
                     "matchedExpression": "@fields.num_parcelle",
                     "type": "fields",
                     "fieldName": "num_parcelle"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('nom_variete_parcelle_N' + @fields.num_parcelle) : @fields.nom_variete",
-                    "matchedExpression": "@fields.nom_variete",
+                    "fullExpression": "click | set_field: @calc('date_semis_parcelle_N' + @fields.num_parcelle) : @fields.date_semence",
+                    "matchedExpression": "@fields.date_semence",
                     "type": "fields",
-                    "fieldName": "nom_variete"
+                    "fieldName": "date_semence"
                   }
                 ]
               },
@@ -500,39 +637,39 @@
                 "args": {
                   "0": [
                     {
-                      "fullExpression": "@calc('type_variete_parcelle_N' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('quantite_semence_parcelle_N' + @fields.num_parcelle)",
                       "matchedExpression": "@fields.num_parcelle",
                       "type": "fields",
                       "fieldName": "num_parcelle"
                     },
                     {
-                      "fullExpression": "@calc('type_variete_parcelle_N' + @fields.num_parcelle)",
-                      "matchedExpression": "@calc('type_variete_parcelle_N' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('quantite_semence_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('quantite_semence_parcelle_N' + @fields.num_parcelle)",
                       "type": "calc",
-                      "fieldName": "'type_variete_parcelle_N' + @fields.num_parcelle"
+                      "fieldName": "'quantite_semence_parcelle_N' + @fields.num_parcelle"
                     }
                   ],
                   "1": [
                     {
-                      "fullExpression": "@fields.type_variete",
-                      "matchedExpression": "@fields.type_variete",
+                      "fullExpression": "@fields.quantite_semence",
+                      "matchedExpression": "@fields.quantite_semence",
                       "type": "fields",
-                      "fieldName": "type_variete"
+                      "fieldName": "quantite_semence"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('type_variete_parcelle_N' + @fields.num_parcelle) : @fields.type_variete",
+                    "fullExpression": "click | set_field: @calc('quantite_semence_parcelle_N' + @fields.num_parcelle) : @fields.quantite_semence",
                     "matchedExpression": "@fields.num_parcelle",
                     "type": "fields",
                     "fieldName": "num_parcelle"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('type_variete_parcelle_N' + @fields.num_parcelle) : @fields.type_variete",
-                    "matchedExpression": "@fields.type_variete",
+                    "fullExpression": "click | set_field: @calc('quantite_semence_parcelle_N' + @fields.num_parcelle) : @fields.quantite_semence",
+                    "matchedExpression": "@fields.quantite_semence",
                     "type": "fields",
-                    "fieldName": "type_variete"
+                    "fieldName": "quantite_semence"
                   }
                 ]
               }
@@ -540,10 +677,10 @@
             "parameter_list": {
               "disabled": [
                 {
-                  "fullExpression": "!@local.completed_enabled",
-                  "matchedExpression": "!@local.completed_enabled",
+                  "fullExpression": "!@local.valid_p9",
+                  "matchedExpression": "!@local.valid_p9",
                   "type": "local",
-                  "fieldName": "completed_enabled"
+                  "fieldName": "valid_p9"
                 }
               ]
             }
@@ -555,28 +692,28 @@
               "action_list.1.args.0",
               "action_list.1._raw"
             ],
-            "@calc('nom_variete_parcelle_N' + @fields.num_parcelle)": [
+            "@calc('date_semis_parcelle_N' + @fields.num_parcelle)": [
               "action_list.0.args.0"
             ],
-            "@fields.nom_variete": [
+            "@fields.date_semence": [
               "action_list.0.args.1",
               "action_list.0._raw"
             ],
-            "@calc('type_variete_parcelle_N' + @fields.num_parcelle)": [
+            "@calc('quantite_semence_parcelle_N' + @fields.num_parcelle)": [
               "action_list.1.args.0"
             ],
-            "@fields.type_variete": [
+            "@fields.quantite_semence": [
               "action_list.1.args.1",
               "action_list.1._raw"
             ],
-            "!@local.completed_enabled": [
+            "!@local.valid_p9": [
               "parameter_list.disabled"
             ]
           }
         }
       ],
-      "name": "display_group_13",
-      "_nested_name": "display_group_13"
+      "name": "display_group_19",
+      "_nested_name": "display_group_19"
     }
   ],
   "_source": {

@@ -4,145 +4,340 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle ",
-      "value": "**Quantité de fertilisant dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**"
+      "name": "valid_npk_coton",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_coton) && Number(@fields.quantite_npk_coton) >= 0)"
     },
     {
-      "type": "begin_display_group"
+      "name": "valid_npk_cereale",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale) && Number(@fields.quantite_npk_cereale) >= 0)"
     },
     {
-      "type": "text",
-      "value": "Quantité de fumure organique (charretée) dans la parcelle N⁰@fields.num_parcelle"
+      "name": "valid_uree",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_uree) && Number(@fields.quantite_uree) >= 0)"
     },
     {
-      "type": "audio",
-      "name": "audio_12_1",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/qte_fo_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float : right;"
+      "name": "valid_dap",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_dap) && Number(@fields.quantite_dap) >= 0)"
     },
     {
-      "type": "end_display_group"
+      "name": "valid_autre_engrais",
+      "value": "@calc(!@fields.autre_engrais_mineral || @fields.autre_engrais_mineral === 'non' || (@fields.autre_engrais_mineral === 'oui' && !!@fields.nom_autre_engrais && @fields.nom_autre_engrais.trim() !== '' && /^\\d+(\\.\\d+)?$/.test(@fields.quantite_autre_engrais) && Number(@fields.quantite_autre_engrais) >= 0))"
     },
     {
-      "type": "image",
-      "value": "images/charrette.jpg",
-      "style_list": "width:100px; height:100px; "
+      "name": "completed_enabled",
+      "value": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : @local.valid_npk_cereale) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> Mettez 0 si aucune fumure organique </p>"
-    },
-    {
-      "type": "text_box",
-      "name": "quantite_fumure_organique",
-      "value": "@fields.quantite_fumure_organique",
-      "action_list": "changed | set_field: quantite_fumure_organique : this.value;",
-      "parameter_list": "number_input: true\nplaceholder: Entrez le nombre de charetée;",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@fields.quantite_fumure_organique"
-    },
-    {
-      "name": "valid_quantite_fumure_organique",
-      "value": "@calc((/^\\d+$/.test(@local.quantite_fumure_organique) && @local.quantite_fumure_organique>= 0 ) || @local.quantite_fumure_organique == '' || !@local.quantite_fumure_organique)",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "text",
-      "value": "@global.validite_nombre",
-      "condition": "!@local.valid_quantite_fumure_organique",
-      "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 14px"
+      "type": "title",
+      "value": "**Quantité d'engrais minéraux dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**"
     },
     {
       "type": "begin_display_group",
-      "condition": "@fields.quantite_fumure_organique > 0"
+      "style_list": "display: block; width: 100%; margin-top: 10px; padding: 10px; background: #f4f7fc;"
     },
     {
-      "type": "text",
-      "value": "Sélectionnez le(s) type(s) de fumure organique appliqué à la parcelle N⁰@fields.num_parcelle"
+      "type": "html",
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> L'information sur les engrais minéraux est-elle disponible ?</label>"
     },
     {
       "type": "audio",
-      "name": "audio_12_2",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/type_fo_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float : right;"
+      "name": "audio_13_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/on_info_engrais_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
     },
     {
       "type": "end_display_group"
+    },
+    {
+      "type": "begin_radio_list",
+      "name": "on_fertilisant_info",
+      "value": "@fields.on_fertilisant_info",
+      "action_list": "changed | set_field: on_fertilisant_info: this.value;",
+      "style_list": "display: flex; align-items: center; grid_gap: 15px; margin-top: 10px;"
     },
     {
       "type": "begin_data_items",
-      "value": "@data.type_fumure",
-      "condition": "@fields.quantite_fumure_organique > 0"
-    },
-    {
-      "type": "begin_display_group",
-      "condition": "@fields.quantite_fumure_organique > 0"
-    },
-    {
-      "type": "simple_checkbox",
-      "name": "@item.name",
-      "value": "@fields.@item.name",
-      "action_list": "changed | set_field: @item.name: !@fields.@item.name;",
-      "parameter_list": "align: left; label_text: @item.text;\n",
-      "exclude_from_translation": true,
-      "style_list": "margin-bottom: 10px;"
-    },
-    {
-      "type": "end_display_group"
+      "value": "@data.oui_non"
     },
     {
       "type": "end_data_items"
     },
     {
-      "name": "valid_type_fumure",
-      "value": "@calc(!!@fields.tas_ordures|| !!@fields.fumier_parcs || !!@fields.fumier_fosses)"
+      "type": "end_radio_list"
     },
     {
-      "type": "text",
-      "value": "@global.warning_message ",
-      "condition": "!@local.valid_type_fumure && @fields.quantite_fumure_organique > 0",
-      "style_list": "color: red; font-size: 16px;"
+      "type": "html",
+      "value": "<span style=\"color: red; font-size: 13px;\">La sélection est obligatoire !</span>",
+      "condition": "@fields.attempt_submit_p13 && !@fields.on_fertilisant_info"
     },
     {
       "type": "begin_display_group",
-      "condition": "@fields.autre_fumier == true"
+      "condition": "@fields.on_fertilisant_info == 'non'",
+      "style_list": "margin: 15px 0; padding: 12px; background: #fff3cd;"
     },
     {
-      "type": "text",
-      "value": "@global.autre_message"
+      "type": "html",
+      "value": "<p style=\"margin: 0; color: #856404; font-size: 13px; line-height: 1.4; font-weight: 500;\">VEUILLEZ CONTINUER. Cependant, vous devez revenir renseigner les quantités des engrais minéraux dès que l'information sera disponible.</p>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.on_fertilisant_info == 'oui' && @fields.culture == 'coton'"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: flex; align-items: center; grid_gap: 12px; margin-bottom: 8px;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"font-size: 13px; color: #1e3656; font-weight: bold;\">Complexe Coton 14-18-18 (sacs de 50kg)</span>"
     },
     {
       "type": "audio",
-      "name": "audio_12_2",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/autre_fo_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float : right;"
+      "name": "audio_13_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/qte_npk_coton_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "image",
+      "value": "images/sac.jpg",
+      "style_list": "width: 80%; object-fit: contain;\n\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_npk_coton",
+      "value": "@fields.quantite_npk_coton",
+      "action_list": "changed | set_field: quantite_npk_coton: this.value;",
+      "parameter_list": "placeholder: Mettez 0 si aucun apport;",
+      "condition": "@fields.on_fertilisant_info == 'oui' && @fields.culture == 'coton'"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
+      "condition": "@fields.attempt_submit_p13 && !@local.valid_npk_coton"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.on_fertilisant_info == 'oui' && @fields.culture != 'coton'",
+      "style_list": "display: block; width: 100%; margin-top: 20px; "
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: flex; align-items: center; grid_gap: 12px; margin-bottom: 8px;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"font-size: 13px; color: #1e3656; font-weight: bold;\">Complexe Céréale NPK (sacs de 50kg)</span>"
+    },
+    {
+      "type": "audio",
+      "name": "audio_13_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/qte_npk_15_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "image",
+      "value": "images/sac.jpg",
+      "style_list": "width: 50%; object-fit: contain;\n\n\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_npk_cereale",
+      "value": "@fields.quantite_npk_cereale",
+      "action_list": "changed | set_field: quantite_npk_cereale: this.value;",
+      "parameter_list": "placeholder: Mettez 0 si aucun apport;",
+      "condition": "@fields.on_fertilisant_info == 'oui' && @fields.culture != 'coton'"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
+      "condition": "@fields.attempt_submit_p13 && !@local.valid_npk_cerealeTRUE"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.on_fertilisant_info == 'oui'",
+      "style_list": "display: block; width: 100%; margin-top: 15px;padding: 12px; border-radius: 8px;"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: flex; align-items: center; grid_gap: 12px; margin-bottom: 8px;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"font-size: 13px; color: #1e3656; font-weight: bold;\">Urée (sacs de 50kg)</span>"
+    },
+    {
+      "type": "audio",
+      "name": "audio_13_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/qte_uree_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "image",
+      "value": "images/sac.jpg",
+      "style_list": "width: 50%; object-fit: contain;\n\n\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_uree",
+      "value": "@fields.quantite_uree",
+      "action_list": "changed | set_field: quantite_uree: this.value;",
+      "parameter_list": "placeholder: Mettez 0 si aucun apport;",
+      "condition": "@fields.on_fertilisant_info == 'oui'"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
+      "condition": "@fields.attempt_submit_p13 && !@local.valid_uree"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.on_fertilisant_info == 'oui' && @fields.culture == 'riz'",
+      "style_list": "display: block; width: 100%; margin-top: 15px; padding: 12px;"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: flex; align-items: center; grid_gap: 12px; margin-bottom: 8px;"
+    },
+    {
+      "type": "html",
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> DAP (sacs de 50kg) :</label>"
+    },
+    {
+      "type": "audio",
+      "name": "audio_13_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/qte_dap_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "image",
+      "value": "images/sac.jpg",
+      "style_list": "width: 50%; object-fit: contain;\n\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_dap",
+      "value": "@fields.quantite_dap",
+      "action_list": "changed | set_field: quantite_dap: this.value;",
+      "parameter_list": "placeholder: Mettez 0 si aucun apport;",
+      "condition": "@fields.on_fertilisant_info == 'oui' && @fields.culture == 'riz'"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
+      "style_list": "@fields.attempt_submit_p13 && !@local.valid_dap"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.on_fertilisant_info == 'oui'",
+      "style_list": "display: block; width: 100%; margin-top: 20px; padding-top: 15px;"
+    },
+    {
+      "type": "html",
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\">Un autre type d'engrais a-t-il été apporté ?</label>"
+    },
+    {
+      "type": "audio",
+      "name": "audio_13_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/autre_engrais_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: flex; align-items: center; grid_gap: 15px; margin-top: 8px;"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "autre_engrais_mineral",
+      "value": "@fields.autre_engrais_mineral",
+      "action_list": "changed | set_field: autre_engrais_mineral : this.value;",
+      "parameter_list": "answer_list: @data.oui_non;\nvariant: flex; item_width: 100px; grid_gap: 10px; style: secondary;"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: black;\"> @global.autre_fumure</p>",
-      "condition": "@fields.autre_fumier == true"
+      "value": "<span style=\"color: red; font-size: 13px;\">La sélection est obligatoire !</span>",
+      "condition": "@fields.attempt_submit_p13 && !@fields.autre_engrais_mineral"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.on_fertilisant_info == 'oui' && @fields.autre_engrais_mineral == 'oui'",
+      "style_list": "display: block; width: 100%; margin-top: 12px; padding: 12px;"
+    },
+    {
+      "type": "html",
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Nom de l'autre engrais :</label>"
+    },
+    {
+      "type": "audio",
+      "name": "audio_13_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/nom_autre_engrais_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "text_box",
-      "action_list": "changed | set_field: autre_fumier: this.value;",
-      "parameter_list": "max_length: 30;\nplaceholder: Ecrivez le nom ",
-      "condition": "@fields.autre_fumier == true",
-      "exclude_from_translation_1": true
+      "name": "nom_autre_engrais",
+      "value": "@fields.nom_autre_engrais",
+      "action_list": "changed | set_field: nom_autre_engrais: this.value;",
+      "parameter_list": "placeholder: Précisez le nom (ou \"ne sais pas\");",
+      "condition": "@fields.on_fertilisant_info == 'oui' && @fields.autre_engrais_mineral == 'oui'"
     },
     {
-      "name": "type_fumure_selected",
-      "value": "@calc([@fields.tas_ordures ? 'tas_ordures' : null,@fields.fumier_parcs ? 'fumier_parcs' : null,@fields.fumier_fosses ? 'fumier_fosses' : null].filter(v => v !== null).join(','))",
-      "action_list": "@calc(!!@fields.tas_ordures|| !!@fields.fumier_parcs || !!@fields.fumier_fosses)"
+      "type": "begin_display_group",
+      "condition": "@fields.on_fertilisant_info == 'oui' && @fields.autre_engrais_mineral == 'oui'",
+      "style_list": "display: block; width: 100%; margin-top: 12px; padding: 12px;"
+    },
+    {
+      "type": "html",
+      "value": "<label style=\"color: #1e3656; font-weight: bold; margin-top: 12px; display: block;\"><span style=\"color: red;\">*</span> Quantité apportée (sacs de 50kg) :</label>"
+    },
+    {
+      "type": "audio",
+      "name": "audio_13_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/qte_autre_engrais_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_autre_engrais",
+      "value": "@fields.quantite_autre_engrais",
+      "action_list": "changed | set_field: quantite_autre_engrais: this.value;",
+      "parameter_list": "placeholder: Quantité (sacs);",
+      "condition": "@fields.on_fertilisant_info == 'oui' && @fields.autre_engrais_mineral == 'oui'"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>\n",
+      "condition": "@fields.attempt_submit_p13 && (!@fields.quantite_autre_engrais || !/^\\d+(\\.\\d+)?$/.test(@fields.quantite_autre_engrais))"
     },
     {
       "type": "begin_display_group",
@@ -151,21 +346,16 @@
       "exclude_from_translation": "padding: 12px 24px;"
     },
     {
-      "name": "completed_enabled",
-      "value": "@fields.quantite_fumure_organique",
-      "exclude_from_translation": true
-    },
-    {
       "type": "round_button",
-      "name": "page12_button_back",
+      "name": "page13_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page12_button_continue",
+      "name": "page13_button_continue",
       "value": "Continuer",
-      "action_list": "click | set_field: @calc('type_fumure_selected_parcelle_N' + @fields.num_parcelle) : @local.type_fumure_selected;\nclick | set_field: @calc('quantite_fumure_organique_parcelle_N⁰' + @fields.num_parcelle) : @fields.quantite_fumure_organique;\nclick | set_field: @calc('autre_fumier_parcelle_N' + @fields.num_parcelle) : @fields.autre_fumier;\nclick | emit: completed;",
+      "action_list": "click | set_field: @calc('on_fertilisant_info_parcelle_N' + @fields.num_parcelle) : @fields.on_fertilisant_info;\n        click | set_field: @calc('qte_npk_coton_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk_coton;\n        click | set_field: @calc('qte_npk_cereale_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk_cereale;\n        click | set_field: @calc('qte_uree_parcelle_N' + @fields.num_parcelle) : @fields.quantite_uree;\n        click | set_field: @calc('qte_dap_parcelle_N' + @fields.num_parcelle) : @fields.quantite_dap;\n        click | set_field: @calc('autre_engrais_mineral_parcelle_N' + @fields.num_parcelle) : @fields.autre_engrais_mineral;\n        click | set_field: @calc('nom_autre_engrais_parcelle_N' + @fields.num_parcelle) : @fields.nom_autre_engrais;\n        click | set_field: @calc('qte_autre_engrais_parcelle_N' + @fields.num_parcelle) : @fields.quantite_autre_engrais;\n        click | set_field: attempt_submit_p13: false;\n        click | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled"
     },
     {

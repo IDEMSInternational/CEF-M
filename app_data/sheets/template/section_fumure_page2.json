@@ -4,99 +4,69 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "name": "page_title",
-      "_nested_name": "page_title"
-    },
-    {
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "name": "campaign_year_label",
-          "value": "<span style=\"color: red;\">*</span> @global.campaign_year_label",
+          "type": "title",
+          "name": "page_title",
+          "value": "RECOMMENDATIONS DE LA RECHERCHE:",
           "_translations": {
             "value": {}
           },
-          "style_list": [
-            "font-size:20px"
-          ],
-          "_nested_name": "display_group_3.campaign_year_label",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "<span style=\"color: red;\">*</span> @global.campaign_year_label",
-                "matchedExpression": "@global.campaign_year_label",
-                "type": "global",
-                "fieldName": "campaign_year_label"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@global.campaign_year_label": [
-              "value"
-            ]
-          }
+          "_nested_name": "display_group_2.page_title"
         },
         {
           "type": "audio",
           "name": "audio_2_1",
           "parameter_list": {
-            "variant": "compact",
-            "src": "audio/semis/annee_saison_fr.mp3",
+            "variant": "button_only",
+            "src": "audio/fumureOrganique/rech_reco_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
-          "style_list": [
-            "float : right"
-          ],
-          "_nested_name": "display_group_3.audio_2_1"
+          "_nested_name": "display_group_2.audio_2_1"
         }
       ],
-      "name": "display_group_3",
-      "_nested_name": "display_group_3"
+      "name": "display_group_2",
+      "_nested_name": "display_group_2"
     },
     {
-      "name": "year_campaign",
-      "type": "set_variable",
-      "_nested_name": "year_campaign"
-    },
-    {
-      "type": "date_time_picker",
-      "name": "year_campaign",
-      "value": "@fields.year_campaign",
+      "type": "text",
+      "name": "introduction_formulaire",
+      "value": "@global.recommendation_fumure_organique_recherche",
       "_translations": {
         "value": {}
       },
-      "action_list": [
-        {
-          "trigger": "changed",
-          "action_id": "set_local",
-          "args": [
-            "year_campaign",
-            "this.value"
-          ],
-          "_raw": "changed | set_local: year_campaign: this.value"
-        }
-      ],
-      "parameter_list": {
-        "type": "date"
-      },
-      "_nested_name": "year_campaign",
+      "_nested_name": "introduction_formulaire",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.year_campaign",
-            "matchedExpression": "@fields.year_campaign",
-            "type": "fields",
-            "fieldName": "year_campaign"
+            "fullExpression": "@global.recommendation_fumure_organique_recherche",
+            "matchedExpression": "@global.recommendation_fumure_organique_recherche",
+            "type": "global",
+            "fieldName": "recommendation_fumure_organique_recherche"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.year_campaign": [
+        "@global.recommendation_fumure_organique_recherche": [
           "value"
         ]
       }
+    },
+    {
+      "type": "image",
+      "value": "images/product_fumure.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:200px",
+        "height:200px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_5",
+      "_nested_name": "image_5"
     },
     {
       "type": "display_group",
@@ -145,9 +115,6 @@
               "_raw": "click | emit: completed"
             }
           ],
-          "parameter_list": {
-            "disabled": "!@local.year_campaign"
-          },
           "style_list": [
             "flex: 1"
           ],
@@ -160,24 +127,11 @@
                 "type": "global",
                 "fieldName": "btn_continue"
               }
-            ],
-            "parameter_list": {
-              "disabled": [
-                {
-                  "fullExpression": "!@local.year_campaign",
-                  "matchedExpression": "!@local.year_campaign",
-                  "type": "local",
-                  "fieldName": "year_campaign"
-                }
-              ]
-            }
+            ]
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
-            ],
-            "!@local.year_campaign": [
-              "parameter_list.disabled"
             ]
           }
         }

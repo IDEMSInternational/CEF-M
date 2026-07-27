@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "COMPRENDRE LES TYPES D'EXPLOITATION",
+      "value": "RENDEMENTS MOYENS DE VOTRE UPA",
       "_translations": {
         "value": {}
       },
@@ -13,174 +13,820 @@
       "_nested_name": "title_2"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: #666; font-size: 13px; line-height: 1.5;\">Les exploitations sont classées selon leur niveau d'équipement (boeufs, charrues) et leur cheptel. <br>Choisissez celle qui correspond le mieux à votre situation :</p>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_3",
-      "_nested_name": "html_3"
-    },
-    {
-      "type": "html",
-      "value": "<div style=\"font-size: 13px; color: #333;\">\n  <p><b>• Type A :</b> Grande Exploitation (Grand troupeau bovin + matériel complet)</p>\n  <p><b>• Type B :</b> Grande Exploitation (Matériel complet + quelques bovins)</p>\n  <p><b>• Type C :</b> Moyenne Exploitation (Matériel de base)</p>\n  <p><b>• Type D :</b> Petite Exploitation (Peu ou pas d'équipement)</p>\n</div>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_4",
-      "_nested_name": "html_4"
-    },
-    {
-      "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold; display: block; margin-bottom: 15px;\"><span style=\"color: red;\">*</span>Sélectionnez le type de votre UPA :</label>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_5",
-      "_nested_name": "html_5"
-    },
-    {
-      "type": "radio_button_grid",
-      "name": "type_menage_id@field.type_menage_id",
-      "value": "@field.type_menage_id",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "type_menage_id",
-            "this.value"
-          ],
-          "_raw": "changed | set_field: type_menage_id: this.value"
-        }
-      ],
-      "parameter_list": {
-        "answer_list": "@data.type_menage",
-        "columns": "2"
-      },
-      "_nested_name": "type_menage_id@field.type_menage_id",
-      "_dynamicFields": {
-        "name": [
-          {
-            "fullExpression": "type_menage_id@field.type_menage_id",
-            "matchedExpression": "@field.type_menage_id",
-            "type": "field",
-            "fieldName": "type_menage_id"
-          }
-        ],
-        "value": [
-          {
-            "fullExpression": "@field.type_menage_id",
-            "matchedExpression": "@field.type_menage_id",
-            "type": "field",
-            "fieldName": "type_menage_id"
-          }
-        ],
-        "parameter_list": {
-          "answer_list": [
-            {
-              "fullExpression": "@data.type_menage",
-              "matchedExpression": "@data.type_menage",
-              "type": "data",
-              "fieldName": "type_menage"
-            }
-          ]
-        },
-        "_nested_name": [
-          {
-            "fullExpression": "type_menage_id@field.type_menage_id",
-            "matchedExpression": "@field.type_menage_id",
-            "type": "field",
-            "fieldName": "type_menage_id"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.type_menage_id": [
-          "name",
-          "value",
-          "_nested_name"
-        ],
-        "@data.type_menage": [
-          "parameter_list.answer_list"
-        ]
-      }
-    },
-    {
-      "name": "v_type_nom_clair",
-      "value": "@calc(@field.type_menage_id== 'HRE-LH' ? 'Type A' : (@field.type_menage_id== 'HRE' ? 'Type B' : (@field.type_menage_id== 'MRE' ? 'Type C' : 'Type D')))",
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "v_type_nom_clair",
+      "_nested_name": "attempt_submit",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(@field.type_menage_id== 'HRE-LH' ? 'Type A' : (@field.type_menage_id== 'HRE' ? 'Type B' : (@field.type_menage_id== 'MRE' ? 'Type C' : 'Type D')))",
-            "matchedExpression": "@field.type_menage_id",
-            "type": "field",
-            "fieldName": "type_menage_id"
-          },
-          {
-            "fullExpression": "@calc(@field.type_menage_id== 'HRE-LH' ? 'Type A' : (@field.type_menage_id== 'HRE' ? 'Type B' : (@field.type_menage_id== 'MRE' ? 'Type C' : 'Type D')))",
-            "matchedExpression": "@field.type_menage_id",
-            "type": "field",
-            "fieldName": "type_menage_id"
-          },
-          {
-            "fullExpression": "@calc(@field.type_menage_id== 'HRE-LH' ? 'Type A' : (@field.type_menage_id== 'HRE' ? 'Type B' : (@field.type_menage_id== 'MRE' ? 'Type C' : 'Type D')))",
-            "matchedExpression": "@field.type_menage_id",
-            "type": "field",
-            "fieldName": "type_menage_id"
-          },
-          {
-            "fullExpression": "@calc(@field.type_menage_id== 'HRE-LH' ? 'Type A' : (@field.type_menage_id== 'HRE' ? 'Type B' : (@field.type_menage_id== 'MRE' ? 'Type C' : 'Type D')))",
-            "matchedExpression": "@calc(@field.type_menage_id== 'HRE-LH' ? 'Type A' : (@field.type_menage_id== 'HRE' ? 'Type B' : (@field.type_menage_id== 'MRE' ? 'Type C' : 'Type D')))",
-            "type": "calc",
-            "fieldName": "@field.type_menage_id== 'HRE-LH' ? 'Type A' : (@field.type_menage_id== 'HRE' ? 'Type B' : (@field.type_menage_id== 'MRE' ? 'Type C' : 'Type D'))"
+            "fullExpression": "@fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.type_menage_id": [
-          "value",
+        "@fields.attempt_submit": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_rend_moyen_mais",
+      "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_mais) && Number(@local.rend_moyen_mais) > 0) || !@local.rend_moyen_mais)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_rend_moyen_mais",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_mais) && Number(@local.rend_moyen_mais) > 0) || !@local.rend_moyen_mais)",
+            "matchedExpression": "@local.rend_moyen_mais",
+            "type": "local",
+            "fieldName": "rend_moyen_mais"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_mais) && Number(@local.rend_moyen_mais) > 0) || !@local.rend_moyen_mais)",
+            "matchedExpression": "@local.rend_moyen_mais",
+            "type": "local",
+            "fieldName": "rend_moyen_mais"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_mais) && Number(@local.rend_moyen_mais) > 0) || !@local.rend_moyen_mais)",
+            "matchedExpression": "!@local.rend_moyen_mais",
+            "type": "local",
+            "fieldName": "rend_moyen_mais"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_mais) && Number(@local.rend_moyen_mais) > 0) || !@local.rend_moyen_mais)",
+            "matchedExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_mais) && Number(@local.rend_moyen_mais) > 0) || !@local.rend_moyen_mais)",
+            "type": "calc",
+            "fieldName": "(/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_mais) && Number(@local.rend_moyen_mais) > 0) || !@local.rend_moyen_mais"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.rend_moyen_mais": [
           "value",
           "value"
         ],
-        "@calc(@field.type_menage_id== 'HRE-LH' ? 'Type A' : (@field.type_menage_id== 'HRE' ? 'Type B' : (@field.type_menage_id== 'MRE' ? 'Type C' : 'Type D')))": [
+        "!@local.rend_moyen_mais": [
+          "value"
+        ],
+        "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_mais) && Number(@local.rend_moyen_mais) > 0) || !@local.rend_moyen_mais)": [
           "value"
         ]
       }
     },
     {
       "type": "display_group",
-      "condition": "@field.type_menage_id",
+      "parameter_list": {
+        "style": "column"
+      },
+      "condition": "@fields.sac_mais != 0",
       "rows": [
         {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "html",
+              "value": "Donnez le rendement moyen du maïs de votre exploitation (sac de 100kg/ha)<span style=\"color: red;\">*</span>",
+              "_translations": {
+                "value": {}
+              },
+              "name": "html_1",
+              "_nested_name": "display_group_4.display_group_1.html_1"
+            },
+            {
+              "type": "audio",
+              "name": "audio_6_1",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/alimentationHumaine/rdt_moyen_mais_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "style_list": [
+                "float : right"
+              ],
+              "_nested_name": "display_group_4.display_group_1.audio_6_1"
+            }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_4.display_group_1"
+        },
+        {
           "type": "html",
-          "value": "Vous avez sélectionné le <b>Groupe @local.v_type_nom_clair</b>",
+          "value": "<p style=\"color: black;\"> @global.rendement_hint </p>",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_8.html_1",
+          "style_list": [
+            "font-size: 12px"
+          ],
+          "name": "html_2",
+          "_nested_name": "display_group_4.html_2",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "Vous avez sélectionné le <b>Groupe @local.v_type_nom_clair</b>",
-                "matchedExpression": "@local.v_type_nom_clair",
-                "type": "local",
-                "fieldName": "v_type_nom_clair"
+                "fullExpression": "<p style=\"color: black;\"> @global.rendement_hint </p>",
+                "matchedExpression": "@global.rendement_hint",
+                "type": "global",
+                "fieldName": "rendement_hint"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@local.v_type_nom_clair": [
+            "@global.rendement_hint": [
               "value"
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "value": "images/mais.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px"
+          ],
+          "name": "image_3",
+          "_nested_name": "display_group_4.image_3"
+        },
+        {
+          "type": "text_box",
+          "name": "rend_moyen_mais",
+          "value": "@fields.rend_moyen_mais",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "rend_moyen_mais",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: rend_moyen_mais : this.value"
+            }
+          ],
+          "parameter_list": {
+            "input_type": "number",
+            "placeholder": "Entrez le rendement de maïs"
+          },
+          "style_list": [
+            "margin: 10px"
+          ],
+          "_nested_name": "display_group_4.rend_moyen_mais",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.rend_moyen_mais",
+                "matchedExpression": "@fields.rend_moyen_mais",
+                "type": "fields",
+                "fieldName": "rend_moyen_mais"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.rend_moyen_mais": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "html",
+          "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "!@fields.rend_moyen_mais && @fields.attempt_submit",
+          "name": "html_6",
+          "_nested_name": "display_group_4.html_6",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+                "matchedExpression": "@global.reponse_obligatoire",
+                "type": "global",
+                "fieldName": "reponse_obligatoire"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!@fields.rend_moyen_mais && @fields.attempt_submit",
+                "matchedExpression": "!@fields.rend_moyen_mais",
+                "type": "fields",
+                "fieldName": "rend_moyen_mais"
+              },
+              {
+                "fullExpression": "!@fields.rend_moyen_mais && @fields.attempt_submit",
+                "matchedExpression": "@fields.attempt_submit",
+                "type": "fields",
+                "fieldName": "attempt_submit"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.reponse_obligatoire": [
+              "value"
+            ],
+            "!@fields.rend_moyen_mais": [
+              "condition"
+            ],
+            "@fields.attempt_submit": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.erreur_rendement",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "!@local.valid_rend_moyen_mais",
+          "style_list": [
+            "color: red",
+            "font-size: 12px"
+          ],
+          "name": "text_7",
+          "_nested_name": "display_group_4.text_7",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.erreur_rendement",
+                "matchedExpression": "@global.erreur_rendement",
+                "type": "global",
+                "fieldName": "erreur_rendement"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!@local.valid_rend_moyen_mais",
+                "matchedExpression": "!@local.valid_rend_moyen_mais",
+                "type": "local",
+                "fieldName": "valid_rend_moyen_mais"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.erreur_rendement": [
+              "value"
+            ],
+            "!@local.valid_rend_moyen_mais": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_4",
+      "_nested_name": "display_group_4",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.sac_mais != 0",
+            "matchedExpression": "@fields.sac_mais",
+            "type": "fields",
+            "fieldName": "sac_mais"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.sac_mais": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "valid_rend_moyen_mil",
+      "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_mil) && Number(@local.rend_moyen_mil) > 0) || !@local.rend_moyen_mil)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_rend_moyen_mil",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_mil) && Number(@local.rend_moyen_mil) > 0) || !@local.rend_moyen_mil)",
+            "matchedExpression": "@local.rend_moyen_mil",
+            "type": "local",
+            "fieldName": "rend_moyen_mil"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_mil) && Number(@local.rend_moyen_mil) > 0) || !@local.rend_moyen_mil)",
+            "matchedExpression": "@local.rend_moyen_mil",
+            "type": "local",
+            "fieldName": "rend_moyen_mil"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_mil) && Number(@local.rend_moyen_mil) > 0) || !@local.rend_moyen_mil)",
+            "matchedExpression": "!@local.rend_moyen_mil",
+            "type": "local",
+            "fieldName": "rend_moyen_mil"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_mil) && Number(@local.rend_moyen_mil) > 0) || !@local.rend_moyen_mil)",
+            "matchedExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_mil) && Number(@local.rend_moyen_mil) > 0) || !@local.rend_moyen_mil)",
+            "type": "calc",
+            "fieldName": "(/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_mil) && Number(@local.rend_moyen_mil) > 0) || !@local.rend_moyen_mil"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.rend_moyen_mil": [
+          "value",
+          "value"
+        ],
+        "!@local.rend_moyen_mil": [
+          "value"
+        ],
+        "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_mil) && Number(@local.rend_moyen_mil) > 0) || !@local.rend_moyen_mil)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
+      },
+      "condition": "@fields.sac_mil != 0",
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "html",
+              "value": "Donnez le rendement moyen du mil de votre exploitation (sac de 100kg/ha)<span style=\"color: red;\">*</span>",
+              "_translations": {
+                "value": {}
+              },
+              "name": "html_1",
+              "_nested_name": "display_group_6.display_group_1.html_1"
+            },
+            {
+              "type": "audio",
+              "name": "audio_6_2",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/alimentationHumaine/rdt_moyen_mil_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "style_list": [
+                "float : right"
+              ],
+              "_nested_name": "display_group_6.display_group_1.audio_6_2"
+            }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_6.display_group_1"
+        },
+        {
+          "type": "html",
+          "value": "<p style=\"color: black;\"> @global.rendement_hint </p>",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 12px"
+          ],
+          "name": "html_2",
+          "_nested_name": "display_group_6.html_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<p style=\"color: black;\"> @global.rendement_hint </p>",
+                "matchedExpression": "@global.rendement_hint",
+                "type": "global",
+                "fieldName": "rendement_hint"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.rendement_hint": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "value": "images/mil.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px"
+          ],
+          "name": "image_3",
+          "_nested_name": "display_group_6.image_3"
+        },
+        {
+          "type": "text_box",
+          "name": "rend_moyen_mil",
+          "value": "@fields.rend_moyen_mil",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "rend_moyen_mil",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: rend_moyen_mil : this.value"
+            }
+          ],
+          "parameter_list": {
+            "input_type": "number",
+            "placeholder": "Entrez le rendement de mil"
+          },
+          "style_list": [
+            "margin: 10px"
+          ],
+          "_nested_name": "display_group_6.rend_moyen_mil",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.rend_moyen_mil",
+                "matchedExpression": "@fields.rend_moyen_mil",
+                "type": "fields",
+                "fieldName": "rend_moyen_mil"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.rend_moyen_mil": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "html",
+          "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "!@fields.rend_moyen_mil && @fields.attempt_submit",
+          "name": "html_6",
+          "_nested_name": "display_group_6.html_6",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+                "matchedExpression": "@global.reponse_obligatoire",
+                "type": "global",
+                "fieldName": "reponse_obligatoire"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!@fields.rend_moyen_mil && @fields.attempt_submit",
+                "matchedExpression": "!@fields.rend_moyen_mil",
+                "type": "fields",
+                "fieldName": "rend_moyen_mil"
+              },
+              {
+                "fullExpression": "!@fields.rend_moyen_mil && @fields.attempt_submit",
+                "matchedExpression": "@fields.attempt_submit",
+                "type": "fields",
+                "fieldName": "attempt_submit"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.reponse_obligatoire": [
+              "value"
+            ],
+            "!@fields.rend_moyen_mil": [
+              "condition"
+            ],
+            "@fields.attempt_submit": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.erreur_rendement",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "!@local.valid_rend_moyen_mil",
+          "style_list": [
+            "color: red",
+            "font-size: 12px"
+          ],
+          "name": "text_7",
+          "_nested_name": "display_group_6.text_7",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.erreur_rendement",
+                "matchedExpression": "@global.erreur_rendement",
+                "type": "global",
+                "fieldName": "erreur_rendement"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!@local.valid_rend_moyen_mil",
+                "matchedExpression": "!@local.valid_rend_moyen_mil",
+                "type": "local",
+                "fieldName": "valid_rend_moyen_mil"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.erreur_rendement": [
+              "value"
+            ],
+            "!@local.valid_rend_moyen_mil": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_6",
+      "_nested_name": "display_group_6",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.sac_mil != 0",
+            "matchedExpression": "@fields.sac_mil",
+            "type": "fields",
+            "fieldName": "sac_mil"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.sac_mil": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "valid_rend_moyen_sorgho",
+      "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_sorgho) && Number(@local.rend_moyen_sorgho) > 0) || !@local.rend_moyen_sorgho)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_rend_moyen_sorgho",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_sorgho) && Number(@local.rend_moyen_sorgho) > 0) || !@local.rend_moyen_sorgho)",
+            "matchedExpression": "@local.rend_moyen_sorgho",
+            "type": "local",
+            "fieldName": "rend_moyen_sorgho"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_sorgho) && Number(@local.rend_moyen_sorgho) > 0) || !@local.rend_moyen_sorgho)",
+            "matchedExpression": "@local.rend_moyen_sorgho",
+            "type": "local",
+            "fieldName": "rend_moyen_sorgho"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_sorgho) && Number(@local.rend_moyen_sorgho) > 0) || !@local.rend_moyen_sorgho)",
+            "matchedExpression": "!@local.rend_moyen_sorgho",
+            "type": "local",
+            "fieldName": "rend_moyen_sorgho"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_sorgho) && Number(@local.rend_moyen_sorgho) > 0) || !@local.rend_moyen_sorgho)",
+            "matchedExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_sorgho) && Number(@local.rend_moyen_sorgho) > 0) || !@local.rend_moyen_sorgho)",
+            "type": "calc",
+            "fieldName": "(/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_sorgho) && Number(@local.rend_moyen_sorgho) > 0) || !@local.rend_moyen_sorgho"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.rend_moyen_sorgho": [
+          "value",
+          "value"
+        ],
+        "!@local.rend_moyen_sorgho": [
+          "value"
+        ],
+        "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_sorgho) && Number(@local.rend_moyen_sorgho) > 0) || !@local.rend_moyen_sorgho)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
+      },
+      "condition": "@fields.sac_sorgho != 0",
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "html",
+              "value": "Donnez le rendement moyen du sorgho de votre exploitation (sac de 100kg/ha)<span style=\"color: red;\">*</span>",
+              "_translations": {
+                "value": {}
+              },
+              "name": "html_1",
+              "_nested_name": "display_group_8.display_group_1.html_1"
+            },
+            {
+              "type": "audio",
+              "name": "audio_6_3",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/alimentationHumaine/rdt_moyen_sorgho_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "style_list": [
+                "float : right"
+              ],
+              "_nested_name": "display_group_8.display_group_1.audio_6_3"
+            }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_8.display_group_1"
+        },
+        {
+          "type": "html",
+          "value": "<p style=\"color: black;\"> @global.rendement_hint </p>",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 12px"
+          ],
+          "name": "html_2",
+          "_nested_name": "display_group_8.html_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<p style=\"color: black;\"> @global.rendement_hint </p>",
+                "matchedExpression": "@global.rendement_hint",
+                "type": "global",
+                "fieldName": "rendement_hint"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.rendement_hint": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "value": "images/sorgho.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px"
+          ],
+          "name": "image_3",
+          "_nested_name": "display_group_8.image_3"
+        },
+        {
+          "type": "text_box",
+          "name": "rend_moyen_sorgho",
+          "value": "@fields.rend_moyen_sorgho",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "rend_moyen_sorgho",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: rend_moyen_sorgho : this.value"
+            }
+          ],
+          "parameter_list": {
+            "input_type": "number",
+            "placeholder": "Entrez le rendement de sorgho"
+          },
+          "style_list": [
+            "margin: 10px"
+          ],
+          "_nested_name": "display_group_8.rend_moyen_sorgho",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.rend_moyen_sorgho",
+                "matchedExpression": "@fields.rend_moyen_sorgho",
+                "type": "fields",
+                "fieldName": "rend_moyen_sorgho"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.rend_moyen_sorgho": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "html",
+          "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "!@fields.rend_moyen_sorgho && @fields.attempt_submit",
+          "name": "html_6",
+          "_nested_name": "display_group_8.html_6",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+                "matchedExpression": "@global.reponse_obligatoire",
+                "type": "global",
+                "fieldName": "reponse_obligatoire"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!@fields.rend_moyen_sorgho && @fields.attempt_submit",
+                "matchedExpression": "!@fields.rend_moyen_sorgho",
+                "type": "fields",
+                "fieldName": "rend_moyen_sorgho"
+              },
+              {
+                "fullExpression": "!@fields.rend_moyen_sorgho && @fields.attempt_submit",
+                "matchedExpression": "@fields.attempt_submit",
+                "type": "fields",
+                "fieldName": "attempt_submit"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.reponse_obligatoire": [
+              "value"
+            ],
+            "!@fields.rend_moyen_sorgho": [
+              "condition"
+            ],
+            "@fields.attempt_submit": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.erreur_rendement",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "!@local.valid_rend_moyen_sorgho",
+          "style_list": [
+            "color: red",
+            "font-size: 12px"
+          ],
+          "name": "text_7",
+          "_nested_name": "display_group_8.text_7",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.erreur_rendement",
+                "matchedExpression": "@global.erreur_rendement",
+                "type": "global",
+                "fieldName": "erreur_rendement"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!@local.valid_rend_moyen_sorgho",
+                "matchedExpression": "!@local.valid_rend_moyen_sorgho",
+                "type": "local",
+                "fieldName": "valid_rend_moyen_sorgho"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.erreur_rendement": [
+              "value"
+            ],
+            "!@local.valid_rend_moyen_sorgho": [
+              "condition"
             ]
           }
         }
@@ -190,22 +836,352 @@
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@field.type_menage_id",
-            "matchedExpression": "@field.type_menage_id",
-            "type": "field",
-            "fieldName": "type_menage_id"
+            "fullExpression": "@fields.sac_sorgho != 0",
+            "matchedExpression": "@fields.sac_sorgho",
+            "type": "fields",
+            "fieldName": "sac_sorgho"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.type_menage_id": [
+        "@fields.sac_sorgho": [
           "condition"
         ]
       }
     },
     {
+      "name": "valid_rend_moyen_riz",
+      "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_riz) && Number(@local.rend_moyen_riz) > 0) || !@local.rend_moyen_riz)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_rend_moyen_riz",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_riz) && Number(@local.rend_moyen_riz) > 0) || !@local.rend_moyen_riz)",
+            "matchedExpression": "@local.rend_moyen_riz",
+            "type": "local",
+            "fieldName": "rend_moyen_riz"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_riz) && Number(@local.rend_moyen_riz) > 0) || !@local.rend_moyen_riz)",
+            "matchedExpression": "@local.rend_moyen_riz",
+            "type": "local",
+            "fieldName": "rend_moyen_riz"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_riz) && Number(@local.rend_moyen_riz) > 0) || !@local.rend_moyen_riz)",
+            "matchedExpression": "!@local.rend_moyen_riz",
+            "type": "local",
+            "fieldName": "rend_moyen_riz"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_riz) && Number(@local.rend_moyen_riz) > 0) || !@local.rend_moyen_riz)",
+            "matchedExpression": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_riz) && Number(@local.rend_moyen_riz) > 0) || !@local.rend_moyen_riz)",
+            "type": "calc",
+            "fieldName": "(/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_riz) && Number(@local.rend_moyen_riz) > 0) || !@local.rend_moyen_riz"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.rend_moyen_riz": [
+          "value",
+          "value"
+        ],
+        "!@local.rend_moyen_riz": [
+          "value"
+        ],
+        "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_riz) && Number(@local.rend_moyen_riz) > 0) || !@local.rend_moyen_riz)": [
+          "value"
+        ]
+      }
+    },
+    {
       "type": "display_group",
-      "name": "dg_footer",
+      "parameter_list": {
+        "style": "column"
+      },
+      "condition": "@fields.sac_riz != 0",
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "html",
+              "value": "Donnez le rendement moyen du riz de votre exploitation (sac de 100kg/ha)<span style=\"color: red;\">*</span>",
+              "_translations": {
+                "value": {}
+              },
+              "name": "html_1",
+              "_nested_name": "display_group_10.display_group_1.html_1"
+            },
+            {
+              "type": "audio",
+              "name": "audio_6_4",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/alimentationHumaine/rdt_moyen_riz_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "style_list": [
+                "float : right"
+              ],
+              "_nested_name": "display_group_10.display_group_1.audio_6_4"
+            }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_10.display_group_1"
+        },
+        {
+          "type": "html",
+          "value": "<p style=\"color: black;\"> @global.rendement_hint </p>",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 12px"
+          ],
+          "name": "html_2",
+          "_nested_name": "display_group_10.html_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<p style=\"color: black;\"> @global.rendement_hint </p>",
+                "matchedExpression": "@global.rendement_hint",
+                "type": "global",
+                "fieldName": "rendement_hint"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.rendement_hint": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "value": "images/riz.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px"
+          ],
+          "name": "image_3",
+          "_nested_name": "display_group_10.image_3"
+        },
+        {
+          "type": "text_box",
+          "name": "rend_moyen_riz",
+          "value": "@fields.rend_moyen_riz",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "rend_moyen_riz",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: rend_moyen_riz : this.value"
+            }
+          ],
+          "parameter_list": {
+            "input_type": "number",
+            "placeholder": "Entrez le rendement de riz"
+          },
+          "style_list": [
+            "margin: 10px"
+          ],
+          "_nested_name": "display_group_10.rend_moyen_riz",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.rend_moyen_riz",
+                "matchedExpression": "@fields.rend_moyen_riz",
+                "type": "fields",
+                "fieldName": "rend_moyen_riz"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.rend_moyen_riz": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "html",
+          "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "!@fields.rend_moyen_riz && @fields.attempt_submit",
+          "name": "html_6",
+          "_nested_name": "display_group_10.html_6",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+                "matchedExpression": "@global.reponse_obligatoire",
+                "type": "global",
+                "fieldName": "reponse_obligatoire"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!@fields.rend_moyen_riz && @fields.attempt_submit",
+                "matchedExpression": "!@fields.rend_moyen_riz",
+                "type": "fields",
+                "fieldName": "rend_moyen_riz"
+              },
+              {
+                "fullExpression": "!@fields.rend_moyen_riz && @fields.attempt_submit",
+                "matchedExpression": "@fields.attempt_submit",
+                "type": "fields",
+                "fieldName": "attempt_submit"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.reponse_obligatoire": [
+              "value"
+            ],
+            "!@fields.rend_moyen_riz": [
+              "condition"
+            ],
+            "@fields.attempt_submit": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.erreur_rendement",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "!@local.valid_rend_moyen_riz",
+          "style_list": [
+            "color: red",
+            "font-size: 12px"
+          ],
+          "name": "text_7",
+          "_nested_name": "display_group_10.text_7",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.erreur_rendement",
+                "matchedExpression": "@global.erreur_rendement",
+                "type": "global",
+                "fieldName": "erreur_rendement"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!@local.valid_rend_moyen_riz",
+                "matchedExpression": "!@local.valid_rend_moyen_riz",
+                "type": "local",
+                "fieldName": "valid_rend_moyen_riz"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.erreur_rendement": [
+              "value"
+            ],
+            "!@local.valid_rend_moyen_riz": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_10",
+      "_nested_name": "display_group_10",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.sac_riz != 0",
+            "matchedExpression": "@fields.sac_riz",
+            "type": "fields",
+            "fieldName": "sac_riz"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.sac_riz": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@calc(@local.valid_rend_moyen_mais && @local.valid_rend_moyen_mil && @local.valid_rend_moyen_sorgho && @local.valid_rend_moyen_riz)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@local.valid_rend_moyen_mais && @local.valid_rend_moyen_mil && @local.valid_rend_moyen_sorgho && @local.valid_rend_moyen_riz)",
+            "matchedExpression": "@local.valid_rend_moyen_mais",
+            "type": "local",
+            "fieldName": "valid_rend_moyen_mais"
+          },
+          {
+            "fullExpression": "@calc(@local.valid_rend_moyen_mais && @local.valid_rend_moyen_mil && @local.valid_rend_moyen_sorgho && @local.valid_rend_moyen_riz)",
+            "matchedExpression": "@local.valid_rend_moyen_mil",
+            "type": "local",
+            "fieldName": "valid_rend_moyen_mil"
+          },
+          {
+            "fullExpression": "@calc(@local.valid_rend_moyen_mais && @local.valid_rend_moyen_mil && @local.valid_rend_moyen_sorgho && @local.valid_rend_moyen_riz)",
+            "matchedExpression": "@local.valid_rend_moyen_sorgho",
+            "type": "local",
+            "fieldName": "valid_rend_moyen_sorgho"
+          },
+          {
+            "fullExpression": "@calc(@local.valid_rend_moyen_mais && @local.valid_rend_moyen_mil && @local.valid_rend_moyen_sorgho && @local.valid_rend_moyen_riz)",
+            "matchedExpression": "@local.valid_rend_moyen_riz",
+            "type": "local",
+            "fieldName": "valid_rend_moyen_riz"
+          },
+          {
+            "fullExpression": "@calc(@local.valid_rend_moyen_mais && @local.valid_rend_moyen_mil && @local.valid_rend_moyen_sorgho && @local.valid_rend_moyen_riz)",
+            "matchedExpression": "@calc(@local.valid_rend_moyen_mais && @local.valid_rend_moyen_mil && @local.valid_rend_moyen_sorgho && @local.valid_rend_moyen_riz)",
+            "type": "calc",
+            "fieldName": "@local.valid_rend_moyen_mais && @local.valid_rend_moyen_mil && @local.valid_rend_moyen_sorgho && @local.valid_rend_moyen_riz"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.valid_rend_moyen_mais": [
+          "value"
+        ],
+        "@local.valid_rend_moyen_mil": [
+          "value"
+        ],
+        "@local.valid_rend_moyen_sorgho": [
+          "value"
+        ],
+        "@local.valid_rend_moyen_riz": [
+          "value"
+        ],
+        "@calc(@local.valid_rend_moyen_mais && @local.valid_rend_moyen_mil && @local.valid_rend_moyen_sorgho && @local.valid_rend_moyen_riz)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
       "parameter_list": {
         "sticky": "bottom"
       },
@@ -215,8 +1191,17 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "button_back",
+          "name": "page6_button_back",
           "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                false
+              ],
+              "_raw": "click | set_field: attempt_submit: false"
+            },
             {
               "trigger": "click",
               "action_id": "emit",
@@ -230,12 +1215,12 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.button_back"
+          "_nested_name": "display_group_13.page6_button_back"
         },
         {
           "type": "button",
-          "name": "button_completed",
-          "value": "@global.btn_continue",
+          "name": "button_continue_attempt_submit",
+          "value": "Continuer",
           "_translations": {
             "value": {}
           },
@@ -244,10 +1229,49 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "final_upa_type",
-                "@local.v_type_nom_clair"
+                "attempt_submit",
+                true
               ],
-              "_raw": "click | set_field: final_upa_type : @local.v_type_nom_clair"
+              "_raw": "click | set_field: attempt_submit: true"
+            }
+          ],
+          "condition": "!@local.completed_enabled",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_13.button_continue_attempt_submit",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "!@local.completed_enabled",
+                "matchedExpression": "!@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "!@local.completed_enabled": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "name": "page6_button_completed",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                false
+              ],
+              "_raw": "click | set_field: attempt_submit: false"
             },
             {
               "trigger": "click",
@@ -259,70 +1283,45 @@
             }
           ],
           "parameter_list": {
-            "style": "navigation",
-            "disabled": "!@field.type_menage_id"
+            "disabled": "!@local.completed_enabled"
           },
+          "condition": "@local.completed_enabled",
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.button_completed",
+          "_nested_name": "display_group_13.page6_button_completed",
           "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@global.btn_continue",
-                "matchedExpression": "@global.btn_continue",
-                "type": "global",
-                "fieldName": "btn_continue"
-              }
-            ],
-            "action_list": {
-              "0": {
-                "args": {
-                  "1": [
-                    {
-                      "fullExpression": "@local.v_type_nom_clair",
-                      "matchedExpression": "@local.v_type_nom_clair",
-                      "type": "local",
-                      "fieldName": "v_type_nom_clair"
-                    }
-                  ]
-                },
-                "_raw": [
-                  {
-                    "fullExpression": "click | set_field: final_upa_type : @local.v_type_nom_clair",
-                    "matchedExpression": "@local.v_type_nom_clair",
-                    "type": "local",
-                    "fieldName": "v_type_nom_clair"
-                  }
-                ]
-              }
-            },
             "parameter_list": {
               "disabled": [
                 {
-                  "fullExpression": "!@field.type_menage_id",
-                  "matchedExpression": "!@field.type_menage_id",
-                  "type": "field",
-                  "fieldName": "type_menage_id"
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
                 }
               ]
-            }
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.completed_enabled",
+                "matchedExpression": "@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
           },
           "_dynamicDependencies": {
-            "@global.btn_continue": [
-              "value"
-            ],
-            "@local.v_type_nom_clair": [
-              "action_list.0.args.1",
-              "action_list.0._raw"
-            ],
-            "!@field.type_menage_id": [
+            "!@local.completed_enabled": [
               "parameter_list.disabled"
+            ],
+            "@local.completed_enabled": [
+              "condition"
             ]
           }
         }
       ],
-      "_nested_name": "dg_footer"
+      "name": "display_group_13",
+      "_nested_name": "display_group_13"
     }
   ],
   "_source": {

@@ -4,13 +4,13 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
+      "type": "title",
       "value": "**Mesure de superficie de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
       "_translations": {
         "value": {}
       },
-      "name": "subtitle_2",
-      "_nested_name": "subtitle_2",
+      "name": "title_2",
+      "_nested_name": "title_2",
       "_dynamicFields": {
         "value": [
           {
@@ -41,7 +41,7 @@
       "rows": [
         {
           "type": "text",
-          "value": "**Superficie de @fields.cult_princip dans la parcelle N° @fields.num_parcelle de @fields.nom_champ**",
+          "value": "@global.note_superf_geo",
           "_translations": {
             "value": {}
           },
@@ -50,33 +50,15 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "**Superficie de @fields.cult_princip dans la parcelle N° @fields.num_parcelle de @fields.nom_champ**",
-                "matchedExpression": "@fields.cult_princip",
-                "type": "fields",
-                "fieldName": "cult_princip"
-              },
-              {
-                "fullExpression": "**Superficie de @fields.cult_princip dans la parcelle N° @fields.num_parcelle de @fields.nom_champ**",
-                "matchedExpression": "@fields.num_parcelle",
-                "type": "fields",
-                "fieldName": "num_parcelle"
-              },
-              {
-                "fullExpression": "**Superficie de @fields.cult_princip dans la parcelle N° @fields.num_parcelle de @fields.nom_champ**",
-                "matchedExpression": "@fields.nom_champ",
-                "type": "fields",
-                "fieldName": "nom_champ"
+                "fullExpression": "@global.note_superf_geo",
+                "matchedExpression": "@global.note_superf_geo",
+                "type": "global",
+                "fieldName": "note_superf_geo"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.cult_princip": [
-              "value"
-            ],
-            "@fields.num_parcelle": [
-              "value"
-            ],
-            "@fields.nom_champ": [
+            "@global.note_superf_geo": [
               "value"
             ]
           }
@@ -85,7 +67,7 @@
           "type": "audio",
           "name": "audio_20",
           "parameter_list": {
-            "variant": "compact",
+            "variant": "button_only",
             "src": "audio/Superficie/sup_mes_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
@@ -102,15 +84,15 @@
         "value": {}
       },
       "style_list": [
-        "width:100px",
-        "height:100px"
+        "width: 80%",
+        "object-fit: contain"
       ],
       "name": "image_5",
       "_nested_name": "image_5"
     },
     {
       "type": "html",
-      "value": "<p style=\"color: red;\"> Mesurez à l'aide du GPS la superficie de @fields.cult_princip dans la parcelle N⁰  </p>",
+      "value": "<p style=\"color: red;\"> @global.hint_superf_geo  </p>",
       "_translations": {
         "value": {}
       },
@@ -119,15 +101,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> Mesurez à l'aide du GPS la superficie de @fields.cult_princip dans la parcelle N⁰  </p>",
-            "matchedExpression": "@fields.cult_princip",
-            "type": "fields",
-            "fieldName": "cult_princip"
+            "fullExpression": "<p style=\"color: red;\"> @global.hint_superf_geo  </p>",
+            "matchedExpression": "@global.hint_superf_geo",
+            "type": "global",
+            "fieldName": "hint_superf_geo"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.cult_princip": [
+        "@global.hint_superf_geo": [
           "value"
         ]
       }
@@ -206,7 +188,7 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_8.page15_button_back"
+          "_nested_name": "display_group_9.page15_button_back"
         },
         {
           "type": "button",
@@ -246,7 +228,7 @@
           "parameter_list": {
             "disabled": "!@local.completed_enabled"
           },
-          "_nested_name": "display_group_8.page15_button_continue",
+          "_nested_name": "display_group_9.page15_button_continue",
           "_dynamicFields": {
             "action_list": {
               "0": {
@@ -343,8 +325,8 @@
           }
         }
       ],
-      "name": "display_group_8",
-      "_nested_name": "display_group_8"
+      "name": "display_group_9",
+      "_nested_name": "display_group_9"
     }
   ],
   "_source": {

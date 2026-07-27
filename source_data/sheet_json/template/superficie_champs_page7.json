@@ -4,22 +4,41 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
-      "value": "**Culture principale dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ** ",
-      "condition": "@fields.nom_champ"
+      "type": "title",
+      "value": "VARIÉTÉ DE LA CULTURE"
+    },
+    {
+      "name": "attempt_submit_p8",
+      "value": "@fields.attempt_submit_p8"
+    },
+    {
+      "name": "is_autre_variete",
+      "value": "@calc(!!@fields.variete_semence && (String(@fields.variete_semence).indexOf('autre_variete_') === 0 || @fields.variete_semence === 'autre_cult1_variete'))"
+    },
+    {
+      "name": "nom_variete",
+      "value": "@calc(@local.is_autre_variete ? @fields.nom_autre_variete : @fields.variete_semence)"
+    },
+    {
+      "name": "valid_source_autre",
+      "value": "@calc(@fields.source_semence_culture !== 'semence_autre_source' || (!!@fields.autre_source_semence_culture && @fields.autre_source_semence_culture !== ''))"
+    },
+    {
+      "name": "valid_p8",
+      "value": "@calc(!!@fields.variete_semence && (!@local.is_autre_variete || (!!@fields.nom_autre_variete && @fields.nom_autre_variete !== '')) && !!@fields.type_variete_culture && !!@fields.source_semence_culture && @local.valid_source_autre)"
     },
     {
       "type": "begin_display_group",
-      "condition": "@fields.nom_champ"
+      "style_list": "display: block; width: 100%;"
     },
     {
-      "type": "text",
-      "value": "Sélectionnez la culture principale dans la parcelle N⁰@fields.num_parcelle "
+      "type": "html",
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez la variété cultivée (@fields.cult_princip) :</label>"
     },
     {
       "type": "audio",
-      "name": "audio_7_1",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/cult_prin_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "audio_8_1",
+      "parameter_list": "variant: button_only; src: audio/Superficie/variete_fr.mp3; play_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float : right;"
     },
     {
@@ -27,42 +46,133 @@
     },
     {
       "type": "radio_button_grid",
-      "name": "cult_princip",
-      "value": "@fields.cult_princip",
-      "action_list": "changed | set_field: cult_princip: this.value;",
-      "parameter_list": "answer_list: @data.cult_princip;\nitem_width: 80px;\ngrid_width: 150%;\ngrid_gap: 10px;\nvariant: circle-icon;"
+      "name": "variete_semence",
+      "value": "@fields.variete_semence",
+      "action_list": "changed | set_field: variete_semence: this.value;",
+      "parameter_list": "answer_list: @data.type_variete; \nvariant: flex; item_width: 110px; grid_gap: 10px; style: secondary;"
     },
     {
       "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@fields.cult_princip"
+      "value": "<span style=\"color: red; font-size: 13px;\">La réponse est obligatoire ! </span>",
+      "condition": "@fields.attempt_submit_p8 && !@fields.variete_semence"
     },
     {
       "type": "begin_display_group",
-      "condition": "@fields.cult_princip == 'autre'"
+      "condition": "@local.is_autre_variete",
+      "style_list": "display: block; width: 100%;"
     },
     {
-      "type": "text",
-      "value": "@global.autre_message"
+      "type": "html",
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Écrivez le nom de la variété :</label>"
     },
     {
       "type": "audio",
-      "name": "audio_7_2",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/autre_cult_nom1_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "audio_8_1",
+      "parameter_list": "variant: button_only; src: audio/Superficie/var_seme_fr.mp3; play_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "text_box",
+      "name": "nom_autre_variete",
+      "value": "@fields.nom_autre_variete",
+      "action_list": "changed | set_field: nom_autre_variete: this.value;",
+      "parameter_list": "max_length: 50; placeholder: Entrez le nom...;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez préciser le nom !</span>",
+      "condition": "@fields.attempt_submit_p8 && @local.is_autre_variete && !@fields.nom_autre_variete"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%; margin-top: 15px;"
+    },
+    {
+      "type": "html",
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez le type de la variété <b>@local.nom_variete</b> :</label>"
+    },
+    {
+      "type": "audio",
+      "name": "audio_8_2",
+      "parameter_list": "variant: button_only; src: audio/Superficie/var_type_fr.mp3; play_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float : right;"
     },
     {
       "type": "end_display_group"
     },
     {
+      "type": "radio_button_grid",
+      "name": "type_variete_culture",
+      "value": "@fields.type_variete_culture",
+      "action_list": "changed | set_field: type_variete_culture: this.value;",
+      "parameter_list": "answer_list: @data.type_variete; variant: flex; item_width: 120px; grid_gap: 10px;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red; font-size: 13px;\">Sélection obligatoire ! </span>",
+      "condition": "@fields.attempt_submit_p8 && !@fields.type_variete_culture"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.type_variete_culture",
+      "style_list": "display: block; width: 100%; margin-top: 15px;"
+    },
+    {
+      "type": "html",
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez la source de la variété <b>@local.nom_variete</b> :</label>"
+    },
+    {
+      "type": "audio",
+      "name": "audio_8_2",
+      "parameter_list": "variant: button_only; src: audio/Superficie/source_semence_fr.mp3; play_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "source_semence_culture",
+      "value": "@fields.source_semence_culture",
+      "action_list": "changed | set_field: source_semence_culture: this.value;",
+      "parameter_list": "answer_list: @data.source_semence; variant: list;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red; font-size: 13px;\">Sélection obligatoire !</span>",
+      "condition": "@fields.attempt_submit_p8 && !@fields.source_semence_culture"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.source_semence_culture == 'semence_autre_source'",
+      "style_list": "display: block; width: 100%;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span> Écrivez le nom \"autre source\" de la semence :"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: button_only; src: audio/Superficie/nom_autre_source_fr.mp3; play_icon_asset: images/icons/audio/Speaker_Icon.svg;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
       "type": "text_box",
-      "name": "autre_cult_princip",
-      "value": "@fields.autre_cult_princip",
-      "action_list": "changed | set_field: autre_cult_princip: this.value;",
-      "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom de la culture",
-      "condition": "@fields.cult_princip == 'autre'",
-      "exclude_from_translation_1": true
+      "name": "autre_source_semence_culture",
+      "value": "@fields.autre_source_semence_culture",
+      "action_list": "changed | set_field: autre_source_semence_culture: this.value;",
+      "parameter_list": "max_length: 50; placeholder: Nom de la source...;",
+      "condition": "@fields.source_semence_culture == 'semence_autre_source'"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red; font-size: 13px;\">La réponse est obligatoire !</span>",
+      "condition": "@fields.attempt_submit_p8 && @fields.source_semence_culture == 'semence_autre_source' && !@fields.autre_source_semence_culture"
     },
     {
       "type": "begin_display_group",
@@ -71,31 +181,17 @@
       "exclude_from_translation": "padding: 12px 24px;"
     },
     {
-      "name": "completed_enabled",
-      "value": "!!@fields.cult_princip ",
-      "exclude_from_translation": true
-    },
-    {
       "type": "round_button",
-      "name": "page7_button_back",
+      "name": "page8_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page7_button_continue_condition",
+      "name": "page8_button_continue",
       "value": "Continuer",
-      "action_list": "click | set_field: cult_princip: @fields.autre_cult_princip;\nclick | set_field: @calc('cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.cult_princip;\nclick | emit: completed;",
-      "parameter_list": "disabled: !@local.completed_enabled",
-      "condition": "@fields.cult_princip == 'autre' "
-    },
-    {
-      "type": "button",
-      "name": "page7_button_continue",
-      "value": "Continuer",
-      "action_list": "click | set_field: @calc('cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.cult_princip;\nclick | set_field: @calc('autre_cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.autre_cult_princip;\nclick | emit: completed;",
-      "parameter_list": "disabled: !@local.completed_enabled",
-      "condition": "@fields.cult_princip != 'autre' "
+      "action_list": "click | set_field: @calc('variete_semence_P' + @fields.num_parcelle) : @fields.variete_semence;\n        click | set_field: @calc('nom_variete_P' + @fields.num_parcelle) : @local.nom_variete;\n        click | set_field: @calc('type_variete_P' + @fields.num_parcelle) : @fields.type_variete_culture;\n        click | set_field: @calc('source_semence_P' + @fields.num_parcelle) : @fields.source_semence_culture;\n        click | set_field: @calc('autre_source_semence_P' + @fields.num_parcelle) : @fields.autre_source_semence_culture;\n        click | emit: completed;",
+      "parameter_list": "disabled: !@local.valid_p8"
     },
     {
       "type": "end_display_group"

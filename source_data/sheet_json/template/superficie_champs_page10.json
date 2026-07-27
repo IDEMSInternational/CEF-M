@@ -4,8 +4,28 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
-      "value": "**La diversité culturale dans la parcelle  N⁰@fields.num_parcelle de @fields.nom_champ**"
+      "name": "valid_cult_asso",
+      "value": "@calc(!!@fields.coton || !!@fields.mais || !!@fields.mil || !!@fields.sorgho || !!@fields.arachide || !!@fields.fourrage || !!@fields.fonio || !!@fields.riz || !!@fields.sesame || !!@fields.wauandzou || !!@fields.patate_douce || !!@fields.bissap || !!@fields.autre_culture1 || !!@fields.autre_culture2)"
+    },
+    {
+      "name": "valid_autre_text1",
+      "value": "@calc(!@fields.autre_culture1 || (!!@fields.autre_cult_asso1 && @fields.autre_cult_asso1.trim() !== ''))"
+    },
+    {
+      "name": "valid_autre_text2",
+      "value": "@calc(!@fields.autre_culture2 || (!!@fields.autre_cult_asso2 && @fields.autre_cult_asso2.trim() !== ''))"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@calc(!!@fields.association_oui_non && (@fields.association_oui_non === 'non' || (@fields.association_oui_non === 'oui' && @local.valid_cult_asso && @local.valid_autre_text1 && @local.valid_autre_text2)))"
+    },
+    {
+      "name": "cult_asso_selected",
+      "value": "@calc([@fields.coton ? 'coton' : null, @fields.mais ? 'mais' : null, @fields.mil ? 'mil' : null, @fields.sorgho ? 'sorgho' : null, @fields.arachide ? 'arachide' : null, @fields.fourrage ? 'fourrage' : null, @fields.fonio ? 'fonio' : null, @fields.riz ? 'riz' : null, @fields.sesame ? 'sesame' : null, @fields.wauandzou ? 'wauandzou' : null, @fields.patate_douce ? 'patate_douce' : null, @fields.bissap ? 'bissap' : null, @fields.autre_culture1 ? @fields.autre_cult_asso1 : null, @fields.autre_culture2 ? @fields.autre_cult_asso2 : null].filter(Boolean).join(','))"
+    },
+    {
+      "type": "title",
+      "value": "**Cultures associées dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**"
     },
     {
       "type": "begin_data_items",
@@ -18,11 +38,11 @@
     {
       "type": "image",
       "value": "@item.image",
-      "style_list": "width:150px; height:150px; "
+      "style_list": "width: 80%; object-fit: contain;\n"
     },
     {
-      "type": "text",
-      "value": "@item.name"
+      "type": "html",
+      "value": "<span style=\"font-size: 16px; font-weight: bold; color: #1e3656;\">Culture principale : @item.name</span>"
     },
     {
       "type": "end_display_group"
@@ -31,90 +51,152 @@
       "type": "end_data_items"
     },
     {
-      "type": "begin_display_group"
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%; margin-top: 10px; padding: 10px; background: #f4f7fc;"
     },
     {
-      "type": "text",
-      "value": "Comptez et renseignez le nombre d'arbres dans la parcelle N⁰@fields.num_parcelle "
+      "type": "html",
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> D'autre(s) culture(s) sont-elles associées avec @fields.cult_princip ?</label>"
     },
     {
       "type": "audio",
-      "name": "audio_10_1",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/nbre_arbre_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "audio_11_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/asso_yesno_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "style_list": "float : right;"
     },
     {
       "type": "end_display_group"
-    },
-    {
-      "type": "image",
-      "value": "images/arbre.jpg",
-      "style_list": "width:100px; height:100px; "
-    },
-    {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: black;\"> Ecrivez 0 s'il n'y a aucun arbre </p>"
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_arbre",
-      "value": "@fields.nombre_arbre",
-      "action_list": "changed | set_field: nombre_arbre : this.value;",
-      "parameter_list": "number_input: true\nplaceholder: Entrez le nombre;",
-      "condition": "!!@fields.nombre_arbre",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_arbre",
-      "action_list": "changed | set_field: nombre_arbre : this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
-      "condition": "!@fields.nombre_arbre",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@fields.nombre_arbre"
-    },
-    {
-      "name": "valid_nombre_arbre",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_arbre) && @local.nombre_arbre>= 0 ) || @local.nombre_arbre == '' || !@local.nombre_arbre)",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "text",
-      "value": "@global.validite_nombre",
-      "condition": "!@local.valid_nombre_arbre",
-      "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 14px"
     },
     {
       "type": "begin_display_group",
-      "condition": "@calc(@fields.nombre_arbre > 0)"
+      "style_list": "display: block; width: 100%; margin-top: 10px; padding: 10px;"
     },
     {
-      "type": "text",
-      "value": "Ecrivez le(s) nom(s) des arbres se trouvant dans la parcelle N⁰@fields.num_parcelle"
+      "type": "image",
+      "value": "images/association.jpg",
+      "style_list": "width: 80%; object-fit: contain;\n\n"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "association_oui_non\n",
+      "value": "@fields.association_oui_non\n",
+      "action_list": "changed | set_field: association_oui_non\n: this.value;",
+      "parameter_list": "answer_list: @data.oui_non;\nvariant: flex; item_width: 100px; grid_gap: 10px; style: secondary;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<span style=\"color: red; font-size: 13px;\">La sélection est obligatoire !</span>",
+      "condition": "@fields.attempt_submit_p11 && !@fields.association_oui_non"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.association_oui_non == 'oui'"
+    },
+    {
+      "type": "html",
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez la/les culture(s) associée(s) :</label>"
     },
     {
       "type": "audio",
-      "name": "audio_10_2",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/nom_arbre_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "audio_11_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/cult_asso_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "style_list": "float : right;"
     },
     {
       "type": "end_display_group"
     },
     {
+      "type": "begin_data_items",
+      "value": "@data.culture_association",
+      "parameter_list": "filter: @fields.association_oui_non == 'oui'"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.association_oui_non == 'oui'",
+      "style_list": "display: flex; align-items: center; grid_gap: 12px; margin-bottom: 10px; padding: 8px 12px;"
+    },
+    {
+      "type": "image",
+      "name": "img_item",
+      "value": "@item.image",
+      "style_list": "width: 50px; height: 50px; object-fit: contain; flex-shrink: 0;"
+    },
+    {
+      "type": "simple_checkbox",
+      "name": "@item.name",
+      "value": "@fields.@item.name",
+      "action_list": "changed | set_field: @item.name: !@fields.@item.name;",
+      "parameter_list": "label_text: @item.text;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.autre_culture1 == true && @fields.association_oui_non == 'oui'",
+      "style_list": "display: block; width: 100%; margin-top: 15px; padding: 12px; background: #f8f9fa;"
+    },
+    {
+      "type": "html",
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Écrivez le nom de la 1ère culture associée spécifique :</label>"
+    },
+    {
+      "type": "audio",
+      "name": "audio_11_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/autre_cult_nom1_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
       "type": "text_box",
-      "name": "nom_arbre",
-      "value": "@fields.nom_arbre",
-      "action_list": "changed | set_field: nom_arbre : this.value;",
-      "parameter_list": "placeholder: Entrez le nom de l'arbre;",
-      "condition": "@fields.nombre_arbre  > 0"
+      "name": "autre_cult_asso1",
+      "value": "@fields.autre_cult_asso1",
+      "action_list": "changed | set_field: autre_cult_asso1 : this.value;",
+      "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom de la culture;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez préciser le nom de la culture !</span>",
+      "condition": "@fields.attempt_submit_p11 && @fields.association_oui_non == 'oui' && @fields.autre_culture1 == true && !@fields.autre_cult_asso1"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.autre_culture1 == true && @fields.association_oui_non == 'oui' && @fields.autre_culture2 == true",
+      "style_list": "display: block; width: 100%; margin-top: 15px; padding: 12px; background: #f8f9fa;"
+    },
+    {
+      "type": "html",
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Écrivez le nom de la 2ème culture associée spécifique :</label>"
+    },
+    {
+      "type": "audio",
+      "name": "audio_11_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/autre_cult_nom2_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "text_box",
+      "name": "autre_cult_asso2",
+      "value": "@fields.autre_cult_asso2",
+      "action_list": "changed | set_field: autre_cult_asso2 : this.value;",
+      "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom de la culture;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez préciser le nom de la culture !</span>",
+      "condition": "@fields.attempt_submit_p11 && @fields.association_oui_non == 'oui' && @fields.autre_culture2 == true && !@fields.autre_cult_asso2"
     },
     {
       "type": "begin_display_group",
@@ -123,21 +205,16 @@
       "exclude_from_translation": "padding: 12px 24px;"
     },
     {
-      "name": "completed_enabled",
-      "value": "@fields.nombre_arbre  ",
-      "exclude_from_translation": true
-    },
-    {
       "type": "round_button",
-      "name": "page10_button_back",
+      "name": "page11_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page10_button_continue",
+      "name": "page11_button_continue",
       "value": "Continuer",
-      "action_list": "click | set_field: @calc('nombre_arbre_parcelle_N' + @fields.num_parcelle) : @fields.nombre_arbre;\nclick | set_field: @calc('nom_arbre_parcelle_N' + @fields.num_parcelle) : @fields.nom_arbre;\nclick | emit: completed;",
+      "action_list": "click | set_field: @calc('association_parcelle_N' + @fields.num_parcelle) : @fields.association_oui_non;\n        click | set_field: @calc('cult_asso_selected_parcelle_N' + @fields.num_parcelle) : @local.cult_asso_selected;\n        click | set_field: @calc('autre_cult_asso1_parcelle_N' + @fields.num_parcelle) : @fields.autre_cult_asso1;\n        click | set_field: @calc('autre_cult_asso2_parcelle_N' + @fields.num_parcelle) : @fields.autre_cult_asso2;\n        click | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled"
     },
     {

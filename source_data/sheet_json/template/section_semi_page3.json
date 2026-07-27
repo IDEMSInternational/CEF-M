@@ -4,34 +4,216 @@
   "status": "released",
   "rows": [
     {
-      "type": "audio",
-      "name": "audio_3_1",
-      "parameter_list": "variant: compact;\nsrc: audio/semis/note_form_semis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float : right;"
+      "name": "v_current_human",
+      "value": "@calc(Number(@field.current_culture_index) + 1)"
+    },
+    {
+      "name": "v_fum_fmt",
+      "value": "@calc(/^\\d+$/.test(@field.quantite_fumure_organique))"
+    },
+    {
+      "name": "v_fum_err",
+      "value": "@calc(!@local.v_fum_fmt || Number(@field.quantite_fumure_organique) < 0)"
+    },
+    {
+      "name": "v_trans_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_transport_nonzero))"
+    },
+    {
+      "name": "v_trans_err",
+      "value": "@calc(!@local.v_trans_fmt || Number(@field.cout_transport_nonzero) < 0)"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "header",
+      "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #FFCC80; border-radius: 12px; background: white; margin-bottom: 10px; overflow: hidden;"
+    },
+    {
+      "type": "image",
+      "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+      "style_list": "width: 60%; object-fit: contain;"
     },
     {
       "type": "text",
-      "name": "note_consentement",
-      "value": "@global.note_info_semis"
+      "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+      "style_list": "font-weight: bold; font-size: 18px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"color: #e67e22; font-weight: bold; font-size: 14px; margin-bottom: 10px;\">APPORT FUMURE ORGANIQUE</div>"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "grp_quantite_fumure",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "aud_prod",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/Q_fumure_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span> Quantité de fumure organique (charretée)",
+      "style_list": "font-weight: bold;"
+    },
+    {
+      "type": "text",
+      "value": "*Mettez 0 si aucune fumure organique* <br> <span style=\"font-size: 12px; color: gray;\"></span>",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/charrette.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_fumure_organique",
+      "value": "@field.quantite_fumure_organique",
+      "action_list": "changed | set_field: quantite_fumure_organique: this.value;",
+      "parameter_list": "number_input: true;\n\nplaceholder: Nombre de charretées;"
+    },
+    {
+      "type": "text",
+      "value": "Mettez une valeur positive.<br><span style=\"font-size:11px;\"></span>",
+      "condition": "@local.v_fum_err",
+      "style_list": "font-size: 12px; color: red;"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "cout_trans_zero",
+      "condition": "@calc(Number(@field.quantite_fumure_organique) == 0)",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "aud_trans_z_fr",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_transport_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Coût transport de fumure organique (Dram) <br> <span style=\"font-size: 14px; color: #555;\"></span>",
+      "style_list": "font-weight: bold;"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80px; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "value": 0,
+      "parameter_list": "disabled:true;"
+    },
+    {
+      "type": "text",
+      "value": "Coût bloqué à 0 car aucune fumure organique apportée",
+      "style_list": "font-size: 12px; color: #999;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "cout_trans_nonzero",
+      "condition": "@calc(Number(@field.quantite_fumure_organique) > 0)",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "aud_trans_z_fr",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_transport_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Coût transport de fumure organique (Dram) <br> <span style=\"font-size: 14px; color: #555;\"></span>",
+      "style_list": "font-weight: bold;"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80px; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "cout_transport_nonzero",
+      "value": "@field.cout_transport_nonzero",
+      "action_list": "changed | set_field: cout_transport_nonzero : this.value;",
+      "parameter_list": "number_input: true;\n\nplaceholder: Montant en Dram;"
+    },
+    {
+      "type": "text",
+      "value": "Mettez une valeur positive.<br><span style=\"font-size:11px;\"></span>",
+      "condition": "@local.v_trans_err",
+      "style_list": "font-size: 12px; color: red;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "v_val_trans_nz",
+      "value": "@calc(Number(@field.cout_transport_nonzero) || 0)"
+    },
+    {
+      "name": "v_final_trans",
+      "value": "@calc(Number(@field.quantite_fumure_organique) == 0 ? 0 : @local.v_val_trans_nz)"
+    },
+    {
+      "name": "v_page3_valid",
+      "value": "@calc(@local.v_fum_fmt && Number(@field.quantite_fumure_organique) >= 0 && (Number(@field.quantite_fumure_organique) == 0 || (@local.v_trans_fmt && Number(@field.cout_transport_nonzero) >= 0)))"
     },
     {
       "type": "begin_display_group",
       "name": "dg_footer",
-      "value": " ",
       "parameter_list": "sticky: bottom;",
       "style_list": "padding: 12px 24px;"
     },
     {
       "type": "round_button",
-      "name": "page_3_btn_back",
+      "name": "button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page_3_btn_continue",
+      "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | emit: completed",
+      "action_list": "click | set_field: cout_transport : @local.v_final_trans;\n\nclick | emit: completed;",
+      "parameter_list": "style: navigation;\n\ndisabled: !@local.v_page3_valid",
       "style_list": "flex: 1"
     },
     {

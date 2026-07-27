@@ -7,13 +7,13 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "subtitle",
+          "type": "title",
           "value": "**Recapitulatif des superficies mesurées des cultures dans @fields.nom_champ**",
           "_translations": {
             "value": {}
           },
-          "name": "subtitle_1",
-          "_nested_name": "display_group_2.subtitle_1",
+          "name": "title_1",
+          "_nested_name": "display_group_2.title_1",
           "_dynamicFields": {
             "value": [
               {
@@ -34,7 +34,7 @@
           "type": "audio",
           "name": "audio_8_1",
           "parameter_list": {
-            "variant": "compact",
+            "variant": "button_only",
             "src": "audio/Superficie/sup_tot_gps_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
@@ -54,8 +54,8 @@
         "value": {}
       },
       "style_list": [
-        "width:100px",
-        "height:100px"
+        "width: 60%",
+        "object-fit: contain"
       ],
       "name": "image_4",
       "_nested_name": "image_4"
@@ -65,7 +65,7 @@
       "rows": [
         {
           "type": "text",
-          "value": "La superficie cumulée (ha) des parcelles mesurées dans @fields.nom_champ est:",
+          "value": "@global.note_sup_cumul",
           "_translations": {
             "value": {}
           },
@@ -74,15 +74,15 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "La superficie cumulée (ha) des parcelles mesurées dans @fields.nom_champ est:",
-                "matchedExpression": "@fields.nom_champ",
-                "type": "fields",
-                "fieldName": "nom_champ"
+                "fullExpression": "@global.note_sup_cumul",
+                "matchedExpression": "@global.note_sup_cumul",
+                "type": "global",
+                "fieldName": "note_sup_cumul"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.nom_champ": [
+            "@global.note_sup_cumul": [
               "value"
             ]
           }

@@ -4,7 +4,7 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
+      "type": "title",
       "value": "**Superficie de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**"
     },
     {
@@ -12,12 +12,12 @@
     },
     {
       "type": "text",
-      "value": "**Superficie de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**"
+      "value": "@global.note_super_cult_princ"
     },
     {
       "type": "audio",
       "name": "audio_19",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/sup_estim_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/sup_estim_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
     },
     {
       "type": "end_display_group"
@@ -25,11 +25,11 @@
     {
       "type": "image",
       "value": "images/sup_cult.jpg",
-      "style_list": "width:100px; height:100px; "
+      "style_list": "width: 80%; object-fit: contain;\n\n\n"
     },
     {
       "type": "text",
-      "value": "Donnez votre meilleure estimation de la superficie en Hectares (ha)"
+      "value": "@global.superf_ha"
     },
     {
       "type": "text_box",
@@ -58,15 +58,15 @@
       "style_list": "color: #FF0000;\nfont-size: 14px"
     },
     {
+      "name": "completed_enabled",
+      "value": "@fields.superficie_parcelle && @local.valid_superficie_parcelle",
+      "exclude_from_translation": true
+    },
+    {
       "type": "begin_display_group",
       "value": " ",
       "parameter_list": "sticky: bottom;",
       "exclude_from_translation": "padding: 12px 24px;"
-    },
-    {
-      "name": "completed_enabled",
-      "value": "@fields.superficie_parcelle && @local.valid_superficie_parcelle",
-      "exclude_from_translation": true
     },
     {
       "type": "round_button",

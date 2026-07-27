@@ -1,0 +1,757 @@
+{
+  "flow_type": "template",
+  "flow_name": "cultures_page5",
+  "status": "released",
+  "rows": [
+    {
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "attempt_submit",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.attempt_submit": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "data_items",
+      "value": "@data.planif_cultures_primaires",
+      "parameter_list": {
+        "filter": "@item.name == @fields.culture_label"
+      },
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "image",
+              "value": "@item.image",
+              "_translations": {
+                "value": {}
+              },
+              "style_list": [
+                "width:150px",
+                "height:150px"
+              ],
+              "name": "image_1",
+              "_nested_name": "data_items_3.display_group_1_@item.id.image_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@item.image",
+                    "matchedExpression": "@item.image",
+                    "type": "item",
+                    "fieldName": "image"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_3.display_group_1_@item.id.image_1",
+                    "matchedExpression": "@item.id.image_1",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.image": [
+                  "value"
+                ],
+                "@item.id.image_1": [
+                  "_nested_name"
+                ]
+              }
+            },
+            {
+              "type": "text",
+              "value": "**@item.text**",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_2",
+              "_nested_name": "data_items_3.display_group_1_@item.id.text_2",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "**@item.text**",
+                    "matchedExpression": "@item.text",
+                    "type": "item",
+                    "fieldName": "text"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_3.display_group_1_@item.id.text_2",
+                    "matchedExpression": "@item.id.text_2",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.text": [
+                  "value"
+                ],
+                "@item.id.text_2": [
+                  "_nested_name"
+                ]
+              }
+            }
+          ],
+          "name": "display_group_1_@item.id",
+          "_nested_name": "data_items_3.display_group_1_@item.id",
+          "_dynamicFields": {
+            "name": [
+              {
+                "fullExpression": "display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_3.display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        }
+      ],
+      "name": "data_items_3",
+      "_nested_name": "data_items_3",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@data.planif_cultures_primaires",
+            "matchedExpression": "@data.planif_cultures_primaires",
+            "type": "data",
+            "fieldName": "planif_cultures_primaires"
+          }
+        ],
+        "parameter_list": {
+          "filter": [
+            {
+              "fullExpression": "@item.name == @fields.culture_label",
+              "matchedExpression": "@item.name",
+              "type": "item",
+              "fieldName": "name"
+            },
+            {
+              "fullExpression": "@item.name == @fields.culture_label",
+              "matchedExpression": "@fields.culture_label",
+              "type": "fields",
+              "fieldName": "culture_label"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@data.planif_cultures_primaires": [
+          "value"
+        ],
+        "@item.name": [
+          "parameter_list.filter"
+        ],
+        "@fields.culture_label": [
+          "parameter_list.filter"
+        ]
+      }
+    },
+    {
+      "type": "title",
+      "value": "PREVISIONS VARIETES DE SEMENCES",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_5",
+      "_nested_name": "title_5"
+    },
+    {
+      "type": "text",
+      "value": "**Selectionnez la/les variété(s) de semences à utiliser pour @fields.superficie_ha_prevue ha**",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_6",
+      "_nested_name": "text_6",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "**Selectionnez la/les variété(s) de semences à utiliser pour @fields.superficie_ha_prevue ha**",
+            "matchedExpression": "@fields.superficie_ha_prevue",
+            "type": "fields",
+            "fieldName": "superficie_ha_prevue"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.superficie_ha_prevue": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "La superficie totale peut être cultivée avec une ou plusieurs variétés de semences",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "name": "text_7",
+      "_nested_name": "text_7"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.planif_semences",
+      "parameter_list": {
+        "filter": "@item.cult_name == @fields.culture_label"
+      },
+      "rows": [
+        {
+          "type": "simple_checkbox",
+          "name": "@item.name",
+          "value": "@fields.@item.name",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "@item.name",
+                "!@fields.@item.name"
+              ],
+              "_raw": "changed | set_field: @item.name: !@fields.@item.name"
+            }
+          ],
+          "parameter_list": {
+            "label_text": "@item.text",
+            "reverse": "false",
+            "align": "left"
+          },
+          "style_list": [
+            "margin-bottom: 10px"
+          ],
+          "_nested_name": "data_items_8.@item.name",
+          "_dynamicFields": {
+            "name": [
+              {
+                "fullExpression": "@item.name",
+                "matchedExpression": "@item.name",
+                "type": "item",
+                "fieldName": "name"
+              }
+            ],
+            "value": [
+              {
+                "fullExpression": "@fields.@item.name",
+                "matchedExpression": "@item.name",
+                "type": "item",
+                "fieldName": "name"
+              }
+            ],
+            "action_list": {
+              "0": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "@item.name",
+                      "matchedExpression": "@item.name",
+                      "type": "item",
+                      "fieldName": "name"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "!@fields.@item.name",
+                      "matchedExpression": "@item.name",
+                      "type": "item",
+                      "fieldName": "name"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "changed | set_field: @item.name: !@fields.@item.name",
+                    "matchedExpression": "@item.name",
+                    "type": "item",
+                    "fieldName": "name"
+                  },
+                  {
+                    "fullExpression": "changed | set_field: @item.name: !@fields.@item.name",
+                    "matchedExpression": "@item.name",
+                    "type": "item",
+                    "fieldName": "name"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "label_text": [
+                {
+                  "fullExpression": "@item.text",
+                  "matchedExpression": "@item.text",
+                  "type": "item",
+                  "fieldName": "text"
+                }
+              ]
+            },
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_8.@item.name",
+                "matchedExpression": "@item.name",
+                "type": "item",
+                "fieldName": "name"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.name": [
+              "name",
+              "value",
+              "action_list.0.args.0",
+              "action_list.0.args.1",
+              "action_list.0._raw",
+              "action_list.0._raw",
+              "_nested_name"
+            ],
+            "@item.text": [
+              "parameter_list.label_text"
+            ]
+          }
+        },
+        {
+          "type": "set_field",
+          "name": "variete_label",
+          "value": "@item.text",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.@item.name",
+          "_nested_name": "data_items_8.variete_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@item.text",
+                "matchedExpression": "@item.text",
+                "type": "item",
+                "fieldName": "text"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.@item.name",
+                "matchedExpression": "@item.name",
+                "type": "item",
+                "fieldName": "name"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.text": [
+              "value"
+            ],
+            "@item.name": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "data_items_8",
+      "_nested_name": "data_items_8",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@data.planif_semences",
+            "matchedExpression": "@data.planif_semences",
+            "type": "data",
+            "fieldName": "planif_semences"
+          }
+        ],
+        "parameter_list": {
+          "filter": [
+            {
+              "fullExpression": "@item.cult_name == @fields.culture_label",
+              "matchedExpression": "@item.cult_name",
+              "type": "item",
+              "fieldName": "cult_name"
+            },
+            {
+              "fullExpression": "@item.cult_name == @fields.culture_label",
+              "matchedExpression": "@fields.culture_label",
+              "type": "fields",
+              "fieldName": "culture_label"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@data.planif_semences": [
+          "value"
+        ],
+        "@item.cult_name": [
+          "parameter_list.filter"
+        ],
+        "@fields.culture_label": [
+          "parameter_list.filter"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
+      },
+      "condition": "@fields.autre_variete",
+      "rows": [
+        {
+          "type": "text",
+          "value": "**Ecrivez le nom de l'autre variété**",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_10.text_1"
+        },
+        {
+          "type": "text",
+          "value": "*Il s'agit d'une variété qui n'existe pas dans la liste des variétés ci-dessus*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 12px",
+            "color: #718096",
+            "font-style: italic"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_10.text_2"
+        },
+        {
+          "type": "image",
+          "value": "images/ecrire.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 40%",
+            "object-fit: contain"
+          ],
+          "name": "image_3",
+          "_nested_name": "display_group_10.image_3"
+        },
+        {
+          "type": "text_box",
+          "name": "autre_variete_nom",
+          "value": "@fields.autre_variete_nom",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "autre_variete",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: autre_variete : this.value"
+            }
+          ],
+          "parameter_list": {
+            "placeholder": "Ecrivez le nom de l'autre variété"
+          },
+          "_nested_name": "display_group_10.autre_variete_nom",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.autre_variete_nom",
+                "matchedExpression": "@fields.autre_variete_nom",
+                "type": "fields",
+                "fieldName": "autre_variete_nom"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.autre_variete_nom": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "*La réponse est obligatoire, aucune valeur n'a été donnée!*",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@calc(@fields.autre_variete && (@fields.autre_variete == '' || @fields.autre_variete == null))",
+          "style_list": [
+            "color: #d71920",
+            "font-size: 12px",
+            "font-weight: bold",
+            "margin-top: 4px"
+          ],
+          "name": "text_5",
+          "_nested_name": "display_group_10.text_5",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "@calc(@fields.autre_variete && (@fields.autre_variete == '' || @fields.autre_variete == null))",
+                "matchedExpression": "@fields.autre_variete",
+                "type": "fields",
+                "fieldName": "autre_variete"
+              },
+              {
+                "fullExpression": "@calc(@fields.autre_variete && (@fields.autre_variete == '' || @fields.autre_variete == null))",
+                "matchedExpression": "@fields.autre_variete",
+                "type": "fields",
+                "fieldName": "autre_variete"
+              },
+              {
+                "fullExpression": "@calc(@fields.autre_variete && (@fields.autre_variete == '' || @fields.autre_variete == null))",
+                "matchedExpression": "@fields.autre_variete",
+                "type": "fields",
+                "fieldName": "autre_variete"
+              },
+              {
+                "fullExpression": "@calc(@fields.autre_variete && (@fields.autre_variete == '' || @fields.autre_variete == null))",
+                "matchedExpression": "@calc(@fields.autre_variete && (@fields.autre_variete == '' || @fields.autre_variete == null))",
+                "type": "calc",
+                "fieldName": "@fields.autre_variete && (@fields.autre_variete == '' || @fields.autre_variete == null)"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.autre_variete": [
+              "condition",
+              "condition",
+              "condition"
+            ],
+            "@calc(@fields.autre_variete && (@fields.autre_variete == '' || @fields.autre_variete == null))": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_10",
+      "_nested_name": "display_group_10",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.autre_variete",
+            "matchedExpression": "@fields.autre_variete",
+            "type": "fields",
+            "fieldName": "autre_variete"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.autre_variete": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@fields.variete_label",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.variete_label",
+            "matchedExpression": "@fields.variete_label",
+            "type": "fields",
+            "fieldName": "variete_label"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.variete_label": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page_5_btn_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "display_group_13.page_5_btn_back"
+        },
+        {
+          "type": "button",
+          "name": "page_4_btn_attempt_submit",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                true
+              ],
+              "_raw": "click | set_field: attempt_submit: true"
+            }
+          ],
+          "condition": "!@local.completed_enabled",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_13.page_4_btn_attempt_submit",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!@local.completed_enabled",
+                "matchedExpression": "!@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "!@local.completed_enabled": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "name": "page_5_btn_continue",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                false
+              ],
+              "_raw": "click | set_field: attempt_submit: false"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "condition": "@local.completed_enabled",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_13.page_5_btn_continue",
+          "_dynamicFields": {
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.completed_enabled",
+                "matchedExpression": "@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ],
+            "@local.completed_enabled": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_13",
+      "_nested_name": "display_group_13"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Cultures_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1BAP12cPkFZaHtm0Xozys0kLOqnVOi1h2UUBMoZbmKQI"
+  }
+}

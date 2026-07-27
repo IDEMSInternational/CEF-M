@@ -5,210 +5,70 @@
   "rows": [
     {
       "type": "title",
-      "value": "@global.title_page2"
+      "value": "GESTION DES RÉSIDUS DE CULTURE"
     },
     {
-      "type": "begin_display_group"
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit"
     },
     {
-      "type": "subtitle",
-      "value": "@global.nom_champ"
+      "name": "v_nom_cult_prev",
+      "value": "@calc(@fields.culture_prev == '999' ? @fields.autre_culture_prev : @fields.culture_prev)"
     },
     {
-      "type": "audio",
-      "name": "audio_4_1",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/nom_champ_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float : right;"
+      "name": "valid_tige",
+      "value": "@calc(!!@fields.tige_laisse_champ && @fields.tige_laisse_champ !== \"\")"
     },
     {
-      "type": "end_display_group"
+      "name": "completed_enabled",
+      "value": "@local.valid_tige"
     },
     {
-      "type": "image",
-      "value": "images/champ.jpg",
-      "style_list": "width: 120px; height: 120px; "
-    },
-    {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: black;\"> @global.note_nom_champ </p>"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "text_box",
-      "name": "nom_champ",
-      "value": "@fields.nom_champ",
-      "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom du champ",
-      "condition": "!!@fields.nom_champ"
-    },
-    {
-      "type": "text_box",
-      "name": "nom_champ",
-      "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom du champ",
-      "condition": "!@fields.nom_champ"
-    },
-    {
-      "name": "valid_nom_champ",
-      "value": "@calc(/^[A-Z ]+$/.test(@local.nom_champ) || @local.nom_champ == '' || !@local.nom_champ)"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "text",
-      "value": "@global.nom_champ_hint",
-      "condition": "!@local.valid_nom_champ",
-      "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 14px"
+      "type": "begin_display_group",
+      "name": "grp_header"
     },
     {
       "type": "html",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@local.nom_champ"
-    },
-    {
-      "type": "subtitle",
-      "value": "**Caracteristiques du champ @local.nom_champ**"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "text",
-      "value": "**Sélectionnez le type de sol du champ @local.nom_champ**"
-    },
-    {
-      "type": "audio",
-      "name": "audio_4_2",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/type_sol_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float : right;"
+      "value": "<h3 style=\"color: #1e3656; margin: 0; font-size: 16px; text-transform: uppercase;\">Gestion des résidus de la culture précédente</h3>"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "image",
-      "value": "images/soil_type.jpg",
-      "style_list": "width:100px; height:100px; "
+      "type": "begin_display_group",
+      "name": "grp_question"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span> Indiquez si les tiges de <b>@local.v_nom_cult_prev</b> sont restées et retournées dans le sol de la parcelle N⁰@field.numero_parcelle"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: button_only; src: audio/semis/tige_laisse_champ_fr.mp3; play_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "radio_button_grid",
-      "name": "type_sol",
-      "value": "@fields.type_sol",
-      "action_list": "changed | set_local : type_sol: this.value;",
-      "parameter_list": "answer_list: @data.type_sol; \nstyle: secondary;\nitem_width: 60px;\ngrid_gap: 8px;"
+      "name": "tige_laisse_champ",
+      "value": "@fields.tige_laisse_champ",
+      "action_list": "changed | set_field: tige_laisse_champ: this.value;",
+      "parameter_list": "answer_list: @data.yes_no; variant: flex; item_width: 100px; grid_gap: 15px; style: secondary;"
+    },
+    {
+      "type": "begin_display_group",
+      "hidden": "@fields.attempt_submit && !@local.valid_tige",
+      "style_list": "display: block; width: 100%; margin-top: 15px; padding: 8px; background: #fff5f5; border-radius: 6px;"
     },
     {
       "type": "html",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@local.type_sol"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "text",
-      "value": "**Sélectionnez le niveau d'inclinaison du champ @local.nom_champ**"
-    },
-    {
-      "type": "audio",
-      "name": "audio_4_3",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/inclinaison_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float : right;"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "image",
-      "value": "images/pente.jpg",
+      "value": "<span style=\"color: red; font-weight: bold;\">Réponse obligatoire !</span>",
       "style_list": "width:100px; height:100px; "
     },
     {
-      "type": "begin_radio_list",
-      "name": "pente_sol",
-      "value": "@fields.pente_sol"
-    },
-    {
-      "type": "begin_data_items",
-      "value": "@data.pente_sol"
-    },
-    {
-      "type": "end_data_items"
-    },
-    {
-      "type": "end_radio_list"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@local.pente_sol"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "subtitle",
-      "value": "**Comptez et renseignez le nombre de parcelles de @local.nom_champ**"
-    },
-    {
-      "type": "audio",
-      "name": "audio_4_4",
-      "parameter_list": "variant: compact;\nsrc: audio/superficie/nbre_parcel_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "align-self: flex-end;"
-    },
-    {
       "type": "end_display_group"
-    },
-    {
-      "type": "text",
-      "value": "@calc(@global.parcelle_hint + '  '+@local.nom_champ)"
-    },
-    {
-      "type": "image",
-      "value": "images/superf_champ.jpg",
-      "style_list": "width:100px; height:100px; "
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "text_box",
-      "name": "nb_parcelles",
-      "value": "@fields.nb_parcelles",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
-      "condition": "!!@field.nb_parcelles",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "text_box",
-      "name": "nb_parcelles",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
-      "condition": "!@field.nb_parcelles",
-      "exclude_from_translation": true
-    },
-    {
-      "name": "valid_nb_parcelles",
-      "value": "@calc((/^\\d+$/.test(@local.nb_parcelles) && @local.nb_parcelles>= 1) || @local.nb_parcelles == '' || !@local.nb_parcelles)",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "text",
-      "value": "S'il vous plaît, saisissez un nombre valide!",
-      "condition": "!@local.valid_nb_parcelles",
-      "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 14px"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@local.nb_parcelles"
     },
     {
       "type": "begin_display_group",
@@ -217,21 +77,16 @@
       "style_list": "padding: 12px 24px;"
     },
     {
-      "name": "completed_enabled",
-      "value": "!!@local.nom_champ  && @local.valid_nb_parcelles && !!@local.type_sol && !!@local.pente_sol && !!@local.nb_parcelles",
-      "style_list": true
-    },
-    {
       "type": "round_button",
-      "name": "page4_button_back",
+      "name": "page5_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page4_button_continue",
+      "name": "page5_button_continue",
       "value": "Continuer",
-      "action_list": "click | set_field: nom_champ: @local.nom_champ;\nclick | set_field: type_sol: @local.type_sol;\nclick | set_field: pente_sol: @local.pente_sol;\nclick | set_field: nb_parcelles: @local.nb_parcelles;\nclick | emit: completed;",
+      "action_list": "click | set_field: @calc('tige_laisse_champ_parcelle_N' + @fields.numero_parcelle) : @fields.tige_laisse_champ;\n\nclick | set_field: attempt_submit: false;\n\nclick | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled"
     },
     {

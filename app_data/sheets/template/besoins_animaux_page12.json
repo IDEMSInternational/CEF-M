@@ -4,99 +4,65 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
-      "value": "**DEPENSE DE TOURTEAU**",
+      "type": "title",
+      "value": "**OBSERVATIONS SUR L'ALIMENTATION DU BETAIL DE L'UPA**",
       "_translations": {
         "value": {}
       },
-      "name": "subtitle_2",
-      "_nested_name": "subtitle_2"
+      "name": "title_2",
+      "_nested_name": "title_2"
     },
     {
-      "type": "text",
-      "value": "**La quantité de tourteau de coton à acheter**",
-      "_translations": {
-        "value": {}
-      },
-      "name": "text_3",
-      "_nested_name": "text_3"
-    },
-    {
-      "type": "image",
-      "value": "images/tourteau.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "width:120px",
-        "height:120px",
-        "object-fit:contain",
-        "flex-shrink:0"
-      ],
-      "name": "image_4",
-      "_nested_name": "image_4"
-    },
-    {
-      "type": "html",
-      "name": "note_quantite_sac_tourteau",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\nLa quantité de tourteau de coton à acheter: <strong> @fields.quantite_tourteau sacs\n</strong> </div>",
-      "_translations": {
-        "value": {}
-      },
-      "_nested_name": "note_quantite_sac_tourteau",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\nLa quantité de tourteau de coton à acheter: <strong> @fields.quantite_tourteau sacs\n</strong> </div>",
-            "matchedExpression": "@fields.quantite_tourteau",
-            "type": "fields",
-            "fieldName": "quantite_tourteau"
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "html",
+          "name": "type_canal_observ_label",
+          "value": "<span style=\"color: red;\">*</span> @global.type_canal_observ_label",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size:20px"
+          ],
+          "_nested_name": "display_group_3.type_canal_observ_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<span style=\"color: red;\">*</span> @global.type_canal_observ_label",
+                "matchedExpression": "@global.type_canal_observ_label",
+                "type": "global",
+                "fieldName": "type_canal_observ_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.type_canal_observ_label": [
+              "value"
+            ]
           }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.quantite_tourteau": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "value": "**Le prix d'un sac de tourteau**",
-      "_translations": {
-        "value": {}
-      },
-      "name": "text_6",
-      "_nested_name": "text_6"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_7",
-      "_nested_name": "html_7"
-    },
-    {
-      "type": "image",
-      "value": "images/cfa.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "width:120px",
-        "height:120px",
-        "object-fit:contain",
-        "flex-shrink:0"
+        },
+        {
+          "type": "audio",
+          "name": "audio_10_1",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/canal_obser_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_3.audio_10_1"
+        }
       ],
-      "name": "image_8",
-      "_nested_name": "image_8"
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
     },
     {
-      "type": "text_box",
-      "name": "prix_sac_tourteau",
-      "value": "@fields.prix_sac_tourteau",
+      "type": "radio_button_grid",
+      "name": "type_canal_observ",
+      "value": "@fields.type_canal_observ",
       "_translations": {
         "value": {}
       },
@@ -105,47 +71,65 @@
           "trigger": "changed",
           "action_id": "set_field",
           "args": [
-            "prix_sac_tourteau",
+            "type_canal_observ",
             "this.value"
           ],
-          "_raw": "changed | set_field: prix_sac_tourteau : this.value"
+          "_raw": "changed | set_field : type_canal_observ: this.value"
         }
       ],
       "parameter_list": {
-        "number_input": "true",
-        "placeholder": "Donnez le prix d'un sac de sac tourteau"
+        "answer_list": "@data.group_observation",
+        "variant": "flex",
+        "item_width": "60px",
+        "grid_gap": "8px"
       },
-      "exclude_from_translation": true,
-      "_nested_name": "prix_sac_tourteau",
+      "_nested_name": "type_canal_observ",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.prix_sac_tourteau",
-            "matchedExpression": "@fields.prix_sac_tourteau",
+            "fullExpression": "@fields.type_canal_observ",
+            "matchedExpression": "@fields.type_canal_observ",
             "type": "fields",
-            "fieldName": "prix_sac_tourteau"
+            "fieldName": "type_canal_observ"
           }
-        ]
+        ],
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@data.group_observation",
+              "matchedExpression": "@data.group_observation",
+              "type": "data",
+              "fieldName": "group_observation"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
-        "@fields.prix_sac_tourteau": [
+        "@fields.type_canal_observ": [
           "value"
+        ],
+        "@data.group_observation": [
+          "parameter_list.answer_list"
         ]
       }
     },
     {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "type": "text",
+      "value": "@global.warning_message",
       "_translations": {
         "value": {}
       },
-      "condition": "!@fields.prix_sac_tourteau",
-      "_nested_name": "html_text",
+      "condition": "!@fields.type_canal_observ",
+      "style_list": [
+        "color: red",
+        "font-size: 16px"
+      ],
+      "name": "text_6",
+      "_nested_name": "text_6",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "fullExpression": "@global.warning_message",
             "matchedExpression": "@global.warning_message",
             "type": "global",
             "fieldName": "warning_message"
@@ -153,10 +137,10 @@
         ],
         "condition": [
           {
-            "fullExpression": "!@fields.prix_sac_tourteau",
-            "matchedExpression": "!@fields.prix_sac_tourteau",
+            "fullExpression": "!@fields.type_canal_observ",
+            "matchedExpression": "!@fields.type_canal_observ",
             "type": "fields",
-            "fieldName": "prix_sac_tourteau"
+            "fieldName": "type_canal_observ"
           }
         ]
       },
@@ -164,274 +148,397 @@
         "@global.warning_message": [
           "value"
         ],
-        "!@fields.prix_sac_tourteau": [
+        "!@fields.type_canal_observ": [
           "condition"
         ]
       }
     },
     {
-      "name": "valid_prix_sac_tourteau",
-      "value": "@calc((/^\\d+$/.test(@fields.prix_sac_tourteau) && @fields.prix_sac_tourteau > 0 ) || @fields.prix_sac_tourteau == '' || !@fields.prix_sac_tourteau)",
+      "type": "display_group",
+      "condition": "@fields.type_canal_observ == \"par_text\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_text_label",
+          "value": "@global.info_text_label",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_7.info_text_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.info_text_label",
+                "matchedExpression": "@global.info_text_label",
+                "type": "global",
+                "fieldName": "info_text_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.info_text_label": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_10_2",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/oberv_ecrit_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_7.audio_10_2"
+        }
+      ],
+      "name": "display_group_7",
+      "_nested_name": "display_group_7",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_observ == \"par_text\"",
+            "matchedExpression": "@fields.type_canal_observ",
+            "type": "fields",
+            "fieldName": "type_canal_observ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_observ": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_area",
+      "name": "info_text",
+      "value": "@fields.info_text",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "info_text",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : info_text: this.value"
+        }
+      ],
+      "parameter_list": {
+        "placeholder": "Info par écrit"
+      },
+      "condition": "@fields.type_canal_observ == \"par_text\"",
+      "_nested_name": "info_text",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.info_text",
+            "matchedExpression": "@fields.info_text",
+            "type": "fields",
+            "fieldName": "info_text"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_observ == \"par_text\"",
+            "matchedExpression": "@fields.type_canal_observ",
+            "type": "fields",
+            "fieldName": "type_canal_observ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.info_text": [
+          "value"
+        ],
+        "@fields.type_canal_observ": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_observ == \"par_video\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_video_label",
+          "value": "@global.info_video_label",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_10.info_video_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.info_video_label",
+                "matchedExpression": "@global.info_video_label",
+                "type": "global",
+                "fieldName": "info_video_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.info_video_label": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_10_3",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/oberv_vid_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_10.audio_10_3"
+        }
+      ],
+      "name": "display_group_10",
+      "_nested_name": "display_group_10",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_observ == \"par_video\"",
+            "matchedExpression": "@fields.type_canal_observ",
+            "type": "fields",
+            "fieldName": "type_canal_observ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_observ": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "info_video",
+      "value": "We would need a video recorder here",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.type_canal_observ == \"par_video\"",
+      "_nested_name": "info_video",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_observ == \"par_video\"",
+            "matchedExpression": "@fields.type_canal_observ",
+            "type": "fields",
+            "fieldName": "type_canal_observ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_observ": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_observ == \"par_vocal\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_audio_label",
+          "value": "@global.info_audio_label",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_13.info_audio_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.info_audio_label",
+                "matchedExpression": "@global.info_audio_label",
+                "type": "global",
+                "fieldName": "info_audio_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.info_audio_label": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_10_4",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/oberv_audio_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_13.audio_10_4"
+        }
+      ],
+      "name": "display_group_13",
+      "_nested_name": "display_group_13",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_observ == \"par_vocal\"",
+            "matchedExpression": "@fields.type_canal_observ",
+            "type": "fields",
+            "fieldName": "type_canal_observ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_observ": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "info_audio",
+      "value": "We would need a audio recorder here",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.type_canal_observ == \"par_vocal\"",
+      "_nested_name": "info_audio",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_observ == \"par_vocal\"",
+            "matchedExpression": "@fields.type_canal_observ",
+            "type": "fields",
+            "fieldName": "type_canal_observ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_observ": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_observ == \"par_photo\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_image_label",
+          "value": "@global.info_image_label",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_16.info_image_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.info_image_label",
+                "matchedExpression": "@global.info_image_label",
+                "type": "global",
+                "fieldName": "info_image_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.info_image_label": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_10_5",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/oberv_phot_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_16.audio_10_5"
+        }
+      ],
+      "name": "display_group_16",
+      "_nested_name": "display_group_16",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_observ == \"par_photo\"",
+            "matchedExpression": "@fields.type_canal_observ",
+            "type": "fields",
+            "fieldName": "type_canal_observ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_observ": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "info_image",
+      "value": "We would need a camera here",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.type_canal_observ == \"par_photo\"",
+      "_nested_name": "info_image",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_observ == \"par_photo\"",
+            "matchedExpression": "@fields.type_canal_observ",
+            "type": "fields",
+            "fieldName": "type_canal_observ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_observ": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "!!@local.type_canal_observ",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "valid_prix_sac_tourteau",
+      "_nested_name": "completed_enabled",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.prix_sac_tourteau) && @fields.prix_sac_tourteau > 0 ) || @fields.prix_sac_tourteau == '' || !@fields.prix_sac_tourteau)",
-            "matchedExpression": "@fields.prix_sac_tourteau",
-            "type": "fields",
-            "fieldName": "prix_sac_tourteau"
-          },
-          {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.prix_sac_tourteau) && @fields.prix_sac_tourteau > 0 ) || @fields.prix_sac_tourteau == '' || !@fields.prix_sac_tourteau)",
-            "matchedExpression": "@fields.prix_sac_tourteau",
-            "type": "fields",
-            "fieldName": "prix_sac_tourteau"
-          },
-          {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.prix_sac_tourteau) && @fields.prix_sac_tourteau > 0 ) || @fields.prix_sac_tourteau == '' || !@fields.prix_sac_tourteau)",
-            "matchedExpression": "@fields.prix_sac_tourteau",
-            "type": "fields",
-            "fieldName": "prix_sac_tourteau"
-          },
-          {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.prix_sac_tourteau) && @fields.prix_sac_tourteau > 0 ) || @fields.prix_sac_tourteau == '' || !@fields.prix_sac_tourteau)",
-            "matchedExpression": "!@fields.prix_sac_tourteau",
-            "type": "fields",
-            "fieldName": "prix_sac_tourteau"
-          },
-          {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.prix_sac_tourteau) && @fields.prix_sac_tourteau > 0 ) || @fields.prix_sac_tourteau == '' || !@fields.prix_sac_tourteau)",
-            "matchedExpression": "@calc((/^\\d+$/.test(@fields.prix_sac_tourteau) && @fields.prix_sac_tourteau > 0 ) || @fields.prix_sac_tourteau == '' || !@fields.prix_sac_tourteau)",
-            "type": "calc",
-            "fieldName": "(/^\\d+$/.test(@fields.prix_sac_tourteau) && @fields.prix_sac_tourteau > 0 ) || @fields.prix_sac_tourteau == '' || !@fields.prix_sac_tourteau"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.prix_sac_tourteau": [
-          "value",
-          "value",
-          "value"
-        ],
-        "!@fields.prix_sac_tourteau": [
-          "value"
-        ],
-        "@calc((/^\\d+$/.test(@fields.prix_sac_tourteau) && @fields.prix_sac_tourteau > 0 ) || @fields.prix_sac_tourteau == '' || !@fields.prix_sac_tourteau)": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "value": "@global.validite_nombre",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "!@local.valid_prix_sac_tourteau",
-      "exclude_from_translation": true,
-      "style_list": [
-        "color: #FF0000",
-        "font-size: 14px"
-      ],
-      "name": "text_12",
-      "_nested_name": "text_12",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.validite_nombre",
-            "matchedExpression": "@global.validite_nombre",
-            "type": "global",
-            "fieldName": "validite_nombre"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "!@local.valid_prix_sac_tourteau",
-            "matchedExpression": "!@local.valid_prix_sac_tourteau",
+            "fullExpression": "!!@local.type_canal_observ",
+            "matchedExpression": "!@local.type_canal_observ",
             "type": "local",
-            "fieldName": "valid_prix_sac_tourteau"
+            "fieldName": "type_canal_observ"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.validite_nombre": [
+        "!@local.type_canal_observ": [
           "value"
-        ],
-        "!@local.valid_prix_sac_tourteau": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "value": "**Le montant prévisionnel pour l'achat du tourteau**",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.prix_sac_tourteau",
-      "name": "text_13",
-      "_nested_name": "text_13",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@fields.prix_sac_tourteau",
-            "matchedExpression": "@fields.prix_sac_tourteau",
-            "type": "fields",
-            "fieldName": "prix_sac_tourteau"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.prix_sac_tourteau": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "image",
-      "value": "images/cfa_tot.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.prix_sac_tourteau",
-      "style_list": [
-        "width:120px",
-        "height:120px",
-        "object-fit:contain",
-        "flex-shrink:0"
-      ],
-      "name": "image_14",
-      "_nested_name": "image_14",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@fields.prix_sac_tourteau",
-            "matchedExpression": "@fields.prix_sac_tourteau",
-            "type": "fields",
-            "fieldName": "prix_sac_tourteau"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.prix_sac_tourteau": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "set_field",
-      "name": "cal_depense_tourteau",
-      "value": "@calc((Number(@fields.quantite_tourteau || 0) * Number(@fields.prix_sac_tourteau || 0)).toFixed(1))",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.prix_sac_tourteau",
-      "_nested_name": "cal_depense_tourteau",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc((Number(@fields.quantite_tourteau || 0) * Number(@fields.prix_sac_tourteau || 0)).toFixed(1))",
-            "matchedExpression": "@fields.quantite_tourteau",
-            "type": "fields",
-            "fieldName": "quantite_tourteau"
-          },
-          {
-            "fullExpression": "@calc((Number(@fields.quantite_tourteau || 0) * Number(@fields.prix_sac_tourteau || 0)).toFixed(1))",
-            "matchedExpression": "@fields.prix_sac_tourteau",
-            "type": "fields",
-            "fieldName": "prix_sac_tourteau"
-          },
-          {
-            "fullExpression": "@calc((Number(@fields.quantite_tourteau || 0) * Number(@fields.prix_sac_tourteau || 0)).toFixed(1))",
-            "matchedExpression": "@calc((Number(@fields.quantite_tourteau || 0) * Number(@fields.prix_sac_tourteau || 0)).toFixed(1))",
-            "type": "calc",
-            "fieldName": "(Number(@fields.quantite_tourteau || 0) * Number(@fields.prix_sac_tourteau || 0)).toFixed(1)"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "@fields.prix_sac_tourteau",
-            "matchedExpression": "@fields.prix_sac_tourteau",
-            "type": "fields",
-            "fieldName": "prix_sac_tourteau"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.quantite_tourteau": [
-          "value"
-        ],
-        "@fields.prix_sac_tourteau": [
-          "value",
-          "condition"
-        ],
-        "@calc((Number(@fields.quantite_tourteau || 0) * Number(@fields.prix_sac_tourteau || 0)).toFixed(1))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "value": "Le montant prévisionnel pour l'achat du tourteau est: **@fields.cal_depense_tourteau drm**",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.prix_sac_tourteau",
-      "name": "text_16",
-      "_nested_name": "text_16",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "Le montant prévisionnel pour l'achat du tourteau est: **@fields.cal_depense_tourteau drm**",
-            "matchedExpression": "@fields.cal_depense_tourteau",
-            "type": "fields",
-            "fieldName": "cal_depense_tourteau"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "@fields.prix_sac_tourteau",
-            "matchedExpression": "@fields.prix_sac_tourteau",
-            "type": "fields",
-            "fieldName": "prix_sac_tourteau"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.cal_depense_tourteau": [
-          "value"
-        ],
-        "@fields.prix_sac_tourteau": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: black;\">Il s'agit de l'estimation du montant total nécessaire pour l'achat du tourteau. </p>",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.prix_sac_tourteau",
-      "name": "html_17",
-      "_nested_name": "html_17",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@fields.prix_sac_tourteau",
-            "matchedExpression": "@fields.prix_sac_tourteau",
-            "type": "fields",
-            "fieldName": "prix_sac_tourteau"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.prix_sac_tourteau": [
-          "condition"
         ]
       }
     },
@@ -447,7 +554,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page12_button_back",
+          "name": "page_14_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -462,12 +569,12 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_18.page12_button_back"
+          "_nested_name": "display_group_20.page_14_button_back"
         },
         {
           "type": "button",
-          "name": "page12_button_continue",
-          "value": "Continuer",
+          "name": "page_14_button_continue",
+          "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
@@ -481,11 +588,29 @@
               "_raw": "click | emit: completed"
             }
           ],
-          "_nested_name": "display_group_18.page12_button_continue"
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_20.page_14_button_continue",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ]
+          }
         }
       ],
-      "name": "display_group_18",
-      "_nested_name": "display_group_18"
+      "name": "display_group_20",
+      "_nested_name": "display_group_20"
     }
   ],
   "_source": {

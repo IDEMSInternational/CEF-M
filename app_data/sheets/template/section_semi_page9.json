@@ -4,621 +4,871 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "name": "page_title",
-      "value": "APPORT CHAUX AGRICOLE",
-      "_translations": {
-        "value": {}
-      },
-      "_nested_name": "page_title"
-    },
-    {
-      "name": "attempt_submit",
-      "value": "@fields.attempt_submit",
+      "name": "v_nom_valide",
+      "value": "@calc((@field.nom_autre_cout_semis || '').trim().length > 0)",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "attempt_submit",
+      "_nested_name": "v_nom_valide",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.attempt_submit",
-            "matchedExpression": "@fields.attempt_submit",
-            "type": "fields",
-            "fieldName": "attempt_submit"
+            "fullExpression": "@calc((@field.nom_autre_cout_semis || '').trim().length > 0)",
+            "matchedExpression": "@field.nom_autre_cout_semis",
+            "type": "field",
+            "fieldName": "nom_autre_cout_semis"
+          },
+          {
+            "fullExpression": "@calc((@field.nom_autre_cout_semis || '').trim().length > 0)",
+            "matchedExpression": "@calc((@field.nom_autre_cout_semis || '').trim().length > 0)",
+            "type": "calc",
+            "fieldName": "(@field.nom_autre_cout_semis || '').trim().length > 0"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.attempt_submit": [
+        "@field.nom_autre_cout_semis": [
+          "value"
+        ],
+        "@calc((@field.nom_autre_cout_semis || '').trim().length > 0)": [
           "value"
         ]
       }
     },
     {
-      "type": "data_items",
-      "value": "@data.primary_crops",
-      "parameter_list": {
-        "filter": "@item.name == @fields.current_primary_crop"
+      "name": "v_mt_fmt",
+      "value": "@calc(/^\\d+$/.test(@field.autre_cout_semis))",
+      "_translations": {
+        "value": {}
       },
-      "style_list": [
-        "display: flex",
-        "flex-wrap: wrap",
-        "justify-content: space-between",
-        "width: 100%",
-        "gap: 10px"
-      ],
-      "rows": [
-        {
-          "type": "display_group",
-          "rows": [
-            {
-              "type": "image",
-              "value": "@item.image",
-              "_translations": {
-                "value": {}
-              },
-              "name": "image_1",
-              "_nested_name": "data_items_4.display_group_1_@item.id.image_1",
-              "_dynamicFields": {
-                "value": [
-                  {
-                    "fullExpression": "@item.image",
-                    "matchedExpression": "@item.image",
-                    "type": "item",
-                    "fieldName": "image"
-                  }
-                ],
-                "_nested_name": [
-                  {
-                    "fullExpression": "data_items_4.display_group_1_@item.id.image_1",
-                    "matchedExpression": "@item.id.image_1",
-                    "type": "item",
-                    "fieldName": "id"
-                  }
-                ]
-              },
-              "_dynamicDependencies": {
-                "@item.image": [
-                  "value"
-                ],
-                "@item.id.image_1": [
-                  "_nested_name"
-                ]
-              }
-            },
-            {
-              "type": "text",
-              "value": "**@item.text**",
-              "_translations": {
-                "value": {}
-              },
-              "style_list": [
-                "font-weight: bold",
-                "font-size: 18px"
-              ],
-              "name": "text_2",
-              "_nested_name": "data_items_4.display_group_1_@item.id.text_2",
-              "_dynamicFields": {
-                "value": [
-                  {
-                    "fullExpression": "**@item.text**",
-                    "matchedExpression": "@item.text",
-                    "type": "item",
-                    "fieldName": "text"
-                  }
-                ],
-                "_nested_name": [
-                  {
-                    "fullExpression": "data_items_4.display_group_1_@item.id.text_2",
-                    "matchedExpression": "@item.id.text_2",
-                    "type": "item",
-                    "fieldName": "id"
-                  }
-                ]
-              },
-              "_dynamicDependencies": {
-                "@item.text": [
-                  "value"
-                ],
-                "@item.id.text_2": [
-                  "_nested_name"
-                ]
-              }
-            }
-          ],
-          "name": "display_group_1_@item.id",
-          "_nested_name": "data_items_4.display_group_1_@item.id",
-          "_dynamicFields": {
-            "name": [
-              {
-                "fullExpression": "display_group_1_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ],
-            "_nested_name": [
-              {
-                "fullExpression": "data_items_4.display_group_1_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@item.id": [
-              "name",
-              "_nested_name"
-            ]
-          }
-        }
-      ],
-      "name": "data_items_4",
-      "_nested_name": "data_items_4",
+      "type": "set_variable",
+      "_nested_name": "v_mt_fmt",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@data.primary_crops",
-            "matchedExpression": "@data.primary_crops",
-            "type": "data",
-            "fieldName": "primary_crops"
+            "fullExpression": "@calc(/^\\d+$/.test(@field.autre_cout_semis))",
+            "matchedExpression": "@field.autre_cout_semis",
+            "type": "field",
+            "fieldName": "autre_cout_semis"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+$/.test(@field.autre_cout_semis))",
+            "matchedExpression": "@calc(/^\\d+$/.test(@field.autre_cout_semis))",
+            "type": "calc",
+            "fieldName": "/^\\d+$/.test(@field.autre_cout_semis)"
           }
-        ],
-        "parameter_list": {
-          "filter": [
-            {
-              "fullExpression": "@item.name == @fields.current_primary_crop",
-              "matchedExpression": "@item.name",
-              "type": "item",
-              "fieldName": "name"
-            },
-            {
-              "fullExpression": "@item.name == @fields.current_primary_crop",
-              "matchedExpression": "@fields.current_primary_crop",
-              "type": "fields",
-              "fieldName": "current_primary_crop"
-            }
-          ]
-        }
+        ]
       },
       "_dynamicDependencies": {
-        "@data.primary_crops": [
+        "@field.autre_cout_semis": [
           "value"
         ],
-        "@item.name": [
-          "parameter_list.filter"
+        "@calc(/^\\d+$/.test(@field.autre_cout_semis))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_mt_err",
+      "value": "@calc(!@local.v_mt_fmt || Number(@field.autre_cout_semis) < 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_mt_err",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!@local.v_mt_fmt || Number(@field.autre_cout_semis) < 0)",
+            "matchedExpression": "!@local.v_mt_fmt",
+            "type": "local",
+            "fieldName": "v_mt_fmt"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_mt_fmt || Number(@field.autre_cout_semis) < 0)",
+            "matchedExpression": "@field.autre_cout_semis",
+            "type": "field",
+            "fieldName": "autre_cout_semis"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_mt_fmt || Number(@field.autre_cout_semis) < 0)",
+            "matchedExpression": "@calc(!@local.v_mt_fmt || Number(@field.autre_cout_semis) < 0)",
+            "type": "calc",
+            "fieldName": "!@local.v_mt_fmt || Number(@field.autre_cout_semis) < 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.v_mt_fmt": [
+          "value"
         ],
-        "@fields.current_primary_crop": [
-          "parameter_list.filter"
+        "@field.autre_cout_semis": [
+          "value"
+        ],
+        "@calc(!@local.v_mt_fmt || Number(@field.autre_cout_semis) < 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_page9_valid",
+      "value": "@calc(@field.no_autre_cout_semis == 'non' || (@field.no_autre_cout_semis == 'oui' && @local.v_nom_valide && !@local.v_mt_err))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_page9_valid",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@field.no_autre_cout_semis == 'non' || (@field.no_autre_cout_semis == 'oui' && @local.v_nom_valide && !@local.v_mt_err))",
+            "matchedExpression": "@field.no_autre_cout_semis",
+            "type": "field",
+            "fieldName": "no_autre_cout_semis"
+          },
+          {
+            "fullExpression": "@calc(@field.no_autre_cout_semis == 'non' || (@field.no_autre_cout_semis == 'oui' && @local.v_nom_valide && !@local.v_mt_err))",
+            "matchedExpression": "@field.no_autre_cout_semis",
+            "type": "field",
+            "fieldName": "no_autre_cout_semis"
+          },
+          {
+            "fullExpression": "@calc(@field.no_autre_cout_semis == 'non' || (@field.no_autre_cout_semis == 'oui' && @local.v_nom_valide && !@local.v_mt_err))",
+            "matchedExpression": "@local.v_nom_valide",
+            "type": "local",
+            "fieldName": "v_nom_valide"
+          },
+          {
+            "fullExpression": "@calc(@field.no_autre_cout_semis == 'non' || (@field.no_autre_cout_semis == 'oui' && @local.v_nom_valide && !@local.v_mt_err))",
+            "matchedExpression": "!@local.v_mt_err",
+            "type": "local",
+            "fieldName": "v_mt_err"
+          },
+          {
+            "fullExpression": "@calc(@field.no_autre_cout_semis == 'non' || (@field.no_autre_cout_semis == 'oui' && @local.v_nom_valide && !@local.v_mt_err))",
+            "matchedExpression": "@calc(@field.no_autre_cout_semis == 'non' || (@field.no_autre_cout_semis == 'oui' && @local.v_nom_valide && !@local.v_mt_err))",
+            "type": "calc",
+            "fieldName": "@field.no_autre_cout_semis == 'non' || (@field.no_autre_cout_semis == 'oui' && @local.v_nom_valide && !@local.v_mt_err)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.no_autre_cout_semis": [
+          "value",
+          "value"
+        ],
+        "@local.v_nom_valide": [
+          "value"
+        ],
+        "!@local.v_mt_err": [
+          "value"
+        ],
+        "@calc(@field.no_autre_cout_semis == 'non' || (@field.no_autre_cout_semis == 'oui' && @local.v_nom_valide && !@local.v_mt_err))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_current_human",
+      "value": "@calc(Number(@field.current_culture_index) + 1)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_current_human",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@field.current_culture_index) + 1)",
+            "matchedExpression": "@field.current_culture_index",
+            "type": "field",
+            "fieldName": "current_culture_index"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.current_culture_index) + 1)",
+            "matchedExpression": "@calc(Number(@field.current_culture_index) + 1)",
+            "type": "calc",
+            "fieldName": "Number(@field.current_culture_index) + 1"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.current_culture_index": [
+          "value"
+        ],
+        "@calc(Number(@field.current_culture_index) + 1)": [
+          "value"
         ]
       }
     },
     {
       "type": "display_group",
+      "name": "header_top",
+      "style_list": [
+        "background: #00adcc",
+        "padding: 15px",
+        "border-radius: 0 0 15px 15px",
+        "margin-bottom: 20px"
+      ],
       "rows": [
         {
           "type": "html",
-          "name": "q_chaux_label",
-          "value": "<span style=\"color: red;\">*</span> Quantité chaux (sac) @fields.current_primary_crop",
+          "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
           "_translations": {
             "value": {}
           },
-          "style_list": [
-            "font-size:20px"
-          ],
-          "_nested_name": "display_group_6.q_chaux_label",
+          "name": "html_1",
+          "_nested_name": "header_top.html_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<span style=\"color: red;\">*</span> Quantité chaux (sac) @fields.current_primary_crop",
-                "matchedExpression": "@fields.current_primary_crop",
-                "type": "fields",
-                "fieldName": "current_primary_crop"
+                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "matchedExpression": "@local.v_current_human",
+                "type": "local",
+                "fieldName": "v_current_human"
+              },
+              {
+                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "matchedExpression": "@field.total_cultures_selected",
+                "type": "field",
+                "fieldName": "total_cultures_selected"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.current_primary_crop": [
+            "@local.v_current_human": [
+              "value"
+            ],
+            "@field.total_cultures_selected": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "header_top"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "width: 100%",
+        "display: flex",
+        "flex-direction: column",
+        "align-items: center",
+        "border: 1px solid #FFCC80",
+        "border-radius: 12px",
+        "background: white",
+        "margin-bottom: 10px",
+        "overflow: hidden"
+      ],
+      "rows": [
+        {
+          "type": "image",
+          "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 60%",
+            "object-fit: contain"
+          ],
+          "name": "image_1",
+          "_nested_name": "display_group_9.image_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+                "matchedExpression": "@field.active_culture_name",
+                "type": "field",
+                "fieldName": "active_culture_name"
+              },
+              {
+                "fullExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+                "matchedExpression": "@field.active_culture_name",
+                "type": "field",
+                "fieldName": "active_culture_name"
+              },
+              {
+                "fullExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+                "matchedExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+                "type": "calc",
+                "fieldName": "['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg'"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.active_culture_name": [
+              "value",
+              "value"
+            ],
+            "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')": [
               "value"
             ]
           }
         },
         {
+          "type": "text",
+          "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 18px"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_9.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+                "matchedExpression": "@field.active_culture_name",
+                "type": "field",
+                "fieldName": "active_culture_name"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.active_culture_name": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_9",
+      "_nested_name": "display_group_9"
+    },
+    {
+      "type": "html",
+      "value": "<br><b style=\"color: #e67e22\">AUTRE COÛT AU SEMIS</b>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_11",
+      "_nested_name": "html_11"
+    },
+    {
+      "type": "display_group",
+      "name": "grp_question_existence",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
           "type": "audio",
-          "name": "audio_9_1",
+          "name": "aud_exist_fr",
           "parameter_list": {
-            "variant": "compact",
-            "src": "audio/semis/q_chaux_agri_fr.mp3",
+            "variant": "button_only",
+            "src": "audio/semis/on_autre_cout_semis_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
+          "exclude_from_translation": true,
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_6.audio_9_1"
-        }
-      ],
-      "name": "display_group_6",
-      "_nested_name": "display_group_6"
-    },
-    {
-      "type": "image",
-      "value": "images/sac.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "width:120px",
-        "height:120px",
-        "object-fit:contain",
-        "flex-shrink:0"
-      ],
-      "name": "image_8",
-      "_nested_name": "image_8"
-    },
-    {
-      "type": "text",
-      "name": "q_chaux_hint",
-      "value": "Mettez 0 si aucune chaux",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "color: gray",
-        "font-size: 16px"
-      ],
-      "_nested_name": "q_chaux_hint"
-    },
-    {
-      "type": "text_box",
-      "name": "q_chaux",
-      "value": "@fields.q_chaux",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
+          "_nested_name": "grp_question_existence.aud_exist_fr"
+        },
         {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "q_chaux",
-            "this.value"
+          "type": "html",
+          "value": "<span style=\"color: red;\">*</span>Ecrivez le nom(s) d'autre(s) coût(s)",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "grp_question_existence.html_2"
+        },
+        {
+          "type": "text",
+          "value": "*Ces coûts couvrent des services ou intrants non pris en compte.*",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_3",
+          "_nested_name": "grp_question_existence.text_3"
+        },
+        {
+          "type": "radio_button_grid",
+          "name": "no_autre_cout_semis",
+          "value": "@field.no_autre_cout_semis",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "no_autre_cout_semis",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: no_autre_cout_semis: this.value"
+            }
           ],
-          "_raw": "changed | set_field : q_chaux: this.value"
+          "parameter_list": {
+            "answer_list": "@data.yes_no",
+            "variant": "flex",
+            "style": "secondary",
+            "item_width": "60px",
+            "grid_gap": "8px"
+          },
+          "_nested_name": "grp_question_existence.no_autre_cout_semis",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.no_autre_cout_semis",
+                "matchedExpression": "@field.no_autre_cout_semis",
+                "type": "field",
+                "fieldName": "no_autre_cout_semis"
+              }
+            ],
+            "parameter_list": {
+              "answer_list": [
+                {
+                  "fullExpression": "@data.yes_no",
+                  "matchedExpression": "@data.yes_no",
+                  "type": "data",
+                  "fieldName": "yes_no"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@field.no_autre_cout_semis": [
+              "value"
+            ],
+            "@data.yes_no": [
+              "parameter_list.answer_list"
+            ]
+          }
         }
       ],
-      "parameter_list": {
-        "number_input": "true"
-      },
-      "_nested_name": "q_chaux",
+      "_nested_name": "grp_question_existence"
+    },
+    {
+      "type": "display_group",
+      "name": "group_nom_autre",
+      "condition": "@field.no_autre_cout_semis== 'oui'",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "name": "note_autre_cout_semi",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/semis/nom_autre_cout_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "group_nom_autre.note_autre_cout_semi"
+        },
+        {
+          "type": "html",
+          "value": "<span style=\"color: red;\">*</span> Indiquez s'il y a d'autre(s) coût(s) à la récolte non renseignés",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "group_nom_autre.html_2"
+        },
+        {
+          "type": "image",
+          "value": "images/ecrire.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 60%",
+            "object-fit: contain"
+          ],
+          "name": "image_3",
+          "_nested_name": "group_nom_autre.image_3"
+        },
+        {
+          "type": "text_box",
+          "name": "nom_autre_cout_semis",
+          "value": "@field.nom_autre_cout_semis",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "nom_autre_cout_semis",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: nom_autre_cout_semis: this.value"
+            }
+          ],
+          "parameter_list": {
+            "placeholder": "Nom des coûts..."
+          },
+          "_nested_name": "group_nom_autre.nom_autre_cout_semis",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.nom_autre_cout_semis",
+                "matchedExpression": "@field.nom_autre_cout_semis",
+                "type": "field",
+                "fieldName": "nom_autre_cout_semis"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.nom_autre_cout_semis": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "group_nom_autre",
       "_dynamicFields": {
-        "value": [
+        "condition": [
           {
-            "fullExpression": "@fields.q_chaux",
-            "matchedExpression": "@fields.q_chaux",
-            "type": "fields",
-            "fieldName": "q_chaux"
+            "fullExpression": "@field.no_autre_cout_semis== 'oui'",
+            "matchedExpression": "@field.no_autre_cout_semis",
+            "type": "field",
+            "fieldName": "no_autre_cout_semis"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.q_chaux": [
-          "value"
+        "@field.no_autre_cout_semis": [
+          "condition"
         ]
       }
     },
     {
-      "name": "valid_q_chaux",
-      "value": "@calc(@fields.q_chaux >= 0)",
+      "type": "text",
+      "value": "*La réponse est obligatoire !*",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@calc(@field.no_autre_cout_semis == 'oui' && (@field.nom_autre_cout_semis == '' || @field.nom_autre_cout_semis == null))",
+      "style_list": [
+        "color: red",
+        "font-size: 12px"
+      ],
+      "name": "text_16",
+      "_nested_name": "text_16",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@calc(@field.no_autre_cout_semis == 'oui' && (@field.nom_autre_cout_semis == '' || @field.nom_autre_cout_semis == null))",
+            "matchedExpression": "@field.no_autre_cout_semis",
+            "type": "field",
+            "fieldName": "no_autre_cout_semis"
+          },
+          {
+            "fullExpression": "@calc(@field.no_autre_cout_semis == 'oui' && (@field.nom_autre_cout_semis == '' || @field.nom_autre_cout_semis == null))",
+            "matchedExpression": "@field.nom_autre_cout_semis",
+            "type": "field",
+            "fieldName": "nom_autre_cout_semis"
+          },
+          {
+            "fullExpression": "@calc(@field.no_autre_cout_semis == 'oui' && (@field.nom_autre_cout_semis == '' || @field.nom_autre_cout_semis == null))",
+            "matchedExpression": "@field.nom_autre_cout_semis",
+            "type": "field",
+            "fieldName": "nom_autre_cout_semis"
+          },
+          {
+            "fullExpression": "@calc(@field.no_autre_cout_semis == 'oui' && (@field.nom_autre_cout_semis == '' || @field.nom_autre_cout_semis == null))",
+            "matchedExpression": "@calc(@field.no_autre_cout_semis == 'oui' && (@field.nom_autre_cout_semis == '' || @field.nom_autre_cout_semis == null))",
+            "type": "calc",
+            "fieldName": "@field.no_autre_cout_semis == 'oui' && (@field.nom_autre_cout_semis == '' || @field.nom_autre_cout_semis == null)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.no_autre_cout_semis": [
+          "condition"
+        ],
+        "@field.nom_autre_cout_semis": [
+          "condition",
+          "condition"
+        ],
+        "@calc(@field.no_autre_cout_semis == 'oui' && (@field.nom_autre_cout_semis == '' || @field.nom_autre_cout_semis == null))": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "v_montant_autre_err",
+      "value": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_semis) || Number(@field.autre_cout_semis) < 0)",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "valid_q_chaux",
+      "_nested_name": "v_montant_autre_err",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(@fields.q_chaux >= 0)",
-            "matchedExpression": "@fields.q_chaux",
-            "type": "fields",
-            "fieldName": "q_chaux"
+            "fullExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_semis) || Number(@field.autre_cout_semis) < 0)",
+            "matchedExpression": "@field.autre_cout_semis",
+            "type": "field",
+            "fieldName": "autre_cout_semis"
           },
           {
-            "fullExpression": "@calc(@fields.q_chaux >= 0)",
-            "matchedExpression": "@calc(@fields.q_chaux >= 0)",
+            "fullExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_semis) || Number(@field.autre_cout_semis) < 0)",
+            "matchedExpression": "@field.autre_cout_semis",
+            "type": "field",
+            "fieldName": "autre_cout_semis"
+          },
+          {
+            "fullExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_semis) || Number(@field.autre_cout_semis) < 0)",
+            "matchedExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_semis) || Number(@field.autre_cout_semis) < 0)",
             "type": "calc",
-            "fieldName": "@fields.q_chaux >= 0"
+            "fieldName": "!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_semis) || Number(@field.autre_cout_semis) < 0"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.q_chaux": [
+        "@field.autre_cout_semis": [
+          "value",
           "value"
         ],
-        "@calc(@fields.q_chaux >= 0)": [
+        "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_semis) || Number(@field.autre_cout_semis) < 0)": [
           "value"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "name": "error_q_chaux",
-      "value": "@global.error_positive_value",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.attempt_submit && !@local.valid_q_chaux",
-      "style_list": [
-        "color: red",
-        "font-size: 16px",
-        "background: #fff5f5",
-        "padding: 5px"
-      ],
-      "_nested_name": "error_q_chaux",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.error_positive_value",
-            "matchedExpression": "@global.error_positive_value",
-            "type": "global",
-            "fieldName": "error_positive_value"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_q_chaux",
-            "matchedExpression": "@fields.attempt_submit",
-            "type": "fields",
-            "fieldName": "attempt_submit"
-          },
-          {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_q_chaux",
-            "matchedExpression": "!@local.valid_q_chaux",
-            "type": "local",
-            "fieldName": "valid_q_chaux"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.error_positive_value": [
-          "value"
-        ],
-        "@fields.attempt_submit": [
-          "condition"
-        ],
-        "!@local.valid_q_chaux": [
-          "condition"
         ]
       }
     },
     {
       "type": "display_group",
+      "name": "group_montant_autre",
+      "condition": "@field.no_autre_cout_semis == 'oui'",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
       "rows": [
         {
+          "type": "audio",
+          "name": "note_autre_cout_semis1",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/postSemi/autre_cout_semis_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "group_montant_autre.note_autre_cout_semis1"
+        },
+        {
           "type": "html",
-          "name": "c_chaux_label",
-          "value": "<span style=\"color: red;\">*</span> Coût chaux (drm)",
+          "value": "<span style=\"color: red;\">*</span>Donnez le montant du coût pour <span style=\"color: #e67e22\"> @field.nom_autre_cout_semis</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "group_montant_autre.html_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<span style=\"color: red;\">*</span>Donnez le montant du coût pour <span style=\"color: #e67e22\"> @field.nom_autre_cout_semis</span>",
+                "matchedExpression": "@field.nom_autre_cout_semis",
+                "type": "field",
+                "fieldName": "nom_autre_cout_semis"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.nom_autre_cout_semis": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "S'il y a plusieurs éléments, donnez le coût agrégé de l'ensemble",
           "_translations": {
             "value": {}
           },
           "style_list": [
-            "font-size:20px"
+            "font-style: italic",
+            "color: #666",
+            "font-size: 12px"
           ],
-          "_nested_name": "display_group_13.c_chaux_label"
+          "name": "text_3",
+          "_nested_name": "group_montant_autre.text_3"
         },
         {
-          "type": "audio",
-          "name": "audio_9_2",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/semis/cout_chaux_agri_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          "type": "text",
+          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "_translations": {
+            "value": {}
           },
           "style_list": [
-            "float: right"
+            "font-size: 14px",
+            "color: gray"
           ],
-          "_nested_name": "display_group_13.audio_9_2"
-        }
-      ],
-      "name": "display_group_13",
-      "_nested_name": "display_group_13"
-    },
-    {
-      "type": "image",
-      "value": "images/cfa.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "width:120px",
-        "height:120px",
-        "object-fit:contain",
-        "flex-shrink:0"
-      ],
-      "name": "image_15",
-      "_nested_name": "image_15"
-    },
-    {
-      "type": "text",
-      "name": "c_chaux_hint",
-      "value": "@global.hint_price",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "color: gray",
-        "font-size: 16px"
-      ],
-      "_nested_name": "c_chaux_hint",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.hint_price",
-            "matchedExpression": "@global.hint_price",
-            "type": "global",
-            "fieldName": "hint_price"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.hint_price": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "text_box",
-      "name": "c_chaux",
-      "value": "@fields.c_chaux",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
+          "name": "text_4",
+          "_nested_name": "group_montant_autre.text_4"
+        },
         {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "c_chaux",
-            "this.value"
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80px",
+            "object-fit: contain"
           ],
-          "_raw": "changed | set_field : c_chaux: this.value"
+          "name": "image_5",
+          "_nested_name": "group_montant_autre.image_5"
+        },
+        {
+          "type": "text_box",
+          "name": "autre_cout_semis",
+          "value": "@field.autre_cout_semis",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "autre_cout_semis",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: autre_cout_semis: this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "Montant en Dram..."
+          },
+          "_nested_name": "group_montant_autre.autre_cout_semis",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.autre_cout_semis",
+                "matchedExpression": "@field.autre_cout_semis",
+                "type": "field",
+                "fieldName": "autre_cout_semis"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.autre_cout_semis": [
+              "value"
+            ]
+          }
         }
       ],
-      "parameter_list": {
-        "number_input": "true"
-      },
-      "_nested_name": "c_chaux",
+      "_nested_name": "group_montant_autre",
       "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@fields.c_chaux",
-            "matchedExpression": "@fields.c_chaux",
-            "type": "fields",
-            "fieldName": "c_chaux"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.c_chaux": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "valid_c_chaux",
-      "value": "@calc(@fields.c_chaux >= 0)",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "valid_c_chaux",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(@fields.c_chaux >= 0)",
-            "matchedExpression": "@fields.c_chaux",
-            "type": "fields",
-            "fieldName": "c_chaux"
-          },
-          {
-            "fullExpression": "@calc(@fields.c_chaux >= 0)",
-            "matchedExpression": "@calc(@fields.c_chaux >= 0)",
-            "type": "calc",
-            "fieldName": "@fields.c_chaux >= 0"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.c_chaux": [
-          "value"
-        ],
-        "@calc(@fields.c_chaux >= 0)": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "name": "error_c_chaux",
-      "value": "@global.error_required_answer",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.attempt_submit && !@local.valid_c_chaux",
-      "style_list": [
-        "color: red",
-        "font-size: 16px",
-        "background: #fff5f5",
-        "padding: 5px"
-      ],
-      "_nested_name": "error_c_chaux",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.error_required_answer",
-            "matchedExpression": "@global.error_required_answer",
-            "type": "global",
-            "fieldName": "error_required_answer"
-          }
-        ],
         "condition": [
           {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_c_chaux",
-            "matchedExpression": "@fields.attempt_submit",
-            "type": "fields",
-            "fieldName": "attempt_submit"
-          },
-          {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_c_chaux",
-            "matchedExpression": "!@local.valid_c_chaux",
-            "type": "local",
-            "fieldName": "valid_c_chaux"
+            "fullExpression": "@field.no_autre_cout_semis == 'oui'",
+            "matchedExpression": "@field.no_autre_cout_semis",
+            "type": "field",
+            "fieldName": "no_autre_cout_semis"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.error_required_answer": [
-          "value"
-        ],
-        "@fields.attempt_submit": [
-          "condition"
-        ],
-        "!@local.valid_c_chaux": [
+        "@field.no_autre_cout_semis": [
           "condition"
         ]
       }
     },
     {
-      "name": "completed_enabled",
-      "value": "@local.valid_q_chaux && @local.valid_c_chaux",
+      "type": "text",
+      "value": "*Mettez une valeur positive*",
       "_translations": {
         "value": {}
       },
-      "type": "set_variable",
-      "_nested_name": "completed_enabled",
+      "condition": "@calc(@field.no_autre_cout_semis == 'oui' && @local.v_montant_autre_err)",
+      "style_list": [
+        "color: red",
+        "font-size: 12px"
+      ],
+      "name": "text_20",
+      "_nested_name": "text_20",
       "_dynamicFields": {
-        "value": [
+        "condition": [
           {
-            "fullExpression": "@local.valid_q_chaux && @local.valid_c_chaux",
-            "matchedExpression": "@local.valid_q_chaux",
-            "type": "local",
-            "fieldName": "valid_q_chaux"
+            "fullExpression": "@calc(@field.no_autre_cout_semis == 'oui' && @local.v_montant_autre_err)",
+            "matchedExpression": "@field.no_autre_cout_semis",
+            "type": "field",
+            "fieldName": "no_autre_cout_semis"
           },
           {
-            "fullExpression": "@local.valid_q_chaux && @local.valid_c_chaux",
-            "matchedExpression": "@local.valid_c_chaux",
+            "fullExpression": "@calc(@field.no_autre_cout_semis == 'oui' && @local.v_montant_autre_err)",
+            "matchedExpression": "@local.v_montant_autre_err",
             "type": "local",
-            "fieldName": "valid_c_chaux"
+            "fieldName": "v_montant_autre_err"
+          },
+          {
+            "fullExpression": "@calc(@field.no_autre_cout_semis == 'oui' && @local.v_montant_autre_err)",
+            "matchedExpression": "@calc(@field.no_autre_cout_semis == 'oui' && @local.v_montant_autre_err)",
+            "type": "calc",
+            "fieldName": "@field.no_autre_cout_semis == 'oui' && @local.v_montant_autre_err"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.valid_q_chaux": [
+        "@field.no_autre_cout_semis": [
+          "condition"
+        ],
+        "@local.v_montant_autre_err": [
+          "condition"
+        ],
+        "@calc(@field.no_autre_cout_semis == 'oui' && @local.v_montant_autre_err)": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "v_final_autre_cout",
+      "value": "@calc(@field.no_autre_cout_semis == 'oui' ? (Number(@field.autre_cout_semis) || 0) : 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_final_autre_cout",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@field.no_autre_cout_semis == 'oui' ? (Number(@field.autre_cout_semis) || 0) : 0)",
+            "matchedExpression": "@field.no_autre_cout_semis",
+            "type": "field",
+            "fieldName": "no_autre_cout_semis"
+          },
+          {
+            "fullExpression": "@calc(@field.no_autre_cout_semis == 'oui' ? (Number(@field.autre_cout_semis) || 0) : 0)",
+            "matchedExpression": "@field.autre_cout_semis",
+            "type": "field",
+            "fieldName": "autre_cout_semis"
+          },
+          {
+            "fullExpression": "@calc(@field.no_autre_cout_semis == 'oui' ? (Number(@field.autre_cout_semis) || 0) : 0)",
+            "matchedExpression": "@calc(@field.no_autre_cout_semis == 'oui' ? (Number(@field.autre_cout_semis) || 0) : 0)",
+            "type": "calc",
+            "fieldName": "@field.no_autre_cout_semis == 'oui' ? (Number(@field.autre_cout_semis) || 0) : 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.no_autre_cout_semis": [
           "value"
         ],
-        "@local.valid_c_chaux": [
+        "@field.autre_cout_semis": [
+          "value"
+        ],
+        "@calc(@field.no_autre_cout_semis == 'oui' ? (Number(@field.autre_cout_semis) || 0) : 0)": [
           "value"
         ]
       }
@@ -626,7 +876,6 @@
     {
       "type": "display_group",
       "name": "dg_footer",
-      "value": "",
       "parameter_list": {
         "sticky": "bottom"
       },
@@ -636,7 +885,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_9_button_back",
+          "name": "button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -651,11 +900,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_9_button_back"
+          "_nested_name": "dg_footer.button_back"
         },
         {
           "type": "button",
-          "name": "page_9_btn_attempt_submit",
+          "name": "button_completed",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -665,96 +914,10 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "attempt_submit",
-                true
+                "autre_cout_semis_total",
+                "@local.v_final_autre_cout"
               ],
-              "_raw": "click | set_field: attempt_submit: true"
-            }
-          ],
-          "condition": "!@local.completed_enabled",
-          "style_list": [
-            "flex: 1"
-          ],
-          "_nested_name": "dg_footer.page_9_btn_attempt_submit",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@global.btn_continue",
-                "matchedExpression": "@global.btn_continue",
-                "type": "global",
-                "fieldName": "btn_continue"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "!@local.completed_enabled",
-                "matchedExpression": "!@local.completed_enabled",
-                "type": "local",
-                "fieldName": "completed_enabled"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@global.btn_continue": [
-              "value"
-            ],
-            "!@local.completed_enabled": [
-              "condition"
-            ]
-          }
-        },
-        {
-          "type": "button",
-          "name": "page_9_button_continue",
-          "value": "@global.btn_continue",
-          "_translations": {
-            "value": {}
-          },
-          "action_list": [
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "@calc('quantite_chaux_agricole_' + @fields.current_primary_crop)",
-                "@fields.q_chaux"
-              ],
-              "_raw": "click | set_field: @calc('quantite_chaux_agricole_' + @fields.current_primary_crop) : @fields.q_chaux"
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "@calc('cout_transport_chaux_agricole_' + @fields.current_primary_crop)",
-                "@fields.c_chaux"
-              ],
-              "_raw": "click | set_field: @calc('cout_transport_chaux_agricole_' + @fields.current_primary_crop) : @fields.c_chaux"
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "q_chaux",
-                ""
-              ],
-              "_raw": "click | set_field: q_chaux:"
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "c_chaux",
-                ""
-              ],
-              "_raw": "click | set_field: c_chaux:"
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "attempt_submit",
-                false
-              ],
-              "_raw": "click | set_field: attempt_submit: false"
+              "_raw": "click | set_field: autre_cout_semis_total : @local.v_final_autre_cout"
             },
             {
               "trigger": "click",
@@ -766,13 +929,13 @@
             }
           ],
           "parameter_list": {
-            "disabled": "!@local.completed_enabled"
+            "style": "navigation",
+            "disabled": "!@local.v_page9_valid"
           },
-          "condition": "@local.completed_enabled",
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_9_button_continue",
+          "_nested_name": "dg_footer.button_completed",
           "_dynamicFields": {
             "value": [
               {
@@ -785,81 +948,21 @@
             "action_list": {
               "0": {
                 "args": {
-                  "0": [
-                    {
-                      "fullExpression": "@calc('quantite_chaux_agricole_' + @fields.current_primary_crop)",
-                      "matchedExpression": "@fields.current_primary_crop",
-                      "type": "fields",
-                      "fieldName": "current_primary_crop"
-                    },
-                    {
-                      "fullExpression": "@calc('quantite_chaux_agricole_' + @fields.current_primary_crop)",
-                      "matchedExpression": "@calc('quantite_chaux_agricole_' + @fields.current_primary_crop)",
-                      "type": "calc",
-                      "fieldName": "'quantite_chaux_agricole_' + @fields.current_primary_crop"
-                    }
-                  ],
                   "1": [
                     {
-                      "fullExpression": "@fields.q_chaux",
-                      "matchedExpression": "@fields.q_chaux",
-                      "type": "fields",
-                      "fieldName": "q_chaux"
+                      "fullExpression": "@local.v_final_autre_cout",
+                      "matchedExpression": "@local.v_final_autre_cout",
+                      "type": "local",
+                      "fieldName": "v_final_autre_cout"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('quantite_chaux_agricole_' + @fields.current_primary_crop) : @fields.q_chaux",
-                    "matchedExpression": "@fields.current_primary_crop",
-                    "type": "fields",
-                    "fieldName": "current_primary_crop"
-                  },
-                  {
-                    "fullExpression": "click | set_field: @calc('quantite_chaux_agricole_' + @fields.current_primary_crop) : @fields.q_chaux",
-                    "matchedExpression": "@fields.q_chaux",
-                    "type": "fields",
-                    "fieldName": "q_chaux"
-                  }
-                ]
-              },
-              "1": {
-                "args": {
-                  "0": [
-                    {
-                      "fullExpression": "@calc('cout_transport_chaux_agricole_' + @fields.current_primary_crop)",
-                      "matchedExpression": "@fields.current_primary_crop",
-                      "type": "fields",
-                      "fieldName": "current_primary_crop"
-                    },
-                    {
-                      "fullExpression": "@calc('cout_transport_chaux_agricole_' + @fields.current_primary_crop)",
-                      "matchedExpression": "@calc('cout_transport_chaux_agricole_' + @fields.current_primary_crop)",
-                      "type": "calc",
-                      "fieldName": "'cout_transport_chaux_agricole_' + @fields.current_primary_crop"
-                    }
-                  ],
-                  "1": [
-                    {
-                      "fullExpression": "@fields.c_chaux",
-                      "matchedExpression": "@fields.c_chaux",
-                      "type": "fields",
-                      "fieldName": "c_chaux"
-                    }
-                  ]
-                },
-                "_raw": [
-                  {
-                    "fullExpression": "click | set_field: @calc('cout_transport_chaux_agricole_' + @fields.current_primary_crop) : @fields.c_chaux",
-                    "matchedExpression": "@fields.current_primary_crop",
-                    "type": "fields",
-                    "fieldName": "current_primary_crop"
-                  },
-                  {
-                    "fullExpression": "click | set_field: @calc('cout_transport_chaux_agricole_' + @fields.current_primary_crop) : @fields.c_chaux",
-                    "matchedExpression": "@fields.c_chaux",
-                    "type": "fields",
-                    "fieldName": "c_chaux"
+                    "fullExpression": "click | set_field: autre_cout_semis_total : @local.v_final_autre_cout",
+                    "matchedExpression": "@local.v_final_autre_cout",
+                    "type": "local",
+                    "fieldName": "v_final_autre_cout"
                   }
                 ]
               }
@@ -867,51 +970,24 @@
             "parameter_list": {
               "disabled": [
                 {
-                  "fullExpression": "!@local.completed_enabled",
-                  "matchedExpression": "!@local.completed_enabled",
+                  "fullExpression": "!@local.v_page9_valid",
+                  "matchedExpression": "!@local.v_page9_valid",
                   "type": "local",
-                  "fieldName": "completed_enabled"
+                  "fieldName": "v_page9_valid"
                 }
               ]
-            },
-            "condition": [
-              {
-                "fullExpression": "@local.completed_enabled",
-                "matchedExpression": "@local.completed_enabled",
-                "type": "local",
-                "fieldName": "completed_enabled"
-              }
-            ]
+            }
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
             ],
-            "@fields.current_primary_crop": [
-              "action_list.0.args.0",
-              "action_list.0._raw",
-              "action_list.1.args.0",
-              "action_list.1._raw"
-            ],
-            "@calc('quantite_chaux_agricole_' + @fields.current_primary_crop)": [
-              "action_list.0.args.0"
-            ],
-            "@fields.q_chaux": [
+            "@local.v_final_autre_cout": [
               "action_list.0.args.1",
               "action_list.0._raw"
             ],
-            "@calc('cout_transport_chaux_agricole_' + @fields.current_primary_crop)": [
-              "action_list.1.args.0"
-            ],
-            "@fields.c_chaux": [
-              "action_list.1.args.1",
-              "action_list.1._raw"
-            ],
-            "!@local.completed_enabled": [
+            "!@local.v_page9_valid": [
               "parameter_list.disabled"
-            ],
-            "@local.completed_enabled": [
-              "condition"
             ]
           }
         }

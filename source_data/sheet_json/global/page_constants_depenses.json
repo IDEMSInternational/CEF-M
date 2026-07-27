@@ -26,7 +26,7 @@
     {
       "type": "declare_global_constant",
       "name": "note_depense",
-      "value": "Les exploitations agricoles font face à plusieurs types de dépenses au cours d’une année, telles que les dépenses annuelles recurrentes (frais de condiments, éducation, santé, etc.), et les  grosses dépenses irrégulières (le mariage, achat d’équipement, construction, etc.). \n\nCette diversité de types de dépenses  pose une difficulté fondamentale d’agrégation pour la planification.\n\nCe formulaire a pour objectif d'aider les UPA à calculer et à additionner les depenses annuelles previsionnelles des afin de faciliter la planification."
+      "value": "Les exploitations agricoles font face à plusieurs types de dépenses au cours d’une année, tels que les dépenses annuelles récurrentes (frais de condiments, éducation, santé, etc.), et les  grosses dépenses non-récurrentes (le mariage, achat d’équipement, construction, etc.). \n\nCette diversité de types de dépenses pose une difficulté fondamentale d’agrégation pour la planification. \n\nCe formulaire a pour objectif d'aider votre UPA à calculer et à additionner les dépenses annuelles prévisionnelles afin de faciliter la planification. "
     },
     {
       "type": "declare_global_constant",
@@ -36,7 +36,7 @@
     {
       "type": "declare_global_constant",
       "name": "depenses_condiments",
-      "value": "DEPENSES DE CONDIMENTS DE L'ANNEE PROCHAINE DE L'UPA"
+      "value": "**DEPENSES DE CONDIMENTS DE L'ANNEE PROCHAINE DE L'UPA**"
     },
     {
       "type": "declare_global_constant",
@@ -61,17 +61,17 @@
     {
       "type": "declare_global_constant",
       "name": "depense_sante",
-      "value": "DEPENSES DE SANTE DE L'ANNEE PROCHAINE DE L'UPA"
+      "value": "**DEPENSES DE SANTE DE L'ANNEE PROCHAINE DE L'UPA**"
     },
     {
       "type": "declare_global_constant",
       "name": "note_frais_sante_approche",
-      "value": "Approche d'estimation des dépenses annuelles de santé des membres de l'UPA:"
+      "value": "Approche d'estimation des dépenses annuelles previsionnelles de santé des membres de l'UPA:"
     },
     {
       "type": "declare_global_constant",
       "name": "note_frais_sante_approche_hint",
-      "value": "Il s'agit des dépenses de santé des personnes qui résideront dans l'UPA durant plus de 6 mois au cours l'année prochaine\n\nPour chaque personne qui résidera dans l'UPA, il faut prévoir 3000 drm/an comme frais médicaux du traitement d'une maladie très frequente telles que le paludisme, la fière typhoïde et bronchites. \n\nAinsi, le calcul est fait en multipliant 3000 drm par  le nombre de personnes qui résideront dans l'UPA."
+      "value": "Il s'agit des dépenses de santé des personnes qui résideront dans l'UPA durant plus de 6 mois au cours de l'année prochaine.\n\nPour chaque personne qui résidera dans l'UPA, il faut prévoir 3000 drm/an comme frais médicaux du traitement d'une maladie très fréquente telle que le paludisme, la fièvre typhoïde et les bronchites. \n\nAinsi, le calcul est fait en multipliant 3000 drm par le nombre de personnes qui résideront dans l'UPA."
     },
     {
       "type": "declare_global_constant",
@@ -92,6 +92,21 @@
       "type": "declare_global_constant",
       "name": "note_frais_sante_hint",
       "value": "Le calcul est fait en multipliant 3000 drm par le nombre de personnes qui résideront dans l'UPA"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_edu_annuelle",
+      "value": "Il s'agit du frais de scolarité des enfants de 7 à 25 ans.\n\nPour ce faire, on calcule d'abord le montant prévisionnel par niveau de scolarité en multipliant le nombre d'enfants à scolariser par les frais de scolarité d'un enfant. \n- Le nombre d'enfants scolarisés **au niveau premier cycle** et les frais annuels de scolarité par enfant.\n- Le nombre d'enfants scolarisés **au niveau second cycle** et les frais annuels de scolarité par enfant.\n- Le nombre d'enfants scolarisés **au niveau lycée ou école professionnelle** le frais annuel de scolarité par enfant.\n- Le nombre d'enfants scolarisés **au niveau universitaire** et les frais annuels de scolarité par enfant.\n\n\nEnsuite, on additionne les montants prévisionnels de tous les niveaux pour obtenir le montant total prévisionnel des dépenses annuelles de l'éducation."
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "enfants_scolarise_oui_hint",
+      "value": "Il s'agit de la scolarisation à l'école ou la medersa"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "montant_previsionnel_note",
+      "value": "MONTANT PREVISIONNEL DE L'EDUCATION DES ENFANTS"
     },
     {
       "type": "declare_global_constant",
@@ -120,7 +135,7 @@
     },
     {
       "type": "declare_global_constant",
-      "name": "autre_depense_yesno",
+      "name": "autre_depense_yesno_note",
       "value": "Indiquez s'il y a une autre petite dépénse de l'UPA à prendre en compte"
     },
     {
@@ -170,7 +185,7 @@
     },
     {
       "type": "declare_global_constant",
-      "name": "autre_invest_yesno",
+      "name": "autre_invest_yesno_note",
       "value": "Indiquez s'il y a une autre investissement de l'UPA à prendre en compte"
     },
     {
