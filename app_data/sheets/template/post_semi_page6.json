@@ -37,6 +37,99 @@
       }
     },
     {
+      "name": "v_tot_cult",
+      "value": "@calc((Number(@field.final_cout_entre) || 0) + (Number(@field.final_count_fert) || 0) + (Number(@field.final_count_phyto) || 0) + (Number(@field.final_cout_autre_psemis) || 0))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_tot_cult",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((Number(@field.final_cout_entre) || 0) + (Number(@field.final_count_fert) || 0) + (Number(@field.final_count_phyto) || 0) + (Number(@field.final_cout_autre_psemis) || 0))",
+            "matchedExpression": "@field.final_cout_entre",
+            "type": "field",
+            "fieldName": "final_cout_entre"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.final_cout_entre) || 0) + (Number(@field.final_count_fert) || 0) + (Number(@field.final_count_phyto) || 0) + (Number(@field.final_cout_autre_psemis) || 0))",
+            "matchedExpression": "@field.final_count_fert",
+            "type": "field",
+            "fieldName": "final_count_fert"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.final_cout_entre) || 0) + (Number(@field.final_count_fert) || 0) + (Number(@field.final_count_phyto) || 0) + (Number(@field.final_cout_autre_psemis) || 0))",
+            "matchedExpression": "@field.final_count_phyto",
+            "type": "field",
+            "fieldName": "final_count_phyto"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.final_cout_entre) || 0) + (Number(@field.final_count_fert) || 0) + (Number(@field.final_count_phyto) || 0) + (Number(@field.final_cout_autre_psemis) || 0))",
+            "matchedExpression": "@field.final_cout_autre_psemis",
+            "type": "field",
+            "fieldName": "final_cout_autre_psemis"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.final_cout_entre) || 0) + (Number(@field.final_count_fert) || 0) + (Number(@field.final_count_phyto) || 0) + (Number(@field.final_cout_autre_psemis) || 0))",
+            "matchedExpression": "@calc((Number(@field.final_cout_entre) || 0) + (Number(@field.final_count_fert) || 0) + (Number(@field.final_count_phyto) || 0) + (Number(@field.final_cout_autre_psemis) || 0))",
+            "type": "calc",
+            "fieldName": "(Number(@field.final_cout_entre) || 0) + (Number(@field.final_count_fert) || 0) + (Number(@field.final_count_phyto) || 0) + (Number(@field.final_cout_autre_psemis) || 0)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.final_cout_entre": [
+          "value"
+        ],
+        "@field.final_count_fert": [
+          "value"
+        ],
+        "@field.final_count_phyto": [
+          "value"
+        ],
+        "@field.final_cout_autre_psemis": [
+          "value"
+        ],
+        "@calc((Number(@field.final_cout_entre) || 0) + (Number(@field.final_count_fert) || 0) + (Number(@field.final_count_phyto) || 0) + (Number(@field.final_cout_autre_psemis) || 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_tot_fcfa",
+      "value": "@calc(@local.v_tot_cult * 5)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_tot_fcfa",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@local.v_tot_cult * 5)",
+            "matchedExpression": "@local.v_tot_cult",
+            "type": "local",
+            "fieldName": "v_tot_cult"
+          },
+          {
+            "fullExpression": "@calc(@local.v_tot_cult * 5)",
+            "matchedExpression": "@calc(@local.v_tot_cult * 5)",
+            "type": "calc",
+            "fieldName": "@local.v_tot_cult * 5"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_tot_cult": [
+          "value"
+        ],
+        "@calc(@local.v_tot_cult * 5)": [
+          "value"
+        ]
+      }
+    },
+    {
       "type": "display_group",
       "name": "header_top",
       "style_list": [
@@ -84,12 +177,12 @@
     },
     {
       "type": "title",
-      "value": "DÉTAILS DE LA CULTURE : FERTILISATION",
+      "value": "BILAN & OBSERVATIONS",
       "_translations": {
         "value": {}
       },
-      "name": "title_5",
-      "_nested_name": "title_5"
+      "name": "title_7",
+      "_nested_name": "title_7"
     },
     {
       "type": "display_group",
@@ -107,7 +200,7 @@
       "rows": [
         {
           "type": "image",
-          "value": "@calc('images/' + @field.active_culture_name + '.jpg')",
+          "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
           "_translations": {
             "value": {}
           },
@@ -116,28 +209,35 @@
             "object-fit: contain"
           ],
           "name": "image_1",
-          "_nested_name": "display_group_6.image_1",
+          "_nested_name": "display_group_8.image_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@calc('images/' + @field.active_culture_name + '.jpg')",
+                "fullExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
                 "matchedExpression": "@field.active_culture_name",
                 "type": "field",
                 "fieldName": "active_culture_name"
               },
               {
-                "fullExpression": "@calc('images/' + @field.active_culture_name + '.jpg')",
-                "matchedExpression": "@calc('images/' + @field.active_culture_name + '.jpg')",
+                "fullExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+                "matchedExpression": "@field.active_culture_name",
+                "type": "field",
+                "fieldName": "active_culture_name"
+              },
+              {
+                "fullExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+                "matchedExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
                 "type": "calc",
-                "fieldName": "'images/' + @field.active_culture_name + '.jpg'"
+                "fieldName": "['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg'"
               }
             ]
           },
           "_dynamicDependencies": {
             "@field.active_culture_name": [
+              "value",
               "value"
             ],
-            "@calc('images/' + @field.active_culture_name + '.jpg')": [
+            "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')": [
               "value"
             ]
           }
@@ -153,7 +253,7 @@
             "font-size: 18px"
           ],
           "name": "text_2",
-          "_nested_name": "display_group_6.text_2",
+          "_nested_name": "display_group_8.text_2",
           "_dynamicFields": {
             "value": [
               {
@@ -171,138 +271,60 @@
           }
         }
       ],
-      "name": "display_group_6",
-      "_nested_name": "display_group_6"
+      "name": "display_group_8",
+      "_nested_name": "display_group_8"
     },
     {
-      "name": "v_q_npk_fmt",
-      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_npk))",
+      "type": "html",
+      "value": "<br><h3 style=\"color: #E65100; margin:0;\">TOTAL INVESTI : @local.v_tot_cult Dram</h3>",
       "_translations": {
         "value": {}
       },
-      "type": "set_variable",
-      "_nested_name": "v_q_npk_fmt",
+      "name": "html_10",
+      "_nested_name": "html_10",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_npk))",
-            "matchedExpression": "@field.q_npk",
-            "type": "field",
-            "fieldName": "q_npk"
-          },
-          {
-            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_npk))",
-            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_npk))",
-            "type": "calc",
-            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@field.q_npk)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.q_npk": [
-          "value"
-        ],
-        "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_npk))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "v_q_npk_pos",
-      "value": "@calc(@local.v_q_npk_fmt && Number(@field.q_npk) > 0)",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "v_q_npk_pos",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(@local.v_q_npk_fmt && Number(@field.q_npk) > 0)",
-            "matchedExpression": "@local.v_q_npk_fmt",
+            "fullExpression": "<br><h3 style=\"color: #E65100; margin:0;\">TOTAL INVESTI : @local.v_tot_cult Dram</h3>",
+            "matchedExpression": "@local.v_tot_cult",
             "type": "local",
-            "fieldName": "v_q_npk_fmt"
-          },
-          {
-            "fullExpression": "@calc(@local.v_q_npk_fmt && Number(@field.q_npk) > 0)",
-            "matchedExpression": "@field.q_npk",
-            "type": "field",
-            "fieldName": "q_npk"
-          },
-          {
-            "fullExpression": "@calc(@local.v_q_npk_fmt && Number(@field.q_npk) > 0)",
-            "matchedExpression": "@calc(@local.v_q_npk_fmt && Number(@field.q_npk) > 0)",
-            "type": "calc",
-            "fieldName": "@local.v_q_npk_fmt && Number(@field.q_npk) > 0"
+            "fieldName": "v_tot_cult"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.v_q_npk_fmt": [
-          "value"
-        ],
-        "@field.q_npk": [
-          "value"
-        ],
-        "@calc(@local.v_q_npk_fmt && Number(@field.q_npk) > 0)": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "v_q_npk_err",
-      "value": "@calc(!@local.v_q_npk_fmt || Number(@field.q_npk) < 0)",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "v_q_npk_err",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(!@local.v_q_npk_fmt || Number(@field.q_npk) < 0)",
-            "matchedExpression": "!@local.v_q_npk_fmt",
-            "type": "local",
-            "fieldName": "v_q_npk_fmt"
-          },
-          {
-            "fullExpression": "@calc(!@local.v_q_npk_fmt || Number(@field.q_npk) < 0)",
-            "matchedExpression": "@field.q_npk",
-            "type": "field",
-            "fieldName": "q_npk"
-          },
-          {
-            "fullExpression": "@calc(!@local.v_q_npk_fmt || Number(@field.q_npk) < 0)",
-            "matchedExpression": "@calc(!@local.v_q_npk_fmt || Number(@field.q_npk) < 0)",
-            "type": "calc",
-            "fieldName": "!@local.v_q_npk_fmt || Number(@field.q_npk) < 0"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "!@local.v_q_npk_fmt": [
-          "value"
-        ],
-        "@field.q_npk": [
-          "value"
-        ],
-        "@calc(!@local.v_q_npk_fmt || Number(@field.q_npk) < 0)": [
+        "@local.v_tot_cult": [
           "value"
         ]
       }
     },
     {
       "type": "html",
-      "value": "<br><b style=\"color: #e67e22\">1. APPORT NPK (Engrais de fond)</b>",
+      "value": "<p style=\"color: #757575; font-size: 14px;\">Équivalent : <b>@local.v_tot_fcfa FCFA</b><br><small><i>(Base : 1 dram = 5 FCFA)</i></small></p>",
       "_translations": {
         "value": {}
       },
       "name": "html_11",
-      "_nested_name": "html_11"
+      "_nested_name": "html_11",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: #757575; font-size: 14px;\">Équivalent : <b>@local.v_tot_fcfa FCFA</b><br><small><i>(Base : 1 dram = 5 FCFA)</i></small></p>",
+            "matchedExpression": "@local.v_tot_fcfa",
+            "type": "local",
+            "fieldName": "v_tot_fcfa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_tot_fcfa": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
-      "name": "npk_card",
+      "name": "bilan_card",
       "style_list": [
         "display: block",
         "width: 100%"
@@ -311,8 +333,8 @@
         {
           "type": "audio",
           "parameter_list": {
-            "variant": "compact",
-            "src": "audio/postSemi/q_npk_fr.mp3",
+            "variant": "button_only",
+            "src": "audio/postSemi/cout_cult_postsemis_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "exclude_from_translation": true,
@@ -320,511 +342,24 @@
             "float: right"
           ],
           "name": "audio_1",
-          "_nested_name": "npk_card.audio_1"
-        },
-        {
-          "type": "html",
-          "value": "<br>Quantité NPK utilisée (Sacs de 50kg)<span style=\"color: red;\">*</span>",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_2",
-          "_nested_name": "npk_card.html_2"
-        },
-        {
-          "type": "image",
-          "value": "images/sac.jpg",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "width: 80%",
-            "object-fit: contain"
-          ],
-          "name": "image_3",
-          "_nested_name": "npk_card.image_3"
-        },
-        {
-          "type": "text_box",
-          "name": "q_npk",
-          "value": "@field.q_npk",
-          "_translations": {
-            "value": {}
-          },
-          "action_list": [
-            {
-              "trigger": "changed",
-              "action_id": "set_field",
-              "args": [
-                "q_npk",
-                "this.value"
-              ],
-              "_raw": "changed | set_field: q_npk : this.value"
-            }
-          ],
-          "parameter_list": {
-            "number_input": "true",
-            "placeholder": "0"
-          },
-          "_nested_name": "npk_card.q_npk",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@field.q_npk",
-                "matchedExpression": "@field.q_npk",
-                "type": "field",
-                "fieldName": "q_npk"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@field.q_npk": [
-              "value"
-            ]
-          }
+          "_nested_name": "bilan_card.audio_1"
         }
       ],
-      "_nested_name": "npk_card"
-    },
-    {
-      "type": "text",
-      "value": "Mettez une valeur positive.",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@local.v_q_npk_err",
-      "style_list": [
-        "color: red",
-        "font-size: 12px"
-      ],
-      "name": "text_14",
-      "_nested_name": "text_14",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@local.v_q_npk_err",
-            "matchedExpression": "@local.v_q_npk_err",
-            "type": "local",
-            "fieldName": "v_q_npk_err"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.v_q_npk_err": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "display_group",
-      "name": "npk_cost_card",
-      "condition": "@local.v_q_npk_pos",
-      "style_list": [
-        "display: block",
-        "width: 100%"
-      ],
-      "rows": [
-        {
-          "type": "audio",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/postSemi/cout_npk_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "float: right"
-          ],
-          "name": "audio_1",
-          "_nested_name": "npk_cost_card.audio_1"
-        },
-        {
-          "type": "html",
-          "value": "Coût total NPK payé (Dram)<span style=\"color: red;\">*</span>",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "@field.q_npk > 0",
-          "name": "html_2",
-          "_nested_name": "npk_cost_card.html_2",
-          "_dynamicFields": {
-            "condition": [
-              {
-                "fullExpression": "@field.q_npk > 0",
-                "matchedExpression": "@field.q_npk",
-                "type": "field",
-                "fieldName": "q_npk"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@field.q_npk": [
-              "condition"
-            ]
-          }
-        },
-        {
-          "type": "text",
-          "value": "*Rappel : 1 dram = 5 FCFA*",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "@field.q_npk > 0",
-          "style_list": [
-            "font-size: 14px",
-            "color: gray"
-          ],
-          "name": "text_3",
-          "_nested_name": "npk_cost_card.text_3",
-          "_dynamicFields": {
-            "condition": [
-              {
-                "fullExpression": "@field.q_npk > 0",
-                "matchedExpression": "@field.q_npk",
-                "type": "field",
-                "fieldName": "q_npk"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@field.q_npk": [
-              "condition"
-            ]
-          }
-        },
-        {
-          "type": "image",
-          "value": "images/cfa.jpg",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "width: 80%",
-            "object-fit: contain"
-          ],
-          "name": "image_4",
-          "_nested_name": "npk_cost_card.image_4"
-        },
-        {
-          "type": "text_box",
-          "name": "c_npk",
-          "value": "@field.c_npk",
-          "_translations": {
-            "value": {}
-          },
-          "action_list": [
-            {
-              "trigger": "changed",
-              "action_id": "set_field",
-              "args": [
-                "c_npk",
-                "this.value"
-              ],
-              "_raw": "changed | set_field: c_npk : this.value"
-            }
-          ],
-          "parameter_list": {
-            "number_input": "true",
-            "placeholder": "Prix total NPK..."
-          },
-          "_nested_name": "npk_cost_card.c_npk",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@field.c_npk",
-                "matchedExpression": "@field.c_npk",
-                "type": "field",
-                "fieldName": "c_npk"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@field.c_npk": [
-              "value"
-            ]
-          }
-        }
-      ],
-      "_nested_name": "npk_cost_card",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@local.v_q_npk_pos",
-            "matchedExpression": "@local.v_q_npk_pos",
-            "type": "local",
-            "fieldName": "v_q_npk_pos"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.v_q_npk_pos": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "display_group",
-      "name": "npk_cost_card_zero",
-      "condition": "@field.q_npk == 0",
-      "style_list": [
-        "display: block",
-        "width: 100%"
-      ],
-      "rows": [
-        {
-          "type": "audio",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/postSemi/cout_npk_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "float: right"
-          ],
-          "name": "audio_1",
-          "_nested_name": "npk_cost_card_zero.audio_1"
-        },
-        {
-          "type": "html",
-          "value": "Coût total NPK payé (Dram)<span style=\"color: red;\">*</span>",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_2",
-          "_nested_name": "npk_cost_card_zero.html_2"
-        },
-        {
-          "type": "text",
-          "value": "*Rappel : 1 dram = 5 FCFA*",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "",
-          "style_list": [
-            "font-size: 14px",
-            "color: gray"
-          ],
-          "name": "text_3",
-          "_nested_name": "npk_cost_card_zero.text_3"
-        },
-        {
-          "type": "image",
-          "value": "images/cfa.jpg",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "width: 80%",
-            "object-fit: contain"
-          ],
-          "name": "image_4",
-          "_nested_name": "npk_cost_card_zero.image_4"
-        },
-        {
-          "type": "text_box",
-          "value": 0,
-          "parameter_list": {
-            "disabled": "true"
-          },
-          "name": "text_box_5",
-          "_nested_name": "npk_cost_card_zero.text_box_5"
-        }
-      ],
-      "_nested_name": "npk_cost_card_zero",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@field.q_npk == 0",
-            "matchedExpression": "@field.q_npk",
-            "type": "field",
-            "fieldName": "q_npk"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.q_npk": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "name": "v_q_ur_fmt",
-      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_ur))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "v_q_ur_fmt",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_ur))",
-            "matchedExpression": "@field.q_ur",
-            "type": "field",
-            "fieldName": "q_ur"
-          },
-          {
-            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_ur))",
-            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_ur))",
-            "type": "calc",
-            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@field.q_ur)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.q_ur": [
-          "value"
-        ],
-        "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_ur))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "v_q_ur_pos",
-      "value": "@calc(@local.v_q_ur_fmt && Number(@field.q_ur) > 0)",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "v_q_ur_pos",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(@local.v_q_ur_fmt && Number(@field.q_ur) > 0)",
-            "matchedExpression": "@local.v_q_ur_fmt",
-            "type": "local",
-            "fieldName": "v_q_ur_fmt"
-          },
-          {
-            "fullExpression": "@calc(@local.v_q_ur_fmt && Number(@field.q_ur) > 0)",
-            "matchedExpression": "@field.q_ur",
-            "type": "field",
-            "fieldName": "q_ur"
-          },
-          {
-            "fullExpression": "@calc(@local.v_q_ur_fmt && Number(@field.q_ur) > 0)",
-            "matchedExpression": "@calc(@local.v_q_ur_fmt && Number(@field.q_ur) > 0)",
-            "type": "calc",
-            "fieldName": "@local.v_q_ur_fmt && Number(@field.q_ur) > 0"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.v_q_ur_fmt": [
-          "value"
-        ],
-        "@field.q_ur": [
-          "value"
-        ],
-        "@calc(@local.v_q_ur_fmt && Number(@field.q_ur) > 0)": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "v_q_ur_err",
-      "value": "@calc(!@local.v_q_ur_fmt || Number(@field.q_ur) < 0)",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "v_q_ur_err",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(!@local.v_q_ur_fmt || Number(@field.q_ur) < 0)",
-            "matchedExpression": "!@local.v_q_ur_fmt",
-            "type": "local",
-            "fieldName": "v_q_ur_fmt"
-          },
-          {
-            "fullExpression": "@calc(!@local.v_q_ur_fmt || Number(@field.q_ur) < 0)",
-            "matchedExpression": "@field.q_ur",
-            "type": "field",
-            "fieldName": "q_ur"
-          },
-          {
-            "fullExpression": "@calc(!@local.v_q_ur_fmt || Number(@field.q_ur) < 0)",
-            "matchedExpression": "@calc(!@local.v_q_ur_fmt || Number(@field.q_ur) < 0)",
-            "type": "calc",
-            "fieldName": "!@local.v_q_ur_fmt || Number(@field.q_ur) < 0"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "!@local.v_q_ur_fmt": [
-          "value"
-        ],
-        "@field.q_ur": [
-          "value"
-        ],
-        "@calc(!@local.v_q_ur_fmt || Number(@field.q_ur) < 0)": [
-          "value"
-        ]
-      }
+      "_nested_name": "bilan_card"
     },
     {
       "type": "html",
-      "value": "<br><b style=\"color: #e67e22\">2. APPORT URÉE (Engrais de couverture)</b>",
+      "value": "<br><b style=\"color: #455A64\">COMMENT SOUHAITEZ-VOUS FAIRE VOTRE CONSTAT ?</b>",
       "_translations": {
         "value": {}
       },
-      "name": "html_22",
-      "_nested_name": "html_22"
+      "name": "html_14",
+      "_nested_name": "html_14"
     },
     {
-      "type": "display_group",
-      "name": "uree_card",
-      "style_list": [
-        "display: block",
-        "width: 100%"
-      ],
-      "rows": [
-        {
-          "type": "audio",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/postSemi/q_ur_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "float: right"
-          ],
-          "name": "audio_1",
-          "_nested_name": "uree_card.audio_1"
-        },
-        {
-          "type": "html",
-          "value": "<br>Quantité Urée utilisée (Sacs de 50kg)<span style=\"color: red;\">*</span>",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_2",
-          "_nested_name": "uree_card.html_2"
-        }
-      ],
-      "_nested_name": "uree_card"
-    },
-    {
-      "type": "image",
-      "value": "images/sac.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "width: 80%",
-        "object-fit: contain"
-      ],
-      "name": "image_25",
-      "_nested_name": "image_25"
-    },
-    {
-      "type": "text_box",
-      "name": "q_ur",
-      "value": "@field.q_ur",
+      "type": "radio_button_grid",
+      "name": "obs_grid",
+      "value": "@field.obs_type",
       "_translations": {
         "value": {}
       },
@@ -833,66 +368,52 @@
           "trigger": "changed",
           "action_id": "set_field",
           "args": [
-            "q_ur",
+            "obs_type",
             "this.value"
           ],
-          "_raw": "changed | set_field: q_ur : this.value"
+          "_raw": "changed | set_field: obs_type : this.value"
         }
       ],
       "parameter_list": {
-        "number_input": "true",
-        "placeholder": "0"
+        "answer_list": "@data.group_observation",
+        "variant": "flex",
+        "item_width": "60px",
+        "grid_gap": "8px"
       },
-      "_nested_name": "q_ur",
+      "_nested_name": "obs_grid",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@field.q_ur",
-            "matchedExpression": "@field.q_ur",
+            "fullExpression": "@field.obs_type",
+            "matchedExpression": "@field.obs_type",
             "type": "field",
-            "fieldName": "q_ur"
+            "fieldName": "obs_type"
           }
-        ]
+        ],
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@data.group_observation",
+              "matchedExpression": "@data.group_observation",
+              "type": "data",
+              "fieldName": "group_observation"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
-        "@field.q_ur": [
+        "@field.obs_type": [
           "value"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "value": "Mettez une valeur positive.",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@local.v_q_ur_err",
-      "style_list": [
-        "color: red",
-        "font-size: 12px"
-      ],
-      "name": "text_27",
-      "_nested_name": "text_27",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@local.v_q_ur_err",
-            "matchedExpression": "@local.v_q_ur_err",
-            "type": "local",
-            "fieldName": "v_q_ur_err"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.v_q_ur_err": [
-          "condition"
+        ],
+        "@data.group_observation": [
+          "parameter_list.answer_list"
         ]
       }
     },
     {
       "type": "display_group",
-      "name": "card_cout",
-      "condition": "@local.v_q_ur_pos",
+      "name": "obs_audio",
+      "condition": "@field.obs_type == 'par_vocal'",
       "style_list": [
         "display: block",
         "width: 100%"
@@ -901,8 +422,8 @@
         {
           "type": "audio",
           "parameter_list": {
-            "variant": "compact",
-            "src": "audio/postSemi/cout_ur_fr.mp3",
+            "variant": "button_only",
+            "src": "audio/postSemi/Ob_audio_postsemis_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "exclude_from_translation": true,
@@ -910,47 +431,162 @@
             "float: right"
           ],
           "name": "audio_1",
-          "_nested_name": "card_cout.audio_1"
-        },
-        {
-          "type": "html",
-          "value": "Coût total Urée payé (Dram)<span style=\"color: red;\">*</span>",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_2",
-          "_nested_name": "card_cout.html_2"
+          "_nested_name": "obs_audio.audio_1"
         },
         {
           "type": "text",
-          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "value": "Enregistrez votre témoignage vocal ci-dessus.",
           "_translations": {
             "value": {}
           },
+          "name": "text_2",
+          "_nested_name": "obs_audio.text_2"
+        }
+      ],
+      "_nested_name": "obs_audio",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@field.obs_type == 'par_vocal'",
+            "matchedExpression": "@field.obs_type",
+            "type": "field",
+            "fieldName": "obs_type"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.obs_type": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "obs_photo",
+      "condition": "@field.obs_type == 'par_photo'",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/postSemi/Ob_photo_postsemis_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
           "style_list": [
-            "font-size: 14px",
-            "color: gray"
+            "float: right"
           ],
-          "name": "text_3",
-          "_nested_name": "card_cout.text_3"
+          "name": "audio_1",
+          "_nested_name": "obs_photo.audio_1"
         },
         {
-          "type": "image",
-          "value": "images/cfa.jpg",
+          "type": "text",
+          "value": "Prenez une photo d'un point précis du champ.",
           "_translations": {
             "value": {}
           },
+          "name": "text_2",
+          "_nested_name": "obs_photo.text_2"
+        }
+      ],
+      "_nested_name": "obs_photo",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@field.obs_type == 'par_photo'",
+            "matchedExpression": "@field.obs_type",
+            "type": "field",
+            "fieldName": "obs_type"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.obs_type": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "obs_video",
+      "condition": "@field.obs_type == 'par_video'",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/postSemi/Ob_video_postsemis_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
           "style_list": [
-            "width: 80%",
-            "object-fit: contain"
+            "float: right"
           ],
-          "name": "image_4",
-          "_nested_name": "card_cout.image_4"
+          "name": "audio_1",
+          "_nested_name": "obs_video.audio_1"
         },
         {
-          "type": "text_box",
-          "name": "c_ur",
-          "value": "@field.c_ur",
+          "type": "text",
+          "value": "Filmez l'état général de la culture.",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_2",
+          "_nested_name": "obs_video.text_2"
+        }
+      ],
+      "_nested_name": "obs_video",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@field.obs_type == 'par_video'",
+            "matchedExpression": "@field.obs_type",
+            "type": "field",
+            "fieldName": "obs_type"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.obs_type": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "obs_text",
+      "condition": "@field.obs_type == 'par_text'",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/postSemi/Ob_ecrit_postsemis_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "obs_text.audio_1"
+        },
+        {
+          "type": "text_area",
+          "name": "obs_text",
+          "value": "@field.obs_text",
           "_translations": {
             "value": {}
           },
@@ -959,297 +595,189 @@
               "trigger": "changed",
               "action_id": "set_field",
               "args": [
-                "c_ur",
+                "obs_text",
                 "this.value"
               ],
-              "_raw": "changed | set_field: c_ur : this.value"
+              "_raw": "changed | set_field: obs_text : this.value"
             }
           ],
           "parameter_list": {
-            "placeholder": "Prix total Urée...",
-            "number_input": "true"
+            "placeholder": "Saisissez vos remarques...",
+            "multiline": "true"
           },
-          "_nested_name": "card_cout.c_ur",
+          "style_list": [
+            "font-size: 12px",
+            "font-style: italic"
+          ],
+          "_nested_name": "obs_text.obs_text",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@field.c_ur",
-                "matchedExpression": "@field.c_ur",
+                "fullExpression": "@field.obs_text",
+                "matchedExpression": "@field.obs_text",
                 "type": "field",
-                "fieldName": "c_ur"
+                "fieldName": "obs_text"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@field.c_ur": [
+            "@field.obs_text": [
               "value"
             ]
           }
         }
       ],
-      "_nested_name": "card_cout",
+      "_nested_name": "obs_text",
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@local.v_q_ur_pos",
-            "matchedExpression": "@local.v_q_ur_pos",
-            "type": "local",
-            "fieldName": "v_q_ur_pos"
+            "fullExpression": "@field.obs_type == 'par_text'",
+            "matchedExpression": "@field.obs_type",
+            "type": "field",
+            "fieldName": "obs_type"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.v_q_ur_pos": [
+        "@field.obs_type": [
           "condition"
         ]
       }
     },
     {
-      "type": "display_group",
-      "name": "card_cout_zero",
-      "condition": "@field.q_ur == 0",
-      "style_list": [
-        "display: block",
-        "width: 100%"
-      ],
-      "rows": [
-        {
-          "type": "audio",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/postSemi/cout_ur_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "float: right"
-          ],
-          "name": "audio_1",
-          "_nested_name": "card_cout_zero.audio_1"
-        },
-        {
-          "type": "html",
-          "value": "Coût total Urée payé (Dram)<span style=\"color: red;\">*</span>",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_2",
-          "_nested_name": "card_cout_zero.html_2"
-        },
-        {
-          "type": "text",
-          "value": "*Rappel : 1 dram = 5 FCFA*",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "font-size: 14px",
-            "color: gray"
-          ],
-          "name": "text_3",
-          "_nested_name": "card_cout_zero.text_3"
-        },
-        {
-          "type": "image",
-          "value": "images/cfa.jpg",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "width: 80%",
-            "object-fit: contain"
-          ],
-          "name": "image_4",
-          "_nested_name": "card_cout_zero.image_4"
-        },
-        {
-          "type": "text_box",
-          "name": "c_ur_zero",
-          "value": 0,
-          "parameter_list": {
-            "disabled": "true"
-          },
-          "_nested_name": "card_cout_zero.c_ur_zero"
-        }
-      ],
-      "_nested_name": "card_cout_zero",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@field.q_ur == 0",
-            "matchedExpression": "@field.q_ur",
-            "type": "field",
-            "fieldName": "q_ur"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.q_ur": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "name": "v_fert_npk_ok",
-      "value": "@calc(@local.v_q_npk_fmt && (Number(@field.q_npk) === 0 || (Number(@field.c_npk) >= 0 && @field.c_npk !== '')))",
+      "name": "name",
+      "value": "@calc(@field.selected_cultures_list.split(',')[Number(@field.current_culture_index) + 1])",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "v_fert_npk_ok",
+      "_nested_name": "name",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(@local.v_q_npk_fmt && (Number(@field.q_npk) === 0 || (Number(@field.c_npk) >= 0 && @field.c_npk !== '')))",
-            "matchedExpression": "@local.v_q_npk_fmt",
-            "type": "local",
-            "fieldName": "v_q_npk_fmt"
-          },
-          {
-            "fullExpression": "@calc(@local.v_q_npk_fmt && (Number(@field.q_npk) === 0 || (Number(@field.c_npk) >= 0 && @field.c_npk !== '')))",
-            "matchedExpression": "@field.q_npk",
+            "fullExpression": "@calc(@field.selected_cultures_list.split(',')[Number(@field.current_culture_index) + 1])",
+            "matchedExpression": "@field.selected_cultures_list.split",
             "type": "field",
-            "fieldName": "q_npk"
+            "fieldName": "selected_cultures_list"
           },
           {
-            "fullExpression": "@calc(@local.v_q_npk_fmt && (Number(@field.q_npk) === 0 || (Number(@field.c_npk) >= 0 && @field.c_npk !== '')))",
-            "matchedExpression": "@field.c_npk",
+            "fullExpression": "@calc(@field.selected_cultures_list.split(',')[Number(@field.current_culture_index) + 1])",
+            "matchedExpression": "@field.current_culture_index",
             "type": "field",
-            "fieldName": "c_npk"
+            "fieldName": "current_culture_index"
           },
           {
-            "fullExpression": "@calc(@local.v_q_npk_fmt && (Number(@field.q_npk) === 0 || (Number(@field.c_npk) >= 0 && @field.c_npk !== '')))",
-            "matchedExpression": "@field.c_npk",
-            "type": "field",
-            "fieldName": "c_npk"
-          },
-          {
-            "fullExpression": "@calc(@local.v_q_npk_fmt && (Number(@field.q_npk) === 0 || (Number(@field.c_npk) >= 0 && @field.c_npk !== '')))",
-            "matchedExpression": "@calc(@local.v_q_npk_fmt && (Number(@field.q_npk) === 0 || (Number(@field.c_npk) >= 0 && @field.c_npk !== '')))",
+            "fullExpression": "@calc(@field.selected_cultures_list.split(',')[Number(@field.current_culture_index) + 1])",
+            "matchedExpression": "@calc(@field.selected_cultures_list.split(',')[Number(@field.current_culture_index) + 1])",
             "type": "calc",
-            "fieldName": "@local.v_q_npk_fmt && (Number(@field.q_npk) === 0 || (Number(@field.c_npk) >= 0 && @field.c_npk !== ''))"
+            "fieldName": "@field.selected_cultures_list.split(',')[Number(@field.current_culture_index) + 1]"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.v_q_npk_fmt": [
+        "@field.selected_cultures_list.split": [
           "value"
         ],
-        "@field.q_npk": [
+        "@field.current_culture_index": [
           "value"
         ],
-        "@field.c_npk": [
+        "@calc(@field.selected_cultures_list.split(',')[Number(@field.current_culture_index) + 1])": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_new_total_global",
+      "value": "@calc((Number(@field.grand_total_post_semi) || 0) + Number(@local.v_tot_cult))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_new_total_global",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((Number(@field.grand_total_post_semi) || 0) + Number(@local.v_tot_cult))",
+            "matchedExpression": "@field.grand_total_post_semi",
+            "type": "field",
+            "fieldName": "grand_total_post_semi"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.grand_total_post_semi) || 0) + Number(@local.v_tot_cult))",
+            "matchedExpression": "@local.v_tot_cult",
+            "type": "local",
+            "fieldName": "v_tot_cult"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.grand_total_post_semi) || 0) + Number(@local.v_tot_cult))",
+            "matchedExpression": "@calc((Number(@field.grand_total_post_semi) || 0) + Number(@local.v_tot_cult))",
+            "type": "calc",
+            "fieldName": "(Number(@field.grand_total_post_semi) || 0) + Number(@local.v_tot_cult)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.grand_total_post_semi": [
+          "value"
+        ],
+        "@local.v_tot_cult": [
+          "value"
+        ],
+        "@calc((Number(@field.grand_total_post_semi) || 0) + Number(@local.v_tot_cult))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_current_obs_ok",
+      "value": "@calc(@field.obs_type!== undefined && @field.obs_type!== '' && @field.obs_type!== null)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_current_obs_ok",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@field.obs_type!== undefined && @field.obs_type!== '' && @field.obs_type!== null)",
+            "matchedExpression": "@field.obs_type",
+            "type": "field",
+            "fieldName": "obs_type"
+          },
+          {
+            "fullExpression": "@calc(@field.obs_type!== undefined && @field.obs_type!== '' && @field.obs_type!== null)",
+            "matchedExpression": "@field.obs_type",
+            "type": "field",
+            "fieldName": "obs_type"
+          },
+          {
+            "fullExpression": "@calc(@field.obs_type!== undefined && @field.obs_type!== '' && @field.obs_type!== null)",
+            "matchedExpression": "@field.obs_type",
+            "type": "field",
+            "fieldName": "obs_type"
+          },
+          {
+            "fullExpression": "@calc(@field.obs_type!== undefined && @field.obs_type!== '' && @field.obs_type!== null)",
+            "matchedExpression": "@calc(@field.obs_type!== undefined && @field.obs_type!== '' && @field.obs_type!== null)",
+            "type": "calc",
+            "fieldName": "@field.obs_type!== undefined && @field.obs_type!== '' && @field.obs_type!== null"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.obs_type": [
+          "value",
           "value",
           "value"
         ],
-        "@calc(@local.v_q_npk_fmt && (Number(@field.q_npk) === 0 || (Number(@field.c_npk) >= 0 && @field.c_npk !== '')))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "v_fert_ur_ok",
-      "value": "@calc(@local.v_q_ur_fmt && (Number(@field.q_ur) === 0 || (Number(@field.c_ur) >= 0 && @field.c_ur !== '')))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "v_fert_ur_ok",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(@local.v_q_ur_fmt && (Number(@field.q_ur) === 0 || (Number(@field.c_ur) >= 0 && @field.c_ur !== '')))",
-            "matchedExpression": "@local.v_q_ur_fmt",
-            "type": "local",
-            "fieldName": "v_q_ur_fmt"
-          },
-          {
-            "fullExpression": "@calc(@local.v_q_ur_fmt && (Number(@field.q_ur) === 0 || (Number(@field.c_ur) >= 0 && @field.c_ur !== '')))",
-            "matchedExpression": "@field.q_ur",
-            "type": "field",
-            "fieldName": "q_ur"
-          },
-          {
-            "fullExpression": "@calc(@local.v_q_ur_fmt && (Number(@field.q_ur) === 0 || (Number(@field.c_ur) >= 0 && @field.c_ur !== '')))",
-            "matchedExpression": "@field.c_ur",
-            "type": "field",
-            "fieldName": "c_ur"
-          },
-          {
-            "fullExpression": "@calc(@local.v_q_ur_fmt && (Number(@field.q_ur) === 0 || (Number(@field.c_ur) >= 0 && @field.c_ur !== '')))",
-            "matchedExpression": "@field.c_ur",
-            "type": "field",
-            "fieldName": "c_ur"
-          },
-          {
-            "fullExpression": "@calc(@local.v_q_ur_fmt && (Number(@field.q_ur) === 0 || (Number(@field.c_ur) >= 0 && @field.c_ur !== '')))",
-            "matchedExpression": "@calc(@local.v_q_ur_fmt && (Number(@field.q_ur) === 0 || (Number(@field.c_ur) >= 0 && @field.c_ur !== '')))",
-            "type": "calc",
-            "fieldName": "@local.v_q_ur_fmt && (Number(@field.q_ur) === 0 || (Number(@field.c_ur) >= 0 && @field.c_ur !== ''))"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.v_q_ur_fmt": [
-          "value"
-        ],
-        "@field.q_ur": [
-          "value"
-        ],
-        "@field.c_ur": [
-          "value",
-          "value"
-        ],
-        "@calc(@local.v_q_ur_fmt && (Number(@field.q_ur) === 0 || (Number(@field.c_ur) >= 0 && @field.c_ur !== '')))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "v_total_fert_culture",
-      "value": "@calc((Number(@field.c_npk) || 0) + (Number(@field.c_ur) || 0))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "v_total_fert_culture",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc((Number(@field.c_npk) || 0) + (Number(@field.c_ur) || 0))",
-            "matchedExpression": "@field.c_npk",
-            "type": "field",
-            "fieldName": "c_npk"
-          },
-          {
-            "fullExpression": "@calc((Number(@field.c_npk) || 0) + (Number(@field.c_ur) || 0))",
-            "matchedExpression": "@field.c_ur",
-            "type": "field",
-            "fieldName": "c_ur"
-          },
-          {
-            "fullExpression": "@calc((Number(@field.c_npk) || 0) + (Number(@field.c_ur) || 0))",
-            "matchedExpression": "@calc((Number(@field.c_npk) || 0) + (Number(@field.c_ur) || 0))",
-            "type": "calc",
-            "fieldName": "(Number(@field.c_npk) || 0) + (Number(@field.c_ur) || 0)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.c_npk": [
-          "value"
-        ],
-        "@field.c_ur": [
-          "value"
-        ],
-        "@calc((Number(@field.c_npk) || 0) + (Number(@field.c_ur) || 0))": [
+        "@calc(@field.obs_type!== undefined && @field.obs_type!== '' && @field.obs_type!== null)": [
           "value"
         ]
       }
     },
     {
       "name": "completed_enabled",
-      "value": "@calc(@local.v_fert_npk_ok && @local.v_fert_ur_ok)",
+      "value": "@local.v_current_obs_ok",
       "_translations": {
         "value": {}
       },
@@ -1258,33 +786,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(@local.v_fert_npk_ok && @local.v_fert_ur_ok)",
-            "matchedExpression": "@local.v_fert_npk_ok",
+            "fullExpression": "@local.v_current_obs_ok",
+            "matchedExpression": "@local.v_current_obs_ok",
             "type": "local",
-            "fieldName": "v_fert_npk_ok"
-          },
-          {
-            "fullExpression": "@calc(@local.v_fert_npk_ok && @local.v_fert_ur_ok)",
-            "matchedExpression": "@local.v_fert_ur_ok",
-            "type": "local",
-            "fieldName": "v_fert_ur_ok"
-          },
-          {
-            "fullExpression": "@calc(@local.v_fert_npk_ok && @local.v_fert_ur_ok)",
-            "matchedExpression": "@calc(@local.v_fert_npk_ok && @local.v_fert_ur_ok)",
-            "type": "calc",
-            "fieldName": "@local.v_fert_npk_ok && @local.v_fert_ur_ok"
+            "fieldName": "v_current_obs_ok"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.v_fert_npk_ok": [
-          "value"
-        ],
-        "@local.v_fert_ur_ok": [
-          "value"
-        ],
-        "@calc(@local.v_fert_npk_ok && @local.v_fert_ur_ok)": [
+        "@local.v_current_obs_ok": [
           "value"
         ]
       }
@@ -1328,26 +838,297 @@
           "action_list": [
             {
               "trigger": "click",
+              "action_id": "add_data",
+              "args": [],
+              "_raw": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    superficie_sarclage: @field.superficie_sarclage,\n    cout_sarclage_nonzero: @field.cout_sarclage_nonzero,\n    superficie_desherbage: @field.superficie_desherbage,\n    cout_desherbage_nonzero: @field.cout_desherbage_nonzero,\n    superficie_butee: @field.superficie_butee,\n    cout_buttage_nonzero: @field.cout_buttage_nonzero,\n    quantite_npk: @field.quantite_npk,\n    cout_npk_nonzero: @field.cout_npk_nonzero,\n    quantite_ureeee: @field.quantite_uree,\n    cout_uree_nonzeroee: @field.cout_uree_nonzero,\n    quantite_herbicide: @field.quantite_herbicide,\n    cout_herbicide_nonzero: @field.cout_herbicide_nonzero,\n    quantite_insecticide: @field.quantite_insecticide,\n    cout_insecticide_nonzero: @field.cout_insecticide_nonzero,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+              "params": {
+                "_list_id": "post_semi_summary_list",
+                "culture": "@field.active_culture_name",
+                "superficie_sarclage": "@field.superficie_sarclage",
+                "cout_sarclage_nonzero": "@field.cout_sarclage_nonzero",
+                "superficie_desherbage": "@field.superficie_desherbage",
+                "cout_desherbage_nonzero": "@field.cout_desherbage_nonzero",
+                "superficie_butee": "@field.superficie_butee",
+                "cout_buttage_nonzero": "@field.cout_buttage_nonzero",
+                "quantite_npk": "@field.quantite_npk",
+                "cout_npk_nonzero": "@field.cout_npk_nonzero",
+                "quantite_ureeee": "@field.quantite_uree",
+                "cout_uree_nonzeroee": "@field.cout_uree_nonzero",
+                "quantite_herbicide": "@field.quantite_herbicide",
+                "cout_herbicide_nonzero": "@field.cout_herbicide_nonzero",
+                "quantite_insecticide": "@field.quantite_insecticide",
+                "cout_insecticide_nonzero": "@field.cout_insecticide_nonzero",
+                "obs_type": "@field.obs_type",
+                "total_investi": "@local.v_tot_cult"
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: post_semi_settings_pages, _index: 1, completed: false",
+              "params": {
+                "_list_id": "post_semi_settings_pages",
+                "_index": 1,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: post_semi_settings_pages, _index: 2, completed: false",
+              "params": {
+                "_list_id": "post_semi_settings_pages",
+                "_index": 2,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: post_semi_settings_pages, _index: 3, completed: false",
+              "params": {
+                "_list_id": "post_semi_settings_pages",
+                "_index": 3,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: post_semi_settings_pages, _index: 4, completed: false",
+              "params": {
+                "_list_id": "post_semi_settings_pages",
+                "_index": 4,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: post_semi_settings_pages, _index: 5, completed: false",
+              "params": {
+                "_list_id": "post_semi_settings_pages",
+                "_index": 5,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "final_count_fert",
-                "@local.v_total_fert_culture"
+                "active_culture_name",
+                "@local.name"
               ],
-              "_raw": "click | set_field: final_count_fert : @local.v_total_fert_culture"
+              "_raw": "click | set_field: active_culture_name : @local.name"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "current_culture_index",
+                "@calc(Number(@field.current_culture_index) + 1)"
+              ],
+              "_raw": "click | set_field: current_culture_index : @calc(Number(@field.current_culture_index) + 1)"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "superficie_sarclage",
+                ""
+              ],
+              "_raw": "click | set_field: superficie_sarclage :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cout_sarclage_nonzero",
+                ""
+              ],
+              "_raw": "click | set_field: cout_sarclage_nonzero :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "superficie_desherbage",
+                ""
+              ],
+              "_raw": "click | set_field: superficie_desherbage :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cout_desherbage_nonzero",
+                ""
+              ],
+              "_raw": "click | set_field: cout_desherbage_nonzero :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "superficie_butee",
+                ""
+              ],
+              "_raw": "click | set_field: superficie_butee :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cout_buttage_nonzero",
+                ""
+              ],
+              "_raw": "click | set_field: cout_buttage_nonzero :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "quantite_npk",
+                ""
+              ],
+              "_raw": "click | set_field: quantite_npk :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cout_npk_nonzero",
+                ""
+              ],
+              "_raw": "click | set_field: cout_npk_nonzero :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "quantite_uree",
+                ""
+              ],
+              "_raw": "click | set_field: quantite_uree :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cout_uree_nonzero",
+                ""
+              ],
+              "_raw": "click | set_field: cout_uree_nonzero :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "quantite_herbicide",
+                ""
+              ],
+              "_raw": "click | set_field: quantite_herbicide :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cout_herbicide_nonzero",
+                ""
+              ],
+              "_raw": "click | set_field: cout_herbicide_nonzero :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "quantite_insecticide",
+                ""
+              ],
+              "_raw": "click | set_field: quantite_insecticide :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "no_autre_cout_postsemis",
+                ""
+              ],
+              "_raw": "click | set_field: no_autre_cout_postsemis :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "nom_autre_cout_postsemis",
+                ""
+              ],
+              "_raw": "click | set_field: nom_autre_cout_postsemis :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "autre_cout_postsemis",
+                ""
+              ],
+              "_raw": "click | set_field: autre_cout_postsemis :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "final_cout_autre_psemis",
+                ""
+              ],
+              "_raw": "click | set_field: final_cout_autre_psemis :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cout_insecticide_nonzero",
+                ""
+              ],
+              "_raw": "click | set_field: cout_insecticide_nonzero :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "obs_type",
+                ""
+              ],
+              "_raw": "click | set_field: obs_type :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "grand_total_post_semi",
+                "@local.v_new_total_global"
+              ],
+              "_raw": "click | set_field: grand_total_post_semi : @local.v_new_total_global"
             },
             {
               "trigger": "click",
               "action_id": "emit",
               "args": [
-                "completed"
+                "force_reprocess"
               ],
-              "_raw": "click | emit: completed"
+              "_raw": "click | emit: force_reprocess"
             }
           ],
           "parameter_list": {
             "style": "navigation",
             "disabled": "!@local.completed_enabled"
           },
+          "condition": "@calc(Number(@field.current_culture_index) < Number(@field.total_cultures_selected) - 1)",
           "style_list": [
             "flex: 1"
           ],
@@ -1363,22 +1144,318 @@
             ],
             "action_list": {
               "0": {
+                "_raw": [
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    superficie_sarclage: @field.superficie_sarclage,\n    cout_sarclage_nonzero: @field.cout_sarclage_nonzero,\n    superficie_desherbage: @field.superficie_desherbage,\n    cout_desherbage_nonzero: @field.cout_desherbage_nonzero,\n    superficie_butee: @field.superficie_butee,\n    cout_buttage_nonzero: @field.cout_buttage_nonzero,\n    quantite_npk: @field.quantite_npk,\n    cout_npk_nonzero: @field.cout_npk_nonzero,\n    quantite_ureeee: @field.quantite_uree,\n    cout_uree_nonzeroee: @field.cout_uree_nonzero,\n    quantite_herbicide: @field.quantite_herbicide,\n    cout_herbicide_nonzero: @field.cout_herbicide_nonzero,\n    quantite_insecticide: @field.quantite_insecticide,\n    cout_insecticide_nonzero: @field.cout_insecticide_nonzero,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.active_culture_name",
+                    "type": "field",
+                    "fieldName": "active_culture_name"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    superficie_sarclage: @field.superficie_sarclage,\n    cout_sarclage_nonzero: @field.cout_sarclage_nonzero,\n    superficie_desherbage: @field.superficie_desherbage,\n    cout_desherbage_nonzero: @field.cout_desherbage_nonzero,\n    superficie_butee: @field.superficie_butee,\n    cout_buttage_nonzero: @field.cout_buttage_nonzero,\n    quantite_npk: @field.quantite_npk,\n    cout_npk_nonzero: @field.cout_npk_nonzero,\n    quantite_ureeee: @field.quantite_uree,\n    cout_uree_nonzeroee: @field.cout_uree_nonzero,\n    quantite_herbicide: @field.quantite_herbicide,\n    cout_herbicide_nonzero: @field.cout_herbicide_nonzero,\n    quantite_insecticide: @field.quantite_insecticide,\n    cout_insecticide_nonzero: @field.cout_insecticide_nonzero,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.superficie_sarclage",
+                    "type": "field",
+                    "fieldName": "superficie_sarclage"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    superficie_sarclage: @field.superficie_sarclage,\n    cout_sarclage_nonzero: @field.cout_sarclage_nonzero,\n    superficie_desherbage: @field.superficie_desherbage,\n    cout_desherbage_nonzero: @field.cout_desherbage_nonzero,\n    superficie_butee: @field.superficie_butee,\n    cout_buttage_nonzero: @field.cout_buttage_nonzero,\n    quantite_npk: @field.quantite_npk,\n    cout_npk_nonzero: @field.cout_npk_nonzero,\n    quantite_ureeee: @field.quantite_uree,\n    cout_uree_nonzeroee: @field.cout_uree_nonzero,\n    quantite_herbicide: @field.quantite_herbicide,\n    cout_herbicide_nonzero: @field.cout_herbicide_nonzero,\n    quantite_insecticide: @field.quantite_insecticide,\n    cout_insecticide_nonzero: @field.cout_insecticide_nonzero,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.cout_sarclage_nonzero",
+                    "type": "field",
+                    "fieldName": "cout_sarclage_nonzero"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    superficie_sarclage: @field.superficie_sarclage,\n    cout_sarclage_nonzero: @field.cout_sarclage_nonzero,\n    superficie_desherbage: @field.superficie_desherbage,\n    cout_desherbage_nonzero: @field.cout_desherbage_nonzero,\n    superficie_butee: @field.superficie_butee,\n    cout_buttage_nonzero: @field.cout_buttage_nonzero,\n    quantite_npk: @field.quantite_npk,\n    cout_npk_nonzero: @field.cout_npk_nonzero,\n    quantite_ureeee: @field.quantite_uree,\n    cout_uree_nonzeroee: @field.cout_uree_nonzero,\n    quantite_herbicide: @field.quantite_herbicide,\n    cout_herbicide_nonzero: @field.cout_herbicide_nonzero,\n    quantite_insecticide: @field.quantite_insecticide,\n    cout_insecticide_nonzero: @field.cout_insecticide_nonzero,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.superficie_desherbage",
+                    "type": "field",
+                    "fieldName": "superficie_desherbage"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    superficie_sarclage: @field.superficie_sarclage,\n    cout_sarclage_nonzero: @field.cout_sarclage_nonzero,\n    superficie_desherbage: @field.superficie_desherbage,\n    cout_desherbage_nonzero: @field.cout_desherbage_nonzero,\n    superficie_butee: @field.superficie_butee,\n    cout_buttage_nonzero: @field.cout_buttage_nonzero,\n    quantite_npk: @field.quantite_npk,\n    cout_npk_nonzero: @field.cout_npk_nonzero,\n    quantite_ureeee: @field.quantite_uree,\n    cout_uree_nonzeroee: @field.cout_uree_nonzero,\n    quantite_herbicide: @field.quantite_herbicide,\n    cout_herbicide_nonzero: @field.cout_herbicide_nonzero,\n    quantite_insecticide: @field.quantite_insecticide,\n    cout_insecticide_nonzero: @field.cout_insecticide_nonzero,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.cout_desherbage_nonzero",
+                    "type": "field",
+                    "fieldName": "cout_desherbage_nonzero"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    superficie_sarclage: @field.superficie_sarclage,\n    cout_sarclage_nonzero: @field.cout_sarclage_nonzero,\n    superficie_desherbage: @field.superficie_desherbage,\n    cout_desherbage_nonzero: @field.cout_desherbage_nonzero,\n    superficie_butee: @field.superficie_butee,\n    cout_buttage_nonzero: @field.cout_buttage_nonzero,\n    quantite_npk: @field.quantite_npk,\n    cout_npk_nonzero: @field.cout_npk_nonzero,\n    quantite_ureeee: @field.quantite_uree,\n    cout_uree_nonzeroee: @field.cout_uree_nonzero,\n    quantite_herbicide: @field.quantite_herbicide,\n    cout_herbicide_nonzero: @field.cout_herbicide_nonzero,\n    quantite_insecticide: @field.quantite_insecticide,\n    cout_insecticide_nonzero: @field.cout_insecticide_nonzero,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.superficie_butee",
+                    "type": "field",
+                    "fieldName": "superficie_butee"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    superficie_sarclage: @field.superficie_sarclage,\n    cout_sarclage_nonzero: @field.cout_sarclage_nonzero,\n    superficie_desherbage: @field.superficie_desherbage,\n    cout_desherbage_nonzero: @field.cout_desherbage_nonzero,\n    superficie_butee: @field.superficie_butee,\n    cout_buttage_nonzero: @field.cout_buttage_nonzero,\n    quantite_npk: @field.quantite_npk,\n    cout_npk_nonzero: @field.cout_npk_nonzero,\n    quantite_ureeee: @field.quantite_uree,\n    cout_uree_nonzeroee: @field.cout_uree_nonzero,\n    quantite_herbicide: @field.quantite_herbicide,\n    cout_herbicide_nonzero: @field.cout_herbicide_nonzero,\n    quantite_insecticide: @field.quantite_insecticide,\n    cout_insecticide_nonzero: @field.cout_insecticide_nonzero,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.cout_buttage_nonzero",
+                    "type": "field",
+                    "fieldName": "cout_buttage_nonzero"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    superficie_sarclage: @field.superficie_sarclage,\n    cout_sarclage_nonzero: @field.cout_sarclage_nonzero,\n    superficie_desherbage: @field.superficie_desherbage,\n    cout_desherbage_nonzero: @field.cout_desherbage_nonzero,\n    superficie_butee: @field.superficie_butee,\n    cout_buttage_nonzero: @field.cout_buttage_nonzero,\n    quantite_npk: @field.quantite_npk,\n    cout_npk_nonzero: @field.cout_npk_nonzero,\n    quantite_ureeee: @field.quantite_uree,\n    cout_uree_nonzeroee: @field.cout_uree_nonzero,\n    quantite_herbicide: @field.quantite_herbicide,\n    cout_herbicide_nonzero: @field.cout_herbicide_nonzero,\n    quantite_insecticide: @field.quantite_insecticide,\n    cout_insecticide_nonzero: @field.cout_insecticide_nonzero,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.quantite_npk",
+                    "type": "field",
+                    "fieldName": "quantite_npk"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    superficie_sarclage: @field.superficie_sarclage,\n    cout_sarclage_nonzero: @field.cout_sarclage_nonzero,\n    superficie_desherbage: @field.superficie_desherbage,\n    cout_desherbage_nonzero: @field.cout_desherbage_nonzero,\n    superficie_butee: @field.superficie_butee,\n    cout_buttage_nonzero: @field.cout_buttage_nonzero,\n    quantite_npk: @field.quantite_npk,\n    cout_npk_nonzero: @field.cout_npk_nonzero,\n    quantite_ureeee: @field.quantite_uree,\n    cout_uree_nonzeroee: @field.cout_uree_nonzero,\n    quantite_herbicide: @field.quantite_herbicide,\n    cout_herbicide_nonzero: @field.cout_herbicide_nonzero,\n    quantite_insecticide: @field.quantite_insecticide,\n    cout_insecticide_nonzero: @field.cout_insecticide_nonzero,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.cout_npk_nonzero",
+                    "type": "field",
+                    "fieldName": "cout_npk_nonzero"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    superficie_sarclage: @field.superficie_sarclage,\n    cout_sarclage_nonzero: @field.cout_sarclage_nonzero,\n    superficie_desherbage: @field.superficie_desherbage,\n    cout_desherbage_nonzero: @field.cout_desherbage_nonzero,\n    superficie_butee: @field.superficie_butee,\n    cout_buttage_nonzero: @field.cout_buttage_nonzero,\n    quantite_npk: @field.quantite_npk,\n    cout_npk_nonzero: @field.cout_npk_nonzero,\n    quantite_ureeee: @field.quantite_uree,\n    cout_uree_nonzeroee: @field.cout_uree_nonzero,\n    quantite_herbicide: @field.quantite_herbicide,\n    cout_herbicide_nonzero: @field.cout_herbicide_nonzero,\n    quantite_insecticide: @field.quantite_insecticide,\n    cout_insecticide_nonzero: @field.cout_insecticide_nonzero,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.quantite_uree",
+                    "type": "field",
+                    "fieldName": "quantite_uree"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    superficie_sarclage: @field.superficie_sarclage,\n    cout_sarclage_nonzero: @field.cout_sarclage_nonzero,\n    superficie_desherbage: @field.superficie_desherbage,\n    cout_desherbage_nonzero: @field.cout_desherbage_nonzero,\n    superficie_butee: @field.superficie_butee,\n    cout_buttage_nonzero: @field.cout_buttage_nonzero,\n    quantite_npk: @field.quantite_npk,\n    cout_npk_nonzero: @field.cout_npk_nonzero,\n    quantite_ureeee: @field.quantite_uree,\n    cout_uree_nonzeroee: @field.cout_uree_nonzero,\n    quantite_herbicide: @field.quantite_herbicide,\n    cout_herbicide_nonzero: @field.cout_herbicide_nonzero,\n    quantite_insecticide: @field.quantite_insecticide,\n    cout_insecticide_nonzero: @field.cout_insecticide_nonzero,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.cout_uree_nonzero",
+                    "type": "field",
+                    "fieldName": "cout_uree_nonzero"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    superficie_sarclage: @field.superficie_sarclage,\n    cout_sarclage_nonzero: @field.cout_sarclage_nonzero,\n    superficie_desherbage: @field.superficie_desherbage,\n    cout_desherbage_nonzero: @field.cout_desherbage_nonzero,\n    superficie_butee: @field.superficie_butee,\n    cout_buttage_nonzero: @field.cout_buttage_nonzero,\n    quantite_npk: @field.quantite_npk,\n    cout_npk_nonzero: @field.cout_npk_nonzero,\n    quantite_ureeee: @field.quantite_uree,\n    cout_uree_nonzeroee: @field.cout_uree_nonzero,\n    quantite_herbicide: @field.quantite_herbicide,\n    cout_herbicide_nonzero: @field.cout_herbicide_nonzero,\n    quantite_insecticide: @field.quantite_insecticide,\n    cout_insecticide_nonzero: @field.cout_insecticide_nonzero,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.quantite_herbicide",
+                    "type": "field",
+                    "fieldName": "quantite_herbicide"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    superficie_sarclage: @field.superficie_sarclage,\n    cout_sarclage_nonzero: @field.cout_sarclage_nonzero,\n    superficie_desherbage: @field.superficie_desherbage,\n    cout_desherbage_nonzero: @field.cout_desherbage_nonzero,\n    superficie_butee: @field.superficie_butee,\n    cout_buttage_nonzero: @field.cout_buttage_nonzero,\n    quantite_npk: @field.quantite_npk,\n    cout_npk_nonzero: @field.cout_npk_nonzero,\n    quantite_ureeee: @field.quantite_uree,\n    cout_uree_nonzeroee: @field.cout_uree_nonzero,\n    quantite_herbicide: @field.quantite_herbicide,\n    cout_herbicide_nonzero: @field.cout_herbicide_nonzero,\n    quantite_insecticide: @field.quantite_insecticide,\n    cout_insecticide_nonzero: @field.cout_insecticide_nonzero,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.cout_herbicide_nonzero",
+                    "type": "field",
+                    "fieldName": "cout_herbicide_nonzero"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    superficie_sarclage: @field.superficie_sarclage,\n    cout_sarclage_nonzero: @field.cout_sarclage_nonzero,\n    superficie_desherbage: @field.superficie_desherbage,\n    cout_desherbage_nonzero: @field.cout_desherbage_nonzero,\n    superficie_butee: @field.superficie_butee,\n    cout_buttage_nonzero: @field.cout_buttage_nonzero,\n    quantite_npk: @field.quantite_npk,\n    cout_npk_nonzero: @field.cout_npk_nonzero,\n    quantite_ureeee: @field.quantite_uree,\n    cout_uree_nonzeroee: @field.cout_uree_nonzero,\n    quantite_herbicide: @field.quantite_herbicide,\n    cout_herbicide_nonzero: @field.cout_herbicide_nonzero,\n    quantite_insecticide: @field.quantite_insecticide,\n    cout_insecticide_nonzero: @field.cout_insecticide_nonzero,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.quantite_insecticide",
+                    "type": "field",
+                    "fieldName": "quantite_insecticide"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    superficie_sarclage: @field.superficie_sarclage,\n    cout_sarclage_nonzero: @field.cout_sarclage_nonzero,\n    superficie_desherbage: @field.superficie_desherbage,\n    cout_desherbage_nonzero: @field.cout_desherbage_nonzero,\n    superficie_butee: @field.superficie_butee,\n    cout_buttage_nonzero: @field.cout_buttage_nonzero,\n    quantite_npk: @field.quantite_npk,\n    cout_npk_nonzero: @field.cout_npk_nonzero,\n    quantite_ureeee: @field.quantite_uree,\n    cout_uree_nonzeroee: @field.cout_uree_nonzero,\n    quantite_herbicide: @field.quantite_herbicide,\n    cout_herbicide_nonzero: @field.cout_herbicide_nonzero,\n    quantite_insecticide: @field.quantite_insecticide,\n    cout_insecticide_nonzero: @field.cout_insecticide_nonzero,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.cout_insecticide_nonzero",
+                    "type": "field",
+                    "fieldName": "cout_insecticide_nonzero"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    superficie_sarclage: @field.superficie_sarclage,\n    cout_sarclage_nonzero: @field.cout_sarclage_nonzero,\n    superficie_desherbage: @field.superficie_desherbage,\n    cout_desherbage_nonzero: @field.cout_desherbage_nonzero,\n    superficie_butee: @field.superficie_butee,\n    cout_buttage_nonzero: @field.cout_buttage_nonzero,\n    quantite_npk: @field.quantite_npk,\n    cout_npk_nonzero: @field.cout_npk_nonzero,\n    quantite_ureeee: @field.quantite_uree,\n    cout_uree_nonzeroee: @field.cout_uree_nonzero,\n    quantite_herbicide: @field.quantite_herbicide,\n    cout_herbicide_nonzero: @field.cout_herbicide_nonzero,\n    quantite_insecticide: @field.quantite_insecticide,\n    cout_insecticide_nonzero: @field.cout_insecticide_nonzero,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.obs_type",
+                    "type": "field",
+                    "fieldName": "obs_type"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    superficie_sarclage: @field.superficie_sarclage,\n    cout_sarclage_nonzero: @field.cout_sarclage_nonzero,\n    superficie_desherbage: @field.superficie_desherbage,\n    cout_desherbage_nonzero: @field.cout_desherbage_nonzero,\n    superficie_butee: @field.superficie_butee,\n    cout_buttage_nonzero: @field.cout_buttage_nonzero,\n    quantite_npk: @field.quantite_npk,\n    cout_npk_nonzero: @field.cout_npk_nonzero,\n    quantite_ureeee: @field.quantite_uree,\n    cout_uree_nonzeroee: @field.cout_uree_nonzero,\n    quantite_herbicide: @field.quantite_herbicide,\n    cout_herbicide_nonzero: @field.cout_herbicide_nonzero,\n    quantite_insecticide: @field.quantite_insecticide,\n    cout_insecticide_nonzero: @field.cout_insecticide_nonzero,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@local.v_tot_cult",
+                    "type": "local",
+                    "fieldName": "v_tot_cult"
+                  }
+                ],
+                "params": {
+                  "culture": [
+                    {
+                      "fullExpression": "@field.active_culture_name",
+                      "matchedExpression": "@field.active_culture_name",
+                      "type": "field",
+                      "fieldName": "active_culture_name"
+                    }
+                  ],
+                  "superficie_sarclage": [
+                    {
+                      "fullExpression": "@field.superficie_sarclage",
+                      "matchedExpression": "@field.superficie_sarclage",
+                      "type": "field",
+                      "fieldName": "superficie_sarclage"
+                    }
+                  ],
+                  "cout_sarclage_nonzero": [
+                    {
+                      "fullExpression": "@field.cout_sarclage_nonzero",
+                      "matchedExpression": "@field.cout_sarclage_nonzero",
+                      "type": "field",
+                      "fieldName": "cout_sarclage_nonzero"
+                    }
+                  ],
+                  "superficie_desherbage": [
+                    {
+                      "fullExpression": "@field.superficie_desherbage",
+                      "matchedExpression": "@field.superficie_desherbage",
+                      "type": "field",
+                      "fieldName": "superficie_desherbage"
+                    }
+                  ],
+                  "cout_desherbage_nonzero": [
+                    {
+                      "fullExpression": "@field.cout_desherbage_nonzero",
+                      "matchedExpression": "@field.cout_desherbage_nonzero",
+                      "type": "field",
+                      "fieldName": "cout_desherbage_nonzero"
+                    }
+                  ],
+                  "superficie_butee": [
+                    {
+                      "fullExpression": "@field.superficie_butee",
+                      "matchedExpression": "@field.superficie_butee",
+                      "type": "field",
+                      "fieldName": "superficie_butee"
+                    }
+                  ],
+                  "cout_buttage_nonzero": [
+                    {
+                      "fullExpression": "@field.cout_buttage_nonzero",
+                      "matchedExpression": "@field.cout_buttage_nonzero",
+                      "type": "field",
+                      "fieldName": "cout_buttage_nonzero"
+                    }
+                  ],
+                  "quantite_npk": [
+                    {
+                      "fullExpression": "@field.quantite_npk",
+                      "matchedExpression": "@field.quantite_npk",
+                      "type": "field",
+                      "fieldName": "quantite_npk"
+                    }
+                  ],
+                  "cout_npk_nonzero": [
+                    {
+                      "fullExpression": "@field.cout_npk_nonzero",
+                      "matchedExpression": "@field.cout_npk_nonzero",
+                      "type": "field",
+                      "fieldName": "cout_npk_nonzero"
+                    }
+                  ],
+                  "quantite_ureeee": [
+                    {
+                      "fullExpression": "@field.quantite_uree",
+                      "matchedExpression": "@field.quantite_uree",
+                      "type": "field",
+                      "fieldName": "quantite_uree"
+                    }
+                  ],
+                  "cout_uree_nonzeroee": [
+                    {
+                      "fullExpression": "@field.cout_uree_nonzero",
+                      "matchedExpression": "@field.cout_uree_nonzero",
+                      "type": "field",
+                      "fieldName": "cout_uree_nonzero"
+                    }
+                  ],
+                  "quantite_herbicide": [
+                    {
+                      "fullExpression": "@field.quantite_herbicide",
+                      "matchedExpression": "@field.quantite_herbicide",
+                      "type": "field",
+                      "fieldName": "quantite_herbicide"
+                    }
+                  ],
+                  "cout_herbicide_nonzero": [
+                    {
+                      "fullExpression": "@field.cout_herbicide_nonzero",
+                      "matchedExpression": "@field.cout_herbicide_nonzero",
+                      "type": "field",
+                      "fieldName": "cout_herbicide_nonzero"
+                    }
+                  ],
+                  "quantite_insecticide": [
+                    {
+                      "fullExpression": "@field.quantite_insecticide",
+                      "matchedExpression": "@field.quantite_insecticide",
+                      "type": "field",
+                      "fieldName": "quantite_insecticide"
+                    }
+                  ],
+                  "cout_insecticide_nonzero": [
+                    {
+                      "fullExpression": "@field.cout_insecticide_nonzero",
+                      "matchedExpression": "@field.cout_insecticide_nonzero",
+                      "type": "field",
+                      "fieldName": "cout_insecticide_nonzero"
+                    }
+                  ],
+                  "obs_type": [
+                    {
+                      "fullExpression": "@field.obs_type",
+                      "matchedExpression": "@field.obs_type",
+                      "type": "field",
+                      "fieldName": "obs_type"
+                    }
+                  ],
+                  "total_investi": [
+                    {
+                      "fullExpression": "@local.v_tot_cult",
+                      "matchedExpression": "@local.v_tot_cult",
+                      "type": "local",
+                      "fieldName": "v_tot_cult"
+                    }
+                  ]
+                }
+              },
+              "6": {
                 "args": {
                   "1": [
                     {
-                      "fullExpression": "@local.v_total_fert_culture",
-                      "matchedExpression": "@local.v_total_fert_culture",
+                      "fullExpression": "@local.name",
+                      "matchedExpression": "@local.name",
                       "type": "local",
-                      "fieldName": "v_total_fert_culture"
+                      "fieldName": "name"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: final_count_fert : @local.v_total_fert_culture",
-                    "matchedExpression": "@local.v_total_fert_culture",
+                    "fullExpression": "click | set_field: active_culture_name : @local.name",
+                    "matchedExpression": "@local.name",
                     "type": "local",
-                    "fieldName": "v_total_fert_culture"
+                    "fieldName": "name"
+                  }
+                ]
+              },
+              "7": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@calc(Number(@field.current_culture_index) + 1)",
+                      "matchedExpression": "@field.current_culture_index",
+                      "type": "field",
+                      "fieldName": "current_culture_index"
+                    },
+                    {
+                      "fullExpression": "@calc(Number(@field.current_culture_index) + 1)",
+                      "matchedExpression": "@calc(Number(@field.current_culture_index) + 1)",
+                      "type": "calc",
+                      "fieldName": "Number(@field.current_culture_index) + 1"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: current_culture_index : @calc(Number(@field.current_culture_index) + 1)",
+                    "matchedExpression": "@field.current_culture_index",
+                    "type": "field",
+                    "fieldName": "current_culture_index"
+                  },
+                  {
+                    "fullExpression": "click | set_field: current_culture_index : @calc(Number(@field.current_culture_index) + 1)",
+                    "matchedExpression": "@calc(Number(@field.current_culture_index) + 1)",
+                    "type": "calc",
+                    "fieldName": "Number(@field.current_culture_index) + 1"
+                  }
+                ]
+              },
+              "27": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.v_new_total_global",
+                      "matchedExpression": "@local.v_new_total_global",
+                      "type": "local",
+                      "fieldName": "v_new_total_global"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: grand_total_post_semi : @local.v_new_total_global",
+                    "matchedExpression": "@local.v_new_total_global",
+                    "type": "local",
+                    "fieldName": "v_new_total_global"
                   }
                 ]
               }
@@ -1392,18 +1469,291 @@
                   "fieldName": "completed_enabled"
                 }
               ]
-            }
+            },
+            "condition": [
+              {
+                "fullExpression": "@calc(Number(@field.current_culture_index) < Number(@field.total_cultures_selected) - 1)",
+                "matchedExpression": "@field.current_culture_index",
+                "type": "field",
+                "fieldName": "current_culture_index"
+              },
+              {
+                "fullExpression": "@calc(Number(@field.current_culture_index) < Number(@field.total_cultures_selected) - 1)",
+                "matchedExpression": "@field.total_cultures_selected",
+                "type": "field",
+                "fieldName": "total_cultures_selected"
+              },
+              {
+                "fullExpression": "@calc(Number(@field.current_culture_index) < Number(@field.total_cultures_selected) - 1)",
+                "matchedExpression": "@calc(Number(@field.current_culture_index) < Number(@field.total_cultures_selected) - 1)",
+                "type": "calc",
+                "fieldName": "Number(@field.current_culture_index) < Number(@field.total_cultures_selected) - 1"
+              }
+            ]
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
             ],
-            "@local.v_total_fert_culture": [
-              "action_list.0.args.1",
-              "action_list.0._raw"
+            "@field.active_culture_name": [
+              "action_list.0._raw",
+              "action_list.0.params.culture"
+            ],
+            "@field.superficie_sarclage": [
+              "action_list.0._raw",
+              "action_list.0.params.superficie_sarclage"
+            ],
+            "@field.cout_sarclage_nonzero": [
+              "action_list.0._raw",
+              "action_list.0.params.cout_sarclage_nonzero"
+            ],
+            "@field.superficie_desherbage": [
+              "action_list.0._raw",
+              "action_list.0.params.superficie_desherbage"
+            ],
+            "@field.cout_desherbage_nonzero": [
+              "action_list.0._raw",
+              "action_list.0.params.cout_desherbage_nonzero"
+            ],
+            "@field.superficie_butee": [
+              "action_list.0._raw",
+              "action_list.0.params.superficie_butee"
+            ],
+            "@field.cout_buttage_nonzero": [
+              "action_list.0._raw",
+              "action_list.0.params.cout_buttage_nonzero"
+            ],
+            "@field.quantite_npk": [
+              "action_list.0._raw",
+              "action_list.0.params.quantite_npk"
+            ],
+            "@field.cout_npk_nonzero": [
+              "action_list.0._raw",
+              "action_list.0.params.cout_npk_nonzero"
+            ],
+            "@field.quantite_uree": [
+              "action_list.0._raw",
+              "action_list.0.params.quantite_ureeee"
+            ],
+            "@field.cout_uree_nonzero": [
+              "action_list.0._raw",
+              "action_list.0.params.cout_uree_nonzeroee"
+            ],
+            "@field.quantite_herbicide": [
+              "action_list.0._raw",
+              "action_list.0.params.quantite_herbicide"
+            ],
+            "@field.cout_herbicide_nonzero": [
+              "action_list.0._raw",
+              "action_list.0.params.cout_herbicide_nonzero"
+            ],
+            "@field.quantite_insecticide": [
+              "action_list.0._raw",
+              "action_list.0.params.quantite_insecticide"
+            ],
+            "@field.cout_insecticide_nonzero": [
+              "action_list.0._raw",
+              "action_list.0.params.cout_insecticide_nonzero"
+            ],
+            "@field.obs_type": [
+              "action_list.0._raw",
+              "action_list.0.params.obs_type"
+            ],
+            "@local.v_tot_cult": [
+              "action_list.0._raw",
+              "action_list.0.params.total_investi"
+            ],
+            "@local.name": [
+              "action_list.6.args.1",
+              "action_list.6._raw"
+            ],
+            "@field.current_culture_index": [
+              "action_list.7.args.1",
+              "action_list.7._raw",
+              "condition"
+            ],
+            "@calc(Number(@field.current_culture_index) + 1)": [
+              "action_list.7.args.1",
+              "action_list.7._raw"
+            ],
+            "@local.v_new_total_global": [
+              "action_list.27.args.1",
+              "action_list.27._raw"
             ],
             "!@local.completed_enabled": [
               "parameter_list.disabled"
+            ],
+            "@field.total_cultures_selected": [
+              "condition"
+            ],
+            "@calc(Number(@field.current_culture_index) < Number(@field.total_cultures_selected) - 1)": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "name": "button_completed",
+          "value": "Terminer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "grand_total_post_semi",
+                "@local.v_new_total_global"
+              ],
+              "_raw": "click | set_field: grand_total_post_semi : @local.v_new_total_global"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "current_culture_index",
+                "0"
+              ],
+              "_raw": "click | set_field: current_culture_index : 0"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "active_culture_name",
+                "@calc(@field.selected_cultures_list.split(',')[0])"
+              ],
+              "_raw": "click | set_field: active_culture_name : @calc(@field.selected_cultures_list.split(',')[0])"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "style": "navigation",
+            "disabled": "!@local.completed_enabled"
+          },
+          "condition": "@calc(Number(@field.current_culture_index) >= Number(@field.total_cultures_selected) - 1)",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_completed",
+          "_dynamicFields": {
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.v_new_total_global",
+                      "matchedExpression": "@local.v_new_total_global",
+                      "type": "local",
+                      "fieldName": "v_new_total_global"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: grand_total_post_semi : @local.v_new_total_global",
+                    "matchedExpression": "@local.v_new_total_global",
+                    "type": "local",
+                    "fieldName": "v_new_total_global"
+                  }
+                ]
+              },
+              "2": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@calc(@field.selected_cultures_list.split(',')[0])",
+                      "matchedExpression": "@field.selected_cultures_list.split",
+                      "type": "field",
+                      "fieldName": "selected_cultures_list"
+                    },
+                    {
+                      "fullExpression": "@calc(@field.selected_cultures_list.split(',')[0])",
+                      "matchedExpression": "@calc(@field.selected_cultures_list.split(',')[0])",
+                      "type": "calc",
+                      "fieldName": "@field.selected_cultures_list.split(',')[0]"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: active_culture_name : @calc(@field.selected_cultures_list.split(',')[0])",
+                    "matchedExpression": "@field.selected_cultures_list.split",
+                    "type": "field",
+                    "fieldName": "selected_cultures_list"
+                  },
+                  {
+                    "fullExpression": "click | set_field: active_culture_name : @calc(@field.selected_cultures_list.split(',')[0])",
+                    "matchedExpression": "@calc(@field.selected_cultures_list.split(',')[0])",
+                    "type": "calc",
+                    "fieldName": "@field.selected_cultures_list.split(',')[0]"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            },
+            "condition": [
+              {
+                "fullExpression": "@calc(Number(@field.current_culture_index) >= Number(@field.total_cultures_selected) - 1)",
+                "matchedExpression": "@field.current_culture_index",
+                "type": "field",
+                "fieldName": "current_culture_index"
+              },
+              {
+                "fullExpression": "@calc(Number(@field.current_culture_index) >= Number(@field.total_cultures_selected) - 1)",
+                "matchedExpression": "@field.total_cultures_selected",
+                "type": "field",
+                "fieldName": "total_cultures_selected"
+              },
+              {
+                "fullExpression": "@calc(Number(@field.current_culture_index) >= Number(@field.total_cultures_selected) - 1)",
+                "matchedExpression": "@calc(Number(@field.current_culture_index) >= Number(@field.total_cultures_selected) - 1)",
+                "type": "calc",
+                "fieldName": "Number(@field.current_culture_index) >= Number(@field.total_cultures_selected) - 1"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_new_total_global": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "@field.selected_cultures_list.split": [
+              "action_list.2.args.1",
+              "action_list.2._raw"
+            ],
+            "@calc(@field.selected_cultures_list.split(',')[0])": [
+              "action_list.2.args.1",
+              "action_list.2._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ],
+            "@field.current_culture_index": [
+              "condition"
+            ],
+            "@field.total_cultures_selected": [
+              "condition"
+            ],
+            "@calc(Number(@field.current_culture_index) >= Number(@field.total_cultures_selected) - 1)": [
+              "condition"
             ]
           }
         }

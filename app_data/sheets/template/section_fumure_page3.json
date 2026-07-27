@@ -4,46 +4,69 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "name": "page_title",
-      "value": "NOTE",
-      "_translations": {
-        "value": {}
-      },
-      "_nested_name": "page_title"
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "title",
+          "value": "RECOMMENDATIONS DES PRODUCTEURS:",
+          "_translations": {
+            "value": {}
+          },
+          "name": "title_1",
+          "_nested_name": "display_group_2.title_1"
+        },
+        {
+          "type": "audio",
+          "name": "audio_3_1",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/fumureOrganique/prod_reco_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "_nested_name": "display_group_2.audio_3_1"
+        }
+      ],
+      "name": "display_group_2",
+      "_nested_name": "display_group_2"
     },
     {
       "type": "text",
-      "name": "introduction_formulaire",
-      "value": "@global.introduction_formulaire",
+      "value": "@global.recommendation_fumure_organique_producteurs",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "introduction_formulaire",
+      "name": "text_4",
+      "_nested_name": "text_4",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.introduction_formulaire",
-            "matchedExpression": "@global.introduction_formulaire",
+            "fullExpression": "@global.recommendation_fumure_organique_producteurs",
+            "matchedExpression": "@global.recommendation_fumure_organique_producteurs",
             "type": "global",
-            "fieldName": "introduction_formulaire"
+            "fieldName": "recommendation_fumure_organique_producteurs"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.introduction_formulaire": [
+        "@global.recommendation_fumure_organique_producteurs": [
           "value"
         ]
       }
     },
     {
       "type": "image",
-      "value": "images/transport_fumure.jpg",
+      "value": "images/product_fumure.jpg",
       "_translations": {
         "value": {}
       },
-      "name": "image_4",
-      "_nested_name": "image_4"
+      "style_list": [
+        "width:200px",
+        "height:200px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_5",
+      "_nested_name": "image_5"
     },
     {
       "type": "display_group",

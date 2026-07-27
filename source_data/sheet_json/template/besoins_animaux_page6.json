@@ -4,12 +4,8 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
-      "value": "**NOMBRE DE TETES ET RÉGIME ALIMENTAIRE**"
-    },
-    {
-      "type": "text",
-      "value": "NOMBRE D'ANIMAUX"
+      "type": "title",
+      "value": "**SOINS VETERINAIRES**"
     },
     {
       "type": "begin_data_items",
@@ -17,8 +13,11 @@
       "parameter_list": "filter: @item.name == @fields.current_cat_animaux"
     },
     {
+      "type": "begin_display_group"
+    },
+    {
       "type": "text",
-      "value": "Donnez le nombre de @item.text à nourrir par l'UPA durant prochaine la saison sèche chaude"
+      "value": "@item.text: @fields.nb_animaux tête(s)"
     },
     {
       "type": "image",
@@ -26,70 +25,118 @@
       "style_list": "width:150px; height:150px; "
     },
     {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "note_soins_veto",
+      "value": "@global.note_soins_veto"
+    },
+    {
+      "type": "image",
+      "value": "images/soins_veto.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text",
+      "value": "@global.prix_unit_veto"
+    },
+    {
       "type": "html",
-      "value": "<p style=\"color: black;\"> Il s’agit du nombre de têtes de @item.text que vous espérez alimenter pendant la saison sèche chaude. </p>"
+      "value": "<p style=\"color: black;\"> @global.hint_prix_unit_veto</p>"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
     },
     {
       "type": "text_box",
-      "name": "nb_animaux",
-      "value": "@fields.nb_animaux",
-      "action_list": "changed | set_field: nb_animaux : this.value;",
-      "parameter_list": "number_input: true\nplaceholder: Entrez le nombre d'animaux;",
+      "name": "frais_veterinaire_tete",
+      "value": "@fields.frais_veterinaire_tete",
+      "action_list": "changed | set_field: frais_veterinaire_tete : this.value;",
+      "parameter_list": "number_input: true\nplaceholder: Entrez le prix du soins ;",
       "exclude_from_translation": true
     },
     {
       "type": "html",
       "name": "html_text",
       "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@fields.nb_animaux "
+      "condition": "!@local.frais_veterinaire_tete "
     },
     {
-      "name": "valid_nb_animaux",
-      "value": "@calc((/^\\d+$/.test(@local.nb_animaux) && @local.nb_animaux>0 ) || @local.nb_animaux == '' || !@local.nb_animaux )"
+      "name": "valid_frais_veterinaire_tete",
+      "value": "@calc((/^\\d+$/.test(@local.frais_veterinaire_tete) && @local.frais_veterinaire_tete>0 ) || @local.frais_veterinaire_tete == '' || !@local.frais_veterinaire_tete )"
     },
     {
       "type": "text",
       "value": "@global.validite_nombre",
-      "condition": "!@local.valid_nb_animaux",
+      "condition": "!@local.valid_frais_veterinaire_tete",
       "exclude_from_translation": true,
       "style_list": "color: #FF0000;\nfont-size: 14px"
     },
     {
       "type": "text",
-      "value": "REGIME ALIMENTAIRE"
+      "value": "@global.note_frais_totaux_veto",
+      "condition": "@fields.frais_veterinaire_tete > 0"
     },
     {
-      "type": "text",
-      "value": "Séléctionnez le regime alimentaire qui sera utilisé pour le (s) @item.text à durant la prochaine saison chaude"
-    },
-    {
-      "type": "end_data_items"
-    },
-    {
-      "type": "begin_radio_list",
-      "name": "type_regime",
-      "value": "@fields.type_regime",
-      "action_list": "changed | set_field: type_regime: this.value;"
-    },
-    {
-      "type": "begin_data_items",
-      "value": "@data.regime_animaux"
-    },
-    {
-      "type": "end_data_items"
-    },
-    {
-      "type": "end_radio_list"
+      "type": "set_field",
+      "name": "frais_veterinaire_cat",
+      "value": "@calc((Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0)))",
+      "condition": "@fields.frais_veterinaire_tete > 0"
     },
     {
       "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@fields.type_regime"
+      "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>",
+      "condition": "@fields.frais_veterinaire_tete > 0"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa_tot.jpg",
+      "condition": "@fields.frais_veterinaire_tete > 0",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n Les frais totaux pour le(s) @fields.nb_animaux tête (s) de @item.text sont :  <strong> @fields.frais_veterinaire_cat drm\n</strong> </div>",
+      "condition": "@fields.frais_veterinaire_tete > 0"
+    },
+    {
+      "type": "text",
+      "name": "note_totaux",
+      "value": "@global.frais_totaux_veto",
+      "condition": "@fields.frais_veterinaire_tete > 0",
+      "style_list": "background-color: #f0f4f8 ;border-left-width: 4px; border-left-style: solid; border-left-color: #0056b3;"
+    },
+    {
+      "type": "text",
+      "name": "note_hint",
+      "value": "@global.hint_frais_totaux_veto",
+      "condition": "@fields.frais_veterinaire_tete > 0",
+      "style_list": "font-size: 14px"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "name": "last_cat_animaux",
+      "value": "@calc((Number(@fields.cat_animaux_loop_idx) + 1) < Number(@fields.cat_animaux_selected_count))"
+    },
+    {
+      "name": "cat_animaux_loop_idx",
+      "value": "@calc(Number(@fields.cat_animaux_loop_idx) + 1)"
+    },
+    {
+      "name": "current_cat_animaux",
+      "value": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')"
     },
     {
       "name": "completed_enabled",
-      "value": "@local.valid_nb_animaux && @fields.type_regime"
+      "value": "@fields.frais_veterinaire_tete"
     },
     {
       "type": "begin_display_group",
@@ -99,16 +146,27 @@
     },
     {
       "type": "round_button",
-      "name": "page6_button_back",
-      "action_list": "click | emit: uncompleted",
+      "name": "page8_button_back",
+      "action_list": "click | emit: uncompleted;",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page6_button_continue",
+      "name": "button_next_cat_animaux",
       "value": "Continuer",
-      "action_list": "click | set_field: type_regime_@fields.current_cat_animaux : @local.type_regime;\nclick | set_field: nb_animaux_@fields.current_cat_animaux : @fields.nb_animaux;\nclick | emit: completed;",
-      "condition": "disabled: !@local.completed_enabled"
+      "action_list": "click | set_field: frais_veterinaire_tete_@fields.current_cat_animaux: @fields.frais_veterinaire_tete;\nclick | set_field: frais_veterinaire_cat_@fields.current_cat_animaux: @fields.frais_veterinaire_cat;\n\nclick | set_field: type_regime:;\nclick | set_field: nb_animaux:;  \nclick | set_field: frais_veterinaire_tete:;  \nclick | set_field: frais_veterinaire_cat:; \n\nclick | set_field: current_cat_animaux : @local.current_cat_animaux;\n\nclick | set_field: cat_animaux_loop_idx : @local.cat_animaux_loop_idx;\nclick | set_data | _list_id: besoins_animaux_settings_pages, _index: 3, completed: false;\nclick | set_data | _list_id: besoins_animaux_settings_pages, _index: 4, completed: false;\nclick | set_data | _list_id: besoins_animaux_settings_pages, _index: 5, completed: false;\n",
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "condition": "@local.last_cat_animaux",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "button",
+      "name": "page8_button_continue",
+      "value": "Continuer",
+      "action_list": "click | emit: completed;",
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "condition": "!@local.last_cat_animaux",
+      "style_list": "flex: 1"
     },
     {
       "type": "end_display_group"

@@ -1,0 +1,79 @@
+{
+  "flow_type": "template",
+  "flow_name": "cultures_page14",
+  "status": "released",
+  "rows": [
+    {
+      "name": "total_superficie_prevue",
+      "value": "@calc(Number(@fields.superficie_ha_prevue_mais || 0) + Number(@fields.superficie_ha_prevue_mil || 0) + Number(@fields.superficie_ha_prevue_sorgho || 0) + Number(@fields.superficie_ha_prevue_coton || 0) + Number(@fields.superficie_ha_prevue_arachide || 0) + Number(@fields.superficie_ha_prevue_fourrage || 0) + Number(@fields.superficie_ha_prevue_niebe || 0) + Number(@fields.superficie_ha_prevue_soja || 0) + Number(@fields.superficie_ha_prevue_fonio || 0) + Number(@fields.superficie_ha_prevue_riz || 0) + Number(@fields.superficie_ha_prevue_sesame || 0) + Number(@fields.superficie_ha_prevue_wouandzou || 0) + Number(@fields.superficie_ha_prevue_patate_douce || 0) + Number(@fields.superficie_ha_prevue_bissap || 0) + Number(@fields.superficie_ha_prevue_autre_cult_1 || 0) + Number(@fields.superficie_ha_prevue_autre_cult_2 || 0))"
+    },
+    {
+      "name": "total_superficie_prevue_labour",
+      "value": "@calc(Number(@fields.superficie_prevue_labour_mais || 0) + Number(@fields.superficie_prevue_labour_mil || 0) + Number(@fields.superficie_prevue_labour_sorgho || 0) + Number(@fields.superficie_prevue_labour_coton || 0) + Number(@fields.superficie_prevue_labour_arachide || 0) + Number(@fields.superficie_prevue_labour_fourrage || 0) + Number(@fields.superficie_prevue_labour_niebe || 0) + Number(@fields.superficie_prevue_labour_soja || 0) + Number(@fields.superficie_prevue_labour_fonio || 0) + Number(@fields.superficie_prevue_labour_riz || 0) + Number(@fields.superficie_prevue_labour_sesame || 0) + Number(@fields.superficie_prevue_labour_wouandzou || 0) + Number(@fields.superficie_prevue_labour_patate_douce || 0) + Number(@fields.superficie_prevue_labour_bissap || 0) + Number(@fields.superficie_prevue_labour_autre_cult_1 || 0) + Number(@fields.superficie_prevue_labour_autre_cult_2 || 0))"
+    },
+    {
+      "name": "culture_list_all",
+      "value": "@calc([@fields.culture_mais ? 'Mais' : null, @fields.culture_mil ? 'Mil' : null, @fields.culture_sorgho ? 'Sorgho' : null, @fields.culture_coton ? 'Coton' : null, @fields.culture_arachide ? 'Arachide' : null, @fields.culture_fourrage ? 'Fourrage' : null, @fields.culture_niebe ? 'Niebe' : null, @fields.culture_soja ? 'Soja' : null, @fields.culture_fonio ? 'Fonio' : null, @fields.culture_riz ? 'Riz' : null, @fields.culture_sesame ? 'Sesame' : null, @fields.culture_wouandzou ? 'Wouandzou' : null, @fields.culture_patate_douce ? 'Patate_douce' : null, @fields.culture_bissap ? 'Bissap' : null, @fields.culture_autre_cult_1 ? @fields.nom_culture_1 : null, @fields.culture_autre_cult_2 ? @fields.nom_culture_2: null].filter(v => v !== null).join(','))"
+    },
+    {
+      "name": "couts_globaux_prevus_cultures",
+      "value": "@calc(Number(@fields.couts_totaux_prevus_mais || 0) + Number(@fields.couts_totaux_prevus_mil || 0) + Number(@fields.couts_totaux_prevus_sorgho || 0) + Number(@fields.couts_totaux_prevus_coton || 0) + Number(@fields.couts_totaux_prevus_arachide || 0) + Number(@fields.couts_totaux_prevus_fourrage || 0) + Number(@fields.couts_totaux_prevus_niebe || 0) + Number(@fields.couts_totaux_prevus_soja || 0) + Number(@fields.couts_totaux_prevus_fonio || 0) + Number(@fields.couts_totaux_prevus_riz || 0) + Number(@fields.couts_totaux_prevus_sesame || 0) + Number(@fields.couts_totaux_prevus_wouandzou || 0) + Number(@fields.couts_totaux_prevus_patate_douce || 0) + Number(@fields.couts_totaux_prevus_bissap || 0) + Number(@fields.couts_totaux_prevus_autre_cult_1 || 0) + Number(@fields.couts_totaux_prevus_autre_cult_2 || 0))"
+    },
+    {
+      "name": "marge_brute_totale_prevue",
+      "value": "@calc(Number(@fields.marge_brute_prevue_mais || 0) + Number(@fields.marge_brute_prevue_mil || 0) + Number(@fields.marge_brute_prevue_sorgho || 0) + Number(@fields.marge_brute_prevue_coton || 0) + Number(@fields.marge_brute_prevue_arachide || 0) + Number(@fields.marge_brute_prevue_fourrage || 0) + Number(@fields.marge_brute_prevue_niebe || 0) + Number(@fields.marge_brute_prevue_soja || 0) + Number(@fields.marge_brute_prevue_fonio || 0) + Number(@fields.marge_brute_prevue_riz || 0) + Number(@fields.marge_brute_prevue_sesame || 0) + Number(@fields.marge_brute_prevue_wouandzou || 0) + Number(@fields.marge_brute_prevue_patate_douce || 0) + Number(@fields.marge_brute_prevue_bissap || 0) + Number(@fields.marge_brute_prevue_autre_cult_1 || 0) + Number(@fields.marge_brute_prevue_autre_cult_2 || 0))"
+    },
+    {
+      "name": "couts_globaux_prevus_cultures_fcfa",
+      "value": "@calc(Number(@local.couts_globaux_prevus_cultures) * 5)"
+    },
+    {
+      "name": "marge_brute_totale_prevue_fcfa",
+      "value": "@calc(Number(@local.marge_brute_totale_prevue) * 5)"
+    },
+    {
+      "type": "title",
+      "value": "Cultures prevues : **@local.culture_list_all**"
+    },
+    {
+      "type": "text",
+      "value": "La superficie totale des cultures prévues: **@local.total_superficie_prevue ha**"
+    },
+    {
+      "type": "image",
+      "value": "images/superf_unit.jpg",
+      "style_list": "width:100px; height:100px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text",
+      "value": "La superficie totale à labourer par prestation: **@local.total_superficie_prevue_labour ha**"
+    },
+    {
+      "type": "image",
+      "value": "images/superf_unit.jpg",
+      "style_list": "width:100px; height:100px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page_14_btn_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page_14_btn_continue",
+      "value": "Continuer",
+      "action_list": "click | set_field: total_superficie_prevue : @local.total_superficie_prevue;\nclick | set_field: total_superficie_prevue_labour : @local.total_superficie_prevue_labour;\nclick | set_field: culture_list_all : @local.culture_list_all;\nclick | set_field: couts_globaux_prevus_cultures : @local.couts_globaux_prevus_cultures;\nclick | set_field: marge_brute_totale_prevue : @local.marge_brute_totale_prevue;\nclick | set_field: couts_globaux_prevus_cultures_fcfa : @local.couts_globaux_prevus_cultures_fcfa;\nclick | set_field: marge_brute_totale_prevue_fcfa : @local.marge_brute_totale_prevue_fcfa;\n\n\nclick | emit: completed",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

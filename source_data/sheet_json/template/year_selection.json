@@ -1,0 +1,57 @@
+{
+  "flow_type": "template",
+  "flow_name": "year_selection",
+  "status": "released",
+  "rows": [
+    {
+      "type": "text",
+      "value": "**Complete Date**"
+    },
+    {
+      "type": "date_time_picker",
+      "name": "date_1",
+      "action_list": "changed | set_local: date_1: this.value;",
+      "parameter_list": "type: date"
+    },
+    {
+      "type": "text",
+      "value": "value: @local.date_1"
+    },
+    {
+      "type": "text",
+      "value": "**Year only**"
+    },
+    {
+      "type": "date_time_picker",
+      "name": "date_2",
+      "action_list": "changed | set_local: date_2: this.value;",
+      "parameter_list": "type: year;"
+    },
+    {
+      "type": "text",
+      "value": "value: @local.date_2"
+    },
+    {
+      "type": "text",
+      "value": "**Date with min and max**"
+    },
+    {
+      "name": "datetime_1",
+      "value": "2026-03-04T12:12:00"
+    },
+    {
+      "name": "date_1",
+      "value": "2026-03-07"
+    },
+    {
+      "type": "date_time_picker",
+      "name": "date_3",
+      "action_list": "changed | set_local: date_2: this.value;",
+      "parameter_list": "type: year;\nmin: 2023; \nmax: @calc(now());"
+    },
+    {
+      "type": "text",
+      "value": "value: @local.date_3"
+    }
+  ]
+}

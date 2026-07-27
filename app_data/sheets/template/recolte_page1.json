@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "IDENTIFICATION DE L'UPA",
+      "value": "IMPORTANT : Gestion des coûts de la recolte",
       "_translations": {
         "value": {}
       },
@@ -13,89 +13,61 @@
       "_nested_name": "title_2"
     },
     {
+      "type": "audio",
+      "name": "audio_note_fr",
+      "parameter_list": {
+        "variant": "button_only",
+        "src": "audio/recolte/note_form_recolte_fr.mp3",
+        "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+      },
+      "style_list": [
+        "float: right"
+      ],
+      "_nested_name": "audio_note_fr"
+    },
+    {
       "type": "display_group",
       "style_list": [
         "display: block",
-        "width: 100%"
+        "width: 100%",
+        "background: #F4F7FA",
+        "border-radius: 12px",
+        "padding: 16px",
+        "margin-top: 10px"
       ],
       "rows": [
         {
-          "type": "audio",
-          "name": "audio_6_1",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/recolte/qr_code_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "float: right"
-          ],
-          "_nested_name": "display_group_3.audio_6_1"
-        },
-        {
-          "type": "image",
-          "value": "images/qr_code.jpg",
+          "type": "text",
+          "name": "note_formulaire_info_postsems",
+          "value": "@global.note_formulaire_info_recolte",
           "_translations": {
             "value": {}
           },
           "style_list": [
-            "width: 80%",
-            "object-fit: contain"
+            "font-size: 16px",
+            "line-height: 1.5",
+            "color: #333"
           ],
-          "name": "image_2",
-          "_nested_name": "display_group_3.image_2"
+          "_nested_name": "display_group_4.note_formulaire_info_postsems",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.note_formulaire_info_recolte",
+                "matchedExpression": "@global.note_formulaire_info_recolte",
+                "type": "global",
+                "fieldName": "note_formulaire_info_recolte"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.note_formulaire_info_recolte": [
+              "value"
+            ]
+          }
         }
       ],
-      "name": "display_group_3",
-      "_nested_name": "display_group_3"
-    },
-    {
-      "type": "text",
-      "value": "Utilisez la camera pour scanner votre code",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "text-align: center",
-        "font-weight: bold"
-      ],
-      "name": "text_5",
-      "_nested_name": "text_5"
-    },
-    {
-      "type": "text",
-      "value": "LOGIQUE DE RÉCUPÉRATION (PULLDATA) -- Pas encore dispo",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "font-size:11px",
-        "color:gray"
-      ],
-      "name": "text_6",
-      "_nested_name": "text_6"
-    },
-    {
-      "type": "html",
-      "name": "pull_chef_upa",
-      "value": "<div style=\"display: flex; align-items: center; margin-bottom: 15px;\">\n  <div style=\"background: #1e3656; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 12px;\">  </div>\n  <div>\n    <div style=\"font-size: 16px; font-weight: bold; color: #1e3656;\">.....</div>\n    <div style=\"font-size: 12px; color: #4f8ff1;\">Chef d'exploitation</div>\n  </div>\n</div>",
-      "_translations": {
-        "value": {}
-      },
-      "parameter_list": {
-        "placeholder": "Nom et prénom de chef UPA"
-      },
-      "_nested_name": "pull_chef_upa"
-    },
-    {
-      "type": "html",
-      "value": "<div style=\"margin-top: 10px;\">\n  <div style=\"display: flex; justify-content: space-between; margin-bottom: 5px;\">\n    <span style=\"color: #999; font-size: 13px;\">Type d'UPA :</span>\n    <span style=\"font-weight: bold; color: #333;\">.......</span>\n  </div>\n  <div style=\"display: flex; justify-content: space-between;\">\n    <span style=\"color: #999; font-size: 13px;\">Contact :</span>\n    <span style=\"font-weight: bold; color: #333;\">....</span>\n  </div>\n</div>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_8",
-      "_nested_name": "html_8"
+      "name": "display_group_4",
+      "_nested_name": "display_group_4"
     },
     {
       "type": "display_group",

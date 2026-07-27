@@ -10,25 +10,41 @@
         "value": {}
       },
       "parameter_list": {
-        "background": "#F9FBE7",
-        "hide_back_button": "true"
+        "background": "#00adcc",
+        "hide_back_button": "true",
+        "color": "white"
       },
       "name": "plh_module_details_header_2",
       "_nested_name": "plh_module_details_header_2"
     },
     {
-      "type": "title",
-      "value": "SUIVI DE CAMPAGNE",
+      "type": "plh_module_list_item",
+      "name": "item_enrolment",
+      "value": "Scanner QR code",
       "_translations": {
         "value": {}
       },
-      "name": "title_3",
-      "_nested_name": "title_3"
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "scan_screen"
+          ],
+          "_raw": "click | go_to: scan_screen"
+        }
+      ],
+      "parameter_list": {
+        "module_image_asset": "images/bienvenue.png",
+        "nav_image_asset": "images/icons/expand_circle_right.png",
+        "background": "#BFBFBD"
+      },
+      "_nested_name": "item_enrolment"
     },
     {
       "type": "plh_module_list_item",
       "name": "item_enrolment",
-      "value": "Enrolment",
+      "value": "Enrôlement",
       "_translations": {
         "value": {}
       },
@@ -43,102 +59,10 @@
         }
       ],
       "parameter_list": {
-        "module_image_asset": "images/neo_alpha.jpg",
+        "module_image_asset": "images/ecrire.jpg",
         "nav_image_asset": "images/icons/expand_circle_right.png"
       },
       "_nested_name": "item_enrolment"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_semi",
-      "value": "Semis",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "click",
-          "action_id": "go_to",
-          "args": [
-            "section_semi"
-          ],
-          "_raw": "click | go_to: section_semi"
-        }
-      ],
-      "parameter_list": {
-        "module_image_asset": "images/seeding.png",
-        "nav_image_asset": "images/icons/expand_circle_right.png"
-      },
-      "_nested_name": "item_semi"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_post_semi",
-      "value": "Post Semis",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "click",
-          "action_id": "go_to",
-          "args": [
-            "post_semi"
-          ],
-          "_raw": "click | go_to: post_semi"
-        }
-      ],
-      "parameter_list": {
-        "module_image_asset": "images/sup_cult.jpg",
-        "nav_image_asset": "images/icons/expand_circle_right.png"
-      },
-      "_nested_name": "item_post_semi"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_superficie",
-      "value": "Superficie Champs",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "click",
-          "action_id": "go_to",
-          "args": [
-            "superficie"
-          ],
-          "_raw": "click | go_to: superficie"
-        }
-      ],
-      "parameter_list": {
-        "module_image_asset": "images/superf_champ.jpg",
-        "nav_image_asset": "images/icons/expand_circle_right.png"
-      },
-      "_nested_name": "item_superficie"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_recolte",
-      "value": "Récolte",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "click",
-          "action_id": "go_to",
-          "args": [
-            "recolte"
-          ],
-          "_raw": "click | go_to: recolte"
-        }
-      ],
-      "parameter_list": {
-        "module_image_asset": "images/ratio_membre_terre.jpg",
-        "nav_image_asset": "images/icons/expand_circle_right.png"
-      },
-      "_nested_name": "item_recolte"
     },
     {
       "type": "title",
@@ -146,13 +70,13 @@
       "_translations": {
         "value": {}
       },
-      "name": "title_9",
-      "_nested_name": "title_9"
+      "name": "title_5",
+      "_nested_name": "title_5"
     },
     {
       "type": "plh_module_list_item",
-      "name": "item_fumure",
-      "value": "Fumure organique",
+      "name": "item_depenses",
+      "value": "Cultures de l'UPA",
       "_translations": {
         "value": {}
       },
@@ -161,17 +85,17 @@
           "trigger": "click",
           "action_id": "go_to",
           "args": [
-            "section_fumure"
+            "cultures"
           ],
-          "_raw": "click | go_to: section_fumure"
+          "_raw": "click | go_to: cultures"
         }
       ],
       "parameter_list": {
-        "module_image_asset": "images/fumure.jpg",
+        "module_image_asset": "images/cultures.jpg",
         "nav_image_asset": "images/icons/expand_circle_right.png",
-        "background": "#F9FBE7"
+        "background": "#E8F5E9"
       },
-      "_nested_name": "item_fumure"
+      "_nested_name": "item_depenses"
     },
     {
       "type": "plh_module_list_item",
@@ -244,6 +168,132 @@
         "background": "#FFF3E0"
       },
       "_nested_name": "item_depenses"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_fumure",
+      "value": "Fumure organique",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "section_fumure"
+          ],
+          "_raw": "click | go_to: section_fumure"
+        }
+      ],
+      "parameter_list": {
+        "module_image_asset": "images/fumure.jpg",
+        "nav_image_asset": "images/icons/expand_circle_right.png",
+        "background": "#f0fdfa",
+        "border-left": "4px solid #00adcc"
+      },
+      "_nested_name": "item_fumure"
+    },
+    {
+      "type": "title",
+      "value": "SUIVI DE CAMPAGNE",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_11",
+      "_nested_name": "title_11"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_superficie",
+      "value": "Superficie Champs",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "superficie"
+          ],
+          "_raw": "click | go_to: superficie"
+        }
+      ],
+      "parameter_list": {
+        "module_image_asset": "images/superf_champ.jpg",
+        "nav_image_asset": "images/icons/expand_circle_right.png"
+      },
+      "_nested_name": "item_superficie"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_semi",
+      "value": "Semis",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "section_semi"
+          ],
+          "_raw": "click | go_to: section_semi"
+        }
+      ],
+      "parameter_list": {
+        "module_image_asset": "images/seeding.png",
+        "nav_image_asset": "images/icons/expand_circle_right.png"
+      },
+      "_nested_name": "item_semi"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_post_semi",
+      "value": "Post Semis",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "post_semi"
+          ],
+          "_raw": "click | go_to: post_semi"
+        }
+      ],
+      "parameter_list": {
+        "module_image_asset": "images/sup_cult.jpg",
+        "nav_image_asset": "images/icons/expand_circle_right.png"
+      },
+      "_nested_name": "item_post_semi"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_recolte",
+      "value": "Récolte",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "recolte"
+          ],
+          "_raw": "click | go_to: recolte"
+        }
+      ],
+      "parameter_list": {
+        "module_image_asset": "images/ratio_membre_terre.jpg",
+        "nav_image_asset": "images/icons/expand_circle_right.png"
+      },
+      "_nested_name": "item_recolte"
     }
   ],
   "_source": {

@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "RENDEMENTS ESTIMÉS",
+      "value": "APRECIATIONS ET OBSERVATIONS SUR LE FORMULAIRE",
       "_translations": {
         "value": {}
       },
@@ -13,347 +13,69 @@
       "_nested_name": "title_2"
     },
     {
-      "name": "rend_mais",
-      "value": "@calc(@field.type_menage_id == 'HRE-LH' ? 2427 : (@field.type_menage_id == 'HRE' ? 2081 : (@field.type_menage_id == 'MRE' ? 1888 : 1298)))",
+      "type": "image",
+      "value": "images/obs_form.jpg",
       "_translations": {
         "value": {}
       },
-      "type": "set_variable",
-      "_nested_name": "rend_mais",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(@field.type_menage_id == 'HRE-LH' ? 2427 : (@field.type_menage_id == 'HRE' ? 2081 : (@field.type_menage_id == 'MRE' ? 1888 : 1298)))",
-            "matchedExpression": "@field.type_menage_id",
-            "type": "field",
-            "fieldName": "type_menage_id"
-          },
-          {
-            "fullExpression": "@calc(@field.type_menage_id == 'HRE-LH' ? 2427 : (@field.type_menage_id == 'HRE' ? 2081 : (@field.type_menage_id == 'MRE' ? 1888 : 1298)))",
-            "matchedExpression": "@field.type_menage_id",
-            "type": "field",
-            "fieldName": "type_menage_id"
-          },
-          {
-            "fullExpression": "@calc(@field.type_menage_id == 'HRE-LH' ? 2427 : (@field.type_menage_id == 'HRE' ? 2081 : (@field.type_menage_id == 'MRE' ? 1888 : 1298)))",
-            "matchedExpression": "@field.type_menage_id",
-            "type": "field",
-            "fieldName": "type_menage_id"
-          },
-          {
-            "fullExpression": "@calc(@field.type_menage_id == 'HRE-LH' ? 2427 : (@field.type_menage_id == 'HRE' ? 2081 : (@field.type_menage_id == 'MRE' ? 1888 : 1298)))",
-            "matchedExpression": "@calc(@field.type_menage_id == 'HRE-LH' ? 2427 : (@field.type_menage_id == 'HRE' ? 2081 : (@field.type_menage_id == 'MRE' ? 1888 : 1298)))",
-            "type": "calc",
-            "fieldName": "@field.type_menage_id == 'HRE-LH' ? 2427 : (@field.type_menage_id == 'HRE' ? 2081 : (@field.type_menage_id == 'MRE' ? 1888 : 1298))"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.type_menage_id": [
-          "value",
-          "value",
-          "value"
-        ],
-        "@calc(@field.type_menage_id == 'HRE-LH' ? 2427 : (@field.type_menage_id == 'HRE' ? 2081 : (@field.type_menage_id == 'MRE' ? 1888 : 1298)))": [
-          "value"
-        ]
-      }
+      "style_list": [
+        "width: 70%",
+        "border-radius: 10px",
+        "margin-bottom: 15px"
+      ],
+      "name": "image_3",
+      "_nested_name": "image_3"
     },
     {
-      "name": "rend_mil",
-      "value": "@calc(@field.type_menage_id == 'HRE-LH' ? 884 : (@field.type_menage_id == 'HRE' ? 668 : (@field.type_menage_id == 'MRE' ? 697 : 524)))",
+      "type": "html",
+      "value": "<h3 style=\"color: #1e3656; margin: 0 0 5px 0; font-size: 16px;\">VOTRE AVIS NOUS INTÉRESSE</h3>",
       "_translations": {
         "value": {}
       },
-      "type": "set_variable",
-      "_nested_name": "rend_mil",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(@field.type_menage_id == 'HRE-LH' ? 884 : (@field.type_menage_id == 'HRE' ? 668 : (@field.type_menage_id == 'MRE' ? 697 : 524)))",
-            "matchedExpression": "@field.type_menage_id",
-            "type": "field",
-            "fieldName": "type_menage_id"
-          },
-          {
-            "fullExpression": "@calc(@field.type_menage_id == 'HRE-LH' ? 884 : (@field.type_menage_id == 'HRE' ? 668 : (@field.type_menage_id == 'MRE' ? 697 : 524)))",
-            "matchedExpression": "@field.type_menage_id",
-            "type": "field",
-            "fieldName": "type_menage_id"
-          },
-          {
-            "fullExpression": "@calc(@field.type_menage_id == 'HRE-LH' ? 884 : (@field.type_menage_id == 'HRE' ? 668 : (@field.type_menage_id == 'MRE' ? 697 : 524)))",
-            "matchedExpression": "@field.type_menage_id",
-            "type": "field",
-            "fieldName": "type_menage_id"
-          },
-          {
-            "fullExpression": "@calc(@field.type_menage_id == 'HRE-LH' ? 884 : (@field.type_menage_id == 'HRE' ? 668 : (@field.type_menage_id == 'MRE' ? 697 : 524)))",
-            "matchedExpression": "@calc(@field.type_menage_id == 'HRE-LH' ? 884 : (@field.type_menage_id == 'HRE' ? 668 : (@field.type_menage_id == 'MRE' ? 697 : 524)))",
-            "type": "calc",
-            "fieldName": "@field.type_menage_id == 'HRE-LH' ? 884 : (@field.type_menage_id == 'HRE' ? 668 : (@field.type_menage_id == 'MRE' ? 697 : 524))"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.type_menage_id": [
-          "value",
-          "value",
-          "value"
-        ],
-        "@calc(@field.type_menage_id == 'HRE-LH' ? 884 : (@field.type_menage_id == 'HRE' ? 668 : (@field.type_menage_id == 'MRE' ? 697 : 524)))": [
-          "value"
-        ]
-      }
+      "name": "html_4",
+      "_nested_name": "html_4"
     },
     {
-      "name": "rend_sorgho",
-      "value": "@calc(@field.type_menage_id == 'HRE-LH' ? 1107 : (@field.type_menage_id == 'HRE' ? 871 : (@field.type_menage_id == 'MRE' ? 907 : 650)))",
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "Partagez vos appréciations, observations ou suggestions d'amélioration sur le formulaire par audio",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_5.text_1"
+        },
+        {
+          "type": "audio",
+          "name": "audio_appreciation",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/alimentationHumaine/appreciation_audio_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_5.audio_appreciation"
+        }
+      ],
+      "name": "display_group_5",
+      "_nested_name": "display_group_5"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"background: linear-gradient(135deg, #1e3656 0%, #2c5282 100%); padding: 30px 20px; border-radius: 20px; text-align: center; color: white; margin: 15px;\">\n    \n    <div style=\"font-size: 22px; font-weight: bold; margin-bottom: 10px; letter-spacing: 1px;\">MERCI !</div>\n    <p style=\"font-size: 15px; color: #a5c7f9; line-height: 1.6; margin-bottom: 25px;\">\n        Votre planification céréalière est terminée avec succès.\n    </p>\n\n    <div style=\"text-align: left; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);\">\n        <b style=\"color: #4f8ff1; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\">Étapes suivantes suggérées :</b>\n        <ul style=\"list-style: none; padding: 0; margin: 15px 0 0 0; font-size: 13px; color: #e2e8f0; line-height: 2;\">\n            <li> L'alimentation animale de l'UPA</li>\n            <li> La fumure organique (fertilité)</li>\n            <li>Le budget annuel des dépenses</li>\n        </ul>\n    </div>\n</div>",
       "_translations": {
         "value": {}
       },
-      "type": "set_variable",
-      "_nested_name": "rend_sorgho",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(@field.type_menage_id == 'HRE-LH' ? 1107 : (@field.type_menage_id == 'HRE' ? 871 : (@field.type_menage_id == 'MRE' ? 907 : 650)))",
-            "matchedExpression": "@field.type_menage_id",
-            "type": "field",
-            "fieldName": "type_menage_id"
-          },
-          {
-            "fullExpression": "@calc(@field.type_menage_id == 'HRE-LH' ? 1107 : (@field.type_menage_id == 'HRE' ? 871 : (@field.type_menage_id == 'MRE' ? 907 : 650)))",
-            "matchedExpression": "@field.type_menage_id",
-            "type": "field",
-            "fieldName": "type_menage_id"
-          },
-          {
-            "fullExpression": "@calc(@field.type_menage_id == 'HRE-LH' ? 1107 : (@field.type_menage_id == 'HRE' ? 871 : (@field.type_menage_id == 'MRE' ? 907 : 650)))",
-            "matchedExpression": "@field.type_menage_id",
-            "type": "field",
-            "fieldName": "type_menage_id"
-          },
-          {
-            "fullExpression": "@calc(@field.type_menage_id == 'HRE-LH' ? 1107 : (@field.type_menage_id == 'HRE' ? 871 : (@field.type_menage_id == 'MRE' ? 907 : 650)))",
-            "matchedExpression": "@calc(@field.type_menage_id == 'HRE-LH' ? 1107 : (@field.type_menage_id == 'HRE' ? 871 : (@field.type_menage_id == 'MRE' ? 907 : 650)))",
-            "type": "calc",
-            "fieldName": "@field.type_menage_id == 'HRE-LH' ? 1107 : (@field.type_menage_id == 'HRE' ? 871 : (@field.type_menage_id == 'MRE' ? 907 : 650))"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.type_menage_id": [
-          "value",
-          "value",
-          "value"
-        ],
-        "@calc(@field.type_menage_id == 'HRE-LH' ? 1107 : (@field.type_menage_id == 'HRE' ? 871 : (@field.type_menage_id == 'MRE' ? 907 : 650)))": [
-          "value"
-        ]
-      }
+      "name": "html_7",
+      "_nested_name": "html_7"
     },
     {
       "type": "display_group",
-      "name": "info_rendement",
-      "style_list": [
-        "background: #f8f9fa",
-        "padding: 20px",
-        "margin: 15px"
-      ],
-      "rows": [
-        {
-          "type": "html",
-          "value": "<h3 style=\"color: #1e3656; margin: 0 0 10px 0; font-size: 16px;\">VOS CAPACITÉS DE PRODUCTION</h3>",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_1",
-          "_nested_name": "info_rendement.html_1"
-        },
-        {
-          "type": "html",
-          "value": "<p style=\"color: #666; font-size: 13px;\">Basé sur votre profil <b>@field.final_upa_type </b>, voici vos rendements moyens attendus :</p>",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_2",
-          "_nested_name": "info_rendement.html_2",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "<p style=\"color: #666; font-size: 13px;\">Basé sur votre profil <b>@field.final_upa_type </b>, voici vos rendements moyens attendus :</p>",
-                "matchedExpression": "@field.final_upa_type",
-                "type": "field",
-                "fieldName": "final_upa_type"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@field.final_upa_type": [
-              "value"
-            ]
-          }
-        }
-      ],
-      "_nested_name": "info_rendement"
-    },
-    {
-      "type": "display_group",
-      "name": "card_mais",
-      "style_list": [
-        "background: white",
-        "padding: 15px",
-        "margin-bottom: 10px",
-        "display: flex",
-        "align-items: center"
-      ],
-      "rows": [
-        {
-          "type": "image",
-          "value": "images/mais.jpg",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "width: 40px",
-            "margin-right: 15px"
-          ],
-          "name": "image_1",
-          "_nested_name": "card_mais.image_1"
-        },
-        {
-          "type": "html",
-          "value": "<div style=\"flex: 1;\"><span style=\"color: #666; font-size: 12px;\">Maïs</span><br><b style=\"color: #1e3656; font-size: 18px;\">@local.rend_mais kg / ha</b></div>",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_2",
-          "_nested_name": "card_mais.html_2",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "<div style=\"flex: 1;\"><span style=\"color: #666; font-size: 12px;\">Maïs</span><br><b style=\"color: #1e3656; font-size: 18px;\">@local.rend_mais kg / ha</b></div>",
-                "matchedExpression": "@local.rend_mais",
-                "type": "local",
-                "fieldName": "rend_mais"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@local.rend_mais": [
-              "value"
-            ]
-          }
-        }
-      ],
-      "_nested_name": "card_mais"
-    },
-    {
-      "type": "display_group",
-      "name": "card_mil",
-      "style_list": [
-        "background: white",
-        "padding: 15px",
-        "margin-bottom: 10px",
-        "display: flex",
-        "align-items: center"
-      ],
-      "rows": [
-        {
-          "type": "image",
-          "value": "images/mil.jpg",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "width: 60px",
-            "margin-right: 15px"
-          ],
-          "name": "image_1",
-          "_nested_name": "card_mil.image_1"
-        },
-        {
-          "type": "html",
-          "value": "<div style=\"flex: 1;\"><span style=\"color: #666; font-size: 12px;\">Mil</span><br><b style=\"color: #1e3656; font-size: 18px;\">@local.rend_mil kg / ha</b></div>",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_2",
-          "_nested_name": "card_mil.html_2",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "<div style=\"flex: 1;\"><span style=\"color: #666; font-size: 12px;\">Mil</span><br><b style=\"color: #1e3656; font-size: 18px;\">@local.rend_mil kg / ha</b></div>",
-                "matchedExpression": "@local.rend_mil",
-                "type": "local",
-                "fieldName": "rend_mil"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@local.rend_mil": [
-              "value"
-            ]
-          }
-        }
-      ],
-      "_nested_name": "card_mil"
-    },
-    {
-      "type": "display_group",
-      "name": "card_sorgho",
-      "style_list": [
-        "background: white",
-        "padding: 15px",
-        "margin-bottom: 10px",
-        "display: flex",
-        "align-items: center"
-      ],
-      "rows": [
-        {
-          "type": "image",
-          "value": "images/sorgho.jpg",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "width: 60px",
-            "margin-right: 15px"
-          ],
-          "name": "image_1",
-          "_nested_name": "card_sorgho.image_1"
-        },
-        {
-          "type": "html",
-          "value": "<div style=\"flex: 1;\"><span style=\"color: #666; font-size: 12px;\">Sorgho</span><br><b style=\"color: #1e3656; font-size: 18px;\">@local.rend_sorgho kg / ha</b></div>",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_2",
-          "_nested_name": "card_sorgho.html_2",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "<div style=\"flex: 1;\"><span style=\"color: #666; font-size: 12px;\">Sorgho</span><br><b style=\"color: #1e3656; font-size: 18px;\">@local.rend_sorgho kg / ha</b></div>",
-                "matchedExpression": "@local.rend_sorgho",
-                "type": "local",
-                "fieldName": "rend_sorgho"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@local.rend_sorgho": [
-              "value"
-            ]
-          }
-        }
-      ],
-      "_nested_name": "card_sorgho"
-    },
-    {
-      "type": "display_group",
-      "name": "dg_footer",
       "parameter_list": {
         "sticky": "bottom"
       },
@@ -363,7 +85,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "button_back",
+          "name": "page9_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -378,151 +100,33 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.button_back"
+          "_nested_name": "display_group_8.page9_button_back"
         },
         {
           "type": "button",
-          "name": "button_completed",
-          "value": "@global.btn_continue",
+          "name": "page9_button_completed",
+          "value": "ENREGISTRER",
           "_translations": {
             "value": {}
           },
           "action_list": [
             {
               "trigger": "click",
-              "action_id": "set_field",
+              "action_id": "go_to",
               "args": [
-                "rend_mais",
-                "@local.rend_mais"
+                "home_screen"
               ],
-              "_raw": "click | set_field: rend_mais : @local.rend_mais"
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "rend_mil",
-                "@local.rend_mil"
-              ],
-              "_raw": "click | set_field: rend_mil : @local.rend_mil"
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "rend_sorgho",
-                "@local.rend_sorgho"
-              ],
-              "_raw": "click | set_field: rend_sorgho : @local.rend_sorgho"
-            },
-            {
-              "trigger": "click",
-              "action_id": "emit",
-              "args": [
-                "completed"
-              ],
-              "_raw": "click | emit: completed"
+              "_raw": "click | go_to: home_screen"
             }
           ],
-          "parameter_list": {
-            "style": "navigation"
-          },
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.button_completed",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@global.btn_continue",
-                "matchedExpression": "@global.btn_continue",
-                "type": "global",
-                "fieldName": "btn_continue"
-              }
-            ],
-            "action_list": {
-              "0": {
-                "args": {
-                  "1": [
-                    {
-                      "fullExpression": "@local.rend_mais",
-                      "matchedExpression": "@local.rend_mais",
-                      "type": "local",
-                      "fieldName": "rend_mais"
-                    }
-                  ]
-                },
-                "_raw": [
-                  {
-                    "fullExpression": "click | set_field: rend_mais : @local.rend_mais",
-                    "matchedExpression": "@local.rend_mais",
-                    "type": "local",
-                    "fieldName": "rend_mais"
-                  }
-                ]
-              },
-              "1": {
-                "args": {
-                  "1": [
-                    {
-                      "fullExpression": "@local.rend_mil",
-                      "matchedExpression": "@local.rend_mil",
-                      "type": "local",
-                      "fieldName": "rend_mil"
-                    }
-                  ]
-                },
-                "_raw": [
-                  {
-                    "fullExpression": "click | set_field: rend_mil : @local.rend_mil",
-                    "matchedExpression": "@local.rend_mil",
-                    "type": "local",
-                    "fieldName": "rend_mil"
-                  }
-                ]
-              },
-              "2": {
-                "args": {
-                  "1": [
-                    {
-                      "fullExpression": "@local.rend_sorgho",
-                      "matchedExpression": "@local.rend_sorgho",
-                      "type": "local",
-                      "fieldName": "rend_sorgho"
-                    }
-                  ]
-                },
-                "_raw": [
-                  {
-                    "fullExpression": "click | set_field: rend_sorgho : @local.rend_sorgho",
-                    "matchedExpression": "@local.rend_sorgho",
-                    "type": "local",
-                    "fieldName": "rend_sorgho"
-                  }
-                ]
-              }
-            }
-          },
-          "_dynamicDependencies": {
-            "@global.btn_continue": [
-              "value"
-            ],
-            "@local.rend_mais": [
-              "action_list.0.args.1",
-              "action_list.0._raw"
-            ],
-            "@local.rend_mil": [
-              "action_list.1.args.1",
-              "action_list.1._raw"
-            ],
-            "@local.rend_sorgho": [
-              "action_list.2.args.1",
-              "action_list.2._raw"
-            ]
-          }
+          "_nested_name": "display_group_8.page9_button_completed"
         }
       ],
-      "_nested_name": "dg_footer"
+      "name": "display_group_8",
+      "_nested_name": "display_group_8"
     }
   ],
   "_source": {

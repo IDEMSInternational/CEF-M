@@ -6,40 +6,640 @@
     {
       "type": "title",
       "name": "page_title",
-      "_nested_name": "page_title"
-    },
-    {
-      "type": "text",
-      "name": "note_depense",
-      "value": "@global.note_depense",
+      "value": "@global.petite_depenses",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "note_depense",
+      "_nested_name": "page_title",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.note_depense",
-            "matchedExpression": "@global.note_depense",
+            "fullExpression": "@global.petite_depenses",
+            "matchedExpression": "@global.petite_depenses",
             "type": "global",
-            "fieldName": "note_depense"
+            "fieldName": "petite_depenses"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.note_depense": [
+        "@global.petite_depenses": [
           "value"
         ]
       }
     },
     {
-      "type": "image",
-      "value": "images/depenses_annuelles.jpg",
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit",
       "_translations": {
         "value": {}
       },
-      "name": "image_4",
-      "_nested_name": "image_4"
+      "type": "set_variable",
+      "_nested_name": "attempt_submit",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.attempt_submit": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "depense_sante",
+      "value": "@global.depense_sante",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "depense_sante",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.depense_sante",
+            "matchedExpression": "@global.depense_sante",
+            "type": "global",
+            "fieldName": "depense_sante"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.depense_sante": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "name": "note_frais_sante_approche",
+          "value": "@global.note_frais_sante_approche",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_5.note_frais_sante_approche",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.note_frais_sante_approche",
+                "matchedExpression": "@global.note_frais_sante_approche",
+                "type": "global",
+                "fieldName": "note_frais_sante_approche"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.note_frais_sante_approche": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_3_1",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/depensesRevenus/approche_sante_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_5.audio_3_1"
+        }
+      ],
+      "name": "display_group_5",
+      "_nested_name": "display_group_5"
+    },
+    {
+      "type": "image",
+      "value": "images/sante.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:100px",
+        "height:100px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_7",
+      "_nested_name": "image_7"
+    },
+    {
+      "type": "text",
+      "name": "note_frais_sante_approche_hint",
+      "value": "@global.note_frais_sante_approche_hint",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "_nested_name": "note_frais_sante_approche_hint",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.note_frais_sante_approche_hint",
+            "matchedExpression": "@global.note_frais_sante_approche_hint",
+            "type": "global",
+            "fieldName": "note_frais_sante_approche_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_frais_sante_approche_hint": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "html",
+          "name": "nombre_personne_upa_label",
+          "value": "<span style=\"color: red;\">*</span> @global.nombre_personne_upa_label",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size:20px"
+          ],
+          "_nested_name": "display_group_9.nombre_personne_upa_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<span style=\"color: red;\">*</span> @global.nombre_personne_upa_label",
+                "matchedExpression": "@global.nombre_personne_upa_label",
+                "type": "global",
+                "fieldName": "nombre_personne_upa_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.nombre_personne_upa_label": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_3_2",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/depensesRevenus/nbre_residents_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_9.audio_3_2"
+        }
+      ],
+      "name": "display_group_9",
+      "_nested_name": "display_group_9"
+    },
+    {
+      "type": "image",
+      "value": "images/membres.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_11",
+      "_nested_name": "image_11"
+    },
+    {
+      "type": "text",
+      "name": "hint_price",
+      "value": "@global.hint_price",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "_nested_name": "hint_price",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.hint_price",
+            "matchedExpression": "@global.hint_price",
+            "type": "global",
+            "fieldName": "hint_price"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.hint_price": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "nombre_personne_upa_hint",
+      "value": "@global.nombre_personne_upa_hint",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "_nested_name": "nombre_personne_upa_hint",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.nombre_personne_upa_hint",
+            "matchedExpression": "@global.nombre_personne_upa_hint",
+            "type": "global",
+            "fieldName": "nombre_personne_upa_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.nombre_personne_upa_hint": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_personne_upa",
+      "value": "@fields.nombre_personne_upa",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "nombre_personne_upa",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : nombre_personne_upa: this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true"
+      },
+      "_nested_name": "nombre_personne_upa",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.nombre_personne_upa",
+            "matchedExpression": "@fields.nombre_personne_upa",
+            "type": "fields",
+            "fieldName": "nombre_personne_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.nombre_personne_upa": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_nombre_personne_upa",
+      "value": "@calc(!!@fields.nombre_personne_upa && @fields.nombre_personne_upa != \"\" && @fields.nombre_personne_upa >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_nombre_personne_upa",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.nombre_personne_upa && @fields.nombre_personne_upa != \"\" && @fields.nombre_personne_upa >= 0)",
+            "matchedExpression": "!@fields.nombre_personne_upa",
+            "type": "fields",
+            "fieldName": "nombre_personne_upa"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.nombre_personne_upa && @fields.nombre_personne_upa != \"\" && @fields.nombre_personne_upa >= 0)",
+            "matchedExpression": "@fields.nombre_personne_upa",
+            "type": "fields",
+            "fieldName": "nombre_personne_upa"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.nombre_personne_upa && @fields.nombre_personne_upa != \"\" && @fields.nombre_personne_upa >= 0)",
+            "matchedExpression": "@fields.nombre_personne_upa",
+            "type": "fields",
+            "fieldName": "nombre_personne_upa"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.nombre_personne_upa && @fields.nombre_personne_upa != \"\" && @fields.nombre_personne_upa >= 0)",
+            "matchedExpression": "@calc(!!@fields.nombre_personne_upa && @fields.nombre_personne_upa != \"\" && @fields.nombre_personne_upa >= 0)",
+            "type": "calc",
+            "fieldName": "!!@fields.nombre_personne_upa && @fields.nombre_personne_upa != \"\" && @fields.nombre_personne_upa >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.nombre_personne_upa": [
+          "value"
+        ],
+        "@fields.nombre_personne_upa": [
+          "value",
+          "value"
+        ],
+        "@calc(!!@fields.nombre_personne_upa && @fields.nombre_personne_upa != \"\" && @fields.nombre_personne_upa >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "error_nombre_personne_upa",
+      "value": "@global.error_required_answer",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.attempt_submit && !@local.valid_nombre_personne_upa",
+      "style_list": [
+        "color: red",
+        "font-size: 16px",
+        "background: #fff5f5",
+        "padding: 5px"
+      ],
+      "_nested_name": "error_nombre_personne_upa",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_nombre_personne_upa",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_nombre_personne_upa",
+            "matchedExpression": "!@local.valid_nombre_personne_upa",
+            "type": "local",
+            "fieldName": "valid_nombre_personne_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "!@local.valid_nombre_personne_upa": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "frais_sante_annuel",
+      "value": "@calc(Number(@fields.nombre_personne_upa * 3000))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "frais_sante_annuel",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@fields.nombre_personne_upa * 3000))",
+            "matchedExpression": "@fields.nombre_personne_upa",
+            "type": "fields",
+            "fieldName": "nombre_personne_upa"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.nombre_personne_upa * 3000))",
+            "matchedExpression": "@calc(Number(@fields.nombre_personne_upa * 3000))",
+            "type": "calc",
+            "fieldName": "Number(@fields.nombre_personne_upa * 3000)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.nombre_personne_upa": [
+          "value"
+        ],
+        "@calc(Number(@fields.nombre_personne_upa * 3000))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "note_frais_sante_cfa",
+      "value": "@calc(Number(@local.frais_sante_annuel || 0) * 5)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "note_frais_sante_cfa",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@local.frais_sante_annuel || 0) * 5)",
+            "matchedExpression": "@local.frais_sante_annuel",
+            "type": "local",
+            "fieldName": "frais_sante_annuel"
+          },
+          {
+            "fullExpression": "@calc(Number(@local.frais_sante_annuel || 0) * 5)",
+            "matchedExpression": "@calc(Number(@local.frais_sante_annuel || 0) * 5)",
+            "type": "calc",
+            "fieldName": "Number(@local.frais_sante_annuel || 0) * 5"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.frais_sante_annuel": [
+          "value"
+        ],
+        "@calc(Number(@local.frais_sante_annuel || 0) * 5)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "**Montant prévisionnel des dépenses annuelles de santé humaine**",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_19.text_1"
+        },
+        {
+          "type": "audio",
+          "name": "audio_3_3",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/depensesRevenus/sante_annuel_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_19.audio_3_3"
+        }
+      ],
+      "name": "display_group_19",
+      "_nested_name": "display_group_19"
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "image",
+          "value": "images/cfa_tot.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_1",
+          "_nested_name": "display_group_21.image_1"
+        },
+        {
+          "type": "html",
+          "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41;\">@global.note_frais_sante\n</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.frais_sante_annuel drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.note_frais_sante_cfa FCFA\n    </span>\n  </div>\n</div>",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@local.valid_nombre_personne_upa",
+          "name": "html_2",
+          "_nested_name": "display_group_21.html_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41;\">@global.note_frais_sante\n</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.frais_sante_annuel drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.note_frais_sante_cfa FCFA\n    </span>\n  </div>\n</div>",
+                "matchedExpression": "@global.note_frais_sante",
+                "type": "global",
+                "fieldName": "note_frais_sante"
+              },
+              {
+                "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41;\">@global.note_frais_sante\n</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.frais_sante_annuel drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.note_frais_sante_cfa FCFA\n    </span>\n  </div>\n</div>",
+                "matchedExpression": "@local.frais_sante_annuel",
+                "type": "local",
+                "fieldName": "frais_sante_annuel"
+              },
+              {
+                "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41;\">@global.note_frais_sante\n</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.frais_sante_annuel drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.note_frais_sante_cfa FCFA\n    </span>\n  </div>\n</div>",
+                "matchedExpression": "@local.note_frais_sante_cfa",
+                "type": "local",
+                "fieldName": "note_frais_sante_cfa"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@local.valid_nombre_personne_upa",
+                "matchedExpression": "@local.valid_nombre_personne_upa",
+                "type": "local",
+                "fieldName": "valid_nombre_personne_upa"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.note_frais_sante": [
+              "value"
+            ],
+            "@local.frais_sante_annuel": [
+              "value"
+            ],
+            "@local.note_frais_sante_cfa": [
+              "value"
+            ],
+            "@local.valid_nombre_personne_upa": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_21",
+      "_nested_name": "display_group_21"
+    },
+    {
+      "type": "text",
+      "name": "note_frais_sante_hint",
+      "value": "@global.note_frais_sante_hint",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "_nested_name": "note_frais_sante_hint",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.note_frais_sante_hint",
+            "matchedExpression": "@global.note_frais_sante_hint",
+            "type": "global",
+            "fieldName": "note_frais_sante_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_frais_sante_hint": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.valid_nombre_personne_upa",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@local.valid_nombre_personne_upa",
+            "matchedExpression": "@local.valid_nombre_personne_upa",
+            "type": "local",
+            "fieldName": "valid_nombre_personne_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.valid_nombre_personne_upa": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -73,12 +673,80 @@
         },
         {
           "type": "button",
+          "name": "page_3_btn_attempt_submit",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                true
+              ],
+              "_raw": "click | set_field: attempt_submit: true"
+            }
+          ],
+          "condition": "!@local.completed_enabled",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.page_3_btn_attempt_submit",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!@local.completed_enabled",
+                "matchedExpression": "!@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "!@local.completed_enabled": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
           "name": "page_3_btn_continue",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
           "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                false
+              ],
+              "_raw": "click | set_field: attempt_submit: false"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "frais_sante_annuel",
+                "@local.frais_sante_annuel"
+              ],
+              "_raw": "click | set_field: frais_sante_annuel: @local.frais_sante_annuel"
+            },
             {
               "trigger": "click",
               "action_id": "emit",
@@ -88,6 +756,10 @@
               "_raw": "click | emit: completed"
             }
           ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "condition": "@local.completed_enabled",
           "style_list": [
             "flex: 1"
           ],
@@ -100,11 +772,61 @@
                 "type": "global",
                 "fieldName": "btn_continue"
               }
+            ],
+            "action_list": {
+              "1": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.frais_sante_annuel",
+                      "matchedExpression": "@local.frais_sante_annuel",
+                      "type": "local",
+                      "fieldName": "frais_sante_annuel"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: frais_sante_annuel: @local.frais_sante_annuel",
+                    "matchedExpression": "@local.frais_sante_annuel",
+                    "type": "local",
+                    "fieldName": "frais_sante_annuel"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.completed_enabled",
+                "matchedExpression": "@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
             ]
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
+            ],
+            "@local.frais_sante_annuel": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ],
+            "@local.completed_enabled": [
+              "condition"
             ]
           }
         }

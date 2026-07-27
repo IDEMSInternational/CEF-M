@@ -4,164 +4,216 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "name": "page_title",
-      "value": "APPORT FUMURE ORGANIQUE"
+      "name": "v_current_human",
+      "value": "@calc(Number(@field.current_culture_index) + 1)"
     },
     {
-      "name": "attempt_submit",
-      "value": "@fields.attempt_submit"
+      "name": "v_herbi_fmt",
+      "value": "@calc(/^\\d+$/.test(@field.quantite_herbicide_prelevee))"
     },
     {
-      "type": "begin_data_items",
-      "value": "@data.primary_crops",
-      "parameter_list": "filter: @item.name == @fields.current_primary_crop;",
-      "style_list": "display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%; gap: 10px;"
+      "name": "v_herbi_err",
+      "value": "@calc(!@local.v_herbi_fmt || Number(@field.quantite_herbicide_prelevee) < 0)"
     },
     {
-      "type": "begin_display_group"
+      "name": "v_cout_herbi_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_herbicide_prelevee_nonzero))"
+    },
+    {
+      "name": "v_cout_herbi_err",
+      "value": "@calc(!@local.v_cout_herbi_fmt || Number(@field.cout_herbicide_prelevee_nonzero) < 0)"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "header",
+      "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #FFCC80; border-radius: 12px; background: white; margin-bottom: 10px; overflow: hidden;"
     },
     {
       "type": "image",
-      "value": "@item.image"
+      "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+      "style_list": "width: 60%; object-fit: contain;"
     },
     {
       "type": "text",
-      "value": "**@item.text**",
+      "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
       "style_list": "font-weight: bold; font-size: 18px;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "end_data_items"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
       "type": "html",
-      "name": "q_fum_label",
-      "value": "<span style=\"color: red;\">*</span> Quantité de fumure organique (charretée) @fields.current_primary_crop\n",
-      "style_list": "font-size:20px;"
+      "value": "<div style=\"color: #e67e22; font-weight: bold; font-size: 14px; margin-bottom: 10px;\"> HERBICIDAGE PRE-LEVEE</div>"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "grp_quantite_herbicide",
+      "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "name": "audio_8_1",
-      "parameter_list": "variant: compact;\nsrc: audio/semis/Q_fumure_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "aud_herbi_fr",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/q_herbicide_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
-      "type": "end_display_group"
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span> Quantité herbicide pré-levé (flacon)",
+      "style_list": "font-weight: bold;"
+    },
+    {
+      "type": "text",
+      "value": "*Mettez 0 si aucun herbicide pré-levé*",
+      "style_list": "font-size: 14px; color: gray;"
     },
     {
       "type": "image",
-      "value": "images/charrette.jpg",
-      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
-    },
-    {
-      "type": "text",
-      "name": "q_fum_hint",
-      "value": "Mettez 0 si aucune fumure organique",
-      "style_list": "color: gray; font-size: 16px;"
-    },
-    {
-      "type": "text_box",
-      "name": "q_fum",
-      "value": "@fields.q_fum",
-      "action_list": "changed | set_field : q_fum: this.value;",
-      "parameter_list": "number_input: true"
-    },
-    {
-      "name": "valid_q_fum",
-      "value": "@calc(!!@fields.q_fum && @fields.q_fum != \"\" && @fields.q_fum >= 0)"
-    },
-    {
-      "type": "text",
-      "name": "error_q_fum",
-      "value": "@global.error_positive_value",
-      "condition": "@fields.attempt_submit && !@local.valid_q_fum",
-      "style_list": "color: red; font-size: 16px; background: #fff5f5; padding: 5px;"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "html",
-      "name": "c_fum_label",
-      "value": "<span style=\"color: red;\">*</span> Coût transport de fumure organique (drm)\n",
-      "style_list": "font-size:20px;"
-    },
-    {
-      "type": "audio",
-      "name": "audio_8_2",
-      "parameter_list": "variant: compact;\nsrc: audio/semis/cout_transport_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float: right;"
+      "value": "images/flacon.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
     },
     {
       "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_herbicide_prelevee",
+      "value": "@field.quantite_herbicide_prelevee",
+      "action_list": "changed | set_field: quantite_herbicide_prelevee: this.value;",
+      "parameter_list": "number_input: true;\n\nplaceholder: Nombre de flacons;"
+    },
+    {
+      "type": "text",
+      "value": "Mettez une valeur positive<span style=\"font-size:11px;\"></span>",
+      "condition": "@local.v_herbi_err",
+      "style_list": "font-size: 12px; color: red;"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "cout_herbicide_zero",
+      "condition": "@calc(Number(@field.quantite_herbicide_prelevee) == 0)",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "aud_chaux_z_fr",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_herbicide_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Coût herbicide pré-levé (Dram) ",
+      "style_list": "font-weight: bold;"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
     },
     {
       "type": "image",
       "value": "images/cfa.jpg",
-      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
-    },
-    {
-      "type": "text",
-      "name": "c_fum_hint",
-      "value": "@global.hint_price",
-      "style_list": "color: gray; font-size: 16px;"
+      "style_list": "width: 80px; object-fit: contain;"
     },
     {
       "type": "text_box",
-      "name": "c_fum",
-      "value": "@fields.c_fum",
-      "action_list": "changed | set_field : c_fum: this.value;",
-      "parameter_list": "number_input: true"
-    },
-    {
-      "name": "valid_c_fum",
-      "value": "@calc(!!@fields.c_fum && @fields.c_fum != \"\" && @fields.c_fum >= 0)"
+      "value": 0,
+      "parameter_list": "disabled:true;"
     },
     {
       "type": "text",
-      "name": "error_c_fum",
-      "value": "@global.error_required_answer",
-      "condition": "@fields.attempt_submit && !@local.valid_c_fum",
-      "style_list": "color: red; font-size: 16px; background: #fff5f5; padding: 5px;"
+      "value": "Coût bloqué à 0 car aucun herbicide pré-levé utilisé",
+      "style_list": "font-size: 12px; color: #999;"
     },
     {
-      "name": "completed_enabled",
-      "value": "@local.valid_q_fum && @local.valid_c_fum"
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "cout_herbicide_nonzero",
+      "condition": "@calc(Number(@field.quantite_herbicide_prelevee) > 0)",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "aud_herbi_nz_fr",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_herbicide_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span> Coût herbicide pré-levé (Dram) <br>",
+      "style_list": "font-weight: bold;"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80px; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "cout_herbicide_prelevee_nonzero",
+      "value": "@field.cout_herbicide_prelevee_nonzero",
+      "action_list": "changed | set_field: cout_herbicide_prelevee_nonzero: this.value;",
+      "parameter_list": "number_input: true;\n\nplaceholder: Montant en Dram;"
+    },
+    {
+      "type": "text",
+      "value": "Mettez une valeur positive.<br>",
+      "condition": "@local.v_cout_herbi_err",
+      "style_list": "font-size: 12px; color: red;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "v_val_herbi_nz",
+      "value": "@calc(Number(@field.cout_herbicide_prelevee_nonzero) || 0)"
+    },
+    {
+      "name": "v_final_herbi",
+      "value": "@calc(Number(@field.quantite_herbicide_prelevee) == 0 ? 0 : @local.v_val_herbi_nz)"
+    },
+    {
+      "name": "v_page8_valid",
+      "value": "@calc(@local.v_herbi_fmt && Number(@field.quantite_herbicide_prelevee) >= 0 && (Number(@field.quantite_herbicide_prelevee) == 0 || (@local.v_cout_herbi_fmt && Number(@field.cout_herbicide_prelevee_nonzero) >= 0)))"
     },
     {
       "type": "begin_display_group",
       "name": "dg_footer",
-      "value": " ",
       "parameter_list": "sticky: bottom;",
       "style_list": "padding: 12px 24px;"
     },
     {
       "type": "round_button",
-      "name": "page_8_button_back",
+      "name": "button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page_8_btn_attempt_submit",
+      "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | set_field: attempt_submit: true;",
-      "condition": "!@local.completed_enabled",
-      "style_list": "flex: 1"
-    },
-    {
-      "type": "button",
-      "name": "page_8_button_continue",
-      "value": "@global.btn_continue",
-      "action_list": "click | set_field: @calc('quantite_fumure_organique_' + @fields.current_primary_crop) : @fields.q_fum;\nclick | set_field: @calc('cout_transport_fumure_organique_' + @fields.current_primary_crop) : @fields.c_fum;\nclick | set_field: q_fum:;\nclick | set_field: c_fum:;\nclick | set_field: attempt_submit: false;\nclick | emit: completed",
-      "parameter_list": "disabled: !@local.completed_enabled",
-      "condition": "@local.completed_enabled",
+      "action_list": "click | set_field: cout_herbicide_prelevee : @local.v_final_herbi;\n\nclick | emit: completed;",
+      "parameter_list": "style: navigation;\n\ndisabled: !@local.v_page8_valid",
       "style_list": "flex: 1"
     },
     {

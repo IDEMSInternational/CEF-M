@@ -19,7 +19,7 @@
     {
       "type": "audio",
       "name": "audio_7_1",
-      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/canal_obser_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/canal_obser_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
     {
@@ -48,7 +48,7 @@
     {
       "type": "audio",
       "name": "audio_7_2",
-      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/oberv_ecrit_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/oberv_ecrit_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
     {
@@ -73,7 +73,7 @@
     {
       "type": "audio",
       "name": "audio_7_3",
-      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/oberv_vid_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/oberv_vid_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
     {
@@ -97,7 +97,7 @@
     {
       "type": "audio",
       "name": "audio_7_4",
-      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/oberv_audio_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/oberv_audio_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
     {
@@ -121,7 +121,7 @@
     {
       "type": "audio",
       "name": "audio_7_5",
-      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/oberv_phot_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/oberv_phot_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
     {
@@ -158,7 +158,7 @@
       "type": "button",
       "name": "btn_next_parcelle",
       "value": "@global.btn_continue",
-      "action_list": "click | set_field: @calc('observation_' + @fields.num_parcelle) : @fields.info_text;\nclick | set_field: @calc('type_observation_' + @fields.num_parcelle) : @fields.type_observation;\nclick | set_field: info_text:;\nclick | set_field: type_observation:;\nclick | set_field: cult_princip:;\nclick | set_field: autre_cult_princip:;\nclick | set_field: fertilite_sol:;\nclick | set_field: cult_prev:;\nclick | set_field: autre_cult_prev:;\nclick | set_field: cult_princip:;\nclick | set_field: type_variete:;\nclick | set_field: nom_variete:;\nclick | set_field: date_semis:; \nclick | set_field: source_semence:; \nclick | set_field: quantite_semence:; \nclick | set_field: nombre_arbre:;\nclick | set_field: association_oui_non:;\nclick | set_field: quantite_fumure_organique:;\nclick | set_field: quantite_npk:;\nclick | set_field: quantite_uree:;\nclick | set_field: autre_engrais_oui_non:;\nclick | set_field: autre_engrais:;\nclick | set_field: superficie_parcelle:;\n\nclick | set_field: num_parcelle : @calc(Number(@fields.num_parcelle) + 1);\nclick | set_data | _list_id: superficie_settings_pages, _index: 5, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 6, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 7, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 8, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 9, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 10, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 11, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 12, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 13, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 14, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 15, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 16, completed: false;",
+      "action_list": "click | set_field: @calc('observation_P' + @fields.num_parcelle) : @fields.info_text; \nclick | set_field: @calc('type_observation_P' + @fields.num_parcelle) : @fields.type_observation; \nclick | set_field: info_text: ; \nclick | set_field: type_observation: ; \nclick | set_field: fertilite_sol: ; \nclick | set_field: cult_prev: ; \nclick | set_field: autre_cult_prev: ; \nclick | set_field: cult_princip: ; \nclick | set_field: autre_cult_princip: ; \nclick | set_field: variete_semence: ; \nclick | set_field: nom_autre_variete: ; \nclick | set_field: type_variete_culture: ; \nclick | set_field: source_semence_culture: ; \nclick | set_field: autre_source_semence_culture: ; \nclick | set_field: date_semence: ; \nclick | set_field: quantite_semence: ; \nclick | set_field: nombre_arbre: ; \nclick | set_field: nom_arbre: ; \nclick | set_field: association_oui_non: ; \nclick | set_field: autre_cult_asso1: ; \nclick | set_field: autre_cult_asso2: ; \nclick | set_field: quantite_fumure_organique: ; \nclick | set_field: autre_fumier_texte: ; \nclick | set_field: on_fertilisant_info: ; \nclick | set_field: quantite_npk_coton: ; \nclick | set_field: quantite_npk_cereale: ; \nclick | set_field: quantite_uree: ; \nclick | set_field: quantite_dap: ; \nclick | set_field: autre_engrais_mineral: ; \nclick | set_field: nom_autre_engrais: ; \nclick | set_field: quantite_autre_engrais: ; \nclick | set_field: on_production_info: ; \nclick | set_field: production_parcelle_culture1: ; \nclick | set_field: production_parcelle_culture2: ; \nclick | set_field: superficie_parcelle: ;\nclick | set_field: superficie_geo: ; \nclick | set_field: num_parcelle : @calc(Number(@fields.num_parcelle) + 1); \nclick | set_data | _list_id: superficie_settings_pages, _index: 2, completed: false; \nclick | set_data | _list_id: superficie_settings_pages, _index: 3, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 4, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 5, completed: false; \nclick | set_data | _list_id: superficie_settings_pages, _index: 6, completed: false; \nclick | set_data | _list_id: superficie_settings_pages, _index: 7, completed: false; \nclick | set_data | _list_id: superficie_settings_pages, _index: 8, completed: false; \nclick | set_data | _list_id: superficie_settings_pages, _index: 9, completed: false; \nclick | set_data | _list_id: superficie_settings_pages, _index: 10, completed: false; \nclick | set_data | _list_id: superficie_settings_pages, _index: 11, completed: false; \nclick | set_data | _list_id: superficie_settings_pages, _index: 12, completed: false; \nclick | set_data | _list_id: superficie_settings_pages, _index: 13, completed: false;\nclick | set_data | _list_id: superficie_settings_pages, _index: 14, completed: false; \nclick | set_data | _list_id: superficie_settings_pages, _index: 15, completed: false;",
       "condition": "@local.last_parcelle",
       "style_list": "flex: 1"
     },

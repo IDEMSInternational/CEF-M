@@ -1,0 +1,205 @@
+{
+  "flow_type": "template",
+  "flow_name": "year_selection",
+  "status": "released",
+  "rows": [
+    {
+      "type": "text",
+      "value": "**Complete Date**",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_2",
+      "_nested_name": "text_2"
+    },
+    {
+      "type": "date_time_picker",
+      "name": "date_1",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_local",
+          "args": [
+            "date_1",
+            "this.value"
+          ],
+          "_raw": "changed | set_local: date_1: this.value"
+        }
+      ],
+      "parameter_list": {
+        "type": "date"
+      },
+      "_nested_name": "date_1"
+    },
+    {
+      "type": "text",
+      "value": "value: @local.date_1",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_4",
+      "_nested_name": "text_4",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "value: @local.date_1",
+            "matchedExpression": "@local.date_1",
+            "type": "local",
+            "fieldName": "date_1"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.date_1": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "**Year only**",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_5",
+      "_nested_name": "text_5"
+    },
+    {
+      "type": "date_time_picker",
+      "name": "date_2",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_local",
+          "args": [
+            "date_2",
+            "this.value"
+          ],
+          "_raw": "changed | set_local: date_2: this.value"
+        }
+      ],
+      "parameter_list": {
+        "type": "year"
+      },
+      "_nested_name": "date_2"
+    },
+    {
+      "type": "text",
+      "value": "value: @local.date_2",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_7",
+      "_nested_name": "text_7",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "value: @local.date_2",
+            "matchedExpression": "@local.date_2",
+            "type": "local",
+            "fieldName": "date_2"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.date_2": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "**Date with min and max**",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_8",
+      "_nested_name": "text_8"
+    },
+    {
+      "name": "datetime_1",
+      "value": "2026-03-04T12:12:00",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "datetime_1"
+    },
+    {
+      "name": "date_1",
+      "value": "2026-03-07",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "date_1"
+    },
+    {
+      "type": "date_time_picker",
+      "name": "date_3",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_local",
+          "args": [
+            "date_2",
+            "this.value"
+          ],
+          "_raw": "changed | set_local: date_2: this.value"
+        }
+      ],
+      "parameter_list": {
+        "type": "year",
+        "min": "2023",
+        "max": "@calc(now())"
+      },
+      "_nested_name": "date_3",
+      "_dynamicFields": {
+        "parameter_list": {
+          "max": [
+            {
+              "fullExpression": "@calc(now())",
+              "matchedExpression": "@calc(now())",
+              "type": "calc",
+              "fieldName": "now()"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@calc(now())": [
+          "parameter_list.max"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "value: @local.date_3",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_12",
+      "_nested_name": "text_12",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "value: @local.date_3",
+            "matchedExpression": "@local.date_3",
+            "type": "local",
+            "fieldName": "date_3"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.date_3": [
+          "value"
+        ]
+      }
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/training/training_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
+  }
+}

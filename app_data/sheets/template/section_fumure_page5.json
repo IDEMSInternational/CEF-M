@@ -4,46 +4,69 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "name": "page_title",
-      "value": "ROTATION ET FERTILITÉ DU SOL",
-      "_translations": {
-        "value": {}
-      },
-      "_nested_name": "page_title"
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "title",
+          "name": "page_title",
+          "value": "ROTATION ET FERTILITÉ DU SOL",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_2.page_title"
+        },
+        {
+          "type": "audio",
+          "name": "audio_5_1",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/fumureOrganique/3ans_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "_nested_name": "display_group_2.audio_5_1"
+        }
+      ],
+      "name": "display_group_2",
+      "_nested_name": "display_group_2"
     },
     {
       "type": "text",
-      "name": "infos_rotations1",
-      "value": "@global.infos_rotations1",
+      "name": "infos_rotations2",
+      "value": "@global.infos_rotations2",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "infos_rotations1",
+      "_nested_name": "infos_rotations2",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.infos_rotations1",
-            "matchedExpression": "@global.infos_rotations1",
+            "fullExpression": "@global.infos_rotations2",
+            "matchedExpression": "@global.infos_rotations2",
             "type": "global",
-            "fieldName": "infos_rotations1"
+            "fieldName": "infos_rotations2"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.infos_rotations1": [
+        "@global.infos_rotations2": [
           "value"
         ]
       }
     },
     {
       "type": "image",
-      "value": "images/rotation.jpg",
+      "value": "images/cycle3.jpg",
       "_translations": {
         "value": {}
       },
-      "name": "image_4",
-      "_nested_name": "image_4"
+      "style_list": [
+        "width:200px",
+        "height:200px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_5",
+      "_nested_name": "image_5"
     },
     {
       "type": "display_group",

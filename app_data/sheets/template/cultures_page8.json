@@ -1,0 +1,3962 @@
+{
+  "flow_type": "template",
+  "flow_name": "cultures_page8",
+  "status": "released",
+  "rows": [
+    {
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "attempt_submit",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.attempt_submit": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "data_items",
+      "value": "@data.planif_cultures_primaires",
+      "parameter_list": {
+        "filter": "@item.name == @fields.culture_label"
+      },
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "image",
+              "value": "@item.image",
+              "_translations": {
+                "value": {}
+              },
+              "style_list": [
+                "width:150px",
+                "height:150px"
+              ],
+              "name": "image_1",
+              "_nested_name": "data_items_3.display_group_1_@item.id.image_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@item.image",
+                    "matchedExpression": "@item.image",
+                    "type": "item",
+                    "fieldName": "image"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_3.display_group_1_@item.id.image_1",
+                    "matchedExpression": "@item.id.image_1",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.image": [
+                  "value"
+                ],
+                "@item.id.image_1": [
+                  "_nested_name"
+                ]
+              }
+            },
+            {
+              "type": "text",
+              "value": "**@item.text**",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_2",
+              "_nested_name": "data_items_3.display_group_1_@item.id.text_2",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "**@item.text**",
+                    "matchedExpression": "@item.text",
+                    "type": "item",
+                    "fieldName": "text"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_3.display_group_1_@item.id.text_2",
+                    "matchedExpression": "@item.id.text_2",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.text": [
+                  "value"
+                ],
+                "@item.id.text_2": [
+                  "_nested_name"
+                ]
+              }
+            }
+          ],
+          "name": "display_group_1_@item.id",
+          "_nested_name": "data_items_3.display_group_1_@item.id",
+          "_dynamicFields": {
+            "name": [
+              {
+                "fullExpression": "display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_3.display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        }
+      ],
+      "name": "data_items_3",
+      "_nested_name": "data_items_3",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@data.planif_cultures_primaires",
+            "matchedExpression": "@data.planif_cultures_primaires",
+            "type": "data",
+            "fieldName": "planif_cultures_primaires"
+          }
+        ],
+        "parameter_list": {
+          "filter": [
+            {
+              "fullExpression": "@item.name == @fields.culture_label",
+              "matchedExpression": "@item.name",
+              "type": "item",
+              "fieldName": "name"
+            },
+            {
+              "fullExpression": "@item.name == @fields.culture_label",
+              "matchedExpression": "@fields.culture_label",
+              "type": "fields",
+              "fieldName": "culture_label"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@data.planif_cultures_primaires": [
+          "value"
+        ],
+        "@item.name": [
+          "parameter_list.filter"
+        ],
+        "@fields.culture_label": [
+          "parameter_list.filter"
+        ]
+      }
+    },
+    {
+      "type": "title",
+      "value": "PREVISION TYPES D'ENGRAIS",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_5",
+      "_nested_name": "title_5"
+    },
+    {
+      "type": "text",
+      "value": "**Les prévisions pour @fields.superficie_ha_prevue ha de @fields.culture_label sont:**",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_6",
+      "_nested_name": "text_6",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "**Les prévisions pour @fields.superficie_ha_prevue ha de @fields.culture_label sont:**",
+            "matchedExpression": "@fields.superficie_ha_prevue",
+            "type": "fields",
+            "fieldName": "superficie_ha_prevue"
+          },
+          {
+            "fullExpression": "**Les prévisions pour @fields.superficie_ha_prevue ha de @fields.culture_label sont:**",
+            "matchedExpression": "@fields.culture_label",
+            "type": "fields",
+            "fieldName": "culture_label"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.superficie_ha_prevue": [
+          "value"
+        ],
+        "@fields.culture_label": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_quantite_prevue_npk_coton_14_18_18",
+      "value": "@calc(!!@fields.quantite_prevue_npk_coton_14_18_18 && @fields.quantite_prevue_npk_coton_14_18_18 != \"\" && @fields.quantite_prevue_npk_coton_14_18_18 >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_quantite_prevue_npk_coton_14_18_18",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_npk_coton_14_18_18 && @fields.quantite_prevue_npk_coton_14_18_18 != \"\" && @fields.quantite_prevue_npk_coton_14_18_18 >= 0)",
+            "matchedExpression": "!@fields.quantite_prevue_npk_coton_14_18_18",
+            "type": "fields",
+            "fieldName": "quantite_prevue_npk_coton_14_18_18"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_npk_coton_14_18_18 && @fields.quantite_prevue_npk_coton_14_18_18 != \"\" && @fields.quantite_prevue_npk_coton_14_18_18 >= 0)",
+            "matchedExpression": "@fields.quantite_prevue_npk_coton_14_18_18",
+            "type": "fields",
+            "fieldName": "quantite_prevue_npk_coton_14_18_18"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_npk_coton_14_18_18 && @fields.quantite_prevue_npk_coton_14_18_18 != \"\" && @fields.quantite_prevue_npk_coton_14_18_18 >= 0)",
+            "matchedExpression": "@fields.quantite_prevue_npk_coton_14_18_18",
+            "type": "fields",
+            "fieldName": "quantite_prevue_npk_coton_14_18_18"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_npk_coton_14_18_18 && @fields.quantite_prevue_npk_coton_14_18_18 != \"\" && @fields.quantite_prevue_npk_coton_14_18_18 >= 0)",
+            "matchedExpression": "@calc(!!@fields.quantite_prevue_npk_coton_14_18_18 && @fields.quantite_prevue_npk_coton_14_18_18 != \"\" && @fields.quantite_prevue_npk_coton_14_18_18 >= 0)",
+            "type": "calc",
+            "fieldName": "!!@fields.quantite_prevue_npk_coton_14_18_18 && @fields.quantite_prevue_npk_coton_14_18_18 != \"\" && @fields.quantite_prevue_npk_coton_14_18_18 >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.quantite_prevue_npk_coton_14_18_18": [
+          "value"
+        ],
+        "@fields.quantite_prevue_npk_coton_14_18_18": [
+          "value",
+          "value"
+        ],
+        "@calc(!!@fields.quantite_prevue_npk_coton_14_18_18 && @fields.quantite_prevue_npk_coton_14_18_18 != \"\" && @fields.quantite_prevue_npk_coton_14_18_18 >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
+      },
+      "condition": "@fields.npk_coton_14_18_18",
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "text",
+              "value": "**Quantité de complexe coton 14-18-18 (sac 50 kg)**",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_1",
+              "_nested_name": "display_group_7.display_group_1.text_1"
+            },
+            {
+              "type": "audio",
+              "name": "audio_8_1",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/semis/q_npk_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "style_list": [
+                "float: right"
+              ],
+              "_nested_name": "display_group_7.display_group_1.audio_8_1"
+            }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_7.display_group_1"
+        },
+        {
+          "type": "image",
+          "value": "images/sac.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_7.image_2"
+        },
+        {
+          "type": "text",
+          "value": "*Mettez une valeur positive et supérieur à zero*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: gray",
+            "font-size: 16px"
+          ],
+          "name": "text_3",
+          "_nested_name": "display_group_7.text_3"
+        },
+        {
+          "type": "text_box",
+          "name": "quantite_prevue_npk_coton_14_18_18",
+          "value": "@fields.quantite_prevue_npk_coton_14_18_18",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "quantite_prevue_npk_coton_14_18_18",
+                "this.value"
+              ],
+              "_raw": "changed | set_field : quantite_prevue_npk_coton_14_18_18: this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true"
+          },
+          "_nested_name": "display_group_7.quantite_prevue_npk_coton_14_18_18",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.quantite_prevue_npk_coton_14_18_18",
+                "matchedExpression": "@fields.quantite_prevue_npk_coton_14_18_18",
+                "type": "fields",
+                "fieldName": "quantite_prevue_npk_coton_14_18_18"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.quantite_prevue_npk_coton_14_18_18": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.error_required_answer",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.attempt_submit && !@local.valid_quantite_prevue_npk_coton_14_18_18",
+          "style_list": [
+            "color: red",
+            "font-size: 16px",
+            "background: #fff5f5",
+            "padding: 5px"
+          ],
+          "name": "text_6",
+          "_nested_name": "display_group_7.text_6",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.error_required_answer",
+                "matchedExpression": "@global.error_required_answer",
+                "type": "global",
+                "fieldName": "error_required_answer"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_prevue_npk_coton_14_18_18",
+                "matchedExpression": "@fields.attempt_submit",
+                "type": "fields",
+                "fieldName": "attempt_submit"
+              },
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_prevue_npk_coton_14_18_18",
+                "matchedExpression": "!@local.valid_quantite_prevue_npk_coton_14_18_18",
+                "type": "local",
+                "fieldName": "valid_quantite_prevue_npk_coton_14_18_18"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.error_required_answer": [
+              "value"
+            ],
+            "@fields.attempt_submit": [
+              "condition"
+            ],
+            "!@local.valid_quantite_prevue_npk_coton_14_18_18": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_7",
+      "_nested_name": "display_group_7",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.npk_coton_14_18_18",
+            "matchedExpression": "@fields.npk_coton_14_18_18",
+            "type": "fields",
+            "fieldName": "npk_coton_14_18_18"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.npk_coton_14_18_18": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "valid_cout_prevu_npk_coton_14_18_18",
+      "value": "@calc(!!@fields.cout_prevu_npk_coton_14_18_18 && @fields.cout_prevu_npk_coton_14_18_18 != \"\" && @fields.cout_prevu_npk_coton_14_18_18 >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_cout_prevu_npk_coton_14_18_18",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_npk_coton_14_18_18 && @fields.cout_prevu_npk_coton_14_18_18 != \"\" && @fields.cout_prevu_npk_coton_14_18_18 >= 0)",
+            "matchedExpression": "!@fields.cout_prevu_npk_coton_14_18_18",
+            "type": "fields",
+            "fieldName": "cout_prevu_npk_coton_14_18_18"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_npk_coton_14_18_18 && @fields.cout_prevu_npk_coton_14_18_18 != \"\" && @fields.cout_prevu_npk_coton_14_18_18 >= 0)",
+            "matchedExpression": "@fields.cout_prevu_npk_coton_14_18_18",
+            "type": "fields",
+            "fieldName": "cout_prevu_npk_coton_14_18_18"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_npk_coton_14_18_18 && @fields.cout_prevu_npk_coton_14_18_18 != \"\" && @fields.cout_prevu_npk_coton_14_18_18 >= 0)",
+            "matchedExpression": "@fields.cout_prevu_npk_coton_14_18_18",
+            "type": "fields",
+            "fieldName": "cout_prevu_npk_coton_14_18_18"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_npk_coton_14_18_18 && @fields.cout_prevu_npk_coton_14_18_18 != \"\" && @fields.cout_prevu_npk_coton_14_18_18 >= 0)",
+            "matchedExpression": "@calc(!!@fields.cout_prevu_npk_coton_14_18_18 && @fields.cout_prevu_npk_coton_14_18_18 != \"\" && @fields.cout_prevu_npk_coton_14_18_18 >= 0)",
+            "type": "calc",
+            "fieldName": "!!@fields.cout_prevu_npk_coton_14_18_18 && @fields.cout_prevu_npk_coton_14_18_18 != \"\" && @fields.cout_prevu_npk_coton_14_18_18 >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.cout_prevu_npk_coton_14_18_18": [
+          "value"
+        ],
+        "@fields.cout_prevu_npk_coton_14_18_18": [
+          "value",
+          "value"
+        ],
+        "@calc(!!@fields.cout_prevu_npk_coton_14_18_18 && @fields.cout_prevu_npk_coton_14_18_18 != \"\" && @fields.cout_prevu_npk_coton_14_18_18 >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
+      },
+      "condition": "@fields.quantite_prevue_npk_coton_14_18_18 > 0",
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "text",
+              "value": "**Coût total de @fields.quantite_prevue_npk_coton_14_18_18 sacs de complexe coton 14-18-18 (drm)**",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_1",
+              "_nested_name": "display_group_9.display_group_1.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "**Coût total de @fields.quantite_prevue_npk_coton_14_18_18 sacs de complexe coton 14-18-18 (drm)**",
+                    "matchedExpression": "@fields.quantite_prevue_npk_coton_14_18_18",
+                    "type": "fields",
+                    "fieldName": "quantite_prevue_npk_coton_14_18_18"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@fields.quantite_prevue_npk_coton_14_18_18": [
+                  "value"
+                ]
+              }
+            },
+            {
+              "type": "audio",
+              "name": "audio_8_2",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/semis/cout_npk_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "style_list": [
+                "float: right"
+              ],
+              "_nested_name": "display_group_9.display_group_1.audio_8_2"
+            }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_9.display_group_1"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_9.image_2"
+        },
+        {
+          "type": "text",
+          "value": "*Mettez une valeur positive et supérieur à zero*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: gray",
+            "font-size: 16px"
+          ],
+          "name": "text_3",
+          "_nested_name": "display_group_9.text_3"
+        },
+        {
+          "type": "text_box",
+          "name": "cout_prevu_npk_coton_14_18_18",
+          "value": "@fields.cout_prevu_npk_coton_14_18_18",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "cout_prevu_npk_coton_14_18_18",
+                "this.value"
+              ],
+              "_raw": "changed | set_field : cout_prevu_npk_coton_14_18_18: this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true"
+          },
+          "_nested_name": "display_group_9.cout_prevu_npk_coton_14_18_18",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.cout_prevu_npk_coton_14_18_18",
+                "matchedExpression": "@fields.cout_prevu_npk_coton_14_18_18",
+                "type": "fields",
+                "fieldName": "cout_prevu_npk_coton_14_18_18"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.cout_prevu_npk_coton_14_18_18": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.error_required_answer",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.attempt_submit && !@local.valid_cout_prevu_npk_coton_14_18_18",
+          "style_list": [
+            "color: red",
+            "font-size: 16px",
+            "background: #fff5f5",
+            "padding: 5px"
+          ],
+          "name": "text_6",
+          "_nested_name": "display_group_9.text_6",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.error_required_answer",
+                "matchedExpression": "@global.error_required_answer",
+                "type": "global",
+                "fieldName": "error_required_answer"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_cout_prevu_npk_coton_14_18_18",
+                "matchedExpression": "@fields.attempt_submit",
+                "type": "fields",
+                "fieldName": "attempt_submit"
+              },
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_cout_prevu_npk_coton_14_18_18",
+                "matchedExpression": "!@local.valid_cout_prevu_npk_coton_14_18_18",
+                "type": "local",
+                "fieldName": "valid_cout_prevu_npk_coton_14_18_18"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.error_required_answer": [
+              "value"
+            ],
+            "@fields.attempt_submit": [
+              "condition"
+            ],
+            "!@local.valid_cout_prevu_npk_coton_14_18_18": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_9",
+      "_nested_name": "display_group_9",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.quantite_prevue_npk_coton_14_18_18 > 0",
+            "matchedExpression": "@fields.quantite_prevue_npk_coton_14_18_18",
+            "type": "fields",
+            "fieldName": "quantite_prevue_npk_coton_14_18_18"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_prevue_npk_coton_14_18_18": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "valid_quantite_prevue_npk_cereale_15_15_15",
+      "value": "@calc(!!@fields.quantite_prevue_npk_cereale_15_15_15 && @fields.quantite_prevue_npk_cereale_15_15_15 != \"\" && @fields.quantite_prevue_npk_cereale_15_15_15 >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_quantite_prevue_npk_cereale_15_15_15",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_npk_cereale_15_15_15 && @fields.quantite_prevue_npk_cereale_15_15_15 != \"\" && @fields.quantite_prevue_npk_cereale_15_15_15 >= 0)",
+            "matchedExpression": "!@fields.quantite_prevue_npk_cereale_15_15_15",
+            "type": "fields",
+            "fieldName": "quantite_prevue_npk_cereale_15_15_15"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_npk_cereale_15_15_15 && @fields.quantite_prevue_npk_cereale_15_15_15 != \"\" && @fields.quantite_prevue_npk_cereale_15_15_15 >= 0)",
+            "matchedExpression": "@fields.quantite_prevue_npk_cereale_15_15_15",
+            "type": "fields",
+            "fieldName": "quantite_prevue_npk_cereale_15_15_15"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_npk_cereale_15_15_15 && @fields.quantite_prevue_npk_cereale_15_15_15 != \"\" && @fields.quantite_prevue_npk_cereale_15_15_15 >= 0)",
+            "matchedExpression": "@fields.quantite_prevue_npk_cereale_15_15_15",
+            "type": "fields",
+            "fieldName": "quantite_prevue_npk_cereale_15_15_15"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_npk_cereale_15_15_15 && @fields.quantite_prevue_npk_cereale_15_15_15 != \"\" && @fields.quantite_prevue_npk_cereale_15_15_15 >= 0)",
+            "matchedExpression": "@calc(!!@fields.quantite_prevue_npk_cereale_15_15_15 && @fields.quantite_prevue_npk_cereale_15_15_15 != \"\" && @fields.quantite_prevue_npk_cereale_15_15_15 >= 0)",
+            "type": "calc",
+            "fieldName": "!!@fields.quantite_prevue_npk_cereale_15_15_15 && @fields.quantite_prevue_npk_cereale_15_15_15 != \"\" && @fields.quantite_prevue_npk_cereale_15_15_15 >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.quantite_prevue_npk_cereale_15_15_15": [
+          "value"
+        ],
+        "@fields.quantite_prevue_npk_cereale_15_15_15": [
+          "value",
+          "value"
+        ],
+        "@calc(!!@fields.quantite_prevue_npk_cereale_15_15_15 && @fields.quantite_prevue_npk_cereale_15_15_15 != \"\" && @fields.quantite_prevue_npk_cereale_15_15_15 >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
+      },
+      "condition": "@fields.npk_cereale_15_15_15",
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "text",
+              "value": "**Quantité de complexe céréales 15-15-15 (sac 50 kg)**",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_1",
+              "_nested_name": "display_group_11.display_group_1.text_1"
+            },
+            {
+              "type": "audio",
+              "name": "audio_8_3",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/semis/q_npk_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "style_list": [
+                "float: right"
+              ],
+              "_nested_name": "display_group_11.display_group_1.audio_8_3"
+            }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_11.display_group_1"
+        },
+        {
+          "type": "image",
+          "value": "images/sac.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_11.image_2"
+        },
+        {
+          "type": "text",
+          "value": "*Mettez une valeur positive et supérieur à zero*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: gray",
+            "font-size: 16px"
+          ],
+          "name": "text_3",
+          "_nested_name": "display_group_11.text_3"
+        },
+        {
+          "type": "text_box",
+          "name": "quantite_prevue_npk_cereale_15_15_15",
+          "value": "@fields.quantite_prevue_npk_cereale_15_15_15",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "quantite_prevue_npk_cereale_15_15_15",
+                "this.value"
+              ],
+              "_raw": "changed | set_field : quantite_prevue_npk_cereale_15_15_15: this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true"
+          },
+          "_nested_name": "display_group_11.quantite_prevue_npk_cereale_15_15_15",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.quantite_prevue_npk_cereale_15_15_15",
+                "matchedExpression": "@fields.quantite_prevue_npk_cereale_15_15_15",
+                "type": "fields",
+                "fieldName": "quantite_prevue_npk_cereale_15_15_15"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.quantite_prevue_npk_cereale_15_15_15": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.error_required_answer",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.attempt_submit && !@local.valid_quantite_prevue_npk_cereale_15_15_15",
+          "style_list": [
+            "color: red",
+            "font-size: 16px",
+            "background: #fff5f5",
+            "padding: 5px"
+          ],
+          "name": "text_6",
+          "_nested_name": "display_group_11.text_6",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.error_required_answer",
+                "matchedExpression": "@global.error_required_answer",
+                "type": "global",
+                "fieldName": "error_required_answer"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_prevue_npk_cereale_15_15_15",
+                "matchedExpression": "@fields.attempt_submit",
+                "type": "fields",
+                "fieldName": "attempt_submit"
+              },
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_prevue_npk_cereale_15_15_15",
+                "matchedExpression": "!@local.valid_quantite_prevue_npk_cereale_15_15_15",
+                "type": "local",
+                "fieldName": "valid_quantite_prevue_npk_cereale_15_15_15"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.error_required_answer": [
+              "value"
+            ],
+            "@fields.attempt_submit": [
+              "condition"
+            ],
+            "!@local.valid_quantite_prevue_npk_cereale_15_15_15": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_11",
+      "_nested_name": "display_group_11",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.npk_cereale_15_15_15",
+            "matchedExpression": "@fields.npk_cereale_15_15_15",
+            "type": "fields",
+            "fieldName": "npk_cereale_15_15_15"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.npk_cereale_15_15_15": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "valid_cout_prevu_npk_cereale_15_15_15",
+      "value": "@calc(!!@fields.cout_prevu_npk_cereale_15_15_15 && @fields.cout_prevu_npk_cereale_15_15_15 != \"\" && @fields.cout_prevu_npk_cereale_15_15_15 >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_cout_prevu_npk_cereale_15_15_15",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_npk_cereale_15_15_15 && @fields.cout_prevu_npk_cereale_15_15_15 != \"\" && @fields.cout_prevu_npk_cereale_15_15_15 >= 0)",
+            "matchedExpression": "!@fields.cout_prevu_npk_cereale_15_15_15",
+            "type": "fields",
+            "fieldName": "cout_prevu_npk_cereale_15_15_15"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_npk_cereale_15_15_15 && @fields.cout_prevu_npk_cereale_15_15_15 != \"\" && @fields.cout_prevu_npk_cereale_15_15_15 >= 0)",
+            "matchedExpression": "@fields.cout_prevu_npk_cereale_15_15_15",
+            "type": "fields",
+            "fieldName": "cout_prevu_npk_cereale_15_15_15"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_npk_cereale_15_15_15 && @fields.cout_prevu_npk_cereale_15_15_15 != \"\" && @fields.cout_prevu_npk_cereale_15_15_15 >= 0)",
+            "matchedExpression": "@fields.cout_prevu_npk_cereale_15_15_15",
+            "type": "fields",
+            "fieldName": "cout_prevu_npk_cereale_15_15_15"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_npk_cereale_15_15_15 && @fields.cout_prevu_npk_cereale_15_15_15 != \"\" && @fields.cout_prevu_npk_cereale_15_15_15 >= 0)",
+            "matchedExpression": "@calc(!!@fields.cout_prevu_npk_cereale_15_15_15 && @fields.cout_prevu_npk_cereale_15_15_15 != \"\" && @fields.cout_prevu_npk_cereale_15_15_15 >= 0)",
+            "type": "calc",
+            "fieldName": "!!@fields.cout_prevu_npk_cereale_15_15_15 && @fields.cout_prevu_npk_cereale_15_15_15 != \"\" && @fields.cout_prevu_npk_cereale_15_15_15 >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.cout_prevu_npk_cereale_15_15_15": [
+          "value"
+        ],
+        "@fields.cout_prevu_npk_cereale_15_15_15": [
+          "value",
+          "value"
+        ],
+        "@calc(!!@fields.cout_prevu_npk_cereale_15_15_15 && @fields.cout_prevu_npk_cereale_15_15_15 != \"\" && @fields.cout_prevu_npk_cereale_15_15_15 >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
+      },
+      "condition": "@fields.quantite_prevue_npk_cereale_15_15_15 > 0",
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "text",
+              "value": "**Coût total de @fields.quantite_prevue_npk_cereale_15_15_15 sac de complexe céréales 15-15-15 (drm)**",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_1",
+              "_nested_name": "display_group_13.display_group_1.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "**Coût total de @fields.quantite_prevue_npk_cereale_15_15_15 sac de complexe céréales 15-15-15 (drm)**",
+                    "matchedExpression": "@fields.quantite_prevue_npk_cereale_15_15_15",
+                    "type": "fields",
+                    "fieldName": "quantite_prevue_npk_cereale_15_15_15"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@fields.quantite_prevue_npk_cereale_15_15_15": [
+                  "value"
+                ]
+              }
+            },
+            {
+              "type": "audio",
+              "name": "audio_8_4",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/semis/cout_npk_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "style_list": [
+                "float: right"
+              ],
+              "_nested_name": "display_group_13.display_group_1.audio_8_4"
+            }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_13.display_group_1"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_13.image_2"
+        },
+        {
+          "type": "text",
+          "value": "*Mettez une valeur positive et supérieur à zero*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: gray",
+            "font-size: 16px"
+          ],
+          "name": "text_3",
+          "_nested_name": "display_group_13.text_3"
+        },
+        {
+          "type": "text_box",
+          "name": "cout_prevu_npk_cereale_15_15_15",
+          "value": "@fields.cout_prevu_npk_cereale_15_15_15",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "cout_prevu_npk_cereale_15_15_15",
+                "this.value"
+              ],
+              "_raw": "changed | set_field : cout_prevu_npk_cereale_15_15_15: this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true"
+          },
+          "_nested_name": "display_group_13.cout_prevu_npk_cereale_15_15_15",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.cout_prevu_npk_cereale_15_15_15",
+                "matchedExpression": "@fields.cout_prevu_npk_cereale_15_15_15",
+                "type": "fields",
+                "fieldName": "cout_prevu_npk_cereale_15_15_15"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.cout_prevu_npk_cereale_15_15_15": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.error_required_answer",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.attempt_submit && !@local.valid_cout_prevu_npk_cereale_15_15_15",
+          "style_list": [
+            "color: red",
+            "font-size: 16px",
+            "background: #fff5f5",
+            "padding: 5px"
+          ],
+          "name": "text_6",
+          "_nested_name": "display_group_13.text_6",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.error_required_answer",
+                "matchedExpression": "@global.error_required_answer",
+                "type": "global",
+                "fieldName": "error_required_answer"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_cout_prevu_npk_cereale_15_15_15",
+                "matchedExpression": "@fields.attempt_submit",
+                "type": "fields",
+                "fieldName": "attempt_submit"
+              },
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_cout_prevu_npk_cereale_15_15_15",
+                "matchedExpression": "!@local.valid_cout_prevu_npk_cereale_15_15_15",
+                "type": "local",
+                "fieldName": "valid_cout_prevu_npk_cereale_15_15_15"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.error_required_answer": [
+              "value"
+            ],
+            "@fields.attempt_submit": [
+              "condition"
+            ],
+            "!@local.valid_cout_prevu_npk_cereale_15_15_15": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_13",
+      "_nested_name": "display_group_13",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.quantite_prevue_npk_cereale_15_15_15 > 0",
+            "matchedExpression": "@fields.quantite_prevue_npk_cereale_15_15_15",
+            "type": "fields",
+            "fieldName": "quantite_prevue_npk_cereale_15_15_15"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_prevue_npk_cereale_15_15_15": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "valid_quantite_prevue_npk_cereale_17_17_17",
+      "value": "@calc(!!@fields.quantite_prevue_npk_cereale_17_17_17 && @fields.quantite_prevue_npk_cereale_17_17_17 != \"\" && @fields.quantite_prevue_npk_cereale_17_17_17 >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_quantite_prevue_npk_cereale_17_17_17",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_npk_cereale_17_17_17 && @fields.quantite_prevue_npk_cereale_17_17_17 != \"\" && @fields.quantite_prevue_npk_cereale_17_17_17 >= 0)",
+            "matchedExpression": "!@fields.quantite_prevue_npk_cereale_17_17_17",
+            "type": "fields",
+            "fieldName": "quantite_prevue_npk_cereale_17_17_17"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_npk_cereale_17_17_17 && @fields.quantite_prevue_npk_cereale_17_17_17 != \"\" && @fields.quantite_prevue_npk_cereale_17_17_17 >= 0)",
+            "matchedExpression": "@fields.quantite_prevue_npk_cereale_17_17_17",
+            "type": "fields",
+            "fieldName": "quantite_prevue_npk_cereale_17_17_17"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_npk_cereale_17_17_17 && @fields.quantite_prevue_npk_cereale_17_17_17 != \"\" && @fields.quantite_prevue_npk_cereale_17_17_17 >= 0)",
+            "matchedExpression": "@fields.quantite_prevue_npk_cereale_17_17_17",
+            "type": "fields",
+            "fieldName": "quantite_prevue_npk_cereale_17_17_17"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_npk_cereale_17_17_17 && @fields.quantite_prevue_npk_cereale_17_17_17 != \"\" && @fields.quantite_prevue_npk_cereale_17_17_17 >= 0)",
+            "matchedExpression": "@calc(!!@fields.quantite_prevue_npk_cereale_17_17_17 && @fields.quantite_prevue_npk_cereale_17_17_17 != \"\" && @fields.quantite_prevue_npk_cereale_17_17_17 >= 0)",
+            "type": "calc",
+            "fieldName": "!!@fields.quantite_prevue_npk_cereale_17_17_17 && @fields.quantite_prevue_npk_cereale_17_17_17 != \"\" && @fields.quantite_prevue_npk_cereale_17_17_17 >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.quantite_prevue_npk_cereale_17_17_17": [
+          "value"
+        ],
+        "@fields.quantite_prevue_npk_cereale_17_17_17": [
+          "value",
+          "value"
+        ],
+        "@calc(!!@fields.quantite_prevue_npk_cereale_17_17_17 && @fields.quantite_prevue_npk_cereale_17_17_17 != \"\" && @fields.quantite_prevue_npk_cereale_17_17_17 >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
+      },
+      "condition": "@fields.npk_cereale_17_17_17",
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "text",
+              "value": "**Quantité de complexe céréales 17-17-17 (sac 50 kg)**",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_1",
+              "_nested_name": "display_group_15.display_group_1.text_1"
+            },
+            {
+              "type": "audio",
+              "name": "audio_8_5",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/semis/q_npk_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "style_list": [
+                "float: right"
+              ],
+              "_nested_name": "display_group_15.display_group_1.audio_8_5"
+            }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_15.display_group_1"
+        },
+        {
+          "type": "image",
+          "value": "images/sac.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_15.image_2"
+        },
+        {
+          "type": "text",
+          "value": "*Mettez une valeur positive et supérieur à zero*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: gray",
+            "font-size: 16px"
+          ],
+          "name": "text_3",
+          "_nested_name": "display_group_15.text_3"
+        },
+        {
+          "type": "text_box",
+          "name": "quantite_prevue_npk_cereale_17_17_17",
+          "value": "@fields.quantite_prevue_npk_cereale_17_17_17",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "quantite_prevue_npk_cereale_17_17_17",
+                "this.value"
+              ],
+              "_raw": "changed | set_field : quantite_prevue_npk_cereale_17_17_17: this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true"
+          },
+          "_nested_name": "display_group_15.quantite_prevue_npk_cereale_17_17_17",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.quantite_prevue_npk_cereale_17_17_17",
+                "matchedExpression": "@fields.quantite_prevue_npk_cereale_17_17_17",
+                "type": "fields",
+                "fieldName": "quantite_prevue_npk_cereale_17_17_17"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.quantite_prevue_npk_cereale_17_17_17": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.error_required_answer",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.attempt_submit && !@local.valid_quantite_prevue_npk_cereale_17_17_17",
+          "style_list": [
+            "color: red",
+            "font-size: 16px",
+            "background: #fff5f5",
+            "padding: 5px"
+          ],
+          "name": "text_6",
+          "_nested_name": "display_group_15.text_6",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.error_required_answer",
+                "matchedExpression": "@global.error_required_answer",
+                "type": "global",
+                "fieldName": "error_required_answer"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_prevue_npk_cereale_17_17_17",
+                "matchedExpression": "@fields.attempt_submit",
+                "type": "fields",
+                "fieldName": "attempt_submit"
+              },
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_prevue_npk_cereale_17_17_17",
+                "matchedExpression": "!@local.valid_quantite_prevue_npk_cereale_17_17_17",
+                "type": "local",
+                "fieldName": "valid_quantite_prevue_npk_cereale_17_17_17"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.error_required_answer": [
+              "value"
+            ],
+            "@fields.attempt_submit": [
+              "condition"
+            ],
+            "!@local.valid_quantite_prevue_npk_cereale_17_17_17": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_15",
+      "_nested_name": "display_group_15",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.npk_cereale_17_17_17",
+            "matchedExpression": "@fields.npk_cereale_17_17_17",
+            "type": "fields",
+            "fieldName": "npk_cereale_17_17_17"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.npk_cereale_17_17_17": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "valid_cout_prevu_npk_cereale_17_17_17",
+      "value": "@calc(!!@fields.cout_prevu_npk_cereale_17_17_17 && @fields.cout_prevu_npk_cereale_17_17_17 != \"\" && @fields.cout_prevu_npk_cereale_17_17_17 >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_cout_prevu_npk_cereale_17_17_17",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_npk_cereale_17_17_17 && @fields.cout_prevu_npk_cereale_17_17_17 != \"\" && @fields.cout_prevu_npk_cereale_17_17_17 >= 0)",
+            "matchedExpression": "!@fields.cout_prevu_npk_cereale_17_17_17",
+            "type": "fields",
+            "fieldName": "cout_prevu_npk_cereale_17_17_17"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_npk_cereale_17_17_17 && @fields.cout_prevu_npk_cereale_17_17_17 != \"\" && @fields.cout_prevu_npk_cereale_17_17_17 >= 0)",
+            "matchedExpression": "@fields.cout_prevu_npk_cereale_17_17_17",
+            "type": "fields",
+            "fieldName": "cout_prevu_npk_cereale_17_17_17"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_npk_cereale_17_17_17 && @fields.cout_prevu_npk_cereale_17_17_17 != \"\" && @fields.cout_prevu_npk_cereale_17_17_17 >= 0)",
+            "matchedExpression": "@fields.cout_prevu_npk_cereale_17_17_17",
+            "type": "fields",
+            "fieldName": "cout_prevu_npk_cereale_17_17_17"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_npk_cereale_17_17_17 && @fields.cout_prevu_npk_cereale_17_17_17 != \"\" && @fields.cout_prevu_npk_cereale_17_17_17 >= 0)",
+            "matchedExpression": "@calc(!!@fields.cout_prevu_npk_cereale_17_17_17 && @fields.cout_prevu_npk_cereale_17_17_17 != \"\" && @fields.cout_prevu_npk_cereale_17_17_17 >= 0)",
+            "type": "calc",
+            "fieldName": "!!@fields.cout_prevu_npk_cereale_17_17_17 && @fields.cout_prevu_npk_cereale_17_17_17 != \"\" && @fields.cout_prevu_npk_cereale_17_17_17 >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.cout_prevu_npk_cereale_17_17_17": [
+          "value"
+        ],
+        "@fields.cout_prevu_npk_cereale_17_17_17": [
+          "value",
+          "value"
+        ],
+        "@calc(!!@fields.cout_prevu_npk_cereale_17_17_17 && @fields.cout_prevu_npk_cereale_17_17_17 != \"\" && @fields.cout_prevu_npk_cereale_17_17_17 >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
+      },
+      "condition": "@fields.quantite_prevue_npk_cereale_17_17_17 > 0",
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "text",
+              "value": "**Coût total de @fields.quantite_prevue_npk_cereale_17_17_17 sac de complexe céréales 17-17-17 (drm)**",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_1",
+              "_nested_name": "display_group_17.display_group_1.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "**Coût total de @fields.quantite_prevue_npk_cereale_17_17_17 sac de complexe céréales 17-17-17 (drm)**",
+                    "matchedExpression": "@fields.quantite_prevue_npk_cereale_17_17_17",
+                    "type": "fields",
+                    "fieldName": "quantite_prevue_npk_cereale_17_17_17"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@fields.quantite_prevue_npk_cereale_17_17_17": [
+                  "value"
+                ]
+              }
+            },
+            {
+              "type": "audio",
+              "name": "audio_8_6",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/semis/cout_npk_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "style_list": [
+                "float: right"
+              ],
+              "_nested_name": "display_group_17.display_group_1.audio_8_6"
+            }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_17.display_group_1"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_17.image_2"
+        },
+        {
+          "type": "text",
+          "value": "*Mettez une valeur positive et supérieur à zero*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: gray",
+            "font-size: 16px"
+          ],
+          "name": "text_3",
+          "_nested_name": "display_group_17.text_3"
+        },
+        {
+          "type": "text_box",
+          "name": "cout_prevu_npk_cereale_17_17_17",
+          "value": "@fields.cout_prevu_npk_cereale_17_17_17",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "cout_prevu_npk_cereale_17_17_17",
+                "this.value"
+              ],
+              "_raw": "changed | set_field : cout_prevu_npk_cereale_17_17_17: this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true"
+          },
+          "_nested_name": "display_group_17.cout_prevu_npk_cereale_17_17_17",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.cout_prevu_npk_cereale_17_17_17",
+                "matchedExpression": "@fields.cout_prevu_npk_cereale_17_17_17",
+                "type": "fields",
+                "fieldName": "cout_prevu_npk_cereale_17_17_17"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.cout_prevu_npk_cereale_17_17_17": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.error_required_answer",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.attempt_submit && !@local.valid_cout_prevu_npk_cereale_17_17_17",
+          "style_list": [
+            "color: red",
+            "font-size: 16px",
+            "background: #fff5f5",
+            "padding: 5px"
+          ],
+          "name": "text_6",
+          "_nested_name": "display_group_17.text_6",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.error_required_answer",
+                "matchedExpression": "@global.error_required_answer",
+                "type": "global",
+                "fieldName": "error_required_answer"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_cout_prevu_npk_cereale_17_17_17",
+                "matchedExpression": "@fields.attempt_submit",
+                "type": "fields",
+                "fieldName": "attempt_submit"
+              },
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_cout_prevu_npk_cereale_17_17_17",
+                "matchedExpression": "!@local.valid_cout_prevu_npk_cereale_17_17_17",
+                "type": "local",
+                "fieldName": "valid_cout_prevu_npk_cereale_17_17_17"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.error_required_answer": [
+              "value"
+            ],
+            "@fields.attempt_submit": [
+              "condition"
+            ],
+            "!@local.valid_cout_prevu_npk_cereale_17_17_17": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_17",
+      "_nested_name": "display_group_17",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.quantite_prevue_npk_cereale_17_17_17 > 0",
+            "matchedExpression": "@fields.quantite_prevue_npk_cereale_17_17_17",
+            "type": "fields",
+            "fieldName": "quantite_prevue_npk_cereale_17_17_17"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_prevue_npk_cereale_17_17_17": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "valid_quantite_prevue_dap",
+      "value": "@calc(!!@fields.quantite_prevue_dap && @fields.quantite_prevue_dap != \"\" && @fields.quantite_prevue_dap >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_quantite_prevue_dap",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_dap && @fields.quantite_prevue_dap != \"\" && @fields.quantite_prevue_dap >= 0)",
+            "matchedExpression": "!@fields.quantite_prevue_dap",
+            "type": "fields",
+            "fieldName": "quantite_prevue_dap"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_dap && @fields.quantite_prevue_dap != \"\" && @fields.quantite_prevue_dap >= 0)",
+            "matchedExpression": "@fields.quantite_prevue_dap",
+            "type": "fields",
+            "fieldName": "quantite_prevue_dap"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_dap && @fields.quantite_prevue_dap != \"\" && @fields.quantite_prevue_dap >= 0)",
+            "matchedExpression": "@fields.quantite_prevue_dap",
+            "type": "fields",
+            "fieldName": "quantite_prevue_dap"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_dap && @fields.quantite_prevue_dap != \"\" && @fields.quantite_prevue_dap >= 0)",
+            "matchedExpression": "@calc(!!@fields.quantite_prevue_dap && @fields.quantite_prevue_dap != \"\" && @fields.quantite_prevue_dap >= 0)",
+            "type": "calc",
+            "fieldName": "!!@fields.quantite_prevue_dap && @fields.quantite_prevue_dap != \"\" && @fields.quantite_prevue_dap >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.quantite_prevue_dap": [
+          "value"
+        ],
+        "@fields.quantite_prevue_dap": [
+          "value",
+          "value"
+        ],
+        "@calc(!!@fields.quantite_prevue_dap && @fields.quantite_prevue_dap != \"\" && @fields.quantite_prevue_dap >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
+      },
+      "condition": "@fields.dap",
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "text",
+              "value": "**Quantité de DAP (sac 50 kg)**",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_1",
+              "_nested_name": "display_group_19.display_group_1.text_1"
+            },
+            {
+              "type": "audio",
+              "name": "audio_8_7",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/semis/q_npk_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "style_list": [
+                "float: right"
+              ],
+              "_nested_name": "display_group_19.display_group_1.audio_8_7"
+            }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_19.display_group_1"
+        },
+        {
+          "type": "image",
+          "value": "images/sac.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_19.image_2"
+        },
+        {
+          "type": "text",
+          "value": "*Mettez une valeur positive et supérieur à zero*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: gray",
+            "font-size: 16px"
+          ],
+          "name": "text_3",
+          "_nested_name": "display_group_19.text_3"
+        },
+        {
+          "type": "text_box",
+          "name": "quantite_prevue_dap",
+          "value": "@fields.quantite_prevue_dap",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "quantite_prevue_dap",
+                "this.value"
+              ],
+              "_raw": "changed | set_field : quantite_prevue_dap: this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true"
+          },
+          "_nested_name": "display_group_19.quantite_prevue_dap",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.quantite_prevue_dap",
+                "matchedExpression": "@fields.quantite_prevue_dap",
+                "type": "fields",
+                "fieldName": "quantite_prevue_dap"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.quantite_prevue_dap": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.error_required_answer",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.attempt_submit && !@local.valid_quantite_prevue_dap",
+          "style_list": [
+            "color: red",
+            "font-size: 16px",
+            "background: #fff5f5",
+            "padding: 5px"
+          ],
+          "name": "text_6",
+          "_nested_name": "display_group_19.text_6",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.error_required_answer",
+                "matchedExpression": "@global.error_required_answer",
+                "type": "global",
+                "fieldName": "error_required_answer"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_prevue_dap",
+                "matchedExpression": "@fields.attempt_submit",
+                "type": "fields",
+                "fieldName": "attempt_submit"
+              },
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_prevue_dap",
+                "matchedExpression": "!@local.valid_quantite_prevue_dap",
+                "type": "local",
+                "fieldName": "valid_quantite_prevue_dap"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.error_required_answer": [
+              "value"
+            ],
+            "@fields.attempt_submit": [
+              "condition"
+            ],
+            "!@local.valid_quantite_prevue_dap": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_19",
+      "_nested_name": "display_group_19",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.dap",
+            "matchedExpression": "@fields.dap",
+            "type": "fields",
+            "fieldName": "dap"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.dap": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "valid_cout_prevu_npk_dap",
+      "value": "@calc(!!@fields.cout_prevu_npk_dap && @fields.cout_prevu_npk_dap != \"\" && @fields.cout_prevu_npk_dap >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_cout_prevu_npk_dap",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_npk_dap && @fields.cout_prevu_npk_dap != \"\" && @fields.cout_prevu_npk_dap >= 0)",
+            "matchedExpression": "!@fields.cout_prevu_npk_dap",
+            "type": "fields",
+            "fieldName": "cout_prevu_npk_dap"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_npk_dap && @fields.cout_prevu_npk_dap != \"\" && @fields.cout_prevu_npk_dap >= 0)",
+            "matchedExpression": "@fields.cout_prevu_npk_dap",
+            "type": "fields",
+            "fieldName": "cout_prevu_npk_dap"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_npk_dap && @fields.cout_prevu_npk_dap != \"\" && @fields.cout_prevu_npk_dap >= 0)",
+            "matchedExpression": "@fields.cout_prevu_npk_dap",
+            "type": "fields",
+            "fieldName": "cout_prevu_npk_dap"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_npk_dap && @fields.cout_prevu_npk_dap != \"\" && @fields.cout_prevu_npk_dap >= 0)",
+            "matchedExpression": "@calc(!!@fields.cout_prevu_npk_dap && @fields.cout_prevu_npk_dap != \"\" && @fields.cout_prevu_npk_dap >= 0)",
+            "type": "calc",
+            "fieldName": "!!@fields.cout_prevu_npk_dap && @fields.cout_prevu_npk_dap != \"\" && @fields.cout_prevu_npk_dap >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.cout_prevu_npk_dap": [
+          "value"
+        ],
+        "@fields.cout_prevu_npk_dap": [
+          "value",
+          "value"
+        ],
+        "@calc(!!@fields.cout_prevu_npk_dap && @fields.cout_prevu_npk_dap != \"\" && @fields.cout_prevu_npk_dap >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
+      },
+      "condition": "@fields.quantite_prevue_dap > 0",
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "text",
+              "value": "**Coût total de @fields.quantite_prevue_dap sac de DAP (drm)**",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_1",
+              "_nested_name": "display_group_21.display_group_1.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "**Coût total de @fields.quantite_prevue_dap sac de DAP (drm)**",
+                    "matchedExpression": "@fields.quantite_prevue_dap",
+                    "type": "fields",
+                    "fieldName": "quantite_prevue_dap"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@fields.quantite_prevue_dap": [
+                  "value"
+                ]
+              }
+            },
+            {
+              "type": "audio",
+              "name": "audio_8_8",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/semis/cout_npk_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "style_list": [
+                "float: right"
+              ],
+              "_nested_name": "display_group_21.display_group_1.audio_8_8"
+            }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_21.display_group_1"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_21.image_2"
+        },
+        {
+          "type": "text",
+          "value": "*Mettez une valeur positive et supérieur à zero*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: gray",
+            "font-size: 16px"
+          ],
+          "name": "text_3",
+          "_nested_name": "display_group_21.text_3"
+        },
+        {
+          "type": "text_box",
+          "name": "cout_prevu_npk_dap",
+          "value": "@fields.cout_prevu_npk_dap",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "cout_prevu_npk_dap",
+                "this.value"
+              ],
+              "_raw": "changed | set_field : cout_prevu_npk_dap: this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true"
+          },
+          "_nested_name": "display_group_21.cout_prevu_npk_dap",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.cout_prevu_npk_dap",
+                "matchedExpression": "@fields.cout_prevu_npk_dap",
+                "type": "fields",
+                "fieldName": "cout_prevu_npk_dap"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.cout_prevu_npk_dap": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.error_required_answer",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.attempt_submit && !@local.valid_cout_prevu_npk_dap",
+          "style_list": [
+            "color: red",
+            "font-size: 16px",
+            "background: #fff5f5",
+            "padding: 5px"
+          ],
+          "name": "text_6",
+          "_nested_name": "display_group_21.text_6",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.error_required_answer",
+                "matchedExpression": "@global.error_required_answer",
+                "type": "global",
+                "fieldName": "error_required_answer"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_cout_prevu_npk_dap",
+                "matchedExpression": "@fields.attempt_submit",
+                "type": "fields",
+                "fieldName": "attempt_submit"
+              },
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_cout_prevu_npk_dap",
+                "matchedExpression": "!@local.valid_cout_prevu_npk_dap",
+                "type": "local",
+                "fieldName": "valid_cout_prevu_npk_dap"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.error_required_answer": [
+              "value"
+            ],
+            "@fields.attempt_submit": [
+              "condition"
+            ],
+            "!@local.valid_cout_prevu_npk_dap": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_21",
+      "_nested_name": "display_group_21",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.quantite_prevue_dap > 0",
+            "matchedExpression": "@fields.quantite_prevue_dap",
+            "type": "fields",
+            "fieldName": "quantite_prevue_dap"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_prevue_dap": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "valid_quantite_prevue_uree",
+      "value": "@calc(!!@fields.quantite_prevue_uree && @fields.quantite_prevue_uree != \"\" && @fields.quantite_prevue_uree >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_quantite_prevue_uree",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_uree && @fields.quantite_prevue_uree != \"\" && @fields.quantite_prevue_uree >= 0)",
+            "matchedExpression": "!@fields.quantite_prevue_uree",
+            "type": "fields",
+            "fieldName": "quantite_prevue_uree"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_uree && @fields.quantite_prevue_uree != \"\" && @fields.quantite_prevue_uree >= 0)",
+            "matchedExpression": "@fields.quantite_prevue_uree",
+            "type": "fields",
+            "fieldName": "quantite_prevue_uree"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_uree && @fields.quantite_prevue_uree != \"\" && @fields.quantite_prevue_uree >= 0)",
+            "matchedExpression": "@fields.quantite_prevue_uree",
+            "type": "fields",
+            "fieldName": "quantite_prevue_uree"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_uree && @fields.quantite_prevue_uree != \"\" && @fields.quantite_prevue_uree >= 0)",
+            "matchedExpression": "@calc(!!@fields.quantite_prevue_uree && @fields.quantite_prevue_uree != \"\" && @fields.quantite_prevue_uree >= 0)",
+            "type": "calc",
+            "fieldName": "!!@fields.quantite_prevue_uree && @fields.quantite_prevue_uree != \"\" && @fields.quantite_prevue_uree >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.quantite_prevue_uree": [
+          "value"
+        ],
+        "@fields.quantite_prevue_uree": [
+          "value",
+          "value"
+        ],
+        "@calc(!!@fields.quantite_prevue_uree && @fields.quantite_prevue_uree != \"\" && @fields.quantite_prevue_uree >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
+      },
+      "condition": "@fields.uree",
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "text",
+              "value": "**Quantité de l'urée (sac 50kg)**",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_1",
+              "_nested_name": "display_group_23.display_group_1.text_1"
+            },
+            {
+              "type": "audio",
+              "name": "audio_8_9",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/semis/q_ur_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "style_list": [
+                "float: right"
+              ],
+              "_nested_name": "display_group_23.display_group_1.audio_8_9"
+            }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_23.display_group_1"
+        },
+        {
+          "type": "image",
+          "value": "images/sac.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_23.image_2"
+        },
+        {
+          "type": "text",
+          "value": "*Mettez une valeur positive et supérieur à zero*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: gray",
+            "font-size: 16px"
+          ],
+          "name": "text_3",
+          "_nested_name": "display_group_23.text_3"
+        },
+        {
+          "type": "text_box",
+          "name": "quantite_prevue_uree",
+          "value": "@fields.quantite_prevue_uree",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "quantite_prevue_uree",
+                "this.value"
+              ],
+              "_raw": "changed | set_field : quantite_prevue_uree: this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true"
+          },
+          "_nested_name": "display_group_23.quantite_prevue_uree",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.quantite_prevue_uree",
+                "matchedExpression": "@fields.quantite_prevue_uree",
+                "type": "fields",
+                "fieldName": "quantite_prevue_uree"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.quantite_prevue_uree": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.error_required_answer",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.attempt_submit && !@local.valid_quantite_prevue_uree",
+          "style_list": [
+            "color: red",
+            "font-size: 16px",
+            "background: #fff5f5",
+            "padding: 5px"
+          ],
+          "name": "text_6",
+          "_nested_name": "display_group_23.text_6",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.error_required_answer",
+                "matchedExpression": "@global.error_required_answer",
+                "type": "global",
+                "fieldName": "error_required_answer"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_prevue_uree",
+                "matchedExpression": "@fields.attempt_submit",
+                "type": "fields",
+                "fieldName": "attempt_submit"
+              },
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_prevue_uree",
+                "matchedExpression": "!@local.valid_quantite_prevue_uree",
+                "type": "local",
+                "fieldName": "valid_quantite_prevue_uree"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.error_required_answer": [
+              "value"
+            ],
+            "@fields.attempt_submit": [
+              "condition"
+            ],
+            "!@local.valid_quantite_prevue_uree": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_23",
+      "_nested_name": "display_group_23",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.uree",
+            "matchedExpression": "@fields.uree",
+            "type": "fields",
+            "fieldName": "uree"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.uree": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "valid_cout_prevu_uree",
+      "value": "@calc(!!@fields.cout_prevu_uree && @fields.cout_prevu_uree != \"\" && @fields.cout_prevu_uree >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_cout_prevu_uree",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_uree && @fields.cout_prevu_uree != \"\" && @fields.cout_prevu_uree >= 0)",
+            "matchedExpression": "!@fields.cout_prevu_uree",
+            "type": "fields",
+            "fieldName": "cout_prevu_uree"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_uree && @fields.cout_prevu_uree != \"\" && @fields.cout_prevu_uree >= 0)",
+            "matchedExpression": "@fields.cout_prevu_uree",
+            "type": "fields",
+            "fieldName": "cout_prevu_uree"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_uree && @fields.cout_prevu_uree != \"\" && @fields.cout_prevu_uree >= 0)",
+            "matchedExpression": "@fields.cout_prevu_uree",
+            "type": "fields",
+            "fieldName": "cout_prevu_uree"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_uree && @fields.cout_prevu_uree != \"\" && @fields.cout_prevu_uree >= 0)",
+            "matchedExpression": "@calc(!!@fields.cout_prevu_uree && @fields.cout_prevu_uree != \"\" && @fields.cout_prevu_uree >= 0)",
+            "type": "calc",
+            "fieldName": "!!@fields.cout_prevu_uree && @fields.cout_prevu_uree != \"\" && @fields.cout_prevu_uree >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.cout_prevu_uree": [
+          "value"
+        ],
+        "@fields.cout_prevu_uree": [
+          "value",
+          "value"
+        ],
+        "@calc(!!@fields.cout_prevu_uree && @fields.cout_prevu_uree != \"\" && @fields.cout_prevu_uree >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
+      },
+      "condition": "@fields.quantite_prevue_uree > 0",
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "text",
+              "value": "**Coût total de @fields.quantite_prevue_uree sac de l'urée (drm)**",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_1",
+              "_nested_name": "display_group_25.display_group_1.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "**Coût total de @fields.quantite_prevue_uree sac de l'urée (drm)**",
+                    "matchedExpression": "@fields.quantite_prevue_uree",
+                    "type": "fields",
+                    "fieldName": "quantite_prevue_uree"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@fields.quantite_prevue_uree": [
+                  "value"
+                ]
+              }
+            },
+            {
+              "type": "audio",
+              "name": "audio_8_10",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/semis/cout_ur_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "style_list": [
+                "float: right"
+              ],
+              "_nested_name": "display_group_25.display_group_1.audio_8_10"
+            }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_25.display_group_1"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_25.image_2"
+        },
+        {
+          "type": "text",
+          "value": "*Mettez une valeur positive et supérieur à zero*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: gray",
+            "font-size: 16px"
+          ],
+          "name": "text_3",
+          "_nested_name": "display_group_25.text_3"
+        },
+        {
+          "type": "text_box",
+          "name": "cout_prevu_uree",
+          "value": "@fields.cout_prevu_uree",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "cout_prevu_uree",
+                "this.value"
+              ],
+              "_raw": "changed | set_field : cout_prevu_uree: this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true"
+          },
+          "_nested_name": "display_group_25.cout_prevu_uree",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.cout_prevu_uree",
+                "matchedExpression": "@fields.cout_prevu_uree",
+                "type": "fields",
+                "fieldName": "cout_prevu_uree"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.cout_prevu_uree": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.error_required_answer",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.attempt_submit && !@local.valid_cout_prevu_uree",
+          "style_list": [
+            "color: red",
+            "font-size: 16px",
+            "background: #fff5f5",
+            "padding: 5px"
+          ],
+          "name": "text_6",
+          "_nested_name": "display_group_25.text_6",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.error_required_answer",
+                "matchedExpression": "@global.error_required_answer",
+                "type": "global",
+                "fieldName": "error_required_answer"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_cout_prevu_uree",
+                "matchedExpression": "@fields.attempt_submit",
+                "type": "fields",
+                "fieldName": "attempt_submit"
+              },
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_cout_prevu_uree",
+                "matchedExpression": "!@local.valid_cout_prevu_uree",
+                "type": "local",
+                "fieldName": "valid_cout_prevu_uree"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.error_required_answer": [
+              "value"
+            ],
+            "@fields.attempt_submit": [
+              "condition"
+            ],
+            "!@local.valid_cout_prevu_uree": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_25",
+      "_nested_name": "display_group_25",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.quantite_prevue_uree > 0",
+            "matchedExpression": "@fields.quantite_prevue_uree",
+            "type": "fields",
+            "fieldName": "quantite_prevue_uree"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_prevue_uree": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "valid_quantite_prevue_autre_engrais",
+      "value": "@calc(!!@fields.quantite_prevue_autre_engrais && @fields.quantite_prevue_autre_engrais != \"\" && @fields.quantite_prevue_autre_engrais >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_quantite_prevue_autre_engrais",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_autre_engrais && @fields.quantite_prevue_autre_engrais != \"\" && @fields.quantite_prevue_autre_engrais >= 0)",
+            "matchedExpression": "!@fields.quantite_prevue_autre_engrais",
+            "type": "fields",
+            "fieldName": "quantite_prevue_autre_engrais"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_autre_engrais && @fields.quantite_prevue_autre_engrais != \"\" && @fields.quantite_prevue_autre_engrais >= 0)",
+            "matchedExpression": "@fields.quantite_prevue_autre_engrais",
+            "type": "fields",
+            "fieldName": "quantite_prevue_autre_engrais"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_autre_engrais && @fields.quantite_prevue_autre_engrais != \"\" && @fields.quantite_prevue_autre_engrais >= 0)",
+            "matchedExpression": "@fields.quantite_prevue_autre_engrais",
+            "type": "fields",
+            "fieldName": "quantite_prevue_autre_engrais"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_prevue_autre_engrais && @fields.quantite_prevue_autre_engrais != \"\" && @fields.quantite_prevue_autre_engrais >= 0)",
+            "matchedExpression": "@calc(!!@fields.quantite_prevue_autre_engrais && @fields.quantite_prevue_autre_engrais != \"\" && @fields.quantite_prevue_autre_engrais >= 0)",
+            "type": "calc",
+            "fieldName": "!!@fields.quantite_prevue_autre_engrais && @fields.quantite_prevue_autre_engrais != \"\" && @fields.quantite_prevue_autre_engrais >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.quantite_prevue_autre_engrais": [
+          "value"
+        ],
+        "@fields.quantite_prevue_autre_engrais": [
+          "value",
+          "value"
+        ],
+        "@calc(!!@fields.quantite_prevue_autre_engrais && @fields.quantite_prevue_autre_engrais != \"\" && @fields.quantite_prevue_autre_engrais >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
+      },
+      "condition": "@fields.autre_engrais",
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "text",
+              "value": "**Quantité autre engrais @fields.precision_autre_engrais (sac 50 kg)**",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_1",
+              "_nested_name": "display_group_27.display_group_1.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "**Quantité autre engrais @fields.precision_autre_engrais (sac 50 kg)**",
+                    "matchedExpression": "@fields.precision_autre_engrais",
+                    "type": "fields",
+                    "fieldName": "precision_autre_engrais"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@fields.precision_autre_engrais": [
+                  "value"
+                ]
+              }
+            },
+            {
+              "type": "audio",
+              "name": "audio_8_11",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/semis/q_npk_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "style_list": [
+                "float: right"
+              ],
+              "_nested_name": "display_group_27.display_group_1.audio_8_11"
+            }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_27.display_group_1"
+        },
+        {
+          "type": "image",
+          "value": "images/sac.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_27.image_2"
+        },
+        {
+          "type": "text",
+          "value": "*Mettez une valeur positive et supérieur à zero*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: gray",
+            "font-size: 16px"
+          ],
+          "name": "text_3",
+          "_nested_name": "display_group_27.text_3"
+        },
+        {
+          "type": "text_box",
+          "name": "quantite_prevue_autre_engrais",
+          "value": "@fields.quantite_prevue_autre_engrais",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "quantite_prevue_autre_engrais",
+                "this.value"
+              ],
+              "_raw": "changed | set_field : quantite_prevue_autre_engrais: this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true"
+          },
+          "_nested_name": "display_group_27.quantite_prevue_autre_engrais",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.quantite_prevue_autre_engrais",
+                "matchedExpression": "@fields.quantite_prevue_autre_engrais",
+                "type": "fields",
+                "fieldName": "quantite_prevue_autre_engrais"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.quantite_prevue_autre_engrais": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.error_required_answer",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.attempt_submit && !@local.valid_quantite_prevue_autre_engrais",
+          "style_list": [
+            "color: red",
+            "font-size: 16px",
+            "background: #fff5f5",
+            "padding: 5px"
+          ],
+          "name": "text_6",
+          "_nested_name": "display_group_27.text_6",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.error_required_answer",
+                "matchedExpression": "@global.error_required_answer",
+                "type": "global",
+                "fieldName": "error_required_answer"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_prevue_autre_engrais",
+                "matchedExpression": "@fields.attempt_submit",
+                "type": "fields",
+                "fieldName": "attempt_submit"
+              },
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_prevue_autre_engrais",
+                "matchedExpression": "!@local.valid_quantite_prevue_autre_engrais",
+                "type": "local",
+                "fieldName": "valid_quantite_prevue_autre_engrais"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.error_required_answer": [
+              "value"
+            ],
+            "@fields.attempt_submit": [
+              "condition"
+            ],
+            "!@local.valid_quantite_prevue_autre_engrais": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_27",
+      "_nested_name": "display_group_27",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.autre_engrais",
+            "matchedExpression": "@fields.autre_engrais",
+            "type": "fields",
+            "fieldName": "autre_engrais"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.autre_engrais": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "valid_cout_prevu_autre_engrais",
+      "value": "@calc(!!@fields.cout_prevu_autre_engrais && @fields.cout_prevu_autre_engrais != \"\" && @fields.cout_prevu_autre_engrais >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_cout_prevu_autre_engrais",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_autre_engrais && @fields.cout_prevu_autre_engrais != \"\" && @fields.cout_prevu_autre_engrais >= 0)",
+            "matchedExpression": "!@fields.cout_prevu_autre_engrais",
+            "type": "fields",
+            "fieldName": "cout_prevu_autre_engrais"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_autre_engrais && @fields.cout_prevu_autre_engrais != \"\" && @fields.cout_prevu_autre_engrais >= 0)",
+            "matchedExpression": "@fields.cout_prevu_autre_engrais",
+            "type": "fields",
+            "fieldName": "cout_prevu_autre_engrais"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_autre_engrais && @fields.cout_prevu_autre_engrais != \"\" && @fields.cout_prevu_autre_engrais >= 0)",
+            "matchedExpression": "@fields.cout_prevu_autre_engrais",
+            "type": "fields",
+            "fieldName": "cout_prevu_autre_engrais"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.cout_prevu_autre_engrais && @fields.cout_prevu_autre_engrais != \"\" && @fields.cout_prevu_autre_engrais >= 0)",
+            "matchedExpression": "@calc(!!@fields.cout_prevu_autre_engrais && @fields.cout_prevu_autre_engrais != \"\" && @fields.cout_prevu_autre_engrais >= 0)",
+            "type": "calc",
+            "fieldName": "!!@fields.cout_prevu_autre_engrais && @fields.cout_prevu_autre_engrais != \"\" && @fields.cout_prevu_autre_engrais >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.cout_prevu_autre_engrais": [
+          "value"
+        ],
+        "@fields.cout_prevu_autre_engrais": [
+          "value",
+          "value"
+        ],
+        "@calc(!!@fields.cout_prevu_autre_engrais && @fields.cout_prevu_autre_engrais != \"\" && @fields.cout_prevu_autre_engrais >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
+      },
+      "condition": "@fields.quantite_prevue_autre_engrais > 0",
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "text",
+              "value": "**Coût total de @fields.quantite_prevue_autre_engrais sac d'autre engrais @fields.precision_autre_engrais (drm)**",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_1",
+              "_nested_name": "display_group_29.display_group_1.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "**Coût total de @fields.quantite_prevue_autre_engrais sac d'autre engrais @fields.precision_autre_engrais (drm)**",
+                    "matchedExpression": "@fields.quantite_prevue_autre_engrais",
+                    "type": "fields",
+                    "fieldName": "quantite_prevue_autre_engrais"
+                  },
+                  {
+                    "fullExpression": "**Coût total de @fields.quantite_prevue_autre_engrais sac d'autre engrais @fields.precision_autre_engrais (drm)**",
+                    "matchedExpression": "@fields.precision_autre_engrais",
+                    "type": "fields",
+                    "fieldName": "precision_autre_engrais"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@fields.quantite_prevue_autre_engrais": [
+                  "value"
+                ],
+                "@fields.precision_autre_engrais": [
+                  "value"
+                ]
+              }
+            },
+            {
+              "type": "audio",
+              "name": "audio_8_12",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/semis/cout_npk_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "style_list": [
+                "float: right"
+              ],
+              "_nested_name": "display_group_29.display_group_1.audio_8_12"
+            }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_29.display_group_1"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_29.image_2"
+        },
+        {
+          "type": "text",
+          "value": "*Mettez une valeur positive et supérieur à zero*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: gray",
+            "font-size: 16px"
+          ],
+          "name": "text_3",
+          "_nested_name": "display_group_29.text_3"
+        },
+        {
+          "type": "text_box",
+          "name": "cout_prevu_autre_engrais",
+          "value": "@fields.cout_prevu_autre_engrais",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "cout_prevu_autre_engrais",
+                "this.value"
+              ],
+              "_raw": "changed | set_field : cout_prevu_autre_engrais: this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true"
+          },
+          "_nested_name": "display_group_29.cout_prevu_autre_engrais",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.cout_prevu_autre_engrais",
+                "matchedExpression": "@fields.cout_prevu_autre_engrais",
+                "type": "fields",
+                "fieldName": "cout_prevu_autre_engrais"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.cout_prevu_autre_engrais": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.error_required_answer",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.attempt_submit && !@local.valid_cout_prevu_autre_engrais",
+          "style_list": [
+            "color: red",
+            "font-size: 16px",
+            "background: #fff5f5",
+            "padding: 5px"
+          ],
+          "name": "text_6",
+          "_nested_name": "display_group_29.text_6",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.error_required_answer",
+                "matchedExpression": "@global.error_required_answer",
+                "type": "global",
+                "fieldName": "error_required_answer"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_cout_prevu_autre_engrais",
+                "matchedExpression": "@fields.attempt_submit",
+                "type": "fields",
+                "fieldName": "attempt_submit"
+              },
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_cout_prevu_autre_engrais",
+                "matchedExpression": "!@local.valid_cout_prevu_autre_engrais",
+                "type": "local",
+                "fieldName": "valid_cout_prevu_autre_engrais"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.error_required_answer": [
+              "value"
+            ],
+            "@fields.attempt_submit": [
+              "condition"
+            ],
+            "!@local.valid_cout_prevu_autre_engrais": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_29",
+      "_nested_name": "display_group_29",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.quantite_prevue_autre_engrais > 0",
+            "matchedExpression": "@fields.quantite_prevue_autre_engrais",
+            "type": "fields",
+            "fieldName": "quantite_prevue_autre_engrais"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_prevue_autre_engrais": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "npk_coton_14_18_18_prevue_achat",
+      "value": "@calc(Number(@fields.quantite_prevue_npk_coton_14_18_18 || 0))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "npk_coton_14_18_18_prevue_achat",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@fields.quantite_prevue_npk_coton_14_18_18 || 0))",
+            "matchedExpression": "@fields.quantite_prevue_npk_coton_14_18_18",
+            "type": "fields",
+            "fieldName": "quantite_prevue_npk_coton_14_18_18"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.quantite_prevue_npk_coton_14_18_18 || 0))",
+            "matchedExpression": "@calc(Number(@fields.quantite_prevue_npk_coton_14_18_18 || 0))",
+            "type": "calc",
+            "fieldName": "Number(@fields.quantite_prevue_npk_coton_14_18_18 || 0)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_prevue_npk_coton_14_18_18": [
+          "value"
+        ],
+        "@calc(Number(@fields.quantite_prevue_npk_coton_14_18_18 || 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "npk_cereale_15_15_15_prevue_achat",
+      "value": "@calc(Number(@fields.quantite_prevue_npk_cereale_15_15_15 || 0))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "npk_cereale_15_15_15_prevue_achat",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@fields.quantite_prevue_npk_cereale_15_15_15 || 0))",
+            "matchedExpression": "@fields.quantite_prevue_npk_cereale_15_15_15",
+            "type": "fields",
+            "fieldName": "quantite_prevue_npk_cereale_15_15_15"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.quantite_prevue_npk_cereale_15_15_15 || 0))",
+            "matchedExpression": "@calc(Number(@fields.quantite_prevue_npk_cereale_15_15_15 || 0))",
+            "type": "calc",
+            "fieldName": "Number(@fields.quantite_prevue_npk_cereale_15_15_15 || 0)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_prevue_npk_cereale_15_15_15": [
+          "value"
+        ],
+        "@calc(Number(@fields.quantite_prevue_npk_cereale_15_15_15 || 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "npk_cereale_17_17_17_prevue_achat",
+      "value": "@calc(Number(@fields.quantite_prevue_npk_cereale_17_17_17 || 0))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "npk_cereale_17_17_17_prevue_achat",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@fields.quantite_prevue_npk_cereale_17_17_17 || 0))",
+            "matchedExpression": "@fields.quantite_prevue_npk_cereale_17_17_17",
+            "type": "fields",
+            "fieldName": "quantite_prevue_npk_cereale_17_17_17"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.quantite_prevue_npk_cereale_17_17_17 || 0))",
+            "matchedExpression": "@calc(Number(@fields.quantite_prevue_npk_cereale_17_17_17 || 0))",
+            "type": "calc",
+            "fieldName": "Number(@fields.quantite_prevue_npk_cereale_17_17_17 || 0)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_prevue_npk_cereale_17_17_17": [
+          "value"
+        ],
+        "@calc(Number(@fields.quantite_prevue_npk_cereale_17_17_17 || 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "dap_prevue_achat",
+      "value": "@calc(Number(@fields.quantite_prevue_dap || 0))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "dap_prevue_achat",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@fields.quantite_prevue_dap || 0))",
+            "matchedExpression": "@fields.quantite_prevue_dap",
+            "type": "fields",
+            "fieldName": "quantite_prevue_dap"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.quantite_prevue_dap || 0))",
+            "matchedExpression": "@calc(Number(@fields.quantite_prevue_dap || 0))",
+            "type": "calc",
+            "fieldName": "Number(@fields.quantite_prevue_dap || 0)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_prevue_dap": [
+          "value"
+        ],
+        "@calc(Number(@fields.quantite_prevue_dap || 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "uree_prevu_achat",
+      "value": "@calc(Number(@fields.quantite_prevue_uree || 0))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "uree_prevu_achat",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@fields.quantite_prevue_uree || 0))",
+            "matchedExpression": "@fields.quantite_prevue_uree",
+            "type": "fields",
+            "fieldName": "quantite_prevue_uree"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.quantite_prevue_uree || 0))",
+            "matchedExpression": "@calc(Number(@fields.quantite_prevue_uree || 0))",
+            "type": "calc",
+            "fieldName": "Number(@fields.quantite_prevue_uree || 0)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_prevue_uree": [
+          "value"
+        ],
+        "@calc(Number(@fields.quantite_prevue_uree || 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "autre_engrais",
+      "value": "@calc(Number(@fields.quantite_prevue_autre_engrais || 0))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "autre_engrais",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@fields.quantite_prevue_autre_engrais || 0))",
+            "matchedExpression": "@fields.quantite_prevue_autre_engrais",
+            "type": "fields",
+            "fieldName": "quantite_prevue_autre_engrais"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.quantite_prevue_autre_engrais || 0))",
+            "matchedExpression": "@calc(Number(@fields.quantite_prevue_autre_engrais || 0))",
+            "type": "calc",
+            "fieldName": "Number(@fields.quantite_prevue_autre_engrais || 0)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_prevue_autre_engrais": [
+          "value"
+        ],
+        "@calc(Number(@fields.quantite_prevue_autre_engrais || 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "cout_prevu_engrais",
+      "value": "@calc(Number(@fields.cout_prevu_npk_coton_14_18_18 || 0) + Number(@fields.cout_prevu_npk_cereale_15_15_15 || 0) + Number(@fields.cout_prevu_npk_cereale_17_17_17 || 0) + Number(@fields.cout_prevu_npk_dap || 0) + Number(@fields.cout_prevu_uree || 0) + Number(@fields.cout_prevu_autre_engrais || 0))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "cout_prevu_engrais",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@fields.cout_prevu_npk_coton_14_18_18 || 0) + Number(@fields.cout_prevu_npk_cereale_15_15_15 || 0) + Number(@fields.cout_prevu_npk_cereale_17_17_17 || 0) + Number(@fields.cout_prevu_npk_dap || 0) + Number(@fields.cout_prevu_uree || 0) + Number(@fields.cout_prevu_autre_engrais || 0))",
+            "matchedExpression": "@fields.cout_prevu_npk_coton_14_18_18",
+            "type": "fields",
+            "fieldName": "cout_prevu_npk_coton_14_18_18"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.cout_prevu_npk_coton_14_18_18 || 0) + Number(@fields.cout_prevu_npk_cereale_15_15_15 || 0) + Number(@fields.cout_prevu_npk_cereale_17_17_17 || 0) + Number(@fields.cout_prevu_npk_dap || 0) + Number(@fields.cout_prevu_uree || 0) + Number(@fields.cout_prevu_autre_engrais || 0))",
+            "matchedExpression": "@fields.cout_prevu_npk_cereale_15_15_15",
+            "type": "fields",
+            "fieldName": "cout_prevu_npk_cereale_15_15_15"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.cout_prevu_npk_coton_14_18_18 || 0) + Number(@fields.cout_prevu_npk_cereale_15_15_15 || 0) + Number(@fields.cout_prevu_npk_cereale_17_17_17 || 0) + Number(@fields.cout_prevu_npk_dap || 0) + Number(@fields.cout_prevu_uree || 0) + Number(@fields.cout_prevu_autre_engrais || 0))",
+            "matchedExpression": "@fields.cout_prevu_npk_cereale_17_17_17",
+            "type": "fields",
+            "fieldName": "cout_prevu_npk_cereale_17_17_17"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.cout_prevu_npk_coton_14_18_18 || 0) + Number(@fields.cout_prevu_npk_cereale_15_15_15 || 0) + Number(@fields.cout_prevu_npk_cereale_17_17_17 || 0) + Number(@fields.cout_prevu_npk_dap || 0) + Number(@fields.cout_prevu_uree || 0) + Number(@fields.cout_prevu_autre_engrais || 0))",
+            "matchedExpression": "@fields.cout_prevu_npk_dap",
+            "type": "fields",
+            "fieldName": "cout_prevu_npk_dap"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.cout_prevu_npk_coton_14_18_18 || 0) + Number(@fields.cout_prevu_npk_cereale_15_15_15 || 0) + Number(@fields.cout_prevu_npk_cereale_17_17_17 || 0) + Number(@fields.cout_prevu_npk_dap || 0) + Number(@fields.cout_prevu_uree || 0) + Number(@fields.cout_prevu_autre_engrais || 0))",
+            "matchedExpression": "@fields.cout_prevu_uree",
+            "type": "fields",
+            "fieldName": "cout_prevu_uree"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.cout_prevu_npk_coton_14_18_18 || 0) + Number(@fields.cout_prevu_npk_cereale_15_15_15 || 0) + Number(@fields.cout_prevu_npk_cereale_17_17_17 || 0) + Number(@fields.cout_prevu_npk_dap || 0) + Number(@fields.cout_prevu_uree || 0) + Number(@fields.cout_prevu_autre_engrais || 0))",
+            "matchedExpression": "@fields.cout_prevu_autre_engrais",
+            "type": "fields",
+            "fieldName": "cout_prevu_autre_engrais"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.cout_prevu_npk_coton_14_18_18 || 0) + Number(@fields.cout_prevu_npk_cereale_15_15_15 || 0) + Number(@fields.cout_prevu_npk_cereale_17_17_17 || 0) + Number(@fields.cout_prevu_npk_dap || 0) + Number(@fields.cout_prevu_uree || 0) + Number(@fields.cout_prevu_autre_engrais || 0))",
+            "matchedExpression": "@calc(Number(@fields.cout_prevu_npk_coton_14_18_18 || 0) + Number(@fields.cout_prevu_npk_cereale_15_15_15 || 0) + Number(@fields.cout_prevu_npk_cereale_17_17_17 || 0) + Number(@fields.cout_prevu_npk_dap || 0) + Number(@fields.cout_prevu_uree || 0) + Number(@fields.cout_prevu_autre_engrais || 0))",
+            "type": "calc",
+            "fieldName": "Number(@fields.cout_prevu_npk_coton_14_18_18 || 0) + Number(@fields.cout_prevu_npk_cereale_15_15_15 || 0) + Number(@fields.cout_prevu_npk_cereale_17_17_17 || 0) + Number(@fields.cout_prevu_npk_dap || 0) + Number(@fields.cout_prevu_uree || 0) + Number(@fields.cout_prevu_autre_engrais || 0)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.cout_prevu_npk_coton_14_18_18": [
+          "value"
+        ],
+        "@fields.cout_prevu_npk_cereale_15_15_15": [
+          "value"
+        ],
+        "@fields.cout_prevu_npk_cereale_17_17_17": [
+          "value"
+        ],
+        "@fields.cout_prevu_npk_dap": [
+          "value"
+        ],
+        "@fields.cout_prevu_uree": [
+          "value"
+        ],
+        "@fields.cout_prevu_autre_engrais": [
+          "value"
+        ],
+        "@calc(Number(@fields.cout_prevu_npk_coton_14_18_18 || 0) + Number(@fields.cout_prevu_npk_cereale_15_15_15 || 0) + Number(@fields.cout_prevu_npk_cereale_17_17_17 || 0) + Number(@fields.cout_prevu_npk_dap || 0) + Number(@fields.cout_prevu_uree || 0) + Number(@fields.cout_prevu_autre_engrais || 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.aucun_engrais",
+      "rows": [
+        {
+          "type": "image",
+          "value": "images/sac.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_1",
+          "_nested_name": "display_group_38.image_1"
+        },
+        {
+          "type": "text",
+          "value": "Engrais: @local.cout_prevu_engrais sacs",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: green",
+            "font-size: 16px",
+            "background: #a5df93",
+            "padding: 5px"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_38.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "Engrais: @local.cout_prevu_engrais sacs",
+                "matchedExpression": "@local.cout_prevu_engrais",
+                "type": "local",
+                "fieldName": "cout_prevu_engrais"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.cout_prevu_engrais": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_8_13",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/semis/q_npk_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_38.audio_8_13"
+        }
+      ],
+      "name": "display_group_38",
+      "_nested_name": "display_group_38",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.aucun_engrais",
+            "matchedExpression": "@fields.aucun_engrais",
+            "type": "fields",
+            "fieldName": "aucun_engrais"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.aucun_engrais": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@calc(@fields.quantite_prevue_npk_coton_14_18_18 || @fields.quantite_prevue_npk_cereale_15_15_15 || @fields.quantite_prevue_npk_cereale_17_17_17 || @fields.quantite_prevue_dap || @fields.quantite_prevue_uree || @fields.quantite_prevue_autre_engrais)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@fields.quantite_prevue_npk_coton_14_18_18 || @fields.quantite_prevue_npk_cereale_15_15_15 || @fields.quantite_prevue_npk_cereale_17_17_17 || @fields.quantite_prevue_dap || @fields.quantite_prevue_uree || @fields.quantite_prevue_autre_engrais)",
+            "matchedExpression": "@fields.quantite_prevue_npk_coton_14_18_18",
+            "type": "fields",
+            "fieldName": "quantite_prevue_npk_coton_14_18_18"
+          },
+          {
+            "fullExpression": "@calc(@fields.quantite_prevue_npk_coton_14_18_18 || @fields.quantite_prevue_npk_cereale_15_15_15 || @fields.quantite_prevue_npk_cereale_17_17_17 || @fields.quantite_prevue_dap || @fields.quantite_prevue_uree || @fields.quantite_prevue_autre_engrais)",
+            "matchedExpression": "@fields.quantite_prevue_npk_cereale_15_15_15",
+            "type": "fields",
+            "fieldName": "quantite_prevue_npk_cereale_15_15_15"
+          },
+          {
+            "fullExpression": "@calc(@fields.quantite_prevue_npk_coton_14_18_18 || @fields.quantite_prevue_npk_cereale_15_15_15 || @fields.quantite_prevue_npk_cereale_17_17_17 || @fields.quantite_prevue_dap || @fields.quantite_prevue_uree || @fields.quantite_prevue_autre_engrais)",
+            "matchedExpression": "@fields.quantite_prevue_npk_cereale_17_17_17",
+            "type": "fields",
+            "fieldName": "quantite_prevue_npk_cereale_17_17_17"
+          },
+          {
+            "fullExpression": "@calc(@fields.quantite_prevue_npk_coton_14_18_18 || @fields.quantite_prevue_npk_cereale_15_15_15 || @fields.quantite_prevue_npk_cereale_17_17_17 || @fields.quantite_prevue_dap || @fields.quantite_prevue_uree || @fields.quantite_prevue_autre_engrais)",
+            "matchedExpression": "@fields.quantite_prevue_dap",
+            "type": "fields",
+            "fieldName": "quantite_prevue_dap"
+          },
+          {
+            "fullExpression": "@calc(@fields.quantite_prevue_npk_coton_14_18_18 || @fields.quantite_prevue_npk_cereale_15_15_15 || @fields.quantite_prevue_npk_cereale_17_17_17 || @fields.quantite_prevue_dap || @fields.quantite_prevue_uree || @fields.quantite_prevue_autre_engrais)",
+            "matchedExpression": "@fields.quantite_prevue_uree",
+            "type": "fields",
+            "fieldName": "quantite_prevue_uree"
+          },
+          {
+            "fullExpression": "@calc(@fields.quantite_prevue_npk_coton_14_18_18 || @fields.quantite_prevue_npk_cereale_15_15_15 || @fields.quantite_prevue_npk_cereale_17_17_17 || @fields.quantite_prevue_dap || @fields.quantite_prevue_uree || @fields.quantite_prevue_autre_engrais)",
+            "matchedExpression": "@fields.quantite_prevue_autre_engrais",
+            "type": "fields",
+            "fieldName": "quantite_prevue_autre_engrais"
+          },
+          {
+            "fullExpression": "@calc(@fields.quantite_prevue_npk_coton_14_18_18 || @fields.quantite_prevue_npk_cereale_15_15_15 || @fields.quantite_prevue_npk_cereale_17_17_17 || @fields.quantite_prevue_dap || @fields.quantite_prevue_uree || @fields.quantite_prevue_autre_engrais)",
+            "matchedExpression": "@calc(@fields.quantite_prevue_npk_coton_14_18_18 || @fields.quantite_prevue_npk_cereale_15_15_15 || @fields.quantite_prevue_npk_cereale_17_17_17 || @fields.quantite_prevue_dap || @fields.quantite_prevue_uree || @fields.quantite_prevue_autre_engrais)",
+            "type": "calc",
+            "fieldName": "@fields.quantite_prevue_npk_coton_14_18_18 || @fields.quantite_prevue_npk_cereale_15_15_15 || @fields.quantite_prevue_npk_cereale_17_17_17 || @fields.quantite_prevue_dap || @fields.quantite_prevue_uree || @fields.quantite_prevue_autre_engrais"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_prevue_npk_coton_14_18_18": [
+          "value"
+        ],
+        "@fields.quantite_prevue_npk_cereale_15_15_15": [
+          "value"
+        ],
+        "@fields.quantite_prevue_npk_cereale_17_17_17": [
+          "value"
+        ],
+        "@fields.quantite_prevue_dap": [
+          "value"
+        ],
+        "@fields.quantite_prevue_uree": [
+          "value"
+        ],
+        "@fields.quantite_prevue_autre_engrais": [
+          "value"
+        ],
+        "@calc(@fields.quantite_prevue_npk_coton_14_18_18 || @fields.quantite_prevue_npk_cereale_15_15_15 || @fields.quantite_prevue_npk_cereale_17_17_17 || @fields.quantite_prevue_dap || @fields.quantite_prevue_uree || @fields.quantite_prevue_autre_engrais)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page_8_btn_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "display_group_41.page_8_btn_back"
+        },
+        {
+          "type": "button",
+          "name": "page_8_btn_attempt_submit",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                true
+              ],
+              "_raw": "click | set_field: attempt_submit: true"
+            }
+          ],
+          "condition": "!@local.completed_enabled",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_41.page_8_btn_attempt_submit",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "!@local.completed_enabled",
+                "matchedExpression": "!@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "!@local.completed_enabled": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "name": "page_8_btn_continue",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cout_prevu_engrais",
+                "@local.cout_prevu_engrais"
+              ],
+              "_raw": "click | set_field: cout_prevu_engrais : @local.cout_prevu_engrais"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cout_prevu_engrais_@fields.culture_label",
+                "@local.cout_prevu_engrais"
+              ],
+              "_raw": "click | set_field: cout_prevu_engrais_@fields.culture_label : @local.cout_prevu_engrais"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "npk_coton_14_18_18_prevue_achat_@fields.culture_label",
+                "@local.npk_coton_14_18_18_prevue_achat"
+              ],
+              "_raw": "click | set_field: npk_coton_14_18_18_prevue_achat_@fields.culture_label : @local.npk_coton_14_18_18_prevue_achat"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "npk_cereale_15_15_15_prevue_achat_@fields.culture_label",
+                "@local.npk_cereale_15_15_15_prevue_achat"
+              ],
+              "_raw": "click | set_field: npk_cereale_15_15_15_prevue_achat_@fields.culture_label : @local.npk_cereale_15_15_15_prevue_achat"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "npk_cereale_17_17_17_prevue_achat_@fields.culture_label",
+                "@local.npk_cereale_17_17_17_prevue_achat"
+              ],
+              "_raw": "click | set_field: npk_cereale_17_17_17_prevue_achat_@fields.culture_label : @local.npk_cereale_17_17_17_prevue_achat"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "dap_prevue_achat_@fields.culture_label",
+                "@local.dap_prevue_achat"
+              ],
+              "_raw": "click | set_field: dap_prevue_achat_@fields.culture_label : @local.dap_prevue_achat"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "uree_prevu_achat_@fields.culture_label",
+                "@local.uree_prevu_achat"
+              ],
+              "_raw": "click | set_field: uree_prevu_achat_@fields.culture_label : @local.uree_prevu_achat"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "autre_engrais_@fields.culture_label",
+                "@local.autre_engrais"
+              ],
+              "_raw": "click | set_field: autre_engrais_@fields.culture_label : @local.autre_engrais"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                false
+              ],
+              "_raw": "click | set_field: attempt_submit: false"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "condition": "@local.completed_enabled",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_41.page_8_btn_continue",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.cout_prevu_engrais",
+                      "matchedExpression": "@local.cout_prevu_engrais",
+                      "type": "local",
+                      "fieldName": "cout_prevu_engrais"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: cout_prevu_engrais : @local.cout_prevu_engrais",
+                    "matchedExpression": "@local.cout_prevu_engrais",
+                    "type": "local",
+                    "fieldName": "cout_prevu_engrais"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "cout_prevu_engrais_@fields.culture_label",
+                      "matchedExpression": "@fields.culture_label",
+                      "type": "fields",
+                      "fieldName": "culture_label"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@local.cout_prevu_engrais",
+                      "matchedExpression": "@local.cout_prevu_engrais",
+                      "type": "local",
+                      "fieldName": "cout_prevu_engrais"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: cout_prevu_engrais_@fields.culture_label : @local.cout_prevu_engrais",
+                    "matchedExpression": "@fields.culture_label",
+                    "type": "fields",
+                    "fieldName": "culture_label"
+                  },
+                  {
+                    "fullExpression": "click | set_field: cout_prevu_engrais_@fields.culture_label : @local.cout_prevu_engrais",
+                    "matchedExpression": "@local.cout_prevu_engrais",
+                    "type": "local",
+                    "fieldName": "cout_prevu_engrais"
+                  }
+                ]
+              },
+              "2": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "npk_coton_14_18_18_prevue_achat_@fields.culture_label",
+                      "matchedExpression": "@fields.culture_label",
+                      "type": "fields",
+                      "fieldName": "culture_label"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@local.npk_coton_14_18_18_prevue_achat",
+                      "matchedExpression": "@local.npk_coton_14_18_18_prevue_achat",
+                      "type": "local",
+                      "fieldName": "npk_coton_14_18_18_prevue_achat"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: npk_coton_14_18_18_prevue_achat_@fields.culture_label : @local.npk_coton_14_18_18_prevue_achat",
+                    "matchedExpression": "@fields.culture_label",
+                    "type": "fields",
+                    "fieldName": "culture_label"
+                  },
+                  {
+                    "fullExpression": "click | set_field: npk_coton_14_18_18_prevue_achat_@fields.culture_label : @local.npk_coton_14_18_18_prevue_achat",
+                    "matchedExpression": "@local.npk_coton_14_18_18_prevue_achat",
+                    "type": "local",
+                    "fieldName": "npk_coton_14_18_18_prevue_achat"
+                  }
+                ]
+              },
+              "3": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "npk_cereale_15_15_15_prevue_achat_@fields.culture_label",
+                      "matchedExpression": "@fields.culture_label",
+                      "type": "fields",
+                      "fieldName": "culture_label"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@local.npk_cereale_15_15_15_prevue_achat",
+                      "matchedExpression": "@local.npk_cereale_15_15_15_prevue_achat",
+                      "type": "local",
+                      "fieldName": "npk_cereale_15_15_15_prevue_achat"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: npk_cereale_15_15_15_prevue_achat_@fields.culture_label : @local.npk_cereale_15_15_15_prevue_achat",
+                    "matchedExpression": "@fields.culture_label",
+                    "type": "fields",
+                    "fieldName": "culture_label"
+                  },
+                  {
+                    "fullExpression": "click | set_field: npk_cereale_15_15_15_prevue_achat_@fields.culture_label : @local.npk_cereale_15_15_15_prevue_achat",
+                    "matchedExpression": "@local.npk_cereale_15_15_15_prevue_achat",
+                    "type": "local",
+                    "fieldName": "npk_cereale_15_15_15_prevue_achat"
+                  }
+                ]
+              },
+              "4": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "npk_cereale_17_17_17_prevue_achat_@fields.culture_label",
+                      "matchedExpression": "@fields.culture_label",
+                      "type": "fields",
+                      "fieldName": "culture_label"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@local.npk_cereale_17_17_17_prevue_achat",
+                      "matchedExpression": "@local.npk_cereale_17_17_17_prevue_achat",
+                      "type": "local",
+                      "fieldName": "npk_cereale_17_17_17_prevue_achat"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: npk_cereale_17_17_17_prevue_achat_@fields.culture_label : @local.npk_cereale_17_17_17_prevue_achat",
+                    "matchedExpression": "@fields.culture_label",
+                    "type": "fields",
+                    "fieldName": "culture_label"
+                  },
+                  {
+                    "fullExpression": "click | set_field: npk_cereale_17_17_17_prevue_achat_@fields.culture_label : @local.npk_cereale_17_17_17_prevue_achat",
+                    "matchedExpression": "@local.npk_cereale_17_17_17_prevue_achat",
+                    "type": "local",
+                    "fieldName": "npk_cereale_17_17_17_prevue_achat"
+                  }
+                ]
+              },
+              "5": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "dap_prevue_achat_@fields.culture_label",
+                      "matchedExpression": "@fields.culture_label",
+                      "type": "fields",
+                      "fieldName": "culture_label"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@local.dap_prevue_achat",
+                      "matchedExpression": "@local.dap_prevue_achat",
+                      "type": "local",
+                      "fieldName": "dap_prevue_achat"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: dap_prevue_achat_@fields.culture_label : @local.dap_prevue_achat",
+                    "matchedExpression": "@fields.culture_label",
+                    "type": "fields",
+                    "fieldName": "culture_label"
+                  },
+                  {
+                    "fullExpression": "click | set_field: dap_prevue_achat_@fields.culture_label : @local.dap_prevue_achat",
+                    "matchedExpression": "@local.dap_prevue_achat",
+                    "type": "local",
+                    "fieldName": "dap_prevue_achat"
+                  }
+                ]
+              },
+              "6": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "uree_prevu_achat_@fields.culture_label",
+                      "matchedExpression": "@fields.culture_label",
+                      "type": "fields",
+                      "fieldName": "culture_label"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@local.uree_prevu_achat",
+                      "matchedExpression": "@local.uree_prevu_achat",
+                      "type": "local",
+                      "fieldName": "uree_prevu_achat"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: uree_prevu_achat_@fields.culture_label : @local.uree_prevu_achat",
+                    "matchedExpression": "@fields.culture_label",
+                    "type": "fields",
+                    "fieldName": "culture_label"
+                  },
+                  {
+                    "fullExpression": "click | set_field: uree_prevu_achat_@fields.culture_label : @local.uree_prevu_achat",
+                    "matchedExpression": "@local.uree_prevu_achat",
+                    "type": "local",
+                    "fieldName": "uree_prevu_achat"
+                  }
+                ]
+              },
+              "7": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "autre_engrais_@fields.culture_label",
+                      "matchedExpression": "@fields.culture_label",
+                      "type": "fields",
+                      "fieldName": "culture_label"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@local.autre_engrais",
+                      "matchedExpression": "@local.autre_engrais",
+                      "type": "local",
+                      "fieldName": "autre_engrais"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: autre_engrais_@fields.culture_label : @local.autre_engrais",
+                    "matchedExpression": "@fields.culture_label",
+                    "type": "fields",
+                    "fieldName": "culture_label"
+                  },
+                  {
+                    "fullExpression": "click | set_field: autre_engrais_@fields.culture_label : @local.autre_engrais",
+                    "matchedExpression": "@local.autre_engrais",
+                    "type": "local",
+                    "fieldName": "autre_engrais"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.completed_enabled",
+                "matchedExpression": "@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "@local.cout_prevu_engrais": [
+              "action_list.0.args.1",
+              "action_list.0._raw",
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
+            "@fields.culture_label": [
+              "action_list.1.args.0",
+              "action_list.1._raw",
+              "action_list.2.args.0",
+              "action_list.2._raw",
+              "action_list.3.args.0",
+              "action_list.3._raw",
+              "action_list.4.args.0",
+              "action_list.4._raw",
+              "action_list.5.args.0",
+              "action_list.5._raw",
+              "action_list.6.args.0",
+              "action_list.6._raw",
+              "action_list.7.args.0",
+              "action_list.7._raw"
+            ],
+            "@local.npk_coton_14_18_18_prevue_achat": [
+              "action_list.2.args.1",
+              "action_list.2._raw"
+            ],
+            "@local.npk_cereale_15_15_15_prevue_achat": [
+              "action_list.3.args.1",
+              "action_list.3._raw"
+            ],
+            "@local.npk_cereale_17_17_17_prevue_achat": [
+              "action_list.4.args.1",
+              "action_list.4._raw"
+            ],
+            "@local.dap_prevue_achat": [
+              "action_list.5.args.1",
+              "action_list.5._raw"
+            ],
+            "@local.uree_prevu_achat": [
+              "action_list.6.args.1",
+              "action_list.6._raw"
+            ],
+            "@local.autre_engrais": [
+              "action_list.7.args.1",
+              "action_list.7._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ],
+            "@local.completed_enabled": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_41",
+      "_nested_name": "display_group_41"
+    },
+    {
+      "parameter_list": {},
+      "type": "set_variable",
+      "name": "set_variable_43",
+      "_nested_name": "set_variable_43"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Cultures_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1BAP12cPkFZaHtm0Xozys0kLOqnVOi1h2UUBMoZbmKQI"
+  }
+}

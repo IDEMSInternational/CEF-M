@@ -1,0 +1,1408 @@
+{
+  "flow_type": "template",
+  "flow_name": "cultures_page3",
+  "status": "released",
+  "rows": [
+    {
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "attempt_submit",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.attempt_submit": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "data_items",
+      "value": "@data.planif_cultures_primaires",
+      "parameter_list": {
+        "filter": "@item.name == @fields.culture_label"
+      },
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "image",
+              "value": "@item.image",
+              "_translations": {
+                "value": {}
+              },
+              "style_list": [
+                "width:150px",
+                "height:150px"
+              ],
+              "name": "image_1",
+              "_nested_name": "data_items_3.display_group_1_@item.id.image_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@item.image",
+                    "matchedExpression": "@item.image",
+                    "type": "item",
+                    "fieldName": "image"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_3.display_group_1_@item.id.image_1",
+                    "matchedExpression": "@item.id.image_1",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.image": [
+                  "value"
+                ],
+                "@item.id.image_1": [
+                  "_nested_name"
+                ]
+              }
+            },
+            {
+              "type": "text",
+              "value": "**@item.text**",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_2",
+              "_nested_name": "data_items_3.display_group_1_@item.id.text_2",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "**@item.text**",
+                    "matchedExpression": "@item.text",
+                    "type": "item",
+                    "fieldName": "text"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_3.display_group_1_@item.id.text_2",
+                    "matchedExpression": "@item.id.text_2",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.text": [
+                  "value"
+                ],
+                "@item.id.text_2": [
+                  "_nested_name"
+                ]
+              }
+            }
+          ],
+          "name": "display_group_1_@item.id",
+          "_nested_name": "data_items_3.display_group_1_@item.id",
+          "_dynamicFields": {
+            "name": [
+              {
+                "fullExpression": "display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_3.display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        }
+      ],
+      "name": "data_items_3",
+      "_nested_name": "data_items_3",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@data.planif_cultures_primaires",
+            "matchedExpression": "@data.planif_cultures_primaires",
+            "type": "data",
+            "fieldName": "planif_cultures_primaires"
+          }
+        ],
+        "parameter_list": {
+          "filter": [
+            {
+              "fullExpression": "@item.name == @fields.culture_label",
+              "matchedExpression": "@item.name",
+              "type": "item",
+              "fieldName": "name"
+            },
+            {
+              "fullExpression": "@item.name == @fields.culture_label",
+              "matchedExpression": "@fields.culture_label",
+              "type": "fields",
+              "fieldName": "culture_label"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@data.planif_cultures_primaires": [
+          "value"
+        ],
+        "@item.name": [
+          "parameter_list.filter"
+        ],
+        "@fields.culture_label": [
+          "parameter_list.filter"
+        ]
+      }
+    },
+    {
+      "type": "title",
+      "value": "PREVISION SUPERFICIE",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_5",
+      "_nested_name": "title_5"
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "**@fields.culture_label : Superficie totale prévisonnelle (ha)**",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_6.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "**@fields.culture_label : Superficie totale prévisonnelle (ha)**",
+                "matchedExpression": "@fields.culture_label",
+                "type": "fields",
+                "fieldName": "culture_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.culture_label": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_3_1",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/semis/sup_culture_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_6.audio_3_1"
+        }
+      ],
+      "name": "display_group_6",
+      "_nested_name": "display_group_6"
+    },
+    {
+      "type": "image",
+      "value": "images/superf_unit.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:100px",
+        "height:100px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_8",
+      "_nested_name": "image_8"
+    },
+    {
+      "type": "text",
+      "value": "*Superficie cumulée de toutes les parcelles de @fields.culture_label*",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "name": "text_9",
+      "_nested_name": "text_9",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "*Superficie cumulée de toutes les parcelles de @fields.culture_label*",
+            "matchedExpression": "@fields.culture_label",
+            "type": "fields",
+            "fieldName": "culture_label"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.culture_label": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "superficie_ha_prevue",
+      "value": "@fields.superficie_ha_prevue",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "superficie_ha_prevue",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : superficie_ha_prevue: this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true"
+      },
+      "_nested_name": "superficie_ha_prevue",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.superficie_ha_prevue",
+            "matchedExpression": "@fields.superficie_ha_prevue",
+            "type": "fields",
+            "fieldName": "superficie_ha_prevue"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.superficie_ha_prevue": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_superficie_ha_prevue",
+      "value": "@calc(!!@fields.superficie_ha_prevue && @fields.superficie_ha_prevue != \"\" && @fields.superficie_ha_prevue > 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_superficie_ha_prevue",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.superficie_ha_prevue && @fields.superficie_ha_prevue != \"\" && @fields.superficie_ha_prevue > 0)",
+            "matchedExpression": "!@fields.superficie_ha_prevue",
+            "type": "fields",
+            "fieldName": "superficie_ha_prevue"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.superficie_ha_prevue && @fields.superficie_ha_prevue != \"\" && @fields.superficie_ha_prevue > 0)",
+            "matchedExpression": "@fields.superficie_ha_prevue",
+            "type": "fields",
+            "fieldName": "superficie_ha_prevue"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.superficie_ha_prevue && @fields.superficie_ha_prevue != \"\" && @fields.superficie_ha_prevue > 0)",
+            "matchedExpression": "@fields.superficie_ha_prevue",
+            "type": "fields",
+            "fieldName": "superficie_ha_prevue"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.superficie_ha_prevue && @fields.superficie_ha_prevue != \"\" && @fields.superficie_ha_prevue > 0)",
+            "matchedExpression": "@calc(!!@fields.superficie_ha_prevue && @fields.superficie_ha_prevue != \"\" && @fields.superficie_ha_prevue > 0)",
+            "type": "calc",
+            "fieldName": "!!@fields.superficie_ha_prevue && @fields.superficie_ha_prevue != \"\" && @fields.superficie_ha_prevue > 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.superficie_ha_prevue": [
+          "value"
+        ],
+        "@fields.superficie_ha_prevue": [
+          "value",
+          "value"
+        ],
+        "@calc(!!@fields.superficie_ha_prevue && @fields.superficie_ha_prevue != \"\" && @fields.superficie_ha_prevue > 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.error_required_answer",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.attempt_submit && !@local.valid_superficie_ha_prevue",
+      "style_list": [
+        "color: red",
+        "font-size: 16px",
+        "background: #fff5f5",
+        "padding: 5px"
+      ],
+      "name": "text_12",
+      "_nested_name": "text_12",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_superficie_ha_prevue",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_superficie_ha_prevue",
+            "matchedExpression": "!@local.valid_superficie_ha_prevue",
+            "type": "local",
+            "fieldName": "valid_superficie_ha_prevue"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "!@local.valid_superficie_ha_prevue": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "**@fields.culture_label: Superficie prévisionnelle à labourer par prestation (ha)**",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_13.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "**@fields.culture_label: Superficie prévisionnelle à labourer par prestation (ha)**",
+                "matchedExpression": "@fields.culture_label",
+                "type": "fields",
+                "fieldName": "culture_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.culture_label": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_3_2",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/semis/sup_labour_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_13.audio_3_2"
+        }
+      ],
+      "name": "display_group_13",
+      "_nested_name": "display_group_13"
+    },
+    {
+      "type": "image",
+      "value": "images/superf_unit.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:100px",
+        "height:100px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_15",
+      "_nested_name": "image_15"
+    },
+    {
+      "type": "text",
+      "value": "*Mettez 0 si aucune superficie*",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "name": "text_16",
+      "_nested_name": "text_16"
+    },
+    {
+      "type": "text_box",
+      "name": "superficie_prevue_labour",
+      "value": "@fields.superficie_prevue_labour",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "superficie_prevue_labour",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : superficie_prevue_labour: this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true"
+      },
+      "_nested_name": "superficie_prevue_labour",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.superficie_prevue_labour",
+            "matchedExpression": "@fields.superficie_prevue_labour",
+            "type": "fields",
+            "fieldName": "superficie_prevue_labour"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.superficie_prevue_labour": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_superficie_prevue_labour",
+      "value": "@calc(!!@fields.superficie_prevue_labour && @fields.superficie_prevue_labour != \"\" && @fields.superficie_prevue_labour >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_superficie_prevue_labour",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.superficie_prevue_labour && @fields.superficie_prevue_labour != \"\" && @fields.superficie_prevue_labour >= 0)",
+            "matchedExpression": "!@fields.superficie_prevue_labour",
+            "type": "fields",
+            "fieldName": "superficie_prevue_labour"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.superficie_prevue_labour && @fields.superficie_prevue_labour != \"\" && @fields.superficie_prevue_labour >= 0)",
+            "matchedExpression": "@fields.superficie_prevue_labour",
+            "type": "fields",
+            "fieldName": "superficie_prevue_labour"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.superficie_prevue_labour && @fields.superficie_prevue_labour != \"\" && @fields.superficie_prevue_labour >= 0)",
+            "matchedExpression": "@fields.superficie_prevue_labour",
+            "type": "fields",
+            "fieldName": "superficie_prevue_labour"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.superficie_prevue_labour && @fields.superficie_prevue_labour != \"\" && @fields.superficie_prevue_labour >= 0)",
+            "matchedExpression": "@calc(!!@fields.superficie_prevue_labour && @fields.superficie_prevue_labour != \"\" && @fields.superficie_prevue_labour >= 0)",
+            "type": "calc",
+            "fieldName": "!!@fields.superficie_prevue_labour && @fields.superficie_prevue_labour != \"\" && @fields.superficie_prevue_labour >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.superficie_prevue_labour": [
+          "value"
+        ],
+        "@fields.superficie_prevue_labour": [
+          "value",
+          "value"
+        ],
+        "@calc(!!@fields.superficie_prevue_labour && @fields.superficie_prevue_labour != \"\" && @fields.superficie_prevue_labour >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.error_required_answer",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.attempt_submit && !@local.valid_superficie_prevue_labour",
+      "style_list": [
+        "color: red",
+        "font-size: 16px",
+        "background: #fff5f5",
+        "padding: 5px"
+      ],
+      "name": "text_19",
+      "_nested_name": "text_19",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_superficie_prevue_labour",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_superficie_prevue_labour",
+            "matchedExpression": "!@local.valid_superficie_prevue_labour",
+            "type": "local",
+            "fieldName": "valid_superficie_prevue_labour"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "!@local.valid_superficie_prevue_labour": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
+      },
+      "condition": "@local.superficie_prevue_labour == 0",
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "text",
+              "value": "**Coût prévisionnel de labour par prestation (drm)**",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_1",
+              "_nested_name": "display_group_20.display_group_1.text_1"
+            },
+            {
+              "type": "audio",
+              "name": "audio_3_3",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/semis/cout_labour_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "style_list": [
+                "float: right"
+              ],
+              "_nested_name": "display_group_20.display_group_1.audio_3_3"
+            }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_20.display_group_1"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_20.image_2"
+        },
+        {
+          "type": "text",
+          "value": "@global.hint_price",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: gray",
+            "font-size: 16px"
+          ],
+          "name": "text_3",
+          "_nested_name": "display_group_20.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.hint_price",
+                "matchedExpression": "@global.hint_price",
+                "type": "global",
+                "fieldName": "hint_price"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.hint_price": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text_box",
+          "name": "cout_prevu_superficie_labour_zero",
+          "value": "@calc(Number(0))",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "cout_prevu_superficie_labour_zero",
+                "this.value"
+              ],
+              "_raw": "changed | set_field : cout_prevu_superficie_labour_zero: this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true"
+          },
+          "_nested_name": "display_group_20.cout_prevu_superficie_labour_zero",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@calc(Number(0))",
+                "matchedExpression": "@calc(Number(0))",
+                "type": "calc",
+                "fieldName": "Number(0)"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@calc(Number(0))": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_20",
+      "_nested_name": "display_group_20",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.superficie_prevue_labour == 0",
+            "matchedExpression": "@local.superficie_prevue_labour",
+            "type": "local",
+            "fieldName": "superficie_prevue_labour"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.superficie_prevue_labour": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "valid_cout_prevu_superficie_labour_nonzero",
+      "value": "@calc(!@fields.cout_prevu_superficie_labour_nonzero || @fields.cout_prevu_superficie_labour_nonzero != \"\" || @fields.cout_prevu_superficie_labour_nonzero >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_cout_prevu_superficie_labour_nonzero",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!@fields.cout_prevu_superficie_labour_nonzero || @fields.cout_prevu_superficie_labour_nonzero != \"\" || @fields.cout_prevu_superficie_labour_nonzero >= 0)",
+            "matchedExpression": "!@fields.cout_prevu_superficie_labour_nonzero",
+            "type": "fields",
+            "fieldName": "cout_prevu_superficie_labour_nonzero"
+          },
+          {
+            "fullExpression": "@calc(!@fields.cout_prevu_superficie_labour_nonzero || @fields.cout_prevu_superficie_labour_nonzero != \"\" || @fields.cout_prevu_superficie_labour_nonzero >= 0)",
+            "matchedExpression": "@fields.cout_prevu_superficie_labour_nonzero",
+            "type": "fields",
+            "fieldName": "cout_prevu_superficie_labour_nonzero"
+          },
+          {
+            "fullExpression": "@calc(!@fields.cout_prevu_superficie_labour_nonzero || @fields.cout_prevu_superficie_labour_nonzero != \"\" || @fields.cout_prevu_superficie_labour_nonzero >= 0)",
+            "matchedExpression": "@fields.cout_prevu_superficie_labour_nonzero",
+            "type": "fields",
+            "fieldName": "cout_prevu_superficie_labour_nonzero"
+          },
+          {
+            "fullExpression": "@calc(!@fields.cout_prevu_superficie_labour_nonzero || @fields.cout_prevu_superficie_labour_nonzero != \"\" || @fields.cout_prevu_superficie_labour_nonzero >= 0)",
+            "matchedExpression": "@calc(!@fields.cout_prevu_superficie_labour_nonzero || @fields.cout_prevu_superficie_labour_nonzero != \"\" || @fields.cout_prevu_superficie_labour_nonzero >= 0)",
+            "type": "calc",
+            "fieldName": "!@fields.cout_prevu_superficie_labour_nonzero || @fields.cout_prevu_superficie_labour_nonzero != \"\" || @fields.cout_prevu_superficie_labour_nonzero >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.cout_prevu_superficie_labour_nonzero": [
+          "value"
+        ],
+        "@fields.cout_prevu_superficie_labour_nonzero": [
+          "value",
+          "value"
+        ],
+        "@calc(!@fields.cout_prevu_superficie_labour_nonzero || @fields.cout_prevu_superficie_labour_nonzero != \"\" || @fields.cout_prevu_superficie_labour_nonzero >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
+      },
+      "condition": "@local.superficie_prevue_labour != 0",
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "text",
+              "value": "**Coût prévisionnel de labour par prestation (drm)**",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_1",
+              "_nested_name": "display_group_22.display_group_1.text_1"
+            },
+            {
+              "type": "audio",
+              "name": "audio_3_4",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/semis/cout_labour_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "style_list": [
+                "float: right"
+              ],
+              "_nested_name": "display_group_22.display_group_1.audio_3_4"
+            }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_22.display_group_1"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:100px",
+            "height:100px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_22.image_2"
+        },
+        {
+          "type": "text",
+          "value": "@global.hint_price",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: gray",
+            "font-size: 16px"
+          ],
+          "name": "text_3",
+          "_nested_name": "display_group_22.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.hint_price",
+                "matchedExpression": "@global.hint_price",
+                "type": "global",
+                "fieldName": "hint_price"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.hint_price": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text_box",
+          "name": "cout_prevu_superficie_labour_nonzero",
+          "value": "@fields.cout_prevu_superficie_labour_nonzero",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "cout_prevu_superficie_labour_nonzero",
+                "this.value"
+              ],
+              "_raw": "changed | set_field : cout_prevu_superficie_labour_nonzero: this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true"
+          },
+          "_nested_name": "display_group_22.cout_prevu_superficie_labour_nonzero",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.cout_prevu_superficie_labour_nonzero",
+                "matchedExpression": "@fields.cout_prevu_superficie_labour_nonzero",
+                "type": "fields",
+                "fieldName": "cout_prevu_superficie_labour_nonzero"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.cout_prevu_superficie_labour_nonzero": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.error_required_answer",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.attempt_submit && !@local.valid_cout_prevu_superficie_labour_nonzero",
+          "style_list": [
+            "color: red",
+            "font-size: 16px",
+            "background: #fff5f5",
+            "padding: 5px"
+          ],
+          "name": "text_6",
+          "_nested_name": "display_group_22.text_6",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.error_required_answer",
+                "matchedExpression": "@global.error_required_answer",
+                "type": "global",
+                "fieldName": "error_required_answer"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_cout_prevu_superficie_labour_nonzero",
+                "matchedExpression": "@fields.attempt_submit",
+                "type": "fields",
+                "fieldName": "attempt_submit"
+              },
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_cout_prevu_superficie_labour_nonzero",
+                "matchedExpression": "!@local.valid_cout_prevu_superficie_labour_nonzero",
+                "type": "local",
+                "fieldName": "valid_cout_prevu_superficie_labour_nonzero"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.error_required_answer": [
+              "value"
+            ],
+            "@fields.attempt_submit": [
+              "condition"
+            ],
+            "!@local.valid_cout_prevu_superficie_labour_nonzero": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_22",
+      "_nested_name": "display_group_22",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.superficie_prevue_labour != 0",
+            "matchedExpression": "@local.superficie_prevue_labour",
+            "type": "local",
+            "fieldName": "superficie_prevue_labour"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.superficie_prevue_labour": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.valid_superficie_ha_prevue && @local.valid_superficie_prevue_labour",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@local.valid_superficie_ha_prevue && @local.valid_superficie_prevue_labour",
+            "matchedExpression": "@local.valid_superficie_ha_prevue",
+            "type": "local",
+            "fieldName": "valid_superficie_ha_prevue"
+          },
+          {
+            "fullExpression": "@local.valid_superficie_ha_prevue && @local.valid_superficie_prevue_labour",
+            "matchedExpression": "@local.valid_superficie_prevue_labour",
+            "type": "local",
+            "fieldName": "valid_superficie_prevue_labour"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.valid_superficie_ha_prevue": [
+          "value"
+        ],
+        "@local.valid_superficie_prevue_labour": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "cout_prevue_superficie_labour",
+      "value": "@calc(Number(@fields.cout_prevu_superficie_labour_zero) || Number(@fields.cout_prevu_superficie_labour_nonzero))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "cout_prevue_superficie_labour",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@fields.cout_prevu_superficie_labour_zero) || Number(@fields.cout_prevu_superficie_labour_nonzero))",
+            "matchedExpression": "@fields.cout_prevu_superficie_labour_zero",
+            "type": "fields",
+            "fieldName": "cout_prevu_superficie_labour_zero"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.cout_prevu_superficie_labour_zero) || Number(@fields.cout_prevu_superficie_labour_nonzero))",
+            "matchedExpression": "@fields.cout_prevu_superficie_labour_nonzero",
+            "type": "fields",
+            "fieldName": "cout_prevu_superficie_labour_nonzero"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.cout_prevu_superficie_labour_zero) || Number(@fields.cout_prevu_superficie_labour_nonzero))",
+            "matchedExpression": "@calc(Number(@fields.cout_prevu_superficie_labour_zero) || Number(@fields.cout_prevu_superficie_labour_nonzero))",
+            "type": "calc",
+            "fieldName": "Number(@fields.cout_prevu_superficie_labour_zero) || Number(@fields.cout_prevu_superficie_labour_nonzero)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.cout_prevu_superficie_labour_zero": [
+          "value"
+        ],
+        "@fields.cout_prevu_superficie_labour_nonzero": [
+          "value"
+        ],
+        "@calc(Number(@fields.cout_prevu_superficie_labour_zero) || Number(@fields.cout_prevu_superficie_labour_nonzero))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page_3_btn_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "display_group_26.page_3_btn_back"
+        },
+        {
+          "type": "button",
+          "name": "page_3_btn_attempt_submit",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                true
+              ],
+              "_raw": "click | set_field: attempt_submit: true"
+            }
+          ],
+          "condition": "!@local.completed_enabled",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_26.page_3_btn_attempt_submit",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "!@local.completed_enabled",
+                "matchedExpression": "!@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "!@local.completed_enabled": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "name": "page_3_btn_continue",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cout_prevue_superficie_labour",
+                "@local.cout_prevue_superficie_labour"
+              ],
+              "_raw": "click | set_field: cout_prevue_superficie_labour : @local.cout_prevue_superficie_labour"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cout_prevue_superficie_labour_@fields.culture_label",
+                "@local.cout_prevue_superficie_labour"
+              ],
+              "_raw": "click | set_field: cout_prevue_superficie_labour_@fields.culture_label : @local.cout_prevue_superficie_labour"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "superficie_prevue_labour_@fields.culture_label",
+                "@fields.superficie_prevue_labour"
+              ],
+              "_raw": "click | set_field: superficie_prevue_labour_@fields.culture_label : @fields.superficie_prevue_labour"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "superficie_ha_prevue_@fields.culture_label",
+                "@fields.superficie_ha_prevue"
+              ],
+              "_raw": "click | set_field: superficie_ha_prevue_@fields.culture_label : @fields.superficie_ha_prevue"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                false
+              ],
+              "_raw": "click | set_field: attempt_submit: false"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "condition": "@local.completed_enabled",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_26.page_3_btn_continue",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.cout_prevue_superficie_labour",
+                      "matchedExpression": "@local.cout_prevue_superficie_labour",
+                      "type": "local",
+                      "fieldName": "cout_prevue_superficie_labour"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: cout_prevue_superficie_labour : @local.cout_prevue_superficie_labour",
+                    "matchedExpression": "@local.cout_prevue_superficie_labour",
+                    "type": "local",
+                    "fieldName": "cout_prevue_superficie_labour"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "cout_prevue_superficie_labour_@fields.culture_label",
+                      "matchedExpression": "@fields.culture_label",
+                      "type": "fields",
+                      "fieldName": "culture_label"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@local.cout_prevue_superficie_labour",
+                      "matchedExpression": "@local.cout_prevue_superficie_labour",
+                      "type": "local",
+                      "fieldName": "cout_prevue_superficie_labour"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: cout_prevue_superficie_labour_@fields.culture_label : @local.cout_prevue_superficie_labour",
+                    "matchedExpression": "@fields.culture_label",
+                    "type": "fields",
+                    "fieldName": "culture_label"
+                  },
+                  {
+                    "fullExpression": "click | set_field: cout_prevue_superficie_labour_@fields.culture_label : @local.cout_prevue_superficie_labour",
+                    "matchedExpression": "@local.cout_prevue_superficie_labour",
+                    "type": "local",
+                    "fieldName": "cout_prevue_superficie_labour"
+                  }
+                ]
+              },
+              "2": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "superficie_prevue_labour_@fields.culture_label",
+                      "matchedExpression": "@fields.culture_label",
+                      "type": "fields",
+                      "fieldName": "culture_label"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.superficie_prevue_labour",
+                      "matchedExpression": "@fields.superficie_prevue_labour",
+                      "type": "fields",
+                      "fieldName": "superficie_prevue_labour"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: superficie_prevue_labour_@fields.culture_label : @fields.superficie_prevue_labour",
+                    "matchedExpression": "@fields.culture_label",
+                    "type": "fields",
+                    "fieldName": "culture_label"
+                  },
+                  {
+                    "fullExpression": "click | set_field: superficie_prevue_labour_@fields.culture_label : @fields.superficie_prevue_labour",
+                    "matchedExpression": "@fields.superficie_prevue_labour",
+                    "type": "fields",
+                    "fieldName": "superficie_prevue_labour"
+                  }
+                ]
+              },
+              "3": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "superficie_ha_prevue_@fields.culture_label",
+                      "matchedExpression": "@fields.culture_label",
+                      "type": "fields",
+                      "fieldName": "culture_label"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.superficie_ha_prevue",
+                      "matchedExpression": "@fields.superficie_ha_prevue",
+                      "type": "fields",
+                      "fieldName": "superficie_ha_prevue"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: superficie_ha_prevue_@fields.culture_label : @fields.superficie_ha_prevue",
+                    "matchedExpression": "@fields.culture_label",
+                    "type": "fields",
+                    "fieldName": "culture_label"
+                  },
+                  {
+                    "fullExpression": "click | set_field: superficie_ha_prevue_@fields.culture_label : @fields.superficie_ha_prevue",
+                    "matchedExpression": "@fields.superficie_ha_prevue",
+                    "type": "fields",
+                    "fieldName": "superficie_ha_prevue"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.completed_enabled",
+                "matchedExpression": "@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "@local.cout_prevue_superficie_labour": [
+              "action_list.0.args.1",
+              "action_list.0._raw",
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
+            "@fields.culture_label": [
+              "action_list.1.args.0",
+              "action_list.1._raw",
+              "action_list.2.args.0",
+              "action_list.2._raw",
+              "action_list.3.args.0",
+              "action_list.3._raw"
+            ],
+            "@fields.superficie_prevue_labour": [
+              "action_list.2.args.1",
+              "action_list.2._raw"
+            ],
+            "@fields.superficie_ha_prevue": [
+              "action_list.3.args.1",
+              "action_list.3._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ],
+            "@local.completed_enabled": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_26",
+      "_nested_name": "display_group_26"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Cultures_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1BAP12cPkFZaHtm0Xozys0kLOqnVOi1h2UUBMoZbmKQI"
+  }
+}

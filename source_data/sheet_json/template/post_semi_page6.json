@@ -8,6 +8,14 @@
       "value": "@calc(Number(@field.current_culture_index) + 1)"
     },
     {
+      "name": "v_tot_cult",
+      "value": "@calc((Number(@field.final_cout_entre) || 0) + (Number(@field.final_count_fert) || 0) + (Number(@field.final_count_phyto) || 0) + (Number(@field.final_cout_autre_psemis) || 0))"
+    },
+    {
+      "name": "v_tot_fcfa",
+      "value": "@calc(@local.v_tot_cult * 5)"
+    },
+    {
       "type": "begin_display_group",
       "name": "header_top",
       "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
@@ -21,7 +29,7 @@
     },
     {
       "type": "title",
-      "value": "DÉTAILS DE LA CULTURE : FERTILISATION"
+      "value": "BILAN & OBSERVATIONS"
     },
     {
       "type": "begin_display_group",
@@ -29,7 +37,7 @@
     },
     {
       "type": "image",
-      "value": "@calc('images/' + @field.active_culture_name + '.jpg')",
+      "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
       "style_list": "width: 60%; object-fit: contain;"
     },
     {
@@ -41,268 +49,133 @@
       "type": "end_display_group"
     },
     {
-      "name": "v_q_npk_fmt",
-      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_npk))"
-    },
-    {
-      "name": "v_q_npk_pos",
-      "value": "@calc(@local.v_q_npk_fmt && Number(@field.q_npk) > 0)"
-    },
-    {
-      "name": "v_q_npk_err",
-      "value": "@calc(!@local.v_q_npk_fmt || Number(@field.q_npk) < 0)"
+      "type": "html",
+      "value": "<br><h3 style=\"color: #E65100; margin:0;\">TOTAL INVESTI : @local.v_tot_cult Dram</h3>"
     },
     {
       "type": "html",
-      "value": "<br><b style=\"color: #e67e22\">1. APPORT NPK (Engrais de fond)</b>"
+      "value": "<p style=\"color: #757575; font-size: 14px;\">Équivalent : <b>@local.v_tot_fcfa FCFA</b><br><small><i>(Base : 1 dram = 5 FCFA)</i></small></p>"
     },
     {
       "type": "begin_display_group",
-      "name": "npk_card",
+      "name": "bilan_card",
       "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "parameter_list": "variant: compact;\nsrc: audio/postSemi/q_npk_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "parameter_list": "variant: button_only;\nsrc: audio/postSemi/cout_cult_postsemis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float: right;"
-    },
-    {
-      "type": "html",
-      "value": "<br>Quantité NPK utilisée (Sacs de 50kg)<span style=\"color: red;\">*</span>"
-    },
-    {
-      "type": "image",
-      "value": "images/sac.jpg",
-      "style_list": "width: 80%; object-fit: contain;"
-    },
-    {
-      "type": "text_box",
-      "name": "q_npk",
-      "value": "@field.q_npk",
-      "action_list": "changed | set_field: q_npk : this.value;",
-      "parameter_list": "number_input: true; placeholder: 0;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "text",
-      "value": "Mettez une valeur positive.",
-      "condition": "@local.v_q_npk_err",
-      "style_list": "color: red; font-size: 12px;"
+      "type": "html",
+      "value": "<br><b style=\"color: #455A64\">COMMENT SOUHAITEZ-VOUS FAIRE VOTRE CONSTAT ?</b>"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "obs_grid",
+      "value": "@field.obs_type",
+      "action_list": "changed | set_field: obs_type : this.value;",
+      "parameter_list": "answer_list: @data.group_observation;\nvariant: flex;\nitem_width: 60px;\ngrid_gap: 8px;"
     },
     {
       "type": "begin_display_group",
-      "name": "npk_cost_card",
-      "condition": "@local.v_q_npk_pos",
+      "name": "obs_audio",
+      "condition": "@field.obs_type == 'par_vocal'",
       "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "parameter_list": "variant: compact;\nsrc: audio/postSemi/cout_npk_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "parameter_list": "variant: button_only;\nsrc: audio/postSemi/Ob_audio_postsemis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "Coût total NPK payé (Dram)<span style=\"color: red;\">*</span>",
-      "condition": "@field.q_npk > 0"
-    },
-    {
       "type": "text",
-      "value": "*Rappel : 1 dram = 5 FCFA*",
-      "condition": "@field.q_npk > 0\n",
-      "style_list": "font-size: 14px; color: gray;"
-    },
-    {
-      "type": "image",
-      "value": "images/cfa.jpg",
-      "style_list": "width: 80%; object-fit: contain;"
-    },
-    {
-      "type": "text_box",
-      "name": "c_npk",
-      "value": "@field.c_npk",
-      "action_list": "changed | set_field: c_npk : this.value;",
-      "parameter_list": "number_input: true; placeholder: Prix total NPK...;"
+      "value": "Enregistrez votre témoignage vocal ci-dessus."
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "begin_display_group",
-      "name": "npk_cost_card_zero",
-      "condition": "@field.q_npk == 0",
+      "name": "obs_photo",
+      "condition": "@field.obs_type == 'par_photo'",
       "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "parameter_list": "variant: compact;\nsrc: audio/postSemi/cout_npk_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "parameter_list": "variant: button_only;\nsrc: audio/postSemi/Ob_photo_postsemis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "Coût total NPK payé (Dram)<span style=\"color: red;\">*</span>"
-    },
-    {
       "type": "text",
-      "value": "*Rappel : 1 dram = 5 FCFA*",
-      "condition": "\n",
-      "style_list": "font-size: 14px; color: gray;"
-    },
-    {
-      "type": "image",
-      "value": "images/cfa.jpg",
-      "style_list": "width: 80%; object-fit: contain;"
-    },
-    {
-      "type": "text_box",
-      "value": 0,
-      "parameter_list": "disabled:true;"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "name": "v_q_ur_fmt",
-      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_ur))"
-    },
-    {
-      "name": "v_q_ur_pos",
-      "value": "@calc(@local.v_q_ur_fmt && Number(@field.q_ur) > 0)"
-    },
-    {
-      "name": "v_q_ur_err",
-      "value": "@calc(!@local.v_q_ur_fmt || Number(@field.q_ur) < 0)"
-    },
-    {
-      "type": "html",
-      "value": "<br><b style=\"color: #e67e22\">2. APPORT URÉE (Engrais de couverture)</b>"
-    },
-    {
-      "type": "begin_display_group",
-      "name": "uree_card",
-      "style_list": "display: block; width: 100%"
-    },
-    {
-      "type": "audio",
-      "parameter_list": "variant: compact;\nsrc: audio/postSemi/q_ur_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
-    },
-    {
-      "type": "html",
-      "value": "<br>Quantité Urée utilisée (Sacs de 50kg)<span style=\"color: red;\">*</span>"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "image",
-      "value": "images/sac.jpg",
-      "style_list": "width: 80%; object-fit: contain;"
-    },
-    {
-      "type": "text_box",
-      "name": "q_ur",
-      "value": "@field.q_ur",
-      "action_list": "changed | set_field: q_ur : this.value;",
-      "parameter_list": "number_input: true; placeholder: 0;"
-    },
-    {
-      "type": "text",
-      "value": "Mettez une valeur positive.",
-      "condition": "@local.v_q_ur_err",
-      "style_list": "color: red; font-size: 12px;"
-    },
-    {
-      "type": "begin_display_group",
-      "name": "card_cout",
-      "condition": "@local.v_q_ur_pos",
-      "style_list": "display: block; width: 100%"
-    },
-    {
-      "type": "audio",
-      "parameter_list": "variant: compact;\nsrc: audio/postSemi/cout_ur_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
-    },
-    {
-      "type": "html",
-      "value": "Coût total Urée payé (Dram)<span style=\"color: red;\">*</span>"
-    },
-    {
-      "type": "text",
-      "value": "*Rappel : 1 dram = 5 FCFA*",
-      "style_list": "font-size: 14px; color: gray;"
-    },
-    {
-      "type": "image",
-      "value": "images/cfa.jpg",
-      "style_list": "width: 80%; object-fit: contain;"
-    },
-    {
-      "type": "text_box",
-      "name": "c_ur",
-      "value": "@field.c_ur",
-      "action_list": "changed | set_field: c_ur : this.value;",
-      "parameter_list": "placeholder: Prix total Urée...; number_input: true;"
+      "value": "Prenez une photo d'un point précis du champ."
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "begin_display_group",
-      "name": "card_cout_zero",
-      "condition": "@field.q_ur == 0",
+      "name": "obs_video",
+      "condition": "@field.obs_type == 'par_video'",
       "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "parameter_list": "variant: compact;\nsrc: audio/postSemi/cout_ur_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "parameter_list": "variant: button_only;\nsrc: audio/postSemi/Ob_video_postsemis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "Coût total Urée payé (Dram)<span style=\"color: red;\">*</span>"
-    },
-    {
       "type": "text",
-      "value": "*Rappel : 1 dram = 5 FCFA*",
-      "style_list": "font-size: 14px; color: gray;"
-    },
-    {
-      "type": "image",
-      "value": "images/cfa.jpg",
-      "style_list": "width: 80%; object-fit: contain;"
-    },
-    {
-      "type": "text_box",
-      "name": "c_ur_zero",
-      "value": 0,
-      "parameter_list": "disabled:true;"
+      "value": "Filmez l'état général de la culture."
     },
     {
       "type": "end_display_group"
     },
     {
-      "name": "v_fert_npk_ok",
-      "value": "@calc(@local.v_q_npk_fmt && (Number(@field.q_npk) === 0 || (Number(@field.c_npk) >= 0 && @field.c_npk !== '')))"
+      "type": "begin_display_group",
+      "name": "obs_text",
+      "condition": "@field.obs_type == 'par_text'",
+      "style_list": "display: block; width: 100%"
     },
     {
-      "name": "v_fert_ur_ok",
-      "value": "@calc(@local.v_q_ur_fmt && (Number(@field.q_ur) === 0 || (Number(@field.c_ur) >= 0 && @field.c_ur !== '')))"
+      "type": "audio",
+      "parameter_list": "variant: button_only;\nsrc: audio/postSemi/Ob_ecrit_postsemis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
     },
     {
-      "name": "v_total_fert_culture",
-      "value": "@calc((Number(@field.c_npk) || 0) + (Number(@field.c_ur) || 0))"
+      "type": "text_area",
+      "name": "obs_text",
+      "value": "@field.obs_text",
+      "action_list": "changed | set_field: obs_text : this.value;",
+      "parameter_list": "placeholder: Saisissez vos remarques...;multiline: true;",
+      "style_list": "font-size: 12px; font-style: italic;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "name",
+      "value": "@calc(@field.selected_cultures_list.split(',')[Number(@field.current_culture_index) + 1])"
+    },
+    {
+      "name": "v_new_total_global",
+      "value": "@calc((Number(@field.grand_total_post_semi) || 0) + Number(@local.v_tot_cult))"
+    },
+    {
+      "name": "v_current_obs_ok",
+      "value": "@calc(@field.obs_type!== undefined && @field.obs_type!== '' && @field.obs_type!== null)"
     },
     {
       "name": "completed_enabled",
-      "value": "@calc(@local.v_fert_npk_ok && @local.v_fert_ur_ok)"
+      "value": "@local.v_current_obs_ok\n\n"
     },
     {
       "type": "begin_display_group",
@@ -320,8 +193,18 @@
       "type": "button",
       "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | set_field: final_count_fert : @local.v_total_fert_culture;\nclick | emit: completed",
+      "action_list": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    superficie_sarclage: @field.superficie_sarclage,\n    cout_sarclage_nonzero: @field.cout_sarclage_nonzero,\n    superficie_desherbage: @field.superficie_desherbage,\n    cout_desherbage_nonzero: @field.cout_desherbage_nonzero,\n    superficie_butee: @field.superficie_butee,\n    cout_buttage_nonzero: @field.cout_buttage_nonzero,\n    quantite_npk: @field.quantite_npk,\n    cout_npk_nonzero: @field.cout_npk_nonzero,\n    quantite_ureeee: @field.quantite_uree,\n    cout_uree_nonzeroee: @field.cout_uree_nonzero,\n    quantite_herbicide: @field.quantite_herbicide,\n    cout_herbicide_nonzero: @field.cout_herbicide_nonzero,\n    quantite_insecticide: @field.quantite_insecticide,\n    cout_insecticide_nonzero: @field.cout_insecticide_nonzero,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult;\nclick | set_data | _list_id: post_semi_settings_pages, _index: 1, completed: false;\nclick | set_data | _list_id: post_semi_settings_pages, _index: 2, completed: false;\nclick | set_data | _list_id: post_semi_settings_pages, _index: 3, completed: false;\nclick | set_data | _list_id: post_semi_settings_pages, _index: 4, completed: false;\nclick | set_data | _list_id: post_semi_settings_pages, _index: 5, completed: false;\nclick | set_field: active_culture_name : @local.name;\nclick | set_field: current_culture_index : @calc(Number(@field.current_culture_index) + 1);\nclick | set_field: superficie_sarclage :;\nclick | set_field: cout_sarclage_nonzero :;\nclick | set_field: superficie_desherbage :;\nclick | set_field: cout_desherbage_nonzero :;\nclick | set_field: superficie_butee :;\nclick | set_field: cout_buttage_nonzero :;\nclick | set_field: quantite_npk :;\nclick | set_field: cout_npk_nonzero :;\nclick | set_field: quantite_uree :;\nclick | set_field: cout_uree_nonzero :;\nclick | set_field: quantite_herbicide :;\nclick | set_field: cout_herbicide_nonzero :;\nclick | set_field: quantite_insecticide :;\nclick | set_field: no_autre_cout_postsemis :;\nclick | set_field: nom_autre_cout_postsemis :;\nclick | set_field: autre_cout_postsemis :;\nclick | set_field: final_cout_autre_psemis :;\nclick | set_field: cout_insecticide_nonzero :;\nclick | set_field: obs_type :;\nclick | set_field: grand_total_post_semi : @local.v_new_total_global;\nclick | emit: force_reprocess;",
       "parameter_list": "style: navigation;\ndisabled: !@local.completed_enabled",
+      "condition": "@calc(Number(@field.current_culture_index) < Number(@field.total_cultures_selected) - 1)",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "Terminer",
+      "action_list": "click | set_field: grand_total_post_semi : @local.v_new_total_global;\nclick | set_field: current_culture_index : 0;\nclick | set_field: active_culture_name : @calc(@field.selected_cultures_list.split(',')[0]);\nclick | emit: completed;\n",
+      "parameter_list": "style: navigation;\ndisabled: !@local.completed_enabled",
+      "condition": "@calc(Number(@field.current_culture_index) >= Number(@field.total_cultures_selected) - 1)",
       "style_list": "flex: 1"
     },
     {

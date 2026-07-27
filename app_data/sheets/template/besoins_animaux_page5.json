@@ -4,522 +4,101 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
-      "value": "**REGIMES ALIMENTAIRES**",
-      "_translations": {
-        "value": {}
-      },
-      "name": "subtitle_2",
-      "_nested_name": "subtitle_2"
-    },
-    {
-      "type": "data_items",
-      "value": "@data.categorie_animaux",
-      "parameter_list": {
-        "filter": "@item.name == @fields.current_cat_animaux"
-      },
-      "rows": [
-        {
-          "type": "display_group",
-          "rows": [
-            {
-              "type": "image",
-              "value": "@item.image",
-              "_translations": {
-                "value": {}
-              },
-              "style_list": [
-                "width:150px",
-                "height:150px"
-              ],
-              "name": "image_1",
-              "_nested_name": "data_items_3.display_group_1_@item.id.image_1",
-              "_dynamicFields": {
-                "value": [
-                  {
-                    "fullExpression": "@item.image",
-                    "matchedExpression": "@item.image",
-                    "type": "item",
-                    "fieldName": "image"
-                  }
-                ],
-                "_nested_name": [
-                  {
-                    "fullExpression": "data_items_3.display_group_1_@item.id.image_1",
-                    "matchedExpression": "@item.id.image_1",
-                    "type": "item",
-                    "fieldName": "id"
-                  }
-                ]
-              },
-              "_dynamicDependencies": {
-                "@item.image": [
-                  "value"
-                ],
-                "@item.id.image_1": [
-                  "_nested_name"
-                ]
-              }
-            },
-            {
-              "type": "text",
-              "value": "@item.text",
-              "_translations": {
-                "value": {}
-              },
-              "name": "text_2",
-              "_nested_name": "data_items_3.display_group_1_@item.id.text_2",
-              "_dynamicFields": {
-                "value": [
-                  {
-                    "fullExpression": "@item.text",
-                    "matchedExpression": "@item.text",
-                    "type": "item",
-                    "fieldName": "text"
-                  }
-                ],
-                "_nested_name": [
-                  {
-                    "fullExpression": "data_items_3.display_group_1_@item.id.text_2",
-                    "matchedExpression": "@item.id.text_2",
-                    "type": "item",
-                    "fieldName": "id"
-                  }
-                ]
-              },
-              "_dynamicDependencies": {
-                "@item.text": [
-                  "value"
-                ],
-                "@item.id.text_2": [
-                  "_nested_name"
-                ]
-              }
-            }
-          ],
-          "name": "display_group_1_@item.id",
-          "_nested_name": "data_items_3.display_group_1_@item.id",
-          "_dynamicFields": {
-            "name": [
-              {
-                "fullExpression": "display_group_1_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ],
-            "_nested_name": [
-              {
-                "fullExpression": "data_items_3.display_group_1_@item.id",
-                "matchedExpression": "@item.id",
-                "type": "item",
-                "fieldName": "id"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@item.id": [
-              "name",
-              "_nested_name"
-            ]
-          }
-        },
-        {
-          "type": "text",
-          "name": "regime_boeufs_labour",
-          "value": "Les différents régimes alimentaires pour le(s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** les @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***La supplémentation simple:***  le pâturage libre dans la journée + 1 kg de fanes/foins + 3 kg de paille de céréales chaque nuit  durant toute la saison sèche-chaude; \n- ***La supplémentation améliorée :***  le pâturage libre dans la journée toute la saison sèche-chaude + supplémentation simple chaque nuit (janvier-mars) et 1 kg de tourteau + 2 kg de fanes/foins + 5 kg de paille de céréales (Avril-juin)",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "@fields.current_cat_animaux == 'boeufs_labour'",
-          "_nested_name": "data_items_3.regime_boeufs_labour",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "Les différents régimes alimentaires pour le(s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** les @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***La supplémentation simple:***  le pâturage libre dans la journée + 1 kg de fanes/foins + 3 kg de paille de céréales chaque nuit  durant toute la saison sèche-chaude; \n- ***La supplémentation améliorée :***  le pâturage libre dans la journée toute la saison sèche-chaude + supplémentation simple chaque nuit (janvier-mars) et 1 kg de tourteau + 2 kg de fanes/foins + 5 kg de paille de céréales (Avril-juin)",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
-              },
-              {
-                "fullExpression": "Les différents régimes alimentaires pour le(s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** les @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***La supplémentation simple:***  le pâturage libre dans la journée + 1 kg de fanes/foins + 3 kg de paille de céréales chaque nuit  durant toute la saison sèche-chaude; \n- ***La supplémentation améliorée :***  le pâturage libre dans la journée toute la saison sèche-chaude + supplémentation simple chaque nuit (janvier-mars) et 1 kg de tourteau + 2 kg de fanes/foins + 5 kg de paille de céréales (Avril-juin)",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "@fields.current_cat_animaux == 'boeufs_labour'",
-                "matchedExpression": "@fields.current_cat_animaux",
-                "type": "fields",
-                "fieldName": "current_cat_animaux"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@item.text": [
-              "value",
-              "value"
-            ],
-            "@fields.current_cat_animaux": [
-              "condition"
-            ]
-          }
-        },
-        {
-          "type": "text",
-          "name": "regime_embouche_bovine",
-          "value": "Les différents régimes alimentaires pour le (s) @item.text  en trois (3) mois durant la saison sèche-chaude (janvier-juin) sont :\n- ***La stabulation:*** le(s) @item.text  sont maintenus et nourris sur place avec 2 kg de tourteau de coton, 2 kg de fanes/foins et 7 kg de pailles de céréales.",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "@fields.current_cat_animaux == 'embouche_bovine'",
-          "_nested_name": "data_items_3.regime_embouche_bovine",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "Les différents régimes alimentaires pour le (s) @item.text  en trois (3) mois durant la saison sèche-chaude (janvier-juin) sont :\n- ***La stabulation:*** le(s) @item.text  sont maintenus et nourris sur place avec 2 kg de tourteau de coton, 2 kg de fanes/foins et 7 kg de pailles de céréales.",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
-              },
-              {
-                "fullExpression": "Les différents régimes alimentaires pour le (s) @item.text  en trois (3) mois durant la saison sèche-chaude (janvier-juin) sont :\n- ***La stabulation:*** le(s) @item.text  sont maintenus et nourris sur place avec 2 kg de tourteau de coton, 2 kg de fanes/foins et 7 kg de pailles de céréales.",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "@fields.current_cat_animaux == 'embouche_bovine'",
-                "matchedExpression": "@fields.current_cat_animaux",
-                "type": "fields",
-                "fieldName": "current_cat_animaux"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@item.text": [
-              "value",
-              "value"
-            ],
-            "@fields.current_cat_animaux": [
-              "condition"
-            ]
-          }
-        },
-        {
-          "type": "text",
-          "name": "regime_vache_laitiere",
-          "value": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** le (s) @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***Le transhumance:***le pâturage libre sur des parcours pastoraux lointains;\n- ***La supplémentation simple:***  le pâturage libre dans la journée + 1kg de fanes/foins + 2 kg de pailles de céréales chaque nuit  durant toute la saison sèche-chaude; \n- ***La supplémentation améliorée :***  le pâturage libre dans la journée toute la saison sèche-chaude + supplementation simple (janvier-mars) et 2 kg de tourteau + 2kg de fanes/foins + 5 kg de pailles de céréales (avril-Juin) ;\n- ***La stabulation:*** le (s) @item.text sont nourries en supplementation simple (durant trois mois) et ensuite maintenues et nourries sur place avec 3 kg de fanes/foins + 2 kg de tourteau de coton + 3 kg paille de céréale (durant trois autres mois).",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "@fields.current_cat_animaux == 'vache_laitiere'",
-          "_nested_name": "data_items_3.regime_vache_laitiere",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** le (s) @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***Le transhumance:***le pâturage libre sur des parcours pastoraux lointains;\n- ***La supplémentation simple:***  le pâturage libre dans la journée + 1kg de fanes/foins + 2 kg de pailles de céréales chaque nuit  durant toute la saison sèche-chaude; \n- ***La supplémentation améliorée :***  le pâturage libre dans la journée toute la saison sèche-chaude + supplementation simple (janvier-mars) et 2 kg de tourteau + 2kg de fanes/foins + 5 kg de pailles de céréales (avril-Juin) ;\n- ***La stabulation:*** le (s) @item.text sont nourries en supplementation simple (durant trois mois) et ensuite maintenues et nourries sur place avec 3 kg de fanes/foins + 2 kg de tourteau de coton + 3 kg paille de céréale (durant trois autres mois).",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
-              },
-              {
-                "fullExpression": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** le (s) @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***Le transhumance:***le pâturage libre sur des parcours pastoraux lointains;\n- ***La supplémentation simple:***  le pâturage libre dans la journée + 1kg de fanes/foins + 2 kg de pailles de céréales chaque nuit  durant toute la saison sèche-chaude; \n- ***La supplémentation améliorée :***  le pâturage libre dans la journée toute la saison sèche-chaude + supplementation simple (janvier-mars) et 2 kg de tourteau + 2kg de fanes/foins + 5 kg de pailles de céréales (avril-Juin) ;\n- ***La stabulation:*** le (s) @item.text sont nourries en supplementation simple (durant trois mois) et ensuite maintenues et nourries sur place avec 3 kg de fanes/foins + 2 kg de tourteau de coton + 3 kg paille de céréale (durant trois autres mois).",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
-              },
-              {
-                "fullExpression": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** le (s) @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***Le transhumance:***le pâturage libre sur des parcours pastoraux lointains;\n- ***La supplémentation simple:***  le pâturage libre dans la journée + 1kg de fanes/foins + 2 kg de pailles de céréales chaque nuit  durant toute la saison sèche-chaude; \n- ***La supplémentation améliorée :***  le pâturage libre dans la journée toute la saison sèche-chaude + supplementation simple (janvier-mars) et 2 kg de tourteau + 2kg de fanes/foins + 5 kg de pailles de céréales (avril-Juin) ;\n- ***La stabulation:*** le (s) @item.text sont nourries en supplementation simple (durant trois mois) et ensuite maintenues et nourries sur place avec 3 kg de fanes/foins + 2 kg de tourteau de coton + 3 kg paille de céréale (durant trois autres mois).",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "@fields.current_cat_animaux == 'vache_laitiere'",
-                "matchedExpression": "@fields.current_cat_animaux",
-                "type": "fields",
-                "fieldName": "current_cat_animaux"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@item.text": [
-              "value",
-              "value",
-              "value"
-            ],
-            "@fields.current_cat_animaux": [
-              "condition"
-            ]
-          }
-        },
-        {
-          "type": "text",
-          "name": "regime_autres_bovins",
-          "value": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** le (s) @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***Le transhumance:***le pâturage libre sur des parcours pastoraux lointains;\n- ***La complémentation simple:***  le pâturage libre dans la journée +  1kg de fanes/foins+ 3 kg de pailles de céréales chaque nuit  durant toute la saison sèche-chaude.",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "@fields.current_cat_animaux == 'autres_bovins'",
-          "_nested_name": "data_items_3.regime_autres_bovins",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** le (s) @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***Le transhumance:***le pâturage libre sur des parcours pastoraux lointains;\n- ***La complémentation simple:***  le pâturage libre dans la journée +  1kg de fanes/foins+ 3 kg de pailles de céréales chaque nuit  durant toute la saison sèche-chaude.",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
-              },
-              {
-                "fullExpression": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** le (s) @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***Le transhumance:***le pâturage libre sur des parcours pastoraux lointains;\n- ***La complémentation simple:***  le pâturage libre dans la journée +  1kg de fanes/foins+ 3 kg de pailles de céréales chaque nuit  durant toute la saison sèche-chaude.",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "@fields.current_cat_animaux == 'autres_bovins'",
-                "matchedExpression": "@fields.current_cat_animaux",
-                "type": "fields",
-                "fieldName": "current_cat_animaux"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@item.text": [
-              "value",
-              "value"
-            ],
-            "@fields.current_cat_animaux": [
-              "condition"
-            ]
-          }
-        },
-        {
-          "type": "text",
-          "name": "regime_assins",
-          "value": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** les @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***La stabulation:*** le(s) @item.text est/sont maintenu(s) et nourri(s) sur place avec 1 kg de fânes/foins + 1kg de son de céréales + 2 kg paille de céréale.",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "@fields.current_cat_animaux == 'asins'",
-          "_nested_name": "data_items_3.regime_assins",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** les @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***La stabulation:*** le(s) @item.text est/sont maintenu(s) et nourri(s) sur place avec 1 kg de fânes/foins + 1kg de son de céréales + 2 kg paille de céréale.",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
-              },
-              {
-                "fullExpression": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** les @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***La stabulation:*** le(s) @item.text est/sont maintenu(s) et nourri(s) sur place avec 1 kg de fânes/foins + 1kg de son de céréales + 2 kg paille de céréale.",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
-              },
-              {
-                "fullExpression": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** les @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***La stabulation:*** le(s) @item.text est/sont maintenu(s) et nourri(s) sur place avec 1 kg de fânes/foins + 1kg de son de céréales + 2 kg paille de céréale.",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "@fields.current_cat_animaux == 'asins'",
-                "matchedExpression": "@fields.current_cat_animaux",
-                "type": "fields",
-                "fieldName": "current_cat_animaux"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@item.text": [
-              "value",
-              "value",
-              "value"
-            ],
-            "@fields.current_cat_animaux": [
-              "condition"
-            ]
-          }
-        },
-        {
-          "type": "text",
-          "name": "regime_embouche_ovine",
-          "value": "Les différents régimes alimentaires pour le (s) @item.text en trois (3) mois durant saison sèche-chaude (janvier-juin) sont :\n- ***La stabulation:*** 4 kg des feuilles d’arbres (=1,5 kgMS de fanes) + 0,5 kg de son de céréales (ou de tourteau de coton).",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "@fields.current_cat_animaux == 'embouche_ovine'",
-          "_nested_name": "data_items_3.regime_embouche_ovine",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "Les différents régimes alimentaires pour le (s) @item.text en trois (3) mois durant saison sèche-chaude (janvier-juin) sont :\n- ***La stabulation:*** 4 kg des feuilles d’arbres (=1,5 kgMS de fanes) + 0,5 kg de son de céréales (ou de tourteau de coton).",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "@fields.current_cat_animaux == 'embouche_ovine'",
-                "matchedExpression": "@fields.current_cat_animaux",
-                "type": "fields",
-                "fieldName": "current_cat_animaux"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@item.text": [
-              "value"
-            ],
-            "@fields.current_cat_animaux": [
-              "condition"
-            ]
-          }
-        },
-        {
-          "type": "text",
-          "name": "regime_reste_ovins",
-          "value": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** le (s) @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***La complémentation simple:***  le pâturage libre dans la journée + 0,5 kg de fanes + 0,5 kg de son de céréales (ou de tourteau de coton) chaque nuit durant toute la saison sèche-chaude; \n- ***La stabulation:*** le (s) @item.text est/sont maintenu(s) et nourri (s) sur place avec 4 kg des feuilles d’arbres (1,5 kgMS de fanes) + 0,5 kg de son de céréales (de tourteau de coton) durant toute la saison sèche-chaude.",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "@fields.current_cat_animaux == 'reste_ovins'",
-          "_nested_name": "data_items_3.regime_reste_ovins",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** le (s) @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***La complémentation simple:***  le pâturage libre dans la journée + 0,5 kg de fanes + 0,5 kg de son de céréales (ou de tourteau de coton) chaque nuit durant toute la saison sèche-chaude; \n- ***La stabulation:*** le (s) @item.text est/sont maintenu(s) et nourri (s) sur place avec 4 kg des feuilles d’arbres (1,5 kgMS de fanes) + 0,5 kg de son de céréales (de tourteau de coton) durant toute la saison sèche-chaude.",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
-              },
-              {
-                "fullExpression": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** le (s) @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***La complémentation simple:***  le pâturage libre dans la journée + 0,5 kg de fanes + 0,5 kg de son de céréales (ou de tourteau de coton) chaque nuit durant toute la saison sèche-chaude; \n- ***La stabulation:*** le (s) @item.text est/sont maintenu(s) et nourri (s) sur place avec 4 kg des feuilles d’arbres (1,5 kgMS de fanes) + 0,5 kg de son de céréales (de tourteau de coton) durant toute la saison sèche-chaude.",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
-              },
-              {
-                "fullExpression": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** le (s) @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***La complémentation simple:***  le pâturage libre dans la journée + 0,5 kg de fanes + 0,5 kg de son de céréales (ou de tourteau de coton) chaque nuit durant toute la saison sèche-chaude; \n- ***La stabulation:*** le (s) @item.text est/sont maintenu(s) et nourri (s) sur place avec 4 kg des feuilles d’arbres (1,5 kgMS de fanes) + 0,5 kg de son de céréales (de tourteau de coton) durant toute la saison sèche-chaude.",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "@fields.current_cat_animaux == 'reste_ovins'",
-                "matchedExpression": "@fields.current_cat_animaux",
-                "type": "fields",
-                "fieldName": "current_cat_animaux"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@item.text": [
-              "value",
-              "value",
-              "value"
-            ],
-            "@fields.current_cat_animaux": [
-              "condition"
-            ]
-          }
-        },
-        {
-          "type": "text",
-          "name": "regime_caprins",
-          "value": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** le (s) @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***La complémentation simple:***  le pâturage libre dans la journée + 0,5 kg de fanes + 0,5 kg de son de céréales (ou de tourteau de coton) chaque nuit  durant toute la saison sèche-chaude.",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "@fields.current_cat_animaux == 'caprins'",
-          "_nested_name": "data_items_3.regime_caprins",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** le (s) @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***La complémentation simple:***  le pâturage libre dans la journée + 0,5 kg de fanes + 0,5 kg de son de céréales (ou de tourteau de coton) chaque nuit  durant toute la saison sèche-chaude.",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
-              },
-              {
-                "fullExpression": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** le (s) @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***La complémentation simple:***  le pâturage libre dans la journée + 0,5 kg de fanes + 0,5 kg de son de céréales (ou de tourteau de coton) chaque nuit  durant toute la saison sèche-chaude.",
-                "matchedExpression": "@item.text",
-                "type": "item",
-                "fieldName": "text"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "@fields.current_cat_animaux == 'caprins'",
-                "matchedExpression": "@fields.current_cat_animaux",
-                "type": "fields",
-                "fieldName": "current_cat_animaux"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@item.text": [
-              "value",
-              "value"
-            ],
-            "@fields.current_cat_animaux": [
-              "condition"
-            ]
-          }
-        }
-      ],
-      "name": "data_items_3",
-      "_nested_name": "data_items_3",
+      "type": "template",
+      "name": "temp1",
+      "value": "sup_simple",
+      "condition": "@fields.type_regime == 'compl_faible'",
+      "rows": [],
+      "_nested_name": "temp1",
       "_dynamicFields": {
-        "value": [
+        "condition": [
           {
-            "fullExpression": "@data.categorie_animaux",
-            "matchedExpression": "@data.categorie_animaux",
-            "type": "data",
-            "fieldName": "categorie_animaux"
+            "fullExpression": "@fields.type_regime == 'compl_faible'",
+            "matchedExpression": "@fields.type_regime",
+            "type": "fields",
+            "fieldName": "type_regime"
           }
-        ],
-        "parameter_list": {
-          "filter": [
-            {
-              "fullExpression": "@item.name == @fields.current_cat_animaux",
-              "matchedExpression": "@item.name",
-              "type": "item",
-              "fieldName": "name"
-            },
-            {
-              "fullExpression": "@item.name == @fields.current_cat_animaux",
-              "matchedExpression": "@fields.current_cat_animaux",
-              "type": "fields",
-              "fieldName": "current_cat_animaux"
-            }
-          ]
-        }
+        ]
       },
       "_dynamicDependencies": {
-        "@data.categorie_animaux": [
-          "value"
-        ],
-        "@item.name": [
-          "parameter_list.filter"
-        ],
-        "@fields.current_cat_animaux": [
-          "parameter_list.filter"
+        "@fields.type_regime": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "template",
+      "name": "temp2",
+      "value": "sup_ameliore",
+      "condition": "@fields.type_regime == 'compl_ameli'",
+      "rows": [],
+      "_nested_name": "temp2",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_regime == 'compl_ameli'",
+            "matchedExpression": "@fields.type_regime",
+            "type": "fields",
+            "fieldName": "type_regime"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_regime": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "template",
+      "name": "temp3",
+      "value": "stabulation",
+      "condition": "@fields.type_regime == 'stabulation'",
+      "rows": [],
+      "_nested_name": "temp3",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_regime == 'stabulation'",
+            "matchedExpression": "@fields.type_regime",
+            "type": "fields",
+            "fieldName": "type_regime"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_regime": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "template",
+      "name": "temp4",
+      "value": "paturage_transh",
+      "condition": "@fields.type_regime == 'paturage' || @fields.type_regime == 'transhumance'",
+      "rows": [],
+      "_nested_name": "temp4",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_regime == 'paturage' || @fields.type_regime == 'transhumance'",
+            "matchedExpression": "@fields.type_regime",
+            "type": "fields",
+            "fieldName": "type_regime"
+          },
+          {
+            "fullExpression": "@fields.type_regime == 'paturage' || @fields.type_regime == 'transhumance'",
+            "matchedExpression": "@fields.type_regime",
+            "type": "fields",
+            "fieldName": "type_regime"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_regime": [
+          "condition",
+          "condition"
         ]
       }
     },
@@ -535,7 +114,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page5_button_back",
+          "name": "page7_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -550,11 +129,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_5.page5_button_back"
+          "_nested_name": "display_group_10.page7_button_back"
         },
         {
           "type": "button",
-          "name": "page5_button_continue",
+          "name": "page7_button_continue",
           "value": "Continuer",
           "_translations": {
             "value": {}
@@ -569,11 +148,14 @@
               "_raw": "click | emit: completed"
             }
           ],
-          "_nested_name": "display_group_5.page5_button_continue"
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_10.page7_button_continue"
         }
       ],
-      "name": "display_group_5",
-      "_nested_name": "display_group_5"
+      "name": "display_group_10",
+      "_nested_name": "display_group_10"
     }
   ],
   "_source": {

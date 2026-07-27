@@ -6,6 +6,10 @@
     {
       "type": "title",
       "name": "page_title",
+      "value": "SUPERFICIE FERTILISEE AVEC LA FUMURE ORGANIQUE",
+      "_translations": {
+        "value": {}
+      },
       "_nested_name": "page_title"
     },
     {
@@ -36,20 +40,104 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "name": "superficie_exploitation_label",
-          "value": "<span style=\"color: red;\">*</span>  @global.superficie_exploitation_label",
+          "type": "text",
+          "value": "@global.note_quantite_total_fumure_organique",
           "_translations": {
             "value": {}
           },
           "style_list": [
             "font-size:20px"
           ],
-          "_nested_name": "display_group_4.superficie_exploitation_label",
+          "name": "text_1",
+          "_nested_name": "display_group_4.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<span style=\"color: red;\">*</span>  @global.superficie_exploitation_label",
+                "fullExpression": "@global.note_quantite_total_fumure_organique",
+                "matchedExpression": "@global.note_quantite_total_fumure_organique",
+                "type": "global",
+                "fieldName": "note_quantite_total_fumure_organique"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.note_quantite_total_fumure_organique": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_8_1",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/fumureOrganique/qte_fumure_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "_nested_name": "display_group_4.audio_8_1"
+        }
+      ],
+      "name": "display_group_4",
+      "_nested_name": "display_group_4"
+    },
+    {
+      "type": "text",
+      "value": "@global.note_quantite_total_fumure_organique_hint",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "name": "text_6",
+      "_nested_name": "text_6",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.note_quantite_total_fumure_organique_hint",
+            "matchedExpression": "@global.note_quantite_total_fumure_organique_hint",
+            "type": "global",
+            "fieldName": "note_quantite_total_fumure_organique_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_quantite_total_fumure_organique_hint": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "value": "images/unit_fumure.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_7",
+      "_nested_name": "image_7"
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.superficie_exploitation_label",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_8.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.superficie_exploitation_label",
                 "matchedExpression": "@global.superficie_exploitation_label",
                 "type": "global",
                 "fieldName": "superficie_exploitation_label"
@@ -61,10 +149,20 @@
               "value"
             ]
           }
+        },
+        {
+          "type": "audio",
+          "name": "audio_8_2",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/fumureOrganique/superf_cult_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "_nested_name": "display_group_8.audio_8_2"
         }
       ],
-      "name": "display_group_4",
-      "_nested_name": "display_group_4"
+      "name": "display_group_8",
+      "_nested_name": "display_group_8"
     },
     {
       "type": "image",
@@ -78,8 +176,8 @@
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_6",
-      "_nested_name": "image_6"
+      "name": "image_10",
+      "_nested_name": "image_10"
     },
     {
       "type": "text",
@@ -251,235 +349,17 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "name": "quantite_fumure_organique_label",
-          "value": "<span style=\"color: red;\">*</span>  @global.quantite_fumure_organique_label",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "font-size:20px"
-          ],
-          "_nested_name": "display_group_11.quantite_fumure_organique_label",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "<span style=\"color: red;\">*</span>  @global.quantite_fumure_organique_label",
-                "matchedExpression": "@global.quantite_fumure_organique_label",
-                "type": "global",
-                "fieldName": "quantite_fumure_organique_label"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@global.quantite_fumure_organique_label": [
-              "value"
-            ]
-          }
-        }
-      ],
-      "name": "display_group_11",
-      "_nested_name": "display_group_11"
-    },
-    {
-      "type": "image",
-      "value": "images/unit_fumure.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "width:120px",
-        "height:120px",
-        "object-fit:contain",
-        "flex-shrink:0"
-      ],
-      "name": "image_13",
-      "_nested_name": "image_13"
-    },
-    {
-      "type": "text",
-      "name": "quantite_fumure_organique_hint",
-      "value": "@global.quantite_fumure_organique_hint",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "color: gray",
-        "font-size: 16px"
-      ],
-      "_nested_name": "quantite_fumure_organique_hint",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.quantite_fumure_organique_hint",
-            "matchedExpression": "@global.quantite_fumure_organique_hint",
-            "type": "global",
-            "fieldName": "quantite_fumure_organique_hint"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.quantite_fumure_organique_hint": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "valid_quantite_fumure_organique",
-      "value": "@calc(!!@fields.quantite_fumure_organique && @fields.quantite_fumure_organique != \"\" && @fields.quantite_fumure_organique >= 0)",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "valid_quantite_fumure_organique",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(!!@fields.quantite_fumure_organique && @fields.quantite_fumure_organique != \"\" && @fields.quantite_fumure_organique >= 0)",
-            "matchedExpression": "!@fields.quantite_fumure_organique",
-            "type": "fields",
-            "fieldName": "quantite_fumure_organique"
-          },
-          {
-            "fullExpression": "@calc(!!@fields.quantite_fumure_organique && @fields.quantite_fumure_organique != \"\" && @fields.quantite_fumure_organique >= 0)",
-            "matchedExpression": "@fields.quantite_fumure_organique",
-            "type": "fields",
-            "fieldName": "quantite_fumure_organique"
-          },
-          {
-            "fullExpression": "@calc(!!@fields.quantite_fumure_organique && @fields.quantite_fumure_organique != \"\" && @fields.quantite_fumure_organique >= 0)",
-            "matchedExpression": "@fields.quantite_fumure_organique",
-            "type": "fields",
-            "fieldName": "quantite_fumure_organique"
-          },
-          {
-            "fullExpression": "@calc(!!@fields.quantite_fumure_organique && @fields.quantite_fumure_organique != \"\" && @fields.quantite_fumure_organique >= 0)",
-            "matchedExpression": "@calc(!!@fields.quantite_fumure_organique && @fields.quantite_fumure_organique != \"\" && @fields.quantite_fumure_organique >= 0)",
-            "type": "calc",
-            "fieldName": "!!@fields.quantite_fumure_organique && @fields.quantite_fumure_organique != \"\" && @fields.quantite_fumure_organique >= 0"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "!@fields.quantite_fumure_organique": [
-          "value"
-        ],
-        "@fields.quantite_fumure_organique": [
-          "value",
-          "value"
-        ],
-        "@calc(!!@fields.quantite_fumure_organique && @fields.quantite_fumure_organique != \"\" && @fields.quantite_fumure_organique >= 0)": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "text_box",
-      "name": "quantite_fumure_organique",
-      "value": "@fields.quantite_fumure_organique",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "quantite_fumure_organique",
-            "this.value"
-          ],
-          "_raw": "changed | set_field: quantite_fumure_organique: this.value"
-        }
-      ],
-      "parameter_list": {
-        "number_input": "true"
-      },
-      "_nested_name": "quantite_fumure_organique",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@fields.quantite_fumure_organique",
-            "matchedExpression": "@fields.quantite_fumure_organique",
-            "type": "fields",
-            "fieldName": "quantite_fumure_organique"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.quantite_fumure_organique": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "name": "error_quantite_fumure_organique",
-      "value": "@global.error_required_answer",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.attempt_submit && !@local.valid_quantite_fumure_organique",
-      "style_list": [
-        "color: red",
-        "font-size: 16px",
-        "background: #fff5f5",
-        "padding: 5px"
-      ],
-      "_nested_name": "error_quantite_fumure_organique",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.error_required_answer",
-            "matchedExpression": "@global.error_required_answer",
-            "type": "global",
-            "fieldName": "error_required_answer"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_fumure_organique",
-            "matchedExpression": "@fields.attempt_submit",
-            "type": "fields",
-            "fieldName": "attempt_submit"
-          },
-          {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_fumure_organique",
-            "matchedExpression": "!@local.valid_quantite_fumure_organique",
-            "type": "local",
-            "fieldName": "valid_quantite_fumure_organique"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.error_required_answer": [
-          "value"
-        ],
-        "@fields.attempt_submit": [
-          "condition"
-        ],
-        "!@local.valid_quantite_fumure_organique": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "display_group",
-      "rows": [
-        {
-          "type": "html",
+          "type": "text",
           "name": "protion_fertilisable_label",
-          "value": "<span style=\"color: red;\">*</span>  @global.portion_fertilisable_label",
+          "value": "@global.portion_fertilisable_label",
           "_translations": {
             "value": {}
           },
-          "style_list": [
-            "font-size:20px"
-          ],
-          "_nested_name": "display_group_18.protion_fertilisable_label",
+          "_nested_name": "display_group_15.protion_fertilisable_label",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<span style=\"color: red;\">*</span>  @global.portion_fertilisable_label",
+                "fullExpression": "@global.portion_fertilisable_label",
                 "matchedExpression": "@global.portion_fertilisable_label",
                 "type": "global",
                 "fieldName": "portion_fertilisable_label"
@@ -491,10 +371,20 @@
               "value"
             ]
           }
+        },
+        {
+          "type": "audio",
+          "name": "audio_8_3",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/fumureOrganique/superf_fumure_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "_nested_name": "display_group_15.audio_8_3"
         }
       ],
-      "name": "display_group_18",
-      "_nested_name": "display_group_18"
+      "name": "display_group_15",
+      "_nested_name": "display_group_15"
     },
     {
       "type": "image",
@@ -508,8 +398,8 @@
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_20",
-      "_nested_name": "image_20"
+      "name": "image_17",
+      "_nested_name": "image_17"
     },
     {
       "type": "text",
@@ -535,6 +425,44 @@
       },
       "_dynamicDependencies": {
         "@global.portion_fertilisable_hint": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "portion_fertilisable",
+      "value": "@fields.portion_fertilisable",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "portion_fertilisable",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: portion_fertilisable: this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true"
+      },
+      "_nested_name": "portion_fertilisable",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.portion_fertilisable",
+            "matchedExpression": "@fields.portion_fertilisable",
+            "type": "fields",
+            "fieldName": "portion_fertilisable"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.portion_fertilisable": [
           "value"
         ]
       }
@@ -589,51 +517,13 @@
       }
     },
     {
-      "type": "text_box",
-      "name": "portion_fertilisable",
-      "value": "@fields.portion_fertilisable",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "portion_fertilisable",
-            "this.value"
-          ],
-          "_raw": "changed | set_field: portion_fertilisable: this.value"
-        }
-      ],
-      "parameter_list": {
-        "number_input": "true"
-      },
-      "_nested_name": "portion_fertilisable",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@fields.portion_fertilisable",
-            "matchedExpression": "@fields.portion_fertilisable",
-            "type": "fields",
-            "fieldName": "portion_fertilisable"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.portion_fertilisable": [
-          "value"
-        ]
-      }
-    },
-    {
       "type": "text",
       "name": "error_portion_fertilisable",
       "value": "@global.error_required_answer",
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.attempt_submit && (@fields.portion_fertilisable == \"\" || !@fields.portion_fertilisable)",
+      "condition": "@fields.attempt_submit && !@local.valid_portion_fertilisable",
       "style_list": [
         "color: red",
         "font-size: 16px",
@@ -652,22 +542,16 @@
         ],
         "condition": [
           {
-            "fullExpression": "@fields.attempt_submit && (@fields.portion_fertilisable == \"\" || !@fields.portion_fertilisable)",
+            "fullExpression": "@fields.attempt_submit && !@local.valid_portion_fertilisable",
             "matchedExpression": "@fields.attempt_submit",
             "type": "fields",
             "fieldName": "attempt_submit"
           },
           {
-            "fullExpression": "@fields.attempt_submit && (@fields.portion_fertilisable == \"\" || !@fields.portion_fertilisable)",
-            "matchedExpression": "@fields.portion_fertilisable",
-            "type": "fields",
-            "fieldName": "portion_fertilisable"
-          },
-          {
-            "fullExpression": "@fields.attempt_submit && (@fields.portion_fertilisable == \"\" || !@fields.portion_fertilisable)",
-            "matchedExpression": "!@fields.portion_fertilisable",
-            "type": "fields",
-            "fieldName": "portion_fertilisable"
+            "fullExpression": "@fields.attempt_submit && !@local.valid_portion_fertilisable",
+            "matchedExpression": "!@local.valid_portion_fertilisable",
+            "type": "local",
+            "fieldName": "valid_portion_fertilisable"
           }
         ]
       },
@@ -678,10 +562,7 @@
         "@fields.attempt_submit": [
           "condition"
         ],
-        "@fields.portion_fertilisable": [
-          "condition"
-        ],
-        "!@fields.portion_fertilisable": [
+        "!@local.valid_portion_fertilisable": [
           "condition"
         ]
       }
@@ -737,7 +618,7 @@
     },
     {
       "name": "completed_enabled",
-      "value": "@local.valid_superficie_exploitation && @local.valid_quantite_fumure_organique && @local.valid_portion_fertilisable",
+      "value": "@local.valid_superficie_exploitation && @local.valid_portion_fertilisable",
       "_translations": {
         "value": {}
       },
@@ -746,19 +627,13 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@local.valid_superficie_exploitation && @local.valid_quantite_fumure_organique && @local.valid_portion_fertilisable",
+            "fullExpression": "@local.valid_superficie_exploitation && @local.valid_portion_fertilisable",
             "matchedExpression": "@local.valid_superficie_exploitation",
             "type": "local",
             "fieldName": "valid_superficie_exploitation"
           },
           {
-            "fullExpression": "@local.valid_superficie_exploitation && @local.valid_quantite_fumure_organique && @local.valid_portion_fertilisable",
-            "matchedExpression": "@local.valid_quantite_fumure_organique",
-            "type": "local",
-            "fieldName": "valid_quantite_fumure_organique"
-          },
-          {
-            "fullExpression": "@local.valid_superficie_exploitation && @local.valid_quantite_fumure_organique && @local.valid_portion_fertilisable",
+            "fullExpression": "@local.valid_superficie_exploitation && @local.valid_portion_fertilisable",
             "matchedExpression": "@local.valid_portion_fertilisable",
             "type": "local",
             "fieldName": "valid_portion_fertilisable"
@@ -767,9 +642,6 @@
       },
       "_dynamicDependencies": {
         "@local.valid_superficie_exploitation": [
-          "value"
-        ],
-        "@local.valid_quantite_fumure_organique": [
           "value"
         ],
         "@local.valid_portion_fertilisable": [

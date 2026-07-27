@@ -1,0 +1,47 @@
+{
+  "flow_type": "global",
+  "flow_name": "besoins_humains_var",
+  "status": "released",
+  "rows": [
+    {
+      "type": "declare_global_constant",
+      "name": "btn_continue",
+      "value": "Continuer"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "titre_page1",
+      "value": "Identification de l'Unité de Production Agricole (UPA) par QR code"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "info_page1",
+      "value": "Placez le code QR face à la caméra pour charger vos informations."
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "titre_page2",
+      "value": "ANNEE DE LA CAMPAGNE AGRICOLE"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "annee_campagne_hint",
+      "value": "La réponse doit être 2023 ou supérieur."
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "erreur_sacs",
+      "value": "Le nombre de sacs doit être inférieur ou égal à @fields.besoin_cereale_exploitation"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "rendement_hint",
+      "value": "Il s'agit du rendement sur les trois saisons passées"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "erreur_rendement",
+      "value": "Mettez une valeur supérieure à 0"
+    }
+  ]
+}

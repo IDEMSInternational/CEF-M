@@ -4,28 +4,193 @@
   "status": "released",
   "rows": [
     {
+      "name": "v_current_human",
+      "value": "@calc(Number(@field.current_culture_index) + 1)"
+    },
+    {
+      "name": "v_needs_battage",
+      "value": "@calc(['mais', 'mil', 'sorgho'].includes((@field.active_culture_name || '').toLowerCase().trim()))"
+    },
+    {
+      "name": "v_prod_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.production))"
+    },
+    {
+      "name": "v_prod_err",
+      "value": "@calc(!@local.v_prod_fmt || Number(@field.production) < 0)"
+    },
+    {
+      "name": "v_batt_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_total_battage_nonzero))"
+    },
+    {
+      "name": "v_batt_err",
+      "value": "@calc(!@local.v_batt_fmt || Number(@field.cout_total_battage_nonzero) < 0)"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "header",
+      "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #FFCC80; border-radius: 12px; background: white; margin-bottom: 10px; overflow: hidden;"
+    },
+    {
+      "type": "image",
+      "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+      "style_list": "width: 60%; object-fit: contain;"
+    },
+    {
       "type": "text",
-      "value": "Choisissez l'année de la récolte",
-      "style_list": "margin-top: 20px; font-weight: 500;"
+      "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+      "style_list": "font-weight: bold; font-size: 18px;"
     },
     {
-      "type": "date_time_picker",
-      "name": "year_picker",
-      "action_list": "changed | set_field: campagne: this.value;",
-      "parameter_list": "type: year;\nmin: 2023; \nmax: @calc(now());"
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "prod",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "aud_prod",
+      "parameter_list": "variant: button_only;\nsrc: audio/recolte/production_graine_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span>Production totale obtenue (kg)",
+      "style_list": "font-weight: bold;"
+    },
+    {
+      "type": "image",
+      "value": "images/kg.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "production",
+      "value": "@field.production",
+      "action_list": "changed | set_field: production : this.value;",
+      "parameter_list": "number_input: true;placeholder: Entrez le poids en kg;"
     },
     {
       "type": "text",
-      "value": "*La réponse doit être 2023 ou supérieur*",
-      "style_list": "color:red;font-size:12px;"
+      "value": "La valeur doit être positive",
+      "condition": "@local.v_prod_err",
+      "style_list": "font-size: 12px; color: red;"
     },
     {
-      "name": "v_year_ok",
-      "value": "@calc(!!@field.campagne)"
+      "type": "begin_display_group",
+      "name": "battage",
+      "condition": "@calc(@local.v_needs_battage && Number(@field.production) > 0)",
+      "style_list": "display: block; width: 100%"
     },
     {
-      "name": "completed_enabled",
-      "value": "@local.v_year_ok"
+      "type": "audio",
+      "name": "aud_batt",
+      "parameter_list": "variant: button_only;\nsrc: audio/recolte/cout_battage_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: black;\"> Battage :</span> Coût total payé (Dram)",
+      "style_list": "font-weight: bold;"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "cout_total_battage_nonzero",
+      "value": "@field.cout_total_battage_nonzero",
+      "action_list": "changed | set_field: cout_total_battage_nonzero: this.value;",
+      "parameter_list": "number_input: true;placeholder: Montant en Dram;"
+    },
+    {
+      "type": "text",
+      "value": "La valeur doit être positive",
+      "condition": "@local.v_batt_err",
+      "style_list": "font-size: 12px; color: red;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "battage_zero",
+      "condition": "@calc((@field.active_culture_name == 'Maïs' || @field.active_culture_name == 'Mil' || @field.active_culture_name == 'Sorgho') && @field.production == 0)",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "aud_batt_zero",
+      "parameter_list": "variant: button_only;\nsrc: audio/recolte/cout_battage_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: black;\"> Battage :</span> Coût total payé (Dram)",
+      "style_list": "font-weight: bold;"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "value": 0,
+      "parameter_list": "disabled: true;"
+    },
+    {
+      "type": "text",
+      "name": "cout_total_battage_zero",
+      "value": "Coût bloqué à 0 car aucune récolte obtenue",
+      "style_list": "font-size: 12px; color: #999;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "v_val_nonzero",
+      "value": "@calc(Number(@field.cout_total_battage_nonzero) || 0)"
+    },
+    {
+      "name": "v_final_b",
+      "value": "@calc(@field.production == 0 ? 0 : @local.v_val_nonzero)"
+    },
+    {
+      "name": "v_page5_valid",
+      "value": "@calc(@local.v_prod_fmt && Number(@field.production) >= 0 && (!@local.v_needs_battage || Number(@field.production) == 0 || (@local.v_batt_fmt && Number(@field.cout_total_battage_nonzero) >= 0)))"
     },
     {
       "type": "begin_display_group",
@@ -43,8 +208,8 @@
       "type": "button",
       "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": " click | emit: completed;",
-      "parameter_list": "style: navigation;\ndisabled: !@local.completed_enabled",
+      "action_list": "click | set_field: final_cout_battage : @local.v_final_b;\nclick | emit: completed;",
+      "parameter_list": "style: navigation;\ndisabled: !@local.v_page5_valid",
       "style_list": "flex: 1"
     },
     {

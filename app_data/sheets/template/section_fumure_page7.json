@@ -6,48 +6,1295 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "ROTATION ET FERTILITÉ DU SOL",
+      "value": "PRODUCTION ANNUELLE DE LA FUMURE ORGANIQUE DE L'UPA",
       "_translations": {
         "value": {}
       },
       "_nested_name": "page_title"
     },
     {
-      "type": "text",
-      "name": "infos_rotations3",
-      "value": "@global.infos_rotations3",
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "infos_rotations3",
+      "type": "set_variable",
+      "_nested_name": "attempt_submit",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.infos_rotations3",
-            "matchedExpression": "@global.infos_rotations3",
-            "type": "global",
-            "fieldName": "infos_rotations3"
+            "fullExpression": "@fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.infos_rotations3": [
+        "@fields.attempt_submit": [
           "value"
         ]
       }
     },
     {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.quantite_compost_produite_note",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_4.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.quantite_compost_produite_note",
+                "matchedExpression": "@global.quantite_compost_produite_note",
+                "type": "global",
+                "fieldName": "quantite_compost_produite_note"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.quantite_compost_produite_note": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_7_1",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/fumureOrganique/compost_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "_nested_name": "display_group_4.audio_7_1"
+        }
+      ],
+      "name": "display_group_4",
+      "_nested_name": "display_group_4"
+    },
+    {
       "type": "image",
-      "value": "images/cycle4.jpg",
+      "value": "images/unit_fumure.jpg",
       "_translations": {
         "value": {}
       },
-      "name": "image_4",
-      "_nested_name": "image_4"
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_6",
+      "_nested_name": "image_6"
+    },
+    {
+      "type": "text",
+      "value": "@global.fumure_produite_hint",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "name": "text_7",
+      "_nested_name": "text_7",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.fumure_produite_hint",
+            "matchedExpression": "@global.fumure_produite_hint",
+            "type": "global",
+            "fieldName": "fumure_produite_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.fumure_produite_hint": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_compost",
+      "value": "@fields.quantite_compost",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "quantite_compost",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: quantite_compost: this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Entrez la quantité"
+      },
+      "_nested_name": "quantite_compost",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.quantite_compost",
+            "matchedExpression": "@fields.quantite_compost",
+            "type": "fields",
+            "fieldName": "quantite_compost"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_compost": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_quantite_compost",
+      "value": "@calc(!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_quantite_compost",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)",
+            "matchedExpression": "!@fields.quantite_compost",
+            "type": "fields",
+            "fieldName": "quantite_compost"
+          },
+          {
+            "fullExpression": "@calc(!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)",
+            "matchedExpression": "@fields.quantite_compost",
+            "type": "fields",
+            "fieldName": "quantite_compost"
+          },
+          {
+            "fullExpression": "@calc(!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)",
+            "matchedExpression": "@fields.quantite_compost",
+            "type": "fields",
+            "fieldName": "quantite_compost"
+          },
+          {
+            "fullExpression": "@calc(!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)",
+            "matchedExpression": "@calc(!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)",
+            "type": "calc",
+            "fieldName": "!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.quantite_compost": [
+          "value"
+        ],
+        "@fields.quantite_compost": [
+          "value",
+          "value"
+        ],
+        "@calc(!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.error_required_answer",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.attempt_submit && !@local.valid_quantite_compost",
+      "style_list": [
+        "color: red",
+        "font-size: 16px",
+        "background: #fff5f5",
+        "padding: 5px"
+      ],
+      "name": "text_10",
+      "_nested_name": "text_10",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_compost",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_compost",
+            "matchedExpression": "!@local.valid_quantite_compost",
+            "type": "local",
+            "fieldName": "valid_quantite_compost"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "!@local.valid_quantite_compost": [
+          "condition"
+        ]
+      }
     },
     {
       "type": "display_group",
-      "name": "dg_footer",
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.quantite_fumier_produite_note",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_11.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.quantite_fumier_produite_note",
+                "matchedExpression": "@global.quantite_fumier_produite_note",
+                "type": "global",
+                "fieldName": "quantite_fumier_produite_note"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.quantite_fumier_produite_note": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_7_2",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/fumureOrganique/fumier_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "_nested_name": "display_group_11.audio_7_2"
+        }
+      ],
+      "name": "display_group_11",
+      "_nested_name": "display_group_11"
+    },
+    {
+      "type": "image",
+      "value": "images/unit_fumure.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_13",
+      "_nested_name": "image_13"
+    },
+    {
+      "type": "text",
+      "value": "@global.fumure_produite_hint",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "name": "text_14",
+      "_nested_name": "text_14",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.fumure_produite_hint",
+            "matchedExpression": "@global.fumure_produite_hint",
+            "type": "global",
+            "fieldName": "fumure_produite_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.fumure_produite_hint": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_fumier",
+      "value": "@fields.quantite_fumier",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "quantite_fumier",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: quantite_fumier: this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Entrez la quantité"
+      },
+      "_nested_name": "quantite_fumier",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.quantite_fumier",
+            "matchedExpression": "@fields.quantite_fumier",
+            "type": "fields",
+            "fieldName": "quantite_fumier"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_fumier": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_quantite_fumier",
+      "value": "@calc(!!@fields.quantite_fumier && @fields.quantite_fumier != \"\" && @fields.quantite_fumier >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_quantite_fumier",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.quantite_fumier && @fields.quantite_fumier != \"\" && @fields.quantite_fumier >= 0)",
+            "matchedExpression": "!@fields.quantite_fumier",
+            "type": "fields",
+            "fieldName": "quantite_fumier"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_fumier && @fields.quantite_fumier != \"\" && @fields.quantite_fumier >= 0)",
+            "matchedExpression": "@fields.quantite_fumier",
+            "type": "fields",
+            "fieldName": "quantite_fumier"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_fumier && @fields.quantite_fumier != \"\" && @fields.quantite_fumier >= 0)",
+            "matchedExpression": "@fields.quantite_fumier",
+            "type": "fields",
+            "fieldName": "quantite_fumier"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_fumier && @fields.quantite_fumier != \"\" && @fields.quantite_fumier >= 0)",
+            "matchedExpression": "@calc(!!@fields.quantite_fumier && @fields.quantite_fumier != \"\" && @fields.quantite_fumier >= 0)",
+            "type": "calc",
+            "fieldName": "!!@fields.quantite_fumier && @fields.quantite_fumier != \"\" && @fields.quantite_fumier >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.quantite_fumier": [
+          "value"
+        ],
+        "@fields.quantite_fumier": [
+          "value",
+          "value"
+        ],
+        "@calc(!!@fields.quantite_fumier && @fields.quantite_fumier != \"\" && @fields.quantite_fumier >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.error_required_answer",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.attempt_submit && !@local.valid_quantite_fumier",
+      "style_list": [
+        "color: red",
+        "font-size: 16px",
+        "background: #fff5f5",
+        "padding: 5px"
+      ],
+      "name": "text_17",
+      "_nested_name": "text_17",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_fumier",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_fumier",
+            "matchedExpression": "!@local.valid_quantite_fumier",
+            "type": "local",
+            "fieldName": "valid_quantite_fumier"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "!@local.valid_quantite_fumier": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.quantite_ordures_menageres_produite_note",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_18.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.quantite_ordures_menageres_produite_note",
+                "matchedExpression": "@global.quantite_ordures_menageres_produite_note",
+                "type": "global",
+                "fieldName": "quantite_ordures_menageres_produite_note"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.quantite_ordures_menageres_produite_note": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_7_3",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/fumureOrganique/ordures_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "_nested_name": "display_group_18.audio_7_3"
+        }
+      ],
+      "name": "display_group_18",
+      "_nested_name": "display_group_18"
+    },
+    {
+      "type": "image",
+      "value": "images/unit_fumure.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_20",
+      "_nested_name": "image_20"
+    },
+    {
+      "type": "text",
+      "value": "@global.fumure_produite_hint",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "name": "text_21",
+      "_nested_name": "text_21",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.fumure_produite_hint",
+            "matchedExpression": "@global.fumure_produite_hint",
+            "type": "global",
+            "fieldName": "fumure_produite_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.fumure_produite_hint": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_ordures_menageres",
+      "value": "@fields.quantite_ordures_menageres",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "quantite_ordures_menageres",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: quantite_ordures_menageres: this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Entrez la quantité"
+      },
+      "_nested_name": "quantite_ordures_menageres",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.quantite_ordures_menageres",
+            "matchedExpression": "@fields.quantite_ordures_menageres",
+            "type": "fields",
+            "fieldName": "quantite_ordures_menageres"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_ordures_menageres": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_quantite_ordures_menageres",
+      "value": "@calc(!!@fields.quantite_ordures_menageres && @fields.quantite_ordures_menageres != \"\" && @fields.quantite_ordures_menageres >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_quantite_ordures_menageres",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.quantite_ordures_menageres && @fields.quantite_ordures_menageres != \"\" && @fields.quantite_ordures_menageres >= 0)",
+            "matchedExpression": "!@fields.quantite_ordures_menageres",
+            "type": "fields",
+            "fieldName": "quantite_ordures_menageres"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_ordures_menageres && @fields.quantite_ordures_menageres != \"\" && @fields.quantite_ordures_menageres >= 0)",
+            "matchedExpression": "@fields.quantite_ordures_menageres",
+            "type": "fields",
+            "fieldName": "quantite_ordures_menageres"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_ordures_menageres && @fields.quantite_ordures_menageres != \"\" && @fields.quantite_ordures_menageres >= 0)",
+            "matchedExpression": "@fields.quantite_ordures_menageres",
+            "type": "fields",
+            "fieldName": "quantite_ordures_menageres"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_ordures_menageres && @fields.quantite_ordures_menageres != \"\" && @fields.quantite_ordures_menageres >= 0)",
+            "matchedExpression": "@calc(!!@fields.quantite_ordures_menageres && @fields.quantite_ordures_menageres != \"\" && @fields.quantite_ordures_menageres >= 0)",
+            "type": "calc",
+            "fieldName": "!!@fields.quantite_ordures_menageres && @fields.quantite_ordures_menageres != \"\" && @fields.quantite_ordures_menageres >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.quantite_ordures_menageres": [
+          "value"
+        ],
+        "@fields.quantite_ordures_menageres": [
+          "value",
+          "value"
+        ],
+        "@calc(!!@fields.quantite_ordures_menageres && @fields.quantite_ordures_menageres != \"\" && @fields.quantite_ordures_menageres >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.error_required_answer",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.attempt_submit && !@local.valid_quantite_ordures_menageres",
+      "style_list": [
+        "color: red",
+        "font-size: 16px",
+        "background: #fff5f5",
+        "padding: 5px"
+      ],
+      "name": "text_24",
+      "_nested_name": "text_24",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_ordures_menageres",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_ordures_menageres",
+            "matchedExpression": "!@local.valid_quantite_ordures_menageres",
+            "type": "local",
+            "fieldName": "valid_quantite_ordures_menageres"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "!@local.valid_quantite_ordures_menageres": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.fumure_organique_autre_note",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_25.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.fumure_organique_autre_note",
+                "matchedExpression": "@global.fumure_organique_autre_note",
+                "type": "global",
+                "fieldName": "fumure_organique_autre_note"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.fumure_organique_autre_note": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_7_4",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/fumureOrganique/on_autre_fumure_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "_nested_name": "display_group_25.audio_7_4"
+        }
+      ],
+      "name": "display_group_25",
+      "_nested_name": "display_group_25"
+    },
+    {
+      "type": "radio_list",
+      "name": "fumure_organique_autre",
+      "value": "@fields.fumure_organique_autre",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "fumure_organique_autre",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : fumure_organique_autre: this.value"
+        }
+      ],
+      "rows": [
+        {
+          "type": "data_items",
+          "value": "@data.oui_non",
+          "rows": [],
+          "name": "data_items_1",
+          "_nested_name": "fumure_organique_autre.data_items_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@data.oui_non",
+                "matchedExpression": "@data.oui_non",
+                "type": "data",
+                "fieldName": "oui_non"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@data.oui_non": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "fumure_organique_autre",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.fumure_organique_autre",
+            "matchedExpression": "@fields.fumure_organique_autre",
+            "type": "fields",
+            "fieldName": "fumure_organique_autre"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.fumure_organique_autre": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@fields.fumure_organique_autre && @fields.attempt_submit",
+      "name": "html_29",
+      "_nested_name": "html_29",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@fields.fumure_organique_autre && @fields.attempt_submit",
+            "matchedExpression": "!@fields.fumure_organique_autre",
+            "type": "fields",
+            "fieldName": "fumure_organique_autre"
+          },
+          {
+            "fullExpression": "!@fields.fumure_organique_autre && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@fields.fumure_organique_autre": [
+          "condition"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "valid_quantite_fumure_organique_autre",
+      "value": "@calc(!!@fields.quantite_fumure_organique_autre && @fields.quantite_fumure_organique_autre != \"\" && @fields.quantite_fumure_organique_autre >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_quantite_fumure_organique_autre",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.quantite_fumure_organique_autre && @fields.quantite_fumure_organique_autre != \"\" && @fields.quantite_fumure_organique_autre >= 0)",
+            "matchedExpression": "!@fields.quantite_fumure_organique_autre",
+            "type": "fields",
+            "fieldName": "quantite_fumure_organique_autre"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_fumure_organique_autre && @fields.quantite_fumure_organique_autre != \"\" && @fields.quantite_fumure_organique_autre >= 0)",
+            "matchedExpression": "@fields.quantite_fumure_organique_autre",
+            "type": "fields",
+            "fieldName": "quantite_fumure_organique_autre"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_fumure_organique_autre && @fields.quantite_fumure_organique_autre != \"\" && @fields.quantite_fumure_organique_autre >= 0)",
+            "matchedExpression": "@fields.quantite_fumure_organique_autre",
+            "type": "fields",
+            "fieldName": "quantite_fumure_organique_autre"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.quantite_fumure_organique_autre && @fields.quantite_fumure_organique_autre != \"\" && @fields.quantite_fumure_organique_autre >= 0)",
+            "matchedExpression": "@calc(!!@fields.quantite_fumure_organique_autre && @fields.quantite_fumure_organique_autre != \"\" && @fields.quantite_fumure_organique_autre >= 0)",
+            "type": "calc",
+            "fieldName": "!!@fields.quantite_fumure_organique_autre && @fields.quantite_fumure_organique_autre != \"\" && @fields.quantite_fumure_organique_autre >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.quantite_fumure_organique_autre": [
+          "value"
+        ],
+        "@fields.quantite_fumure_organique_autre": [
+          "value",
+          "value"
+        ],
+        "@calc(!!@fields.quantite_fumure_organique_autre && @fields.quantite_fumure_organique_autre != \"\" && @fields.quantite_fumure_organique_autre >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
+      },
+      "condition": "@fields.fumure_organique_autre =='oui'",
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "text",
+              "value": "@global.nom_autre_fumure_note",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_1",
+              "_nested_name": "display_group_30.display_group_1.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.nom_autre_fumure_note",
+                    "matchedExpression": "@global.nom_autre_fumure_note",
+                    "type": "global",
+                    "fieldName": "nom_autre_fumure_note"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@global.nom_autre_fumure_note": [
+                  "value"
+                ]
+              }
+            },
+            {
+              "type": "audio",
+              "name": "audio_7_5",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/fumureOrganique/nom_autre_fumure_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "_nested_name": "display_group_30.display_group_1.audio_7_5"
+            }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_30.display_group_1"
+        },
+        {
+          "type": "image",
+          "value": "images/autre_fumure.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:120px",
+            "height:120px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_30.image_2"
+        },
+        {
+          "type": "text_box",
+          "name": "nom_fumure_organique_autre",
+          "value": "@fields.nom_fumure_organique_autre",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "nom_fumure_organique_autre",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: nom_fumure_organique_autre: this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "Entrez le nom"
+          },
+          "_nested_name": "display_group_30.nom_fumure_organique_autre",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.nom_fumure_organique_autre",
+                "matchedExpression": "@fields.nom_fumure_organique_autre",
+                "type": "fields",
+                "fieldName": "nom_fumure_organique_autre"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.nom_fumure_organique_autre": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "text",
+              "value": "@global.quantite_fumure_organique_autre_note",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_1",
+              "_nested_name": "display_group_30.display_group_4.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.quantite_fumure_organique_autre_note",
+                    "matchedExpression": "@global.quantite_fumure_organique_autre_note",
+                    "type": "global",
+                    "fieldName": "quantite_fumure_organique_autre_note"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@global.quantite_fumure_organique_autre_note": [
+                  "value"
+                ]
+              }
+            },
+            {
+              "type": "audio",
+              "name": "audio_7_6",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/fumureOrganique/autre_fumure_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "_nested_name": "display_group_30.display_group_4.audio_7_6"
+            }
+          ],
+          "name": "display_group_4",
+          "_nested_name": "display_group_30.display_group_4"
+        },
+        {
+          "type": "image",
+          "value": "images/unit_fumure.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width:120px",
+            "height:120px",
+            "object-fit:contain",
+            "flex-shrink:0"
+          ],
+          "name": "image_5",
+          "_nested_name": "display_group_30.image_5"
+        },
+        {
+          "type": "text",
+          "value": "@global.fumure_produite_hint",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: gray",
+            "font-size: 16px"
+          ],
+          "name": "text_6",
+          "_nested_name": "display_group_30.text_6",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.fumure_produite_hint",
+                "matchedExpression": "@global.fumure_produite_hint",
+                "type": "global",
+                "fieldName": "fumure_produite_hint"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.fumure_produite_hint": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text_box",
+          "name": "quantite_fumure_organique_autre",
+          "value": "@fields.quantite_fumure_organique_autre",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "quantite_fumure_organique_autre",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: quantite_fumure_organique_autre: this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "Entrez la quantité"
+          },
+          "_nested_name": "display_group_30.quantite_fumure_organique_autre",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.quantite_fumure_organique_autre",
+                "matchedExpression": "@fields.quantite_fumure_organique_autre",
+                "type": "fields",
+                "fieldName": "quantite_fumure_organique_autre"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.quantite_fumure_organique_autre": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.error_required_answer",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.attempt_submit && !@local.valid_quantite_fumure_organique_autre",
+          "style_list": [
+            "color: red",
+            "font-size: 16px",
+            "background: #fff5f5",
+            "padding: 5px"
+          ],
+          "name": "text_9",
+          "_nested_name": "display_group_30.text_9",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.error_required_answer",
+                "matchedExpression": "@global.error_required_answer",
+                "type": "global",
+                "fieldName": "error_required_answer"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_fumure_organique_autre",
+                "matchedExpression": "@fields.attempt_submit",
+                "type": "fields",
+                "fieldName": "attempt_submit"
+              },
+              {
+                "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_fumure_organique_autre",
+                "matchedExpression": "!@local.valid_quantite_fumure_organique_autre",
+                "type": "local",
+                "fieldName": "valid_quantite_fumure_organique_autre"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.error_required_answer": [
+              "value"
+            ],
+            "@fields.attempt_submit": [
+              "condition"
+            ],
+            "!@local.valid_quantite_fumure_organique_autre": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_30",
+      "_nested_name": "display_group_30",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.fumure_organique_autre =='oui'",
+            "matchedExpression": "@fields.fumure_organique_autre",
+            "type": "fields",
+            "fieldName": "fumure_organique_autre"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.fumure_organique_autre": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "quantite_total_fumure_organique",
+      "value": "@calc(Number(@fields.quantite_compost) + Number(@fields.quantite_fumier) + Number(@fields.quantite_ordures_menageres) + Number(@fields.quantite_fumure_organique_autre || 0))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "quantite_total_fumure_organique",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@fields.quantite_compost) + Number(@fields.quantite_fumier) + Number(@fields.quantite_ordures_menageres) + Number(@fields.quantite_fumure_organique_autre || 0))",
+            "matchedExpression": "@fields.quantite_compost",
+            "type": "fields",
+            "fieldName": "quantite_compost"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.quantite_compost) + Number(@fields.quantite_fumier) + Number(@fields.quantite_ordures_menageres) + Number(@fields.quantite_fumure_organique_autre || 0))",
+            "matchedExpression": "@fields.quantite_fumier",
+            "type": "fields",
+            "fieldName": "quantite_fumier"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.quantite_compost) + Number(@fields.quantite_fumier) + Number(@fields.quantite_ordures_menageres) + Number(@fields.quantite_fumure_organique_autre || 0))",
+            "matchedExpression": "@fields.quantite_ordures_menageres",
+            "type": "fields",
+            "fieldName": "quantite_ordures_menageres"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.quantite_compost) + Number(@fields.quantite_fumier) + Number(@fields.quantite_ordures_menageres) + Number(@fields.quantite_fumure_organique_autre || 0))",
+            "matchedExpression": "@fields.quantite_fumure_organique_autre",
+            "type": "fields",
+            "fieldName": "quantite_fumure_organique_autre"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.quantite_compost) + Number(@fields.quantite_fumier) + Number(@fields.quantite_ordures_menageres) + Number(@fields.quantite_fumure_organique_autre || 0))",
+            "matchedExpression": "@calc(Number(@fields.quantite_compost) + Number(@fields.quantite_fumier) + Number(@fields.quantite_ordures_menageres) + Number(@fields.quantite_fumure_organique_autre || 0))",
+            "type": "calc",
+            "fieldName": "Number(@fields.quantite_compost) + Number(@fields.quantite_fumier) + Number(@fields.quantite_ordures_menageres) + Number(@fields.quantite_fumure_organique_autre || 0)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_compost": [
+          "value"
+        ],
+        "@fields.quantite_fumier": [
+          "value"
+        ],
+        "@fields.quantite_ordures_menageres": [
+          "value"
+        ],
+        "@fields.quantite_fumure_organique_autre": [
+          "value"
+        ],
+        "@calc(Number(@fields.quantite_compost) + Number(@fields.quantite_fumier) + Number(@fields.quantite_ordures_menageres) + Number(@fields.quantite_fumure_organique_autre || 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.valid_quantite_compost && @local.valid_quantite_fumier && @local.valid_quantite_ordures_menageres",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@local.valid_quantite_compost && @local.valid_quantite_fumier && @local.valid_quantite_ordures_menageres",
+            "matchedExpression": "@local.valid_quantite_compost",
+            "type": "local",
+            "fieldName": "valid_quantite_compost"
+          },
+          {
+            "fullExpression": "@local.valid_quantite_compost && @local.valid_quantite_fumier && @local.valid_quantite_ordures_menageres",
+            "matchedExpression": "@local.valid_quantite_fumier",
+            "type": "local",
+            "fieldName": "valid_quantite_fumier"
+          },
+          {
+            "fullExpression": "@local.valid_quantite_compost && @local.valid_quantite_fumier && @local.valid_quantite_ordures_menageres",
+            "matchedExpression": "@local.valid_quantite_ordures_menageres",
+            "type": "local",
+            "fieldName": "valid_quantite_ordures_menageres"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.valid_quantite_compost": [
+          "value"
+        ],
+        "@local.valid_quantite_fumier": [
+          "value"
+        ],
+        "@local.valid_quantite_ordures_menageres": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
       "value": "",
       "parameter_list": {
         "sticky": "bottom"
@@ -58,7 +1305,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_7_btn_back",
+          "name": "page_7_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -73,16 +1320,84 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_7_btn_back"
+          "_nested_name": "display_group_34.page_7_button_back"
         },
         {
           "type": "button",
-          "name": "page_7_btn_continue",
+          "name": "btn_attempt_submit",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
           "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                true
+              ],
+              "_raw": "click | set_field: attempt_submit: true"
+            }
+          ],
+          "condition": "!@local.completed_enabled",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_34.btn_attempt_submit",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!@local.completed_enabled",
+                "matchedExpression": "!@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "!@local.completed_enabled": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "name": "page_7_button_continue",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "quantite_total_fumure_organique",
+                "@local.quantite_total_fumure_organique"
+              ],
+              "_raw": "click | set_field: quantite_total_fumure_organique: @local.quantite_total_fumure_organique"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                false
+              ],
+              "_raw": "click | set_field: attempt_submit: false"
+            },
             {
               "trigger": "click",
               "action_id": "emit",
@@ -92,10 +1407,14 @@
               "_raw": "click | emit: completed"
             }
           ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "condition": "@local.completed_enabled",
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_7_btn_continue",
+          "_nested_name": "display_group_34.page_7_button_continue",
           "_dynamicFields": {
             "value": [
               {
@@ -104,16 +1423,67 @@
                 "type": "global",
                 "fieldName": "btn_continue"
               }
+            ],
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.quantite_total_fumure_organique",
+                      "matchedExpression": "@local.quantite_total_fumure_organique",
+                      "type": "local",
+                      "fieldName": "quantite_total_fumure_organique"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: quantite_total_fumure_organique: @local.quantite_total_fumure_organique",
+                    "matchedExpression": "@local.quantite_total_fumure_organique",
+                    "type": "local",
+                    "fieldName": "quantite_total_fumure_organique"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.completed_enabled",
+                "matchedExpression": "@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
             ]
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
+            ],
+            "@local.quantite_total_fumure_organique": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ],
+            "@local.completed_enabled": [
+              "condition"
             ]
           }
         }
       ],
-      "_nested_name": "dg_footer"
+      "name": "display_group_34",
+      "_nested_name": "display_group_34"
     }
   ],
   "_source": {

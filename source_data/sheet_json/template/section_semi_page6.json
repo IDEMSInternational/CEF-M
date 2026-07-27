@@ -4,166 +4,216 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "name": "page_title",
-      "value": "PRÉCISER LES CULTURES"
+      "name": "v_current_human",
+      "value": "@calc(Number(@field.current_culture_index) + 1)"
     },
     {
-      "name": "attempt_submit",
-      "value": "@fields.attempt_submit"
+      "name": "v_lab_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_labouree))"
     },
     {
-      "name": "valid_sc_name_1",
-      "value": "@calc(!@fields.secondary_crop_1 || (!!@fields.sc_name_1 && @fields.sc_name_1.trim() !== \"\"))"
+      "name": "v_lab_err",
+      "value": "@calc(!@local.v_lab_fmt || Number(@field.superficie_labouree) < 0)"
     },
     {
-      "name": "valid_sc_name_2",
-      "value": "@calc(!@fields.secondary_crop_2 || (!!@fields.sc_name_2 && @fields.sc_name_2.trim() !== \"\"))"
+      "name": "v_cout_lab_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_superficie_labouree_nonzero))"
     },
     {
-      "name": "completed_enabled",
-      "value": "@local.valid_sc_name_1 && @local.valid_sc_name_2"
+      "name": "v_cout_lab_err",
+      "value": "@calc(!@local.v_cout_lab_fmt || Number(@field.cout_superficie_labouree_nonzero) < 0)"
     },
     {
       "type": "begin_display_group",
-      "condition": "@fields.secondary_crop_1"
+      "name": "header",
+      "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
     },
     {
       "type": "html",
-      "name": "sc_name_1_label",
-      "value": "<span style=\"color: red;\">*</span> @global.sc_name_1_label",
-      "style_list": "font-size:20px;"
-    },
-    {
-      "type": "audio",
-      "name": "audio_6_1",
-      "parameter_list": "variant: compact;\nsrc: audio/semis/cult_second_nom1_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "style_list": "float : right;"
+      "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "image",
-      "value": "images/autre_cult_1.jpg",
-      "condition": "@fields.secondary_crop_1",
-      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
-    },
-    {
-      "type": "text",
-      "name": "sc_name_1_hint",
-      "value": "@global.sc_name_other_hint",
-      "condition": "@fields.secondary_crop_1",
-      "style_list": "color: gray; font-size: 16px;"
-    },
-    {
-      "type": "text_box",
-      "name": "sc_name_1",
-      "value": "@fields.sc_name_1",
-      "action_list": "changed | set_field: sc_name_1: this.value;",
-      "condition": "@fields.secondary_crop_1"
-    },
-    {
-      "type": "text",
-      "name": "error_sc_name_1",
-      "value": "@global.error_required_answer",
-      "condition": "@fields.attempt_submit && !@local.valid_sc_name_1",
-      "style_list": "color: red; font-size: 16px; background: #fff5f5; padding: 5px;"
-    },
-    {
       "type": "begin_display_group",
-      "condition": "@fields.secondary_crop_2"
+      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #FFCC80; border-radius: 12px; background: white; margin-bottom: 10px; overflow: hidden;"
     },
     {
-      "type": "html",
-      "name": "sc_name_2_label",
-      "value": "<span style=\"color: red;\">*</span> @global.sc_name_2_label",
-      "style_list": "font-size:20px;"
+      "type": "image",
+      "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+      "style_list": "width: 60%; object-fit: contain;"
     },
     {
-      "type": "audio",
-      "name": "audio_6_2",
-      "parameter_list": "variant: compact;\nsrc: audio/semis/cult_second_nom2_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "style_list": "float : right;"
+      "type": "text",
+      "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+      "style_list": "font-weight: bold; font-size: 18px;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "image",
-      "value": "images/autre_cult_2.jpg",
-      "condition": "@fields.secondary_crop_2",
-      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+      "type": "html",
+      "value": "<div style=\"color: #e67e22; font-weight: bold; font-size: 14px; margin-bottom: 10px;\"> LABOUR PAR PRESTATION </div>"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "grp_quantite_pnt",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "aud_pnt_fr",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/sup_labour_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span> Superficie labourée par prestation (ha)",
+      "style_list": "font-weight: bold;"
     },
     {
       "type": "text",
-      "name": "sc_name_2_hint",
-      "value": "@global.sc_name_other_hint",
-      "condition": "@fields.secondary_crop_2",
-      "style_list": "color: gray; font-size: 16px;"
+      "value": "*Mettez 0 si aucune superficie*  <span style=\"font-size: 12px; color: gray;\"></span>",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/superf_unit.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "text_box",
-      "name": "sc_name_2",
-      "value": "@fields.sc_name_2",
-      "action_list": "changed | set_field: sc_name_2: this.value;",
-      "condition": "@fields.secondary_crop_2"
+      "name": "superficie_labouree",
+      "value": "@field.superficie_labouree",
+      "action_list": "changed | set_field: superficie_labouree: this.value;",
+      "parameter_list": "number_input: true;"
     },
     {
       "type": "text",
-      "name": "error_sc_name_2",
-      "value": "@global.error_required_answer",
-      "condition": "@fields.attempt_submit && !@local.valid_sc_name_2",
-      "style_list": "color: red; font-size: 16px; background: #fff5f5; padding: 5px;"
+      "value": "Mettez une valeur positive<span style=\"font-size:11px;\"></span>",
+      "condition": "@local.v_lab_err",
+      "style_list": "font-size: 12px; color: red;"
     },
     {
-      "name": "completed_enabled",
-      "value": "@local.valid_sc_name_1 && @local.valid_sc_name_2"
+      "type": "begin_display_group",
+      "name": "cout_labour_zero",
+      "condition": "@calc(Number(@field.superficie_labouree) == 0)",
+      "style_list": "display: block; width: 100%"
     },
     {
-      "name": "final_sc_list",
-      "value": "@calc([@fields.fonio?'fonio':null, @fields.rice?'riz':null, @fields.sesame?'sesame':null, @fields.wouandzou?'wouandzou':null, @fields.patate_douce?'patate_douce':null, @fields.bissap?'bissap':null, @fields.secondary_crop_1?@fields.sc_name_1:null, @fields.secondary_crop_2?@fields.sc_name_2:null].filter(v=>v!==null).join(','))"
+      "type": "audio",
+      "name": "aud_chaux_z_fr",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_labour_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
     },
     {
-      "name": "final_sc_count",
-      "value": "@calc([@fields.fonio,@fields.rice,@fields.sesame,@fields.wouandzou,@fields.patate_douce,@fields.bissap,@fields.secondary_crop_1,@fields.secondary_crop_2].filter(v=>!!v).length)"
+      "type": "html",
+      "value": "Coût labour par prestation (Dram) <span style=\"font-size: 14px; color: #555;\"></span>",
+      "style_list": "font-weight: bold;"
     },
     {
-      "name": "current_sc",
-      "value": "@calc(@fields.fonio ? 'fonio' :(@fields.rice ? 'riz' :(@fields.sesame ? 'sesame' :(@fields.wouandzou ? 'wouandzou' :(@fields.patate_douce ? 'patate_douce' :(@fields.bissap ? 'bissap' :(@fields.secondary_crop_1 ? @fields.sc_name_1 :(@fields.secondary_crop_2 ? @fields.sc_name_2 :''))))))))"
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
     },
     {
-      "name": "sc_loop_idx",
-      "value": 0
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80px; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "value": 0,
+      "parameter_list": "disabled:true;"
+    },
+    {
+      "type": "text",
+      "value": "Coût bloqué à 0 car aucun labour par prestation",
+      "style_list": "font-size: 12px; color: #999;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "cout_labour_nonzero",
+      "condition": "@calc(Number(@field.superficie_labouree) > 0)",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "aud_lab_nz_fr",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_labour_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span> Coût labour par prestation (Dram) <span style=\"font-size: 14px; color: #555;\"></span>",
+      "style_list": "font-weight: bold;"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80px; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "cout_superficie_labouree_nonzero",
+      "value": "@field.cout_superficie_labouree_nonzero",
+      "action_list": "changed | set_field: cout_superficie_labouree_nonzero: this.value;",
+      "parameter_list": "number_input: true;\n\nplaceholder: Montant en Dram;"
+    },
+    {
+      "type": "text",
+      "value": "Mettez une valeur positive.<br><span style=\"font-size:11px;\"></span>",
+      "condition": "@local.v_cout_lab_err",
+      "style_list": "font-size: 12px; color: red;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "v_val_lab_nz",
+      "value": "@calc(Number(@field.cout_superficie_labouree_nonzero) || 0)"
+    },
+    {
+      "name": "v_final_lab",
+      "value": "@calc(Number(@field.superficie_labouree) == 0 ? 0 : @local.v_val_lab_nz)"
+    },
+    {
+      "name": "v_page6_valid",
+      "value": "@calc(@local.v_lab_fmt && Number(@field.superficie_labouree) >= 0 && (Number(@field.superficie_labouree) == 0 || (@local.v_cout_lab_fmt && Number(@field.cout_superficie_labouree_nonzero) >= 0)))"
     },
     {
       "type": "begin_display_group",
       "name": "dg_footer",
-      "value": " ",
       "parameter_list": "sticky: bottom;",
       "style_list": "padding: 12px 24px;"
     },
     {
       "type": "round_button",
-      "name": "page_6_btn_back",
+      "name": "button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page_6_btn_attempt_submit",
+      "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | set_field: attempt_submit: true;",
-      "condition": "!@local.completed_enabled",
-      "style_list": "flex: 1"
-    },
-    {
-      "type": "button",
-      "name": "page_6_btn_continue",
-      "value": "@global.btn_continue",
-      "action_list": "click | set_field: secondary_crops_selected : @local.final_sc_list;\nclick | set_field: secondary_crops_selected_count : @local.final_sc_count;\nclick | set_field: secondary_crop_loop_idx : @local.sc_loop_idx;\nclick | set_field: current_secondary_crop : @local.current_sc;\nclick | set_field: attempt_submit: false;\nclick | emit: completed;",
-      "parameter_list": "disabled: !@local.completed_enabled",
-      "condition": "@local.completed_enabled",
+      "action_list": "click | set_field: cout_superficie_labouree : @local.v_final_lab;\n\nclick | emit: completed;",
+      "parameter_list": "style: navigation;\n\ndisabled: !@local.v_page6_valid",
       "style_list": "flex: 1"
     },
     {

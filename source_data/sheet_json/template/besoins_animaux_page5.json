@@ -4,79 +4,40 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
-      "value": "**REGIMES ALIMENTAIRES**"
+      "type": "begin_template",
+      "name": "temp1",
+      "value": "sup_simple",
+      "condition": "@fields.type_regime == 'compl_faible'"
     },
     {
-      "type": "begin_data_items",
-      "value": "@data.categorie_animaux",
-      "parameter_list": "filter: @item.name == @fields.current_cat_animaux"
+      "type": "end_template "
     },
     {
-      "type": "begin_display_group"
+      "type": "begin_template",
+      "name": "temp2",
+      "value": "sup_ameliore",
+      "condition": "@fields.type_regime == 'compl_ameli'"
     },
     {
-      "type": "image",
-      "value": "@item.image",
-      "style_list": "width:150px; height:150px; "
+      "type": "end_template "
     },
     {
-      "type": "text",
-      "value": "@item.text"
+      "type": "begin_template",
+      "name": "temp3",
+      "value": "stabulation",
+      "condition": "@fields.type_regime == 'stabulation'"
     },
     {
-      "type": "end_display_group"
+      "type": "end_template "
     },
     {
-      "type": "text",
-      "name": "regime_boeufs_labour",
-      "value": "Les différents régimes alimentaires pour le(s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** les @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***La supplémentation simple:***  le pâturage libre dans la journée + 1 kg de fanes/foins + 3 kg de paille de céréales chaque nuit  durant toute la saison sèche-chaude; \n- ***La supplémentation améliorée :***  le pâturage libre dans la journée toute la saison sèche-chaude + supplémentation simple chaque nuit (janvier-mars) et 1 kg de tourteau + 2 kg de fanes/foins + 5 kg de paille de céréales (Avril-juin)",
-      "condition": "@fields.current_cat_animaux == 'boeufs_labour'"
+      "type": "begin_template",
+      "name": "temp4",
+      "value": "paturage_transh",
+      "condition": "@fields.type_regime == 'paturage' || @fields.type_regime == 'transhumance' "
     },
     {
-      "type": "text",
-      "name": "regime_embouche_bovine",
-      "value": "Les différents régimes alimentaires pour le (s) @item.text  en trois (3) mois durant la saison sèche-chaude (janvier-juin) sont :\n- ***La stabulation:*** le(s) @item.text  sont maintenus et nourris sur place avec 2 kg de tourteau de coton, 2 kg de fanes/foins et 7 kg de pailles de céréales.",
-      "condition": "@fields.current_cat_animaux == 'embouche_bovine'"
-    },
-    {
-      "type": "text",
-      "name": "regime_vache_laitiere",
-      "value": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** le (s) @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***Le transhumance:***le pâturage libre sur des parcours pastoraux lointains;\n- ***La supplémentation simple:***  le pâturage libre dans la journée + 1kg de fanes/foins + 2 kg de pailles de céréales chaque nuit  durant toute la saison sèche-chaude; \n- ***La supplémentation améliorée :***  le pâturage libre dans la journée toute la saison sèche-chaude + supplementation simple (janvier-mars) et 2 kg de tourteau + 2kg de fanes/foins + 5 kg de pailles de céréales (avril-Juin) ;\n- ***La stabulation:*** le (s) @item.text sont nourries en supplementation simple (durant trois mois) et ensuite maintenues et nourries sur place avec 3 kg de fanes/foins + 2 kg de tourteau de coton + 3 kg paille de céréale (durant trois autres mois).\n\n\n",
-      "condition": "@fields.current_cat_animaux == 'vache_laitiere'"
-    },
-    {
-      "type": "text",
-      "name": "regime_autres_bovins",
-      "value": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** le (s) @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***Le transhumance:***le pâturage libre sur des parcours pastoraux lointains;\n- ***La complémentation simple:***  le pâturage libre dans la journée +  1kg de fanes/foins+ 3 kg de pailles de céréales chaque nuit  durant toute la saison sèche-chaude.\n\n\n",
-      "condition": "@fields.current_cat_animaux == 'autres_bovins'"
-    },
-    {
-      "type": "text",
-      "name": "regime_assins",
-      "value": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** les @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***La stabulation:*** le(s) @item.text est/sont maintenu(s) et nourri(s) sur place avec 1 kg de fânes/foins + 1kg de son de céréales + 2 kg paille de céréale.",
-      "condition": "@fields.current_cat_animaux == 'asins'"
-    },
-    {
-      "type": "text",
-      "name": "regime_embouche_ovine",
-      "value": "Les différents régimes alimentaires pour le (s) @item.text en trois (3) mois durant saison sèche-chaude (janvier-juin) sont :\n- ***La stabulation:*** 4 kg des feuilles d’arbres (=1,5 kgMS de fanes) + 0,5 kg de son de céréales (ou de tourteau de coton).\n",
-      "condition": "@fields.current_cat_animaux == 'embouche_ovine'"
-    },
-    {
-      "type": "text",
-      "name": "regime_reste_ovins",
-      "value": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** le (s) @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***La complémentation simple:***  le pâturage libre dans la journée + 0,5 kg de fanes + 0,5 kg de son de céréales (ou de tourteau de coton) chaque nuit durant toute la saison sèche-chaude; \n- ***La stabulation:*** le (s) @item.text est/sont maintenu(s) et nourri (s) sur place avec 4 kg des feuilles d’arbres (1,5 kgMS de fanes) + 0,5 kg de son de céréales (de tourteau de coton) durant toute la saison sèche-chaude.\n\n\n",
-      "condition": "@fields.current_cat_animaux == 'reste_ovins'"
-    },
-    {
-      "type": "text",
-      "name": "regime_caprins",
-      "value": "Les différents régimes alimentaires pour le (s) @item.text en saison sèche-chaude (janvier-juin) sont :\n- ***Le pâturage libre:*** le (s) @item.text s'alimentent exclusivement à partir des pâturages naturels des parcours pastoraux du terroir;\n- ***La complémentation simple:***  le pâturage libre dans la journée + 0,5 kg de fanes + 0,5 kg de son de céréales (ou de tourteau de coton) chaque nuit  durant toute la saison sèche-chaude.\n\n\n",
-      "condition": "@fields.current_cat_animaux == 'caprins'"
-    },
-    {
-      "type": "end_data_items"
+      "type": "end_template "
     },
     {
       "type": "begin_display_group",
@@ -86,15 +47,16 @@
     },
     {
       "type": "round_button",
-      "name": "page5_button_back",
-      "action_list": "click | emit: uncompleted",
+      "name": "page7_button_back",
+      "action_list": "click | emit: uncompleted;",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page5_button_continue",
+      "name": "page7_button_continue",
       "value": "Continuer",
-      "action_list": "click | emit: completed;"
+      "action_list": "click | emit: completed;",
+      "style_list": "flex: 1"
     },
     {
       "type": "end_display_group"

@@ -4,26 +4,452 @@
   "status": "released",
   "rows": [
     {
-      "type": "text",
-      "value": "@global.note_besoin_animaux",
+      "type": "title",
+      "value": "**REGIMES ALIMENTAIRES**",
       "_translations": {
         "value": {}
       },
-      "name": "text_2",
-      "_nested_name": "text_2",
+      "name": "title_2",
+      "_nested_name": "title_2"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.categorie_animaux",
+      "parameter_list": {
+        "filter": "@item.name == @fields.current_cat_animaux"
+      },
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "image",
+              "value": "@item.image",
+              "_translations": {
+                "value": {}
+              },
+              "style_list": [
+                "width:150px",
+                "height:150px"
+              ],
+              "name": "image_1",
+              "_nested_name": "data_items_3.display_group_1_@item.id.image_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@item.image",
+                    "matchedExpression": "@item.image",
+                    "type": "item",
+                    "fieldName": "image"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_3.display_group_1_@item.id.image_1",
+                    "matchedExpression": "@item.id.image_1",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.image": [
+                  "value"
+                ],
+                "@item.id.image_1": [
+                  "_nested_name"
+                ]
+              }
+            },
+            {
+              "type": "text",
+              "value": "@item.text",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_2",
+              "_nested_name": "data_items_3.display_group_1_@item.id.text_2",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@item.text",
+                    "matchedExpression": "@item.text",
+                    "type": "item",
+                    "fieldName": "text"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_3.display_group_1_@item.id.text_2",
+                    "matchedExpression": "@item.id.text_2",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.text": [
+                  "value"
+                ],
+                "@item.id.text_2": [
+                  "_nested_name"
+                ]
+              }
+            }
+          ],
+          "name": "display_group_1_@item.id",
+          "_nested_name": "data_items_3.display_group_1_@item.id",
+          "_dynamicFields": {
+            "name": [
+              {
+                "fullExpression": "display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_3.display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "name": "regime_boeufs_labour",
+          "value": "@global.regime_boeufs_labour",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.current_cat_animaux == 'boeufs_labour'",
+          "_nested_name": "data_items_3.regime_boeufs_labour",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.regime_boeufs_labour",
+                "matchedExpression": "@global.regime_boeufs_labour",
+                "type": "global",
+                "fieldName": "regime_boeufs_labour"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.current_cat_animaux == 'boeufs_labour'",
+                "matchedExpression": "@fields.current_cat_animaux",
+                "type": "fields",
+                "fieldName": "current_cat_animaux"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.regime_boeufs_labour": [
+              "value"
+            ],
+            "@fields.current_cat_animaux": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "name": "regime_embouche_bovine",
+          "value": "@global.regime_embouche_bovine",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.current_cat_animaux == 'embouche_bovine'",
+          "_nested_name": "data_items_3.regime_embouche_bovine",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.regime_embouche_bovine",
+                "matchedExpression": "@global.regime_embouche_bovine",
+                "type": "global",
+                "fieldName": "regime_embouche_bovine"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.current_cat_animaux == 'embouche_bovine'",
+                "matchedExpression": "@fields.current_cat_animaux",
+                "type": "fields",
+                "fieldName": "current_cat_animaux"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.regime_embouche_bovine": [
+              "value"
+            ],
+            "@fields.current_cat_animaux": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "name": "regime_vache_laitiere",
+          "value": "@global.regime_vache_laitiere",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.current_cat_animaux == 'vache_laitiere'",
+          "_nested_name": "data_items_3.regime_vache_laitiere",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.regime_vache_laitiere",
+                "matchedExpression": "@global.regime_vache_laitiere",
+                "type": "global",
+                "fieldName": "regime_vache_laitiere"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.current_cat_animaux == 'vache_laitiere'",
+                "matchedExpression": "@fields.current_cat_animaux",
+                "type": "fields",
+                "fieldName": "current_cat_animaux"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.regime_vache_laitiere": [
+              "value"
+            ],
+            "@fields.current_cat_animaux": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "name": "regime_autres_bovins",
+          "value": "@global.regime_autres_bovins",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.current_cat_animaux == 'autres_bovins'",
+          "_nested_name": "data_items_3.regime_autres_bovins",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.regime_autres_bovins",
+                "matchedExpression": "@global.regime_autres_bovins",
+                "type": "global",
+                "fieldName": "regime_autres_bovins"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.current_cat_animaux == 'autres_bovins'",
+                "matchedExpression": "@fields.current_cat_animaux",
+                "type": "fields",
+                "fieldName": "current_cat_animaux"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.regime_autres_bovins": [
+              "value"
+            ],
+            "@fields.current_cat_animaux": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "name": "regime_assins",
+          "value": "@global.regime_assins",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.current_cat_animaux == 'asins'",
+          "_nested_name": "data_items_3.regime_assins",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.regime_assins",
+                "matchedExpression": "@global.regime_assins",
+                "type": "global",
+                "fieldName": "regime_assins"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.current_cat_animaux == 'asins'",
+                "matchedExpression": "@fields.current_cat_animaux",
+                "type": "fields",
+                "fieldName": "current_cat_animaux"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.regime_assins": [
+              "value"
+            ],
+            "@fields.current_cat_animaux": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "name": "regime_embouche_ovine",
+          "value": "@global.regime_embouche_ovine",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.current_cat_animaux == 'embouche_ovine'",
+          "_nested_name": "data_items_3.regime_embouche_ovine",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.regime_embouche_ovine",
+                "matchedExpression": "@global.regime_embouche_ovine",
+                "type": "global",
+                "fieldName": "regime_embouche_ovine"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.current_cat_animaux == 'embouche_ovine'",
+                "matchedExpression": "@fields.current_cat_animaux",
+                "type": "fields",
+                "fieldName": "current_cat_animaux"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.regime_embouche_ovine": [
+              "value"
+            ],
+            "@fields.current_cat_animaux": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "name": "regime_reste_ovins",
+          "value": "@global.regime_reste_ovins",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.current_cat_animaux == 'reste_ovins'",
+          "_nested_name": "data_items_3.regime_reste_ovins",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.regime_reste_ovins",
+                "matchedExpression": "@global.regime_reste_ovins",
+                "type": "global",
+                "fieldName": "regime_reste_ovins"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.current_cat_animaux == 'reste_ovins'",
+                "matchedExpression": "@fields.current_cat_animaux",
+                "type": "fields",
+                "fieldName": "current_cat_animaux"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.regime_reste_ovins": [
+              "value"
+            ],
+            "@fields.current_cat_animaux": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "name": "regime_caprins",
+          "value": "@global.regime_caprins",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.current_cat_animaux == 'caprins'",
+          "_nested_name": "data_items_3.regime_caprins",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.regime_caprins",
+                "matchedExpression": "@global.regime_caprins",
+                "type": "global",
+                "fieldName": "regime_caprins"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.current_cat_animaux == 'caprins'",
+                "matchedExpression": "@fields.current_cat_animaux",
+                "type": "fields",
+                "fieldName": "current_cat_animaux"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.regime_caprins": [
+              "value"
+            ],
+            "@fields.current_cat_animaux": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "data_items_3",
+      "_nested_name": "data_items_3",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.note_besoin_animaux",
-            "matchedExpression": "@global.note_besoin_animaux",
-            "type": "global",
-            "fieldName": "note_besoin_animaux"
+            "fullExpression": "@data.categorie_animaux",
+            "matchedExpression": "@data.categorie_animaux",
+            "type": "data",
+            "fieldName": "categorie_animaux"
           }
-        ]
+        ],
+        "parameter_list": {
+          "filter": [
+            {
+              "fullExpression": "@item.name == @fields.current_cat_animaux",
+              "matchedExpression": "@item.name",
+              "type": "item",
+              "fieldName": "name"
+            },
+            {
+              "fullExpression": "@item.name == @fields.current_cat_animaux",
+              "matchedExpression": "@fields.current_cat_animaux",
+              "type": "fields",
+              "fieldName": "current_cat_animaux"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
-        "@global.note_besoin_animaux": [
+        "@data.categorie_animaux": [
           "value"
+        ],
+        "@item.name": [
+          "parameter_list.filter"
+        ],
+        "@fields.current_cat_animaux": [
+          "parameter_list.filter"
         ]
       }
     },
@@ -39,7 +465,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page3_button_back",
+          "name": "page5_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -54,11 +480,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_3.page3_button_back"
+          "_nested_name": "display_group_5.page5_button_back"
         },
         {
           "type": "button",
-          "name": "page3_button_continue",
+          "name": "page5_button_continue",
           "value": "Continuer",
           "_translations": {
             "value": {}
@@ -73,11 +499,14 @@
               "_raw": "click | emit: completed"
             }
           ],
-          "_nested_name": "display_group_3.page3_button_continue"
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_5.page5_button_continue"
         }
       ],
-      "name": "display_group_3",
-      "_nested_name": "display_group_3"
+      "name": "display_group_5",
+      "_nested_name": "display_group_5"
     }
   ],
   "_source": {

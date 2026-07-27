@@ -6,46 +6,21 @@
     {
       "type": "plh_module_details_header",
       "value": "CEF-M",
-      "parameter_list": "background: #F9FBE7; hide_back_button: true;"
-    },
-    {
-      "type": "title",
-      "value": "SUIVI DE CAMPAGNE"
+      "parameter_list": "background: #00adcc; hide_back_button: true; color: white;"
     },
     {
       "type": "plh_module_list_item",
       "name": "item_enrolment",
-      "value": "Enrolment",
+      "value": "Scanner QR code ",
+      "action_list": "click | go_to: scan_screen",
+      "parameter_list": "module_image_asset: images/bienvenue.png; nav_image_asset: images/icons/expand_circle_right.png; background: #BFBFBD\n"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_enrolment",
+      "value": "Enrôlement",
       "action_list": "click | go_to: enrolment",
-      "parameter_list": "module_image_asset: images/neo_alpha.jpg; nav_image_asset: images/icons/expand_circle_right.png;"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_semi",
-      "value": "Semis",
-      "action_list": "click | go_to: section_semi",
-      "parameter_list": "module_image_asset: images/seeding.png; nav_image_asset: images/icons/expand_circle_right.png;"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_post_semi",
-      "value": "Post Semis",
-      "action_list": "click | go_to: post_semi",
-      "parameter_list": "module_image_asset: images/sup_cult.jpg; nav_image_asset: images/icons/expand_circle_right.png;"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_superficie",
-      "value": "Superficie Champs",
-      "action_list": "click | go_to: superficie",
-      "parameter_list": "module_image_asset: images/superf_champ.jpg; nav_image_asset: images/icons/expand_circle_right.png;"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_recolte",
-      "value": "Récolte",
-      "action_list": "click | go_to: recolte",
-      "parameter_list": "module_image_asset: images/ratio_membre_terre.jpg; nav_image_asset: images/icons/expand_circle_right.png;"
+      "parameter_list": "module_image_asset: images/ecrire.jpg; nav_image_asset: images/icons/expand_circle_right.png;"
     },
     {
       "type": "title",
@@ -53,10 +28,10 @@
     },
     {
       "type": "plh_module_list_item",
-      "name": "item_fumure",
-      "value": "Fumure organique",
-      "action_list": "click | go_to: section_fumure",
-      "parameter_list": "module_image_asset: images/fumure.jpg; nav_image_asset: images/icons/expand_circle_right.png; background: #F9FBE7;"
+      "name": "item_depenses",
+      "value": "Cultures de l'UPA",
+      "action_list": "click | go_to: cultures",
+      "parameter_list": "module_image_asset: images/cultures.jpg; nav_image_asset: images/icons/expand_circle_right.png; background:  #E8F5E9;"
     },
     {
       "type": "plh_module_list_item",
@@ -78,6 +53,45 @@
       "value": "Dépenses de l'UPA",
       "action_list": "click | go_to: depenses",
       "parameter_list": "module_image_asset: images/cfa_tot.jpg; nav_image_asset: images/icons/expand_circle_right.png; background: #FFF3E0;"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_fumure",
+      "value": "Fumure organique",
+      "action_list": "click | go_to: section_fumure",
+      "parameter_list": "module_image_asset: images/fumure.jpg; nav_image_asset: images/icons/expand_circle_right.png; background: #f0fdfa; border-left: 4px solid #00adcc;"
+    },
+    {
+      "type": "title",
+      "value": "SUIVI DE CAMPAGNE"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_superficie",
+      "value": "Superficie Champs",
+      "action_list": "click | go_to: superficie",
+      "parameter_list": "module_image_asset: images/superf_champ.jpg; nav_image_asset: images/icons/expand_circle_right.png;"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_semi",
+      "value": "Semis",
+      "action_list": "click | go_to: section_semi",
+      "parameter_list": "module_image_asset: images/seeding.png; nav_image_asset: images/icons/expand_circle_right.png;"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_post_semi",
+      "value": "Post Semis",
+      "action_list": "click | go_to: post_semi",
+      "parameter_list": "module_image_asset: images/sup_cult.jpg; nav_image_asset: images/icons/expand_circle_right.png;"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_recolte",
+      "value": "Récolte",
+      "action_list": "click | go_to: recolte",
+      "parameter_list": "module_image_asset: images/ratio_membre_terre.jpg; nav_image_asset: images/icons/expand_circle_right.png;"
     }
   ]
 }

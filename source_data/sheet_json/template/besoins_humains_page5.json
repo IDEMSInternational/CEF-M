@@ -5,69 +5,248 @@
   "rows": [
     {
       "type": "title",
-      "value": "BESOINS FAMILIAUX"
+      "value": "SUPERFICIES DES CEREALES A CULTIVIER"
     },
     {
-      "type": "html",
-      "value": "<h3 style=\"color: #1e3656; margin: 0 0 10px 0; font-size: 16px;\">PERSONNES À NOURRIR</h3>"
-    },
-    {
-      "type": "image",
-      "value": "images/membre_upa.jpg",
-      "style_list": "width: 80%; border-radius: 10px; margin-bottom: 15px;"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: #666; font-size: 13px; line-height: 1.5;\">Indiquez le nombre total de personnes (adultes et enfants) dont l'alimentation sera assurée par les récoltes de cette année sur 12 mois.</p>"
-    },
-    {
-      "type": "text_box",
-      "name": "personnes_nourrir",
-      "value": "@field.personnes_nourrir",
-      "action_list": "changed | set_field: personnes_nourrir : this.value;",
-      "parameter_list": "placeholder: Nombre de personnes;input_type: number;",
-      "style_list": "margin-top: 10px;"
-    },
-    {
-      "name": "v_besoin_sacs",
-      "value": "@calc(Number(@field.personnes_nourrir || 0) * 3)"
-    },
-    {
-      "type": "begin_display_group",
-      "name": "prevision",
-      "condition": "@field.personnes_nourrir > 0",
-      "style_list": "background: #1e3656; padding: 15px; border-radius: 12px; color: white;"
+      "type": "text",
+      "value": "**Les supperficies prévisionnelles sont calculées en fonction du rendement moyen des céréales (maïs, mil, sorgho et riz) de votre UPA**"
     },
     {
       "type": "image",
-      "value": "images/besoin_upa.jpg",
-      "style_list": "width: 25%; float: left; margin-right: 10px;"
+      "value": "images/superf_unit.jpg",
+      "style_list": "width: 50%; object-fit: contain;"
+    },
+    {
+      "name": "superficie_mais",
+      "value": "@calc(Number(@fields.sac_mais || 0) > 0 ? (Number(@fields.sac_mais || 0) / Number(@fields.rend_moyen_mais || 1)).toFixed(1) : 0)"
+    },
+    {
+      "name": "superficie_mil",
+      "value": "@calc(Number(@fields.sac_mil || 0) > 0 ? (Number(@fields.sac_mil || 0) / Number(@fields.rend_moyen_mil || 1)).toFixed(1) : 0)"
+    },
+    {
+      "name": "superficie_sorgho",
+      "value": "@calc(Number(@fields.sac_sorgho || 0) > 0 ? (Number(@fields.sac_sorgho || 0) / Number(@fields.rend_moyen_sorgho || 1)).toFixed(1) : 0)"
+    },
+    {
+      "name": "superficie_riz",
+      "value": "@calc(Number(@fields.sac_riz || 0) > 0 ? (Number(@fields.sac_riz || 0) / Number(@fields.rend_moyen_riz || 1)).toFixed(1) : 0)"
+    },
+    {
+      "name": "superficie_totale",
+      "value": "@calc((Number(@local.superficie_mais) + Number(@local.superficie_mil) + Number(@local.superficie_sorgho) + Number(@local.superficie_riz)).toFixed(1))"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Superficie à cultiver pour le Maïs"
+    },
+    {
+      "type": "audio",
+      "name": "audio_7_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/sup_mais_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/sup_mais.jpg",
+      "style_list": "width:150px; height:150px;"
     },
     {
       "type": "html",
-      "value": "<div style=\"overflow: hidden;\">\n    <div style=\"text-transform: uppercase; font-size: 10px; color: #4f8ff1; font-weight: bold; margin-bottom: 2px;\">Objectif de production</div>\n    <div style=\"font-size: 22px; font-weight: bold; margin-bottom: 4px;\">\n        @local.v_besoin_sacs <span style=\"font-size: 14px; font-weight: normal;\">sacs de céréales</span>\n    </div>\n    <p style=\"font-size: 11px; color: #cbd5e0; line-height: 1.2; margin: 0;\">\n        Couvre les besoins de <b>@field.personnes_nourrir membres</b> / 12 mois.\n    </p>\n</div>\n<div style=\"clear: both;\"></div>"
+      "value": "<p style=\"color: black;\"> Rendement moyen: @fields.rend_moyen_mais sac de 100kg/ha </p>",
+      "style_list": "font-size: 12px; "
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "La superficie pour @fields.sac_mais sacs de maïs est:"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"color: #1e3656; font-weight: bold; font-size: 20px;\">@local.superficie_mais ha</div>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Superficie à cultiver pour le Mil"
+    },
+    {
+      "type": "audio",
+      "name": "audio_7_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/sup_mil_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/sup_mil.jpg",
+      "style_list": "width:150px; height:150px;"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\"> Rendement moyen: @fields.rend_moyen_mil sac de 100kg/ha </p>",
+      "style_list": "font-size: 12px; "
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "La superficie pour @fields.sac_mil sacs de mil est:"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"color: #1e3656; font-weight: bold; font-size: 20px;\">@local.superficie_mil ha</div>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Superficie à cultiver pour le Sorgho"
+    },
+    {
+      "type": "audio",
+      "name": "audio_7_3",
+      "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/sup_sorgho_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/sup_sorgho.jpg",
+      "style_list": "width:150px; height:150px;"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\"> Rendement moyen: @fields.rend_moyen_sorgho sac de 100kg/ha </p>",
+      "style_list": "font-size: 12px; "
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "La superficie pour @fields.sac_sorgho sacs de sorgho est:"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"color: #1e3656; font-weight: bold; font-size: 20px;\">@local.superficie_sorgho ha</div>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Superficie à cultiver pour le Riz"
+    },
+    {
+      "type": "audio",
+      "name": "audio_7_4",
+      "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/sup_riz_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/sup_riz.jpg",
+      "style_list": "width:150px; height:150px;"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\"> Rendement moyen: @fields.rend_moyen_riz sac de 100kg/ha </p>",
+      "style_list": "font-size: 12px; "
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "La superficie pour @fields.sac_riz sacs de riz est:"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"color: #1e3656; font-weight: bold; font-size: 20px;\">@local.superficie_riz ha</div>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Superficie totale de maïs, mil, sorgho et riz "
+    },
+    {
+      "type": "audio",
+      "name": "audio_7_5",
+      "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/sup_total_cereales_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/sup_cereales.jpg",
+      "style_list": "width:150px; height:150px;"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "La superficie cumulée de maïs, mil, sorgho et riz est:"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"color: #1e3656; font-weight: bold; font-size: 20px;\">@local.superficie_totale ha</div>"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "begin_display_group",
-      "name": "dg_footer",
       "parameter_list": "sticky: bottom;",
       "style_list": "padding: 12px 24px;"
     },
     {
       "type": "round_button",
-      "name": "button_back",
+      "name": "page7_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "button_completed",
+      "name": "page7_button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | set_field: besoin_cereale_exploitation : @local.v_besoin_sacs;\nclick | emit: completed",
-      "parameter_list": "style: navigation;\ndisabled: !@field.personnes_nourrir || @field.personnes_nourrir <= 0",
+      "action_list": "click | set_field: superficie_mais: local.superficie_mais;\nclick | set_field: superficie_mil: local.superficie_mil;\nclick | set_field: superficie_sorgho: local.superficie_sorgho;\nclick | set_field: superficie_riz: local.superficie_riz;\nclick | set_field: superficie_totale : local.superficie_totale;\nclick | emit: completed",
       "style_list": "flex: 1"
     },
     {

@@ -4,46 +4,52 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
-      "value": "**@global.title_campagne**"
+      "type": "title",
+      "value": "**Niveau de fertilité de la parcelle N⁰ @fields.num_parcelle de @fields.nom_champ**"
     },
     {
       "type": "begin_display_group"
     },
     {
       "type": "text",
-      "value": "@global.campagne_selection"
+      "value": "@global.note_fertilite"
     },
     {
       "type": "audio",
-      "name": "audio_3_1",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/annee_saison_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "style_list": "@global.audio_style"
+      "name": "audio_5_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/fertilite_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: black;\"> @global.note_campagne </p>"
+      "type": "image",
+      "value": "images/fertilite.jpg",
+      "style_list": "width: 80%; object-fit: contain;\n"
     },
     {
-      "type": "date_time_picker",
-      "name": "year_campaign",
-      "value": "@fields.year_campaign",
-      "action_list": "changed | set_local: year_campaign: this.value;",
-      "parameter_list": "type: date"
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: black;\"> Sélectionner un niveau en dessous !</p>"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "fertilite_sol",
+      "value": "@fields.fertilite_sol",
+      "action_list": "changed | set_field : fertilite_sol: this.value;",
+      "parameter_list": "answer_list: @data.fertilite_sol; \nstyle: secondary;\nitem_width: 60px;\ngrid_gap: 8px;"
     },
     {
       "type": "html",
       "name": "html_text",
       "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@local.year_campaign"
+      "condition": "!@local.fertilite_sol"
     },
     {
       "name": "completed_enabled",
-      "value": "@local.year_campaign "
+      "value": "@local.fertilite_sol ",
+      "style_list": true
     },
     {
       "type": "begin_display_group",
@@ -53,15 +59,15 @@
     },
     {
       "type": "round_button",
-      "name": "page3_button_back",
+      "name": "page5_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page3_button_continue",
+      "name": "page5_button_continue",
       "value": "Continuer",
-      "action_list": "click | set_field: year_campaign: @local.year_campaign;\nclick | emit: completed;",
+      "action_list": "click | set_field: @calc('fertilite_sol_parcelle_N' + @fields.num_parcelle) : @fields.fertilite_sol;\nclick | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled"
     },
     {

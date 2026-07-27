@@ -4,105 +4,1617 @@
   "status": "released",
   "rows": [
     {
-      "type": "text",
-      "value": "Choisissez l'année de la récolte",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "margin-top: 20px",
-        "font-weight: 500"
-      ],
-      "name": "text_2",
-      "_nested_name": "text_2"
-    },
-    {
-      "type": "date_time_picker",
-      "name": "year_picker",
-      "action_list": [
-        {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "campagne",
-            "this.value"
-          ],
-          "_raw": "changed | set_field: campagne: this.value"
-        }
-      ],
-      "parameter_list": {
-        "type": "year",
-        "min": "2023",
-        "max": "@calc(now())"
-      },
-      "_nested_name": "year_picker",
-      "_dynamicFields": {
-        "parameter_list": {
-          "max": [
-            {
-              "fullExpression": "@calc(now())",
-              "matchedExpression": "@calc(now())",
-              "type": "calc",
-              "fieldName": "now()"
-            }
-          ]
-        }
-      },
-      "_dynamicDependencies": {
-        "@calc(now())": [
-          "parameter_list.max"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "value": "*La réponse doit être 2023 ou supérieur*",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "color:red",
-        "font-size:12px"
-      ],
-      "name": "text_4",
-      "_nested_name": "text_4"
-    },
-    {
-      "name": "v_year_ok",
-      "value": "@calc(!!@field.campagne)",
+      "name": "v_current_human",
+      "value": "@calc(Number(@field.current_culture_index) + 1)",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "v_year_ok",
+      "_nested_name": "v_current_human",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(!!@field.campagne)",
-            "matchedExpression": "!@field.campagne",
+            "fullExpression": "@calc(Number(@field.current_culture_index) + 1)",
+            "matchedExpression": "@field.current_culture_index",
             "type": "field",
-            "fieldName": "campagne"
+            "fieldName": "current_culture_index"
           },
           {
-            "fullExpression": "@calc(!!@field.campagne)",
-            "matchedExpression": "@calc(!!@field.campagne)",
+            "fullExpression": "@calc(Number(@field.current_culture_index) + 1)",
+            "matchedExpression": "@calc(Number(@field.current_culture_index) + 1)",
             "type": "calc",
-            "fieldName": "!!@field.campagne"
+            "fieldName": "Number(@field.current_culture_index) + 1"
           }
         ]
       },
       "_dynamicDependencies": {
-        "!@field.campagne": [
+        "@field.current_culture_index": [
           "value"
         ],
-        "@calc(!!@field.campagne)": [
+        "@calc(Number(@field.current_culture_index) + 1)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "header",
+      "style_list": [
+        "background: #00adcc",
+        "padding: 15px",
+        "border-radius: 0 0 15px 15px",
+        "margin-bottom: 20px"
+      ],
+      "rows": [
+        {
+          "type": "html",
+          "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "header.html_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "matchedExpression": "@local.v_current_human",
+                "type": "local",
+                "fieldName": "v_current_human"
+              },
+              {
+                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "matchedExpression": "@field.total_cultures_selected",
+                "type": "field",
+                "fieldName": "total_cultures_selected"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_current_human": [
+              "value"
+            ],
+            "@field.total_cultures_selected": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "header"
+    },
+    {
+      "type": "title",
+      "value": "DÉTAILS DE LA CULTURE : ENTRETIEN",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_5",
+      "_nested_name": "title_5"
+    },
+    {
+      "type": "display_group",
+      "name": "header_culture",
+      "style_list": [
+        "width: 100%",
+        "display: flex",
+        "flex-direction: column",
+        "align-items: center",
+        "border: 1px solid #FFCC80",
+        "border-radius: 12px",
+        "background: white",
+        "margin-bottom: 10px",
+        "overflow: hidden"
+      ],
+      "rows": [
+        {
+          "type": "image",
+          "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 60%",
+            "object-fit: contain"
+          ],
+          "name": "image_1",
+          "_nested_name": "header_culture.image_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+                "matchedExpression": "@field.active_culture_name",
+                "type": "field",
+                "fieldName": "active_culture_name"
+              },
+              {
+                "fullExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+                "matchedExpression": "@field.active_culture_name",
+                "type": "field",
+                "fieldName": "active_culture_name"
+              },
+              {
+                "fullExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+                "matchedExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+                "type": "calc",
+                "fieldName": "['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg'"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.active_culture_name": [
+              "value",
+              "value"
+            ],
+            "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 18px"
+          ],
+          "name": "text_2",
+          "_nested_name": "header_culture.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+                "matchedExpression": "@field.active_culture_name",
+                "type": "field",
+                "fieldName": "active_culture_name"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.active_culture_name": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "header_culture"
+    },
+    {
+      "name": "sarclage_pos",
+      "value": "@calc(Number(@field.superficie_sarclage) > 0 && /^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "sarclage_pos",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@field.superficie_sarclage) > 0 && /^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage))",
+            "matchedExpression": "@field.superficie_sarclage",
+            "type": "field",
+            "fieldName": "superficie_sarclage"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.superficie_sarclage) > 0 && /^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage))",
+            "matchedExpression": "@field.superficie_sarclage",
+            "type": "field",
+            "fieldName": "superficie_sarclage"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.superficie_sarclage) > 0 && /^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage))",
+            "matchedExpression": "@calc(Number(@field.superficie_sarclage) > 0 && /^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage))",
+            "type": "calc",
+            "fieldName": "Number(@field.superficie_sarclage) > 0 && /^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.superficie_sarclage": [
+          "value",
+          "value"
+        ],
+        "@calc(Number(@field.superficie_sarclage) > 0 && /^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "sarclage_neg",
+      "value": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage) || Number(@field.superficie_sarclage) < 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "sarclage_neg",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage) || Number(@field.superficie_sarclage) < 0)",
+            "matchedExpression": "@field.superficie_sarclage",
+            "type": "field",
+            "fieldName": "superficie_sarclage"
+          },
+          {
+            "fullExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage) || Number(@field.superficie_sarclage) < 0)",
+            "matchedExpression": "@field.superficie_sarclage",
+            "type": "field",
+            "fieldName": "superficie_sarclage"
+          },
+          {
+            "fullExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage) || Number(@field.superficie_sarclage) < 0)",
+            "matchedExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage) || Number(@field.superficie_sarclage) < 0)",
+            "type": "calc",
+            "fieldName": "!/^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage) || Number(@field.superficie_sarclage) < 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.superficie_sarclage": [
+          "value",
+          "value"
+        ],
+        "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage) || Number(@field.superficie_sarclage) < 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<br><b style=\"color: #e67e22\">1. SARCLAGE</b>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_10",
+      "_nested_name": "html_10"
+    },
+    {
+      "type": "display_group",
+      "name": "sarclage_group",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "name": "sarclage_note",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/postSemi/super_sarclage_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "sarclage_group.sarclage_note"
+        },
+        {
+          "type": "html",
+          "value": "Superficie sarclée par prestation (Ha)<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "sarclage_group.html_2"
+        },
+        {
+          "type": "image",
+          "value": "images/superf_unit.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_3",
+          "_nested_name": "sarclage_group.image_3"
+        },
+        {
+          "type": "text_box",
+          "name": "superficie_sarclage",
+          "value": "@field.superficie_sarclage",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "superficie_sarclage",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: superficie_sarclage : this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "0"
+          },
+          "_nested_name": "sarclage_group.superficie_sarclage",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.superficie_sarclage",
+                "matchedExpression": "@field.superficie_sarclage",
+                "type": "field",
+                "fieldName": "superficie_sarclage"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.superficie_sarclage": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "sarclage_group"
+    },
+    {
+      "type": "text",
+      "name": "err_sup1",
+      "value": "*Mettez une valeur positive*",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.sarclage_neg",
+      "style_list": [
+        "color: red",
+        "font-size: 12px"
+      ],
+      "_nested_name": "err_sup1",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.sarclage_neg",
+            "matchedExpression": "@local.sarclage_neg",
+            "type": "local",
+            "fieldName": "sarclage_neg"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.sarclage_neg": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "sarclage_card_cout",
+      "condition": "@local.sarclage_pos",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/postSemi/cout_sarclage_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "sarclage_card_cout.audio_1"
+        },
+        {
+          "type": "html",
+          "value": "Coût total payé (Dram)<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "sarclage_card_cout.html_2"
+        },
+        {
+          "type": "text",
+          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "sarclage_card_cout.text_3"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "sarclage_card_cout.image_4"
+        },
+        {
+          "type": "text_box",
+          "name": "cout_sarclage_nonzero",
+          "value": "@field.cout_sarclage_nonzero",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "cout_sarclage_nonzero",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: cout_sarclage_nonzero : this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "Coût en drm..."
+          },
+          "_nested_name": "sarclage_card_cout.cout_sarclage_nonzero",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.cout_sarclage_nonzero",
+                "matchedExpression": "@field.cout_sarclage_nonzero",
+                "type": "field",
+                "fieldName": "cout_sarclage_nonzero"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.cout_sarclage_nonzero": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "sarclage_card_cout",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.sarclage_pos",
+            "matchedExpression": "@local.sarclage_pos",
+            "type": "local",
+            "fieldName": "sarclage_pos"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.sarclage_pos": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "sarclage_card_cout_zero",
+      "condition": "@field.superficie_sarclage == 0",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/postSemi/cout_sarclage_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "sarclage_card_cout_zero.audio_1"
+        },
+        {
+          "type": "html",
+          "value": "Coût total payé (Dram)<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "sarclage_card_cout_zero.html_2"
+        },
+        {
+          "type": "text",
+          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "sarclage_card_cout_zero.text_3"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "sarclage_card_cout_zero.image_4"
+        },
+        {
+          "type": "text_box",
+          "name": "cout_sarclage_zero",
+          "value": 0,
+          "parameter_list": {
+            "disabled": "true"
+          },
+          "_nested_name": "sarclage_card_cout_zero.cout_sarclage_zero"
+        }
+      ],
+      "_nested_name": "sarclage_card_cout_zero",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@field.superficie_sarclage == 0",
+            "matchedExpression": "@field.superficie_sarclage",
+            "type": "field",
+            "fieldName": "superficie_sarclage"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.superficie_sarclage": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "desherbage_neg",
+      "value": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) || Number(@field.superficie_desherbage) < 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "desherbage_neg",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) || Number(@field.superficie_desherbage) < 0)",
+            "matchedExpression": "@field.superficie_desherbage",
+            "type": "field",
+            "fieldName": "superficie_desherbage"
+          },
+          {
+            "fullExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) || Number(@field.superficie_desherbage) < 0)",
+            "matchedExpression": "@field.superficie_desherbage",
+            "type": "field",
+            "fieldName": "superficie_desherbage"
+          },
+          {
+            "fullExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) || Number(@field.superficie_desherbage) < 0)",
+            "matchedExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) || Number(@field.superficie_desherbage) < 0)",
+            "type": "calc",
+            "fieldName": "!/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) || Number(@field.superficie_desherbage) < 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.superficie_desherbage": [
+          "value",
+          "value"
+        ],
+        "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) || Number(@field.superficie_desherbage) < 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "desherbage_pos",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) && Number(@field.superficie_desherbage) > 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "desherbage_pos",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) && Number(@field.superficie_desherbage) > 0)",
+            "matchedExpression": "@field.superficie_desherbage",
+            "type": "field",
+            "fieldName": "superficie_desherbage"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) && Number(@field.superficie_desherbage) > 0)",
+            "matchedExpression": "@field.superficie_desherbage",
+            "type": "field",
+            "fieldName": "superficie_desherbage"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) && Number(@field.superficie_desherbage) > 0)",
+            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) && Number(@field.superficie_desherbage) > 0)",
+            "type": "calc",
+            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) && Number(@field.superficie_desherbage) > 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.superficie_desherbage": [
+          "value",
+          "value"
+        ],
+        "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) && Number(@field.superficie_desherbage) > 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<br><b style=\"color: #e67e22\">2. DÉSHERBAGE</b>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_20",
+      "_nested_name": "html_20"
+    },
+    {
+      "type": "display_group",
+      "name": "desherbage_group",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "name": "desherbage_note",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/postSemi/super_desherbage_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "desherbage_group.desherbage_note"
+        },
+        {
+          "type": "html",
+          "value": "Superficie désherbée par prestation (Ha)<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "desherbage_group.html_2"
+        },
+        {
+          "type": "image",
+          "value": "images/superf_unit.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_3",
+          "_nested_name": "desherbage_group.image_3"
+        },
+        {
+          "type": "text_box",
+          "name": "superficie_desherbage",
+          "value": "@field.superficie_desherbage",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "superficie_desherbage",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: superficie_desherbage : this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "0"
+          },
+          "_nested_name": "desherbage_group.superficie_desherbage",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.superficie_desherbage",
+                "matchedExpression": "@field.superficie_desherbage",
+                "type": "field",
+                "fieldName": "superficie_desherbage"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.superficie_desherbage": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "desherbage_group"
+    },
+    {
+      "type": "text",
+      "name": "err1",
+      "value": "*Mettez une valeur positive*",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.desherbage_neg",
+      "style_list": [
+        "color: red",
+        "font-size: 12px"
+      ],
+      "_nested_name": "err1",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.desherbage_neg",
+            "matchedExpression": "@local.desherbage_neg",
+            "type": "local",
+            "fieldName": "desherbage_neg"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.desherbage_neg": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "desherbage_card_cout",
+      "condition": "@local.desherbage_pos",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "name": "aud_desh",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/postSemi/cout_desherbage_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "desherbage_card_cout.aud_desh"
+        },
+        {
+          "type": "html",
+          "value": "Coût total payé (Dram)<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "desherbage_card_cout.html_2"
+        },
+        {
+          "type": "text",
+          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "desherbage_card_cout.text_3"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "desherbage_card_cout.image_4"
+        },
+        {
+          "type": "text_box",
+          "name": "cout_desherbage_nonzero",
+          "value": "@field.cout_desherbage_nonzero",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "cout_desherbage_nonzero",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: cout_desherbage_nonzero : this.value"
+            }
+          ],
+          "parameter_list": {
+            "placeholder": "Prix total payé (drm)...",
+            "number_input": "true"
+          },
+          "_nested_name": "desherbage_card_cout.cout_desherbage_nonzero",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.cout_desherbage_nonzero",
+                "matchedExpression": "@field.cout_desherbage_nonzero",
+                "type": "field",
+                "fieldName": "cout_desherbage_nonzero"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.cout_desherbage_nonzero": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "desherbage_card_cout",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.desherbage_pos",
+            "matchedExpression": "@local.desherbage_pos",
+            "type": "local",
+            "fieldName": "desherbage_pos"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.desherbage_pos": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "desherbage_card_cout_zero",
+      "condition": "@field.superficie_desherbage == 0",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "name": "aud_desh_zero",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/postSemi/cout_desherbage_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "desherbage_card_cout_zero.aud_desh_zero"
+        },
+        {
+          "type": "html",
+          "value": "Coût total payé (Dram)<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "desherbage_card_cout_zero.html_2"
+        },
+        {
+          "type": "text",
+          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "desherbage_card_cout_zero.text_3"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "desherbage_card_cout_zero.image_4"
+        },
+        {
+          "type": "text_box",
+          "name": "cout_desherbage_zero",
+          "value": 0,
+          "parameter_list": {
+            "disabled": "true"
+          },
+          "_nested_name": "desherbage_card_cout_zero.cout_desherbage_zero"
+        }
+      ],
+      "_nested_name": "desherbage_card_cout_zero",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@field.superficie_desherbage == 0",
+            "matchedExpression": "@field.superficie_desherbage",
+            "type": "field",
+            "fieldName": "superficie_desherbage"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.superficie_desherbage": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "buttage_neg",
+      "value": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) || Number(@field.superficie_butee) < 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "buttage_neg",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) || Number(@field.superficie_butee) < 0)",
+            "matchedExpression": "@field.superficie_butee",
+            "type": "field",
+            "fieldName": "superficie_butee"
+          },
+          {
+            "fullExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) || Number(@field.superficie_butee) < 0)",
+            "matchedExpression": "@field.superficie_butee",
+            "type": "field",
+            "fieldName": "superficie_butee"
+          },
+          {
+            "fullExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) || Number(@field.superficie_butee) < 0)",
+            "matchedExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) || Number(@field.superficie_butee) < 0)",
+            "type": "calc",
+            "fieldName": "!/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) || Number(@field.superficie_butee) < 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.superficie_butee": [
+          "value",
+          "value"
+        ],
+        "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) || Number(@field.superficie_butee) < 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "buttage_pos",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) && Number(@field.superficie_butee) >0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "buttage_pos",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) && Number(@field.superficie_butee) >0)",
+            "matchedExpression": "@field.superficie_butee",
+            "type": "field",
+            "fieldName": "superficie_butee"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) && Number(@field.superficie_butee) >0)",
+            "matchedExpression": "@field.superficie_butee",
+            "type": "field",
+            "fieldName": "superficie_butee"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) && Number(@field.superficie_butee) >0)",
+            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) && Number(@field.superficie_butee) >0)",
+            "type": "calc",
+            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) && Number(@field.superficie_butee) >0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.superficie_butee": [
+          "value",
+          "value"
+        ],
+        "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) && Number(@field.superficie_butee) >0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<br><b style=\"color: #e67e22\">3. BUTTAGE</b>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_30",
+      "_nested_name": "html_30"
+    },
+    {
+      "type": "display_group",
+      "name": "buttage_card",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "name": "buttage_note",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/postSemi/sup_buttage_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "buttage_card.buttage_note"
+        },
+        {
+          "type": "html",
+          "value": "Superficie buttée par prestation (Ha)<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "buttage_card.html_2"
+        },
+        {
+          "type": "image",
+          "value": "images/superf_unit.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_3",
+          "_nested_name": "buttage_card.image_3"
+        },
+        {
+          "type": "text_box",
+          "name": "superficie_butee",
+          "value": "@field.superficie_butee",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "superficie_butee",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: superficie_butee : this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "0"
+          },
+          "_nested_name": "buttage_card.superficie_butee",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.superficie_butee",
+                "matchedExpression": "@field.superficie_butee",
+                "type": "field",
+                "fieldName": "superficie_butee"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.superficie_butee": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "buttage_card"
+    },
+    {
+      "type": "text",
+      "value": "*Mettez une valeur positive*",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.buttage_neg",
+      "style_list": [
+        "color: red",
+        "font-size: 12px"
+      ],
+      "name": "text_33",
+      "_nested_name": "text_33",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.buttage_neg",
+            "matchedExpression": "@local.buttage_neg",
+            "type": "local",
+            "fieldName": "buttage_neg"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.buttage_neg": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "buttage_card3",
+      "condition": "@local.buttage_pos",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/postSemi/cout_buttage_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "buttage_card3.audio_1"
+        },
+        {
+          "type": "html",
+          "value": "Coût total payé (Dram)<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "buttage_card3.html_2"
+        },
+        {
+          "type": "text",
+          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "buttage_card3.text_3"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "buttage_card3.image_4"
+        },
+        {
+          "type": "text_box",
+          "name": "cout_buttage_nonzero",
+          "value": "@field.cout_buttage_nonzero",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "cout_buttage_nonzero",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: cout_buttage_nonzero : this.value"
+            }
+          ],
+          "parameter_list": {
+            "placeholder": "Prix total payé (drm)...",
+            "number_input": "true"
+          },
+          "_nested_name": "buttage_card3.cout_buttage_nonzero",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.cout_buttage_nonzero",
+                "matchedExpression": "@field.cout_buttage_nonzero",
+                "type": "field",
+                "fieldName": "cout_buttage_nonzero"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.cout_buttage_nonzero": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "buttage_card3",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.buttage_pos",
+            "matchedExpression": "@local.buttage_pos",
+            "type": "local",
+            "fieldName": "buttage_pos"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.buttage_pos": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "buttage_card3_zero",
+      "condition": "@field.superficie_butee == 0",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/postSemi/cout_buttage_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "buttage_card3_zero.audio_1"
+        },
+        {
+          "type": "html",
+          "value": "Coût total payé (Dram)<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "buttage_card3_zero.html_2"
+        },
+        {
+          "type": "text",
+          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "buttage_card3_zero.text_3"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "buttage_card3_zero.image_4"
+        },
+        {
+          "type": "text_box",
+          "name": "cout_buttage_zero",
+          "value": 0,
+          "parameter_list": {
+            "disabled": "true"
+          },
+          "_nested_name": "buttage_card3_zero.cout_buttage_zero"
+        }
+      ],
+      "_nested_name": "buttage_card3_zero",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@field.superficie_butee == 0",
+            "matchedExpression": "@field.superficie_butee",
+            "type": "field",
+            "fieldName": "superficie_butee"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.superficie_butee": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "v_current_sarc_ok",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage) && (Number(@field.superficie_sarclage) === 0 || (Number(@field.cout_sarclage_nonzero) >= 0 && @field.cout_sarclage_nonzero !== '')))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_current_sarc_ok",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage) && (Number(@field.superficie_sarclage) === 0 || (Number(@field.cout_sarclage_nonzero) >= 0 && @field.cout_sarclage_nonzero !== '')))",
+            "matchedExpression": "@field.superficie_sarclage",
+            "type": "field",
+            "fieldName": "superficie_sarclage"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage) && (Number(@field.superficie_sarclage) === 0 || (Number(@field.cout_sarclage_nonzero) >= 0 && @field.cout_sarclage_nonzero !== '')))",
+            "matchedExpression": "@field.superficie_sarclage",
+            "type": "field",
+            "fieldName": "superficie_sarclage"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage) && (Number(@field.superficie_sarclage) === 0 || (Number(@field.cout_sarclage_nonzero) >= 0 && @field.cout_sarclage_nonzero !== '')))",
+            "matchedExpression": "@field.cout_sarclage_nonzero",
+            "type": "field",
+            "fieldName": "cout_sarclage_nonzero"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage) && (Number(@field.superficie_sarclage) === 0 || (Number(@field.cout_sarclage_nonzero) >= 0 && @field.cout_sarclage_nonzero !== '')))",
+            "matchedExpression": "@field.cout_sarclage_nonzero",
+            "type": "field",
+            "fieldName": "cout_sarclage_nonzero"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage) && (Number(@field.superficie_sarclage) === 0 || (Number(@field.cout_sarclage_nonzero) >= 0 && @field.cout_sarclage_nonzero !== '')))",
+            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage) && (Number(@field.superficie_sarclage) === 0 || (Number(@field.cout_sarclage_nonzero) >= 0 && @field.cout_sarclage_nonzero !== '')))",
+            "type": "calc",
+            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage) && (Number(@field.superficie_sarclage) === 0 || (Number(@field.cout_sarclage_nonzero) >= 0 && @field.cout_sarclage_nonzero !== ''))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.superficie_sarclage": [
+          "value",
+          "value"
+        ],
+        "@field.cout_sarclage_nonzero": [
+          "value",
+          "value"
+        ],
+        "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_sarclage) && (Number(@field.superficie_sarclage) === 0 || (Number(@field.cout_sarclage_nonzero) >= 0 && @field.cout_sarclage_nonzero !== '')))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_current_desh_ok",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) && (Number(@field.superficie_desherbage) === 0 || (Number(@field.cout_desherbage_nonzero) >= 0 && @field.cout_desherbage_nonzero !== '')))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_current_desh_ok",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) && (Number(@field.superficie_desherbage) === 0 || (Number(@field.cout_desherbage_nonzero) >= 0 && @field.cout_desherbage_nonzero !== '')))",
+            "matchedExpression": "@field.superficie_desherbage",
+            "type": "field",
+            "fieldName": "superficie_desherbage"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) && (Number(@field.superficie_desherbage) === 0 || (Number(@field.cout_desherbage_nonzero) >= 0 && @field.cout_desherbage_nonzero !== '')))",
+            "matchedExpression": "@field.superficie_desherbage",
+            "type": "field",
+            "fieldName": "superficie_desherbage"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) && (Number(@field.superficie_desherbage) === 0 || (Number(@field.cout_desherbage_nonzero) >= 0 && @field.cout_desherbage_nonzero !== '')))",
+            "matchedExpression": "@field.cout_desherbage_nonzero",
+            "type": "field",
+            "fieldName": "cout_desherbage_nonzero"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) && (Number(@field.superficie_desherbage) === 0 || (Number(@field.cout_desherbage_nonzero) >= 0 && @field.cout_desherbage_nonzero !== '')))",
+            "matchedExpression": "@field.cout_desherbage_nonzero",
+            "type": "field",
+            "fieldName": "cout_desherbage_nonzero"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) && (Number(@field.superficie_desherbage) === 0 || (Number(@field.cout_desherbage_nonzero) >= 0 && @field.cout_desherbage_nonzero !== '')))",
+            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) && (Number(@field.superficie_desherbage) === 0 || (Number(@field.cout_desherbage_nonzero) >= 0 && @field.cout_desherbage_nonzero !== '')))",
+            "type": "calc",
+            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) && (Number(@field.superficie_desherbage) === 0 || (Number(@field.cout_desherbage_nonzero) >= 0 && @field.cout_desherbage_nonzero !== ''))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.superficie_desherbage": [
+          "value",
+          "value"
+        ],
+        "@field.cout_desherbage_nonzero": [
+          "value",
+          "value"
+        ],
+        "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_desherbage) && (Number(@field.superficie_desherbage) === 0 || (Number(@field.cout_desherbage_nonzero) >= 0 && @field.cout_desherbage_nonzero !== '')))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_current_butt_ok",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) && (Number(@field.superficie_butee) === 0 || (Number(@field.cout_buttage_nonzero) >= 0 && @field.cout_buttage_nonzero !== '')))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_current_butt_ok",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) && (Number(@field.superficie_butee) === 0 || (Number(@field.cout_buttage_nonzero) >= 0 && @field.cout_buttage_nonzero !== '')))",
+            "matchedExpression": "@field.superficie_butee",
+            "type": "field",
+            "fieldName": "superficie_butee"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) && (Number(@field.superficie_butee) === 0 || (Number(@field.cout_buttage_nonzero) >= 0 && @field.cout_buttage_nonzero !== '')))",
+            "matchedExpression": "@field.superficie_butee",
+            "type": "field",
+            "fieldName": "superficie_butee"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) && (Number(@field.superficie_butee) === 0 || (Number(@field.cout_buttage_nonzero) >= 0 && @field.cout_buttage_nonzero !== '')))",
+            "matchedExpression": "@field.cout_buttage_nonzero",
+            "type": "field",
+            "fieldName": "cout_buttage_nonzero"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) && (Number(@field.superficie_butee) === 0 || (Number(@field.cout_buttage_nonzero) >= 0 && @field.cout_buttage_nonzero !== '')))",
+            "matchedExpression": "@field.cout_buttage_nonzero",
+            "type": "field",
+            "fieldName": "cout_buttage_nonzero"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) && (Number(@field.superficie_butee) === 0 || (Number(@field.cout_buttage_nonzero) >= 0 && @field.cout_buttage_nonzero !== '')))",
+            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) && (Number(@field.superficie_butee) === 0 || (Number(@field.cout_buttage_nonzero) >= 0 && @field.cout_buttage_nonzero !== '')))",
+            "type": "calc",
+            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) && (Number(@field.superficie_butee) === 0 || (Number(@field.cout_buttage_nonzero) >= 0 && @field.cout_buttage_nonzero !== ''))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.superficie_butee": [
+          "value",
+          "value"
+        ],
+        "@field.cout_buttage_nonzero": [
+          "value",
+          "value"
+        ],
+        "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_butee) && (Number(@field.superficie_butee) === 0 || (Number(@field.cout_buttage_nonzero) >= 0 && @field.cout_buttage_nonzero !== '')))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_total_entret_culture",
+      "value": "@calc((Number(@field.cout_sarclage_nonzero) || 0) + (Number(@field.cout_desherbage_nonzero) || 0) + (Number(@field.cout_buttage_nonzero) || 0))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_total_entret_culture",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((Number(@field.cout_sarclage_nonzero) || 0) + (Number(@field.cout_desherbage_nonzero) || 0) + (Number(@field.cout_buttage_nonzero) || 0))",
+            "matchedExpression": "@field.cout_sarclage_nonzero",
+            "type": "field",
+            "fieldName": "cout_sarclage_nonzero"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.cout_sarclage_nonzero) || 0) + (Number(@field.cout_desherbage_nonzero) || 0) + (Number(@field.cout_buttage_nonzero) || 0))",
+            "matchedExpression": "@field.cout_desherbage_nonzero",
+            "type": "field",
+            "fieldName": "cout_desherbage_nonzero"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.cout_sarclage_nonzero) || 0) + (Number(@field.cout_desherbage_nonzero) || 0) + (Number(@field.cout_buttage_nonzero) || 0))",
+            "matchedExpression": "@field.cout_buttage_nonzero",
+            "type": "field",
+            "fieldName": "cout_buttage_nonzero"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.cout_sarclage_nonzero) || 0) + (Number(@field.cout_desherbage_nonzero) || 0) + (Number(@field.cout_buttage_nonzero) || 0))",
+            "matchedExpression": "@calc((Number(@field.cout_sarclage_nonzero) || 0) + (Number(@field.cout_desherbage_nonzero) || 0) + (Number(@field.cout_buttage_nonzero) || 0))",
+            "type": "calc",
+            "fieldName": "(Number(@field.cout_sarclage_nonzero) || 0) + (Number(@field.cout_desherbage_nonzero) || 0) + (Number(@field.cout_buttage_nonzero) || 0)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.cout_sarclage_nonzero": [
+          "value"
+        ],
+        "@field.cout_desherbage_nonzero": [
+          "value"
+        ],
+        "@field.cout_buttage_nonzero": [
+          "value"
+        ],
+        "@calc((Number(@field.cout_sarclage_nonzero) || 0) + (Number(@field.cout_desherbage_nonzero) || 0) + (Number(@field.cout_buttage_nonzero) || 0))": [
           "value"
         ]
       }
     },
     {
       "name": "completed_enabled",
-      "value": "@local.v_year_ok",
+      "value": "@calc(@local.v_current_sarc_ok && @local.v_current_desh_ok && @local.v_current_butt_ok)",
       "_translations": {
         "value": {}
       },
@@ -111,15 +1623,42 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@local.v_year_ok",
-            "matchedExpression": "@local.v_year_ok",
+            "fullExpression": "@calc(@local.v_current_sarc_ok && @local.v_current_desh_ok && @local.v_current_butt_ok)",
+            "matchedExpression": "@local.v_current_sarc_ok",
             "type": "local",
-            "fieldName": "v_year_ok"
+            "fieldName": "v_current_sarc_ok"
+          },
+          {
+            "fullExpression": "@calc(@local.v_current_sarc_ok && @local.v_current_desh_ok && @local.v_current_butt_ok)",
+            "matchedExpression": "@local.v_current_desh_ok",
+            "type": "local",
+            "fieldName": "v_current_desh_ok"
+          },
+          {
+            "fullExpression": "@calc(@local.v_current_sarc_ok && @local.v_current_desh_ok && @local.v_current_butt_ok)",
+            "matchedExpression": "@local.v_current_butt_ok",
+            "type": "local",
+            "fieldName": "v_current_butt_ok"
+          },
+          {
+            "fullExpression": "@calc(@local.v_current_sarc_ok && @local.v_current_desh_ok && @local.v_current_butt_ok)",
+            "matchedExpression": "@calc(@local.v_current_sarc_ok && @local.v_current_desh_ok && @local.v_current_butt_ok)",
+            "type": "calc",
+            "fieldName": "@local.v_current_sarc_ok && @local.v_current_desh_ok && @local.v_current_butt_ok"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.v_year_ok": [
+        "@local.v_current_sarc_ok": [
+          "value"
+        ],
+        "@local.v_current_desh_ok": [
+          "value"
+        ],
+        "@local.v_current_butt_ok": [
+          "value"
+        ],
+        "@calc(@local.v_current_sarc_ok && @local.v_current_desh_ok && @local.v_current_butt_ok)": [
           "value"
         ]
       }
@@ -163,6 +1702,15 @@
           "action_list": [
             {
               "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "final_cout_entre",
+                "@local.v_total_entret_culture"
+              ],
+              "_raw": "click | set_field: final_cout_entre : @local.v_total_entret_culture"
+            },
+            {
+              "trigger": "click",
               "action_id": "emit",
               "args": [
                 "completed"
@@ -187,6 +1735,28 @@
                 "fieldName": "btn_continue"
               }
             ],
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.v_total_entret_culture",
+                      "matchedExpression": "@local.v_total_entret_culture",
+                      "type": "local",
+                      "fieldName": "v_total_entret_culture"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: final_cout_entre : @local.v_total_entret_culture",
+                    "matchedExpression": "@local.v_total_entret_culture",
+                    "type": "local",
+                    "fieldName": "v_total_entret_culture"
+                  }
+                ]
+              }
+            },
             "parameter_list": {
               "disabled": [
                 {
@@ -201,6 +1771,10 @@
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
+            ],
+            "@local.v_total_entret_culture": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
             ],
             "!@local.completed_enabled": [
               "parameter_list.disabled"

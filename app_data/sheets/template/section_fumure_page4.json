@@ -4,46 +4,69 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "name": "page_title",
-      "value": "RECOMMENDATIONS",
-      "_translations": {
-        "value": {}
-      },
-      "_nested_name": "page_title"
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "title",
+          "name": "page_title",
+          "value": "ROTATION ET FERTILITÉ DU SOL",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_2.page_title"
+        },
+        {
+          "type": "audio",
+          "name": "audio_4_1",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/fumureOrganique/rotation_fumure_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "_nested_name": "display_group_2.audio_4_1"
+        }
+      ],
+      "name": "display_group_2",
+      "_nested_name": "display_group_2"
     },
     {
       "type": "text",
-      "name": "introduction_formulaire",
-      "value": "@global.recommendation_fumure_organique",
+      "name": "infos_rotations1",
+      "value": "@global.infos_rotations1",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "introduction_formulaire",
+      "_nested_name": "infos_rotations1",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.recommendation_fumure_organique",
-            "matchedExpression": "@global.recommendation_fumure_organique",
+            "fullExpression": "@global.infos_rotations1",
+            "matchedExpression": "@global.infos_rotations1",
             "type": "global",
-            "fieldName": "recommendation_fumure_organique"
+            "fieldName": "infos_rotations1"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.recommendation_fumure_organique": [
+        "@global.infos_rotations1": [
           "value"
         ]
       }
     },
     {
       "type": "image",
-      "value": "images/product_fumure.jpg",
+      "value": "images/rotation.jpg",
       "_translations": {
         "value": {}
       },
-      "name": "image_4",
-      "_nested_name": "image_4"
+      "style_list": [
+        "width:200px",
+        "height:200px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_5",
+      "_nested_name": "image_5"
     },
     {
       "type": "display_group",

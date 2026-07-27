@@ -4,80 +4,106 @@
   "status": "released",
   "rows": [
     {
-      "type": "begin_display_group",
-      "parameter_list": "filter: @fields.cult_princip"
+      "type": "title",
+      "value": "DATE ET QUANTITÉ DE SEMIS"
     },
     {
-      "type": "subtitle",
-      "value": "**Variété utilisée de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**"
+      "name": "attempt_submit_p9",
+      "value": "@fields.attempt_submit_p9"
+    },
+    {
+      "name": "valid_qte",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_semence) && Number(@fields.quantite_semence) >= 0)"
+    },
+    {
+      "name": "valid_p9",
+      "value": "@calc(!!@fields.date_semence && !!@fields.quantite_semence && @local.valid_qte)"
+    },
+    {
+      "type": "html",
+      "value": "<h1 style=\"color: #1e3656; margin: 0; font-size: 15px; text-transform: uppercase;\">Semis de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle</h1>"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "width: 100%; padding: 10px; background: #f4f7fc; border-radius: 8px;"
+    },
+    {
+      "type": "html",
+      "value": "<label font-weight: bold;\"><span style=\"color: red;\">*</span> Date de semis de <b>@fields.cult_princip</b> :</label>"
     },
     {
       "type": "audio",
-      "name": "audio_8_1",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/var_seme_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "audio_9_1",
+      "parameter_list": "\nvariant: button_only; src: audio/Superficie/date_semence_fr.mp3; play_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float : right;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">@global.variete_hint </p>"
-    },
-    {
-      "type": "text_box",
-      "name": "nom_variete",
-      "value": "@fields.nom_variete",
-      "action_list": "changed | set_field: nom_variete: this.value;",
-      "parameter_list": "max_length: 30;\nplaceholder:Écrivez le nom de la variété cultivée",
-      "exclude_from_translation_1": true
+      "type": "date_time_picker",
+      "name": "date_semence",
+      "value": "@fields.date_semence",
+      "action_list": "changed | set_field: date_semence: this.value;",
+      "parameter_list": "type: date"
     },
     {
       "type": "html",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@local.nom_variete"
+      "name": "html_text",
+      "value": "<span style=\"color: red; font-size: 13px;\">La date est obligatoire ! </span>",
+      "condition": "@fields.attempt_submit_p9 && !@fields.date_semence"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "**Le type de variété de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**"
+      "type": "audio",
+      "name": "audio_9_2",
+      "parameter_list": "variant: button_only; src: audio/Superficie/q_semence_fr.mp3; play_icon_asset: images/icons/audio/Speaker_Icon.svg;"
     },
     {
-      "type": "audio",
-      "name": "audio_8_2",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/var_type_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float : right;"
+      "type": "html",
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Quantité de semence de @fields.cult_princip (en kg) :</label"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "text",
-      "value": "Sélectionnez le type de variété de @fields.cult_princip "
+      "type": "image",
+      "value": "images/kg.jpg",
+      "style_list": "width: 60%; object-fit: contain;"
     },
     {
-      "type": "begin_radio_list",
-      "name": "type_variete",
-      "value": "@fields.type_variete",
-      "action_list": "changed | set_field: type_variete: this.value;"
+      "type": "html",
+      "value": "<p style=\"color: #555; font-size: 14px;\">@global.semence_kg</p>"
     },
     {
-      "type": "begin_data_items",
-      "value": "@data.type_variete"
+      "type": "text_box",
+      "name": "quantite_semence",
+      "value": "@fields.quantite_semence",
+      "action_list": "changed | set_field: quantite_semence : this.value;",
+      "parameter_list": "number_input: true\nplaceholder: Entrez la quantite en kg;",
+      "condition": "!!@fields.quantite_semence",
+      "exclude_from_translation": true
     },
     {
-      "type": "end_data_items"
-    },
-    {
-      "type": "end_radio_list"
+      "type": "text_box",
+      "name": "quantite_semence",
+      "action_list": "changed | set_field: quantite_semence : this.value;",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez la quantite en kg;",
+      "condition": "!@field.quantite_semence",
+      "exclude_from_translation": true
     },
     {
       "type": "html",
       "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@local.type_variete"
+      "value": "<span style=\"color: red; font-size: 13px;\">La quantité est obligatoire !</span>",
+      "condition": "@fields.attempt_submit_p9 && !@fields.quantite_semence"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez saisir un nombre valide (>= 0) !</span>",
+      "condition": "!!@fields.quantite_semence && !@local.valid_qte"
     },
     {
       "type": "begin_display_group",
@@ -86,22 +112,17 @@
       "exclude_from_translation": "padding: 12px 24px;"
     },
     {
-      "name": "completed_enabled",
-      "value": "@fields.nom_variete && @fields.type_variete",
-      "exclude_from_translation": true
-    },
-    {
       "type": "round_button",
-      "name": "page8_button_back",
+      "name": "page9_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page8_button_continue",
+      "name": "page9_button_continue",
       "value": "Continuer",
-      "action_list": "click | set_field: @calc('nom_variete_parcelle_N' + @fields.num_parcelle) : @fields.nom_variete;\nclick | set_field: @calc('type_variete_parcelle_N' + @fields.num_parcelle) : @fields.type_variete;\nclick | emit: completed;",
-      "parameter_list": "disabled: !@local.completed_enabled"
+      "action_list": "click | set_field: @calc('date_semis_parcelle_N' + @fields.num_parcelle) : @fields.date_semence;\n        click | set_field: @calc('quantite_semence_parcelle_N' + @fields.num_parcelle) : @fields.quantite_semence;\n        click | set_field: attempt_submit_p9: false;\n        click | emit: completed;",
+      "parameter_list": "disabled: !@local.valid_p9"
     },
     {
       "type": "end_display_group"

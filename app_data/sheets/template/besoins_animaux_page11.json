@@ -4,722 +4,74 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
-      "value": "**SOURCES ET DÉPENSE DE SON**",
+      "type": "title",
+      "value": "**RECAPITULATIF DES PREVISIONS**",
       "_translations": {
         "value": {}
       },
-      "name": "subtitle_2",
-      "_nested_name": "subtitle_2"
-    },
-    {
-      "type": "text",
-      "value": "**La quantité de son de céréales qui sera auto-produite par votre UPA dans les @fields.quantite_son sacs de son que vous aviez indiqués.**",
-      "_translations": {
-        "value": {}
-      },
-      "name": "text_3",
-      "_nested_name": "text_3",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "**La quantité de son de céréales qui sera auto-produite par votre UPA dans les @fields.quantite_son sacs de son que vous aviez indiqués.**",
-            "matchedExpression": "@fields.quantite_son",
-            "type": "fields",
-            "fieldName": "quantite_son"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.quantite_son": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> Il s'agit de la quantité de son de céréales qui sera obtenue à partir du décorticage des céréales de votre UPA.</p>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_4",
-      "_nested_name": "html_4"
-    },
-    {
-      "type": "text_box",
-      "name": "concentre_produit",
-      "value": "@fields.concentre_produit",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "concentre_produit",
-            "this.value"
-          ],
-          "_raw": "changed | set_field: concentre_produit : this.value"
-        }
-      ],
-      "parameter_list": {
-        "number_input": "true",
-        "placeholder": "Donnez la quantité de son de céréales"
-      },
-      "exclude_from_translation": true,
-      "_nested_name": "concentre_produit",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@fields.concentre_produit",
-            "matchedExpression": "@fields.concentre_produit",
-            "type": "fields",
-            "fieldName": "concentre_produit"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.concentre_produit": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "!@local.concentre_produit",
-      "_nested_name": "html_text",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
-            "matchedExpression": "@global.warning_message",
-            "type": "global",
-            "fieldName": "warning_message"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "!@local.concentre_produit",
-            "matchedExpression": "!@local.concentre_produit",
-            "type": "local",
-            "fieldName": "concentre_produit"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.warning_message": [
-          "value"
-        ],
-        "!@local.concentre_produit": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "name": "valid_concentre_produit",
-      "value": "@calc((/^\\d+$/.test(@fields.concentre_produit) && @fields.concentre_produit <= @fields.quantite_son ) || @fields.concentre_produit == '' || !@fields.concentre_produit)",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "valid_concentre_produit",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.concentre_produit) && @fields.concentre_produit <= @fields.quantite_son ) || @fields.concentre_produit == '' || !@fields.concentre_produit)",
-            "matchedExpression": "@fields.concentre_produit",
-            "type": "fields",
-            "fieldName": "concentre_produit"
-          },
-          {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.concentre_produit) && @fields.concentre_produit <= @fields.quantite_son ) || @fields.concentre_produit == '' || !@fields.concentre_produit)",
-            "matchedExpression": "@fields.concentre_produit",
-            "type": "fields",
-            "fieldName": "concentre_produit"
-          },
-          {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.concentre_produit) && @fields.concentre_produit <= @fields.quantite_son ) || @fields.concentre_produit == '' || !@fields.concentre_produit)",
-            "matchedExpression": "@fields.quantite_son",
-            "type": "fields",
-            "fieldName": "quantite_son"
-          },
-          {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.concentre_produit) && @fields.concentre_produit <= @fields.quantite_son ) || @fields.concentre_produit == '' || !@fields.concentre_produit)",
-            "matchedExpression": "@fields.concentre_produit",
-            "type": "fields",
-            "fieldName": "concentre_produit"
-          },
-          {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.concentre_produit) && @fields.concentre_produit <= @fields.quantite_son ) || @fields.concentre_produit == '' || !@fields.concentre_produit)",
-            "matchedExpression": "!@fields.concentre_produit",
-            "type": "fields",
-            "fieldName": "concentre_produit"
-          },
-          {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.concentre_produit) && @fields.concentre_produit <= @fields.quantite_son ) || @fields.concentre_produit == '' || !@fields.concentre_produit)",
-            "matchedExpression": "@calc((/^\\d+$/.test(@fields.concentre_produit) && @fields.concentre_produit <= @fields.quantite_son ) || @fields.concentre_produit == '' || !@fields.concentre_produit)",
-            "type": "calc",
-            "fieldName": "(/^\\d+$/.test(@fields.concentre_produit) && @fields.concentre_produit <= @fields.quantite_son ) || @fields.concentre_produit == '' || !@fields.concentre_produit"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.concentre_produit": [
-          "value",
-          "value",
-          "value"
-        ],
-        "@fields.quantite_son": [
-          "value"
-        ],
-        "!@fields.concentre_produit": [
-          "value"
-        ],
-        "@calc((/^\\d+$/.test(@fields.concentre_produit) && @fields.concentre_produit <= @fields.quantite_son ) || @fields.concentre_produit == '' || !@fields.concentre_produit)": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "value": "@global.validite_nombre",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "!@local.valid_concentre_produit",
-      "exclude_from_translation": true,
-      "style_list": [
-        "color: #FF0000",
-        "font-size: 14px"
-      ],
-      "name": "text_8",
-      "_nested_name": "text_8",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.validite_nombre",
-            "matchedExpression": "@global.validite_nombre",
-            "type": "global",
-            "fieldName": "validite_nombre"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "!@local.valid_concentre_produit",
-            "matchedExpression": "!@local.valid_concentre_produit",
-            "type": "local",
-            "fieldName": "valid_concentre_produit"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.validite_nombre": [
-          "value"
-        ],
-        "!@local.valid_concentre_produit": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "value": "**Quantité de son à achéter**",
-      "_translations": {
-        "value": {}
-      },
-      "name": "text_9",
-      "_nested_name": "text_9"
-    },
-    {
-      "type": "image",
-      "value": "images/son_cereal.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "width:120px",
-        "height:120px",
-        "object-fit:contain",
-        "flex-shrink:0"
-      ],
-      "name": "image_10",
-      "_nested_name": "image_10"
+      "name": "title_2",
+      "_nested_name": "title_2"
     },
     {
       "type": "set_field",
-      "name": "achat_son_quantite",
-      "value": "@calc(Number(@fields.quantite_son) - Number(@fields.concentre_produit))",
+      "name": "cal_superficie",
+      "value": "@calc((Number(@fields.total_fane || 0) / 1700).toFixed(1))",
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.concentre_produit",
-      "_nested_name": "achat_son_quantite",
+      "_nested_name": "cal_superficie",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(Number(@fields.quantite_son) - Number(@fields.concentre_produit))",
-            "matchedExpression": "@fields.quantite_son",
+            "fullExpression": "@calc((Number(@fields.total_fane || 0) / 1700).toFixed(1))",
+            "matchedExpression": "@fields.total_fane",
             "type": "fields",
-            "fieldName": "quantite_son"
+            "fieldName": "total_fane"
           },
           {
-            "fullExpression": "@calc(Number(@fields.quantite_son) - Number(@fields.concentre_produit))",
-            "matchedExpression": "@fields.concentre_produit",
-            "type": "fields",
-            "fieldName": "concentre_produit"
-          },
-          {
-            "fullExpression": "@calc(Number(@fields.quantite_son) - Number(@fields.concentre_produit))",
-            "matchedExpression": "@calc(Number(@fields.quantite_son) - Number(@fields.concentre_produit))",
+            "fullExpression": "@calc((Number(@fields.total_fane || 0) / 1700).toFixed(1))",
+            "matchedExpression": "@calc((Number(@fields.total_fane || 0) / 1700).toFixed(1))",
             "type": "calc",
-            "fieldName": "Number(@fields.quantite_son) - Number(@fields.concentre_produit)"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "@fields.concentre_produit",
-            "matchedExpression": "@fields.concentre_produit",
-            "type": "fields",
-            "fieldName": "concentre_produit"
+            "fieldName": "(Number(@fields.total_fane || 0) / 1700).toFixed(1)"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.quantite_son": [
+        "@fields.total_fane": [
           "value"
         ],
-        "@fields.concentre_produit": [
-          "value",
-          "condition"
-        ],
-        "@calc(Number(@fields.quantite_son) - Number(@fields.concentre_produit))": [
+        "@calc((Number(@fields.total_fane || 0) / 1700).toFixed(1))": [
           "value"
-        ]
-      }
-    },
-    {
-      "type": "html",
-      "name": "note_achat_son",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n Quantité de son à achéter: <strong> @fields.achat_son_quantite sacs\n</strong> </div>",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.concentre_produit",
-      "_nested_name": "note_achat_son",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n Quantité de son à achéter: <strong> @fields.achat_son_quantite sacs\n</strong> </div>",
-            "matchedExpression": "@fields.achat_son_quantite",
-            "type": "fields",
-            "fieldName": "achat_son_quantite"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "@fields.concentre_produit",
-            "matchedExpression": "@fields.concentre_produit",
-            "type": "fields",
-            "fieldName": "concentre_produit"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.achat_son_quantite": [
-          "value"
-        ],
-        "@fields.concentre_produit": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> Pour une prevision d'auto production de @fields.concentre_produit sacs de son, il restera @fields.achat_son_quantite sacs de son a achéter.</p>",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.concentre_produit",
-      "name": "html_13",
-      "_nested_name": "html_13",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<p style=\"color: black;\"> Pour une prevision d'auto production de @fields.concentre_produit sacs de son, il restera @fields.achat_son_quantite sacs de son a achéter.</p>",
-            "matchedExpression": "@fields.concentre_produit",
-            "type": "fields",
-            "fieldName": "concentre_produit"
-          },
-          {
-            "fullExpression": "<p style=\"color: black;\"> Pour une prevision d'auto production de @fields.concentre_produit sacs de son, il restera @fields.achat_son_quantite sacs de son a achéter.</p>",
-            "matchedExpression": "@fields.achat_son_quantite",
-            "type": "fields",
-            "fieldName": "achat_son_quantite"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "@fields.concentre_produit",
-            "matchedExpression": "@fields.concentre_produit",
-            "type": "fields",
-            "fieldName": "concentre_produit"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.concentre_produit": [
-          "value",
-          "condition"
-        ],
-        "@fields.achat_son_quantite": [
-          "value"
-        ]
-      }
-    },
-    {
-      "value": "Donnez le prix d'un sac de son de céréales:",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "name": "set_variable_14",
-      "_nested_name": "set_variable_14"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_15",
-      "_nested_name": "html_15"
-    },
-    {
-      "type": "image",
-      "value": "images/cfa.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "width:120px",
-        "height:120px",
-        "object-fit:contain",
-        "flex-shrink:0"
-      ],
-      "name": "image_16",
-      "_nested_name": "image_16"
-    },
-    {
-      "type": "text_box",
-      "name": "prix_sac_son",
-      "value": "@fields.prix_sac_son",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "prix_sac_son",
-            "this.value"
-          ],
-          "_raw": "changed | set_field: prix_sac_son : this.value"
-        }
-      ],
-      "parameter_list": {
-        "number_input": "true",
-        "placeholder": "Donnez le prix d'un sac de son de céréales"
-      },
-      "exclude_from_translation": true,
-      "_nested_name": "prix_sac_son",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@fields.prix_sac_son",
-            "matchedExpression": "@fields.prix_sac_son",
-            "type": "fields",
-            "fieldName": "prix_sac_son"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.prix_sac_son": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "!@fields.prix_sac_son",
-      "_nested_name": "html_text",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
-            "matchedExpression": "@global.warning_message",
-            "type": "global",
-            "fieldName": "warning_message"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "!@fields.prix_sac_son",
-            "matchedExpression": "!@fields.prix_sac_son",
-            "type": "fields",
-            "fieldName": "prix_sac_son"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.warning_message": [
-          "value"
-        ],
-        "!@fields.prix_sac_son": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "name": "valid_prix_sac_son",
-      "value": "@calc((/^\\d+$/.test(@fields.prix_sac_son) && @fields.prix_sac_son > 0 ) || @fields.prix_sac_son == '' || !@fields.prix_sac_son)",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "valid_prix_sac_son",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.prix_sac_son) && @fields.prix_sac_son > 0 ) || @fields.prix_sac_son == '' || !@fields.prix_sac_son)",
-            "matchedExpression": "@fields.prix_sac_son",
-            "type": "fields",
-            "fieldName": "prix_sac_son"
-          },
-          {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.prix_sac_son) && @fields.prix_sac_son > 0 ) || @fields.prix_sac_son == '' || !@fields.prix_sac_son)",
-            "matchedExpression": "@fields.prix_sac_son",
-            "type": "fields",
-            "fieldName": "prix_sac_son"
-          },
-          {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.prix_sac_son) && @fields.prix_sac_son > 0 ) || @fields.prix_sac_son == '' || !@fields.prix_sac_son)",
-            "matchedExpression": "@fields.prix_sac_son",
-            "type": "fields",
-            "fieldName": "prix_sac_son"
-          },
-          {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.prix_sac_son) && @fields.prix_sac_son > 0 ) || @fields.prix_sac_son == '' || !@fields.prix_sac_son)",
-            "matchedExpression": "!@fields.prix_sac_son",
-            "type": "fields",
-            "fieldName": "prix_sac_son"
-          },
-          {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.prix_sac_son) && @fields.prix_sac_son > 0 ) || @fields.prix_sac_son == '' || !@fields.prix_sac_son)",
-            "matchedExpression": "@calc((/^\\d+$/.test(@fields.prix_sac_son) && @fields.prix_sac_son > 0 ) || @fields.prix_sac_son == '' || !@fields.prix_sac_son)",
-            "type": "calc",
-            "fieldName": "(/^\\d+$/.test(@fields.prix_sac_son) && @fields.prix_sac_son > 0 ) || @fields.prix_sac_son == '' || !@fields.prix_sac_son"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.prix_sac_son": [
-          "value",
-          "value",
-          "value"
-        ],
-        "!@fields.prix_sac_son": [
-          "value"
-        ],
-        "@calc((/^\\d+$/.test(@fields.prix_sac_son) && @fields.prix_sac_son > 0 ) || @fields.prix_sac_son == '' || !@fields.prix_sac_son)": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "value": "@global.validite_nombre",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "!@local.valid_prix_sac_son",
-      "exclude_from_translation": true,
-      "style_list": [
-        "color: #FF0000",
-        "font-size: 14px"
-      ],
-      "name": "text_20",
-      "_nested_name": "text_20",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.validite_nombre",
-            "matchedExpression": "@global.validite_nombre",
-            "type": "global",
-            "fieldName": "validite_nombre"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "!@local.valid_prix_sac_son",
-            "matchedExpression": "!@local.valid_prix_sac_son",
-            "type": "local",
-            "fieldName": "valid_prix_sac_son"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.validite_nombre": [
-          "value"
-        ],
-        "!@local.valid_prix_sac_son": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "value": "**Le montant prévisionnel pour l'achat du son**",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.prix_sac_son",
-      "name": "text_21",
-      "_nested_name": "text_21",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@fields.prix_sac_son",
-            "matchedExpression": "@fields.prix_sac_son",
-            "type": "fields",
-            "fieldName": "prix_sac_son"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.prix_sac_son": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "image",
-      "value": "images/cfa_tot.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.prix_sac_son",
-      "style_list": [
-        "width:120px",
-        "height:120px",
-        "object-fit:contain",
-        "flex-shrink:0"
-      ],
-      "name": "image_22",
-      "_nested_name": "image_22",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@fields.prix_sac_son",
-            "matchedExpression": "@fields.prix_sac_son",
-            "type": "fields",
-            "fieldName": "prix_sac_son"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.prix_sac_son": [
-          "condition"
         ]
       }
     },
     {
       "type": "set_field",
-      "name": "cal_depense_son",
-      "value": "@calc(Number(@fields.achat_son_quantite) * Number(@fields.prix_sac_son))",
+      "name": "cal_depense_total",
+      "value": "@calc((Number(@fields.cal_depense_son || 0) + Number(@fields.cal_depense_tourteau || 0)).toFixed(1))",
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.prix_sac_son",
-      "_nested_name": "cal_depense_son",
+      "_nested_name": "cal_depense_total",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(Number(@fields.achat_son_quantite) * Number(@fields.prix_sac_son))",
-            "matchedExpression": "@fields.achat_son_quantite",
-            "type": "fields",
-            "fieldName": "achat_son_quantite"
-          },
-          {
-            "fullExpression": "@calc(Number(@fields.achat_son_quantite) * Number(@fields.prix_sac_son))",
-            "matchedExpression": "@fields.prix_sac_son",
-            "type": "fields",
-            "fieldName": "prix_sac_son"
-          },
-          {
-            "fullExpression": "@calc(Number(@fields.achat_son_quantite) * Number(@fields.prix_sac_son))",
-            "matchedExpression": "@calc(Number(@fields.achat_son_quantite) * Number(@fields.prix_sac_son))",
-            "type": "calc",
-            "fieldName": "Number(@fields.achat_son_quantite) * Number(@fields.prix_sac_son)"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "@fields.prix_sac_son",
-            "matchedExpression": "@fields.prix_sac_son",
-            "type": "fields",
-            "fieldName": "prix_sac_son"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.achat_son_quantite": [
-          "value"
-        ],
-        "@fields.prix_sac_son": [
-          "value",
-          "condition"
-        ],
-        "@calc(Number(@fields.achat_son_quantite) * Number(@fields.prix_sac_son))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "value": "Le montant prévisionnel pour l'achat du son est: **@fields.cal_depense_son drm**",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.prix_sac_son",
-      "name": "text_24",
-      "_nested_name": "text_24",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "Le montant prévisionnel pour l'achat du son est: **@fields.cal_depense_son drm**",
+            "fullExpression": "@calc((Number(@fields.cal_depense_son || 0) + Number(@fields.cal_depense_tourteau || 0)).toFixed(1))",
             "matchedExpression": "@fields.cal_depense_son",
             "type": "fields",
             "fieldName": "cal_depense_son"
-          }
-        ],
-        "condition": [
+          },
           {
-            "fullExpression": "@fields.prix_sac_son",
-            "matchedExpression": "@fields.prix_sac_son",
+            "fullExpression": "@calc((Number(@fields.cal_depense_son || 0) + Number(@fields.cal_depense_tourteau || 0)).toFixed(1))",
+            "matchedExpression": "@fields.cal_depense_tourteau",
             "type": "fields",
-            "fieldName": "prix_sac_son"
+            "fieldName": "cal_depense_tourteau"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.cal_depense_son || 0) + Number(@fields.cal_depense_tourteau || 0)).toFixed(1))",
+            "matchedExpression": "@calc((Number(@fields.cal_depense_son || 0) + Number(@fields.cal_depense_tourteau || 0)).toFixed(1))",
+            "type": "calc",
+            "fieldName": "(Number(@fields.cal_depense_son || 0) + Number(@fields.cal_depense_tourteau || 0)).toFixed(1)"
           }
         ]
       },
@@ -727,44 +79,428 @@
         "@fields.cal_depense_son": [
           "value"
         ],
-        "@fields.prix_sac_son": [
-          "condition"
+        "@fields.cal_depense_tourteau": [
+          "value"
+        ],
+        "@calc((Number(@fields.cal_depense_son || 0) + Number(@fields.cal_depense_tourteau || 0)).toFixed(1))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "set_field",
+      "name": "cal_depense_soins",
+      "value": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "cal_depense_soins",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))",
+            "matchedExpression": "@fields.frais_veterinaire_cat_boeufs_labour",
+            "type": "fields",
+            "fieldName": "frais_veterinaire_cat_boeufs_labour"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))",
+            "matchedExpression": "@fields.frais_veterinaire_cat_embouche_bovine",
+            "type": "fields",
+            "fieldName": "frais_veterinaire_cat_embouche_bovine"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))",
+            "matchedExpression": "@fields.frais_veterinaire_cat_vache_laitiere",
+            "type": "fields",
+            "fieldName": "frais_veterinaire_cat_vache_laitiere"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))",
+            "matchedExpression": "@fields.frais_veterinaire_cat_autres_bovins",
+            "type": "fields",
+            "fieldName": "frais_veterinaire_cat_autres_bovins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))",
+            "matchedExpression": "@fields.frais_veterinaire_cat_asins",
+            "type": "fields",
+            "fieldName": "frais_veterinaire_cat_asins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))",
+            "matchedExpression": "@fields.frais_veterinaire_cat_embouche_ovine",
+            "type": "fields",
+            "fieldName": "frais_veterinaire_cat_embouche_ovine"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))",
+            "matchedExpression": "@fields.frais_veterinaire_cat_reste_ovins",
+            "type": "fields",
+            "fieldName": "frais_veterinaire_cat_reste_ovins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))",
+            "matchedExpression": "@fields.frais_veterinaire_cat_caprins",
+            "type": "fields",
+            "fieldName": "frais_veterinaire_cat_caprins"
+          },
+          {
+            "fullExpression": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))",
+            "matchedExpression": "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))",
+            "type": "calc",
+            "fieldName": "(Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.frais_veterinaire_cat_boeufs_labour": [
+          "value"
+        ],
+        "@fields.frais_veterinaire_cat_embouche_bovine": [
+          "value"
+        ],
+        "@fields.frais_veterinaire_cat_vache_laitiere": [
+          "value"
+        ],
+        "@fields.frais_veterinaire_cat_autres_bovins": [
+          "value"
+        ],
+        "@fields.frais_veterinaire_cat_asins": [
+          "value"
+        ],
+        "@fields.frais_veterinaire_cat_embouche_ovine": [
+          "value"
+        ],
+        "@fields.frais_veterinaire_cat_reste_ovins": [
+          "value"
+        ],
+        "@fields.frais_veterinaire_cat_caprins": [
+          "value"
+        ],
+        "@calc((Number(@fields.frais_veterinaire_cat_boeufs_labour || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_bovine || 0 ) + Number(@fields.frais_veterinaire_cat_vache_laitiere || 0 ) + Number(@fields.frais_veterinaire_cat_autres_bovins || 0 ) + Number(@fields.frais_veterinaire_cat_asins || 0 ) + Number(@fields.frais_veterinaire_cat_embouche_ovine || 0 ) + Number(@fields.frais_veterinaire_cat_reste_ovins || 0 ) + Number(@fields.frais_veterinaire_cat_caprins || 0 )).toFixed(1))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "note_cat_animales",
+      "value": "Categories animales de l'UPA selectionnées: **@fields.cat_animaux_selected**",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "note_cat_animales",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "Categories animales de l'UPA selectionnées: **@fields.cat_animaux_selected**",
+            "matchedExpression": "@fields.cat_animaux_selected",
+            "type": "fields",
+            "fieldName": "cat_animaux_selected"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.cat_animaux_selected": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.note_sup_fouragere",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_7",
+      "_nested_name": "text_7",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.note_sup_fouragere",
+            "matchedExpression": "@global.note_sup_fouragere",
+            "type": "global",
+            "fieldName": "note_sup_fouragere"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_sup_fouragere": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "value": "images/sup_fourrage.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_8",
+      "_nested_name": "image_8"
+    },
+    {
+      "type": "text",
+      "name": "note_cal_superficie",
+      "value": "@global.sup_fouragere",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "background-color: #f0f4f8",
+        "border-left-width: 4px",
+        "border-left-style: solid",
+        "border-left-color: #0056b3"
+      ],
+      "_nested_name": "note_cal_superficie",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.sup_fouragere",
+            "matchedExpression": "@global.sup_fouragere",
+            "type": "global",
+            "fieldName": "sup_fouragere"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.sup_fouragere": [
+          "value"
         ]
       }
     },
     {
       "type": "html",
-      "value": "<p style=\"color: black;\">Il s'agit de l'estimation du montant total nécessaire pour achéter @fields.achat_son_quantite sacs de son</p>",
+      "value": "<p style=\"color: black;\">@global.hint_sup_fouragere</strong> </p>",
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.prix_sac_son",
-      "name": "html_25",
-      "_nested_name": "html_25",
+      "name": "html_10",
+      "_nested_name": "html_10",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: black;\">Il s'agit de l'estimation du montant total nécessaire pour achéter @fields.achat_son_quantite sacs de son</p>",
-            "matchedExpression": "@fields.achat_son_quantite",
-            "type": "fields",
-            "fieldName": "achat_son_quantite"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "@fields.prix_sac_son",
-            "matchedExpression": "@fields.prix_sac_son",
-            "type": "fields",
-            "fieldName": "prix_sac_son"
+            "fullExpression": "<p style=\"color: black;\">@global.hint_sup_fouragere</strong> </p>",
+            "matchedExpression": "@global.hint_sup_fouragere",
+            "type": "global",
+            "fieldName": "hint_sup_fouragere"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.achat_son_quantite": [
+        "@global.hint_sup_fouragere": [
           "value"
-        ],
-        "@fields.prix_sac_son": [
-          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.note_mot_alim_betail",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_11",
+      "_nested_name": "text_11",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.note_mot_alim_betail",
+            "matchedExpression": "@global.note_mot_alim_betail",
+            "type": "global",
+            "fieldName": "note_mot_alim_betail"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_mot_alim_betail": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_12",
+      "_nested_name": "html_12"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa_tot.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_13",
+      "_nested_name": "image_13"
+    },
+    {
+      "type": "text",
+      "name": "depense",
+      "value": "@global.mot_alim_betail",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "background-color: #f0f4f8",
+        "border-left-width: 4px",
+        "border-left-style: solid",
+        "border-left-color: #0056b3"
+      ],
+      "_nested_name": "depense",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.mot_alim_betail",
+            "matchedExpression": "@global.mot_alim_betail",
+            "type": "global",
+            "fieldName": "mot_alim_betail"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.mot_alim_betail": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\">@global.hint_mot_alim_betail</p>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_15",
+      "_nested_name": "html_15",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: black;\">@global.hint_mot_alim_betail</p>",
+            "matchedExpression": "@global.hint_mot_alim_betail",
+            "type": "global",
+            "fieldName": "hint_mot_alim_betail"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.hint_mot_alim_betail": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.note_montant_soin",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_16",
+      "_nested_name": "text_16",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.note_montant_soin",
+            "matchedExpression": "@global.note_montant_soin",
+            "type": "global",
+            "fieldName": "note_montant_soin"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_montant_soin": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_17",
+      "_nested_name": "html_17"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa_tot.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_18",
+      "_nested_name": "image_18"
+    },
+    {
+      "type": "text",
+      "name": "total_frais_soins",
+      "value": "@global.montant_soin",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "background-color: #f0f4f8",
+        "border-left-width: 4px",
+        "border-left-style: solid",
+        "border-left-color: #0056b3"
+      ],
+      "_nested_name": "total_frais_soins",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.montant_soin",
+            "matchedExpression": "@global.montant_soin",
+            "type": "global",
+            "fieldName": "montant_soin"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.montant_soin": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\">@global.hint_montant_soin</p>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_20",
+      "_nested_name": "html_20",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: black;\">@global.hint_montant_soin</p>",
+            "matchedExpression": "@global.hint_montant_soin",
+            "type": "global",
+            "fieldName": "hint_montant_soin"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.hint_montant_soin": [
+          "value"
         ]
       }
     },
@@ -780,7 +516,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page11_button_back",
+          "name": "page13_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -795,11 +531,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_26.page11_button_back"
+          "_nested_name": "display_group_21.page13_button_back"
         },
         {
           "type": "button",
-          "name": "page11_button_continue",
+          "name": "page13_button_continue",
           "value": "Continuer",
           "_translations": {
             "value": {}
@@ -814,11 +550,14 @@
               "_raw": "click | emit: completed"
             }
           ],
-          "_nested_name": "display_group_26.page11_button_continue"
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_21.page13_button_continue"
         }
       ],
-      "name": "display_group_26",
-      "_nested_name": "display_group_26"
+      "name": "display_group_21",
+      "_nested_name": "display_group_21"
     }
   ],
   "_source": {

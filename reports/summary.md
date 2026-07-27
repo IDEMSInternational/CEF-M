@@ -3,31 +3,31 @@
 
 | type | count |
 | --- | --- |
-| audio | 225 |
-| button | 190 |
+| audio | 334 |
+| button | 215 |
 | combo_box | 11 |
-| data_items | 90 |
-| date_time_picker | 13 |
+| data_items | 105 |
+| date_time_picker | 8 |
 | declare_field_default | 2 |
-| display_group | 489 |
-| html | 317 |
-| image | 249 |
+| display_group | 696 |
+| html | 437 |
+| image | 350 |
 | plh_module_details_header | 1 |
-| plh_module_list_item | 9 |
-| radio_button_grid | 18 |
-| radio_list | 16 |
-| round_button | 128 |
-| set_field | 23 |
-| set_variable | 431 |
-| simple_checkbox | 9 |
+| plh_module_list_item | 11 |
+| radio_button_grid | 26 |
+| radio_list | 26 |
+| round_button | 138 |
+| set_field | 33 |
+| set_variable | 597 |
+| simple_checkbox | 11 |
 | square_button | 2 |
-| subtitle | 36 |
-| task_progress_bar | 9 |
-| template | 13 |
-| text | 553 |
+| subtitle | 3 |
+| task_progress_bar | 10 |
+| template | 14 |
+| text | 828 |
 | text_area | 10 |
-| text_box | 194 |
-| title | 107 |
+| text_box | 251 |
+| title | 141 |
 | toggle_bar | 1 |
 </details>
 
@@ -36,16 +36,15 @@
 
 | type | count |
 | --- | --- |
-| add_data | 8 |
+| add_data | 9 |
 | audio_play | 1 |
-| emit: completed | 131 |
-| emit: force_reprocess | 2 |
-| emit: uncompleted | 126 |
-| go_to | 39 |
-| set_data | 57 |
-| set_field | 440 |
-| set_local | 31 |
-| undefined | 80 |
+| emit: completed | 135 |
+| emit: force_reprocess | 3 |
+| emit: uncompleted | 133 |
+| go_to | 49 |
+| set_data | 76 |
+| set_field | 700 |
+| set_local | 29 |
 </details>
 
 <details open>
@@ -53,8 +52,8 @@
 
 | assets | KB | MB |
 | --- | --- | --- |
-| total | 18376 KB | 18.4 MB |
-| unused | 22771 KB | 22.8 MB |
+| total | 31747 KB | 31.7 MB |
+| unused | 188531 KB | 188.5 MB |
 </details>
 
 <details open>
@@ -64,17 +63,29 @@ Assets that appear in app-data but do not have references within sheets
 
 | path | size_kb |
 | --- | --- |
+| audio/Enrolement/Federation_scpc_bm.wav | 155.1 |
+| audio/Enrolement/Federation_scpc_fr.wav | 254.2 |
 | audio/Enrolement/act_prim_bm.mp3 | 21 |
 | audio/Enrolement/act_secon_bm.mp3 | 20.6 |
 | audio/Enrolement/actifs_upa_bm.mp3 | 25.5 |
 | audio/Enrolement/adolescents_upa_bm.mp3 | 35.6 |
 | audio/Enrolement/age_chef_upa_bm.mp3 | 23.4 |
 | audio/Enrolement/ane_bm.mp3 | 14.9 |
+| audio/Enrolement/annee_saison_bm.mp3 | 20.6 |
+| audio/Enrolement/annee_saison_fr.mp3 | 23.4 |
 | audio/Enrolement/autre_act_prim_bm.mp3 | 14.9 |
 | audio/Enrolement/autre_act_secon_bm.mp3 | 17.7 |
-| audio/Enrolement/autre_mat_bm.mp3 | 15.3 |
-| audio/Enrolement/autre_vol_bm.mp3 | 19.4 |
+| audio/Enrolement/autre_mat_bm.mp3 | 26.9 |
+| audio/Enrolement/autre_mat_bm.wav | 146.5 |
+| audio/Enrolement/autre_mat_fr.wav | 198.2 |
+| audio/Enrolement/autre_vol_bm.mp3 | 21 |
+| audio/Enrolement/autre_vol_bm.wav | 116.4 |
+| audio/Enrolement/autre_vol_fr.wav | 116.4 |
+| audio/Enrolement/batteuse_bm.mp3 | 26.9 |
+| audio/Enrolement/batteuse_bm.wav | 146.5 |
+| audio/Enrolement/batteuse_fr.wav | 159.4 |
 | audio/Enrolement/boeuf_lab_bm.mp3 | 14.9 |
+| audio/Enrolement/canal_obser_bm.mp3 | 121.7 |
 | audio/Enrolement/canard_bm.mp3 | 14.9 |
 | audio/Enrolement/cercle_bm.mp3 | 14.9 |
 | audio/Enrolement/charret_bm.mp3 | 17.7 |
@@ -83,13 +94,23 @@ Assets that appear in app-data but do not have references within sheets
 | audio/Enrolement/chevre_bm.mp3 | 15.3 |
 | audio/Enrolement/commune_bm.mp3 | 14.5 |
 | audio/Enrolement/coop_cereales_bm.mp3 | 22.9 |
+| audio/Enrolement/coop_cereales_fr.mp3 | 26.3 |
 | audio/Enrolement/coop_coton_bm.mp3 | 22.9 |
+| audio/Enrolement/coop_coton_fr.mp3 | 30.3 |
 | audio/Enrolement/corp_but_bm.mp3 | 20.2 |
+| audio/Enrolement/decortiqueuse_bm.mp3 | 26.9 |
+| audio/Enrolement/decortiqueuse_bm.wav | 146.5 |
+| audio/Enrolement/decortiqueuse_fr.wav | 125 |
 | audio/Enrolement/enfants_upa_bm.mp3 | 25.9 |
+| audio/Enrolement/federation_scpc_bm.mp3 | 28.5 |
 | audio/Enrolement/femmes_upa_bm.mp3 | 36.9 |
 | audio/Enrolement/genise_bm.mp3 | 16.8 |
 | audio/Enrolement/gps_upa_bm.mp3 | 19.8 |
 | audio/Enrolement/gps_upa_fr.mp3 | 23.8 |
+| audio/Enrolement/groupe_m_bm.mp3 | 37.1 |
+| audio/Enrolement/groupe_m_bm.wav | 202.5 |
+| audio/Enrolement/groupe_m_fr.mp3 | 45.5 |
+| audio/Enrolement/groupe_m_fr.wav | 249.9 |
 | audio/Enrolement/herse_bm.mp3 | 15.8 |
 | audio/Enrolement/hommes_upa_bm.mp3 | 34.5 |
 | audio/Enrolement/info_bm.mp3 | 197.6 |
@@ -97,11 +118,21 @@ Assets that appear in app-data but do not have references within sheets
 | audio/Enrolement/lapin_bm.mp3 | 17.7 |
 | audio/Enrolement/membre_upa_bm.mp3 | 35.6 |
 | audio/Enrolement/motocult_bm.mp3 | 15.8 |
+| audio/Enrolement/motocult_bm.wav | 112.1 |
+| audio/Enrolement/mototricycle_bm.mp3 | 22.6 |
+| audio/Enrolement/mototricycle_bm.wav | 125 |
+| audio/Enrolement/mototricycle_fr.wav | 168.1 |
 | audio/Enrolement/mout_bm.mp3 | 15.3 |
 | audio/Enrolement/multicul_bm.mp3 | 17.2 |
-| audio/Enrolement/nbre_autre_mat_bm.mp3 | 15.8 |
-| audio/Enrolement/nbre_autre_mat_fr.mp3 | 14.5 |
-| audio/Enrolement/nbre_autre_vol_bm.mp3 | 16.8 |
+| audio/Enrolement/nbre_autre_mat_bm.mp3 | 26.1 |
+| audio/Enrolement/nbre_autre_mat_bm.wav | 142.2 |
+| audio/Enrolement/nbre_autre_mat_fr.mp3 | 32.8 |
+| audio/Enrolement/nbre_autre_mat_fr.wav | 181 |
+| audio/Enrolement/nbre_autre_vol_bm.mp3 | 26.1 |
+| audio/Enrolement/nbre_autre_vol_bm.wav | 142.2 |
+| audio/Enrolement/nbre_autre_vol_fr.wav | 125 |
+| audio/Enrolement/no_autre_vol_bm.mp3 | 34.4 |
+| audio/Enrolement/no_autre_vol_fr.mp3 | 32.8 |
 | audio/Enrolement/nom_chef_trvx_bm.mp3 | 25.9 |
 | audio/Enrolement/nom_chef_upa_bm.mp3 | 22.1 |
 | audio/Enrolement/nom_neo_alpha_bm.mp3 | 25 |
@@ -109,6 +140,14 @@ Assets that appear in app-data but do not have references within sheets
 | audio/Enrolement/oberv_ecrit_bm.mp3 | 25.5 |
 | audio/Enrolement/oberv_phot_bm.mp3 | 31.6 |
 | audio/Enrolement/oberv_vid_bm.mp3 | 28.4 |
+| audio/Enrolement/on_mat_bm.mp3 | 28.5 |
+| audio/Enrolement/on_mat_fr.mp3 | 36.1 |
+| audio/Enrolement/on_op_cereales_bm.mp3 | 35.3 |
+| audio/Enrolement/on_scpc_bm.mp3 | 47.1 |
+| audio/Enrolement/op_cereales_bm.mp3 | 30.2 |
+| audio/Enrolement/op_cereales_bm.wav | 163.7 |
+| audio/Enrolement/op_cereales_fr.mp3 | 33.6 |
+| audio/Enrolement/op_cereales_fr.wav | 185.3 |
 | audio/Enrolement/phone_num_bm.mp3 | 31.2 |
 | audio/Enrolement/pigeon_bm.mp3 | 19.4 |
 | audio/Enrolement/pintade_bm.mp3 | 15.8 |
@@ -121,6 +160,10 @@ Assets that appear in app-data but do not have references within sheets
 | audio/Enrolement/ratio_bl_ter_bm.mp3 | 38.5 |
 | audio/Enrolement/ratio_mbre_ter_bm.mp3 | 30.7 |
 | audio/Enrolement/region_bm.mp3 | 12.4 |
+| audio/Enrolement/scpc_bm.mp3 | 28.5 |
+| audio/Enrolement/scpc_bm.wav | 155.1 |
+| audio/Enrolement/scpv_fr.mp3 | 32 |
+| audio/Enrolement/scpv_fr.wav | 176.7 |
 | audio/Enrolement/semoir_bm.mp3 | 15.3 |
 | audio/Enrolement/sexe_chef_upa_bm.mp3 | 20.6 |
 | audio/Enrolement/sup_cult_upa_bm.mp3 | 22.1 |
@@ -131,65 +174,320 @@ Assets that appear in app-data but do not have references within sheets
 | audio/Enrolement/type_ge_gtb_bm.mp3 | 33.3 |
 | audio/Enrolement/type_me_bm.mp3 | 27.6 |
 | audio/Enrolement/type_pe_bm.mp3 | 25 |
-| audio/Enrolement/union_cereales_bm.mp3 | 28 |
+| audio/Enrolement/union_cereales_bm.mp3 | 28.5 |
+| audio/Enrolement/union_cereales_bm.wav | 155.1 |
+| audio/Enrolement/union_cereales_fr.mp3 | 34.4 |
+| audio/Enrolement/union_cereales_fr.wav | 189.6 |
+| audio/Enrolement/union_sect_scpc_bm.mp3 | 30.2 |
+| audio/Enrolement/union_sect_scpc_bm.wav | 163.7 |
+| audio/Enrolement/union_sect_scpc_fr.wav | 228.3 |
 | audio/Enrolement/vach_lait_bm.mp3 | 19.8 |
 | audio/Enrolement/vach_tarie_bm.mp3 | 22.9 |
 | audio/Enrolement/veau_bm.mp3 | 15.3 |
 | audio/Enrolement/vieille_upa_bm.mp3 | 28.8 |
 | audio/Enrolement/vieux_upa_bm.mp3 | 32.9 |
 | audio/Enrolement/village_bm.mp3 | 15.8 |
-| audio/Superficie/Recap_sup_est_bm.mp3 | 112.7 |
-| audio/Superficie/Recap_sup_est_fr.mp3 | 112.7 |
-| audio/Superficie/Recap_sup_mes_bm.mp3 | 125.4 |
-| audio/Superficie/Recap_sup_mes_fr.mp3 | 132.2 |
+| audio/Enrolement/village_op_cereales_bm.mp3 | 31 |
+| audio/Enrolement/village_op_cereales_bm.wav | 168.1 |
+| audio/Enrolement/village_op_cereales_fr.mp3 | 31.2 |
+| audio/Enrolement/village_op_cereales_fr.wav | 172.4 |
+| audio/Enrolement/village_scpc_bm.mp3 | 30.2 |
+| audio/Enrolement/village_scpc_bm.wav | 163.7 |
+| audio/Enrolement/village_scpc_fr.mp3 | 42.2 |
+| audio/Enrolement/village_scpc_fr.wav | 232.7 |
+| audio/Platform/Breakdown_musakaw_bm.mp3 | 39 |
+| audio/Platform/Foro_bm.mp3 | 58.2 |
+| audio/Platform/Ja_walan_bm.mp3 | 52.9 |
+| audio/Platform/Logout_bm.mp3 | 38.5 |
+| audio/Platform/Musakaw_bm.mp3 | 47.8 |
+| audio/Platform/Retun_home_bm.mp3 | 31.6 |
+| audio/Platform/Soro_kunba_bm.mp3 | 47.8 |
+| audio/Platform/Soro_lakika_bm.mp3 | 52.5 |
+| audio/Superficie/Alimentation humaine/annee_saison_bm.mp3 | 20.6 |
+| audio/Superficie/Alimentation humaine/annee_saison_fr.mp3 | 23.4 |
+| audio/Superficie/Alimentation humaine/besoins_annuels_bm.mp3 | 288.3 |
+| audio/Superficie/Alimentation humaine/besoins_annuels_fr.mp3 | 189.3 |
+| audio/Superficie/Alimentation humaine/besoins_cereales_bm.mp3 | 401.8 |
+| audio/Superficie/Alimentation humaine/besoins_cereales_fr.mp3 | 293.4 |
+| audio/Superficie/Alimentation humaine/cumul_repart_bm.mp3 | 61.6 |
+| audio/Superficie/Alimentation humaine/cumul_repart_fr.mp3 | 47.1 |
+| audio/Superficie/Alimentation humaine/nombre_nourris_bm.mp3 | 60.6 |
+| audio/Superficie/Alimentation humaine/nombre_nourris_fr.mp3 | 53.2 |
+| audio/Superficie/Alimentation humaine/qr_code_bm.mp3 | 206.4 |
+| audio/Superficie/Alimentation humaine/qr_code_fr.mp3 | 165.9 |
+| audio/Superficie/Alimentation humaine/rdt_moyen_mais_bm.mp3 | 49.8 |
+| audio/Superficie/Alimentation humaine/rdt_moyen_mais_fr.mp3 | 29.3 |
+| audio/Superficie/Alimentation humaine/rdt_moyen_mil_bm.mp3 | 53.2 |
+| audio/Superficie/Alimentation humaine/rdt_moyen_mil_fr.mp3 | 37.1 |
+| audio/Superficie/Alimentation humaine/rdt_moyen_riz_bm.mp3 | 46.3 |
+| audio/Superficie/Alimentation humaine/rdt_moyen_riz_fr.mp3 | 30.2 |
+| audio/Superficie/Alimentation humaine/rdt_moyen_sorgho_bm.mp3 | 51.4 |
+| audio/Superficie/Alimentation humaine/rdt_moyen_sorgho_fr.mp3 | 31.2 |
+| audio/Superficie/Alimentation humaine/repart_egal_bm.mp3 | 31.2 |
+| audio/Superficie/Alimentation humaine/repart_egal_fr.mp3 | 29.3 |
+| audio/Superficie/Alimentation humaine/repart_inferieur_bm.mp3 | 37.9 |
+| audio/Superficie/Alimentation humaine/repart_inferieur_fr.mp3 | 27.7 |
+| audio/Superficie/Alimentation humaine/repart_superieur_bm.mp3 | 37.1 |
+| audio/Superficie/Alimentation humaine/repart_superieur_fr.mp3 | 26.9 |
+| audio/Superficie/Alimentation humaine/sac_mais_bm.mp3 | 29.3 |
+| audio/Superficie/Alimentation humaine/sac_mais_fr.mp3 | 26.1 |
+| audio/Superficie/Alimentation humaine/sac_mil_bm.mp3 | 29.3 |
+| audio/Superficie/Alimentation humaine/sac_mil_fr.mp3 | 28.5 |
+| audio/Superficie/Alimentation humaine/sac_riz_bm.mp3 | 29.3 |
+| audio/Superficie/Alimentation humaine/sac_riz_fr.mp3 | 29.3 |
+| audio/Superficie/Alimentation humaine/sac_sorgho_bm.mp3 | 31.2 |
+| audio/Superficie/Alimentation humaine/sac_sorgho_fr.mp3 | 28.5 |
+| audio/Superficie/Alimentation humaine/sup_mais_bm.mp3 | 39.5 |
+| audio/Superficie/Alimentation humaine/sup_mais_fr.mp3 | 35.3 |
+| audio/Superficie/Alimentation humaine/sup_mil_bm.mp3 | 41.2 |
+| audio/Superficie/Alimentation humaine/sup_mil_fr.mp3 | 37.1 |
+| audio/Superficie/Alimentation humaine/sup_riz_bm.mp3 | 43 |
+| audio/Superficie/Alimentation humaine/sup_riz_fr.mp3 | 35.3 |
+| audio/Superficie/Alimentation humaine/sup_sorgho_bm.mp3 | 44.6 |
+| audio/Superficie/Alimentation humaine/sup_sorgho_fr.mp3 | 37.1 |
+| audio/Superficie/Alimentation humaine/sup_total_cereales_bm.mp3 | 35.3 |
+| audio/Superficie/Alimentation humaine/sup_total_cereales_fr.mp3 | 23.4 |
+| audio/Superficie/Alimentation humaine/total_besoin_bm.mp3 | 50.6 |
+| audio/Superficie/Alimentation humaine/total_besoin_fr.mp3 | 38.7 |
+| audio/Superficie/Recap_sup_est_bm(1).mp3 | 112.7 |
+| audio/Superficie/Recap_sup_est_fr(1).mp3 | 112.7 |
+| audio/Superficie/Recap_sup_mes_bm(1).mp3 | 125.4 |
+| audio/Superficie/Recap_sup_mes_fr(1).mp3 | 132.2 |
+| audio/Superficie/Type_variete_bm.mp3 | 46.3 |
+| audio/Superficie/Type_variete_fr.mp3 | 39.5 |
+| audio/Superficie/annee_saison_bm.mp3 | 20.6 |
+| audio/Superficie/appreciation_audio_bm.mp3 | 50.4 |
+| audio/Superficie/appreciation_audio_fr.mp3 | 52.5 |
 | audio/Superficie/asso_yesno_bm.mp3 | 219.2 |
 | audio/Superficie/autre_cult_nom1_bm.mp3 | 225.2 |
 | audio/Superficie/autre_cult_nom2_bm.mp3 | 216.9 |
+| audio/Superficie/autre_engrais_bm.mp3 | 36.4 |
+| audio/Superficie/autre_fo_bm.mp3 | 41.2 |
+| audio/Superficie/canal_obser_sup_bm.mp3 | 117.7 |
+| audio/Superficie/canal_obser_sup_fr.mp3 | 85.4 |
 | audio/Superficie/cult_asso_bm.mp3 | 212.4 |
+| audio/Superficie/cult_asso_yn_bm.mp3 | 54.4 |
+| audio/Superficie/cult_asso_yn_fr.mp3 | 53.3 |
+| audio/Superficie/cult_preced_bm.mp3 | 68.3 |
 | audio/Superficie/cult_prin_bm.mp3 | 209.4 |
 | audio/Superficie/cultures_bm.mp3 | 159.9 |
 | audio/Superficie/cultures_fr.mp3 | 172.7 |
+| audio/Superficie/date_semence_bm.mp3 | 162.9 |
+| audio/Superficie/diff_super_bm.mp3 | 28.8 |
+| audio/Superficie/diff_super_fr.mp3 | 25 |
 | audio/Superficie/fertilite_bm.mp3 | 153.2 |
 | audio/Superficie/inclinaison_bm.mp3 | 112.7 |
+| audio/Superficie/info_bm.mp3 | 336 |
+| audio/Superficie/info_fr.mp3 | 257.7 |
 | audio/Superficie/nbre_arbre_bm.mp3 | 201.2 |
 | audio/Superficie/nbre_parcel_bm.mp3 | 168.9 |
 | audio/Superficie/nbre_parcel_fr.mp3 | 156.2 |
-| audio/Superficie/nom_champ_bm.mp3 | 225.2 |
+| audio/Superficie/nom_arbre_bm.mp3 | 31.6 |
+| audio/Superficie/nom_autre_engrais_bm.mp3 | 44.6 |
+| audio/Superficie/nom_autre_pcul1_bm.mp3 | 38.7 |
+| audio/Superficie/nom_autre_pcul1_fr.mp3 | 40.4 |
+| audio/Superficie/nom_autre_pcul2_bm.mp3 | 33.6 |
+| audio/Superficie/nom_autre_pcul2_fr.mp3 | 30.2 |
+| audio/Superficie/nom_autre_source_bm.mp3 | 31.2 |
+| audio/Superficie/nom_champ_bm.mp3 | 49.1 |
+| audio/Superficie/observa_audio_bm.mp3 | 28 |
+| audio/Superficie/observa_audio_fr.mp3 | 28 |
+| audio/Superficie/observa_photo_bm.mp3 | 30.3 |
+| audio/Superficie/observa_photo_fr.mp3 | 25.5 |
+| audio/Superficie/observa_text_bm.mp3 | 26.3 |
+| audio/Superficie/observa_text_fr.mp3 | 28 |
+| audio/Superficie/observa_video_bm.mp3 | 26.3 |
+| audio/Superficie/observa_video_fr.mp3 | 28.4 |
+| audio/Superficie/on_autre_engrais_bm.mp3 | 41.4 |
+| audio/Superficie/on_autre_engrais_fr.mp3 | 47.1 |
+| audio/Superficie/on_info_engrais_bm.mp3 | 43.8 |
+| audio/Superficie/on_info_recolte_bm.mp3 | 43.8 |
+| audio/Superficie/pro_cult_asso_bm.mp3 | 45.5 |
+| audio/Superficie/pro_cult_prim_bm.mp3 | 40.4 |
+| audio/Superficie/q_semence_bm.mp3 | 172.7 |
 | audio/Superficie/qr_code_bm.mp3 | 206.4 |
 | audio/Superficie/qr_code_fr.mp3 | 165.9 |
+| audio/Superficie/qte_autre_engrais_bm.mp3 | 35.3 |
+| audio/Superficie/qte_dap_bm.mp3 | 29.3 |
+| audio/Superficie/qte_fo_bm.mp3 | 41.4 |
+| audio/Superficie/qte_npk_15_bm.mp3 | 44.6 |
+| audio/Superficie/qte_npk_17_bm.mp3 | 49.8 |
+| audio/Superficie/qte_npk_17_fr.mp3 | 33.6 |
+| audio/Superficie/qte_npk_bm.mp3 | 34.1 |
+| audio/Superficie/qte_npk_coton_bm.mp3 | 28.5 |
+| audio/Superficie/qte_npk_fr.mp3 | 43.8 |
+| audio/Superficie/qte_uree_bm.mp3 | 26.1 |
 | audio/Superficie/recap_sup_est_bm.mp3 | 112.7 |
 | audio/Superficie/recap_sup_est_fr.mp3 | 112.7 |
 | audio/Superficie/recap_sup_mes_bm.mp3 | 125.4 |
 | audio/Superficie/recap_sup_mes_fr.mp3 | 132.2 |
+| audio/Superficie/source_semence_bm.mp3 | 34.1 |
 | audio/Superficie/sup_bne_bm.mp3 | 122.4 |
 | audio/Superficie/sup_bne_fr.mp3 | 93.9 |
 | audio/Superficie/sup_estim_bm.mp3 | 183.9 |
 | audio/Superficie/sup_mes_bm.mp3 | 172.7 |
 | audio/Superficie/sup_souses_bm.mp3 | 122.4 |
+| audio/Superficie/sup_sousest_bm.mp3 | 122.4 |
 | audio/Superficie/sup_sousest_fr.mp3 | 96.9 |
 | audio/Superficie/sup_surest_bm.mp3 | 116.4 |
 | audio/Superficie/sup_surest_fr.mp3 | 81.2 |
 | audio/Superficie/sup_tot_gps_bm.mp3 | 165.9 |
+| audio/Superficie/tige_laisse_champ_bm.mp3 | 58.9 |
+| audio/Superficie/tige_laisse_champ_fr.mp3 | 47.9 |
+| audio/Superficie/type_fo_bm.mp3 | 31.2 |
 | audio/Superficie/type_sol_bm.mp3 | 106.7 |
+| audio/Superficie/var_seme_bm.mp3 | 39.5 |
+| audio/Superficie/var_type_bm.mp3 | 30.7 |
+| audio/Superficie/variete_bm.mp3 | 55.7 |
+| audio/alimentationHumaine/annee_saison_bm.mp3 | 20.6 |
+| audio/alimentationHumaine/annee_saison_fr.mp3 | 23.4 |
+| audio/alimentationHumaine/besoins_annuels_bm.mp3 | 288.3 |
+| audio/alimentationHumaine/besoins_cereales_bm.mp3 | 401.8 |
+| audio/alimentationHumaine/cumul_repart_bm.mp3 | 61.6 |
+| audio/alimentationHumaine/cumul_repart_fr.mp3 | 47.1 |
+| audio/alimentationHumaine/nombre_nourris_bm.mp3 | 60.6 |
+| audio/alimentationHumaine/qr_code_bm.mp3 | 206.4 |
+| audio/alimentationHumaine/qr_code_fr.mp3 | 165.9 |
+| audio/alimentationHumaine/rdt_moyen_mais_bm.mp3 | 49.8 |
+| audio/alimentationHumaine/rdt_moyen_mil_bm.mp3 | 53.2 |
+| audio/alimentationHumaine/rdt_moyen_riz_bm.mp3 | 46.3 |
+| audio/alimentationHumaine/rdt_moyen_sorgho_bm.mp3 | 51.4 |
+| audio/alimentationHumaine/repart_egal_bm.mp3 | 31.2 |
+| audio/alimentationHumaine/repart_egal_fr.mp3 | 29.3 |
+| audio/alimentationHumaine/repart_inferieur_bm.mp3 | 37.9 |
+| audio/alimentationHumaine/repart_inferieur_fr.mp3 | 27.7 |
+| audio/alimentationHumaine/repart_superieur_bm.mp3 | 37.1 |
+| audio/alimentationHumaine/repart_superieur_fr.mp3 | 26.9 |
+| audio/alimentationHumaine/sac_mais_bm.mp3 | 29.3 |
+| audio/alimentationHumaine/sac_mil_bm.mp3 | 29.3 |
+| audio/alimentationHumaine/sac_riz_bm.mp3 | 29.3 |
+| audio/alimentationHumaine/sac_sorgho_bm.mp3 | 31.2 |
+| audio/alimentationHumaine/sup_mais_bm.mp3 | 39.5 |
+| audio/alimentationHumaine/sup_mil_bm.mp3 | 41.2 |
+| audio/alimentationHumaine/sup_riz_bm.mp3 | 43 |
+| audio/alimentationHumaine/sup_sorgho_bm.mp3 | 44.6 |
+| audio/alimentationHumaine/sup_total_cereales_bm.mp3 | 35.3 |
+| audio/alimentationHumaine/total_besoin_bm.mp3 | 50.6 |
+| audio/cultureSecondaires/cult_sec_n1_pro_bm.mp3 | 183.9 |
+| audio/cultureSecondaires/cult_sec_n1_pro_fr.mp3 | 188.4 |
+| audio/cultureSecondaires/cult_sec_n1_sup_bm.mp3 | 219.2 |
+| audio/cultureSecondaires/cult_sec_n1_sup_fr.mp3 | 144.9 |
+| audio/cultureSecondaires/cult_sec_n2_pro_bm.mp3 | 196.7 |
+| audio/cultureSecondaires/cult_sec_n2_pro_fr.mp3 | 153.2 |
+| audio/cultureSecondaires/cult_sec_n2_sup_bm.mp3 | 206.4 |
+| audio/cultureSecondaires/cult_sec_n2_sup_fr.mp3 | 147.9 |
+| audio/cultureSecondaires/cult_sec_prod_bm.mp3 | 119.4 |
+| audio/cultureSecondaires/cult_sec_prod_fr.mp3 | 153.2 |
+| audio/cultureSecondaires/cult_sec_sup_bm.mp3 | 194.4 |
+| audio/cultureSecondaires/cult_sec_sup_fr.mp3 | 309.9 |
+| audio/cultureSecondaires/cult_second_bm.mp3 | 575.4 |
+| audio/cultureSecondaires/cult_second_fr.mp3 | 531.9 |
+| audio/cultureSecondaires/cult_second_nom1_bm.mp3 | 191.4 |
+| audio/cultureSecondaires/cult_second_nom1_fr.mp3 | 332.4 |
+| audio/cultureSecondaires/cult_second_nom2_bm.mp3 | 222.2 |
+| audio/cultureSecondaires/cult_second_nom2_fr.mp3 | 319.7 |
+| audio/depensesRevenus/annee_saison_bm.mp3 | 20.6 |
+| audio/depensesRevenus/annee_saison_fr.mp3 | 23.4 |
+| audio/depensesRevenus/approche_condi_bm.mp3 | 122.6 |
+| audio/depensesRevenus/approche_educ_bm.mp3 | 422 |
+| audio/depensesRevenus/approche_sante_bm.mp3 | 346.7 |
+| audio/depensesRevenus/autre_frais_bm.mp3 | 56.5 |
+| audio/depensesRevenus/autre_frais_fr.mp3 | 46.3 |
+| audio/depensesRevenus/autre_invest_bm.mp3 | 56.5 |
+| audio/depensesRevenus/autre_invest_fr.mp3 | 35.3 |
+| audio/depensesRevenus/condiment_annuel_bm.mp3 | 48.9 |
+| audio/depensesRevenus/condiment_jour_bm.mp3 | 47.9 |
+| audio/depensesRevenus/depense_total_bm.mp3 | 54.9 |
+| audio/depensesRevenus/depense_total_fr.mp3 | 45.5 |
+| audio/depensesRevenus/educ_total_niveau_bm.mp3 | 93.8 |
+| audio/depensesRevenus/education_totaux_bm.mp3 | 56.5 |
+| audio/depensesRevenus/fourniture_annuel_bm.mp3 | 98.7 |
+| audio/depensesRevenus/fourniture_bm.mp3 | 75.1 |
+| audio/depensesRevenus/invest_equip_bm.mp3 | 54.9 |
+| audio/depensesRevenus/invest_equip_fr.mp3 | 48.9 |
+| audio/depensesRevenus/invest_maison_bm.mp3 | 46.3 |
+| audio/depensesRevenus/invest_maison_fr.mp3 | 53.2 |
+| audio/depensesRevenus/invest_mariage_bm.mp3 | 48.9 |
+| audio/depensesRevenus/invest_mariage_fr.mp3 | 46.3 |
+| audio/depensesRevenus/invest_total_bm.mp3 | 52.2 |
+| audio/depensesRevenus/invest_total_fr.mp3 | 38.7 |
+| audio/depensesRevenus/nbre_residents_bm.mp3 | 43.8 |
+| audio/depensesRevenus/nom_autre_frais_bm.mp3 | 78.5 |
+| audio/depensesRevenus/nom_autre_frais_fr.mp3 | 51.4 |
+| audio/depensesRevenus/nom_autre_invest_bm.mp3 | 63.2 |
+| audio/depensesRevenus/nom_autre_invest_fr.mp3 | 41.4 |
+| audio/depensesRevenus/nombre_enfants_bm.mp3 | 68.3 |
+| audio/depensesRevenus/on_autre_frais_bm.mp3 | 54.9 |
+| audio/depensesRevenus/on_autre_frais_fr.mp3 | 47.1 |
+| audio/depensesRevenus/on_autre_invest_bm.mp3 | 48.9 |
+| audio/depensesRevenus/on_autre_invest_fr.mp3 | 43 |
+| audio/depensesRevenus/on_education_bm.mp3 | 51.4 |
+| audio/depensesRevenus/petite_depense_total_bm.mp3 | 61.6 |
+| audio/depensesRevenus/petite_depense_total_fr.mp3 | 39.5 |
+| audio/depensesRevenus/planif_depense_bm.mp3 | 351 |
+| audio/depensesRevenus/qr_code_bm.mp3 | 206.4 |
+| audio/depensesRevenus/qr_code_fr.mp3 | 165.9 |
+| audio/depensesRevenus/recreation_annuel_bm.mp3 | 86.9 |
+| audio/depensesRevenus/recreation_jour_bm.mp3 | 87.7 |
+| audio/depensesRevenus/sante_annuel_bm.mp3 | 52.2 |
+| audio/depensesRevenus/scolarite_annuel_bm.mp3 | 91.2 |
+| audio/depensesRevenus/scolarite_bm.mp3 | 59.8 |
+| audio/depensesRevenus/select_niveaux_bm.mp3 | 73.4 |
+| audio/depensesRevenus/transport_annuel_bm.mp3 | 104.6 |
+| audio/depensesRevenus/transport_jour_bm.mp3 | 103 |
+| audio/fumureOrganique/3ans_bm.mp3 | 217.3 |
+| audio/fumureOrganique/4ans_plus_bm.mp3 | 384.6 |
+| audio/fumureOrganique/annee_saison_bm.mp3 | 20.6 |
+| audio/fumureOrganique/annee_saison_fr.mp3 | 23.4 |
+| audio/fumureOrganique/autre_fumure_bm.mp3 | 58.9 |
+| audio/fumureOrganique/compost_bm.mp3 | 69.1 |
+| audio/fumureOrganique/cycle_3ans_bm.mp3 | 86.9 |
+| audio/fumureOrganique/cycle_4ansplus_bm.mp3 | 101.2 |
+| audio/fumureOrganique/fumier_bm.mp3 | 63.2 |
+| audio/fumureOrganique/intro_fumure_bm.mp3 | 185.1 |
+| audio/fumureOrganique/nom_autre_fumure_bm.mp3 | 32 |
+| audio/fumureOrganique/on_autre_fumure_bm.mp3 | 47.9 |
+| audio/fumureOrganique/ordures_bm.mp3 | 54.9 |
+| audio/fumureOrganique/prod_reco_bm.mp3 | 386.5 |
+| audio/fumureOrganique/qr_code_bm.mp3 | 206.4 |
+| audio/fumureOrganique/qr_code_fr.mp3 | 165.9 |
+| audio/fumureOrganique/qte_fumure_bm.mp3 | 44.6 |
+| audio/fumureOrganique/rech_reco_bm.mp3 | 384.6 |
+| audio/fumureOrganique/rotation_fumure_bm.mp3 | 409.3 |
+| audio/fumureOrganique/strategie_4ans_bm.mp3 | 342.4 |
+| audio/fumureOrganique/strategie_5ans_bm.mp3 | 522.8 |
+| audio/fumureOrganique/superf_cult_bm.mp3 | 46.3 |
+| audio/fumureOrganique/superf_fumure_bm.mp3 | 82 |
 | audio/postSemi/Ob_audio_postsemis_bm.mp3 | 172.7 |
 | audio/postSemi/Ob_ecrit_postsemis_bm.mp3 | 178.7 |
 | audio/postSemi/Ob_photo_postsemis_bm.mp3 | 204.2 |
 | audio/postSemi/Ob_video_postsemis_bm.mp3 | 188.4 |
+| audio/postSemi/annee_saison_bm.mp3 | 20.6 |
+| audio/postSemi/annee_saison_fr.mp3 | 23.4 |
+| audio/postSemi/appreciation_audio_bm.mp3 | 50.4 |
+| audio/postSemi/appreciation_audio_fr.mp3 | 52.5 |
+| audio/postSemi/canal_obser_bm.mp3 | 121.7 |
+| audio/postSemi/canal_obser_fr.mp3 | 98.5 |
 | audio/postSemi/cout_buttage_bm.mp3 | 106.7 |
 | audio/postSemi/cout_cult_postsemis_bm.mp3 | 188.4 |
 | audio/postSemi/cout_desherbage_bm.mp3 | 125.4 |
 | audio/postSemi/cout_herbicide_bm.mp3 | 119.4 |
 | audio/postSemi/cout_insecticide_bm.mp3 | 109.7 |
-| audio/postSemi/cout_npk_bm.mp3 | 116.4 |
+| audio/postSemi/cout_npk_bm.mp3 | 42.2 |
 | audio/postSemi/cout_sarclage_bm.mp3 | 132.2 |
 | audio/postSemi/cout_tot_postsemis_bm.mp3 | 196.7 |
-| audio/postSemi/cout_ur_bm.mp3 | 106.7 |
+| audio/postSemi/cout_ur_bm.mp3 | 30.2 |
+| audio/postSemi/montant_autre_cout_bm.mp3 | 26.9 |
+| audio/postSemi/nom_autre_cout_bm.mp3 | 30.2 |
+| audio/postSemi/note_form_postsemis_bm.mp3 | 529.6 |
+| audio/postSemi/on_autre_cout_psemis_bm.mp3 | 45.5 |
 | audio/postSemi/q_herbicide_bm.mp3 | 204.2 |
 | audio/postSemi/q_insecticide_bm.mp3 | 183.9 |
-| audio/postSemi/q_npk_bm.mp3 | 201.2 |
-| audio/postSemi/q_ur_bm.mp3 | 175.7 |
+| audio/postSemi/q_npk_bm.mp3 | 66.7 |
+| audio/postSemi/q_ur_bm.mp3 | 41.4 |
 | audio/postSemi/qr_code_bm.mp3 | 206.4 |
-| audio/postSemi/select_culture_bm.mp3 | 660.2 |
+| audio/postSemi/qr_code_fr.mp3 | 165.9 |
+| audio/postSemi/select_culture_bm.mp3 | 98.9 |
 | audio/postSemi/sup_buttage_bm.mp3 | 196.7 |
 | audio/postSemi/super_desherbage_bm.mp3 | 165.9 |
 | audio/postSemi/super_sarclage_bm.mp3 | 181.7 |
@@ -201,20 +499,38 @@ Assets that appear in app-data but do not have references within sheets
 | audio/recolte/Ob_photo_recolte_fr.mp3 | 178.7 |
 | audio/recolte/Ob_video_recolte_bm.mp3 | 132.2 |
 | audio/recolte/Ob_video_recolte_fr.mp3 | 194.4 |
-| audio/recolte/cout_battage_bm.mp3 | 66.2 |
-| audio/recolte/cout_cult_recolte_bm.mp3 | 119.4 |
+| audio/recolte/annee_saison_bm.mp3 | 20.6 |
+| audio/recolte/appreciation_audio_bm.mp3 | 50.4 |
+| audio/recolte/appreciation_audio_fr.mp3 | 52.5 |
+| audio/recolte/canal_obser_bm.mp3 | 121.7 |
+| audio/recolte/cout_battage_bm.mp3 | 29.3 |
+| audio/recolte/cout_cult_recolte_bm.mp3 | 30.7 |
 | audio/recolte/cout_cult_recolte_fr.mp3 | 191.4 |
-| audio/recolte/cout_recolt_bm.mp3 | 72.9 |
+| audio/recolte/cout_recolt_bm.mp3 | 29.3 |
 | audio/recolte/cout_recolt_fr.mp3 | 140.4 |
 | audio/recolte/cout_tot_recolte_bm.mp3 | 162.9 |
 | audio/recolte/cout_tot_recolte_fr.mp3 | 191.4 |
+| audio/recolte/cult_second_bm.mp3 | 137.9 |
+| audio/recolte/cult_second_fr.mp3 | 118.7 |
+| audio/recolte/cult_second_nom1_bm.mp3 | 191.4 |
+| audio/recolte/cult_second_nom1_fr.mp3 | 332.4 |
+| audio/recolte/cult_second_nom2_bm.mp3 | 222.2 |
+| audio/recolte/cult_second_nom2_fr.mp3 | 319.7 |
+| audio/recolte/montant_autre_cout_bm.mp3 | 26.9 |
+| audio/recolte/montant_autre_cout_fr.mp3 | 27.7 |
+| audio/recolte/nom_autre_cout_bm.mp3 | 30.2 |
+| audio/recolte/nom_autre_cout_fr.mp3 | 40.4 |
+| audio/recolte/note_form_recolte_bm.mp3 | 559.6 |
+| audio/recolte/on_autre_cout_recolte_bm.mp3 | 54 |
+| audio/recolte/on_autre_cout_recolte_fr.mp3 | 40.4 |
 | audio/recolte/production_fane_bm.mp3 | 209.4 |
 | audio/recolte/production_graine_bm.mp3 | 144.9 |
 | audio/recolte/production_residu_bm.mp3 | 127.7 |
 | audio/recolte/qr_code_bm.mp3 | 206.4 |
-| audio/recolte/select_culture_bm.mp3 | 660.2 |
-| audio/recolte/select_culture_fr.mp3 | 573.2 |
+| audio/recolte/select_culture_bm.mp3 | 98.9 |
+| audio/recolte/select_culture_fr.mp3 | 89.4 |
 | audio/recolte/sup_recolt_bm.mp3 | 175.7 |
+| audio/recolte/sup_recolt_fr.mp3 | 172.7 |
 | audio/semis/Obser_audio_bm.mp3 | 244.7 |
 | audio/semis/Obser_audio_fr.mp3 | 204.2 |
 | audio/semis/Obser_ecris_bm.mp3 | 273.2 |
@@ -223,52 +539,161 @@ Assets that appear in app-data but do not have references within sheets
 | audio/semis/Obser_photo_fr.mp3 | 196.7 |
 | audio/semis/Obser_video_bm.mp3 | 265.7 |
 | audio/semis/Obser_video_fr.mp3 | 181.7 |
-| audio/semis/Q_fumure_bm.mp3 | 263.4 |
+| audio/semis/Q_fumure_bm.mp3 | 65.1 |
+| audio/semis/annee_saison_bm.mp3 | 20.6 |
+| audio/semis/annee_saison_fr.mp3 | 23.4 |
+| audio/semis/appreciation_audio_bm.mp3 | 50.4 |
+| audio/semis/appreciation_audio_fr.mp3 | 52.5 |
+| audio/semis/canal_obser_bm.mp3 | 121.7 |
 | audio/semis/cout_chaux_agri_bm.mp3 | 90.9 |
 | audio/semis/cout_cult_semis_bm.mp3 | 219.2 |
-| audio/semis/cout_herbicide_bm.mp3 | 106.7 |
+| audio/semis/cout_herbicide_bm.mp3 | 27.7 |
 | audio/semis/cout_labour_bm.mp3 | 103.7 |
 | audio/semis/cout_pnt_bm.mp3 | 116.4 |
 | audio/semis/cout_semence_bm.mp3 | 116.4 |
 | audio/semis/cout_tot_semis_bm.mp3 | 247.7 |
-| audio/semis/cout_tot_semis_fr.mp3 | 260.4 |
 | audio/semis/cout_transport_bm.mp3 | 125.4 |
+| audio/semis/cult_second_bm.mp3 | 137.9 |
+| audio/semis/cult_second_fr.mp3 | 118.7 |
+| audio/semis/cult_second_nom1_bm.mp3 | 191.4 |
+| audio/semis/cult_second_nom1_fr.mp3 | 332.4 |
+| audio/semis/cult_second_nom2_bm.mp3 | 222.2 |
+| audio/semis/cult_second_nom2_fr.mp3 | 319.7 |
 | audio/semis/date_semence_bm.mp3 | 162.9 |
 | audio/semis/date_semence_fr.mp3 | 172.7 |
+| audio/semis/montant_autre_cout_bm.mp3 | 26.9 |
+| audio/semis/montant_autre_cout_fr.mp3 | 27.7 |
+| audio/semis/nom_autre_cout_bm.mp3 | 30.2 |
+| audio/semis/note_form_semis_bm.mp3 | 557.9 |
+| audio/semis/on_autre_cout_semis_bm.mp3 | 42.2 |
 | audio/semis/q_chaux_agri_bm.mp3 | 306.9 |
 | audio/semis/q_herbicide_bm.mp3 | 260.4 |
 | audio/semis/q_pnt_bm.mp3 | 216.9 |
-| audio/semis/q_semence_bm.mp3 | 172.7 |
+| audio/semis/q_semence_bm.mp3 | 32.9 |
 | audio/semis/qr_code_bm.mp3 | 206.4 |
-| audio/semis/select_culture_bm.mp3 | 660.2 |
+| audio/semis/qr_code_fr.mp3 | 165.9 |
+| audio/semis/select_culture_bm.mp3 | 98.9 |
 | audio/semis/select_culture_pre_bm.mp3 | 459.9 |
 | audio/semis/select_culture_pre_fr.mp3 | 412.7 |
 | audio/semis/sup_culture_bm.mp3 | 194.4 |
 | audio/semis/sup_labour_bm.mp3 | 165.9 |
+| images/2 mai 2025, 19_54_33.png | 3283.8 |
+| images/ChatGPT Image 1 mai 2025, 13_11_57.png | 2909.3 |
+| images/ChatGPT Image 1 mai 2025, 13_27_45.png | 1770.1 |
+| images/ChatGPT Image 2 mai 2025, 19_47_00.png | 3310.9 |
+| images/ChatGPT Image 2 mai 2025, 20_05_39.png | 3315.2 |
+| images/ChatGPT Image 2 mai 2025, 21_44_24.png | 2008 |
+| images/ChatGPT Image 2 mai 2025, 21_50_31.png | 3288.4 |
+| images/ChatGPT Image 2 mai 2025, 21_57_08.png | 3140.3 |
+| images/ChatGPT Image 2 mai 2025, 22_01_14.png | 3129.9 |
+| images/ChatGPT Image 23 avr. 2025, 22_10_38.png | 2395.2 |
+| images/ChatGPT Image 23 avr. 2025, 22_45_02.png | 2310.8 |
+| images/ChatGPT Image 23 avr. 2025, 23_13_16.png | 2105.6 |
+| images/ChatGPT Image 23 avr. 2025, 23_23_33.png | 2112.9 |
+| images/ChatGPT Image 23 avr. 2025, 23_49_45.png | 2039.6 |
+| images/ChatGPT Image 24 avr. 2025, 00_19_19.png | 0.5 |
+| images/ChatGPT Image 24 avr. 2025, 00_22_40.png | 2238.9 |
+| images/ChatGPT Image 24 avr. 2025, 00_28_43.png | 2344.6 |
+| images/ChatGPT Image 24 avr. 2025, 21_44_33.png | 2223.9 |
+| images/ChatGPT Image 24 avr. 2025, 21_48_06.png | 2421.5 |
+| images/ChatGPT Image 24 avr. 2025, 21_51_40.png | 2536.1 |
+| images/ChatGPT Image 24 avr. 2025, 22_00_29.png | 2590 |
+| images/ChatGPT Image 24 avr. 2025, 22_18_33.png | 1745.1 |
+| images/ChatGPT Image 24 avr. 2025, 23_40_56.png | 2911.5 |
+| images/ChatGPT Image 24 avr. 2025, 23_42_13.png | 3060.4 |
+| images/ChatGPT Image 24 avr. 2025, 23_44_01.png | 3067.5 |
+| images/ChatGPT Image 28 avr. 2025, 17_43_10.png | 2514.5 |
+| images/ChatGPT Image 28 avr. 2025, 21_54_48.png | 3329.6 |
+| images/ChatGPT Image 28 avr. 2025, 22_07_22.png | 3518.8 |
+| images/ChatGPT Image 28 avr. 2025, 22_11_49.png | 2176.7 |
+| images/ChatGPT Image 28 avr. 2025, 22_45_50.png | 3412.8 |
+| images/ChatGPT Image 28 avr. 2025, 22_57_05.png | 2300.9 |
+| images/ChatGPT Image 28 avr. 2025, 23_20_00.png | 2060.1 |
+| images/ChatGPT Image 28 avr. 2025, 23_21_55.png | 2060.1 |
+| images/ChatGPT Image 29 avr. 2025, 17_21_35.png | 1826.2 |
+| images/ChatGPT Image 29 avr. 2025, 17_43_34.png | 1445.8 |
+| images/ChatGPT Image 29 avr. 2025, 17_54_05.png | 1857.8 |
+| images/ChatGPT Image 29 avr. 2025, 18_38_12.png | 2203 |
+| images/ChatGPT Image 29 avr. 2025, 22_12_50.png | 3060.6 |
+| images/ChatGPT Image 29 avr. 2025, 22_40_42.png | 1972 |
+| images/ChatGPT Image 29 avr. 2025, 22_49_48.png | 1789.7 |
+| images/ChatGPT Image 29 avr. 2025, 23_20_52.png | 2423.7 |
+| images/ChatGPT Image 29 avr. 2025, 23_51_01.png | 2213.5 |
+| images/ChatGPT Image 30 avr. 2025, 00_07_49.png | 2091.8 |
+| images/ChatGPT Image 30 avr. 2025, 00_11_56.png | 2756.9 |
+| images/ChatGPT Image 30 avr. 2025, 00_15_51.png | 2680.7 |
+| images/ChatGPT Image 30 avr. 2025, 17_37_14.png | 3115.3 |
+| images/ChatGPT Image 30 avr. 2025, 17_43_05.png | 3703.4 |
+| images/ChatGPT Image 30 avr. 2025, 18_07_01.png | 3331.1 |
+| images/ChatGPT Image 5 mai 2025, 22_01_57.png | 1985.3 |
+| images/ChatGPT Image 5 mai 2025, 22_02_10.png | 2053.7 |
+| images/ChatGPT Image 5 mai 2025, 22_02_19.png | 2133.2 |
+| images/Complementation_ameliorée.jpg | 54.8 |
+| images/Complementation_faible.jpg | 51.6 |
+| images/Divagation.jpeg | 273.9 |
+| images/Divagation.jpg | 46.8 |
+| images/New Microsoft PowerPoint Presentation.pptx | 5253.1 |
+| images/Stabulation.jpg | 61.6 |
+| images/animal (1).png | 44.2 |
+| images/animal.png | 19 |
+| images/arbres.jpg | 47.1 |
+| images/assins.jpg | 10.7 |
 | images/audio.jpg | 3.2 |
+| images/autre.jpeg | 121.7 |
+| images/autre_cout.jpg | 12 |
 | images/battage.jpg | 3.8 |
-| images/buttage.jpg | 4 |
+| images/boeufs_labour.jpg | 16.7 |
+| images/buttage.jpg | 10.7 |
+| images/caprins.jpg | 4.7 |
 | images/chaux.jpg | 4.4 |
-| images/desherbage.jpg | 4 |
+| images/culture_mil_0.jpg | 104.8 |
+| images/cycle3_.jpg | 59.7 |
+| images/cycle4_.jpg | 60.4 |
+| images/cycle5_.jpg | 62.9 |
+| images/desherbage.jpg | 16.8 |
+| images/embouche_bovine.jpg | 18.4 |
+| images/embouche_ovine.jpg | 18.1 |
 | images/fane.jpg | 4.6 |
+| images/farming.png | 16.3 |
 | images/gps_local.jpg | 17.5 |
+| images/groupe_m.jpg | 361.7 |
 | images/herbicide.jpg | 5.2 |
 | images/icons/audio/icon-speaker.jpg | 54.3 |
+| images/icons/record_video.svg | 8.3 |
+| images/icons/scan.svg | 1.4 |
+| images/inclinaison.jpg | 67.7 |
 | images/info_icon.jpg | 8.3 |
 | images/insecticide.jpg | 3 |
 | images/labour.jpg | 4.5 |
 | images/maïs.jpg | 3.2 |
+| images/non.jpg | 8.4 |
 | images/npk.jpg | 4.3 |
+| images/oui.jpg | 4.9 |
 | images/patate.jpg | 4.1 |
 | images/pnt_png.jpg | 4 |
+| images/product_fumure (2).jpg | 93.7 |
+| images/qr_code.jpg | 3.4 |
 | images/recolte.jpg | 5.4 |
 | images/residu.jpg | 4.3 |
-| images/riz.jpg | 6.1 |
-| images/sarclage.jpg | 4.7 |
+| images/residu_tiges.jpg | 17.5 |
+| images/rotation1.jpg | 164.1 |
+| images/saison_paturage.png | 2209.4 |
+| images/sarclage.jpg | 13.2 |
 | images/semence.jpg | 5.1 |
+| images/sup_mais_2.jpg | 4 |
+| images/sup_mil_2.jpg | 9.1 |
+| images/sup_sorgho_2.jpg | 9.1 |
 | images/superf_cult.jpg | 4.2 |
+| images/superf_estim.jpg | 4.7 |
+| images/superf_fumure1.jpg | 139 |
+| images/superf_mes.jpg | 4.7 |
+| images/superficie.jpg | 4.2 |
 | images/sésame.jpg | 5.6 |
+| images/transhumance.jpg | 65.3 |
+| images/type_fumure (2).jpg | 88.2 |
+| images/type_sol.jpg | 90.3 |
 | images/uree.jpg | 4.4 |
+| images/vache_laitiere.jpg | 19 |
 </details>
 
 <details open>
@@ -278,94 +703,47 @@ Assets that have references within sheets but do not appear in app-data
 
 | path | count |
 | --- | --- |
-| audio/Enrolement/appreciation_audio_fr.mp3 | 6 |
-| audio/Enrolement/canal_obser_fr.mp3 | 5 |
-| audio/Superficie/annee_saison_fr.mp3 | 3 |
-| audio/Superficie/autre_engrais_fr.mp3 | 1 |
-| audio/Superficie/autre_fo_fr.mp3 | 1 |
-| audio/Superficie/cult_preced_fr.mp3 | 1 |
-| audio/Superficie/date_semence_fr.mp3 | 1 |
-| audio/Superficie/nom_arbre_fr.mp3 | 1 |
-| audio/Superficie/nom_autre_engrais_fr.mp3 | 1 |
-| audio/Superficie/nom_autre_source_fr.mp3 | 1 |
-| audio/Superficie/q_semence_fr.mp3 | 1 |
-| audio/Superficie/qte_fo_fr.mp3 | 1 |
-| audio/Superficie/qte_npk_fr.mp3 | 1 |
-| audio/Superficie/qte_uree_fr.mp3 | 1 |
-| audio/Superficie/source_semence_fr.mp3 | 1 |
-| audio/Superficie/type_fo_fr.mp3 | 1 |
-| audio/Superficie/var_seme_fr.mp3 | 1 |
-| audio/Superficie/var_type_fr.mp3 | 1 |
-| audio/bHumains/Obser_audio_fr.mp3 | 1 |
-| audio/bHumains/Obser_photo_fr.mp3 | 1 |
-| audio/bHumains/Obser_text_fr.mp3 | 1 |
-| audio/bHumains/Obser_video_fr.mp3 | 1 |
-| audio/bHumains/appreciation_audio_fr.mp3 | 1 |
-| audio/bHumains/canal_obser_fr.mp3 | 1 |
-| audio/bHumains/qr_code_fr.mp3 | 1 |
-| audio/postSemi/note_form_postsemis_fr.mp3 | 1 |
+| audio/Enrolement/appreciation_audio_fr.mp3 | 7 |
+| audio/Enrolement/on_autre_mat_fr.mp3 | 1 |
+| audio/Enrolement/scpc_fr.mp3 | 1 |
+| audio/alimentationHumaine/appreciation_audio_fr.mp3 | 1 |
+| audio/postSemi/autre_cout_recolte_fr.mp3 | 1 |
+| audio/postSemi/autre_cout_semis_fr.mp3 | 1 |
+| audio/postSemi/cult_second_fr.mp3 | 1 |
+| audio/postSemi/cult_second_nom1_fr.mp3 | 1 |
+| audio/postSemi/cult_second_nom2_fr.mp3 | 1 |
+| audio/postSemi/nom_autre_cout_recolte_fr.mp3 | 1 |
+| audio/postSemi/nom_autre_pcult1_fr.mp3 | 1 |
+| audio/postSemi/nom_autre_pcult2_fr.mp3 | 1 |
+| audio/postSemi/on_autre_cout_recolte_fr.mp3 | 1 |
 | audio/recolte/Ob_audio_recoltes_fr.mp3 | 1 |
 | audio/recolte/Ob_ecrit_recoltes_fr.mp3 | 1 |
 | audio/recolte/Ob_photo_recoltes_fr.mp3 | 1 |
 | audio/recolte/Ob_video_recoltes_fr.mp3 | 1 |
-| audio/recolte/canal_obser_fr.mp3 | 1 |
-| audio/recolte/cult_second_fr.mp3 | 1 |
-| audio/recolte/cult_second_nom1_fr.mp3 | 1 |
-| audio/recolte/cult_second_nom2_fr.mp3 | 1 |
-| audio/recolte/note_form_recolte_fr.mp3 | 1 |
-| audio/recolte/prestation_intro_fr.mp3 | 1 |
-| audio/semis/annee_saison_fr.mp3 | 3 |
-| audio/semis/canal_obser_fr.mp3 | 2 |
-| audio/semis/cout_tot_semis.mp3 | 1 |
-| audio/semis/cult_second_fr.mp3 | 1 |
-| audio/semis/cult_second_nom1_fr.mp3 | 1 |
-| audio/semis/cult_second_nom2_fr.mp3 | 1 |
-| audio/semis/note_form_semis_fr.mp3 | 1 |
-| audio/semis/oberv_audio_fr.mp3 | 2 |
-| audio/semis/oberv_ecrit_fr.mp3 | 2 |
-| audio/semis/oberv_phot_fr.mp3 | 2 |
-| audio/semis/oberv_vid_fr.mp3 | 2 |
+| audio/semis/autre_cout_semis_fr.mp3 | 1 |
+| audio/semis/cout_battage_fr.mp3 | 1 |
+| audio/semis/cout_buttage_fr.mp3 | 1 |
+| audio/semis/cout_desherbage_fr.mp3 | 1 |
+| audio/semis/cout_insecticide_fr.mp3 | 1 |
+| audio/semis/cout_npk_fr.mp3 | 5 |
+| audio/semis/cout_recolt_fr.mp3 | 1 |
+| audio/semis/cout_sarclage_fr.mp3 | 1 |
+| audio/semis/cout_ur_fr.mp3 | 1 |
+| audio/semis/cult_autre_nom1_fr.mp3 | 1 |
+| audio/semis/cult_autre_nom2_fr.mp3 | 1 |
+| audio/semis/no_autre_cout_semis_fr.mp3 | 1 |
+| audio/semis/nom_autre_cout_semis_fr.mp3 | 1 |
+| audio/semis/oberv_audio_fr.mp3 | 1 |
+| audio/semis/oberv_ecrit_fr.mp3 | 1 |
+| audio/semis/oberv_phot_fr.mp3 | 1 |
+| audio/semis/oberv_vid_fr.mp3 | 1 |
+| audio/semis/production_graine_fr.mp3 | 1 |
+| audio/semis/q_npk_fr.mp3 | 6 |
+| audio/semis/q_ur_fr.mp3 | 1 |
+| audio/semis/tige_laisse_champ_fr.mp3 | 1 |
 | audio/superficie/nbre_parcel_fr.mp3 | 1 |
 | click | audio_play:audio/Enrolement/pompe_fr.mp3 | 1 |
 | images/Fane.jpg | 5 |
-| images/Residus.jpg | 6 |
-| images/association.jpg | 1 |
-| images/autre_depense.jpg | 2 |
-| images/autres_bovins.jpg | 1 |
-| images/besoin_upa.jpg | 1 |
-| images/concentre.jpg | 5 |
-| images/condiments.jpg | 1 |
-| images/cycle3.jpg | 2 |
-| images/cycle4.jpg | 2 |
-| images/cycle5.jpg | 1 |
-| images/depenses_annuelles.jpg | 1 |
-| images/education.jpg | 1 |
-| images/equipement.jpg | 1 |
-| images/grenier.jpg | 1 |
-| images/maison.jpg | 1 |
-| images/mariage.jpg | 1 |
-| images/membre_upa.jpg | 1 |
-| images/obs_form.jpg | 1 |
-| images/obs_nourriture.jpg | 1 |
-| images/product_fumure.jpg | 1 |
-| images/reste_ovins.jpg | 1 |
-| images/rotation.jpg | 1 |
-| images/sac_mais.jpg | 1 |
-| images/sac_mil.jpg | 1 |
-| images/sac_sorgho.jpg | 1 |
-| images/saison_paturage.jpg | 1 |
-| images/sante.jpg | 1 |
-| images/soins_veto.jpg | 1 |
-| images/son_cereal.jpg | 2 |
-| images/sup_fourrage.jpg | 1 |
-| images/sup_mais.jpg | 1 |
-| images/sup_mil.jpg | 1 |
-| images/sup_sorgho.jpg | 1 |
-| images/superf_fumure.jpg | 1 |
-| images/tourteau.jpg | 2 |
-| images/transport_fumure.jpg | 1 |
-| images/type_fumure.jpg | 1 |
-| images/unit_fumure.jpg | 1 |
 </details>
 
 <details >
@@ -383,9 +761,11 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | audio/Enrolement/ane_fr.mp3 | 11.5 | 1 |
 | audio/Enrolement/autre_act_prim_fr.mp3 | 20.2 | 1 |
 | audio/Enrolement/autre_act_secon_fr.mp3 | 20.6 | 1 |
-| audio/Enrolement/autre_mat_fr.mp3 | 14.5 | 1 |
-| audio/Enrolement/autre_vol_fr.mp3 | 17.7 | 1 |
+| audio/Enrolement/autre_mat_fr.mp3 | 36.1 | 1 |
+| audio/Enrolement/autre_vol_fr.mp3 | 21 | 1 |
+| audio/Enrolement/batteuse_fr.mp3 | 29.3 | 1 |
 | audio/Enrolement/boeuf_lab_fr.mp3 | 15.8 | 1 |
+| audio/Enrolement/canal_obser_fr.mp3 | 98.5 | 7 |
 | audio/Enrolement/canard_fr.mp3 | 18.1 | 1 |
 | audio/Enrolement/cercle_fr.mp3 | 18.1 | 1 |
 | audio/Enrolement/charret_fr.mp3 | 16.8 | 1 |
@@ -393,10 +773,10 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | audio/Enrolement/chevo_fr.mp3 | 17.2 | 1 |
 | audio/Enrolement/chevre_fr.mp3 | 14.1 | 1 |
 | audio/Enrolement/commune_fr.mp3 | 16.8 | 1 |
-| audio/Enrolement/coop_cereales_fr.mp3 | 26.3 | 1 |
-| audio/Enrolement/coop_coton_fr.mp3 | 30.3 | 1 |
 | audio/Enrolement/corp_but_fr.mp3 | 17.7 | 1 |
+| audio/Enrolement/decortiqueuse_fr.mp3 | 22.6 | 1 |
 | audio/Enrolement/enfants_upa_fr.mp3 | 23.4 | 1 |
+| audio/Enrolement/federation_scpc_fr.mp3 | 46.3 | 1 |
 | audio/Enrolement/femmes_upa_fr.mp3 | 28.8 | 1 |
 | audio/Enrolement/genise_fr.mp3 | 14.1 | 1 |
 | audio/Enrolement/herse_fr.mp3 | 12 | 1 |
@@ -404,16 +784,19 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | audio/Enrolement/lapin_fr.mp3 | 15.3 | 1 |
 | audio/Enrolement/membre_upa_fr.mp3 | 38.5 | 1 |
 | audio/Enrolement/motocult_fr.mp3 | 18.1 | 1 |
+| audio/Enrolement/mototricycle_fr.mp3 | 31 | 1 |
 | audio/Enrolement/mout_fr.mp3 | 17.2 | 1 |
 | audio/Enrolement/multicul_fr.mp3 | 16.8 | 1 |
-| audio/Enrolement/nbre_autre_vol_fr.mp3 | 19.4 | 1 |
+| audio/Enrolement/nbre_autre_vol_fr.mp3 | 22.6 | 1 |
 | audio/Enrolement/nom_chef_trvx_fr.mp3 | 25.9 | 1 |
 | audio/Enrolement/nom_chef_upa_fr.mp3 | 31.2 | 1 |
 | audio/Enrolement/nom_neo_alpha_fr.mp3 | 22.5 | 1 |
-| audio/Enrolement/oberv_audio_fr.mp3 | 20.2 | 5 |
-| audio/Enrolement/oberv_ecrit_fr.mp3 | 19.8 | 5 |
-| audio/Enrolement/oberv_phot_fr.mp3 | 18.1 | 5 |
-| audio/Enrolement/oberv_vid_fr.mp3 | 19.8 | 5 |
+| audio/Enrolement/oberv_audio_fr.mp3 | 20.2 | 7 |
+| audio/Enrolement/oberv_ecrit_fr.mp3 | 19.8 | 7 |
+| audio/Enrolement/oberv_phot_fr.mp3 | 18.1 | 7 |
+| audio/Enrolement/oberv_vid_fr.mp3 | 19.8 | 7 |
+| audio/Enrolement/on_op_cereales_fr.mp3 | 43.8 | 1 |
+| audio/Enrolement/on_scpc_fr.mp3 | 42.2 | 1 |
 | audio/Enrolement/phone_num_fr.mp3 | 35.6 | 1 |
 | audio/Enrolement/pigeon_fr.mp3 | 15.3 | 1 |
 | audio/Enrolement/pintade_fr.mp3 | 16.8 | 1 |
@@ -434,26 +817,107 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | audio/Enrolement/type_ge_gtb_fr.mp3 | 34.5 | 1 |
 | audio/Enrolement/type_me_fr.mp3 | 29.3 | 1 |
 | audio/Enrolement/type_pe_fr.mp3 | 28 | 1 |
-| audio/Enrolement/union_cereales_fr.mp3 | 35.6 | 1 |
+| audio/Enrolement/union_sect_scpc_fr.mp3 | 41.4 | 1 |
 | audio/Enrolement/vach_lait_fr.mp3 | 16.8 | 1 |
 | audio/Enrolement/vach_tarie_fr.mp3 | 19.8 | 1 |
 | audio/Enrolement/veau_fr.mp3 | 14.5 | 1 |
 | audio/Enrolement/vieille_upa_fr.mp3 | 22.5 | 1 |
 | audio/Enrolement/vieux_upa_fr.mp3 | 25.5 | 1 |
 | audio/Enrolement/village_fr.mp3 | 18.1 | 1 |
+| audio/Superficie/annee_saison_fr.mp3 | 23.4 | 1 |
 | audio/Superficie/asso_yesno_fr.mp3 | 216.9 | 1 |
 | audio/Superficie/autre_cult_nom1_fr.mp3 | 260.4 | 3 |
 | audio/Superficie/autre_cult_nom2_fr.mp3 | 250.7 | 1 |
+| audio/Superficie/autre_engrais_fr.mp3 | 42.1 | 1 |
+| audio/Superficie/autre_fo_fr.mp3 | 32.9 | 1 |
 | audio/Superficie/cult_asso_fr.mp3 | 194.4 | 1 |
+| audio/Superficie/cult_preced_fr.mp3 | 76.9 | 1 |
 | audio/Superficie/cult_prin_fr.mp3 | 183.9 | 1 |
+| audio/Superficie/date_semence_fr.mp3 | 172.7 | 1 |
 | audio/Superficie/fertilite_fr.mp3 | 137.4 | 1 |
 | audio/Superficie/inclinaison_fr.mp3 | 125.4 | 1 |
 | audio/Superficie/nbre_arbre_fr.mp3 | 147.9 | 1 |
-| audio/Superficie/nom_champ_fr.mp3 | 244.7 | 1 |
+| audio/Superficie/nom_arbre_fr.mp3 | 33.3 | 1 |
+| audio/Superficie/nom_autre_engrais_fr.mp3 | 46.3 | 1 |
+| audio/Superficie/nom_autre_source_fr.mp3 | 39.8 | 1 |
+| audio/Superficie/nom_champ_fr.mp3 | 55.2 | 1 |
+| audio/Superficie/on_info_engrais_fr.mp3 | 59.8 | 1 |
+| audio/Superficie/on_info_recolte_fr.mp3 | 48.9 | 1 |
+| audio/Superficie/pro_cult_asso_fr.mp3 | 51.4 | 1 |
+| audio/Superficie/pro_cult_prim_fr.mp3 | 43 | 1 |
+| audio/Superficie/q_semence_fr.mp3 | 183.9 | 1 |
+| audio/Superficie/qte_autre_engrais_fr.mp3 | 47.9 | 1 |
+| audio/Superficie/qte_dap_fr.mp3 | 24.4 | 1 |
+| audio/Superficie/qte_fo_fr.mp3 | 47 | 1 |
+| audio/Superficie/qte_npk_15_fr.mp3 | 31.2 | 1 |
+| audio/Superficie/qte_npk_coton_fr.mp3 | 41.2 | 1 |
+| audio/Superficie/qte_uree_fr.mp3 | 29.3 | 1 |
+| audio/Superficie/source_semence_fr.mp3 | 38.1 | 1 |
 | audio/Superficie/sup_estim_fr.mp3 | 219.2 | 1 |
 | audio/Superficie/sup_mes_fr.mp3 | 204.2 | 1 |
 | audio/Superficie/sup_tot_gps_fr.mp3 | 168.9 | 1 |
+| audio/Superficie/type_fo_fr.mp3 | 42.6 | 1 |
 | audio/Superficie/type_sol_fr.mp3 | 112.7 | 1 |
+| audio/Superficie/var_seme_fr.mp3 | 49.8 | 1 |
+| audio/Superficie/var_type_fr.mp3 | 40.9 | 1 |
+| audio/Superficie/variete_fr.mp3 | 38.7 | 1 |
+| audio/alimentationHumaine/besoins_annuels_fr.mp3 | 189.3 | 1 |
+| audio/alimentationHumaine/besoins_cereales_fr.mp3 | 293.4 | 1 |
+| audio/alimentationHumaine/nombre_nourris_fr.mp3 | 53.2 | 1 |
+| audio/alimentationHumaine/rdt_moyen_mais_fr.mp3 | 29.3 | 1 |
+| audio/alimentationHumaine/rdt_moyen_mil_fr.mp3 | 37.1 | 1 |
+| audio/alimentationHumaine/rdt_moyen_riz_fr.mp3 | 30.2 | 1 |
+| audio/alimentationHumaine/rdt_moyen_sorgho_fr.mp3 | 31.2 | 1 |
+| audio/alimentationHumaine/sac_mais_fr.mp3 | 26.1 | 1 |
+| audio/alimentationHumaine/sac_mil_fr.mp3 | 28.5 | 1 |
+| audio/alimentationHumaine/sac_riz_fr.mp3 | 29.3 | 1 |
+| audio/alimentationHumaine/sac_sorgho_fr.mp3 | 28.5 | 1 |
+| audio/alimentationHumaine/sup_mais_fr.mp3 | 35.3 | 1 |
+| audio/alimentationHumaine/sup_mil_fr.mp3 | 37.1 | 1 |
+| audio/alimentationHumaine/sup_riz_fr.mp3 | 35.3 | 1 |
+| audio/alimentationHumaine/sup_sorgho_fr.mp3 | 37.1 | 1 |
+| audio/alimentationHumaine/sup_total_cereales_fr.mp3 | 23.4 | 1 |
+| audio/alimentationHumaine/total_besoin_fr.mp3 | 38.7 | 1 |
+| audio/depensesRevenus/approche_condi_fr.mp3 | 111.4 | 1 |
+| audio/depensesRevenus/approche_educ_fr.mp3 | 277.3 | 1 |
+| audio/depensesRevenus/approche_sante_fr.mp3 | 301.8 | 1 |
+| audio/depensesRevenus/condiment_annuel_fr.mp3 | 47.9 | 1 |
+| audio/depensesRevenus/condiment_jour_fr.mp3 | 51.4 | 1 |
+| audio/depensesRevenus/educ_total_niveau_fr.mp3 | 83.6 | 1 |
+| audio/depensesRevenus/education_totaux_fr.mp3 | 55.7 | 1 |
+| audio/depensesRevenus/fourniture_annuel_fr.mp3 | 81.8 | 1 |
+| audio/depensesRevenus/fourniture_fr.mp3 | 75.9 | 1 |
+| audio/depensesRevenus/nbre_residents_fr.mp3 | 34.4 | 1 |
+| audio/depensesRevenus/nombre_enfants_fr.mp3 | 63.2 | 1 |
+| audio/depensesRevenus/on_education_fr.mp3 | 58.9 | 1 |
+| audio/depensesRevenus/planif_depense_fr.mp3 | 211.4 | 1 |
+| audio/depensesRevenus/recreation_annuel_fr.mp3 | 64 | 1 |
+| audio/depensesRevenus/recreation_jour_fr.mp3 | 81 | 1 |
+| audio/depensesRevenus/sante_annuel_fr.mp3 | 47.9 | 1 |
+| audio/depensesRevenus/scolarite_annuel_fr.mp3 | 65.1 | 1 |
+| audio/depensesRevenus/scolarite_fr.mp3 | 65.9 | 1 |
+| audio/depensesRevenus/select_niveaux_fr.mp3 | 58.9 | 1 |
+| audio/depensesRevenus/transport_annuel_fr.mp3 | 78.5 | 1 |
+| audio/depensesRevenus/transport_jour_fr.mp3 | 95.5 | 1 |
+| audio/fumureOrganique/3ans_fr.mp3 | 132.6 | 1 |
+| audio/fumureOrganique/4ans_plus_fr.mp3 | 299.3 | 1 |
+| audio/fumureOrganique/autre_fumure_fr.mp3 | 60.6 | 1 |
+| audio/fumureOrganique/compost_fr.mp3 | 58.9 | 1 |
+| audio/fumureOrganique/cycle_3ans_fr.mp3 | 75.1 | 1 |
+| audio/fumureOrganique/cycle_4ansplus_fr.mp3 | 102.2 | 2 |
+| audio/fumureOrganique/fumier_fr.mp3 | 61.6 | 1 |
+| audio/fumureOrganique/intro_fumure_fr.mp3 | 164 | 1 |
+| audio/fumureOrganique/nom_autre_fumure_fr.mp3 | 39.5 | 1 |
+| audio/fumureOrganique/on_autre_fumure_fr.mp3 | 53.2 | 1 |
+| audio/fumureOrganique/ordures_fr.mp3 | 60.6 | 1 |
+| audio/fumureOrganique/prod_reco_fr.mp3 | 301 | 1 |
+| audio/fumureOrganique/qte_fumure_fr.mp3 | 51.4 | 1 |
+| audio/fumureOrganique/rech_reco_fr.mp3 | 331.4 | 1 |
+| audio/fumureOrganique/rotation_fumure_fr.mp3 | 265.5 | 1 |
+| audio/fumureOrganique/strategie_4ans_fr.mp3 | 252 | 1 |
+| audio/fumureOrganique/strategie_5ans_fr.mp3 | 371.2 | 1 |
+| audio/fumureOrganique/superf_cult_fr.mp3 | 37.9 | 1 |
+| audio/fumureOrganique/superf_fumure_fr.mp3 | 84.4 | 1 |
 | audio/postSemi/Ob_audio_postsemis_fr.mp3 | 188.4 | 1 |
 | audio/postSemi/Ob_ecrit_postsemis_fr.mp3 | 194.4 | 1 |
 | audio/postSemi/Ob_photo_postsemis_fr.mp3 | 188.4 | 1 |
@@ -463,61 +927,81 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | audio/postSemi/cout_desherbage_fr.mp3 | 153.2 | 2 |
 | audio/postSemi/cout_herbicide_fr.mp3 | 140.4 | 2 |
 | audio/postSemi/cout_insecticide_fr.mp3 | 106.7 | 2 |
-| audio/postSemi/cout_npk_fr.mp3 | 106.7 | 2 |
+| audio/postSemi/cout_npk_fr.mp3 | 106.7 | 1 |
 | audio/postSemi/cout_sarclage_fr.mp3 | 147.9 | 2 |
 | audio/postSemi/cout_tot_postsemis_fr.mp3 | 263.4 | 1 |
 | audio/postSemi/cout_ur_fr.mp3 | 106.7 | 2 |
+| audio/postSemi/montant_autre_cout_fr.mp3 | 27.7 | 1 |
+| audio/postSemi/nom_autre_cout_fr.mp3 | 40.4 | 1 |
+| audio/postSemi/note_form_postsemis_fr.mp3 | 384.1 | 1 |
+| audio/postSemi/on_autre_cout_psemis_fr.mp3 | 36.1 | 1 |
 | audio/postSemi/q_herbicide_fr.mp3 | 252.9 | 1 |
 | audio/postSemi/q_insecticide_fr.mp3 | 284.4 | 1 |
 | audio/postSemi/q_npk_fr.mp3 | 273.2 | 1 |
-| audio/postSemi/q_ur_fr.mp3 | 255.9 | 1 |
-| audio/postSemi/qr_code_fr.mp3 | 165.9 | 1 |
-| audio/postSemi/select_culture_fr.mp3 | 573.2 | 1 |
+| audio/postSemi/q_ur_fr.mp3 | 255.9 | 2 |
+| audio/postSemi/select_culture_fr.mp3 | 89.4 | 1 |
 | audio/postSemi/sup_buttage_fr.mp3 | 225.2 | 1 |
 | audio/postSemi/super_desherbage_fr.mp3 | 225.2 | 1 |
 | audio/postSemi/super_sarclage_fr.mp3 | 212.4 | 1 |
+| audio/recolte/annee_saison_fr.mp3 | 23.4 | 1 |
+| audio/recolte/canal_obser_fr.mp3 | 98.5 | 1 |
 | audio/recolte/cout_battage_fr.mp3 | 106.7 | 2 |
+| audio/recolte/note_form_recolte_fr.mp3 | 405.4 | 1 |
 | audio/recolte/production_fane_fr.mp3 | 288.2 | 1 |
 | audio/recolte/production_graine_fr.mp3 | 153.2 | 1 |
 | audio/recolte/production_residu_fr.mp3 | 216.9 | 1 |
 | audio/recolte/qr_code_fr.mp3 | 165.9 | 1 |
-| audio/recolte/sup_recolt_fr.mp3 | 172.7 | 1 |
 | audio/semis/Q_fumure_fr.mp3 | 319.7 | 1 |
+| audio/semis/canal_obser_fr.mp3 | 98.5 | 1 |
 | audio/semis/cout_chaux_agri_fr.mp3 | 127.7 | 1 |
-| audio/semis/cout_cult_semis_fr.mp3 | 273.2 | 1 |
-| audio/semis/cout_herbicide_fr.mp3 | 147.9 | 1 |
-| audio/semis/cout_labour_fr.mp3 | 172.7 | 1 |
-| audio/semis/cout_pnt_fr.mp3 | 156.2 | 1 |
-| audio/semis/cout_semence_fr.mp3 | 140.4 | 2 |
-| audio/semis/cout_transport_fr.mp3 | 316.7 | 1 |
+| audio/semis/cout_cult_semis_fr.mp3 | 273.2 | 3 |
+| audio/semis/cout_herbicide_fr.mp3 | 147.9 | 4 |
+| audio/semis/cout_labour_fr.mp3 | 172.7 | 4 |
+| audio/semis/cout_pnt_fr.mp3 | 156.2 | 2 |
+| audio/semis/cout_semence_fr.mp3 | 140.4 | 5 |
+| audio/semis/cout_tot_semis_fr.mp3 | 260.4 | 1 |
+| audio/semis/cout_transport_fr.mp3 | 316.7 | 3 |
+| audio/semis/nom_autre_cout_fr.mp3 | 40.4 | 1 |
+| audio/semis/note_form_semis_fr.mp3 | 402.4 | 2 |
+| audio/semis/on_autre_cout_semis_fr.mp3 | 51.4 | 1 |
 | audio/semis/q_chaux_agri_fr.mp3 | 332.4 | 1 |
 | audio/semis/q_herbicide_fr.mp3 | 297.2 | 1 |
 | audio/semis/q_pnt_fr.mp3 | 337.7 | 1 |
-| audio/semis/q_semence_fr.mp3 | 183.9 | 2 |
-| audio/semis/qr_code_fr.mp3 | 165.9 | 5 |
-| audio/semis/select_culture_fr.mp3 | 573.2 | 1 |
+| audio/semis/q_semence_fr.mp3 | 36.4 | 2 |
+| audio/semis/select_culture_fr.mp3 | 89.4 | 1 |
 | audio/semis/sup_culture_fr.mp3 | 309.9 | 2 |
-| audio/semis/sup_labour_fr.mp3 | 244.7 | 1 |
+| audio/semis/sup_labour_fr.mp3 | 244.7 | 2 |
+| images/1er_cycle.jpg | 93.8 | 1 |
+| images/2nd_cycle.jpg | 106.1 | 1 |
 | images/Fatoumata_pic.png | 1245.9 | 1 |
 | images/Flag_of_Italy.svg.png | 2.9 | 1 |
 | images/Flag_of_Mali.svg | 0.2 | 1 |
+| images/Residus.jpg | 17.6 | 6 |
 | images/adolescent.jpg | 22.3 | 1 |
 | images/agri.jpg | 33.3 | 1 |
 | images/ane.jpg | 18.1 | 2 |
-| images/arachide.jpg | 3.2 | 5 |
+| images/arachide.jpg | 20.8 | 5 |
 | images/arbre.jpg | 4.8 | 1 |
+| images/association.jpg | 6.5 | 1 |
 | images/autre_act.jpg | 21.9 | 1 |
-| images/autre_cult_1.jpg | 4.1 | 7 |
-| images/autre_cult_2.jpg | 4.1 | 6 |
+| images/autre_cult_1.jpg | 4.1 | 9 |
+| images/autre_cult_2.jpg | 4.1 | 8 |
+| images/autre_depense.jpg | 140.3 | 2 |
+| images/autre_fumure.jpg | 31.4 | 1 |
 | images/autre_mat.jpg | 26.8 | 1 |
-| images/bissap.jpg | 5.3 | 3 |
+| images/autres_bovins.jpg | 4.1 | 1 |
+| images/batteuse.jpg | 15.1 | 1 |
+| images/besoin_upa.jpg | 13.5 | 1 |
+| images/bienvenue.png | 1173.8 | 2 |
+| images/bissap.jpg | 5.3 | 4 |
 | images/boeuf_labour.jpg | 14.2 | 2 |
 | images/botte.jpg | 5.2 | 1 |
 | images/bovin_embouche.jpg | 235.6 | 1 |
+| images/buttage_cfa.jpg | 15.2 | 1 |
 | images/butter.jpg | 20.1 | 1 |
 | images/canard.jpg | 17.4 | 1 |
-| images/cfa.jpg | 2.6 | 31 |
-| images/cfa_tot.jpg | 2.9 | 13 |
+| images/cfa.jpg | 2.6 | 63 |
+| images/cfa_tot.jpg | 2.9 | 22 |
 | images/champ.jpg | 65.5 | 1 |
 | images/charrette.jpg | 4.2 | 4 |
 | images/charrue.jpg | 10.6 | 1 |
@@ -525,82 +1009,130 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/cheval.jpg | 18.1 | 1 |
 | images/chevre.jpg | 17.8 | 2 |
 | images/commerce.jpg | 18.8 | 1 |
+| images/concentre.jpg | 22 | 5 |
+| images/condiments.jpg | 144.3 | 1 |
 | images/coton.jpg | 3.7 | 5 |
+| images/cultures.jpg | 1982.8 | 1 |
+| images/cycle3.jpg | 26.8 | 2 |
+| images/cycle4.jpg | 137.8 | 2 |
+| images/cycle5.jpg | 172.9 | 1 |
+| images/decortiqueuse.jpg | 14.1 | 1 |
+| images/depenses_annuelles.jpg | 184.1 | 1 |
+| images/desherbage_cfa.jpg | 19.9 | 1 |
+| images/ecrire.jpg | 13.2 | 9 |
+| images/education.jpg | 197.3 | 1 |
 | images/elevage.jpg | 40.4 | 1 |
 | images/enfants.jpg | 19.4 | 1 |
+| images/equipement.jpg | 29.7 | 1 |
 | images/female.jpg | 16.5 | 1 |
 | images/femme_adult.jpg | 21 | 1 |
-| images/fertilite.jpg | 2.5 | 1 |
+| images/fertilite.jpg | 72.1 | 1 |
 | images/first_asset.png | 3.5 | 2 |
 | images/flacon.jpg | 4 | 3 |
-| images/fonio.jpg | 6.1 | 3 |
-| images/fourrage.jpg | 3.6 | 5 |
+| images/fonio.jpg | 18 | 4 |
+| images/fourrage.jpg | 22 | 5 |
 | images/fruits.jpeg | 446 | 1 |
 | images/fumure.jpg | 6.6 | 1 |
 | images/genisse.jpg | 17.8 | 1 |
+| images/grenier.jpg | 250.8 | 1 |
 | images/groupe_a.jpg | 322 | 2 |
-| images/groupe_b.jpg | 288.2 | 2 |
+| images/groupe_b.jpg | 88.6 | 2 |
 | images/groupe_c.jpg | 477 | 2 |
-| images/groupe_d.jpg | 272.4 | 2 |
+| images/groupe_d.jpg | 68.3 | 2 |
+| images/herbicide_cfa.jpg | 13.4 | 2 |
 | images/herse.jpg | 17.4 | 1 |
 | images/holding.jpg | 14 | 1 |
 | images/homme_adult.jpg | 19 | 1 |
-| images/icons/audio/Speaker_Icon.svg | 0.5 | 226 |
-| images/icons/expand_circle_right.png | 4 | 9 |
-| images/icons/scan.svg | 1.4 | 5 |
-| images/kg.jpg | 3.8 | 4 |
+| images/icons/audio/Speaker_Icon.svg | 0.5 | 335 |
+| images/icons/expand_circle_right.png | 4 | 11 |
+| images/icons/photo-svgrepo-com.svg | 0.8 | 1 |
+| images/icons/screen-recorder-svgrepo-com.svg | 1.3 | 1 |
+| images/insecticide_cfa.jpg | 11.7 | 1 |
+| images/kg.jpg | 3.8 | 7 |
 | images/lapin.jpg | 18.3 | 1 |
 | images/localisation.jpg | 16.4 | 1 |
+| images/lycee_professionnel.jpg | 108.7 | 1 |
 | images/mais.jpg | 3.2 | 6 |
+| images/maison.jpg | 33.8 | 1 |
 | images/male.jpg | 16 | 1 |
 | images/maraicher.jpg | 20.1 | 1 |
+| images/mariage.jpg | 38.2 | 1 |
+| images/membre_upa.jpg | 7.5 | 1 |
 | images/membres.jpg | 37 | 3 |
 | images/mil.jpg | 3.1 | 6 |
 | images/mohamed.jpeg | 36.1 | 1 |
+| images/moto_tricycle.jpg | 18.9 | 1 |
 | images/motoculture.jpg | 7.8 | 1 |
 | images/mouton.jpg | 17.9 | 2 |
 | images/multiculteur.jpg | 16.8 | 1 |
-| images/neo_alpha.jpg | 11.4 | 2 |
+| images/neo_alpha.jpg | 11.4 | 1 |
+| images/niebe.jpg | 21.4 | 1 |
 | images/num_phone.jpg | 16.9 | 1 |
-| images/op_cereales.jpg | 30.1 | 2 |
-| images/op_coton.jpg | 29.1 | 1 |
-| images/pas_observ.jpg | 13.7 | 1 |
-| images/patate_douce.jpg | 4.1 | 4 |
+| images/obs_form.jpg | 16.5 | 1 |
+| images/op_cereales.jpg | 30.1 | 3 |
+| images/op_coton.jpg | 29.1 | 4 |
+| images/pas_observ.jpg | 11 | 1 |
+| images/patate_douce.jpg | 4.1 | 5 |
 | images/pente.jpg | 3.1 | 1 |
 | images/photo.jpg | 4.6 | 1 |
 | images/pigeon.jpg | 17.1 | 1 |
 | images/pintade.jpg | 15.6 | 1 |
 | images/porc.jpg | 22.9 | 1 |
 | images/poule.jpg | 15.6 | 1 |
-| images/qr_code.jpg | 3.4 | 3 |
+| images/product_fumure.jpg | 38.2 | 2 |
 | images/ratio_boeuf_terre.jpg | 57.4 | 1 |
 | images/ratio_membre_terre.jpg | 60.2 | 2 |
 | images/ratio_travailleur_terre.jpg | 19.8 | 1 |
+| images/reste_ovins.jpg | 15.4 | 1 |
 | images/rice.jpg | 6.1 | 4 |
-| images/sac.jpg | 3.1 | 6 |
+| images/riz.jpg | 19.9 | 2 |
+| images/rotation.jpg | 127.2 | 1 |
+| images/sac.jpg | 3.1 | 25 |
+| images/sac_mais.jpg | 13.9 | 1 |
+| images/sac_mil.jpg | 11.8 | 1 |
+| images/sac_riz.jpg | 14.6 | 1 |
+| images/sac_sorgho.jpg | 13.9 | 1 |
+| images/saison_paturage.jpg | 137.4 | 1 |
+| images/sante.jpg | 194.4 | 1 |
+| images/sarclage_cfa.jpg | 17.6 | 1 |
 | images/seeding.png | 41.2 | 1 |
 | images/semoir.jpg | 21 | 1 |
-| images/sesame.jpg | 5.6 | 3 |
+| images/sesame.jpg | 21.9 | 4 |
 | images/soil_type.jpg | 5.9 | 1 |
+| images/soins_veto.jpg | 35.5 | 1 |
+| images/soja.jpg | 22.1 | 1 |
+| images/son_cereal.jpg | 11.7 | 2 |
 | images/sorgho.jpg | 3.1 | 6 |
+| images/sup_cereales.jpg | 40.8 | 1 |
 | images/sup_cult.jpg | 31.7 | 3 |
+| images/sup_fourrage.jpg | 25.1 | 1 |
+| images/sup_mais.jpg | 15.2 | 1 |
+| images/sup_mil.jpg | 4.8 | 1 |
+| images/sup_riz.jpg | 16.8 | 1 |
+| images/sup_sorgho.jpg | 4.8 | 1 |
 | images/sup_tot.jpg | 6.8 | 2 |
 | images/superf_champ.jpg | 4 | 2 |
+| images/superf_fumure.jpg | 17.7 | 1 |
 | images/superf_geoloca.jpg | 4.4 | 1 |
-| images/superf_unit.jpg | 2.9 | 9 |
+| images/superf_unit.jpg | 2.9 | 11 |
 | images/taureau.jpg | 20 | 1 |
 | images/text.jpg | 3.6 | 1 |
+| images/tourteau.jpg | 17.7 | 2 |
 | images/tractor.jpg | 27.9 | 1 |
 | images/traitement.jpg | 12.7 | 1 |
+| images/transport_fumure.jpg | 132.2 | 1 |
 | images/travailleurs.jpg | 40.2 | 1 |
+| images/type_fumure.jpg | 46.1 | 1 |
+| images/unit_fumure.jpg | 21.1 | 5 |
+| images/universite.jpg | 114.6 | 1 |
 | images/vache_lait.jpg | 17.4 | 2 |
 | images/vache_tarie.jpg | 19.7 | 1 |
 | images/veau.jpg | 17.8 | 1 |
 | images/video.jpg | 4.4 | 1 |
 | images/vieille.jpg | 23.5 | 1 |
 | images/vieux.jpg | 17.4 | 1 |
-| images/vocal.jpg | 4.2 | 9 |
-| images/wouandzou.jpg | 5.4 | 3 |
+| images/vocal.jpg | 4.2 | 11 |
+| images/wouandzou.jpg | 5.4 | 4 |
 </details>
 
 <details >
@@ -608,7 +1140,7 @@ Assets that are used within sheets and also can be found in the synced asset dat
 
 | type | subtype | total |
 | --- | --- | --- |
-| data_list |  | 54 |
+| data_list |  | 62 |
 | global |  | 11 |
-| template |  | 154 |
+| template |  | 167 |
 </details>

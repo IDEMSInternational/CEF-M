@@ -14,6 +14,28 @@
     {
       "type": "text",
       "value": "MERCI !!!"
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page_19_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page_19_button_continue",
+      "value": "@global.btn_continue",
+      "action_list": "click | go_to: home_screen;",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
     }
   ]
 }

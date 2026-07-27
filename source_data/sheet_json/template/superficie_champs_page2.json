@@ -4,15 +4,216 @@
   "status": "released",
   "rows": [
     {
+      "type": "title",
+      "value": "CHAMP"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
       "type": "text",
-      "name": "note_superficie",
-      "value": "@global.note_superficie",
-      "parameter_list": "style: contextual"
+      "value": "@global.nom_champ"
     },
     {
       "type": "audio",
-      "name": "audio_2_1",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/annee_saison_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;"
+      "name": "audio_4_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/nom_champ_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/champ.jpg",
+      "style_list": "width: 60%; object-fit: contain;"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: black;\"> @global.note_nom_champ </p>"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "nom_champ",
+      "value": "@fields.nom_champ",
+      "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom du champ",
+      "condition": "!!@fields.nom_champ"
+    },
+    {
+      "type": "text_box",
+      "name": "nom_champ",
+      "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom du champ",
+      "condition": "!@fields.nom_champ"
+    },
+    {
+      "name": "valid_nom_champ",
+      "value": "@calc(/^[A-Z ]+$/.test(@local.nom_champ) || @local.nom_champ == '' || !@local.nom_champ)"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.nom_champ_hint",
+      "condition": "!@local.valid_nom_champ",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.nom_champ"
+    },
+    {
+      "type": "text",
+      "value": "@global.caract_champ"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.note_caract_champ"
+    },
+    {
+      "type": "audio",
+      "name": "audio_4_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/type_sol_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/soil_type.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "type_sol",
+      "value": "@fields.type_sol",
+      "action_list": "changed | set_local : type_sol: this.value;",
+      "parameter_list": "answer_list: @data.type_sol; \nstyle: secondary;\nitem_width: 60px;\ngrid_gap: 8px;"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.type_sol"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.note_pente"
+    },
+    {
+      "type": "audio",
+      "name": "audio_4_3",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/inclinaison_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/pente.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "begin_radio_list",
+      "name": "pente_sol",
+      "value": "@fields.pente_sol"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.pente_sol"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_radio_list"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.pente_sol"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "title",
+      "value": "@global.note_nb_parcelle"
+    },
+    {
+      "type": "audio",
+      "name": "audio_4_4",
+      "parameter_list": "variant: button_only;\nsrc: audio/superficie/nbre_parcel_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@calc(@global.parcelle_hint + '  '+@local.nom_champ)"
+    },
+    {
+      "type": "image",
+      "value": "images/superf_champ.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "nb_parcelles",
+      "value": "@fields.nb_parcelles",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "condition": "!!@field.nb_parcelles",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nb_parcelles",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "condition": "!@field.nb_parcelles",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "valid_nb_parcelles",
+      "value": "@calc((/^\\d+$/.test(@local.nb_parcelles) && @local.nb_parcelles>= 1) || @local.nb_parcelles == '' || !@local.nb_parcelles)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "condition": "!@local.valid_nb_parcelles",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.nb_parcelles"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "!!@local.nom_champ  && @local.valid_nb_parcelles && !!@local.type_sol && !!@local.pente_sol && !!@local.nb_parcelles",
+      "style_list": true
     },
     {
       "type": "begin_display_group",
@@ -22,15 +223,16 @@
     },
     {
       "type": "round_button",
-      "name": "page2_button_back",
+      "name": "page4_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page2_button_continue",
+      "name": "page4_button_continue",
       "value": "Continuer",
-      "action_list": "click | emit: completed;"
+      "action_list": "click | set_field: nom_champ: @local.nom_champ;\nclick | set_field: type_sol: @local.type_sol;\nclick | set_field: pente_sol: @local.pente_sol;\nclick | set_field: nb_parcelles: @local.nb_parcelles;\nclick | emit: completed;",
+      "parameter_list": "disabled: !@local.completed_enabled"
     },
     {
       "type": "end_display_group"

@@ -4,46 +4,73 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
-      "value": "**@global.title_campagne**"
+      "type": "title",
+      "value": "**ESPÈCES ANIMALES DE L'UPA**"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\"> @global.espece_animaux_hint </p>"
+    },
+    {
+      "type": "text",
+      "value": "@global.select_cat_anim"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.categorie_animaux"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "@global.campagne_selection <p style=\"color: red;\">*</p>",
-      "style_list": "font-size:20px;"
+      "type": "image",
+      "value": "@item.image",
+      "style_list": "width:70px; height:70px; object-fit:contain; flex-shrink:0;"
     },
     {
-      "type": "audio",
-      "name": "audio_3_1",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/annee_saison_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "style_list": "@global.audio_style"
+      "type": "simple_checkbox",
+      "name": "@item.name",
+      "value": "@fields.@item.name",
+      "action_list": "changed | set_field: @item.name: !@fields.@item.name;",
+      "parameter_list": "label_text: @item.text;",
+      "exclude_from_translation": true,
+      "style_list": "margin-bottom: 10px;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: black;\"> @global.note_campagne </p>"
+      "type": "end_data_items"
     },
     {
-      "type": "date_time_picker",
-      "name": "annee_campagne",
-      "value": "@fields.annee_campagne",
-      "action_list": "changed | set_local: annee_campagne: this.value;",
-      "parameter_list": "type: date"
+      "name": "cat_animaux_selected",
+      "value": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null,@fields.embouche_bovine ? 'embouche_bovine' : null,@fields.vache_laitiere ? 'vache_laitiere' : null,@fields.autres_bovins ? 'autres_bovins' : null,@fields.asins ? 'asins' : null,@fields.embouche_ovine ? 'embouche_ovine' : null,@fields.reste_ovins ? 'reste_ovins' : null,@fields.caprins ? 'caprins' : null].filter(v => v !== null).join(','))"
+    },
+    {
+      "name": "cat_animaux_selected_count",
+      "value": "@calc([@fields.boeufs_labour,@fields.embouche_bovine,@fields.vache_laitiere,@fields.autres_bovins,@fields.asins,@fields.embouche_ovine,@fields.reste_ovins,@fields.caprins].filter(v=>!!v).length)"
+    },
+    {
+      "name": "cat_animaux_loop_idx",
+      "value": "@calc(Number(0))"
+    },
+    {
+      "name": "current_cat_animaux",
+      "value": "@calc([@fields.boeufs_labour ? 'boeufs_labour' : null, @fields.embouche_bovine ? 'embouche_bovine' : null, @fields.vache_laitiere ? 'vache_laitiere' : null, @fields.autres_bovins ? 'autres_bovins' : null, @fields.asins ? 'asins' : null, @fields.embouche_ovine ? 'embouche_ovine' : null, @fields.reste_ovins ? 'reste_ovins' : null, @fields.caprins ? 'caprins' : null].filter(v => v !== null).at(Number(@local.cat_animaux_loop_idx)) || '')"
+    },
+    {
+      "name": "valid_cat_animaux",
+      "value": "@calc(@fields.boeufs_labour || @fields.embouche_bovine || @fields.vache_laitiere || @fields.autres_bovins || @fields.asins || @fields.embouche_ovine || @fields.reste_ovins || @fields.caprins)",
+      "action_list": "\n\n\n\n\n"
     },
     {
       "type": "html",
       "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.annee_campagne"
+      "condition": "!@local.valid_cat_animaux"
     },
     {
       "name": "completed_enabled",
-      "value": "@local.annee_campagne"
+      "value": "@local.valid_cat_animaux "
     },
     {
       "type": "begin_display_group",
@@ -53,16 +80,17 @@
     },
     {
       "type": "round_button",
-      "name": "page2_button_back",
+      "name": "page4_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page2_button_continue",
+      "name": "page4_button_continue",
       "value": "Continuer",
-      "action_list": "click | set_field: annee_campagne: @local.annee_campagne;\nclick | emit: completed;",
-      "parameter_list": "disabled: !@local.completed_enabled"
+      "action_list": "click | set_field: cat_animaux_selected : @local.cat_animaux_selected;\nclick | set_field: cat_animaux_selected_count : @local.cat_animaux_selected_count;\nclick | set_field: current_cat_animaux: @local.current_cat_animaux;\nclick | set_field: cat_animaux_loop_idx : @local.cat_animaux_loop_idx;\nclick | emit: completed;",
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "style_list": "flex: 1"
     },
     {
       "type": "end_display_group"

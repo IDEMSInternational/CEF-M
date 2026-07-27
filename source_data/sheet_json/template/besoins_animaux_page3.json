@@ -4,8 +4,79 @@
   "status": "released",
   "rows": [
     {
+      "type": "title",
+      "value": "**REGIMES ALIMENTAIRES**"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.categorie_animaux",
+      "parameter_list": "filter: @item.name == @fields.current_cat_animaux"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "image",
+      "value": "@item.image",
+      "style_list": "width:150px; height:150px; "
+    },
+    {
       "type": "text",
-      "value": "@global.note_besoin_animaux"
+      "value": "@item.text"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "regime_boeufs_labour",
+      "value": "@global.regime_boeufs_labour",
+      "condition": "@fields.current_cat_animaux == 'boeufs_labour'"
+    },
+    {
+      "type": "text",
+      "name": "regime_embouche_bovine",
+      "value": "@global.regime_embouche_bovine",
+      "condition": "@fields.current_cat_animaux == 'embouche_bovine'"
+    },
+    {
+      "type": "text",
+      "name": "regime_vache_laitiere",
+      "value": "@global.regime_vache_laitiere",
+      "condition": "@fields.current_cat_animaux == 'vache_laitiere'"
+    },
+    {
+      "type": "text",
+      "name": "regime_autres_bovins",
+      "value": "@global.regime_autres_bovins",
+      "condition": "@fields.current_cat_animaux == 'autres_bovins'"
+    },
+    {
+      "type": "text",
+      "name": "regime_assins",
+      "value": "@global.regime_assins",
+      "condition": "@fields.current_cat_animaux == 'asins'"
+    },
+    {
+      "type": "text",
+      "name": "regime_embouche_ovine",
+      "value": "@global.regime_embouche_ovine",
+      "condition": "@fields.current_cat_animaux == 'embouche_ovine'"
+    },
+    {
+      "type": "text",
+      "name": "regime_reste_ovins",
+      "value": "@global.regime_reste_ovins",
+      "condition": "@fields.current_cat_animaux == 'reste_ovins'"
+    },
+    {
+      "type": "text",
+      "name": "regime_caprins",
+      "value": "@global.regime_caprins",
+      "condition": "@fields.current_cat_animaux == 'caprins'"
+    },
+    {
+      "type": "end_data_items"
     },
     {
       "type": "begin_display_group",
@@ -15,15 +86,16 @@
     },
     {
       "type": "round_button",
-      "name": "page3_button_back",
+      "name": "page5_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page3_button_continue",
+      "name": "page5_button_continue",
       "value": "Continuer",
-      "action_list": "click | emit: completed;"
+      "action_list": "click | emit: completed;",
+      "style_list": "flex: 1"
     },
     {
       "type": "end_display_group"

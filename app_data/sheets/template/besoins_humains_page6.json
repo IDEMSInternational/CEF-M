@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "RÉPARTITION PAR CÉRÉALE",
+      "value": "OBSERVATIONS SUR LA PREVISION DE L'ALIMENTATION HUMAINE DE L'UPA",
       "_translations": {
         "value": {}
       },
@@ -14,75 +14,179 @@
     },
     {
       "type": "display_group",
-      "name": "recap_besoin",
-      "style_list": [
-        "background: #1e3656",
-        "padding: 15px",
-        "text-align: center"
-      ],
       "rows": [
         {
           "type": "html",
-          "value": "<div style=\"color: #4f8ff1; font-size: 12px; font-weight: bold; text-transform: uppercase;\">Besoin total à répartir</div>",
+          "name": "type_canal_info_label",
+          "value": "<span style=\"color: red;\">*</span> Sélectionnez le canal pour donner l'information supplémentaire",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "recap_besoin.html_1"
+          "style_list": [
+            "font-size:20px"
+          ],
+          "_nested_name": "display_group_3.type_canal_info_label"
         },
         {
-          "type": "html",
-          "value": "<div style=\"color: white; font-size: 24px; font-weight: bold;\">@field.besoin_cereale_exploitation sacs</div>",
+          "type": "audio",
+          "name": "audio_16_1",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/canal_obser_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_3.audio_16_1"
+        }
+      ],
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
+    },
+    {
+      "type": "text",
+      "name": "error_type_canal_info",
+      "value": "@global.error_required_answer",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@fields.type_canal_info",
+      "style_list": [
+        "color: red",
+        "font-size: 16px"
+      ],
+      "_nested_name": "error_type_canal_info",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@fields.type_canal_info",
+            "matchedExpression": "!@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "!@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "type_canal_info",
+      "value": "@fields.type_canal_info",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "type_canal_info",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : type_canal_info: this.value"
+        }
+      ],
+      "parameter_list": {
+        "answer_list": "@data.group_observation",
+        "variant": "flex",
+        "item_width": "60px",
+        "grid_gap": "8px"
+      },
+      "_nested_name": "type_canal_info",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.type_canal_info",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ],
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@data.group_observation",
+              "matchedExpression": "@data.group_observation",
+              "type": "data",
+              "fieldName": "group_observation"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "value"
+        ],
+        "@data.group_observation": [
+          "parameter_list.answer_list"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_info == \"par_text\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_text_label",
+          "value": "Entrez par écrit l'information supplémentaire.",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "recap_besoin.html_2",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "<div style=\"color: white; font-size: 24px; font-weight: bold;\">@field.besoin_cereale_exploitation sacs</div>",
-                "matchedExpression": "@field.besoin_cereale_exploitation",
-                "type": "field",
-                "fieldName": "besoin_cereale_exploitation"
-              }
-            ]
+          "_nested_name": "display_group_7.info_text_label"
+        },
+        {
+          "type": "audio",
+          "name": "audio_16_2",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/oberv_ecrit_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
-          "_dynamicDependencies": {
-            "@field.besoin_cereale_exploitation": [
-              "value"
-            ]
-          }
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_7.audio_16_2"
         }
       ],
-      "_nested_name": "recap_besoin"
-    },
-    {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span>Donnez le nombre de sac de maïs à prevoir",
-      "_translations": {
-        "value": {}
+      "name": "display_group_7",
+      "_nested_name": "display_group_7",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_text\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
       },
-      "name": "html_5",
-      "_nested_name": "html_5"
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
     },
     {
-      "type": "image",
-      "value": "images/sac_mais.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "width: 60%",
-        "object-fit: contain"
-      ],
-      "name": "image_6",
-      "_nested_name": "image_6"
-    },
-    {
-      "type": "text_box",
-      "name": "sac_mais",
-      "value": "@field.sac_mais",
+      "type": "text_area",
+      "name": "info_text",
+      "value": "@fields.info_text",
       "_translations": {
         "value": {}
       },
@@ -91,462 +195,282 @@
           "trigger": "changed",
           "action_id": "set_field",
           "args": [
-            "sac_mais",
+            "info_text",
             "this.value"
           ],
-          "_raw": "changed | set_field: sac_mais : this.value"
+          "_raw": "changed | set_field : info_text: this.value"
         }
       ],
       "parameter_list": {
-        "input_type": "number",
-        "placeholder": "Nombre de sac de maïs"
+        "placeholder": "Info par écrit"
       },
-      "style_list": [
-        "margin: 10px"
-      ],
-      "_nested_name": "sac_mais",
+      "condition": "@fields.type_canal_info == \"par_text\"",
+      "_nested_name": "info_text",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@field.sac_mais",
-            "matchedExpression": "@field.sac_mais",
-            "type": "field",
-            "fieldName": "sac_mais"
+            "fullExpression": "@fields.info_text",
+            "matchedExpression": "@fields.info_text",
+            "type": "fields",
+            "fieldName": "info_text"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_text\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.sac_mais": [
+        "@fields.info_text": [
           "value"
+        ],
+        "@fields.type_canal_info": [
+          "condition"
         ]
       }
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span>Donnez le nombre de sac de mil à prevoir",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_8",
-      "_nested_name": "html_8"
-    },
-    {
-      "type": "image",
-      "value": "images/sac_mil.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "width: 60%",
-        "object-fit: contain"
-      ],
-      "name": "image_9",
-      "_nested_name": "image_9"
-    },
-    {
-      "type": "text_box",
-      "name": "sac_mil",
-      "value": "@field.sac_mil",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
+      "type": "display_group",
+      "condition": "@fields.type_canal_info == \"par_video\"",
+      "rows": [
         {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "sac_mil",
-            "this.value"
-          ],
-          "_raw": "changed | set_field: sac_mil : this.value"
-        }
-      ],
-      "parameter_list": {
-        "input_type": "number",
-        "placeholder": "Nombre de sac de mil"
-      },
-      "style_list": [
-        "margin: 10px"
-      ],
-      "_nested_name": "sac_mil",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@field.sac_mil",
-            "matchedExpression": "@field.sac_mil",
-            "type": "field",
-            "fieldName": "sac_mil"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.sac_mil": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span>Donnez le nombre de sac de sorgho à prevoir",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_11",
-      "_nested_name": "html_11"
-    },
-    {
-      "type": "image",
-      "value": "images/sac_sorgho.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "width: 60%",
-        "object-fit: contain"
-      ],
-      "name": "image_12",
-      "_nested_name": "image_12"
-    },
-    {
-      "type": "text_box",
-      "name": "sac_sorgho",
-      "value": "@field.sac_sorgho",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
+          "type": "text",
+          "name": "info_video_label",
+          "value": "Enregistrez par vidéo l'information supplémentaire.",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_10.info_video_label"
+        },
         {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "sac_sorgho",
-            "this.value"
+          "type": "audio",
+          "name": "audio_16_3",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/oberv_vid_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
           ],
-          "_raw": "changed | set_field: sac_sorgho : this.value"
+          "_nested_name": "display_group_10.audio_16_3"
         }
       ],
-      "parameter_list": {
-        "input_type": "number",
-        "placeholder": "Nombre de sac de sorgho"
-      },
-      "style_list": [
-        "margin: 10px"
-      ],
-      "_nested_name": "sac_sorgho",
+      "name": "display_group_10",
+      "_nested_name": "display_group_10",
       "_dynamicFields": {
-        "value": [
+        "condition": [
           {
-            "fullExpression": "@field.sac_sorgho",
-            "matchedExpression": "@field.sac_sorgho",
-            "type": "field",
-            "fieldName": "sac_sorgho"
+            "fullExpression": "@fields.type_canal_info == \"par_video\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.sac_sorgho": [
-          "value"
+        "@fields.type_canal_info": [
+          "condition"
         ]
       }
     },
     {
-      "name": "v_cumul_sacs",
-      "value": "@calc(Number(@field.sac_mais || 0) + Number(@field.sac_mil || 0) + Number(@field.sac_sorgho || 0))",
+      "type": "text",
+      "name": "info_video",
+      "value": "We would need a video recorder here",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.type_canal_info == \"par_video\"",
+      "_nested_name": "info_video",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_video\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_info == \"par_vocal\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_audio_label",
+          "value": "Enregistrez par vocal l'information supplémentaire.",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_13.info_audio_label"
+        },
+        {
+          "type": "audio",
+          "name": "audio_16_4",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/oberv_audio_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_13.audio_16_4"
+        }
+      ],
+      "name": "display_group_13",
+      "_nested_name": "display_group_13",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_vocal\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "info_audio",
+      "value": "We would need a audio recorder here",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.type_canal_info == \"par_vocal\"",
+      "_nested_name": "info_audio",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_vocal\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_info == \"par_photo\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_image_label",
+          "value": "Enregistrez par image l'information supplémentaire.",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_16.info_image_label"
+        },
+        {
+          "type": "audio",
+          "name": "audio_16_5",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/oberv_phot_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_16.audio_16_5"
+        }
+      ],
+      "name": "display_group_16",
+      "_nested_name": "display_group_16",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_photo\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "info_image",
+      "value": "We would need a camera here",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.type_canal_info == \"par_photo\"",
+      "_nested_name": "info_image",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_photo\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "!!@local.type_canal_info",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "v_cumul_sacs",
+      "_nested_name": "completed_enabled",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(Number(@field.sac_mais || 0) + Number(@field.sac_mil || 0) + Number(@field.sac_sorgho || 0))",
-            "matchedExpression": "@field.sac_mais",
-            "type": "field",
-            "fieldName": "sac_mais"
-          },
-          {
-            "fullExpression": "@calc(Number(@field.sac_mais || 0) + Number(@field.sac_mil || 0) + Number(@field.sac_sorgho || 0))",
-            "matchedExpression": "@field.sac_mil",
-            "type": "field",
-            "fieldName": "sac_mil"
-          },
-          {
-            "fullExpression": "@calc(Number(@field.sac_mais || 0) + Number(@field.sac_mil || 0) + Number(@field.sac_sorgho || 0))",
-            "matchedExpression": "@field.sac_sorgho",
-            "type": "field",
-            "fieldName": "sac_sorgho"
-          },
-          {
-            "fullExpression": "@calc(Number(@field.sac_mais || 0) + Number(@field.sac_mil || 0) + Number(@field.sac_sorgho || 0))",
-            "matchedExpression": "@calc(Number(@field.sac_mais || 0) + Number(@field.sac_mil || 0) + Number(@field.sac_sorgho || 0))",
-            "type": "calc",
-            "fieldName": "Number(@field.sac_mais || 0) + Number(@field.sac_mil || 0) + Number(@field.sac_sorgho || 0)"
+            "fullExpression": "!!@local.type_canal_info",
+            "matchedExpression": "!@local.type_canal_info",
+            "type": "local",
+            "fieldName": "type_canal_info"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.sac_mais": [
+        "!@local.type_canal_info": [
           "value"
-        ],
-        "@field.sac_mil": [
-          "value"
-        ],
-        "@field.sac_sorgho": [
-          "value"
-        ],
-        "@calc(Number(@field.sac_mais || 0) + Number(@field.sac_mil || 0) + Number(@field.sac_sorgho || 0))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "v_diff_sacs",
-      "value": "@calc(Math.abs(@local.v_cumul_sacs - @field.besoin_cereale_exploitation))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "v_diff_sacs",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Math.abs(@local.v_cumul_sacs - @field.besoin_cereale_exploitation))",
-            "matchedExpression": "@local.v_cumul_sacs",
-            "type": "local",
-            "fieldName": "v_cumul_sacs"
-          },
-          {
-            "fullExpression": "@calc(Math.abs(@local.v_cumul_sacs - @field.besoin_cereale_exploitation))",
-            "matchedExpression": "@field.besoin_cereale_exploitation",
-            "type": "field",
-            "fieldName": "besoin_cereale_exploitation"
-          },
-          {
-            "fullExpression": "@calc(Math.abs(@local.v_cumul_sacs - @field.besoin_cereale_exploitation))",
-            "matchedExpression": "@calc(Math.abs(@local.v_cumul_sacs - @field.besoin_cereale_exploitation))",
-            "type": "calc",
-            "fieldName": "Math.abs(@local.v_cumul_sacs - @field.besoin_cereale_exploitation)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.v_cumul_sacs": [
-          "value"
-        ],
-        "@field.besoin_cereale_exploitation": [
-          "value"
-        ],
-        "@calc(Math.abs(@local.v_cumul_sacs - @field.besoin_cereale_exploitation))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "display_group",
-      "name": "msg_ok",
-      "condition": "@local.v_cumul_sacs == @field.besoin_cereale_exploitation",
-      "style_list": [
-        "background: #e8f5e9",
-        "padding: 15px",
-        "margin: 15px",
-        "text-align: center"
-      ],
-      "rows": [
-        {
-          "type": "html",
-          "value": "<b style=\"color: #2e7d32;\"> COMPTE CORRECT</b><br><span style=\"color: #4caf50;\">Le total de @local.v_cumul_sacs sacs correspond exactement au besoin.</span>",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_1",
-          "_nested_name": "msg_ok.html_1",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "<b style=\"color: #2e7d32;\"> COMPTE CORRECT</b><br><span style=\"color: #4caf50;\">Le total de @local.v_cumul_sacs sacs correspond exactement au besoin.</span>",
-                "matchedExpression": "@local.v_cumul_sacs",
-                "type": "local",
-                "fieldName": "v_cumul_sacs"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@local.v_cumul_sacs": [
-              "value"
-            ]
-          }
-        }
-      ],
-      "_nested_name": "msg_ok",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@local.v_cumul_sacs == @field.besoin_cereale_exploitation",
-            "matchedExpression": "@local.v_cumul_sacs",
-            "type": "local",
-            "fieldName": "v_cumul_sacs"
-          },
-          {
-            "fullExpression": "@local.v_cumul_sacs == @field.besoin_cereale_exploitation",
-            "matchedExpression": "@field.besoin_cereale_exploitation",
-            "type": "field",
-            "fieldName": "besoin_cereale_exploitation"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.v_cumul_sacs": [
-          "condition"
-        ],
-        "@field.besoin_cereale_exploitation": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "display_group",
-      "name": "msg_sup",
-      "condition": "@local.v_cumul_sacs > @field.besoin_cereale_exploitation",
-      "style_list": [
-        "background: #ffebee",
-        "padding: 15px",
-        "margin: 15px",
-        "text-align: center"
-      ],
-      "rows": [
-        {
-          "type": "html",
-          "value": "<b style=\"color: #c62828;\"> TOTAL TROP ÉLEVÉ</b><br><span style=\"color: #d32f2f;\">Vous avez @local.v_cumul_sacs sacs. Retirez <b>@local.v_diff_sacs sac(s)</b> pour équilibrer.</span>",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_1",
-          "_nested_name": "msg_sup.html_1",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "<b style=\"color: #c62828;\"> TOTAL TROP ÉLEVÉ</b><br><span style=\"color: #d32f2f;\">Vous avez @local.v_cumul_sacs sacs. Retirez <b>@local.v_diff_sacs sac(s)</b> pour équilibrer.</span>",
-                "matchedExpression": "@local.v_cumul_sacs",
-                "type": "local",
-                "fieldName": "v_cumul_sacs"
-              },
-              {
-                "fullExpression": "<b style=\"color: #c62828;\"> TOTAL TROP ÉLEVÉ</b><br><span style=\"color: #d32f2f;\">Vous avez @local.v_cumul_sacs sacs. Retirez <b>@local.v_diff_sacs sac(s)</b> pour équilibrer.</span>",
-                "matchedExpression": "@local.v_diff_sacs",
-                "type": "local",
-                "fieldName": "v_diff_sacs"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@local.v_cumul_sacs": [
-              "value"
-            ],
-            "@local.v_diff_sacs": [
-              "value"
-            ]
-          }
-        }
-      ],
-      "_nested_name": "msg_sup",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@local.v_cumul_sacs > @field.besoin_cereale_exploitation",
-            "matchedExpression": "@local.v_cumul_sacs",
-            "type": "local",
-            "fieldName": "v_cumul_sacs"
-          },
-          {
-            "fullExpression": "@local.v_cumul_sacs > @field.besoin_cereale_exploitation",
-            "matchedExpression": "@field.besoin_cereale_exploitation",
-            "type": "field",
-            "fieldName": "besoin_cereale_exploitation"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.v_cumul_sacs": [
-          "condition"
-        ],
-        "@field.besoin_cereale_exploitation": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "display_group",
-      "name": "msg_inf",
-      "condition": "@local.v_cumul_sacs < @field.besoin_cereale_exploitation && @local.v_cumul_sacs > 0",
-      "style_list": [
-        "background: #fff3e0",
-        "padding: 15px",
-        "margin: 15px",
-        "text-align: center"
-      ],
-      "rows": [
-        {
-          "type": "html",
-          "value": "<b style=\"color: #ef6c00;\"> TOTAL INSUFFISANT</b><br><span style=\"color: #f57c00;\">Il manque encore <b>@local.v_diff_sacs sac(s)</b> pour atteindre l'objectif.</span>",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_1",
-          "_nested_name": "msg_inf.html_1",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "<b style=\"color: #ef6c00;\"> TOTAL INSUFFISANT</b><br><span style=\"color: #f57c00;\">Il manque encore <b>@local.v_diff_sacs sac(s)</b> pour atteindre l'objectif.</span>",
-                "matchedExpression": "@local.v_diff_sacs",
-                "type": "local",
-                "fieldName": "v_diff_sacs"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@local.v_diff_sacs": [
-              "value"
-            ]
-          }
-        }
-      ],
-      "_nested_name": "msg_inf",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@local.v_cumul_sacs < @field.besoin_cereale_exploitation && @local.v_cumul_sacs > 0",
-            "matchedExpression": "@local.v_cumul_sacs",
-            "type": "local",
-            "fieldName": "v_cumul_sacs"
-          },
-          {
-            "fullExpression": "@local.v_cumul_sacs < @field.besoin_cereale_exploitation && @local.v_cumul_sacs > 0",
-            "matchedExpression": "@field.besoin_cereale_exploitation",
-            "type": "field",
-            "fieldName": "besoin_cereale_exploitation"
-          },
-          {
-            "fullExpression": "@local.v_cumul_sacs < @field.besoin_cereale_exploitation && @local.v_cumul_sacs > 0",
-            "matchedExpression": "@local.v_cumul_sacs",
-            "type": "local",
-            "fieldName": "v_cumul_sacs"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.v_cumul_sacs": [
-          "condition",
-          "condition"
-        ],
-        "@field.besoin_cereale_exploitation": [
-          "condition"
         ]
       }
     },
     {
       "type": "display_group",
       "name": "dg_footer",
+      "value": "",
       "parameter_list": {
         "sticky": "bottom"
       },
@@ -556,7 +480,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "button_back",
+          "name": "page_16_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -571,11 +495,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.button_back"
+          "_nested_name": "dg_footer.page_16_button_back"
         },
         {
           "type": "button",
-          "name": "button_completed",
+          "name": "page_16_button_continue",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -590,14 +514,10 @@
               "_raw": "click | emit: completed"
             }
           ],
-          "parameter_list": {
-            "style": "navigation",
-            "disabled": "@local.v_cumul_sacs != @field.besoin_cereale_exploitation"
-          },
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.button_completed",
+          "_nested_name": "dg_footer.page_16_button_continue",
           "_dynamicFields": {
             "value": [
               {
@@ -606,33 +526,11 @@
                 "type": "global",
                 "fieldName": "btn_continue"
               }
-            ],
-            "parameter_list": {
-              "disabled": [
-                {
-                  "fullExpression": "@local.v_cumul_sacs != @field.besoin_cereale_exploitation",
-                  "matchedExpression": "@local.v_cumul_sacs",
-                  "type": "local",
-                  "fieldName": "v_cumul_sacs"
-                },
-                {
-                  "fullExpression": "@local.v_cumul_sacs != @field.besoin_cereale_exploitation",
-                  "matchedExpression": "@field.besoin_cereale_exploitation",
-                  "type": "field",
-                  "fieldName": "besoin_cereale_exploitation"
-                }
-              ]
-            }
+            ]
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
-            ],
-            "@local.v_cumul_sacs": [
-              "parameter_list.disabled"
-            ],
-            "@field.besoin_cereale_exploitation": [
-              "parameter_list.disabled"
             ]
           }
         }

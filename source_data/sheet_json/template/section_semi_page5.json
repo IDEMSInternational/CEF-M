@@ -4,132 +4,216 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "name": "page_title"
+      "name": "v_current_human",
+      "value": "@calc(Number(@field.current_culture_index) + 1)"
     },
     {
-      "name": "attempt_submit",
-      "value": "@fields.attempt_submit"
+      "name": "v_pnt_fmt",
+      "value": "@calc(/^\\d+$/.test(@field.quantite_pnt_png))"
     },
     {
-      "type": "begin_display_group"
+      "name": "v_pnt_err",
+      "value": "@calc(!@local.v_pnt_fmt || Number(@field.quantite_pnt_png) < 0)"
+    },
+    {
+      "name": "v_cout_pnt_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_pnt_png_nonzero))"
+    },
+    {
+      "name": "v_cout_pnt_err",
+      "value": "@calc(!@local.v_cout_pnt_fmt || Number(@field.cout_pnt_png_nonzero) < 0)"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "header",
+      "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
     },
     {
       "type": "html",
-      "name": "secondary_crops_label",
-      "value": "<span style=\"color: red;\">*</span> @global.secondary_crops_label",
-      "style_list": "font-size:20px;"
-    },
-    {
-      "type": "audio",
-      "name": "audio_4_1",
-      "parameter_list": "variant: compact;\nsrc: audio/semis/cult_second_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "style_list": "float : right;"
+      "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "text",
-      "name": "secondary_crops_hint",
-      "value": "@global.secondary_crops_hint",
-      "style_list": "color: gray; font-size: 16px;"
-    },
-    {
-      "name": "valid_secondary_crops",
-      "value": "@calc(!!@fields.fonio || !!@fields.rice || !!@fields.sesame || !!@fields.wouandzou || !!@fields.patate_douce || !!@fields.bissap || !!@fields.secondary_crop_1 || !!@fields.secondary_crop_2)"
-    },
-    {
-      "type": "begin_data_items",
-      "value": "@data.secondary_crops"
-    },
-    {
-      "type": "begin_display_group"
+      "type": "begin_display_group",
+      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #FFCC80; border-radius: 12px; background: white; margin-bottom: 10px; overflow: hidden;"
     },
     {
       "type": "image",
-      "value": "@item.image",
-      "style_list": "width:90px; height:90px; object-fit:contain; flex-shrink:0;"
+      "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+      "style_list": "width: 60%; object-fit: contain;"
     },
     {
-      "type": "simple_checkbox",
-      "name": "@item.name",
-      "value": "@fields.@item.name",
-      "action_list": "changed | set_field: @item.name: !@fields.@item.name;",
-      "parameter_list": "label_text: @item.text;",
-      "exclude_from_translation": true,
-      "style_list": "margin-bottom: 10px;"
+      "type": "text",
+      "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+      "style_list": "font-weight: bold; font-size: 18px;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "end_data_items"
+      "type": "html",
+      "value": "<div style=\"color: #e67e22; font-weight: bold; font-size: 14px; margin-bottom: 10px;\">APPORT PNT/PNG </div>"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "grp_quantite_pnt",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "aud_pnt_fr",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/q_pnt_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span> Quantité PNT/PNG (sac) </span>",
+      "style_list": "font-weight: bold;"
     },
     {
       "type": "text",
-      "name": "secondary_crops_error",
-      "value": "@global.error_required_answer",
-      "condition": "@fields.attempt_submit && !@local.valid_secondary_crops",
-      "style_list": "color: red; font-size: 16px; background: #fff5f5; padding: 5px;"
+      "value": "*Mettez 0 si aucun PNT*  <span style=\"font-size: 12px; color: gray;\"></span>",
+      "style_list": "font-size: 14px; color: gray;"
     },
     {
-      "name": "completed_enabled",
-      "value": "@local.valid_secondary_crops"
+      "type": "image",
+      "value": "images/sac.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
     },
     {
-      "name": "secondary_crops_selected",
-      "value": "@calc([@fields.fonio ? 'fonio' : null,@fields.rice ? 'riz' : null,@fields.sesame ? 'sesame' : null,@fields.wouandzou ? 'wouandzou' : null,@fields.patate_douce ? 'patate_douce' : null,@fields.bissap ? 'bissap' : null].filter(v => v !== null).join(','))"
+      "type": "end_display_group"
     },
     {
-      "name": "secondary_crops_selected_count",
-      "value": "@calc([@fields.fonio,@fields.rice,@fields.sesame,@fields.wouandzou,@fields.patate_douce,@fields.bissap].filter(v=>!!v).length)"
+      "type": "text_box",
+      "name": "quantite_pnt_png",
+      "value": "@field.quantite_pnt_png",
+      "action_list": "changed | set_field: quantite_pnt_png: this.value;",
+      "parameter_list": "number_input: true;\n\nplaceholder: Nombre de sacs;"
     },
     {
-      "name": "current_secondary_crop",
-      "value": "@calc(@fields.fonio ? 'fonio' :(@fields.rice ? 'riz' :(@fields.sesame ? 'sesame' :(@fields.wouandzou ? 'wouandzou' :(@fields.patate_douce ? 'patate_douce' :(@fields.bissap ? 'bissap' : ''))))))"
+      "type": "text",
+      "value": "Mettez une valeur positive<span style=\"font-size:11px;\"></span>",
+      "condition": "@local.v_pnt_err",
+      "style_list": "font-size: 12px; color: red;"
     },
     {
-      "name": "secondary_crop_loop_idx",
-      "value": 0
+      "type": "begin_display_group",
+      "name": "cout_chaux_zero",
+      "condition": "@calc(Number(@field.quantite_pnt_png) == 0)",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "aud_chaux_z_fr",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_pnt_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Coût PNT/PNG (Dram) <span style=\"font-size: 14px; color: #555;\"></span>",
+      "style_list": "font-weight: bold;"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80px; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "value": 0,
+      "parameter_list": "disabled:true;"
+    },
+    {
+      "type": "text",
+      "value": "Coût bloqué à 0 car aucun PNT/PNG apporté",
+      "style_list": "font-size: 12px; color: #999;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "cout_chaux_nonzero",
+      "condition": "@calc(Number(@field.quantite_pnt_png) > 0)",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "aud_chaux_nz_fr",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_pnt_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span> Coût PNT/PNG (Dram) <span style=\"font-size: 14px; color: #555;\"></span>",
+      "style_list": "font-weight: bold;"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80px; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "cout_pnt_png_nonzero",
+      "value": "@field.cout_pnt_png_nonzero",
+      "action_list": "changed | set_field: cout_pnt_png_nonzero: this.value;",
+      "parameter_list": "number_input: true;\n\nplaceholder: Montant en Dram;"
+    },
+    {
+      "type": "text",
+      "value": "Mettez une valeur positive.<br><span style=\"font-size:11px;\"></span>",
+      "condition": "@local.v_cout_pnt_err",
+      "style_list": "font-size: 12px; color: red;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "v_val_pnt_nz",
+      "value": "@calc(Number(@field.cout_pnt_png_nonzero) || 0)"
+    },
+    {
+      "name": "v_final_pnt",
+      "value": "@calc(Number(@field.quantite_pnt_png) == 0 ? 0 : @local.v_val_pnt_nz)"
+    },
+    {
+      "name": "v_page5_valid",
+      "value": "@calc(@local.v_pnt_fmt && Number(@field.quantite_pnt_png) >= 0 && (Number(@field.quantite_pnt_png) == 0 || (@local.v_cout_pnt_fmt && Number(@field.cout_pnt_png_nonzero) >= 0)))"
     },
     {
       "type": "begin_display_group",
       "name": "dg_footer",
-      "value": " ",
       "parameter_list": "sticky: bottom;",
       "style_list": "padding: 12px 24px;"
     },
     {
       "type": "round_button",
-      "name": "page_5_btn_back",
+      "name": "button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page_5_btn_attempt_submit",
+      "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | set_field: attempt_submit: true;",
-      "parameter_list": "disabled: !@local.completed_enabled",
-      "condition": "!@local.completed_enabled",
-      "style_list": "flex: 1"
-    },
-    {
-      "type": "button",
-      "name": "page_5_btn_specify_other_crop",
-      "value": "@global.btn_continue",
-      "action_list": "click | emit: completed;",
-      "condition": "@local.completed_enabled && (@fields.secondary_crop_1 || @fields.secondary_crop_2)",
-      "style_list": "flex: 1"
-    },
-    {
-      "type": "button",
-      "name": "page_5_btn_continue",
-      "value": "@global.btn_continue",
-      "action_list": "click | set_field: secondary_crops_selected : @local.secondary_crops_selected;\nclick | set_field: secondary_crops_selected_count : @local.secondary_crops_selected_count;\nclick | set_field: current_secondary_crop : @local.current_secondary_crop;\nclick | set_field: secondary_crop_loop_idx : @local.secondary_crop_loop_idx;\nclick | set_field: attempt_submit: false;\nclick | emit: completed;\nclick | set_data | _list_id: section_semi_settings_pages, _index: 5, completed: true;",
-      "parameter_list": "disabled: !@local.completed_enabled",
-      "condition": "@local.completed_enabled && !@fields.secondary_crop_1 && !@fields.secondary_crop_2",
+      "action_list": "click | set_field: cout_pnt_png : @local.v_final_pnt;\n\nclick | emit: completed;",
+      "parameter_list": "style: navigation;\n\ndisabled: !@local.v_page5_valid",
       "style_list": "flex: 1"
     },
     {

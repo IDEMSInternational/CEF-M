@@ -4,25 +4,34 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
-      "value": "**@global.title_campagne**",
+      "type": "title",
+      "value": "**Niveau de fertilité de la parcelle N⁰ @fields.num_parcelle de @fields.nom_champ**",
       "_translations": {
         "value": {}
       },
-      "name": "subtitle_2",
-      "_nested_name": "subtitle_2",
+      "name": "title_2",
+      "_nested_name": "title_2",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "**@global.title_campagne**",
-            "matchedExpression": "@global.title_campagne",
-            "type": "global",
-            "fieldName": "title_campagne"
+            "fullExpression": "**Niveau de fertilité de la parcelle N⁰ @fields.num_parcelle de @fields.nom_champ**",
+            "matchedExpression": "@fields.num_parcelle",
+            "type": "fields",
+            "fieldName": "num_parcelle"
+          },
+          {
+            "fullExpression": "**Niveau de fertilité de la parcelle N⁰ @fields.num_parcelle de @fields.nom_champ**",
+            "matchedExpression": "@fields.nom_champ",
+            "type": "fields",
+            "fieldName": "nom_champ"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.title_campagne": [
+        "@fields.num_parcelle": [
+          "value"
+        ],
+        "@fields.nom_champ": [
           "value"
         ]
       }
@@ -32,7 +41,7 @@
       "rows": [
         {
           "type": "text",
-          "value": "@global.campagne_selection",
+          "value": "@global.note_fertilite",
           "_translations": {
             "value": {}
           },
@@ -41,112 +50,109 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.campagne_selection",
-                "matchedExpression": "@global.campagne_selection",
+                "fullExpression": "@global.note_fertilite",
+                "matchedExpression": "@global.note_fertilite",
                 "type": "global",
-                "fieldName": "campagne_selection"
+                "fieldName": "note_fertilite"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@global.campagne_selection": [
+            "@global.note_fertilite": [
               "value"
             ]
           }
         },
         {
           "type": "audio",
-          "name": "audio_3_1",
+          "name": "audio_5_1",
           "parameter_list": {
-            "variant": "compact",
-            "src": "audio/Superficie/annee_saison_fr.mp3",
+            "variant": "button_only",
+            "src": "audio/Superficie/fertilite_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "style_list": [
-            "@global.audio_style"
+            "float : right"
           ],
-          "_nested_name": "display_group_3.audio_3_1",
-          "_dynamicFields": {
-            "style_list": {
-              "0": [
-                {
-                  "fullExpression": "@global.audio_style",
-                  "matchedExpression": "@global.audio_style",
-                  "type": "global",
-                  "fieldName": "audio_style"
-                }
-              ]
-            }
-          },
-          "_dynamicDependencies": {
-            "@global.audio_style": [
-              "style_list.0"
-            ]
-          }
+          "_nested_name": "display_group_3.audio_5_1"
         }
       ],
       "name": "display_group_3",
       "_nested_name": "display_group_3"
     },
     {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: black;\"> @global.note_campagne </p>",
+      "type": "image",
+      "value": "images/fertilite.jpg",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "html_text",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<p style=\"color: black;\"> @global.note_campagne </p>",
-            "matchedExpression": "@global.note_campagne",
-            "type": "global",
-            "fieldName": "note_campagne"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.note_campagne": [
-          "value"
-        ]
-      }
+      "style_list": [
+        "width: 80%",
+        "object-fit: contain"
+      ],
+      "name": "image_5",
+      "_nested_name": "image_5"
     },
     {
-      "type": "date_time_picker",
-      "name": "year_campaign",
-      "value": "@fields.year_campaign",
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: black;\"> Sélectionner un niveau en dessous !</p>",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "html_text"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "fertilite_sol",
+      "value": "@fields.fertilite_sol",
       "_translations": {
         "value": {}
       },
       "action_list": [
         {
           "trigger": "changed",
-          "action_id": "set_local",
+          "action_id": "set_field",
           "args": [
-            "year_campaign",
+            "fertilite_sol",
             "this.value"
           ],
-          "_raw": "changed | set_local: year_campaign: this.value"
+          "_raw": "changed | set_field : fertilite_sol: this.value"
         }
       ],
       "parameter_list": {
-        "type": "date"
+        "answer_list": "@data.fertilite_sol",
+        "style": "secondary",
+        "item_width": "60px",
+        "grid_gap": "8px"
       },
-      "_nested_name": "year_campaign",
+      "_nested_name": "fertilite_sol",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.year_campaign",
-            "matchedExpression": "@fields.year_campaign",
+            "fullExpression": "@fields.fertilite_sol",
+            "matchedExpression": "@fields.fertilite_sol",
             "type": "fields",
-            "fieldName": "year_campaign"
+            "fieldName": "fertilite_sol"
           }
-        ]
+        ],
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@data.fertilite_sol",
+              "matchedExpression": "@data.fertilite_sol",
+              "type": "data",
+              "fieldName": "fertilite_sol"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
-        "@fields.year_campaign": [
+        "@fields.fertilite_sol": [
           "value"
+        ],
+        "@data.fertilite_sol": [
+          "parameter_list.answer_list"
         ]
       }
     },
@@ -157,7 +163,7 @@
       "_translations": {
         "value": {}
       },
-      "condition": "!@local.year_campaign",
+      "condition": "!@local.fertilite_sol",
       "_nested_name": "html_text",
       "_dynamicFields": {
         "value": [
@@ -170,10 +176,10 @@
         ],
         "condition": [
           {
-            "fullExpression": "!@local.year_campaign",
-            "matchedExpression": "!@local.year_campaign",
+            "fullExpression": "!@local.fertilite_sol",
+            "matchedExpression": "!@local.fertilite_sol",
             "type": "local",
-            "fieldName": "year_campaign"
+            "fieldName": "fertilite_sol"
           }
         ]
       },
@@ -181,31 +187,32 @@
         "@global.warning_message": [
           "value"
         ],
-        "!@local.year_campaign": [
+        "!@local.fertilite_sol": [
           "condition"
         ]
       }
     },
     {
       "name": "completed_enabled",
-      "value": "@local.year_campaign",
+      "value": "@local.fertilite_sol",
       "_translations": {
         "value": {}
       },
+      "style_list": true,
       "type": "set_variable",
       "_nested_name": "completed_enabled",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@local.year_campaign",
-            "matchedExpression": "@local.year_campaign",
+            "fullExpression": "@local.fertilite_sol",
+            "matchedExpression": "@local.fertilite_sol",
             "type": "local",
-            "fieldName": "year_campaign"
+            "fieldName": "fertilite_sol"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.year_campaign": [
+        "@local.fertilite_sol": [
           "value"
         ]
       }
@@ -222,7 +229,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page3_button_back",
+          "name": "page5_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -237,11 +244,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_9.page3_button_back"
+          "_nested_name": "display_group_10.page5_button_back"
         },
         {
           "type": "button",
-          "name": "page3_button_continue",
+          "name": "page5_button_continue",
           "value": "Continuer",
           "_translations": {
             "value": {}
@@ -251,10 +258,10 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "year_campaign",
-                "@local.year_campaign"
+                "@calc('fertilite_sol_parcelle_N' + @fields.num_parcelle)",
+                "@fields.fertilite_sol"
               ],
-              "_raw": "click | set_field: year_campaign: @local.year_campaign"
+              "_raw": "click | set_field: @calc('fertilite_sol_parcelle_N' + @fields.num_parcelle) : @fields.fertilite_sol"
             },
             {
               "trigger": "click",
@@ -268,26 +275,46 @@
           "parameter_list": {
             "disabled": "!@local.completed_enabled"
           },
-          "_nested_name": "display_group_9.page3_button_continue",
+          "_nested_name": "display_group_10.page5_button_continue",
           "_dynamicFields": {
             "action_list": {
               "0": {
                 "args": {
+                  "0": [
+                    {
+                      "fullExpression": "@calc('fertilite_sol_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@fields.num_parcelle",
+                      "type": "fields",
+                      "fieldName": "num_parcelle"
+                    },
+                    {
+                      "fullExpression": "@calc('fertilite_sol_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('fertilite_sol_parcelle_N' + @fields.num_parcelle)",
+                      "type": "calc",
+                      "fieldName": "'fertilite_sol_parcelle_N' + @fields.num_parcelle"
+                    }
+                  ],
                   "1": [
                     {
-                      "fullExpression": "@local.year_campaign",
-                      "matchedExpression": "@local.year_campaign",
-                      "type": "local",
-                      "fieldName": "year_campaign"
+                      "fullExpression": "@fields.fertilite_sol",
+                      "matchedExpression": "@fields.fertilite_sol",
+                      "type": "fields",
+                      "fieldName": "fertilite_sol"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: year_campaign: @local.year_campaign",
-                    "matchedExpression": "@local.year_campaign",
-                    "type": "local",
-                    "fieldName": "year_campaign"
+                    "fullExpression": "click | set_field: @calc('fertilite_sol_parcelle_N' + @fields.num_parcelle) : @fields.fertilite_sol",
+                    "matchedExpression": "@fields.num_parcelle",
+                    "type": "fields",
+                    "fieldName": "num_parcelle"
+                  },
+                  {
+                    "fullExpression": "click | set_field: @calc('fertilite_sol_parcelle_N' + @fields.num_parcelle) : @fields.fertilite_sol",
+                    "matchedExpression": "@fields.fertilite_sol",
+                    "type": "fields",
+                    "fieldName": "fertilite_sol"
                   }
                 ]
               }
@@ -304,7 +331,14 @@
             }
           },
           "_dynamicDependencies": {
-            "@local.year_campaign": [
+            "@fields.num_parcelle": [
+              "action_list.0.args.0",
+              "action_list.0._raw"
+            ],
+            "@calc('fertilite_sol_parcelle_N' + @fields.num_parcelle)": [
+              "action_list.0.args.0"
+            ],
+            "@fields.fertilite_sol": [
               "action_list.0.args.1",
               "action_list.0._raw"
             ],
@@ -314,8 +348,8 @@
           }
         }
       ],
-      "name": "display_group_9",
-      "_nested_name": "display_group_9"
+      "name": "display_group_10",
+      "_nested_name": "display_group_10"
     }
   ],
   "_source": {

@@ -4,13 +4,13 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
+      "type": "title",
       "value": "**Superficie de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
       "_translations": {
         "value": {}
       },
-      "name": "subtitle_2",
-      "_nested_name": "subtitle_2",
+      "name": "title_2",
+      "_nested_name": "title_2",
       "_dynamicFields": {
         "value": [
           {
@@ -41,7 +41,7 @@
       "rows": [
         {
           "type": "text",
-          "value": "**Superficie de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**",
+          "value": "@global.note_super_cult_princ",
           "_translations": {
             "value": {}
           },
@@ -50,24 +50,15 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "**Superficie de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**",
-                "matchedExpression": "@fields.cult_princip",
-                "type": "fields",
-                "fieldName": "cult_princip"
-              },
-              {
-                "fullExpression": "**Superficie de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**",
-                "matchedExpression": "@fields.num_parcelle",
-                "type": "fields",
-                "fieldName": "num_parcelle"
+                "fullExpression": "@global.note_super_cult_princ",
+                "matchedExpression": "@global.note_super_cult_princ",
+                "type": "global",
+                "fieldName": "note_super_cult_princ"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.cult_princip": [
-              "value"
-            ],
-            "@fields.num_parcelle": [
+            "@global.note_super_cult_princ": [
               "value"
             ]
           }
@@ -76,7 +67,7 @@
           "type": "audio",
           "name": "audio_19",
           "parameter_list": {
-            "variant": "compact",
+            "variant": "button_only",
             "src": "audio/Superficie/sup_estim_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
@@ -93,20 +84,35 @@
         "value": {}
       },
       "style_list": [
-        "width:100px",
-        "height:100px"
+        "width: 80%",
+        "object-fit: contain"
       ],
       "name": "image_5",
       "_nested_name": "image_5"
     },
     {
       "type": "text",
-      "value": "Donnez votre meilleure estimation de la superficie en Hectares (ha)",
+      "value": "@global.superf_ha",
       "_translations": {
         "value": {}
       },
       "name": "text_6",
-      "_nested_name": "text_6"
+      "_nested_name": "text_6",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.superf_ha",
+            "matchedExpression": "@global.superf_ha",
+            "type": "global",
+            "fieldName": "superf_ha"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.superf_ha": [
+          "value"
+        ]
+      }
     },
     {
       "type": "text_box",
@@ -340,7 +346,7 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_11.page14_button_back"
+          "_nested_name": "display_group_12.page14_button_back"
         },
         {
           "type": "button",
@@ -380,7 +386,7 @@
           "parameter_list": {
             "disabled": "!@local.completed_enabled"
           },
-          "_nested_name": "display_group_11.page14_button_continue",
+          "_nested_name": "display_group_12.page14_button_continue",
           "_dynamicFields": {
             "action_list": {
               "0": {
@@ -493,8 +499,8 @@
           }
         }
       ],
-      "name": "display_group_11",
-      "_nested_name": "display_group_11"
+      "name": "display_group_12",
+      "_nested_name": "display_group_12"
     },
     {
       "action_list": [
@@ -509,8 +515,8 @@
         }
       ],
       "type": "set_variable",
-      "name": "set_variable_13",
-      "_nested_name": "set_variable_13"
+      "name": "set_variable_14",
+      "_nested_name": "set_variable_14"
     }
   ],
   "_source": {

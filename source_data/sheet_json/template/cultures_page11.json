@@ -1,0 +1,202 @@
+{
+  "flow_type": "template",
+  "flow_name": "cultures_page11",
+  "status": "released",
+  "rows": [
+    {
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.planif_cultures_primaires",
+      "parameter_list": "filter: @item.name == @fields.culture_label"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "image",
+      "value": "@item.image",
+      "style_list": "width:150px; height:150px; "
+    },
+    {
+      "type": "text",
+      "value": "**@item.text**"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "title",
+      "value": "AUTRES COÛTS PREVUS"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "**Indiquez s'il y a d'autre(s) coût(s) prevu (s) non renseigné(s)**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_11_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/semis/no_autre_cout_semis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "*Ces coûts couvrent des services ou intrants non pris en compte*",
+      "style_list": "color: gray; font-size: 16px;"
+    },
+    {
+      "type": "begin_radio_list",
+      "name": "no_autre_cout_prevu",
+      "value": "@fields.no_autre_cout_prevu",
+      "action_list": "changed | set_field : no_autre_cout_prevu: this.value;"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.oui_non"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_radio_list"
+    },
+    {
+      "type": "begin_display_group",
+      "parameter_list": "style: column",
+      "condition": "@fields.no_autre_cout_prevu == 'oui'"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "**Nom(s) d'autre(s) coût(s)**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_11_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/semis/nom_autre_cout_semis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/ecrire.jpg",
+      "style_list": "width: 40%; object-fit: contain; "
+    },
+    {
+      "type": "text_box",
+      "name": "nom_autre_cout_prevu",
+      "value": "@fields.nom_autre_cout_prevu",
+      "action_list": "changed | set_field : nom_autre_cout_prevu: this.value;",
+      "parameter_list": "number_input: true"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "parameter_list": "style: column",
+      "condition": "@fields.nom_autre_cout_prevu"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "**Montant coût (s) autre (s) @fields.nom_autre_cout_prevu:**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_11_3",
+      "parameter_list": "variant: button_only;\nsrc: audio/semis/autre_cout_semis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width:100px; height:100px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text",
+      "value": "S'il y a plusieurs éléments de coûts, donnez le coût agrégé de l'ensemble\n*1 drm=5 FCFA*",
+      "style_list": "color: gray; font-size: 16px;"
+    },
+    {
+      "type": "text_box",
+      "name": "autre_cout_prevu",
+      "value": "@fields.autre_cout_prevu",
+      "action_list": "changed | set_field : autre_cout_prevu: this.value;",
+      "parameter_list": "number_input: true"
+    },
+    {
+      "name": "valid_autre_cout_prevu",
+      "value": "@calc(!!@fields.autre_cout_prevu && @fields.autre_cout_prevu != \"\" && @fields.autre_cout_prevu >= 0)"
+    },
+    {
+      "type": "text",
+      "value": "@global.error_required_answer",
+      "condition": "@fields.attempt_submit && !@local.valid_autre_cout_prevu",
+      "style_list": "color: red; font-size: 16px; background: #fff5f5; padding: 5px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@fields.no_autre_cout_prevu"
+    },
+    {
+      "name": "couts_totaux_prevus",
+      "value": "@calc(Number(@fields.cout_prevue_superficie_labour || 0) + Number(@fields.cout_prevu_semence_achetee || 0) + Number(@fields.cout_prevu_engrais || 0) + Number(@fields.couts_totaux_prevus_autres_intrants || 0) + Number(@fields.autre_cout_prevu || 0) + Number(@fields.cout_prevu_recolte_battage || 0))"
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page_11_btn_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page_11_btn_attempt_submit",
+      "value": "Continuer",
+      "action_list": "click | set_field: attempt_submit: true;",
+      "condition": "!@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "button",
+      "name": "page_11_btn_continue",
+      "value": "Continuer",
+      "action_list": "click | set_field: couts_totaux_prevus : @local.couts_totaux_prevus;\nclick | set_field: couts_totaux_prevus_@fields.culture_label : @local.couts_totaux_prevus;\nclick | set_field: attempt_submit: false;\nclick | emit: completed",
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "condition": "@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

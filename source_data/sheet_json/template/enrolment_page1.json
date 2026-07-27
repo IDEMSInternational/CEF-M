@@ -9,57 +9,78 @@
       "value": "**CONSENTEMENT**"
     },
     {
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit"
+    },
+    {
       "type": "text",
       "name": "note_consentement",
-      "value": "@global.note_consentement"
+      "value": "@global.consentement_note"
     },
     {
-      "type": "begin_display_group"
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span> @global.consentement_question",
+      "style_list": "font-size:20px;"
     },
     {
-      "name": "user_oui_non"
-    },
-    {
-      "type": "text",
-      "value": "Voudriez-vous participer ?"
-    },
-    {
-      "name": "answer_oui_non",
-      "value": "name: Oui | text: Oui;\nname: Non | text: Non;"
-    },
-    {
-      "type": "radio_list",
-      "name": "user_respone",
+      "type": "begin_radio_list",
       "value": "@fields.user_oui_non",
-      "action_list": "changed | set_local : user_oui_non: this.value;",
-      "parameter_list": "answer_list: @local.answer_oui_non;"
+      "action_list": "changed | set_field : user_oui_non: this.value;"
     },
     {
-      "type": "end_display_group"
+      "type": "begin_data_items",
+      "value": "@data.oui_non"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_radio_list"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "condition": "!@fields.user_oui_non && @fields.attempt_submit"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@fields.user_oui_non"
     },
     {
       "type": "begin_display_group",
-      "name": "dg_footer",
       "value": " ",
       "parameter_list": "sticky: bottom;",
       "style_list": "padding: 12px 24px;"
     },
     {
+      "type": "round_button",
+      "name": "page1_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
       "type": "button",
       "name": "button_continue_no",
       "value": "Continuer",
-      "action_list": "click | set_field: user_oui_non: @field.user_oui_non;\n\nclick | go_to: enrolment_page18;",
-      "parameter_list": "disabled: !@local.user_oui_non;",
-      "condition": "@local.user_oui_non =='Non' ",
+      "action_list": "click | go_to: enrolment_page18;",
+      "condition": "@fields.user_oui_non == 'non' ",
       "style_list": "flex: 1"
     },
     {
       "type": "button",
-      "name": "button_continue_1",
+      "name": "button_continue_attempt_submit",
+      "value": "Continuer",
+      "action_list": "click | set_field: attempt_submit: true;\n",
+      "condition": "!@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "button",
+      "name": "page_1_button_continue",
       "value": "@global.btn_continue",
-      "action_list": "click | emit: completed",
-      "parameter_list": "disabled: !@local.user_oui_non;",
-      "condition": "@local.user_oui_non =='Oui' ",
+      "action_list": "click | set_field: user_oui_non: @fields.user_oui_non;\nclick | set_field: attempt_submit: false;\n\nclick | emit: completed",
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "condition": "@local.completed_enabled && @fields.user_oui_non == 'oui' ",
       "style_list": "flex: 1"
     },
     {

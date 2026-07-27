@@ -4,126 +4,122 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
-      "value": "**Association de cultures**"
+      "name": "valid_quantite_fumure_organique",
+      "value": "@calc(/^\\d+$/.test(@fields.quantite_fumure_organique) && Number(@fields.quantite_fumure_organique) >= 0)"
     },
     {
-      "type": "begin_display_group"
+      "name": "valid_type_fumure",
+      "value": "@calc(!!@fields.tas_ordures || !!@fields.fumier_parcs || !!@fields.fumier_fosses || !!@fields.autre_fumier)"
     },
     {
-      "type": "text",
-      "value": "Indiquez si d’autre(s) culture(s) sont associées avec @fields.cult_princip dans la parcellle N⁰@fields.num_parcelle"
+      "name": "valid_autre_text",
+      "value": "@calc(!@fields.autre_fumier || (!!@fields.autre_fumier_texte && @fields.autre_fumier_texte.trim() !== ''))"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@calc(!!@fields.quantite_fumure_organique && @local.valid_quantite_fumure_organique && (Number(@fields.quantite_fumure_organique) === 0 || (Number(@fields.quantite_fumure_organique) > 0 && @local.valid_type_fumure && @local.valid_autre_text)))"
+    },
+    {
+      "name": "type_fumure_selected",
+      "value": "@calc([@fields.tas_ordures ? 'tas_ordures' : null, @fields.fumier_parcs ? 'fumier_parcs' : null, @fields.fumier_fosses ? 'fumier_fosses' : null, @fields.autre_fumier ? @fields.autre_fumier_texte : null].filter(Boolean).join(','))"
+    },
+    {
+      "type": "title ",
+      "value": "**Quantité de fertilisant dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%; margin-top: 10px; padding: 10px; background: #f4f7fc;"
+    },
+    {
+      "type": "html",
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Quantité de fumure organique (charretée) :</label>"
     },
     {
       "type": "audio",
-      "name": "audio_11_1",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/asso_yesno_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "audio_12_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/qte_fo_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "style_list": "float : right;"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: #718096; font-size: 12px; margin-top: 2px;\">(Mettez 0 si aucune fumure organique n'a été apportée)</p>"
     },
     {
       "type": "end_display_group"
     },
     {
+      "type": "begin_display_group",
+      "style_list": "display: flex; align-items: center; grid_gap: 15px; margin-top: 10px;"
+    },
+    {
       "type": "image",
-      "value": "images/association.jpg",
-      "style_list": "width:100px; height:100px; "
+      "value": "images/charrette.jpg",
+      "style_list": "width: 50%; object-fit: contain;\n\n\n"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">Il s'agit de l'association de deux ou plusieurs cultures dans la même parcelle avec la culture principale</p>"
+      "type": "end_display_group"
     },
     {
-      "type": "begin_radio_list",
-      "value": "@fields.association_oui_non",
-      "action_list": "changed | set_field: association_oui_non : this.value;"
-    },
-    {
-      "type": "begin_data_items",
-      "value": "@data.oui_non"
-    },
-    {
-      "type": "end_data_items"
-    },
-    {
-      "type": "end_radio_list"
+      "type": "text_box",
+      "name": "quantite_fumure_organique",
+      "value": "@fields.quantite_fumure_organique",
+      "action_list": "changed | set_field: quantite_fumure_organique : this.value;",
+      "parameter_list": "number_input: true\nplaceholder: Entrez le nombre de charetée;",
+      "exclude_from_translation": true
     },
     {
       "type": "html",
       "name": "html_text",
       "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@fields.association_oui_non"
+      "condition": "!@fields.quantite_fumure_organique"
     },
     {
-      "type": "subtitle",
-      "value": "**Association de cultures dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
-      "condition": "@fields.association_oui_non == 'oui'"
+      "type": "html",
+      "name": "valid_quantite_fumure_organique",
+      "value": "<span style=\"color: red; font-size: 13px;\">La réponse est obligatoire !</span>",
+      "exclude_from_translation": true
     },
     {
-      "type": "begin_data_items",
-      "value": "@data.cult_princip",
-      "parameter_list": "filter: @item.name == @fields.cult_princip",
-      "condition": "@fields.association_oui_non == 'oui'"
-    },
-    {
-      "type": "begin_display_group",
-      "condition": "@fields.association_oui_non == 'oui'"
-    },
-    {
-      "type": "image",
-      "value": "@item.image",
-      "style_list": "width:150px; height:150px; "
-    },
-    {
-      "type": "text",
-      "value": "@item.name"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "end_data_items"
+      "type": "html",
+      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez entrer un nombre entier positif ou 0 !</span>",
+      "condition": "!@fields.attempt_submit_p12 && !!@fields.quantite_fumure_organique && !@local.valid_quantite_fumure_organique",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
     },
     {
       "type": "begin_display_group",
-      "condition": "@fields.association_oui_non == 'oui'"
+      "condition": "@fields.quantite_fumure_organique > 0",
+      "style_list": "display: block; width: 100%; margin-top: 25px; border-top: 1px dashed #cbd5e0; padding-top: 15px;"
     },
     {
-      "type": "text",
-      "value": "Sélectionnez les cultures associées à @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle "
+      "type": "html",
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez le/les type(s) de fumure organique appliqué(s) :</label>"
     },
     {
       "type": "audio",
-      "name": "audio_11_1",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/cult_asso_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "audio_12_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/type_fo_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "style_list": "float : right;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "name": "valid_cult_asso",
-      "value": "@calc(!!@fields.coton || !!@fields.mais || !!@fields.mil || !!@fields.sorgho || !!@fields.arachide || !!@fields.fourrage || !!@fields.fonio | !!@fields.riz | !!@fields.sesame | !!@fields.wauandzou | !!@fields.patate_douce | !!@fields.bissap)"
-    },
-    {
       "type": "begin_data_items",
-      "value": "@data.culture_association",
-      "condition": "@fields.association_oui_non == 'oui'"
+      "value": "@data.type_fumure",
+      "condition": "@fields.quantite_fumure_organique > 0"
     },
     {
       "type": "begin_display_group",
-      "condition": "@fields.association_oui_non == 'oui'"
-    },
-    {
-      "type": "image",
-      "value": "@item.image",
-      "style_list": "width:90px; height:90px; object-fit:contain; flex-shrink:0;"
+      "condition": "@fields.quantite_fumure_organique > 0"
     },
     {
       "type": "simple_checkbox",
       "name": "@item.name",
       "value": "@fields.@item.name",
       "action_list": "changed | set_field: @item.name: !@fields.@item.name;",
-      "parameter_list": "label_text: @item.text;",
+      "parameter_list": "align: left; label_text: @item.text;\n",
       "exclude_from_translation": true,
       "style_list": "margin-bottom: 10px;"
     },
@@ -134,17 +130,23 @@
       "type": "end_data_items"
     },
     {
-      "type": "begin_display_group",
-      "condition": "@fields.autre_culture1 == true && @fields.association_oui_non == 'oui'"
+      "type": "html",
+      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez cocher au moins un type de fumure !",
+      "condition": "@fields.attempt_submit_p12 && Number(@fields.quantite_fumure_organique) > 0 && !@local.valid_type_fumure",
+      "style_list": "color: red; font-size: 16px;"
     },
     {
-      "type": "text",
-      "value": "@global.autre_message"
+      "type": "begin_display_group",
+      "condition": "@fields.autre_fumier == true && Number(@fields.quantite_fumure_organique) > 0"
+    },
+    {
+      "type": "html",
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Écrivez le nom du type de fumure organique :</label>"
     },
     {
       "type": "audio",
-      "name": "audio_11_2",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/autre_cult_nom1_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "audio_12_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/autre_fo_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "style_list": "float : right;"
     },
     {
@@ -152,38 +154,18 @@
     },
     {
       "type": "text_box",
-      "action_list": "changed | set_field: autre_cult_asso1: this.value;",
-      "parameter_list": "max_length: 30;\nplaceholder: Encrivez le nom ",
-      "condition": "@fields.autre_culture1 == true && @fields.association_oui_non == 'oui'",
+      "name": "autre_fumier_texte",
+      "value": "@fields.autre_fumier_texte",
+      "action_list": "changed | set_field: autre_fumier_texte: this.value;",
+      "parameter_list": "max_length: 30;\nplaceholder: Ecrivez le nom ",
+      "condition": "@fields.autre_fumier == true && Number(@fields.quantite_fumure_organique) > 0",
       "exclude_from_translation_1": true
     },
     {
-      "type": "begin_display_group",
-      "condition": "@fields.autre_culture2 == true && @fields.association_oui_non == 'oui'"
-    },
-    {
-      "type": "text",
-      "value": "@global.autre_message"
-    },
-    {
-      "type": "audio",
-      "name": "audio_11_3",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/autre_cult_nom2_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float : right;"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "text_box",
-      "action_list": "changed | set_field: autre_cult_asso2: this.value;",
-      "parameter_list": "max_length: 30;\nplaceholder: Encrivez le nom ",
-      "condition": "@fields.autre_culture2 == true && @fields.association_oui_non == 'oui'",
-      "exclude_from_translation_1": true
-    },
-    {
-      "name": "cult_asso_selected",
-      "value": "@calc([@fields.coton ? 'coton' : null,@fields.mais ? 'mais' : null,@fields.mil ? 'mil' : null,@fields.sorgho ? 'sorgho' : null,@fields.arachide ? 'arachide' : null,@fields.fourrage ? 'fourrage' : null,@fields.fonio ? 'fonio' : null,@fields.riz ? 'riz' : null,@fields.sesame ? 'sesame' : null,@fields.wauandzou ? 'wauandzou' : null,@fields.patate_douce ? 'patate_douce' : null,@fields.bissap ? 'bissap' : null,@fields.autre_cult_asso1 ? @fields.autre_cult_asso1 : null,@fields.autre_cult_asso2 ? @fields.autre_cult_asso2: null].filter(v => v !== null).join(','))"
+      "type": "html",
+      "name": "html_text",
+      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez préciser le nom de la fumure !</span>",
+      "condition": "@fields.attempt_submit_p12 && Number(@fields.quantite_fumure_organique) > 0 && @fields.autre_fumier == true && !@fields.autre_fumier_texte"
     },
     {
       "type": "begin_display_group",
@@ -192,21 +174,16 @@
       "exclude_from_translation": "padding: 12px 24px;"
     },
     {
-      "name": "completed_enabled",
-      "value": "@fields.association_oui_non",
-      "exclude_from_translation": true
-    },
-    {
       "type": "round_button",
-      "name": "page11_button_back",
+      "name": "page12_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page11_button_continue",
+      "name": "page12_button_continue",
       "value": "Continuer",
-      "action_list": "click | set_field: @calc('cult_asso_selected_parcelle_N' + @fields.num_parcelle) : @local.cult_asso_selected;\nclick | set_field: @calc('association_oui_non_parcelle_N⁰' + @fields.num_parcelle) : @fields.association_oui_non;\nclick | set_field: @calc('autre_cult_asso1_parcelle_N⁰' + @fields.num_parcelle) : @fields.autre_cult_asso1;\nclick | set_field: @calc('autre_cult_asso2_parcelle_N⁰' + @fields.num_parcelle) : @fields.autre_cult_asso2;\nclick | emit: completed;",
+      "action_list": "click | set_field: @calc('quantite_fumure_organique_parcelle_N' + @fields.num_parcelle) : @fields.quantite_fumure_organique;\n        click | set_field: @calc('type_fumure_selected_parcelle_N' + @fields.num_parcelle) : @local.type_fumure_selected;\n        click | set_field: @calc('autre_fumier_texte_parcelle_N' + @fields.num_parcelle) : @fields.autre_fumier_texte;\n        click | set_field: attempt_submit_p12: false;\n        click | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled"
     },
     {

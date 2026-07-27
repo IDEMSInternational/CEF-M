@@ -4,7 +4,7 @@
   "status": "released",
   "rows": [
     {
-      "type": "subtitle",
+      "type": "title",
       "value": "**Mesure de superficie de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**"
     },
     {
@@ -12,12 +12,12 @@
     },
     {
       "type": "text",
-      "value": "**Superficie de @fields.cult_princip dans la parcelle N° @fields.num_parcelle de @fields.nom_champ**"
+      "value": "@global.note_superf_geo"
     },
     {
       "type": "audio",
       "name": "audio_20",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/sup_mes_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/sup_mes_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
     },
     {
       "type": "end_display_group"
@@ -25,11 +25,11 @@
     {
       "type": "image",
       "value": "images/superf_geoloca.jpg",
-      "style_list": "width:100px; height:100px; "
+      "style_list": "width: 80%; object-fit: contain;\n\n\n"
     },
     {
       "type": "html",
-      "value": "<p style=\"color: red;\"> Mesurez à l'aide du GPS la superficie de @fields.cult_princip dans la parcelle N⁰  </p>"
+      "value": "<p style=\"color: red;\"> @global.hint_superf_geo  </p>"
     },
     {
       "type": "text_box",
@@ -37,15 +37,15 @@
       "value": "@fields.superficie_parcelle"
     },
     {
+      "name": "completed_enabled",
+      "value": "@fields.superficie_parcelle ",
+      "exclude_from_translation": true
+    },
+    {
       "type": "begin_display_group",
       "value": " ",
       "parameter_list": "sticky: bottom;",
       "exclude_from_translation": "padding: 12px 24px;"
-    },
-    {
-      "name": "completed_enabled",
-      "value": "@fields.superficie_parcelle ",
-      "exclude_from_translation": true
     },
     {
       "type": "round_button",
