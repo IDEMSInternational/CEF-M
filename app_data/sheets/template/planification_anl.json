@@ -1,0 +1,165 @@
+{
+  "flow_type": "template",
+  "flow_name": "planification_anl",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "PLANIFICATION ANNUELLE",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_2",
+      "_nested_name": "title_2"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_enrolment",
+      "value": "Enrôlement",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "enrolment"
+          ],
+          "_raw": "click | go_to: enrolment"
+        }
+      ],
+      "parameter_list": {
+        "module_image_asset": "images/ecrire.jpg",
+        "nav_image_asset": "images/icons/expand_circle_right.png"
+      },
+      "_nested_name": "item_enrolment"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_depenses",
+      "value": "Cultures de l'UPA",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "cultures"
+          ],
+          "_raw": "click | go_to: cultures"
+        }
+      ],
+      "parameter_list": {
+        "module_image_asset": "images/cultures.jpg",
+        "nav_image_asset": "images/icons/expand_circle_right.png",
+        "background": "#E8F5E9"
+      },
+      "_nested_name": "item_depenses"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_humains",
+      "value": "Alimentation Humaine",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "besoins_humains"
+          ],
+          "_raw": "click | go_to: besoins_humains"
+        }
+      ],
+      "parameter_list": {
+        "module_image_asset": "images/membres.jpg",
+        "nav_image_asset": "images/icons/expand_circle_right.png",
+        "background": "#B3B3B3"
+      },
+      "_nested_name": "item_humains"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_animaux",
+      "value": "Alimentation Animale",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "besoins_animaux"
+          ],
+          "_raw": "click | go_to: besoins_animaux"
+        }
+      ],
+      "parameter_list": {
+        "module_image_asset": "images/fourrage.jpg",
+        "nav_image_asset": "images/icons/expand_circle_right.png",
+        "background": "#E3F2FD"
+      },
+      "_nested_name": "item_animaux"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_depenses",
+      "value": "Dépenses de l'UPA",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "depenses"
+          ],
+          "_raw": "click | go_to: depenses"
+        }
+      ],
+      "parameter_list": {
+        "module_image_asset": "images/cfa_tot.jpg",
+        "nav_image_asset": "images/icons/expand_circle_right.png",
+        "background": "#FFF3E0"
+      },
+      "_nested_name": "item_depenses"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_fumure",
+      "value": "Fumure organique",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "section_fumure"
+          ],
+          "_raw": "click | go_to: section_fumure"
+        }
+      ],
+      "parameter_list": {
+        "module_image_asset": "images/fumure.jpg",
+        "nav_image_asset": "images/icons/expand_circle_right.png",
+        "background": "#f0fdfa",
+        "border-left": "4px solid #00adcc"
+      },
+      "_nested_name": "item_fumure"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/home screen.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/101vhqFeVwFOEXsetLO1RPrKGGmuUw6bUr7kKwaBJwvs"
+  }
+}

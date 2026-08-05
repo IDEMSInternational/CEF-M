@@ -4,197 +4,176 @@
   "status": "released",
   "rows": [
     {
-      "name": "v_current_human",
-      "value": "@calc(Number(@field.current_culture_index) + 1)"
-    },
-    {
-      "name": "v_fum_fmt",
-      "value": "@calc(/^\\d+$/.test(@field.quantite_fumure_organique))"
-    },
-    {
-      "name": "v_fum_err",
-      "value": "@calc(!@local.v_fum_fmt || Number(@field.quantite_fumure_organique) < 0)"
-    },
-    {
-      "name": "v_trans_fmt",
-      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_transport_nonzero))"
-    },
-    {
-      "name": "v_trans_err",
-      "value": "@calc(!@local.v_trans_fmt || Number(@field.cout_transport_nonzero) < 0)"
+      "type": "title",
+      "value": "SÉLECTION DES CULTURES"
     },
     {
       "type": "begin_display_group",
-      "name": "header",
-      "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
+      "name": "cult_sec",
+      "style_list": "display: flex; flex-direction: row; align-items: center; justify-content: flex-start; width: 100%; margin-top: 15px; gap: 10px;"
     },
     {
       "type": "html",
-      "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>"
+      "value": "<span style=\"color: #d71920; font-weight: bold; margin-right: 4px;\">*</span><span style=\"color: #333333; font-weight: 600; font-size: 18px;\">2. Sélectionnez les cultures secondaires</span>"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: button_only; \nsrc: audio/postSemi/cult_second_fr.mp3; \nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "flex-shrink: 0;"
     },
     {
       "type": "end_display_group"
     },
     {
+      "type": "text",
+      "value": "*Les cultures secondaires sont des cultures faites par l'UPA de manière complémentaire avec moins d'investissement*",
+      "style_list": "font-style: italic; color: #666666; font-size: 13px; margin-bottom: 15px;"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.cultures_secondaires",
+      "style_list": "display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%; gap: 10px;"
+    },
+    {
       "type": "begin_display_group",
-      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #FFCC80; border-radius: 12px; background: white; margin-bottom: 10px; overflow: hidden;"
+      "name": "card_culture_sec",
+      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #ddd; border-radius: 12px; background: white; margin-bottom: 10px; overflow: hidden;"
     },
     {
       "type": "image",
-      "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+      "value": "@item.image",
       "style_list": "width: 60%; object-fit: contain;"
     },
     {
-      "type": "text",
-      "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
-      "style_list": "font-weight: bold; font-size: 18px;"
+      "name": "v_key1",
+      "value": "@calc('sec_' + @item.name)"
+    },
+    {
+      "type": "simple_checkbox",
+      "name": "checkbox",
+      "value": "@field.@local.v_key1",
+      "action_list": "changed | set_field: @local.v_key1: @local.checkbox;",
+      "parameter_list": "label_text: @item.text; reverse: true;",
+      "style_list": "margin-bottom: 10px;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: #e67e22; font-weight: bold; font-size: 14px; margin-bottom: 10px;\">APPORT FUMURE ORGANIQUE</div>"
+      "type": "end_data_items"
+    },
+    {
+      "name": "v_forbidden",
+      "value": "@calc(['fonio','riz','sésame','wouandzou','patate','bissap','mais','mil','sorgho','coton','arachide','fourrage', (@field.autre_culture_primaire_1 || '').toLowerCase().trim(), (@field.autre_culture_primaire_2 || '').toLowerCase().trim()].filter(v=>!!v))"
     },
     {
       "type": "begin_display_group",
-      "name": "grp_quantite_fumure",
-      "style_list": "display: block; width: 100%"
+      "name": "autre_sec_1",
+      "condition": "@field.sec_autre_1",
+      "style_list": "display: block; width: 100%; background: #f7fafc; padding: 15px; margin-top: 15px;"
+    },
+    {
+      "type": "html",
+      "value": "<br><span style=\"color: red;\">*</span>Ecrivez le nom de l'autre culture secondaire 1"
     },
     {
       "type": "audio",
-      "name": "aud_prod",
-      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/Q_fumure_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "parameter_list": "variant: button_only; \nsrc: audio/postSemi/cult_second_nom1_fr.mp3; \nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "flex-shrink: 0;"
+    },
+    {
+      "type": "text",
+      "value": "*Il s'agit d'une culture qui n'existe pas dans la liste des cultures secondaires ci-dessus*",
+      "style_list": "font-size: 12px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/autre_cult_1.jpg",
+      "style_list": "width: 40%; object-fit: contain; "
+    },
+    {
+      "type": "text_box",
+      "name": "secondary_crop_1",
+      "value": "@field.secondary_crop_1",
+      "action_list": "changed | set_field: secondary_crop_1 : this.value;",
+      "parameter_list": "placeholder: Nom de la culture...;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "*Culture déjà utilisée ou invalide !*",
+      "condition": "@calc(@field.sec_autre_1 && !!@field.secondary_crop_1 && @local.v_forbidden.includes(@field.secondary_crop_1.toLowerCase().trim()))\n",
+      "style_list": "color: #d71920; font-size: 12px; font-weight: bold; margin-top: 4px;"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "autre_sec_2",
+      "condition": "@field.sec_autre_2 && !!@field.secondary_crop_1 && !@local.v_forbidden.includes(@field.secondary_crop_1.toLowerCase().trim())",
+      "style_list": "display: block; width: 100%; background: #f7fafc; padding: 15px;margin-top: 15px;"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: button_only; \nsrc: audio/postSemi/cult_second_nom2_fr.mp3; \nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
       "type": "html",
-      "value": "<span style=\"color: red;\">*</span> Quantité de fumure organique (charretée)",
-      "style_list": "font-weight: bold;"
+      "value": "<br><span style=\"color: red;\">*</span>Ecrivez le nom de l'autre culture secondaire 2"
     },
     {
       "type": "text",
-      "value": "*Mettez 0 si aucune fumure organique* <br> <span style=\"font-size: 12px; color: gray;\"></span>",
-      "style_list": "font-size: 14px; color: gray;"
+      "value": "*Il s'agit d'une culture qui n'existe pas dans la liste des cultures secondaires ci-dessus*",
+      "style_list": "font-size: 12px; color: #718096; font-style: italic;"
     },
     {
       "type": "image",
-      "value": "images/charrette.jpg",
-      "style_list": "width: 80%; object-fit: contain;"
+      "value": "images/autre_cult_2.jpg",
+      "style_list": "width: 40%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "secondary_crop_2",
+      "value": "@field.secondary_crop_2",
+      "action_list": "changed | set_field: secondary_crop_2 : this.value;",
+      "parameter_list": "placeholder: Nom de la culture...;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "text_box",
-      "name": "quantite_fumure_organique",
-      "value": "@field.quantite_fumure_organique",
-      "action_list": "changed | set_field: quantite_fumure_organique: this.value;",
-      "parameter_list": "number_input: true;\n\nplaceholder: Nombre de charretées;"
-    },
-    {
       "type": "text",
-      "value": "Mettez une valeur positive.<br><span style=\"font-size:11px;\"></span>",
-      "condition": "@local.v_fum_err",
-      "style_list": "font-size: 12px; color: red;"
+      "value": "*Culture déjà utilisée ou invalide !*",
+      "condition": "@calc(@field.sec_autre_2 && !!@field.secondary_crop_2 && (@local.v_forbidden.includes(@field.secondary_crop_2.toLowerCase().trim()) || @field.secondary_crop_1.toLowerCase().trim() == @field.secondary_crop_2.toLowerCase().trim()))",
+      "style_list": "color: #d71920; font-size: 12px; font-weight: bold; margin-top: 4px;"
     },
     {
-      "type": "begin_display_group",
-      "name": "cout_trans_zero",
-      "condition": "@calc(Number(@field.quantite_fumure_organique) == 0)",
-      "style_list": "display: block; width: 100%"
+      "name": "v_list_prim",
+      "value": "@calc([@field.cul_mais?'mais':null,@field.cul_mil?'mil':null,@field.cul_sorgho?'sorgho':null,@field.cul_coton?'coton':null,@field.cul_arachide?'arachide':null,@field.cul_fourrage?'fourrage':null,@field.cul_autre_1?@field.autre_culture_primaire_1:null,@field.cul_autre_2?@field.autre_culture_primaire_2:null].filter(v=>v!==null))"
     },
     {
-      "type": "audio",
-      "name": "aud_trans_z_fr",
-      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_transport_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
+      "name": "v_list_sec",
+      "value": "@calc([@field.sec_fonio?'fonio':null,@field.sec_rice?'riz':null,@field.sec_sesame?'sésame':null,@field.sec_wouandzou?'wouandzou':null,@field.sec_patate_douce?'patate':null,@field.sec_bissap?'bissap':null,@field.sec_autre_1?@field.secondary_crop_1:null,@field.sec_autre_2?@field.secondary_crop_2:null].filter(v=>v!==null))"
     },
     {
-      "type": "html",
-      "value": "Coût transport de fumure organique (Dram) <br> <span style=\"font-size: 14px; color: #555;\"></span>",
-      "style_list": "font-weight: bold;"
+      "name": "v_final_list",
+      "value": "@calc(@local.v_list_prim.concat(@local.v_list_sec).join(','))"
     },
     {
-      "type": "text",
-      "value": "*Rappel : 1 dram = 5 FCFA*",
-      "style_list": "font-size: 14px; color: gray;"
+      "name": "v_total_count",
+      "value": "@calc(@local.v_list_prim.length + @local.v_list_sec.length)"
     },
     {
-      "type": "image",
-      "value": "images/cfa.jpg",
-      "style_list": "width: 80px; object-fit: contain;"
+      "name": "v_sec_valid",
+      "value": "@calc((!@field.sec_autre_1 || (!!@field.secondary_crop_1 && !@local.v_forbidden.includes(@field.secondary_crop_1.toLowerCase().trim()))) && (!@field.sec_autre_2 || (!!@field.secondary_crop_2 && !@local.v_forbidden.includes(@field.secondary_crop_2.toLowerCase().trim()) && @field.secondary_crop_1.toLowerCase().trim() !== @field.secondary_crop_2.toLowerCase().trim())))"
     },
     {
-      "type": "text_box",
-      "value": 0,
-      "parameter_list": "disabled:true;"
-    },
-    {
-      "type": "text",
-      "value": "Coût bloqué à 0 car aucune fumure organique apportée",
-      "style_list": "font-size: 12px; color: #999;"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "begin_display_group",
-      "name": "cout_trans_nonzero",
-      "condition": "@calc(Number(@field.quantite_fumure_organique) > 0)",
-      "style_list": "display: block; width: 100%"
-    },
-    {
-      "type": "audio",
-      "name": "aud_trans_z_fr",
-      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_transport_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
-    },
-    {
-      "type": "html",
-      "value": "Coût transport de fumure organique (Dram) <br> <span style=\"font-size: 14px; color: #555;\"></span>",
-      "style_list": "font-weight: bold;"
-    },
-    {
-      "type": "text",
-      "value": "*Rappel : 1 dram = 5 FCFA*",
-      "style_list": "font-size: 14px; color: gray;"
-    },
-    {
-      "type": "image",
-      "value": "images/cfa.jpg",
-      "style_list": "width: 80px; object-fit: contain;"
-    },
-    {
-      "type": "text_box",
-      "name": "cout_transport_nonzero",
-      "value": "@field.cout_transport_nonzero",
-      "action_list": "changed | set_field: cout_transport_nonzero : this.value;",
-      "parameter_list": "number_input: true;\n\nplaceholder: Montant en Dram;"
-    },
-    {
-      "type": "text",
-      "value": "Mettez une valeur positive.<br><span style=\"font-size:11px;\"></span>",
-      "condition": "@local.v_trans_err",
-      "style_list": "font-size: 12px; color: red;"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "name": "v_val_trans_nz",
-      "value": "@calc(Number(@field.cout_transport_nonzero) || 0)"
-    },
-    {
-      "name": "v_final_trans",
-      "value": "@calc(Number(@field.quantite_fumure_organique) == 0 ? 0 : @local.v_val_trans_nz)"
-    },
-    {
-      "name": "v_page3_valid",
-      "value": "@calc(@local.v_fum_fmt && Number(@field.quantite_fumure_organique) >= 0 && (Number(@field.quantite_fumure_organique) == 0 || (@local.v_trans_fmt && Number(@field.cout_transport_nonzero) >= 0)))"
+      "name": "completed_enabled",
+      "value": "@calc(@local.v_list_sec.length > 0 && @local.v_sec_valid)"
     },
     {
       "type": "begin_display_group",
@@ -211,9 +190,9 @@
     {
       "type": "button",
       "name": "button_completed",
-      "value": "@global.btn_continue",
-      "action_list": "click | set_field: cout_transport : @local.v_final_trans;\n\nclick | emit: completed;",
-      "parameter_list": "style: navigation;\n\ndisabled: !@local.v_page3_valid",
+      "value": "Continuer",
+      "action_list": "click | set_field: selected_cultures_list : @local.v_final_list;\nclick | set_field: total_cultures_selected : @local.v_total_count;\nclick | set_field: current_culture_index : 0;\nclick | set_field: active_culture_name : @calc(@local.v_final_list.split(',')[0]);\nclick | emit: completed",
+      "parameter_list": "disabled: !@local.completed_enabled",
       "style_list": "flex: 1"
     },
     {

@@ -4,172 +4,6 @@
   "status": "released",
   "rows": [
     {
-      "name": "v_nom_valide",
-      "value": "@calc((@field.nom_autre_cout_semis || '').trim().length > 0)",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "v_nom_valide",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc((@field.nom_autre_cout_semis || '').trim().length > 0)",
-            "matchedExpression": "@field.nom_autre_cout_semis",
-            "type": "field",
-            "fieldName": "nom_autre_cout_semis"
-          },
-          {
-            "fullExpression": "@calc((@field.nom_autre_cout_semis || '').trim().length > 0)",
-            "matchedExpression": "@calc((@field.nom_autre_cout_semis || '').trim().length > 0)",
-            "type": "calc",
-            "fieldName": "(@field.nom_autre_cout_semis || '').trim().length > 0"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.nom_autre_cout_semis": [
-          "value"
-        ],
-        "@calc((@field.nom_autre_cout_semis || '').trim().length > 0)": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "v_mt_fmt",
-      "value": "@calc(/^\\d+$/.test(@field.autre_cout_semis))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "v_mt_fmt",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(/^\\d+$/.test(@field.autre_cout_semis))",
-            "matchedExpression": "@field.autre_cout_semis",
-            "type": "field",
-            "fieldName": "autre_cout_semis"
-          },
-          {
-            "fullExpression": "@calc(/^\\d+$/.test(@field.autre_cout_semis))",
-            "matchedExpression": "@calc(/^\\d+$/.test(@field.autre_cout_semis))",
-            "type": "calc",
-            "fieldName": "/^\\d+$/.test(@field.autre_cout_semis)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.autre_cout_semis": [
-          "value"
-        ],
-        "@calc(/^\\d+$/.test(@field.autre_cout_semis))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "v_mt_err",
-      "value": "@calc(!@local.v_mt_fmt || Number(@field.autre_cout_semis) < 0)",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "v_mt_err",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(!@local.v_mt_fmt || Number(@field.autre_cout_semis) < 0)",
-            "matchedExpression": "!@local.v_mt_fmt",
-            "type": "local",
-            "fieldName": "v_mt_fmt"
-          },
-          {
-            "fullExpression": "@calc(!@local.v_mt_fmt || Number(@field.autre_cout_semis) < 0)",
-            "matchedExpression": "@field.autre_cout_semis",
-            "type": "field",
-            "fieldName": "autre_cout_semis"
-          },
-          {
-            "fullExpression": "@calc(!@local.v_mt_fmt || Number(@field.autre_cout_semis) < 0)",
-            "matchedExpression": "@calc(!@local.v_mt_fmt || Number(@field.autre_cout_semis) < 0)",
-            "type": "calc",
-            "fieldName": "!@local.v_mt_fmt || Number(@field.autre_cout_semis) < 0"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "!@local.v_mt_fmt": [
-          "value"
-        ],
-        "@field.autre_cout_semis": [
-          "value"
-        ],
-        "@calc(!@local.v_mt_fmt || Number(@field.autre_cout_semis) < 0)": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "v_page9_valid",
-      "value": "@calc(@field.no_autre_cout_semis == 'non' || (@field.no_autre_cout_semis == 'oui' && @local.v_nom_valide && !@local.v_mt_err))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "v_page9_valid",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(@field.no_autre_cout_semis == 'non' || (@field.no_autre_cout_semis == 'oui' && @local.v_nom_valide && !@local.v_mt_err))",
-            "matchedExpression": "@field.no_autre_cout_semis",
-            "type": "field",
-            "fieldName": "no_autre_cout_semis"
-          },
-          {
-            "fullExpression": "@calc(@field.no_autre_cout_semis == 'non' || (@field.no_autre_cout_semis == 'oui' && @local.v_nom_valide && !@local.v_mt_err))",
-            "matchedExpression": "@field.no_autre_cout_semis",
-            "type": "field",
-            "fieldName": "no_autre_cout_semis"
-          },
-          {
-            "fullExpression": "@calc(@field.no_autre_cout_semis == 'non' || (@field.no_autre_cout_semis == 'oui' && @local.v_nom_valide && !@local.v_mt_err))",
-            "matchedExpression": "@local.v_nom_valide",
-            "type": "local",
-            "fieldName": "v_nom_valide"
-          },
-          {
-            "fullExpression": "@calc(@field.no_autre_cout_semis == 'non' || (@field.no_autre_cout_semis == 'oui' && @local.v_nom_valide && !@local.v_mt_err))",
-            "matchedExpression": "!@local.v_mt_err",
-            "type": "local",
-            "fieldName": "v_mt_err"
-          },
-          {
-            "fullExpression": "@calc(@field.no_autre_cout_semis == 'non' || (@field.no_autre_cout_semis == 'oui' && @local.v_nom_valide && !@local.v_mt_err))",
-            "matchedExpression": "@calc(@field.no_autre_cout_semis == 'non' || (@field.no_autre_cout_semis == 'oui' && @local.v_nom_valide && !@local.v_mt_err))",
-            "type": "calc",
-            "fieldName": "@field.no_autre_cout_semis == 'non' || (@field.no_autre_cout_semis == 'oui' && @local.v_nom_valide && !@local.v_mt_err)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.no_autre_cout_semis": [
-          "value",
-          "value"
-        ],
-        "@local.v_nom_valide": [
-          "value"
-        ],
-        "!@local.v_mt_err": [
-          "value"
-        ],
-        "@calc(@field.no_autre_cout_semis == 'non' || (@field.no_autre_cout_semis == 'oui' && @local.v_nom_valide && !@local.v_mt_err))": [
-          "value"
-        ]
-      }
-    },
-    {
       "name": "v_current_human",
       "value": "@calc(Number(@field.current_culture_index) + 1)",
       "_translations": {
@@ -203,8 +37,158 @@
       }
     },
     {
+      "name": "v_sem_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_semence_achetee))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_sem_fmt",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_semence_achetee))",
+            "matchedExpression": "@field.quantite_semence_achetee",
+            "type": "field",
+            "fieldName": "quantite_semence_achetee"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_semence_achetee))",
+            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_semence_achetee))",
+            "type": "calc",
+            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@field.quantite_semence_achetee)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.quantite_semence_achetee": [
+          "value"
+        ],
+        "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_semence_achetee))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_sem_err",
+      "value": "@calc(!@local.v_sem_fmt || Number(@field.quantite_semence_achetee) < 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_sem_err",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!@local.v_sem_fmt || Number(@field.quantite_semence_achetee) < 0)",
+            "matchedExpression": "!@local.v_sem_fmt",
+            "type": "local",
+            "fieldName": "v_sem_fmt"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_sem_fmt || Number(@field.quantite_semence_achetee) < 0)",
+            "matchedExpression": "@field.quantite_semence_achetee",
+            "type": "field",
+            "fieldName": "quantite_semence_achetee"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_sem_fmt || Number(@field.quantite_semence_achetee) < 0)",
+            "matchedExpression": "@calc(!@local.v_sem_fmt || Number(@field.quantite_semence_achetee) < 0)",
+            "type": "calc",
+            "fieldName": "!@local.v_sem_fmt || Number(@field.quantite_semence_achetee) < 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.v_sem_fmt": [
+          "value"
+        ],
+        "@field.quantite_semence_achetee": [
+          "value"
+        ],
+        "@calc(!@local.v_sem_fmt || Number(@field.quantite_semence_achetee) < 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_cout_sem_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_semence_achetee_nonzero))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_cout_sem_fmt",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_semence_achetee_nonzero))",
+            "matchedExpression": "@field.cout_semence_achetee_nonzero",
+            "type": "field",
+            "fieldName": "cout_semence_achetee_nonzero"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_semence_achetee_nonzero))",
+            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_semence_achetee_nonzero))",
+            "type": "calc",
+            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@field.cout_semence_achetee_nonzero)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.cout_semence_achetee_nonzero": [
+          "value"
+        ],
+        "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_semence_achetee_nonzero))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_cout_sem_err",
+      "value": "@calc(!@local.v_cout_sem_fmt || Number(@field.cout_semence_achetee_nonzero) < 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_cout_sem_err",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!@local.v_cout_sem_fmt || Number(@field.cout_semence_achetee_nonzero) < 0)",
+            "matchedExpression": "!@local.v_cout_sem_fmt",
+            "type": "local",
+            "fieldName": "v_cout_sem_fmt"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_cout_sem_fmt || Number(@field.cout_semence_achetee_nonzero) < 0)",
+            "matchedExpression": "@field.cout_semence_achetee_nonzero",
+            "type": "field",
+            "fieldName": "cout_semence_achetee_nonzero"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_cout_sem_fmt || Number(@field.cout_semence_achetee_nonzero) < 0)",
+            "matchedExpression": "@calc(!@local.v_cout_sem_fmt || Number(@field.cout_semence_achetee_nonzero) < 0)",
+            "type": "calc",
+            "fieldName": "!@local.v_cout_sem_fmt || Number(@field.cout_semence_achetee_nonzero) < 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.v_cout_sem_fmt": [
+          "value"
+        ],
+        "@field.cout_semence_achetee_nonzero": [
+          "value"
+        ],
+        "@calc(!@local.v_cout_sem_fmt || Number(@field.cout_semence_achetee_nonzero) < 0)": [
+          "value"
+        ]
+      }
+    },
+    {
       "type": "display_group",
-      "name": "header_top",
+      "name": "header",
       "style_list": [
         "background: #00adcc",
         "padding: 15px",
@@ -219,7 +203,7 @@
             "value": {}
           },
           "name": "html_1",
-          "_nested_name": "header_top.html_1",
+          "_nested_name": "header.html_1",
           "_dynamicFields": {
             "value": [
               {
@@ -246,7 +230,7 @@
           }
         }
       ],
-      "_nested_name": "header_top"
+      "_nested_name": "header"
     },
     {
       "type": "display_group",
@@ -340,7 +324,7 @@
     },
     {
       "type": "html",
-      "value": "<br><b style=\"color: #e67e22\">AUTRE COÛT AU SEMIS</b>",
+      "value": "<div style=\"color: #e67e22; font-weight: bold; font-size: 14px; margin-bottom: 10px;\"> SEMIS</div>",
       "_translations": {
         "value": {}
       },
@@ -349,7 +333,7 @@
     },
     {
       "type": "display_group",
-      "name": "grp_question_existence",
+      "name": "grp_quantite_semence",
       "style_list": [
         "display: block",
         "width: 100%"
@@ -357,353 +341,33 @@
       "rows": [
         {
           "type": "audio",
-          "name": "aud_exist_fr",
+          "name": "aud_pnt_fr",
           "parameter_list": {
             "variant": "button_only",
-            "src": "audio/semis/on_autre_cout_semis_fr.mp3",
+            "src": "audio/semis/q_semence_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "exclude_from_translation": true,
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "grp_question_existence.aud_exist_fr"
+          "_nested_name": "grp_quantite_semence.aud_pnt_fr"
         },
         {
           "type": "html",
-          "value": "<span style=\"color: red;\">*</span>Ecrivez le nom(s) d'autre(s) coût(s)",
+          "value": "<span style=\"color: red;\">*</span> Quantité de semence achetée (kg)",
           "_translations": {
             "value": {}
           },
+          "style_list": [
+            "font-weight: bold"
+          ],
           "name": "html_2",
-          "_nested_name": "grp_question_existence.html_2"
+          "_nested_name": "grp_quantite_semence.html_2"
         },
         {
           "type": "text",
-          "value": "*Ces coûts couvrent des services ou intrants non pris en compte.*",
-          "_translations": {
-            "value": {}
-          },
-          "name": "text_3",
-          "_nested_name": "grp_question_existence.text_3"
-        },
-        {
-          "type": "radio_button_grid",
-          "name": "no_autre_cout_semis",
-          "value": "@field.no_autre_cout_semis",
-          "_translations": {
-            "value": {}
-          },
-          "action_list": [
-            {
-              "trigger": "changed",
-              "action_id": "set_field",
-              "args": [
-                "no_autre_cout_semis",
-                "this.value"
-              ],
-              "_raw": "changed | set_field: no_autre_cout_semis: this.value"
-            }
-          ],
-          "parameter_list": {
-            "answer_list": "@data.yes_no",
-            "variant": "flex",
-            "style": "secondary",
-            "item_width": "60px",
-            "grid_gap": "8px"
-          },
-          "_nested_name": "grp_question_existence.no_autre_cout_semis",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@field.no_autre_cout_semis",
-                "matchedExpression": "@field.no_autre_cout_semis",
-                "type": "field",
-                "fieldName": "no_autre_cout_semis"
-              }
-            ],
-            "parameter_list": {
-              "answer_list": [
-                {
-                  "fullExpression": "@data.yes_no",
-                  "matchedExpression": "@data.yes_no",
-                  "type": "data",
-                  "fieldName": "yes_no"
-                }
-              ]
-            }
-          },
-          "_dynamicDependencies": {
-            "@field.no_autre_cout_semis": [
-              "value"
-            ],
-            "@data.yes_no": [
-              "parameter_list.answer_list"
-            ]
-          }
-        }
-      ],
-      "_nested_name": "grp_question_existence"
-    },
-    {
-      "type": "display_group",
-      "name": "group_nom_autre",
-      "condition": "@field.no_autre_cout_semis== 'oui'",
-      "style_list": [
-        "display: block",
-        "width: 100%"
-      ],
-      "rows": [
-        {
-          "type": "audio",
-          "name": "note_autre_cout_semi",
-          "parameter_list": {
-            "variant": "button_only",
-            "src": "audio/semis/nom_autre_cout_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "float: right"
-          ],
-          "_nested_name": "group_nom_autre.note_autre_cout_semi"
-        },
-        {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span> Indiquez s'il y a d'autre(s) coût(s) à la récolte non renseignés",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_2",
-          "_nested_name": "group_nom_autre.html_2"
-        },
-        {
-          "type": "image",
-          "value": "images/ecrire.jpg",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "width: 60%",
-            "object-fit: contain"
-          ],
-          "name": "image_3",
-          "_nested_name": "group_nom_autre.image_3"
-        },
-        {
-          "type": "text_box",
-          "name": "nom_autre_cout_semis",
-          "value": "@field.nom_autre_cout_semis",
-          "_translations": {
-            "value": {}
-          },
-          "action_list": [
-            {
-              "trigger": "changed",
-              "action_id": "set_field",
-              "args": [
-                "nom_autre_cout_semis",
-                "this.value"
-              ],
-              "_raw": "changed | set_field: nom_autre_cout_semis: this.value"
-            }
-          ],
-          "parameter_list": {
-            "placeholder": "Nom des coûts..."
-          },
-          "_nested_name": "group_nom_autre.nom_autre_cout_semis",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@field.nom_autre_cout_semis",
-                "matchedExpression": "@field.nom_autre_cout_semis",
-                "type": "field",
-                "fieldName": "nom_autre_cout_semis"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@field.nom_autre_cout_semis": [
-              "value"
-            ]
-          }
-        }
-      ],
-      "_nested_name": "group_nom_autre",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@field.no_autre_cout_semis== 'oui'",
-            "matchedExpression": "@field.no_autre_cout_semis",
-            "type": "field",
-            "fieldName": "no_autre_cout_semis"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.no_autre_cout_semis": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "value": "*La réponse est obligatoire !*",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@calc(@field.no_autre_cout_semis == 'oui' && (@field.nom_autre_cout_semis == '' || @field.nom_autre_cout_semis == null))",
-      "style_list": [
-        "color: red",
-        "font-size: 12px"
-      ],
-      "name": "text_16",
-      "_nested_name": "text_16",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@calc(@field.no_autre_cout_semis == 'oui' && (@field.nom_autre_cout_semis == '' || @field.nom_autre_cout_semis == null))",
-            "matchedExpression": "@field.no_autre_cout_semis",
-            "type": "field",
-            "fieldName": "no_autre_cout_semis"
-          },
-          {
-            "fullExpression": "@calc(@field.no_autre_cout_semis == 'oui' && (@field.nom_autre_cout_semis == '' || @field.nom_autre_cout_semis == null))",
-            "matchedExpression": "@field.nom_autre_cout_semis",
-            "type": "field",
-            "fieldName": "nom_autre_cout_semis"
-          },
-          {
-            "fullExpression": "@calc(@field.no_autre_cout_semis == 'oui' && (@field.nom_autre_cout_semis == '' || @field.nom_autre_cout_semis == null))",
-            "matchedExpression": "@field.nom_autre_cout_semis",
-            "type": "field",
-            "fieldName": "nom_autre_cout_semis"
-          },
-          {
-            "fullExpression": "@calc(@field.no_autre_cout_semis == 'oui' && (@field.nom_autre_cout_semis == '' || @field.nom_autre_cout_semis == null))",
-            "matchedExpression": "@calc(@field.no_autre_cout_semis == 'oui' && (@field.nom_autre_cout_semis == '' || @field.nom_autre_cout_semis == null))",
-            "type": "calc",
-            "fieldName": "@field.no_autre_cout_semis == 'oui' && (@field.nom_autre_cout_semis == '' || @field.nom_autre_cout_semis == null)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.no_autre_cout_semis": [
-          "condition"
-        ],
-        "@field.nom_autre_cout_semis": [
-          "condition",
-          "condition"
-        ],
-        "@calc(@field.no_autre_cout_semis == 'oui' && (@field.nom_autre_cout_semis == '' || @field.nom_autre_cout_semis == null))": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "name": "v_montant_autre_err",
-      "value": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_semis) || Number(@field.autre_cout_semis) < 0)",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "v_montant_autre_err",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_semis) || Number(@field.autre_cout_semis) < 0)",
-            "matchedExpression": "@field.autre_cout_semis",
-            "type": "field",
-            "fieldName": "autre_cout_semis"
-          },
-          {
-            "fullExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_semis) || Number(@field.autre_cout_semis) < 0)",
-            "matchedExpression": "@field.autre_cout_semis",
-            "type": "field",
-            "fieldName": "autre_cout_semis"
-          },
-          {
-            "fullExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_semis) || Number(@field.autre_cout_semis) < 0)",
-            "matchedExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_semis) || Number(@field.autre_cout_semis) < 0)",
-            "type": "calc",
-            "fieldName": "!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_semis) || Number(@field.autre_cout_semis) < 0"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.autre_cout_semis": [
-          "value",
-          "value"
-        ],
-        "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_semis) || Number(@field.autre_cout_semis) < 0)": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "display_group",
-      "name": "group_montant_autre",
-      "condition": "@field.no_autre_cout_semis == 'oui'",
-      "style_list": [
-        "display: block",
-        "width: 100%"
-      ],
-      "rows": [
-        {
-          "type": "audio",
-          "name": "note_autre_cout_semis1",
-          "parameter_list": {
-            "variant": "button_only",
-            "src": "audio/postSemi/autre_cout_semis_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "float: right"
-          ],
-          "_nested_name": "group_montant_autre.note_autre_cout_semis1"
-        },
-        {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span>Donnez le montant du coût pour <span style=\"color: #e67e22\"> @field.nom_autre_cout_semis</span>",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_2",
-          "_nested_name": "group_montant_autre.html_2",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "<span style=\"color: red;\">*</span>Donnez le montant du coût pour <span style=\"color: #e67e22\"> @field.nom_autre_cout_semis</span>",
-                "matchedExpression": "@field.nom_autre_cout_semis",
-                "type": "field",
-                "fieldName": "nom_autre_cout_semis"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@field.nom_autre_cout_semis": [
-              "value"
-            ]
-          }
-        },
-        {
-          "type": "text",
-          "value": "S'il y a plusieurs éléments, donnez le coût agrégé de l'ensemble",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "font-style: italic",
-            "color: #666",
-            "font-size: 12px"
-          ],
-          "name": "text_3",
-          "_nested_name": "group_montant_autre.text_3"
-        },
-        {
-          "type": "text",
-          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "value": "*La quantité de semence achetée de l'ensemble des parcelles*",
           "_translations": {
             "value": {}
           },
@@ -711,8 +375,140 @@
             "font-size: 14px",
             "color: gray"
           ],
-          "name": "text_4",
-          "_nested_name": "group_montant_autre.text_4"
+          "name": "text_3",
+          "_nested_name": "grp_quantite_semence.text_3"
+        },
+        {
+          "type": "image",
+          "value": "images/kg.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "grp_quantite_semence.image_4"
+        }
+      ],
+      "_nested_name": "grp_quantite_semence"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_semence_achetee",
+      "value": "@field.quantite_semence_achetee",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "quantite_semence_achetee",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: quantite_semence_achetee: this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Poids en kg"
+      },
+      "_nested_name": "quantite_semence_achetee",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@field.quantite_semence_achetee",
+            "matchedExpression": "@field.quantite_semence_achetee",
+            "type": "field",
+            "fieldName": "quantite_semence_achetee"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.quantite_semence_achetee": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "Mettez une valeur positive<span style=\"font-size:11px;\"></span>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.v_sem_err",
+      "style_list": [
+        "font-size: 12px",
+        "color: red"
+      ],
+      "name": "text_15",
+      "_nested_name": "text_15",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.v_sem_err",
+            "matchedExpression": "@local.v_sem_err",
+            "type": "local",
+            "fieldName": "v_sem_err"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_sem_err": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "cout_labour_zero",
+      "condition": "@calc(Number(@field.quantite_semence_achetee) == 0)",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "name": "aud_chaux_z_fr",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/semis/cout_semence_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "cout_labour_zero.aud_chaux_z_fr"
+        },
+        {
+          "type": "html",
+          "value": "Coût semence (Dram) <span style=\"font-size: 14px; color: #555;\"></span>",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight: bold"
+          ],
+          "name": "html_2",
+          "_nested_name": "cout_labour_zero.html_2"
+        },
+        {
+          "type": "text",
+          "value": "*Rappel : 1 dram = 5 FCFA. Mettez \"0\" si aucune semence achetée*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "cout_labour_zero.text_3"
         },
         {
           "type": "image",
@@ -724,13 +520,123 @@
             "width: 80px",
             "object-fit: contain"
           ],
-          "name": "image_5",
-          "_nested_name": "group_montant_autre.image_5"
+          "name": "image_4",
+          "_nested_name": "cout_labour_zero.image_4"
         },
         {
           "type": "text_box",
-          "name": "autre_cout_semis",
-          "value": "@field.autre_cout_semis",
+          "value": 0,
+          "parameter_list": {
+            "disabled": "true"
+          },
+          "name": "text_box_5",
+          "_nested_name": "cout_labour_zero.text_box_5"
+        },
+        {
+          "type": "text",
+          "value": "Coût bloqué à 0 car aucune semence achetée",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 12px",
+            "color: #999"
+          ],
+          "name": "text_6",
+          "_nested_name": "cout_labour_zero.text_6"
+        }
+      ],
+      "_nested_name": "cout_labour_zero",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@calc(Number(@field.quantite_semence_achetee) == 0)",
+            "matchedExpression": "@field.quantite_semence_achetee",
+            "type": "field",
+            "fieldName": "quantite_semence_achetee"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.quantite_semence_achetee) == 0)",
+            "matchedExpression": "@calc(Number(@field.quantite_semence_achetee) == 0)",
+            "type": "calc",
+            "fieldName": "Number(@field.quantite_semence_achetee) == 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.quantite_semence_achetee": [
+          "condition"
+        ],
+        "@calc(Number(@field.quantite_semence_achetee) == 0)": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "cout_semence_nonzero",
+      "condition": "@calc(Number(@field.quantite_semence_achetee) > 0)",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "name": "aud_sem_nz_fr",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/semis/cout_semence_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "cout_semence_nonzero.aud_sem_nz_fr"
+        },
+        {
+          "type": "html",
+          "value": "<span style=\"color: red;\">*</span> Coût semence (Dram) <br>",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight: bold"
+          ],
+          "name": "html_2",
+          "_nested_name": "cout_semence_nonzero.html_2"
+        },
+        {
+          "type": "text",
+          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "cout_semence_nonzero.text_3"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80px",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "cout_semence_nonzero.image_4"
+        },
+        {
+          "type": "text_box",
+          "name": "cout_semence_achetee_nonzero",
+          "value": "@field.cout_semence_achetee_nonzero",
           "_translations": {
             "value": {}
           },
@@ -739,136 +645,227 @@
               "trigger": "changed",
               "action_id": "set_field",
               "args": [
-                "autre_cout_semis",
+                "cout_semence_achetee_nonzero",
                 "this.value"
               ],
-              "_raw": "changed | set_field: autre_cout_semis: this.value"
+              "_raw": "changed | set_field: cout_semence_achetee_nonzero: this.value"
             }
           ],
           "parameter_list": {
             "number_input": "true",
-            "placeholder": "Montant en Dram..."
+            "placeholder": "Montant en Dram"
           },
-          "_nested_name": "group_montant_autre.autre_cout_semis",
+          "_nested_name": "cout_semence_nonzero.cout_semence_achetee_nonzero",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@field.autre_cout_semis",
-                "matchedExpression": "@field.autre_cout_semis",
+                "fullExpression": "@field.cout_semence_achetee_nonzero",
+                "matchedExpression": "@field.cout_semence_achetee_nonzero",
                 "type": "field",
-                "fieldName": "autre_cout_semis"
+                "fieldName": "cout_semence_achetee_nonzero"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@field.autre_cout_semis": [
+            "@field.cout_semence_achetee_nonzero": [
               "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "Mettez une valeur positive.<br>",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@local.v_cout_sem_err",
+          "style_list": [
+            "font-size: 12px",
+            "color: red"
+          ],
+          "name": "text_6",
+          "_nested_name": "cout_semence_nonzero.text_6",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "@local.v_cout_sem_err",
+                "matchedExpression": "@local.v_cout_sem_err",
+                "type": "local",
+                "fieldName": "v_cout_sem_err"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_cout_sem_err": [
+              "condition"
             ]
           }
         }
       ],
-      "_nested_name": "group_montant_autre",
+      "_nested_name": "cout_semence_nonzero",
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@field.no_autre_cout_semis == 'oui'",
-            "matchedExpression": "@field.no_autre_cout_semis",
+            "fullExpression": "@calc(Number(@field.quantite_semence_achetee) > 0)",
+            "matchedExpression": "@field.quantite_semence_achetee",
             "type": "field",
-            "fieldName": "no_autre_cout_semis"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.no_autre_cout_semis": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "value": "*Mettez une valeur positive*",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@calc(@field.no_autre_cout_semis == 'oui' && @local.v_montant_autre_err)",
-      "style_list": [
-        "color: red",
-        "font-size: 12px"
-      ],
-      "name": "text_20",
-      "_nested_name": "text_20",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@calc(@field.no_autre_cout_semis == 'oui' && @local.v_montant_autre_err)",
-            "matchedExpression": "@field.no_autre_cout_semis",
-            "type": "field",
-            "fieldName": "no_autre_cout_semis"
+            "fieldName": "quantite_semence_achetee"
           },
           {
-            "fullExpression": "@calc(@field.no_autre_cout_semis == 'oui' && @local.v_montant_autre_err)",
-            "matchedExpression": "@local.v_montant_autre_err",
-            "type": "local",
-            "fieldName": "v_montant_autre_err"
-          },
-          {
-            "fullExpression": "@calc(@field.no_autre_cout_semis == 'oui' && @local.v_montant_autre_err)",
-            "matchedExpression": "@calc(@field.no_autre_cout_semis == 'oui' && @local.v_montant_autre_err)",
+            "fullExpression": "@calc(Number(@field.quantite_semence_achetee) > 0)",
+            "matchedExpression": "@calc(Number(@field.quantite_semence_achetee) > 0)",
             "type": "calc",
-            "fieldName": "@field.no_autre_cout_semis == 'oui' && @local.v_montant_autre_err"
+            "fieldName": "Number(@field.quantite_semence_achetee) > 0"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.no_autre_cout_semis": [
+        "@field.quantite_semence_achetee": [
           "condition"
         ],
-        "@local.v_montant_autre_err": [
-          "condition"
-        ],
-        "@calc(@field.no_autre_cout_semis == 'oui' && @local.v_montant_autre_err)": [
+        "@calc(Number(@field.quantite_semence_achetee) > 0)": [
           "condition"
         ]
       }
     },
     {
-      "name": "v_final_autre_cout",
-      "value": "@calc(@field.no_autre_cout_semis == 'oui' ? (Number(@field.autre_cout_semis) || 0) : 0)",
+      "name": "v_val_sem_nz",
+      "value": "@calc(Number(@field.cout_semence_achetee_nonzero) || 0)",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "v_final_autre_cout",
+      "_nested_name": "v_val_sem_nz",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(@field.no_autre_cout_semis == 'oui' ? (Number(@field.autre_cout_semis) || 0) : 0)",
-            "matchedExpression": "@field.no_autre_cout_semis",
+            "fullExpression": "@calc(Number(@field.cout_semence_achetee_nonzero) || 0)",
+            "matchedExpression": "@field.cout_semence_achetee_nonzero",
             "type": "field",
-            "fieldName": "no_autre_cout_semis"
+            "fieldName": "cout_semence_achetee_nonzero"
           },
           {
-            "fullExpression": "@calc(@field.no_autre_cout_semis == 'oui' ? (Number(@field.autre_cout_semis) || 0) : 0)",
-            "matchedExpression": "@field.autre_cout_semis",
-            "type": "field",
-            "fieldName": "autre_cout_semis"
-          },
-          {
-            "fullExpression": "@calc(@field.no_autre_cout_semis == 'oui' ? (Number(@field.autre_cout_semis) || 0) : 0)",
-            "matchedExpression": "@calc(@field.no_autre_cout_semis == 'oui' ? (Number(@field.autre_cout_semis) || 0) : 0)",
+            "fullExpression": "@calc(Number(@field.cout_semence_achetee_nonzero) || 0)",
+            "matchedExpression": "@calc(Number(@field.cout_semence_achetee_nonzero) || 0)",
             "type": "calc",
-            "fieldName": "@field.no_autre_cout_semis == 'oui' ? (Number(@field.autre_cout_semis) || 0) : 0"
+            "fieldName": "Number(@field.cout_semence_achetee_nonzero) || 0"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.no_autre_cout_semis": [
+        "@field.cout_semence_achetee_nonzero": [
           "value"
         ],
-        "@field.autre_cout_semis": [
+        "@calc(Number(@field.cout_semence_achetee_nonzero) || 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_final_sem",
+      "value": "@calc(Number(@field.quantite_semence_achetee) == 0 ? 0 : @local.v_val_sem_nz)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_final_sem",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@field.quantite_semence_achetee) == 0 ? 0 : @local.v_val_sem_nz)",
+            "matchedExpression": "@field.quantite_semence_achetee",
+            "type": "field",
+            "fieldName": "quantite_semence_achetee"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.quantite_semence_achetee) == 0 ? 0 : @local.v_val_sem_nz)",
+            "matchedExpression": "@local.v_val_sem_nz",
+            "type": "local",
+            "fieldName": "v_val_sem_nz"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.quantite_semence_achetee) == 0 ? 0 : @local.v_val_sem_nz)",
+            "matchedExpression": "@calc(Number(@field.quantite_semence_achetee) == 0 ? 0 : @local.v_val_sem_nz)",
+            "type": "calc",
+            "fieldName": "Number(@field.quantite_semence_achetee) == 0 ? 0 : @local.v_val_sem_nz"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.quantite_semence_achetee": [
           "value"
         ],
-        "@calc(@field.no_autre_cout_semis == 'oui' ? (Number(@field.autre_cout_semis) || 0) : 0)": [
+        "@local.v_val_sem_nz": [
+          "value"
+        ],
+        "@calc(Number(@field.quantite_semence_achetee) == 0 ? 0 : @local.v_val_sem_nz)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_page7_valid",
+      "value": "@calc(@local.v_sem_fmt && Number(@field.quantite_semence_achetee) >= 0 && (Number(@field.quantite_semence_achetee) == 0 || (@local.v_cout_sem_fmt && Number(@field.cout_semence_achetee_nonzero) >= 0)))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_page7_valid",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@local.v_sem_fmt && Number(@field.quantite_semence_achetee) >= 0 && (Number(@field.quantite_semence_achetee) == 0 || (@local.v_cout_sem_fmt && Number(@field.cout_semence_achetee_nonzero) >= 0)))",
+            "matchedExpression": "@local.v_sem_fmt",
+            "type": "local",
+            "fieldName": "v_sem_fmt"
+          },
+          {
+            "fullExpression": "@calc(@local.v_sem_fmt && Number(@field.quantite_semence_achetee) >= 0 && (Number(@field.quantite_semence_achetee) == 0 || (@local.v_cout_sem_fmt && Number(@field.cout_semence_achetee_nonzero) >= 0)))",
+            "matchedExpression": "@field.quantite_semence_achetee",
+            "type": "field",
+            "fieldName": "quantite_semence_achetee"
+          },
+          {
+            "fullExpression": "@calc(@local.v_sem_fmt && Number(@field.quantite_semence_achetee) >= 0 && (Number(@field.quantite_semence_achetee) == 0 || (@local.v_cout_sem_fmt && Number(@field.cout_semence_achetee_nonzero) >= 0)))",
+            "matchedExpression": "@field.quantite_semence_achetee",
+            "type": "field",
+            "fieldName": "quantite_semence_achetee"
+          },
+          {
+            "fullExpression": "@calc(@local.v_sem_fmt && Number(@field.quantite_semence_achetee) >= 0 && (Number(@field.quantite_semence_achetee) == 0 || (@local.v_cout_sem_fmt && Number(@field.cout_semence_achetee_nonzero) >= 0)))",
+            "matchedExpression": "@local.v_cout_sem_fmt",
+            "type": "local",
+            "fieldName": "v_cout_sem_fmt"
+          },
+          {
+            "fullExpression": "@calc(@local.v_sem_fmt && Number(@field.quantite_semence_achetee) >= 0 && (Number(@field.quantite_semence_achetee) == 0 || (@local.v_cout_sem_fmt && Number(@field.cout_semence_achetee_nonzero) >= 0)))",
+            "matchedExpression": "@field.cout_semence_achetee_nonzero",
+            "type": "field",
+            "fieldName": "cout_semence_achetee_nonzero"
+          },
+          {
+            "fullExpression": "@calc(@local.v_sem_fmt && Number(@field.quantite_semence_achetee) >= 0 && (Number(@field.quantite_semence_achetee) == 0 || (@local.v_cout_sem_fmt && Number(@field.cout_semence_achetee_nonzero) >= 0)))",
+            "matchedExpression": "@calc(@local.v_sem_fmt && Number(@field.quantite_semence_achetee) >= 0 && (Number(@field.quantite_semence_achetee) == 0 || (@local.v_cout_sem_fmt && Number(@field.cout_semence_achetee_nonzero) >= 0)))",
+            "type": "calc",
+            "fieldName": "@local.v_sem_fmt && Number(@field.quantite_semence_achetee) >= 0 && (Number(@field.quantite_semence_achetee) == 0 || (@local.v_cout_sem_fmt && Number(@field.cout_semence_achetee_nonzero) >= 0))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_sem_fmt": [
+          "value"
+        ],
+        "@field.quantite_semence_achetee": [
+          "value",
+          "value"
+        ],
+        "@local.v_cout_sem_fmt": [
+          "value"
+        ],
+        "@field.cout_semence_achetee_nonzero": [
+          "value"
+        ],
+        "@calc(@local.v_sem_fmt && Number(@field.quantite_semence_achetee) >= 0 && (Number(@field.quantite_semence_achetee) == 0 || (@local.v_cout_sem_fmt && Number(@field.cout_semence_achetee_nonzero) >= 0)))": [
           "value"
         ]
       }
@@ -914,10 +911,10 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "autre_cout_semis_total",
-                "@local.v_final_autre_cout"
+                "cout_semence_achetee",
+                "@local.v_final_sem"
               ],
-              "_raw": "click | set_field: autre_cout_semis_total : @local.v_final_autre_cout"
+              "_raw": "click | set_field: cout_semence_achetee : @local.v_final_sem"
             },
             {
               "trigger": "click",
@@ -930,7 +927,7 @@
           ],
           "parameter_list": {
             "style": "navigation",
-            "disabled": "!@local.v_page9_valid"
+            "disabled": "!@local.v_page7_valid"
           },
           "style_list": [
             "flex: 1"
@@ -950,19 +947,19 @@
                 "args": {
                   "1": [
                     {
-                      "fullExpression": "@local.v_final_autre_cout",
-                      "matchedExpression": "@local.v_final_autre_cout",
+                      "fullExpression": "@local.v_final_sem",
+                      "matchedExpression": "@local.v_final_sem",
                       "type": "local",
-                      "fieldName": "v_final_autre_cout"
+                      "fieldName": "v_final_sem"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: autre_cout_semis_total : @local.v_final_autre_cout",
-                    "matchedExpression": "@local.v_final_autre_cout",
+                    "fullExpression": "click | set_field: cout_semence_achetee : @local.v_final_sem",
+                    "matchedExpression": "@local.v_final_sem",
                     "type": "local",
-                    "fieldName": "v_final_autre_cout"
+                    "fieldName": "v_final_sem"
                   }
                 ]
               }
@@ -970,10 +967,10 @@
             "parameter_list": {
               "disabled": [
                 {
-                  "fullExpression": "!@local.v_page9_valid",
-                  "matchedExpression": "!@local.v_page9_valid",
+                  "fullExpression": "!@local.v_page7_valid",
+                  "matchedExpression": "!@local.v_page7_valid",
                   "type": "local",
-                  "fieldName": "v_page9_valid"
+                  "fieldName": "v_page7_valid"
                 }
               ]
             }
@@ -982,11 +979,11 @@
             "@global.btn_continue": [
               "value"
             ],
-            "@local.v_final_autre_cout": [
+            "@local.v_final_sem": [
               "action_list.0.args.1",
               "action_list.0._raw"
             ],
-            "!@local.v_page9_valid": [
+            "!@local.v_page7_valid": [
               "parameter_list.disabled"
             ]
           }

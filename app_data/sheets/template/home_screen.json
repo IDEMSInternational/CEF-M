@@ -4,296 +4,101 @@
   "status": "released",
   "rows": [
     {
-      "type": "plh_module_details_header",
+      "type": "image",
+      "value": "images/background_app.png",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 100vw",
+        "height: auto",
+        "object-fit: cover",
+        "object-position: center top",
+        "margin-left: calc(-50vw + 50%)",
+        "margin-right: calc(-50vw + 50%)",
+        "position: relative",
+        "top: 0",
+        "z-index: 0",
+        "border-bottom-left-radius: 40px",
+        "border-bottom-right-radius: 40px"
+      ],
+      "name": "image_2",
+      "_nested_name": "image_2"
+    },
+    {
+      "type": "title",
       "value": "CEF-M",
       "_translations": {
         "value": {}
       },
-      "parameter_list": {
-        "background": "#00adcc",
-        "hide_back_button": "true",
-        "color": "white"
-      },
-      "name": "plh_module_details_header_2",
-      "_nested_name": "plh_module_details_header_2"
+      "style_list": [
+        "text-align: center"
+      ],
+      "name": "title_3",
+      "_nested_name": "title_3"
     },
     {
-      "type": "plh_module_list_item",
-      "name": "item_enrolment",
-      "value": "Scanner QR code",
+      "type": "html",
+      "value": "<div style=\"text-align:center; font-family:Arial, sans-serif; padding:20px;\"> <h2 style=\"color:#2E7D32; margin-top:20px;\"> Bienvenue ! Aw Bissimilla !</h2> <p style=\"font-size:16px; color:#555;\"> Des estimations de meilleure qualité pour de meilleures décisions agricoles </p> </div>",
       "_translations": {
         "value": {}
       },
-      "action_list": [
+      "name": "html_4",
+      "_nested_name": "html_4"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "display: flex",
+        "justify-content: center",
+        "align-items: center",
+        "width: 100%",
+        "flex-direction: column",
+        "margin-top: 10px"
+      ],
+      "rows": [
         {
-          "trigger": "click",
-          "action_id": "go_to",
-          "args": [
-            "scan_screen"
+          "type": "button",
+          "value": "Scanner QR code",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "go_to",
+              "args": [
+                "scan_screen"
+              ],
+              "_raw": "click | go_to: scan_screen"
+            }
           ],
-          "_raw": "click | go_to: scan_screen"
+          "parameter_list": {
+            "variant": "card-portrait",
+            "image_asset": "images/qr_code.jpg",
+            "button_align": "centre",
+            "style": "flexible"
+          },
+          "rows": [],
+          "name": "button_1",
+          "_nested_name": "display_group_5.button_1"
         }
       ],
-      "parameter_list": {
-        "module_image_asset": "images/bienvenue.png",
-        "nav_image_asset": "images/icons/expand_circle_right.png",
-        "background": "#BFBFBD"
-      },
-      "_nested_name": "item_enrolment"
+      "name": "display_group_5",
+      "_nested_name": "display_group_5"
     },
     {
-      "type": "plh_module_list_item",
-      "name": "item_enrolment",
-      "value": "Enrôlement",
-      "_translations": {
-        "value": {}
+      "type": "display_group",
+      "parameter_list": {
+        "sticky": "bottom",
+        "variant": "inline_padding",
+        "background_image_asset": "images/bottom_image.svg",
+        "background_image_position": "bottom left"
       },
-      "action_list": [
-        {
-          "trigger": "click",
-          "action_id": "go_to",
-          "args": [
-            "enrolment"
-          ],
-          "_raw": "click | go_to: enrolment"
-        }
+      "style_list": [
+        "width:500px",
+        "height:150px"
       ],
-      "parameter_list": {
-        "module_image_asset": "images/ecrire.jpg",
-        "nav_image_asset": "images/icons/expand_circle_right.png"
-      },
-      "_nested_name": "item_enrolment"
-    },
-    {
-      "type": "title",
-      "value": "PLANIFICATION ANNUELLE",
-      "_translations": {
-        "value": {}
-      },
-      "name": "title_5",
-      "_nested_name": "title_5"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_depenses",
-      "value": "Cultures de l'UPA",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "click",
-          "action_id": "go_to",
-          "args": [
-            "cultures"
-          ],
-          "_raw": "click | go_to: cultures"
-        }
-      ],
-      "parameter_list": {
-        "module_image_asset": "images/cultures.jpg",
-        "nav_image_asset": "images/icons/expand_circle_right.png",
-        "background": "#E8F5E9"
-      },
-      "_nested_name": "item_depenses"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_humains",
-      "value": "Alimentation Humaine",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "click",
-          "action_id": "go_to",
-          "args": [
-            "besoins_humains"
-          ],
-          "_raw": "click | go_to: besoins_humains"
-        }
-      ],
-      "parameter_list": {
-        "module_image_asset": "images/membres.jpg",
-        "nav_image_asset": "images/icons/expand_circle_right.png",
-        "background": "#E8F5E9"
-      },
-      "_nested_name": "item_humains"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_animaux",
-      "value": "Alimentation Animale",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "click",
-          "action_id": "go_to",
-          "args": [
-            "besoins_animaux"
-          ],
-          "_raw": "click | go_to: besoins_animaux"
-        }
-      ],
-      "parameter_list": {
-        "module_image_asset": "images/fourrage.jpg",
-        "nav_image_asset": "images/icons/expand_circle_right.png",
-        "background": "#E3F2FD"
-      },
-      "_nested_name": "item_animaux"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_depenses",
-      "value": "Dépenses de l'UPA",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "click",
-          "action_id": "go_to",
-          "args": [
-            "depenses"
-          ],
-          "_raw": "click | go_to: depenses"
-        }
-      ],
-      "parameter_list": {
-        "module_image_asset": "images/cfa_tot.jpg",
-        "nav_image_asset": "images/icons/expand_circle_right.png",
-        "background": "#FFF3E0"
-      },
-      "_nested_name": "item_depenses"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_fumure",
-      "value": "Fumure organique",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "click",
-          "action_id": "go_to",
-          "args": [
-            "section_fumure"
-          ],
-          "_raw": "click | go_to: section_fumure"
-        }
-      ],
-      "parameter_list": {
-        "module_image_asset": "images/fumure.jpg",
-        "nav_image_asset": "images/icons/expand_circle_right.png",
-        "background": "#f0fdfa",
-        "border-left": "4px solid #00adcc"
-      },
-      "_nested_name": "item_fumure"
-    },
-    {
-      "type": "title",
-      "value": "SUIVI DE CAMPAGNE",
-      "_translations": {
-        "value": {}
-      },
-      "name": "title_11",
-      "_nested_name": "title_11"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_superficie",
-      "value": "Superficie Champs",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "click",
-          "action_id": "go_to",
-          "args": [
-            "superficie"
-          ],
-          "_raw": "click | go_to: superficie"
-        }
-      ],
-      "parameter_list": {
-        "module_image_asset": "images/superf_champ.jpg",
-        "nav_image_asset": "images/icons/expand_circle_right.png"
-      },
-      "_nested_name": "item_superficie"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_semi",
-      "value": "Semis",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "click",
-          "action_id": "go_to",
-          "args": [
-            "section_semi"
-          ],
-          "_raw": "click | go_to: section_semi"
-        }
-      ],
-      "parameter_list": {
-        "module_image_asset": "images/seeding.png",
-        "nav_image_asset": "images/icons/expand_circle_right.png"
-      },
-      "_nested_name": "item_semi"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_post_semi",
-      "value": "Post Semis",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "click",
-          "action_id": "go_to",
-          "args": [
-            "post_semi"
-          ],
-          "_raw": "click | go_to: post_semi"
-        }
-      ],
-      "parameter_list": {
-        "module_image_asset": "images/sup_cult.jpg",
-        "nav_image_asset": "images/icons/expand_circle_right.png"
-      },
-      "_nested_name": "item_post_semi"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_recolte",
-      "value": "Récolte",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "click",
-          "action_id": "go_to",
-          "args": [
-            "recolte"
-          ],
-          "_raw": "click | go_to: recolte"
-        }
-      ],
-      "parameter_list": {
-        "module_image_asset": "images/ratio_membre_terre.jpg",
-        "nav_image_asset": "images/icons/expand_circle_right.png"
-      },
-      "_nested_name": "item_recolte"
+      "rows": [],
+      "name": "display_group_7",
+      "_nested_name": "display_group_7"
     }
   ],
   "_source": {

@@ -5,32 +5,90 @@
   "rows": [
     {
       "type": "title",
-      "name": "page_title",
-      "value": " FIN DU FORMULAIRE"
+      "value": "BILAN GLOBAL DES SEMIS"
     },
     {
-      "type": "text",
-      "name": "note_fin",
-      "value": "@global.note_fin"
+      "name": "montant",
+      "value": "@calc(Number(@field.grand_total_semis|| 0))"
+    },
+    {
+      "name": "montant_cfa",
+      "value": "@calc(@local.montant * 5)"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "final_grp",
+      "style_list": "background: #00adcc; padding: 25px; border-radius: 0 0 25px 25px; margin-bottom: 20px; text-align: center;"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"color: black; text-transform: uppercase; font-size: 12px; letter-spacing: 2px;\">Total Investi (Semis)</div>"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"font-size: 36px; font-weight: bold; color: white; margin: 10px 0;\">@local.montant<span style=\"font-size: 18px;\">Dram</span></div>"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"background: rgba(255,255,255,0.1); padding: 8px 15px; border-radius: 20px; display: inline-block; color: white; font-weight: bold;\">≈ @local.montant_cfa FCFA</div>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "cultures_list",
+      "style_list": "padding: 20px;"
+    },
+    {
+      "type": "html",
+      "value": "<h4 style=\"color: #e3a730; border-bottom: 1px solid #eee; padding-bottom: 10px;\">Cultures enregistrées</h4>"
+    },
+    {
+      "type": "text ",
+      "value": "@field.selected_cultures_list",
+      "style_list": "color: #666; font-style: italic; margin-top: 5px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "style_list": "margin: 20px; padding: 20px; background: #FFF9F2; border-radius: 15px; border: 1px dashed #FFCC80;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: #E65100; font-weight: bold;\">Votre avis nous intéresse</span>"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"font-size: 13px; color: #6D4C41;\">Le formulaire était-il facile à utiliser ? Enregistrez votre avis :</p>"
+    },
+    {
+      "type": "image",
+      "value": "images/vocal.jpg",
+      "style_list": "width: 50px; float: left; margin-right: 10px;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "begin_display_group",
       "name": "dg_footer",
-      "value": " ",
       "parameter_list": "sticky: bottom;",
       "style_list": "padding: 12px 24px;"
     },
     {
       "type": "round_button",
-      "name": "page_21_button_back",
+      "name": "button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page_21_button_continue",
+      "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | emit: completed;\nclick | go_to: home_screen;",
+      "action_list": "click | emit: completed\n",
+      "parameter_list": "style: navigation;",
       "style_list": "flex: 1"
     },
     {

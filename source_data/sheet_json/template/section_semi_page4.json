@@ -8,20 +8,12 @@
       "value": "@calc(Number(@field.current_culture_index) + 1)"
     },
     {
-      "name": "v_chaux_fmt",
-      "value": "@calc(/^\\d+$/.test(@field.quantite_chaux_agricole))"
+      "name": "v_sup_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_ha))"
     },
     {
-      "name": "v_chaux_err",
-      "value": "@calc(!@local.v_chaux_fmt || Number(@field.quantite_chaux_agricole) < 0)"
-    },
-    {
-      "name": "v_cout_chaux_fmt",
-      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_chaux_agricole_nonzero))"
-    },
-    {
-      "name": "v_cout_chaux_err",
-      "value": "@calc(!@local.v_cout_chaux_fmt || Number(@field.cout_chaux_agricole_nonzero) < 0)]"
+      "name": "v_sup_err",
+      "value": "@calc(!@local.v_sup_fmt || Number(@field.superficie_ha) <= 0)"
     },
     {
       "type": "begin_display_group",
@@ -53,34 +45,30 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: #e67e22; font-weight: bold; font-size: 14px; margin-bottom: 10px;\">APPORT CHAUX AGRICOLE </div>"
-    },
-    {
       "type": "begin_display_group",
-      "name": "grp_quantite_chaux",
+      "name": "sup_details",
       "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "name": "\naud_chaux_fr",
-      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/q_chaux_agri_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "name": "aud_prod",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/sup_culture_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
       "type": "html",
-      "value": "<span style=\"color: red;\">*</span> Quantité chaux (sac)",
+      "value": "<span style=\"color: red;\">*</span> Superficie totale (ha) <br> ",
       "style_list": "font-weight: bold;"
     },
     {
       "type": "text",
-      "value": "*Mettez 0 si aucune chaux* <span style=\"font-size: 12px; color: gray;\"></span>",
+      "value": "*Superficie cumulée de toutes les parcelles de @field.active_culture_name* <br> <span style=\"font-size: 12px; color: gray;\">*@field.active_culture_name  *</span>",
       "style_list": "font-size: 14px; color: gray;"
     },
     {
       "type": "image",
-      "value": "images/sac.jpg",
+      "value": "images/superf_unit.jpg",
       "style_list": "width: 80%; object-fit: contain;"
     },
     {
@@ -88,113 +76,16 @@
     },
     {
       "type": "text_box",
-      "name": "quantite_chaux_agricole",
-      "value": "@field.quantite_chaux_agricole",
-      "action_list": "changed | set_field: quantite_chaux_agricole: this.value;",
-      "parameter_list": "number_input: true;\n\nplaceholder: Nombre de sacs;"
+      "name": "superficie_ha",
+      "value": "@field.superficie_ha",
+      "action_list": "changed | set_field: superficie_ha : this.value;",
+      "parameter_list": "number_input: true;"
     },
     {
       "type": "text",
-      "value": "Mettez une valeur positive<span style=\"font-size:11px;\"></span>",
-      "condition": "@local.v_fum_err",
+      "value": "La valeur doit être supérieure à 0. Si erreur, retournez décocher la culture.",
+      "condition": "@local.v_sup_err",
       "style_list": "font-size: 12px; color: red;"
-    },
-    {
-      "type": "begin_display_group",
-      "name": "cout_chaux_zero",
-      "condition": "@calc(Number(@field.quantite_chaux_agricole) == 0)",
-      "style_list": "display: block; width: 100%"
-    },
-    {
-      "type": "audio",
-      "name": "aud_chaux_z_fr",
-      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_transport_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
-    },
-    {
-      "type": "html",
-      "value": "Coût chaux (Dram) <span style=\"font-size: 14px; color: #555;\"></span>",
-      "style_list": "font-weight: bold;"
-    },
-    {
-      "type": "text",
-      "value": "*Rappel : 1 dram = 5 FCFA*",
-      "style_list": "font-size: 14px; color: gray;"
-    },
-    {
-      "type": "image",
-      "value": "images/cfa.jpg",
-      "style_list": "width: 80px; object-fit: contain;"
-    },
-    {
-      "type": "text_box",
-      "value": 0,
-      "parameter_list": "disabled:true;"
-    },
-    {
-      "type": "text",
-      "value": "Coût bloqué à 0 car aucune chaux apportée",
-      "style_list": "font-size: 12px; color: #999;"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "begin_display_group",
-      "name": "cout_chaux_nonzero",
-      "condition": "@calc(Number(@field.quantite_chaux_agricole) > 0)",
-      "style_list": "display: block; width: 100%"
-    },
-    {
-      "type": "audio",
-      "name": "aud_chaux_nz_fr",
-      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_chaux_agri_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
-    },
-    {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span> Coût chaux (Dram) <span style=\"font-size: 14px; color: #555;\"></span>",
-      "style_list": "font-weight: bold;"
-    },
-    {
-      "type": "text",
-      "value": "*Rappel : 1 dram = 5 FCFA*",
-      "style_list": "font-size: 14px; color: gray;"
-    },
-    {
-      "type": "image",
-      "value": "images/cfa.jpg",
-      "style_list": "width: 80px; object-fit: contain;"
-    },
-    {
-      "type": "text_box",
-      "name": "cout_chaux_agricole_nonzero",
-      "value": "@field.cout_chaux_agricole_nonzero",
-      "action_list": "changed | set_field: cout_chaux_agricole_nonzero: this.value;",
-      "parameter_list": "number_input: true;\n\nplaceholder: Montant en Dram;"
-    },
-    {
-      "type": "text",
-      "value": "Mettez une valeur positive.<br><span style=\"font-size:11px;\"></span>",
-      "condition": "@local.v_cout_chaux_err",
-      "style_list": "font-size: 12px; color: red;"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "name": "v_val_chaux_nz",
-      "value": "@calc(Number(@field.cout_chaux_agricole_nonzero) || 0)"
-    },
-    {
-      "name": "v_final_chaux",
-      "value": "@calc(Number(@field.quantite_chaux_agricole) == 0 ? 0 : @local.v_val_chaux_nz)"
-    },
-    {
-      "name": "v_page4_valid",
-      "value": "@calc(@local.v_chaux_fmt && Number(@field.quantite_chaux_agricole) >= 0 && (Number(@field.quantite_chaux_agricole) == 0 || (@local.v_cout_chaux_fmt && Number(@field.cout_chaux_agricole_nonzero) >= 0)))"
     },
     {
       "type": "begin_display_group",
@@ -212,8 +103,8 @@
       "type": "button",
       "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | set_field: cout_chaux_agricole : @local.v_final_chaux;\n\nclick | emit: completed;",
-      "parameter_list": "style: navigation;\n\ndisabled: !@local.v_page4_valid",
+      "action_list": "click | emit: completed;",
+      "parameter_list": "style: navigation;\ndisabled:@local.v_sup_err",
       "style_list": "flex: 1"
     },
     {

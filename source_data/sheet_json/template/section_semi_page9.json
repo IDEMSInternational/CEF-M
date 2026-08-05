@@ -4,28 +4,28 @@
   "status": "released",
   "rows": [
     {
-      "name": "v_nom_valide",
-      "value": "@calc((@field.nom_autre_cout_semis || '').trim().length > 0)"
-    },
-    {
-      "name": "v_mt_fmt",
-      "value": "@calc(/^\\d+$/.test(@field.autre_cout_semis))"
-    },
-    {
-      "name": "v_mt_err",
-      "value": "@calc(!@local.v_mt_fmt || Number(@field.autre_cout_semis) < 0)"
-    },
-    {
-      "name": "v_page9_valid",
-      "value": "@calc(@field.no_autre_cout_semis == 'non' || (@field.no_autre_cout_semis == 'oui' && @local.v_nom_valide && !@local.v_mt_err))"
-    },
-    {
       "name": "v_current_human",
       "value": "@calc(Number(@field.current_culture_index) + 1)"
     },
     {
+      "name": "v_sem_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_semence_achetee))"
+    },
+    {
+      "name": "v_sem_err",
+      "value": "@calc(!@local.v_sem_fmt || Number(@field.quantite_semence_achetee) < 0)"
+    },
+    {
+      "name": "v_cout_sem_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_semence_achetee_nonzero))"
+    },
+    {
+      "name": "v_cout_sem_err",
+      "value": "@calc(!@local.v_cout_sem_fmt || Number(@field.cout_semence_achetee_nonzero) < 0)"
+    },
+    {
       "type": "begin_display_group",
-      "name": "header_top",
+      "name": "header",
       "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
     },
     {
@@ -54,101 +54,109 @@
     },
     {
       "type": "html",
-      "value": "<br><b style=\"color: #e67e22\">AUTRE COÛT AU SEMIS</b>"
+      "value": "<div style=\"color: #e67e22; font-weight: bold; font-size: 14px; margin-bottom: 10px;\"> SEMIS</div>"
     },
     {
       "type": "begin_display_group",
-      "name": "grp_question_existence",
+      "name": "grp_quantite_semence",
       "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "name": "aud_exist_fr",
-      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/on_autre_cout_semis_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "name": "aud_pnt_fr",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/q_semence_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
       "type": "html",
-      "value": "<span style=\"color: red;\">*</span>Ecrivez le nom(s) d'autre(s) coût(s)"
+      "value": "<span style=\"color: red;\">*</span> Quantité de semence achetée (kg)",
+      "style_list": "font-weight: bold;"
     },
     {
       "type": "text",
-      "value": "*Ces coûts couvrent des services ou intrants non pris en compte.*"
-    },
-    {
-      "type": "radio_button_grid",
-      "name": "no_autre_cout_semis",
-      "value": "@field.no_autre_cout_semis",
-      "action_list": "changed | set_field: no_autre_cout_semis: this.value;",
-      "parameter_list": "answer_list: @data.yes_no;\nvariant: flex;\nstyle: secondary;\nitem_width: 60px;\ngrid_gap: 8px;"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "begin_display_group",
-      "name": "group_nom_autre",
-      "condition": "@field.no_autre_cout_semis== 'oui'",
-      "style_list": "display: block; width: 100%"
-    },
-    {
-      "type": "audio",
-      "name": "note_autre_cout_semi",
-      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/nom_autre_cout_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
-    },
-    {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span> Indiquez s'il y a d'autre(s) coût(s) à la récolte non renseignés"
+      "value": "*La quantité de semence achetée de l'ensemble des parcelles*",
+      "style_list": "font-size: 14px; color: gray;"
     },
     {
       "type": "image",
-      "value": "images/ecrire.jpg",
-      "style_list": "width: 60%; object-fit: contain;\n"
-    },
-    {
-      "type": "text_box",
-      "name": "nom_autre_cout_semis",
-      "value": "@field.nom_autre_cout_semis",
-      "action_list": "changed | set_field: nom_autre_cout_semis: this.value;",
-      "parameter_list": "placeholder: Nom des coûts...;"
+      "value": "images/kg.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "text",
-      "value": "*La réponse est obligatoire !*",
-      "condition": "@calc(@field.no_autre_cout_semis == 'oui' && (@field.nom_autre_cout_semis == '' || @field.nom_autre_cout_semis == null))",
-      "style_list": "color: red; font-size: 12px;"
+      "type": "text_box",
+      "name": "quantite_semence_achetee",
+      "value": "@field.quantite_semence_achetee",
+      "action_list": "changed | set_field: quantite_semence_achetee: this.value;",
+      "parameter_list": "number_input: true;\n\nplaceholder: Poids en kg;"
     },
     {
-      "name": "v_montant_autre_err",
-      "value": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_semis) || Number(@field.autre_cout_semis) < 0)"
+      "type": "text",
+      "value": "Mettez une valeur positive<span style=\"font-size:11px;\"></span>",
+      "condition": "@local.v_sem_err",
+      "style_list": "font-size: 12px; color: red;"
     },
     {
       "type": "begin_display_group",
-      "name": "group_montant_autre",
-      "condition": "@field.no_autre_cout_semis == 'oui'",
+      "name": "cout_labour_zero",
+      "condition": "@calc(Number(@field.quantite_semence_achetee) == 0)",
       "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "name": "note_autre_cout_semis1",
-      "parameter_list": "variant: button_only;\nsrc: audio/postSemi/autre_cout_semis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "aud_chaux_z_fr",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_semence_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
       "type": "html",
-      "value": "<span style=\"color: red;\">*</span>Donnez le montant du coût pour <span style=\"color: #e67e22\"> @field.nom_autre_cout_semis</span>"
+      "value": "Coût semence (Dram) <span style=\"font-size: 14px; color: #555;\"></span>",
+      "style_list": "font-weight: bold;"
     },
     {
       "type": "text",
-      "value": "S'il y a plusieurs éléments, donnez le coût agrégé de l'ensemble",
-      "style_list": "font-style: italic; color: #666; font-size: 12px;"
+      "value": "*Rappel : 1 dram = 5 FCFA. Mettez \"0\" si aucune semence achetée*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80px; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "value": 0,
+      "parameter_list": "disabled:true;"
+    },
+    {
+      "type": "text",
+      "value": "Coût bloqué à 0 car aucune semence achetée",
+      "style_list": "font-size: 12px; color: #999;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "cout_semence_nonzero",
+      "condition": "@calc(Number(@field.quantite_semence_achetee) > 0)",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "aud_sem_nz_fr",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_semence_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span> Coût semence (Dram) <br>",
+      "style_list": "font-weight: bold;"
     },
     {
       "type": "text",
@@ -162,23 +170,31 @@
     },
     {
       "type": "text_box",
-      "name": "autre_cout_semis",
-      "value": "@field.autre_cout_semis",
-      "action_list": "changed | set_field: autre_cout_semis: this.value;",
-      "parameter_list": "number_input: true; placeholder: Montant en Dram...;"
+      "name": "cout_semence_achetee_nonzero",
+      "value": "@field.cout_semence_achetee_nonzero",
+      "action_list": "changed | set_field: cout_semence_achetee_nonzero: this.value;",
+      "parameter_list": "number_input: true;\n\nplaceholder: Montant en Dram;"
+    },
+    {
+      "type": "text",
+      "value": "Mettez une valeur positive.<br>",
+      "condition": "@local.v_cout_sem_err",
+      "style_list": "font-size: 12px; color: red;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "text",
-      "value": "*Mettez une valeur positive*",
-      "condition": "@calc(@field.no_autre_cout_semis == 'oui' && @local.v_montant_autre_err)",
-      "style_list": "color: red; font-size: 12px;"
+      "name": "v_val_sem_nz",
+      "value": "@calc(Number(@field.cout_semence_achetee_nonzero) || 0)"
     },
     {
-      "name": "v_final_autre_cout",
-      "value": "@calc(@field.no_autre_cout_semis == 'oui' ? (Number(@field.autre_cout_semis) || 0) : 0)"
+      "name": "v_final_sem",
+      "value": "@calc(Number(@field.quantite_semence_achetee) == 0 ? 0 : @local.v_val_sem_nz)"
+    },
+    {
+      "name": "v_page7_valid",
+      "value": "@calc(@local.v_sem_fmt && Number(@field.quantite_semence_achetee) >= 0 && (Number(@field.quantite_semence_achetee) == 0 || (@local.v_cout_sem_fmt && Number(@field.cout_semence_achetee_nonzero) >= 0)))"
     },
     {
       "type": "begin_display_group",
@@ -196,8 +212,8 @@
       "type": "button",
       "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | set_field: autre_cout_semis_total : @local.v_final_autre_cout;\n\nclick | emit: completed;",
-      "parameter_list": "style: navigation;\n\ndisabled: !@local.v_page9_valid",
+      "action_list": "click | set_field: cout_semence_achetee : @local.v_final_sem;\n\nclick | emit: completed;",
+      "parameter_list": "style: navigation;\n\ndisabled: !@local.v_page7_valid",
       "style_list": "flex: 1"
     },
     {

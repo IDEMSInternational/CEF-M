@@ -5,128 +5,191 @@
   "rows": [
     {
       "type": "title",
-      "value": "APPARTENANCE ASSOCIATIVE"
+      "value": "ACTIVITE SECONDAIRE DE L'UPA"
     },
     {
-      "name": "attempt_submit",
-      "value": "@fields.attempt_submit"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "text",
-      "value": "@global.appartenance_coton_note"
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "name": "audio_7_1",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/on_scpc_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "audio_6_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/act_secon_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "exclude_from_translation": true,
       "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Selectionnez les activité(s) secondaire(s) de l’UPA<span style=\"color: red;\">*</span>"
     },
     {
       "type": "end_display_group"
     },
     {
+      "type": "begin_data_items",
+      "value": "@data.activite",
+      "parameter_list": "filter: @item.name != @field.activite || @item.name == 'autre1';",
+      "style_list": "display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%; gap: 10px;"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "pricipale",
+      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #FFCC80; border-radius: 12px; background: white; margin-bottom: 10px; overflow: hidden;"
+    },
+    {
       "type": "image",
-      "value": "images/op_coton.jpg",
+      "value": "@item.image",
       "style_list": "width:100px; height:100px; "
     },
     {
-      "type": "begin_radio_list",
-      "value": "@fields.appartenance_coton",
-      "action_list": "changed | set_field : appartenance_coton: this.value;"
+      "name": "v_key",
+      "value": "@calc('sec_ids_' + @item.name)"
     },
     {
-      "type": "begin_data_items",
-      "value": "@data.oui_non"
-    },
-    {
-      "type": "end_data_items"
-    },
-    {
-      "type": "end_radio_list"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.appartenance_coton && @fields.attempt_submit"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "text",
-      "value": "@global.appartenance_cereale_note"
-    },
-    {
-      "type": "audio",
-      "name": "audio_7_2",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/on_op_cereales_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "type": "simple_checkbox",
+      "name": "checkbox",
+      "value": "@field.@local.v_key",
+      "action_list": "changed | set_field:@local.v_key : @local.checkbox;\n",
+      "parameter_list": "label_text: @item.text; reverse: true; ",
       "exclude_from_translation": true,
-      "style_list": "float: right;"
+      "style_list": "margin-bottom: 10px;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "image",
-      "value": "images/op_cereales.jpg",
-      "style_list": "width:100px; height:100px; "
-    },
-    {
-      "type": "begin_radio_list",
-      "value": "@fields.appartenance_cereale",
-      "action_list": "changed | set_field : appartenance_cereale: this.value;"
-    },
-    {
-      "type": "begin_data_items",
-      "value": "@data.oui_non"
-    },
-    {
       "type": "end_data_items"
     },
     {
-      "type": "end_radio_list"
+      "name": "v_sec",
+      "value": "@calc(!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre1)"
+    },
+    {
+      "name": "v_is_autre",
+      "value": "@calc(!!@field.sec_ids_autre1)"
+    },
+    {
+      "type": "text",
+      "value": "Veuillez sélectionner au moins une activité secondaire.",
+      "condition": "@calc(!@local.v_sec)",
+      "style_list": "color: orange; font-size: 12px;"
+    },
+    {
+      "name": "v_doublon_principal",
+      "value": "@calc(!!@field.autre_nom && @field.autre_nom_2 == @field.autre_nom)"
+    },
+    {
+      "name": "v_doublon_3_principal",
+      "value": "@calc(!!@field.autre_nom && @field.autre_nom_3 == @field.autre_nom)"
+    },
+    {
+      "name": "v_doublon_2_3",
+      "value": "@calc(!!@field.autre_nom_2 && @field.autre_nom_3 == @field.autre_nom_2)"
+    },
+    {
+      "name": "v_autre_ok",
+      "value": "@calc(!@local.v_is_autre || (!!@field.autre_nom_2 && !@local.v_doublon_principal && (!@field.show_box3 || (!!@field.autre_nom_3 && !@local.v_doublon_2_3 && !@local.v_doublon_3_principal))))"
+    },
+    {
+      "type": "begin_display_group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
+      "name": "deuxieme",
+      "condition": "@local.v_is_autre == true",
+      "style_list": "display: block; width: 100%\n"
+    },
+    {
+      "type": "audio",
+      "name": "audio_6_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/autre_act_secon_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
     },
     {
       "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.appartenance_cereale && @fields.attempt_submit"
+      "value": "Précisez le nom de l'autre activité secondaire<span style=\"color: red;\">*</span>"
     },
     {
-      "name": "completed_enabled",
-      "value": "@fields.appartenance_cereale && @fields.appartenance_coton"
+      "type": "end_display_group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+    },
+    {
+      "type": "begin_display_group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
+      "condition": "@local.v_is_autre == true",
+      "style_list": "display: block; background: white; margin-bottom: 10px; overflow: hidden; width: 100%; padding: 15px;"
+    },
+    {
+      "type": "text_box",
+      "name": "box_autre_2",
+      "value": "@field.autre_nom_2",
+      "action_list": "changed | set_field: autre_nom_2: this.value;",
+      "parameter_list": "placeholder: Précisez l'activité...",
+      "exclude_from_translation": true,
+      "style_list": "border: none; background: transparent;margin-top: 10px;"
+    },
+    {
+      "type": "text",
+      "value": "Cette activité est déjà votre activité principale.",
+      "condition": "@local.v_doublon_principal",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "text",
+      "value": "La précision est obligatoire.",
+      "condition": "!@field.autre_nom_2 && !@local.v_doublon_principal",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "round_button",
+      "name": "btn_add",
+      "action_list": "click | set_field: show_box3: true;",
+      "parameter_list": "icon_src: add-circle-outline;variant: no-background;",
+      "condition": "!@field.show_box3 && !!@field.autre_nom_2 && !@local.v_doublon_principal",
+      "style_list": "align-self: flex-end;display: flex; margin-bottom: 12px;"
+    },
+    {
+      "type": "text_box",
+      "name": "box_autre_3",
+      "value": "@field.autre_nom_3",
+      "action_list": "changed | set_field: autre_nom_3: this.value;",
+      "parameter_list": "placeholder: Deuxième précision...",
+      "condition": "@field.show_box3 == true",
+      "style_list": "border: none; background: transparent;margin-top: 10px;"
+    },
+    {
+      "type": "text",
+      "value": "Cette activité est déjà votre activité principale.",
+      "condition": "@local.v_doublon_3_principal",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "text",
+      "value": "Les deux activités secondaires doivent être différentes.",
+      "condition": "@local.v_doublon_2_3",
+      "style_list": "color: orange; font-size: 12px;"
+    },
+    {
+      "type": "end_display_group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+    },
+    {
+      "name": "completed_enabled\n",
+      "value": "@calc(@local.v_sec && @local.v_autre_ok)"
     },
     {
       "type": "begin_display_group",
       "name": "dg_footer",
-      "value": " ",
       "parameter_list": "sticky: bottom;",
       "style_list": "padding: 12px 24px;"
     },
     {
       "type": "round_button",
-      "name": "page_7_button_back",
+      "name": "button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "btn_attempt_submit",
+      "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | set_field: attempt_submit: true;",
-      "condition": "!@local.completed_enabled",
-      "style_list": "flex: 1"
-    },
-    {
-      "type": "button",
-      "name": "page_7_button_continue",
-      "value": "@global.btn_continue",
-      "action_list": "click | set_field: attempt_submit: false;\nclick | emit: completed",
+      "action_list": "click | emit: completed",
       "parameter_list": "disabled: !@local.completed_enabled",
-      "condition": "@local.completed_enabled",
       "style_list": "flex: 1"
     },
     {

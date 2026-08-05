@@ -1,0 +1,342 @@
+{
+  "flow_type": "template",
+  "flow_name": "section_screen",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "Choix de la composante",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_2",
+      "_nested_name": "title_2"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"text-align: center; margin-bottom: 20px; color: #555555; font-size: 14px;\"> Veuillez sélectionner la section sur laquelle vous souhaitez travailler : </div>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_3",
+      "_nested_name": "html_3"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "display: flex",
+        "justify-content: center",
+        "align-items: center",
+        "width: 100%",
+        "padding: 10px"
+      ],
+      "rows": [
+        {
+          "type": "radio_button_grid",
+          "name": "section_step",
+          "value": "@fields.section_step",
+          "_translations": {
+            "value": {}
+          },
+          "parameter_list": {
+            "answer_list": "@data.differrentes_sections",
+            "style": "secondary",
+            "item_width": "180px",
+            "grid_gap": "12px"
+          },
+          "_nested_name": "display_group_4.section_step",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.section_step",
+                "matchedExpression": "@fields.section_step",
+                "type": "fields",
+                "fieldName": "section_step"
+              }
+            ],
+            "parameter_list": {
+              "answer_list": [
+                {
+                  "fullExpression": "@data.differrentes_sections",
+                  "matchedExpression": "@data.differrentes_sections",
+                  "type": "data",
+                  "fieldName": "differrentes_sections"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@fields.section_step": [
+              "value"
+            ],
+            "@data.differrentes_sections": [
+              "parameter_list.answer_list"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_4",
+      "_nested_name": "display_group_4"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red; font-size: 13px; text-align: center; display: block;\">Veuillez faire un choix pour continuer !</span>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.attempt_submit && !@fields.section_step",
+      "name": "html_6",
+      "_nested_name": "html_6",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit && !@fields.section_step",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit && !@fields.section_step",
+            "matchedExpression": "!@fields.section_step",
+            "type": "fields",
+            "fieldName": "section_step"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "!@fields.section_step": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "button",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "section_step",
+                "@local.section_step"
+              ],
+              "_raw": "click | set_field: section_step : @local.section_step"
+            },
+            {
+              "trigger": "click",
+              "action_id": "go_to",
+              "args": [
+                "planification_anl"
+              ],
+              "_raw": "click | go_to: planification_anl"
+            }
+          ],
+          "condition": "@local.section_step == 'planification'",
+          "style_list": [
+            "flex: 1",
+            "border-radius: 8px",
+            "font-weight: bold"
+          ],
+          "name": "button_1",
+          "_nested_name": "display_group_7.button_1",
+          "_dynamicFields": {
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.section_step",
+                      "matchedExpression": "@local.section_step",
+                      "type": "local",
+                      "fieldName": "section_step"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: section_step : @local.section_step",
+                    "matchedExpression": "@local.section_step",
+                    "type": "local",
+                    "fieldName": "section_step"
+                  }
+                ]
+              }
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.section_step == 'planification'",
+                "matchedExpression": "@local.section_step",
+                "type": "local",
+                "fieldName": "section_step"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.section_step": [
+              "action_list.0.args.1",
+              "action_list.0._raw",
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "section_step",
+                "@local.section_step"
+              ],
+              "_raw": "click | set_field: section_step : @local.section_step"
+            },
+            {
+              "trigger": "click",
+              "action_id": "go_to",
+              "args": [
+                "suivi_anl"
+              ],
+              "_raw": "click | go_to: suivi_anl"
+            }
+          ],
+          "condition": "@local.section_step == 'suivi'",
+          "style_list": [
+            "flex: 1",
+            "border-radius: 8px",
+            "font-weight: bold"
+          ],
+          "name": "button_2",
+          "_nested_name": "display_group_7.button_2",
+          "_dynamicFields": {
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.section_step",
+                      "matchedExpression": "@local.section_step",
+                      "type": "local",
+                      "fieldName": "section_step"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: section_step : @local.section_step",
+                    "matchedExpression": "@local.section_step",
+                    "type": "local",
+                    "fieldName": "section_step"
+                  }
+                ]
+              }
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.section_step == 'suivi'",
+                "matchedExpression": "@local.section_step",
+                "type": "local",
+                "fieldName": "section_step"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.section_step": [
+              "action_list.0.args.1",
+              "action_list.0._raw",
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "section_step",
+                "@local.section_step"
+              ],
+              "_raw": "click | set_field: section_step : @local.section_step"
+            },
+            {
+              "trigger": "click",
+              "action_id": "go_to",
+              "args": [
+                "evaluation_anl"
+              ],
+              "_raw": "click | go_to: evaluation_anl"
+            }
+          ],
+          "condition": "@local.section_step == 'evaluation'",
+          "name": "button_3",
+          "_nested_name": "display_group_7.button_3",
+          "_dynamicFields": {
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.section_step",
+                      "matchedExpression": "@local.section_step",
+                      "type": "local",
+                      "fieldName": "section_step"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: section_step : @local.section_step",
+                    "matchedExpression": "@local.section_step",
+                    "type": "local",
+                    "fieldName": "section_step"
+                  }
+                ]
+              }
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.section_step == 'evaluation'",
+                "matchedExpression": "@local.section_step",
+                "type": "local",
+                "fieldName": "section_step"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.section_step": [
+              "action_list.0.args.1",
+              "action_list.0._raw",
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_7",
+      "_nested_name": "display_group_7"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/home screen.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/101vhqFeVwFOEXsetLO1RPrKGGmuUw6bUr7kKwaBJwvs"
+  }
+}

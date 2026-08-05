@@ -1,0 +1,53 @@
+{
+  "flow_type": "template",
+  "flow_name": "planification_anl",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "PLANIFICATION ANNUELLE"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_enrolment",
+      "value": "Enrôlement",
+      "action_list": "click | go_to: enrolment",
+      "parameter_list": "module_image_asset: images/ecrire.jpg; nav_image_asset: images/icons/expand_circle_right.png;"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_depenses",
+      "value": "Cultures de l'UPA",
+      "action_list": "click | go_to: cultures",
+      "parameter_list": "module_image_asset: images/cultures.jpg; nav_image_asset: images/icons/expand_circle_right.png; background:  #E8F5E9;"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_humains",
+      "value": "Alimentation Humaine",
+      "action_list": "click | go_to: besoins_humains",
+      "parameter_list": "module_image_asset: images/membres.jpg; nav_image_asset: images/icons/expand_circle_right.png; background: #B3B3B3\n;"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_animaux",
+      "value": "Alimentation Animale",
+      "action_list": "click | go_to: besoins_animaux",
+      "parameter_list": "module_image_asset: images/fourrage.jpg; nav_image_asset: images/icons/expand_circle_right.png; background: #E3F2FD;"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_depenses",
+      "value": "Dépenses de l'UPA",
+      "action_list": "click | go_to: depenses",
+      "parameter_list": "module_image_asset: images/cfa_tot.jpg; nav_image_asset: images/icons/expand_circle_right.png; background: #FFF3E0;"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_fumure",
+      "value": "Fumure organique",
+      "action_list": "click | go_to: section_fumure",
+      "parameter_list": "module_image_asset: images/fumure.jpg; nav_image_asset: images/icons/expand_circle_right.png; background: #f0fdfa; border-left: 4px solid #00adcc;"
+    }
+  ]
+}

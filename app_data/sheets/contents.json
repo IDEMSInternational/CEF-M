@@ -140,19 +140,21 @@
     "cultures_primaires": {
       "flow_type": "data_list",
       "flow_name": "cultures_primaires",
+      "data_list_name": "cultures_primaires",
       "_source": {
         "name": "cef_m sheets",
-        "path": "template/home screen.xlsx",
-        "url": "https://docs.google.com/spreadsheets/d/101vhqFeVwFOEXsetLO1RPrKGGmuUw6bUr7kKwaBJwvs"
+        "path": "template/section_semis_data.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1JIhjbjWlcorGBwu27zBrwsZsTzJBvWRv4dBuPDCtQUw"
       }
     },
     "cultures_secondaires": {
       "flow_type": "data_list",
       "flow_name": "cultures_secondaires",
+      "data_list_name": "cultures_secondaires",
       "_source": {
         "name": "cef_m sheets",
-        "path": "template/home screen.xlsx",
-        "url": "https://docs.google.com/spreadsheets/d/101vhqFeVwFOEXsetLO1RPrKGGmuUw6bUr7kKwaBJwvs"
+        "path": "template/section_semis_data.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1JIhjbjWlcorGBwu27zBrwsZsTzJBvWRv4dBuPDCtQUw"
       }
     },
     "cultures_settings_pages": {
@@ -189,6 +191,15 @@
         "completed_count": {
           "type": "number"
         }
+      }
+    },
+    "differrentes_sections": {
+      "flow_type": "data_list",
+      "flow_name": "differrentes_sections",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/home screen.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/101vhqFeVwFOEXsetLO1RPrKGGmuUw6bUr7kKwaBJwvs"
       }
     },
     "enrolment_settings_pages": {
@@ -328,7 +339,7 @@
     "planif_cultures_primaires": {
       "flow_type": "data_list",
       "flow_name": "planif_cultures_primaires",
-      "data_list_name": "cultures_primaires",
+      "data_list_name": "planif_cultures_primaires",
       "_source": {
         "name": "cef_m sheets",
         "path": "template/Cultures_form_data.xlsx",
@@ -420,16 +431,6 @@
         }
       }
     },
-    "primary_crops": {
-      "flow_type": "data_list",
-      "flow_name": "primary_crops",
-      "data_list_name": "primary_crops",
-      "_source": {
-        "name": "cef_m sheets",
-        "path": "template/section_semis_data.xlsx",
-        "url": "https://docs.google.com/spreadsheets/d/1JIhjbjWlcorGBwu27zBrwsZsTzJBvWRv4dBuPDCtQUw"
-      }
-    },
     "recolte_settings_pages": {
       "flow_type": "data_list",
       "flow_name": "recolte_settings_pages",
@@ -505,8 +506,8 @@
       "data_list_name": "secondary_crops",
       "_source": {
         "name": "cef_m sheets",
-        "path": "template/section_semis_data.xlsx",
-        "url": "https://docs.google.com/spreadsheets/d/1JIhjbjWlcorGBwu27zBrwsZsTzJBvWRv4dBuPDCtQUw"
+        "path": "template/Cultures_form_data.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1hOgBVuKbwkocncQm6TMQG5PcrJ_kIxV3QzxvvdDdXFU"
       }
     },
     "section_fumure_settings_pages": {
@@ -872,6 +873,15 @@
     }
   },
   "template": {
+    "app_menu": {
+      "flow_type": "template",
+      "flow_name": "app_menu",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/home screen.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/101vhqFeVwFOEXsetLO1RPrKGGmuUw6bUr7kKwaBJwvs"
+      }
+    },
     "assitan": {
       "flow_type": "template",
       "flow_name": "assitan",
@@ -1579,6 +1589,15 @@
         "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
       }
     },
+    "enrolment_page20": {
+      "flow_type": "template",
+      "flow_name": "enrolment_page20",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+      }
+    },
     "enrolment_page3": {
       "flow_type": "template",
       "flow_name": "enrolment_page3",
@@ -1642,6 +1661,15 @@
         "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
       }
     },
+    "evaluation_anl": {
+      "flow_type": "template",
+      "flow_name": "evaluation_anl",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/home screen.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/101vhqFeVwFOEXsetLO1RPrKGGmuUw6bUr7kKwaBJwvs"
+      }
+    },
     "fatoumata": {
       "flow_type": "template",
       "flow_name": "fatoumata",
@@ -1672,15 +1700,6 @@
     "home_screen": {
       "flow_type": "template",
       "flow_name": "home_screen",
-      "_source": {
-        "name": "cef_m sheets",
-        "path": "template/home screen.xlsx",
-        "url": "https://docs.google.com/spreadsheets/d/101vhqFeVwFOEXsetLO1RPrKGGmuUw6bUr7kKwaBJwvs"
-      }
-    },
-    "home_screen_old": {
-      "flow_type": "template",
-      "flow_name": "home_screen_old",
       "_source": {
         "name": "cef_m sheets",
         "path": "template/home screen.xlsx",
@@ -1730,6 +1749,15 @@
         "name": "cef_m sheets",
         "path": "template/besoins_animaux_form_sheets.xlsx",
         "url": "https://docs.google.com/spreadsheets/d/1U46sOmNeVPbt-HeQiPvQBjmJoqzQnjrSCBu93Ydt7Iw"
+      }
+    },
+    "planification_anl": {
+      "flow_type": "template",
+      "flow_name": "planification_anl",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/home screen.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/101vhqFeVwFOEXsetLO1RPrKGGmuUw6bUr7kKwaBJwvs"
       }
     },
     "post_semi": {
@@ -1805,15 +1833,6 @@
         "url": "https://docs.google.com/spreadsheets/d/12PZPM4h6d74rSqBrmHZOvENYeVPTI8AAYZmt-zTmsJs"
       }
     },
-    "primaryCrops_screen": {
-      "flow_type": "template",
-      "flow_name": "primaryCrops_screen",
-      "_source": {
-        "name": "cef_m sheets",
-        "path": "template/home screen.xlsx",
-        "url": "https://docs.google.com/spreadsheets/d/101vhqFeVwFOEXsetLO1RPrKGGmuUw6bUr7kKwaBJwvs"
-      }
-    },
     "recolte": {
       "flow_type": "template",
       "flow_name": "recolte",
@@ -1881,15 +1900,6 @@
     "scan_screen": {
       "flow_type": "template",
       "flow_name": "scan_screen",
-      "_source": {
-        "name": "cef_m sheets",
-        "path": "template/home screen.xlsx",
-        "url": "https://docs.google.com/spreadsheets/d/101vhqFeVwFOEXsetLO1RPrKGGmuUw6bUr7kKwaBJwvs"
-      }
-    },
-    "secondaryCrops_screen": {
-      "flow_type": "template",
-      "flow_name": "secondaryCrops_screen",
       "_source": {
         "name": "cef_m sheets",
         "path": "template/home screen.xlsx",
@@ -2014,6 +2024,15 @@
         "url": "https://docs.google.com/spreadsheets/d/1fQOSYFr_w8qiS0xb2teRKp9327qkRMi7RQtUkuCmZCw"
       }
     },
+    "section_screen": {
+      "flow_type": "template",
+      "flow_name": "section_screen",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/home screen.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/101vhqFeVwFOEXsetLO1RPrKGGmuUw6bUr7kKwaBJwvs"
+      }
+    },
     "section_semi": {
       "flow_type": "template",
       "flow_name": "section_semi",
@@ -2063,6 +2082,24 @@
     "section_semi_page13": {
       "flow_type": "template",
       "flow_name": "section_semi_page13",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/section_semis_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1kj3U-JlzVhdPzr3JYksRfo6BjJglZF-FS_dO-yGxY1w"
+      }
+    },
+    "section_semi_page14": {
+      "flow_type": "template",
+      "flow_name": "section_semi_page14",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/section_semis_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1kj3U-JlzVhdPzr3JYksRfo6BjJglZF-FS_dO-yGxY1w"
+      }
+    },
+    "section_semi_page15": {
+      "flow_type": "template",
+      "flow_name": "section_semi_page15",
       "_source": {
         "name": "cef_m sheets",
         "path": "template/section_semis_sheets.xlsx",
@@ -2148,6 +2185,15 @@
         "name": "cef_m sheets",
         "path": "template/besoins_animaux_form_sheets.xlsx",
         "url": "https://docs.google.com/spreadsheets/d/1U46sOmNeVPbt-HeQiPvQBjmJoqzQnjrSCBu93Ydt7Iw"
+      }
+    },
+    "suivi_anl": {
+      "flow_type": "template",
+      "flow_name": "suivi_anl",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/home screen.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/101vhqFeVwFOEXsetLO1RPrKGGmuUw6bUr7kKwaBJwvs"
       }
     },
     "sup_ameliore": {
@@ -2365,15 +2411,6 @@
         "name": "cef_m sheets",
         "path": "template/training/training_sheets.xlsx",
         "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
-      }
-    },
-    "yearCampaign_sreen": {
-      "flow_type": "template",
-      "flow_name": "yearCampaign_sreen",
-      "_source": {
-        "name": "cef_m sheets",
-        "path": "template/home screen.xlsx",
-        "url": "https://docs.google.com/spreadsheets/d/101vhqFeVwFOEXsetLO1RPrKGGmuUw6bUr7kKwaBJwvs"
       }
     },
     "year_selection": {
