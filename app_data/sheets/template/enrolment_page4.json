@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "ACTIVITE PRIMAIRE DE L'UPA",
+      "value": "LOCALITE DE L'UPA",
       "_translations": {
         "value": {}
       },
@@ -13,258 +13,994 @@
       "_nested_name": "title_2"
     },
     {
-      "type": "display_group",
-      "style_list": [
-        "display: block",
-        "width: 100%"
-      ],
-      "rows": [
-        {
-          "type": "audio",
-          "name": "audio/Enrolement_5_1",
-          "parameter_list": {
-            "variant": "button_only",
-            "src": "audio/Enrolement/act_prim_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "float: right"
-          ],
-          "_nested_name": "display_group_3.audio/Enrolement_5_1"
-        },
-        {
-          "type": "html",
-          "value": "Selectionnez l'activité primaire de l’UPA<span style=\"color: red;\">*</span>",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_2",
-          "_nested_name": "display_group_3.html_2"
-        }
-      ],
-      "name": "display_group_3",
-      "_nested_name": "display_group_3"
-    },
-    {
-      "type": "radio_button_grid",
-      "name": "grid_1",
-      "value": "@field.activite",
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit",
       "_translations": {
         "value": {}
       },
+      "type": "set_variable",
+      "_nested_name": "attempt_submit",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.attempt_submit": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "name": "region_text",
+          "value": "@global.nom_region",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_4.region_text",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.nom_region",
+                "matchedExpression": "@global.nom_region",
+                "type": "global",
+                "fieldName": "nom_region"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.nom_region": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_4_1",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/region_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_4.audio_4_1"
+        }
+      ],
+      "name": "display_group_4",
+      "_nested_name": "display_group_4"
+    },
+    {
+      "type": "image",
+      "value": "images/localisation.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:100px",
+        "height:100px"
+      ],
+      "name": "image_6",
+      "_nested_name": "image_6"
+    },
+    {
+      "type": "radio_list",
+      "name": "region_id",
+      "value": "@fields.region_id",
       "action_list": [
         {
           "trigger": "changed",
           "action_id": "set_field",
           "args": [
-            "activite",
+            "region_id",
             "this.value"
           ],
-          "_raw": "changed |set_field: activite: this.value"
+          "_raw": "changed | set_field: region_id: this.value"
         }
-      ],
-      "parameter_list": {
-        "answer_list": "@data.activite",
-        "variant": "flex",
-        "style": "secondary",
-        "item_width": "60px",
-        "grid_gap": "8px"
-      },
-      "_nested_name": "grid_1",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@field.activite",
-            "matchedExpression": "@field.activite",
-            "type": "field",
-            "fieldName": "activite"
-          }
-        ],
-        "parameter_list": {
-          "answer_list": [
-            {
-              "fullExpression": "@data.activite",
-              "matchedExpression": "@data.activite",
-              "type": "data",
-              "fieldName": "activite"
-            }
-          ]
-        }
-      },
-      "_dynamicDependencies": {
-        "@field.activite": [
-          "value"
-        ],
-        "@data.activite": [
-          "parameter_list.answer_list"
-        ]
-      }
-    },
-    {
-      "name": "v_pri",
-      "value": "@calc(!!@field.activite)",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "v_pri",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(!!@field.activite)",
-            "matchedExpression": "!@field.activite",
-            "type": "field",
-            "fieldName": "activite"
-          },
-          {
-            "fullExpression": "@calc(!!@field.activite)",
-            "matchedExpression": "@calc(!!@field.activite)",
-            "type": "calc",
-            "fieldName": "!!@field.activite"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "!@field.activite": [
-          "value"
-        ],
-        "@calc(!!@field.activite)": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "v_autre_pri",
-      "value": "@calc(!!@field.autre_nom)",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "v_autre_pri",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(!!@field.autre_nom)",
-            "matchedExpression": "!@field.autre_nom",
-            "type": "field",
-            "fieldName": "autre_nom"
-          },
-          {
-            "fullExpression": "@calc(!!@field.autre_nom)",
-            "matchedExpression": "@calc(!!@field.autre_nom)",
-            "type": "calc",
-            "fieldName": "!!@field.autre_nom"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "!@field.autre_nom": [
-          "value"
-        ],
-        "@calc(!!@field.autre_nom)": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "display_group",
-      "name": "card_pri",
-      "condition": "@field.activite == 'autre1'",
-      "style_list": [
-        "display: block",
-        "width: 100%"
       ],
       "rows": [
         {
-          "type": "audio",
-          "name": "audio/Enrolement_5_2",
-          "parameter_list": {
-            "variant": "button_only",
-            "src": "audio/Enrolement/autre_act_prim_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "float: right"
-          ],
-          "_nested_name": "card_pri.audio/Enrolement_5_2"
-        },
-        {
-          "type": "html",
-          "value": "Précisez le nom de l'autre activité primaire<span style=\"color: red;\">*</span>",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "clear: none"
-          ],
-          "name": "html_2",
-          "_nested_name": "card_pri.html_2"
-        },
-        {
-          "type": "text_box",
-          "name": "box_autre",
-          "value": "@field.autre_nom",
-          "_translations": {
-            "value": {}
-          },
-          "action_list": [
-            {
-              "trigger": "changed",
-              "action_id": "set_field",
-              "args": [
-                "autre_nom",
-                "this.value"
-              ],
-              "_raw": "changed | set_field: autre_nom: this.value"
-            }
-          ],
-          "parameter_list": {
-            "placeholder": "Précisez le nom de l'autre..."
-          },
-          "style_list": [
-            "width: 100%",
-            "margin-top: 10px"
-          ],
-          "_nested_name": "card_pri.box_autre",
+          "type": "data_items",
+          "value": "@data.region",
+          "rows": [],
+          "name": "data_items_1",
+          "_nested_name": "region_id.data_items_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@field.autre_nom",
-                "matchedExpression": "@field.autre_nom",
-                "type": "field",
-                "fieldName": "autre_nom"
+                "fullExpression": "@data.region",
+                "matchedExpression": "@data.region",
+                "type": "data",
+                "fieldName": "region"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@field.autre_nom": [
+            "@data.region": [
               "value"
             ]
           }
         }
       ],
-      "_nested_name": "card_pri",
+      "_nested_name": "region_id",
       "_dynamicFields": {
-        "condition": [
+        "value": [
           {
-            "fullExpression": "@field.activite == 'autre1'",
-            "matchedExpression": "@field.activite",
-            "type": "field",
-            "fieldName": "activite"
+            "fullExpression": "@fields.region_id",
+            "matchedExpression": "@fields.region_id",
+            "type": "fields",
+            "fieldName": "region_id"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.activite": [
+        "@fields.region_id": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.error_required_answer </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@fields.region_id && @fields.attempt_submit",
+      "_nested_name": "html_text",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.error_required_answer </p>",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@fields.region_id && @fields.attempt_submit",
+            "matchedExpression": "!@fields.region_id",
+            "type": "fields",
+            "fieldName": "region_id"
+          },
+          {
+            "fullExpression": "!@fields.region_id && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "!@fields.region_id": [
+          "condition"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.region_id",
+      "rows": [
+        {
+          "type": "text",
+          "name": "cercle_text",
+          "value": "@global.nom_cercle",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_10.cercle_text",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.nom_cercle",
+                "matchedExpression": "@global.nom_cercle",
+                "type": "global",
+                "fieldName": "nom_cercle"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.nom_cercle": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_4_2",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/cercle_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_10.audio_4_2"
+        }
+      ],
+      "name": "display_group_10",
+      "_nested_name": "display_group_10",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.region_id",
+            "matchedExpression": "@fields.region_id",
+            "type": "fields",
+            "fieldName": "region_id"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.region_id": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "radio_list",
+      "name": "cercle_id",
+      "value": "@fields.cercle_id",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "cercle_id",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: cercle_id: this.value"
+        }
+      ],
+      "condition": "@fields.region_id",
+      "rows": [
+        {
+          "type": "data_items",
+          "value": "@data.cercle_koutiala",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.region_id == 'koutiala'",
+          "name": "data_items_1",
+          "_nested_name": "cercle_id.data_items_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@data.cercle_koutiala",
+                "matchedExpression": "@data.cercle_koutiala",
+                "type": "data",
+                "fieldName": "cercle_koutiala"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.region_id == 'koutiala'",
+                "matchedExpression": "@fields.region_id",
+                "type": "fields",
+                "fieldName": "region_id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@data.cercle_koutiala": [
+              "value"
+            ],
+            "@fields.region_id": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "data_items",
+          "value": "@data.cercle_dioila",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.region_id == 'dioila'",
+          "name": "data_items_2",
+          "_nested_name": "cercle_id.data_items_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@data.cercle_dioila",
+                "matchedExpression": "@data.cercle_dioila",
+                "type": "data",
+                "fieldName": "cercle_dioila"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.region_id == 'dioila'",
+                "matchedExpression": "@fields.region_id",
+                "type": "fields",
+                "fieldName": "region_id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@data.cercle_dioila": [
+              "value"
+            ],
+            "@fields.region_id": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "cercle_id",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.cercle_id",
+            "matchedExpression": "@fields.cercle_id",
+            "type": "fields",
+            "fieldName": "cercle_id"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.region_id",
+            "matchedExpression": "@fields.region_id",
+            "type": "fields",
+            "fieldName": "region_id"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.cercle_id": [
+          "value"
+        ],
+        "@fields.region_id": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.error_required_answer </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@fields.cercle_id && @fields.attempt_submit && @fields.region_id",
+      "_nested_name": "html_text",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.error_required_answer </p>",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@fields.cercle_id && @fields.attempt_submit && @fields.region_id",
+            "matchedExpression": "!@fields.cercle_id",
+            "type": "fields",
+            "fieldName": "cercle_id"
+          },
+          {
+            "fullExpression": "!@fields.cercle_id && @fields.attempt_submit && @fields.region_id",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "!@fields.cercle_id && @fields.attempt_submit && @fields.region_id",
+            "matchedExpression": "@fields.region_id",
+            "type": "fields",
+            "fieldName": "region_id"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "!@fields.cercle_id": [
+          "condition"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "@fields.region_id": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.cercle_id",
+      "rows": [
+        {
+          "type": "text",
+          "name": "commune_text",
+          "value": "@global.nom_commune",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_15.commune_text",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.nom_commune",
+                "matchedExpression": "@global.nom_commune",
+                "type": "global",
+                "fieldName": "nom_commune"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.nom_commune": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_4_3",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/commune_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_15.audio_4_3"
+        }
+      ],
+      "name": "display_group_15",
+      "_nested_name": "display_group_15",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.cercle_id",
+            "matchedExpression": "@fields.cercle_id",
+            "type": "fields",
+            "fieldName": "cercle_id"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.cercle_id": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "radio_list",
+      "name": "commune_id",
+      "value": "@fields.commune_id",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "commune_id",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: commune_id: this.value"
+        }
+      ],
+      "condition": "@fields.cercle_id",
+      "rows": [
+        {
+          "type": "data_items",
+          "value": "@data.commune_koutiala",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.cercle_id  == 'koutiala'",
+          "name": "data_items_1",
+          "_nested_name": "commune_id.data_items_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@data.commune_koutiala",
+                "matchedExpression": "@data.commune_koutiala",
+                "type": "data",
+                "fieldName": "commune_koutiala"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.cercle_id  == 'koutiala'",
+                "matchedExpression": "@fields.cercle_id",
+                "type": "fields",
+                "fieldName": "cercle_id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@data.commune_koutiala": [
+              "value"
+            ],
+            "@fields.cercle_id": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "data_items",
+          "value": "@data.commune_dioila",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.cercle_id == 'dioila'",
+          "name": "data_items_2",
+          "_nested_name": "commune_id.data_items_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@data.commune_dioila",
+                "matchedExpression": "@data.commune_dioila",
+                "type": "data",
+                "fieldName": "commune_dioila"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.cercle_id == 'dioila'",
+                "matchedExpression": "@fields.cercle_id",
+                "type": "fields",
+                "fieldName": "cercle_id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@data.commune_dioila": [
+              "value"
+            ],
+            "@fields.cercle_id": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "commune_id",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.commune_id",
+            "matchedExpression": "@fields.commune_id",
+            "type": "fields",
+            "fieldName": "commune_id"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.cercle_id",
+            "matchedExpression": "@fields.cercle_id",
+            "type": "fields",
+            "fieldName": "cercle_id"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.commune_id": [
+          "value"
+        ],
+        "@fields.cercle_id": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.error_required_answer </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@fields.commune_id && @fields.attempt_submit && @fields.cercle_id",
+      "_nested_name": "html_text",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.error_required_answer </p>",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@fields.commune_id && @fields.attempt_submit && @fields.cercle_id",
+            "matchedExpression": "!@fields.commune_id",
+            "type": "fields",
+            "fieldName": "commune_id"
+          },
+          {
+            "fullExpression": "!@fields.commune_id && @fields.attempt_submit && @fields.cercle_id",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "!@fields.commune_id && @fields.attempt_submit && @fields.cercle_id",
+            "matchedExpression": "@fields.cercle_id",
+            "type": "fields",
+            "fieldName": "cercle_id"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "!@fields.commune_id": [
+          "condition"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "@fields.cercle_id": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.commune_id",
+      "rows": [
+        {
+          "type": "text",
+          "name": "village_text",
+          "value": "@global.nom_village",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_20.village_text",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.nom_village",
+                "matchedExpression": "@global.nom_village",
+                "type": "global",
+                "fieldName": "nom_village"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.nom_village": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_4_4",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/village_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_20.audio_4_4"
+        }
+      ],
+      "name": "display_group_20",
+      "_nested_name": "display_group_20",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.commune_id",
+            "matchedExpression": "@fields.commune_id",
+            "type": "fields",
+            "fieldName": "commune_id"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.commune_id": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "radio_list",
+      "name": "village_id",
+      "value": "@fields.village_id",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "village_id",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: village_id: this.value"
+        }
+      ],
+      "condition": "@fields.commune_id",
+      "rows": [
+        {
+          "type": "data_items",
+          "value": "@data.village_koutiala",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.commune_id  == 'koutiala'",
+          "name": "data_items_1",
+          "_nested_name": "village_id.data_items_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@data.village_koutiala",
+                "matchedExpression": "@data.village_koutiala",
+                "type": "data",
+                "fieldName": "village_koutiala"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.commune_id  == 'koutiala'",
+                "matchedExpression": "@fields.commune_id",
+                "type": "fields",
+                "fieldName": "commune_id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@data.village_koutiala": [
+              "value"
+            ],
+            "@fields.commune_id": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "data_items",
+          "value": "@data.village_molobala",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.commune_id == 'molobala'",
+          "name": "data_items_2",
+          "_nested_name": "village_id.data_items_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@data.village_molobala",
+                "matchedExpression": "@data.village_molobala",
+                "type": "data",
+                "fieldName": "village_molobala"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.commune_id == 'molobala'",
+                "matchedExpression": "@fields.commune_id",
+                "type": "fields",
+                "fieldName": "commune_id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@data.village_molobala": [
+              "value"
+            ],
+            "@fields.commune_id": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "data_items",
+          "value": "@data.village_sinsina",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.commune_id == 'sinsina'",
+          "name": "data_items_3",
+          "_nested_name": "village_id.data_items_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@data.village_sinsina",
+                "matchedExpression": "@data.village_sinsina",
+                "type": "data",
+                "fieldName": "village_sinsina"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.commune_id == 'sinsina'",
+                "matchedExpression": "@fields.commune_id",
+                "type": "fields",
+                "fieldName": "commune_id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@data.village_sinsina": [
+              "value"
+            ],
+            "@fields.commune_id": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "data_items",
+          "value": "@data.village_massigui",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.commune_id == 'massigui'",
+          "name": "data_items_4",
+          "_nested_name": "village_id.data_items_4",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@data.village_massigui",
+                "matchedExpression": "@data.village_massigui",
+                "type": "data",
+                "fieldName": "village_massigui"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.commune_id == 'massigui'",
+                "matchedExpression": "@fields.commune_id",
+                "type": "fields",
+                "fieldName": "commune_id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@data.village_massigui": [
+              "value"
+            ],
+            "@fields.commune_id": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "data_items",
+          "value": "@data.village_banco",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@fields.commune_id == 'banco'",
+          "name": "data_items_5",
+          "_nested_name": "village_id.data_items_5",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@data.village_banco",
+                "matchedExpression": "@data.village_banco",
+                "type": "data",
+                "fieldName": "village_banco"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@fields.commune_id == 'banco'",
+                "matchedExpression": "@fields.commune_id",
+                "type": "fields",
+                "fieldName": "commune_id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@data.village_banco": [
+              "value"
+            ],
+            "@fields.commune_id": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "village_id",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.village_id",
+            "matchedExpression": "@fields.village_id",
+            "type": "fields",
+            "fieldName": "village_id"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.commune_id",
+            "matchedExpression": "@fields.commune_id",
+            "type": "fields",
+            "fieldName": "commune_id"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.village_id": [
+          "value"
+        ],
+        "@fields.commune_id": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.error_required_answer </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@fields.village_id && @fields.attempt_submit && @fields.commune_id",
+      "_nested_name": "html_text",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.error_required_answer </p>",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@fields.village_id && @fields.attempt_submit && @fields.commune_id",
+            "matchedExpression": "!@fields.village_id",
+            "type": "fields",
+            "fieldName": "village_id"
+          },
+          {
+            "fullExpression": "!@fields.village_id && @fields.attempt_submit && @fields.commune_id",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "!@fields.village_id && @fields.attempt_submit && @fields.commune_id",
+            "matchedExpression": "@fields.commune_id",
+            "type": "fields",
+            "fieldName": "commune_id"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "!@fields.village_id": [
+          "condition"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "@fields.commune_id": [
           "condition"
         ]
       }
     },
     {
       "name": "completed_enabled",
-      "value": "@local.v_pri && (@field.activite != 'autre1' || @local.v_autre_pri)",
+      "value": "@fields.village_id && @fields.commune_id && @fields.cercle_id && @fields.region_id",
       "_translations": {
         "value": {}
       },
@@ -273,33 +1009,42 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@local.v_pri && (@field.activite != 'autre1' || @local.v_autre_pri)",
-            "matchedExpression": "@local.v_pri",
-            "type": "local",
-            "fieldName": "v_pri"
+            "fullExpression": "@fields.village_id && @fields.commune_id && @fields.cercle_id && @fields.region_id",
+            "matchedExpression": "@fields.village_id",
+            "type": "fields",
+            "fieldName": "village_id"
           },
           {
-            "fullExpression": "@local.v_pri && (@field.activite != 'autre1' || @local.v_autre_pri)",
-            "matchedExpression": "@field.activite",
-            "type": "field",
-            "fieldName": "activite"
+            "fullExpression": "@fields.village_id && @fields.commune_id && @fields.cercle_id && @fields.region_id",
+            "matchedExpression": "@fields.commune_id",
+            "type": "fields",
+            "fieldName": "commune_id"
           },
           {
-            "fullExpression": "@local.v_pri && (@field.activite != 'autre1' || @local.v_autre_pri)",
-            "matchedExpression": "@local.v_autre_pri",
-            "type": "local",
-            "fieldName": "v_autre_pri"
+            "fullExpression": "@fields.village_id && @fields.commune_id && @fields.cercle_id && @fields.region_id",
+            "matchedExpression": "@fields.cercle_id",
+            "type": "fields",
+            "fieldName": "cercle_id"
+          },
+          {
+            "fullExpression": "@fields.village_id && @fields.commune_id && @fields.cercle_id && @fields.region_id",
+            "matchedExpression": "@fields.region_id",
+            "type": "fields",
+            "fieldName": "region_id"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.v_pri": [
+        "@fields.village_id": [
           "value"
         ],
-        "@field.activite": [
+        "@fields.commune_id": [
           "value"
         ],
-        "@local.v_autre_pri": [
+        "@fields.cercle_id": [
+          "value"
+        ],
+        "@fields.region_id": [
           "value"
         ]
       }
@@ -307,6 +1052,7 @@
     {
       "type": "display_group",
       "name": "dg_footer",
+      "value": "",
       "parameter_list": {
         "sticky": "bottom"
       },
@@ -316,7 +1062,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "button_back",
+          "name": "page_4_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -331,11 +1077,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.button_back"
+          "_nested_name": "dg_footer.page_4_button_back"
         },
         {
           "type": "button",
-          "name": "button_completed",
+          "name": "btn_attempt_submit",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -345,10 +1091,60 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "activite_finale",
-                "@calc(@field.autre_nom ?? @field.activite)"
+                "attempt_submit",
+                true
               ],
-              "_raw": "click | set_field: activite_finale: @calc(@field.autre_nom ?? @field.activite)"
+              "_raw": "click | set_field: attempt_submit: true"
+            }
+          ],
+          "condition": "!@local.completed_enabled",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.btn_attempt_submit",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!@local.completed_enabled",
+                "matchedExpression": "!@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "!@local.completed_enabled": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "name": "page_4_button_continue",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                false
+              ],
+              "_raw": "click | set_field: attempt_submit: false"
             },
             {
               "trigger": "click",
@@ -362,10 +1158,11 @@
           "parameter_list": {
             "disabled": "!@local.completed_enabled"
           },
+          "condition": "@local.completed_enabled",
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.button_completed",
+          "_nested_name": "dg_footer.page_4_button_continue",
           "_dynamicFields": {
             "value": [
               {
@@ -375,52 +1172,6 @@
                 "fieldName": "btn_continue"
               }
             ],
-            "action_list": {
-              "0": {
-                "args": {
-                  "1": [
-                    {
-                      "fullExpression": "@calc(@field.autre_nom ?? @field.activite)",
-                      "matchedExpression": "@field.autre_nom",
-                      "type": "field",
-                      "fieldName": "autre_nom"
-                    },
-                    {
-                      "fullExpression": "@calc(@field.autre_nom ?? @field.activite)",
-                      "matchedExpression": "@field.activite",
-                      "type": "field",
-                      "fieldName": "activite"
-                    },
-                    {
-                      "fullExpression": "@calc(@field.autre_nom ?? @field.activite)",
-                      "matchedExpression": "@calc(@field.autre_nom ?? @field.activite)",
-                      "type": "calc",
-                      "fieldName": "@field.autre_nom ?? @field.activite"
-                    }
-                  ]
-                },
-                "_raw": [
-                  {
-                    "fullExpression": "click | set_field: activite_finale: @calc(@field.autre_nom ?? @field.activite)",
-                    "matchedExpression": "@field.autre_nom",
-                    "type": "field",
-                    "fieldName": "autre_nom"
-                  },
-                  {
-                    "fullExpression": "click | set_field: activite_finale: @calc(@field.autre_nom ?? @field.activite)",
-                    "matchedExpression": "@field.activite",
-                    "type": "field",
-                    "fieldName": "activite"
-                  },
-                  {
-                    "fullExpression": "click | set_field: activite_finale: @calc(@field.autre_nom ?? @field.activite)",
-                    "matchedExpression": "@calc(@field.autre_nom ?? @field.activite)",
-                    "type": "calc",
-                    "fieldName": "@field.autre_nom ?? @field.activite"
-                  }
-                ]
-              }
-            },
             "parameter_list": {
               "disabled": [
                 {
@@ -430,26 +1181,25 @@
                   "fieldName": "completed_enabled"
                 }
               ]
-            }
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.completed_enabled",
+                "matchedExpression": "@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
             ],
-            "@field.autre_nom": [
-              "action_list.0.args.1",
-              "action_list.0._raw"
-            ],
-            "@field.activite": [
-              "action_list.0.args.1",
-              "action_list.0._raw"
-            ],
-            "@calc(@field.autre_nom ?? @field.activite)": [
-              "action_list.0.args.1",
-              "action_list.0._raw"
-            ],
             "!@local.completed_enabled": [
               "parameter_list.disabled"
+            ],
+            "@local.completed_enabled": [
+              "condition"
             ]
           }
         }

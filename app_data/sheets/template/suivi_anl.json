@@ -1,0 +1,113 @@
+{
+  "flow_type": "template",
+  "flow_name": "suivi_anl",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "SUIVI DE CAMPAGNE",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_2",
+      "_nested_name": "title_2"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_superficie",
+      "value": "Superficie Champs",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "superficie"
+          ],
+          "_raw": "click | go_to: superficie"
+        }
+      ],
+      "parameter_list": {
+        "module_image_asset": "images/superf_champ.jpg",
+        "nav_image_asset": "images/icons/expand_circle_right.png"
+      },
+      "_nested_name": "item_superficie"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_semi",
+      "value": "Semis",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "section_semi"
+          ],
+          "_raw": "click | go_to: section_semi"
+        }
+      ],
+      "parameter_list": {
+        "module_image_asset": "images/seeding.png",
+        "nav_image_asset": "images/icons/expand_circle_right.png"
+      },
+      "_nested_name": "item_semi"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_post_semi",
+      "value": "Post Semis",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "post_semi"
+          ],
+          "_raw": "click | go_to: post_semi"
+        }
+      ],
+      "parameter_list": {
+        "module_image_asset": "images/sup_cult.jpg",
+        "nav_image_asset": "images/icons/expand_circle_right.png"
+      },
+      "_nested_name": "item_post_semi"
+    },
+    {
+      "type": "plh_module_list_item",
+      "name": "item_recolte",
+      "value": "Récolte",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "recolte"
+          ],
+          "_raw": "click | go_to: recolte"
+        }
+      ],
+      "parameter_list": {
+        "module_image_asset": "images/ratio_membre_terre.jpg",
+        "nav_image_asset": "images/icons/expand_circle_right.png"
+      },
+      "_nested_name": "item_recolte"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/home screen.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/101vhqFeVwFOEXsetLO1RPrKGGmuUw6bUr7kKwaBJwvs"
+  }
+}

@@ -8,20 +8,20 @@
       "value": "@calc(Number(@field.current_culture_index) + 1)"
     },
     {
-      "name": "v_herbi_fmt",
-      "value": "@calc(/^\\d+$/.test(@field.quantite_herbicide_prelevee))"
+      "name": "v_lab_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.superficie_labouree))"
     },
     {
-      "name": "v_herbi_err",
-      "value": "@calc(!@local.v_herbi_fmt || Number(@field.quantite_herbicide_prelevee) < 0)"
+      "name": "v_lab_err",
+      "value": "@calc(!@local.v_lab_fmt || Number(@field.superficie_labouree) < 0)"
     },
     {
-      "name": "v_cout_herbi_fmt",
-      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_herbicide_prelevee_nonzero))"
+      "name": "v_cout_lab_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_superficie_labouree_nonzero))"
     },
     {
-      "name": "v_cout_herbi_err",
-      "value": "@calc(!@local.v_cout_herbi_fmt || Number(@field.cout_herbicide_prelevee_nonzero) < 0)"
+      "name": "v_cout_lab_err",
+      "value": "@calc(!@local.v_cout_lab_fmt || Number(@field.cout_superficie_labouree_nonzero) < 0)"
     },
     {
       "type": "begin_display_group",
@@ -54,33 +54,33 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"color: #e67e22; font-weight: bold; font-size: 14px; margin-bottom: 10px;\"> HERBICIDAGE PRE-LEVEE</div>"
+      "value": "<div style=\"color: #e67e22; font-weight: bold; font-size: 14px; margin-bottom: 10px;\"> LABOUR PAR PRESTATION </div>"
     },
     {
       "type": "begin_display_group",
-      "name": "grp_quantite_herbicide",
+      "name": "grp_quantite_pnt",
       "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "name": "aud_herbi_fr",
-      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/q_herbicide_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "name": "aud_pnt_fr",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/sup_labour_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
       "type": "html",
-      "value": "<span style=\"color: red;\">*</span> Quantité herbicide pré-levé (flacon)",
+      "value": "<span style=\"color: red;\">*</span> Superficie labourée par prestation (ha)",
       "style_list": "font-weight: bold;"
     },
     {
       "type": "text",
-      "value": "*Mettez 0 si aucun herbicide pré-levé*",
+      "value": "*Mettez 0 si aucune superficie*  <span style=\"font-size: 12px; color: gray;\"></span>",
       "style_list": "font-size: 14px; color: gray;"
     },
     {
       "type": "image",
-      "value": "images/flacon.jpg",
+      "value": "images/superf_unit.jpg",
       "style_list": "width: 80%; object-fit: contain;"
     },
     {
@@ -88,33 +88,33 @@
     },
     {
       "type": "text_box",
-      "name": "quantite_herbicide_prelevee",
-      "value": "@field.quantite_herbicide_prelevee",
-      "action_list": "changed | set_field: quantite_herbicide_prelevee: this.value;",
-      "parameter_list": "number_input: true;\n\nplaceholder: Nombre de flacons;"
+      "name": "superficie_labouree",
+      "value": "@field.superficie_labouree",
+      "action_list": "changed | set_field: superficie_labouree: this.value;",
+      "parameter_list": "number_input: true;"
     },
     {
       "type": "text",
       "value": "Mettez une valeur positive<span style=\"font-size:11px;\"></span>",
-      "condition": "@local.v_herbi_err",
+      "condition": "@local.v_lab_err",
       "style_list": "font-size: 12px; color: red;"
     },
     {
       "type": "begin_display_group",
-      "name": "cout_herbicide_zero",
-      "condition": "@calc(Number(@field.quantite_herbicide_prelevee) == 0)",
+      "name": "cout_labour_zero",
+      "condition": "@calc(Number(@field.superficie_labouree) == 0)",
       "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
       "name": "aud_chaux_z_fr",
-      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_herbicide_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_labour_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
       "type": "html",
-      "value": "Coût herbicide pré-levé (Dram) ",
+      "value": "Coût labour par prestation (Dram) <span style=\"font-size: 14px; color: #555;\"></span>",
       "style_list": "font-weight: bold;"
     },
     {
@@ -134,7 +134,7 @@
     },
     {
       "type": "text",
-      "value": "Coût bloqué à 0 car aucun herbicide pré-levé utilisé",
+      "value": "Coût bloqué à 0 car aucun labour par prestation",
       "style_list": "font-size: 12px; color: #999;"
     },
     {
@@ -142,20 +142,20 @@
     },
     {
       "type": "begin_display_group",
-      "name": "cout_herbicide_nonzero",
-      "condition": "@calc(Number(@field.quantite_herbicide_prelevee) > 0)",
+      "name": "cout_labour_nonzero",
+      "condition": "@calc(Number(@field.superficie_labouree) > 0)",
       "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "name": "aud_herbi_nz_fr",
-      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_herbicide_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "name": "aud_lab_nz_fr",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_labour_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
       "type": "html",
-      "value": "<span style=\"color: red;\">*</span> Coût herbicide pré-levé (Dram) <br>",
+      "value": "<span style=\"color: red;\">*</span> Coût labour par prestation (Dram) <span style=\"font-size: 14px; color: #555;\"></span>",
       "style_list": "font-weight: bold;"
     },
     {
@@ -170,31 +170,31 @@
     },
     {
       "type": "text_box",
-      "name": "cout_herbicide_prelevee_nonzero",
-      "value": "@field.cout_herbicide_prelevee_nonzero",
-      "action_list": "changed | set_field: cout_herbicide_prelevee_nonzero: this.value;",
+      "name": "cout_superficie_labouree_nonzero",
+      "value": "@field.cout_superficie_labouree_nonzero",
+      "action_list": "changed | set_field: cout_superficie_labouree_nonzero: this.value;",
       "parameter_list": "number_input: true;\n\nplaceholder: Montant en Dram;"
     },
     {
       "type": "text",
-      "value": "Mettez une valeur positive.<br>",
-      "condition": "@local.v_cout_herbi_err",
+      "value": "Mettez une valeur positive.<br><span style=\"font-size:11px;\"></span>",
+      "condition": "@local.v_cout_lab_err",
       "style_list": "font-size: 12px; color: red;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "name": "v_val_herbi_nz",
-      "value": "@calc(Number(@field.cout_herbicide_prelevee_nonzero) || 0)"
+      "name": "v_val_lab_nz",
+      "value": "@calc(Number(@field.cout_superficie_labouree_nonzero) || 0)"
     },
     {
-      "name": "v_final_herbi",
-      "value": "@calc(Number(@field.quantite_herbicide_prelevee) == 0 ? 0 : @local.v_val_herbi_nz)"
+      "name": "v_final_lab",
+      "value": "@calc(Number(@field.superficie_labouree) == 0 ? 0 : @local.v_val_lab_nz)"
     },
     {
-      "name": "v_page8_valid",
-      "value": "@calc(@local.v_herbi_fmt && Number(@field.quantite_herbicide_prelevee) >= 0 && (Number(@field.quantite_herbicide_prelevee) == 0 || (@local.v_cout_herbi_fmt && Number(@field.cout_herbicide_prelevee_nonzero) >= 0)))"
+      "name": "v_page6_valid",
+      "value": "@calc(@local.v_lab_fmt && Number(@field.superficie_labouree) >= 0 && (Number(@field.superficie_labouree) == 0 || (@local.v_cout_lab_fmt && Number(@field.cout_superficie_labouree_nonzero) >= 0)))"
     },
     {
       "type": "begin_display_group",
@@ -212,8 +212,8 @@
       "type": "button",
       "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | set_field: cout_herbicide_prelevee : @local.v_final_herbi;\n\nclick | emit: completed;",
-      "parameter_list": "style: navigation;\n\ndisabled: !@local.v_page8_valid",
+      "action_list": "click | set_field: cout_superficie_labouree : @local.v_final_lab;\n\nclick | emit: completed;",
+      "parameter_list": "style: navigation;\n\ndisabled: !@local.v_page6_valid",
       "style_list": "flex: 1"
     },
     {

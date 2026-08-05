@@ -5,41 +5,245 @@
   "rows": [
     {
       "type": "title",
-      "name": "page_title",
-      "value": "FIN DU FORMULAIRE",
+      "value": "BILAN GLOBAL DES SEMIS",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "page_title"
+      "name": "title_2",
+      "_nested_name": "title_2"
     },
     {
-      "type": "text",
-      "name": "note_fin",
-      "value": "@global.note_fin",
+      "name": "montant",
+      "value": "@calc(Number(@field.grand_total_semis|| 0))",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "note_fin",
+      "type": "set_variable",
+      "_nested_name": "montant",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.note_fin",
-            "matchedExpression": "@global.note_fin",
-            "type": "global",
-            "fieldName": "note_fin"
+            "fullExpression": "@calc(Number(@field.grand_total_semis|| 0))",
+            "matchedExpression": "@field.grand_total_semis",
+            "type": "field",
+            "fieldName": "grand_total_semis"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.grand_total_semis|| 0))",
+            "matchedExpression": "@calc(Number(@field.grand_total_semis|| 0))",
+            "type": "calc",
+            "fieldName": "Number(@field.grand_total_semis|| 0)"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.note_fin": [
+        "@field.grand_total_semis": [
+          "value"
+        ],
+        "@calc(Number(@field.grand_total_semis|| 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "montant_cfa",
+      "value": "@calc(@local.montant * 5)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "montant_cfa",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@local.montant * 5)",
+            "matchedExpression": "@local.montant",
+            "type": "local",
+            "fieldName": "montant"
+          },
+          {
+            "fullExpression": "@calc(@local.montant * 5)",
+            "matchedExpression": "@calc(@local.montant * 5)",
+            "type": "calc",
+            "fieldName": "@local.montant * 5"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.montant": [
+          "value"
+        ],
+        "@calc(@local.montant * 5)": [
           "value"
         ]
       }
     },
     {
       "type": "display_group",
+      "name": "final_grp",
+      "style_list": [
+        "background: #00adcc",
+        "padding: 25px",
+        "border-radius: 0 0 25px 25px",
+        "margin-bottom: 20px",
+        "text-align: center"
+      ],
+      "rows": [
+        {
+          "type": "html",
+          "value": "<div style=\"color: black; text-transform: uppercase; font-size: 12px; letter-spacing: 2px;\">Total Investi (Semis)</div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "final_grp.html_1"
+        },
+        {
+          "type": "html",
+          "value": "<div style=\"font-size: 36px; font-weight: bold; color: white; margin: 10px 0;\">@local.montant<span style=\"font-size: 18px;\">Dram</span></div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "final_grp.html_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"font-size: 36px; font-weight: bold; color: white; margin: 10px 0;\">@local.montant<span style=\"font-size: 18px;\">Dram</span></div>",
+                "matchedExpression": "@local.montant",
+                "type": "local",
+                "fieldName": "montant"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.montant": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "html",
+          "value": "<div style=\"background: rgba(255,255,255,0.1); padding: 8px 15px; border-radius: 20px; display: inline-block; color: white; font-weight: bold;\">≈ @local.montant_cfa FCFA</div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_3",
+          "_nested_name": "final_grp.html_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"background: rgba(255,255,255,0.1); padding: 8px 15px; border-radius: 20px; display: inline-block; color: white; font-weight: bold;\">≈ @local.montant_cfa FCFA</div>",
+                "matchedExpression": "@local.montant_cfa",
+                "type": "local",
+                "fieldName": "montant_cfa"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.montant_cfa": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "final_grp"
+    },
+    {
+      "type": "display_group",
+      "name": "cultures_list",
+      "style_list": [
+        "padding: 20px"
+      ],
+      "rows": [
+        {
+          "type": "html",
+          "value": "<h4 style=\"color: #e3a730; border-bottom: 1px solid #eee; padding-bottom: 10px;\">Cultures enregistrées</h4>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "cultures_list.html_1"
+        },
+        {
+          "type": "text",
+          "value": "@field.selected_cultures_list",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: #666",
+            "font-style: italic",
+            "margin-top: 5px"
+          ],
+          "name": "text_2",
+          "_nested_name": "cultures_list.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.selected_cultures_list",
+                "matchedExpression": "@field.selected_cultures_list",
+                "type": "field",
+                "fieldName": "selected_cultures_list"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.selected_cultures_list": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "cultures_list"
+    },
+    {
+      "style_list": [
+        "margin: 20px",
+        "padding: 20px",
+        "background: #FFF9F2",
+        "border-radius: 15px",
+        "border: 1px dashed #FFCC80"
+      ],
+      "type": "set_variable",
+      "name": "set_variable_9",
+      "_nested_name": "set_variable_9"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: #E65100; font-weight: bold;\">Votre avis nous intéresse</span>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_10",
+      "_nested_name": "html_10"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"font-size: 13px; color: #6D4C41;\">Le formulaire était-il facile à utiliser ? Enregistrez votre avis :</p>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_11",
+      "_nested_name": "html_11"
+    },
+    {
+      "type": "image",
+      "value": "images/vocal.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 50px",
+        "float: left",
+        "margin-right: 10px"
+      ],
+      "name": "image_12",
+      "_nested_name": "image_12"
+    },
+    {
+      "type": "display_group",
       "name": "dg_footer",
-      "value": "",
       "parameter_list": {
         "sticky": "bottom"
       },
@@ -49,7 +253,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_21_button_back",
+          "name": "button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -64,11 +268,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_21_button_back"
+          "_nested_name": "dg_footer.button_back"
         },
         {
           "type": "button",
-          "name": "page_21_button_continue",
+          "name": "button_completed",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -81,20 +285,15 @@
                 "completed"
               ],
               "_raw": "click | emit: completed"
-            },
-            {
-              "trigger": "click",
-              "action_id": "go_to",
-              "args": [
-                "home_screen"
-              ],
-              "_raw": "click | go_to: home_screen"
             }
           ],
+          "parameter_list": {
+            "style": "navigation"
+          },
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_21_button_continue",
+          "_nested_name": "dg_footer.button_completed",
           "_dynamicFields": {
             "value": [
               {

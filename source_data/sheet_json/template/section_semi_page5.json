@@ -8,20 +8,20 @@
       "value": "@calc(Number(@field.current_culture_index) + 1)"
     },
     {
-      "name": "v_pnt_fmt",
-      "value": "@calc(/^\\d+$/.test(@field.quantite_pnt_png))"
+      "name": "v_fum_fmt",
+      "value": "@calc(/^\\d+$/.test(@field.quantite_fumure_organique))"
     },
     {
-      "name": "v_pnt_err",
-      "value": "@calc(!@local.v_pnt_fmt || Number(@field.quantite_pnt_png) < 0)"
+      "name": "v_fum_err",
+      "value": "@calc(!@local.v_fum_fmt || Number(@field.quantite_fumure_organique) < 0)"
     },
     {
-      "name": "v_cout_pnt_fmt",
-      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_pnt_png_nonzero))"
+      "name": "v_trans_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_transport_nonzero))"
     },
     {
-      "name": "v_cout_pnt_err",
-      "value": "@calc(!@local.v_cout_pnt_fmt || Number(@field.cout_pnt_png_nonzero) < 0)"
+      "name": "v_trans_err",
+      "value": "@calc(!@local.v_trans_fmt || Number(@field.cout_transport_nonzero) < 0)"
     },
     {
       "type": "begin_display_group",
@@ -54,33 +54,33 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"color: #e67e22; font-weight: bold; font-size: 14px; margin-bottom: 10px;\">APPORT PNT/PNG </div>"
+      "value": "<div style=\"color: #e67e22; font-weight: bold; font-size: 14px; margin-bottom: 10px;\">APPORT FUMURE ORGANIQUE</div>"
     },
     {
       "type": "begin_display_group",
-      "name": "grp_quantite_pnt",
+      "name": "grp_quantite_fumure",
       "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "name": "aud_pnt_fr",
-      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/q_pnt_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "name": "aud_prod",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/Q_fumure_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
       "type": "html",
-      "value": "<span style=\"color: red;\">*</span> Quantité PNT/PNG (sac) </span>",
+      "value": "<span style=\"color: red;\">*</span> Quantité de fumure organique (charretée)",
       "style_list": "font-weight: bold;"
     },
     {
       "type": "text",
-      "value": "*Mettez 0 si aucun PNT*  <span style=\"font-size: 12px; color: gray;\"></span>",
+      "value": "*Mettez 0 si aucune fumure organique* <br> <span style=\"font-size: 12px; color: gray;\"></span>",
       "style_list": "font-size: 14px; color: gray;"
     },
     {
       "type": "image",
-      "value": "images/sac.jpg",
+      "value": "images/charrette.jpg",
       "style_list": "width: 80%; object-fit: contain;"
     },
     {
@@ -88,33 +88,33 @@
     },
     {
       "type": "text_box",
-      "name": "quantite_pnt_png",
-      "value": "@field.quantite_pnt_png",
-      "action_list": "changed | set_field: quantite_pnt_png: this.value;",
-      "parameter_list": "number_input: true;\n\nplaceholder: Nombre de sacs;"
+      "name": "quantite_fumure_organique",
+      "value": "@field.quantite_fumure_organique",
+      "action_list": "changed | set_field: quantite_fumure_organique: this.value;",
+      "parameter_list": "number_input: true;\n\nplaceholder: Nombre de charretées;"
     },
     {
       "type": "text",
-      "value": "Mettez une valeur positive<span style=\"font-size:11px;\"></span>",
-      "condition": "@local.v_pnt_err",
+      "value": "Mettez une valeur positive.<br><span style=\"font-size:11px;\"></span>",
+      "condition": "@local.v_fum_err",
       "style_list": "font-size: 12px; color: red;"
     },
     {
       "type": "begin_display_group",
-      "name": "cout_chaux_zero",
-      "condition": "@calc(Number(@field.quantite_pnt_png) == 0)",
+      "name": "cout_trans_zero",
+      "condition": "@calc(Number(@field.quantite_fumure_organique) == 0)",
       "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "name": "aud_chaux_z_fr",
-      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_pnt_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "name": "aud_trans_z_fr",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_transport_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
       "type": "html",
-      "value": "Coût PNT/PNG (Dram) <span style=\"font-size: 14px; color: #555;\"></span>",
+      "value": "Coût transport de fumure organique (Dram) <br> <span style=\"font-size: 14px; color: #555;\"></span>",
       "style_list": "font-weight: bold;"
     },
     {
@@ -134,7 +134,7 @@
     },
     {
       "type": "text",
-      "value": "Coût bloqué à 0 car aucun PNT/PNG apporté",
+      "value": "Coût bloqué à 0 car aucune fumure organique apportée",
       "style_list": "font-size: 12px; color: #999;"
     },
     {
@@ -142,20 +142,20 @@
     },
     {
       "type": "begin_display_group",
-      "name": "cout_chaux_nonzero",
-      "condition": "@calc(Number(@field.quantite_pnt_png) > 0)",
+      "name": "cout_trans_nonzero",
+      "condition": "@calc(Number(@field.quantite_fumure_organique) > 0)",
       "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "name": "aud_chaux_nz_fr",
-      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_pnt_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "name": "aud_trans_z_fr",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_transport_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
       "type": "html",
-      "value": "<span style=\"color: red;\">*</span> Coût PNT/PNG (Dram) <span style=\"font-size: 14px; color: #555;\"></span>",
+      "value": "Coût transport de fumure organique (Dram) <br> <span style=\"font-size: 14px; color: #555;\"></span>",
       "style_list": "font-weight: bold;"
     },
     {
@@ -170,31 +170,31 @@
     },
     {
       "type": "text_box",
-      "name": "cout_pnt_png_nonzero",
-      "value": "@field.cout_pnt_png_nonzero",
-      "action_list": "changed | set_field: cout_pnt_png_nonzero: this.value;",
+      "name": "cout_transport_nonzero",
+      "value": "@field.cout_transport_nonzero",
+      "action_list": "changed | set_field: cout_transport_nonzero : this.value;",
       "parameter_list": "number_input: true;\n\nplaceholder: Montant en Dram;"
     },
     {
       "type": "text",
       "value": "Mettez une valeur positive.<br><span style=\"font-size:11px;\"></span>",
-      "condition": "@local.v_cout_pnt_err",
+      "condition": "@local.v_trans_err",
       "style_list": "font-size: 12px; color: red;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "name": "v_val_pnt_nz",
-      "value": "@calc(Number(@field.cout_pnt_png_nonzero) || 0)"
+      "name": "v_val_trans_nz",
+      "value": "@calc(Number(@field.cout_transport_nonzero) || 0)"
     },
     {
-      "name": "v_final_pnt",
-      "value": "@calc(Number(@field.quantite_pnt_png) == 0 ? 0 : @local.v_val_pnt_nz)"
+      "name": "v_final_trans",
+      "value": "@calc(Number(@field.quantite_fumure_organique) == 0 ? 0 : @local.v_val_trans_nz)"
     },
     {
-      "name": "v_page5_valid",
-      "value": "@calc(@local.v_pnt_fmt && Number(@field.quantite_pnt_png) >= 0 && (Number(@field.quantite_pnt_png) == 0 || (@local.v_cout_pnt_fmt && Number(@field.cout_pnt_png_nonzero) >= 0)))"
+      "name": "v_page3_valid",
+      "value": "@calc(@local.v_fum_fmt && Number(@field.quantite_fumure_organique) >= 0 && (Number(@field.quantite_fumure_organique) == 0 || (@local.v_trans_fmt && Number(@field.cout_transport_nonzero) >= 0)))"
     },
     {
       "type": "begin_display_group",
@@ -212,8 +212,8 @@
       "type": "button",
       "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | set_field: cout_pnt_png : @local.v_final_pnt;\n\nclick | emit: completed;",
-      "parameter_list": "style: navigation;\n\ndisabled: !@local.v_page5_valid",
+      "action_list": "click | set_field: cout_transport : @local.v_final_trans;\n\nclick | emit: completed;",
+      "parameter_list": "style: navigation;\n\ndisabled: !@local.v_page3_valid",
       "style_list": "flex: 1"
     },
     {

@@ -4,94 +4,42 @@
   "status": "released",
   "rows": [
     {
-      "type": "plh_module_details_header",
+      "type": "image",
+      "value": "images/background_app.png",
+      "style_list": "width: 100vw; height: auto; object-fit: cover; object-position: center top; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%); position: relative; top: 0; z-index: 0; border-bottom-left-radius: 40px; border-bottom-right-radius: 40px;"
+    },
+    {
+      "type": "title",
       "value": "CEF-M",
-      "parameter_list": "background: #00adcc; hide_back_button: true; color: white;"
+      "style_list": "text-align: center;"
     },
     {
-      "type": "plh_module_list_item",
-      "name": "item_enrolment",
-      "value": "Scanner QR code ",
+      "type": "html",
+      "value": "<div style=\"text-align:center; font-family:Arial, sans-serif; padding:20px;\"> <h2 style=\"color:#2E7D32; margin-top:20px;\"> Bienvenue ! Aw Bissimilla !</h2> <p style=\"font-size:16px; color:#555;\"> Des estimations de meilleure qualité pour de meilleures décisions agricoles </p> </div>\t\t\t\t\t\t\t"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: flex; justify-content: center; align-items: center; width: 100%; flex-direction: column; margin-top: 10px;"
+    },
+    {
+      "type": "begin_button",
+      "value": "Scanner QR code",
       "action_list": "click | go_to: scan_screen",
-      "parameter_list": "module_image_asset: images/bienvenue.png; nav_image_asset: images/icons/expand_circle_right.png; background: #BFBFBD\n"
+      "parameter_list": "variant: card-portrait; image_asset: images/qr_code.jpg;button_align: centre; style: flexible"
     },
     {
-      "type": "plh_module_list_item",
-      "name": "item_enrolment",
-      "value": "Enrôlement",
-      "action_list": "click | go_to: enrolment",
-      "parameter_list": "module_image_asset: images/ecrire.jpg; nav_image_asset: images/icons/expand_circle_right.png;"
+      "type": "end_button"
     },
     {
-      "type": "title",
-      "value": "PLANIFICATION ANNUELLE"
+      "type": "end_display_group"
     },
     {
-      "type": "plh_module_list_item",
-      "name": "item_depenses",
-      "value": "Cultures de l'UPA",
-      "action_list": "click | go_to: cultures",
-      "parameter_list": "module_image_asset: images/cultures.jpg; nav_image_asset: images/icons/expand_circle_right.png; background:  #E8F5E9;"
+      "type": "begin_display_group",
+      "parameter_list": "sticky: bottom;\nvariant: inline_padding;\nbackground_image_asset: images/bottom_image.svg;\nbackground_image_position: bottom left;",
+      "style_list": "width:500px; height:150px; "
     },
     {
-      "type": "plh_module_list_item",
-      "name": "item_humains",
-      "value": "Alimentation Humaine",
-      "action_list": "click | go_to: besoins_humains",
-      "parameter_list": "module_image_asset: images/membres.jpg; nav_image_asset: images/icons/expand_circle_right.png; background: #E8F5E9;"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_animaux",
-      "value": "Alimentation Animale",
-      "action_list": "click | go_to: besoins_animaux",
-      "parameter_list": "module_image_asset: images/fourrage.jpg; nav_image_asset: images/icons/expand_circle_right.png; background: #E3F2FD;"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_depenses",
-      "value": "Dépenses de l'UPA",
-      "action_list": "click | go_to: depenses",
-      "parameter_list": "module_image_asset: images/cfa_tot.jpg; nav_image_asset: images/icons/expand_circle_right.png; background: #FFF3E0;"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_fumure",
-      "value": "Fumure organique",
-      "action_list": "click | go_to: section_fumure",
-      "parameter_list": "module_image_asset: images/fumure.jpg; nav_image_asset: images/icons/expand_circle_right.png; background: #f0fdfa; border-left: 4px solid #00adcc;"
-    },
-    {
-      "type": "title",
-      "value": "SUIVI DE CAMPAGNE"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_superficie",
-      "value": "Superficie Champs",
-      "action_list": "click | go_to: superficie",
-      "parameter_list": "module_image_asset: images/superf_champ.jpg; nav_image_asset: images/icons/expand_circle_right.png;"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_semi",
-      "value": "Semis",
-      "action_list": "click | go_to: section_semi",
-      "parameter_list": "module_image_asset: images/seeding.png; nav_image_asset: images/icons/expand_circle_right.png;"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_post_semi",
-      "value": "Post Semis",
-      "action_list": "click | go_to: post_semi",
-      "parameter_list": "module_image_asset: images/sup_cult.jpg; nav_image_asset: images/icons/expand_circle_right.png;"
-    },
-    {
-      "type": "plh_module_list_item",
-      "name": "item_recolte",
-      "value": "Récolte",
-      "action_list": "click | go_to: recolte",
-      "parameter_list": "module_image_asset: images/ratio_membre_terre.jpg; nav_image_asset: images/icons/expand_circle_right.png;"
+      "type": "end_display_group"
     }
   ]
 }

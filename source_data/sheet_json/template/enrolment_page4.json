@@ -5,92 +5,235 @@
   "rows": [
     {
       "type": "title",
-      "value": " ACTIVITE PRIMAIRE DE L'UPA"
+      "value": "LOCALITE DE L'UPA"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit"
     },
     {
-      "type": "audio",
-      "name": "audio/Enrolement_5_1",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/act_prim_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
+      "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "Selectionnez l'activité primaire de l’UPA<span style=\"color: red;\">*</span>"
-    },
-    {
-      "type": "end_display_group\n"
-    },
-    {
-      "type": "radio_button_grid",
-      "name": "grid_1",
-      "value": "@field.activite",
-      "action_list": "changed |set_field: activite: this.value; ",
-      "parameter_list": "answer_list: @data.activite;\nvariant: flex;\nstyle: secondary;\nitem_width: 60px;\ngrid_gap: 8px;"
-    },
-    {
-      "name": "v_pri",
-      "value": "@calc(!!@field.activite)"
-    },
-    {
-      "type": "begin_display_group",
-      "name": "card_pri",
-      "condition": "@field.activite == 'autre1'",
-      "style_list": "display: block; width: 100%"
+      "type": "text",
+      "name": "region_text",
+      "value": "@global.nom_region"
     },
     {
       "type": "audio",
-      "name": "audio/Enrolement_5_2",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/autre_act_prim_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
-    },
-    {
-      "type": "html",
-      "value": "Précisez le nom de l'autre activité primaire<span style=\"color: red;\">*</span>",
-      "style_list": "clear: none;"
-    },
-    {
-      "type": "text_box",
-      "name": "box_autre",
-      "value": "@field.autre_nom",
-      "action_list": "changed | set_field: autre_nom: this.value;",
-      "parameter_list": "placeholder: Précisez le nom de l'autre...;",
-      "style_list": "width: 100%; margin-top: 10px;"
-    },
-    {
-      "name": "v_autre_pri",
-      "value": "@calc(!!@field.autre_nom)"
+      "name": "audio_4_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/region_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
     },
     {
       "type": "end_display_group"
     },
     {
+      "type": "image",
+      "value": "images/localisation.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "begin_radio_list",
+      "name": "region_id",
+      "value": "@fields.region_id",
+      "action_list": "changed | set_field: region_id: this.value;"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.region"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_radio_list"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.error_required_answer </p>",
+      "condition": "!@fields.region_id && @fields.attempt_submit"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.region_id "
+    },
+    {
+      "type": "text",
+      "name": "cercle_text",
+      "value": "@global.nom_cercle"
+    },
+    {
+      "type": "audio",
+      "name": "audio_4_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/cercle_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_radio_list",
+      "name": "cercle_id",
+      "value": "@fields.cercle_id",
+      "action_list": "changed | set_field: cercle_id: this.value;",
+      "condition": "@fields.region_id "
+    },
+    {
+      "type": "data_items",
+      "value": "@data.cercle_koutiala",
+      "condition": "@fields.region_id == 'koutiala'"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.cercle_dioila",
+      "condition": "@fields.region_id == 'dioila'"
+    },
+    {
+      "type": "end_radio_list"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.error_required_answer </p>",
+      "condition": "!@fields.cercle_id && @fields.attempt_submit && @fields.region_id "
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.cercle_id "
+    },
+    {
+      "type": "text",
+      "name": "commune_text",
+      "value": "@global.nom_commune"
+    },
+    {
+      "type": "audio",
+      "name": "audio_4_3",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/commune_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_radio_list",
+      "name": "commune_id",
+      "value": "@fields.commune_id ",
+      "action_list": "changed | set_field: commune_id: this.value;",
+      "condition": "@fields.cercle_id"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.commune_koutiala",
+      "condition": "@fields.cercle_id  == 'koutiala'"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.commune_dioila",
+      "condition": "@fields.cercle_id == 'dioila'"
+    },
+    {
+      "type": "end_radio_list"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.error_required_answer </p>",
+      "condition": "!@fields.commune_id && @fields.attempt_submit && @fields.cercle_id "
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.commune_id "
+    },
+    {
+      "type": "text",
+      "name": "village_text",
+      "value": "@global.nom_village"
+    },
+    {
+      "type": "audio",
+      "name": "audio_4_4",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/village_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_radio_list",
+      "name": "village_id",
+      "value": "@fields.village_id ",
+      "action_list": "changed | set_field: village_id: this.value;",
+      "condition": "@fields.commune_id "
+    },
+    {
+      "type": "data_items",
+      "value": "@data.village_koutiala",
+      "condition": "@fields.commune_id  == 'koutiala'"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.village_molobala",
+      "condition": "@fields.commune_id == 'molobala'"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.village_sinsina",
+      "condition": "@fields.commune_id == 'sinsina'"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.village_massigui",
+      "condition": "@fields.commune_id == 'massigui'"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.village_banco",
+      "condition": "@fields.commune_id == 'banco'"
+    },
+    {
+      "type": "end_radio_list"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.error_required_answer </p>",
+      "condition": "!@fields.village_id && @fields.attempt_submit && @fields.commune_id "
+    },
+    {
       "name": "completed_enabled",
-      "value": "@local.v_pri && (@field.activite != 'autre1' || @local.v_autre_pri)"
+      "value": "@fields.village_id && @fields.commune_id && @fields.cercle_id && @fields.region_id"
     },
     {
       "type": "begin_display_group",
       "name": "dg_footer",
+      "value": " ",
       "parameter_list": "sticky: bottom;",
       "style_list": "padding: 12px 24px;"
     },
     {
       "type": "round_button",
-      "name": "button_back",
+      "name": "page_4_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "button_completed",
+      "name": "btn_attempt_submit",
       "value": "@global.btn_continue",
-      "action_list": "click | set_field: activite_finale: @calc(@field.autre_nom ?? @field.activite); \nclick | emit: completed;",
+      "action_list": "click | set_field: attempt_submit: true;",
+      "condition": "!@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "button",
+      "name": "page_4_button_continue",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: attempt_submit: false;\nclick | emit: completed",
       "parameter_list": "disabled: !@local.completed_enabled",
+      "condition": "@local.completed_enabled",
       "style_list": "flex: 1"
     },
     {

@@ -4,36 +4,28 @@
   "status": "released",
   "rows": [
     {
-      "name": "v_total_drm",
-      "value": "@calc(Number(@field.cout_pnt_png || 0) + Number(@field.cout_superficie_labouree || 0) + Number(@field.cout_semence_achetee || 0) + Number(@field.cout_herbicide_prelevee || 0) + Number(@field.autre_cout_semis_total || 0))"
-    },
-    {
-      "name": "v_total_cfa",
-      "value": "@calc(Number(@local.v_total_drm) * 5)"
-    },
-    {
-      "name": "v_obs_valide",
-      "value": "@calc((!@field.type_observation) || (@field.type_observation == 'par_vocal') || (@field.type_observation == 'par_video') || (@field.type_observation == 'par_ecrit' && (!!@fields.temp_observ && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'par_photo') && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'pas_observ'))"
-    },
-    {
-      "name": "v_page10_valid",
-      "value": "@calc(!@field.type_observation || @local.v_obs_valide)"
-    },
-    {
       "name": "v_current_human",
       "value": "@calc(Number(@field.current_culture_index) + 1)"
     },
     {
-      "name": "v_new_idx",
-      "value": "@calc(Number(@field.current_culture_index) + 1)"
+      "name": "v_herbi_fmt",
+      "value": "@calc(/^\\d+$/.test(@field.quantite_herbicide_prelevee))"
     },
     {
-      "name": "v_new_grand_total",
-      "value": "@calc((Number(@field.grand_total_semis) || 0) + Number(@local.v_total_drm))"
+      "name": "v_herbi_err",
+      "value": "@calc(!@local.v_herbi_fmt || Number(@field.quantite_herbicide_prelevee) < 0)"
+    },
+    {
+      "name": "v_cout_herbi_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_herbicide_prelevee_nonzero))"
+    },
+    {
+      "name": "v_cout_herbi_err",
+      "value": "@calc(!@local.v_cout_herbi_fmt || Number(@field.cout_herbicide_prelevee_nonzero) < 0)"
     },
     {
       "type": "begin_display_group",
-      "name": "header_top",
+      "name": "header",
       "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
     },
     {
@@ -42,10 +34,6 @@
     },
     {
       "type": "end_display_group"
-    },
-    {
-      "type": "title",
-      "value": "OBSERVATIONS PÉRIODE DE SEMIS"
     },
     {
       "type": "begin_display_group",
@@ -65,189 +53,168 @@
       "type": "end_display_group"
     },
     {
+      "type": "html",
+      "value": "<div style=\"color: #e67e22; font-weight: bold; font-size: 14px; margin-bottom: 10px;\"> HERBICIDAGE PRE-LEVEE</div>"
+    },
+    {
       "type": "begin_display_group",
-      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 2px solid #4f8ff1; border-radius: 12px; background: #f4f7fc; padding: 15px; margin-bottom: 20px;"
+      "name": "grp_quantite_herbicide",
+      "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "name": "aud_obs",
-      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_cult_semis_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "name": "aud_herbi_fr",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/q_herbicide_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
       "type": "html",
-      "value": "<h3 style=\"color: #1e3656; margin: 0 0 10px 0; text-align: center;\">BILAN DES COÛTS AU SEMIS</h3>"
-    },
-    {
-      "type": "text",
-      "value": "Culture : @field.active_culture_name",
-      "style_list": "font-weight: bold; font-size: 16px; color: #e3a730; margin-bottom: 10px;"
-    },
-    {
-      "type": "html",
-      "value": "<div style=\"font-size: 22px; font-weight: bold; color: #1e3656;\">@local.v_total_drm Drm</div><div style=\"font-size: 16px; color: #4f8ff1; font-weight: bold;\">(@local.v_total_cfa FCFA)</div>"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%; margin-bottom: 15px;"
-    },
-    {
-      "type": "audio",
-      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/canal_obser_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
-    },
-    {
-      "type": "html",
-      "value": "Comment souhaitez-vous enregistrer vos observations de semis ?",
+      "value": "<span style=\"color: red;\">*</span> Quantité herbicide pré-levé (flacon)",
       "style_list": "font-weight: bold;"
     },
     {
+      "type": "text",
+      "value": "*Mettez 0 si aucun herbicide pré-levé*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/flacon.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
       "type": "end_display_group"
     },
     {
-      "type": "radio_button_grid",
-      "name": "type_observation",
-      "value": "@field.type_observation",
-      "action_list": "changed | set_field: type_observation: this.value;",
-      "parameter_list": "answer_list: @data.group_observation; \nvariant: flex;\nitem_width: 60px;\ngrid_gap: 8px;"
+      "type": "text_box",
+      "name": "quantite_herbicide_prelevee",
+      "value": "@field.quantite_herbicide_prelevee",
+      "action_list": "changed | set_field: quantite_herbicide_prelevee: this.value;",
+      "parameter_list": "number_input: true;\n\nplaceholder: Nombre de flacons;"
+    },
+    {
+      "type": "text",
+      "value": "Mettez une valeur positive<span style=\"font-size:11px;\"></span>",
+      "condition": "@local.v_herbi_err",
+      "style_list": "font-size: 12px; color: red;"
     },
     {
       "type": "begin_display_group",
-      "condition": "@field.type_observation == \"par_text\""
-    },
-    {
-      "type": "text",
-      "name": "info_text_label",
-      "value": "Entrez par écrit l'observation faite."
+      "name": "cout_herbicide_zero",
+      "condition": "@calc(Number(@field.quantite_herbicide_prelevee) == 0)",
+      "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "name": "audio_15_2",
-      "parameter_list": "variant: button_only;\nsrc: audio/semis/oberv_ecrit_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "name": "aud_chaux_z_fr",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_herbicide_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
-      "type": "end_display_group"
+      "type": "html",
+      "value": "Coût herbicide pré-levé (Dram) ",
+      "style_list": "font-weight: bold;"
     },
     {
-      "type": "text_area",
-      "name": "temp_observ",
-      "value": "@field.temp_observ",
-      "action_list": "changed | set_field: temp_observ: this.value;",
-      "parameter_list": "placeholder: Info par écrit ",
-      "condition": "@field.type_observation == \"par_text\""
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80px; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "value": 0,
+      "parameter_list": "disabled:true;"
+    },
+    {
+      "type": "text",
+      "value": "Coût bloqué à 0 car aucun herbicide pré-levé utilisé",
+      "style_list": "font-size: 12px; color: #999;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "begin_display_group",
-      "condition": "@field.type_observation == \"par_video\""
-    },
-    {
-      "type": "text",
-      "name": "info_video_label",
-      "value": "Enregistrez par vidéo l'observation faite"
+      "name": "cout_herbicide_nonzero",
+      "condition": "@calc(Number(@field.quantite_herbicide_prelevee) > 0)",
+      "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "name": "audio_15_3",
-      "parameter_list": "variant: button_only;\nsrc: audio/semis/oberv_vid_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "name": "aud_herbi_nz_fr",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/cout_herbicide_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
       "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span> Coût herbicide pré-levé (Dram) <br>",
+      "style_list": "font-weight: bold;"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80px; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "cout_herbicide_prelevee_nonzero",
+      "value": "@field.cout_herbicide_prelevee_nonzero",
+      "action_list": "changed | set_field: cout_herbicide_prelevee_nonzero: this.value;",
+      "parameter_list": "number_input: true;\n\nplaceholder: Montant en Dram;"
+    },
+    {
+      "type": "text",
+      "value": "Mettez une valeur positive.<br>",
+      "condition": "@local.v_cout_herbi_err",
+      "style_list": "font-size: 12px; color: red;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "text",
-      "name": "info_video",
-      "value": "We would need a video recorder here",
-      "condition": "@field.type_observation == \"par_video\""
+      "name": "v_val_herbi_nz",
+      "value": "@calc(Number(@field.cout_herbicide_prelevee_nonzero) || 0)"
     },
     {
-      "type": "begin_display_group",
-      "condition": "@field.type_observation == \"par_vocal\""
+      "name": "v_final_herbi",
+      "value": "@calc(Number(@field.quantite_herbicide_prelevee) == 0 ? 0 : @local.v_val_herbi_nz)"
     },
     {
-      "type": "text",
-      "name": "info_audio_label",
-      "value": "Enregistrez par vocal l'observation faite."
-    },
-    {
-      "type": "audio",
-      "name": "audio_15_4",
-      "parameter_list": "variant: button_only;\nsrc: audio/semis/oberv_audio_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "style_list": "float: right;"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "text",
-      "name": "info_audio",
-      "value": "We would need a audio recorder here",
-      "condition": "@field.type_observation == \"par_vocal\""
-    },
-    {
-      "type": "begin_display_group",
-      "condition": "@field.type_observation == \"par_photo\""
-    },
-    {
-      "type": "text",
-      "name": "info_image_label",
-      "value": "Enregistrez par image l'observation faite."
-    },
-    {
-      "type": "audio",
-      "name": "audio_15_5",
-      "parameter_list": "variant: button_only;\nsrc: audio/semis/oberv_phot_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "style_list": "float: right;"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "text",
-      "name": "info_image",
-      "value": "We would need a camera here",
-      "condition": "@field.type_observation == \"par_photo\""
-    },
-    {
-      "name": "last_current_culture_index",
-      "value": "@calc((Number(@field.current_culture_index) + 1) >= Number(@field.primary_crops_selected_count))"
+      "name": "v_page8_valid",
+      "value": "@calc(@local.v_herbi_fmt && Number(@field.quantite_herbicide_prelevee) >= 0 && (Number(@field.quantite_herbicide_prelevee) == 0 || (@local.v_cout_herbi_fmt && Number(@field.cout_herbicide_prelevee_nonzero) >= 0)))"
     },
     {
       "type": "begin_display_group",
       "name": "dg_footer",
-      "value": " ",
       "parameter_list": "sticky: bottom;",
       "style_list": "padding: 12px 24px;"
     },
     {
       "type": "round_button",
-      "name": "page_15_button_back",
+      "name": "button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "btn_next_crop",
+      "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | add_data | _list_id: semis_summary_list, \nculture: @field.active_culture_name, \nquantite_pnt: @field.quantite_pnt_png, \ncout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree, \nquantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm;\n\nclick | set_field: grand_total_semis : @local.v_new_grand_total;\n\nclick | set_data | _list_id: section_semi_settings_pages, _index: 1, completed: false;\n\nclick | set_data | _list_id: section_semi_settings_pages, _index: 2, completed: false;\n\nclick | set_data | _list_id: section_semi_settings_pages, _index: 3, completed: false;\n\nclick | set_data | _list_id: section_semi_settings_pages, _index: 4, completed: false;\n\nclick | set_data | _list_id: section_semi_settings_pages, _index: 5, completed: false;\n\nclick | set_data | _list_id: section_semi_settings_pages, _index: 6, completed: false;\n\nclick | set_data | _list_id: section_semi_settings_pages, _index: 7, completed: false;\n\nclick | set_data | _list_id: section_semi_settings_pages, _index: 8, completed: false;\n\nclick | set_data | _list_id: section_semi_settings_pages, _index: 9, completed: false;\n\nclick | set_field: quantite_pnt_png : ;\n\nclick | set_field: cout_pnt_png : ;\n\nclick | set_field: superficie_labouree : ;\n\nclick | set_field: cout_superficie_labouree : ;\n\nclick | set_field: quantite_semence_achetee : ;\n\nclick | set_field: cout_semence_achetee : ;\n\nclick | set_field: quantite_herbicide_prelevee : ;\n\nclick | set_field: cout_herbicide_prelevee : ;\n\nclick | set_field: autre_cout_semis_total : ;\n\nclick | set_field: type_observation : ;\n\nclick | set_field: temp_observ : ;\n\nclick | set_field: current_culture_index : @local.v_new_idx;\n\nclick | set_field: active_culture_name : @calc(@field.selected_cultures_list.split(',')[@local.v_new_idx]);\n\nclick | emit: force_reprocess;",
-      "parameter_list": "disabled: !@local.v_obs_valide;",
-      "condition": "@calc(Number(@field.current_culture_index) < Number(@field.total_cultures_selected) - 1)",
+      "action_list": "click | set_field: cout_herbicide_prelevee : @local.v_final_herbi;\n\nclick | emit: completed;",
+      "parameter_list": "style: navigation;\n\ndisabled: !@local.v_page8_valid",
       "style_list": "flex: 1"
-    },
-    {
-      "type": "button",
-      "name": "page_15_button_continue",
-      "value": "Terminer",
-      "action_list": "click | set_field: grand_total_semis : @local.v_new_grand_total;\n\nclick | set_field: current_culture_index : 0;\n\nclick | set_field: active_culture_name : @calc(@field.selected_cultures_list.split(',')[0]);\n\nclick | emit: completed;",
-      "parameter_list": "disabled: !@local.v_obs_valide;",
-      "condition": "@calc(Number(@field.current_culture_index) >= Number(@field.total_cultures_selected) - 1)",
-      "style_list": "flex: 1\n"
     },
     {
       "type": "end_display_group"

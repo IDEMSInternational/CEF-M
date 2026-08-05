@@ -4,72 +4,181 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "value": "BILAN GLOBAL DES SEMIS"
+      "name": "v_nom_valide",
+      "value": "@calc((@field.nom_autre_cout_semis || '').trim().length > 0)"
     },
     {
-      "name": "montant",
-      "value": "@calc(Number(@field.grand_total_semis|| 0))"
+      "name": "v_mt_fmt",
+      "value": "@calc(/^\\d+$/.test(@field.autre_cout_semis))"
     },
     {
-      "name": "montant_cfa",
-      "value": "@calc(@local.montant * 5)"
+      "name": "v_mt_err",
+      "value": "@calc(!@local.v_mt_fmt || Number(@field.autre_cout_semis) < 0)"
+    },
+    {
+      "name": "v_page9_valid",
+      "value": "@calc(@field.no_autre_cout_semis == 'non' || (@field.no_autre_cout_semis == 'oui' && @local.v_nom_valide && !@local.v_mt_err))"
+    },
+    {
+      "name": "v_current_human",
+      "value": "@calc(Number(@field.current_culture_index) + 1)"
     },
     {
       "type": "begin_display_group",
-      "name": "final_grp",
-      "style_list": "background: #00adcc; padding: 25px; border-radius: 0 0 25px 25px; margin-bottom: 20px; text-align: center;"
+      "name": "header_top",
+      "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
     },
     {
       "type": "html",
-      "value": "<div style=\"color: black; text-transform: uppercase; font-size: 12px; letter-spacing: 2px;\">Total Investi (Semis)</div>"
-    },
-    {
-      "type": "html",
-      "value": "<div style=\"font-size: 36px; font-weight: bold; color: white; margin: 10px 0;\">@local.montant<span style=\"font-size: 18px;\">Dram</span></div>"
-    },
-    {
-      "type": "html",
-      "value": "<div style=\"background: rgba(255,255,255,0.1); padding: 8px 15px; border-radius: 20px; display: inline-block; color: white; font-weight: bold;\">≈ @local.montant_cfa FCFA</div>"
+      "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "begin_display_group",
-      "name": "cultures_list",
-      "style_list": "padding: 20px;"
-    },
-    {
-      "type": "html",
-      "value": "<h4 style=\"color: #e3a730; border-bottom: 1px solid #eee; padding-bottom: 10px;\">Cultures enregistrées</h4>"
-    },
-    {
-      "type": "text ",
-      "value": "@field.selected_cultures_list",
-      "style_list": "color: #666; font-style: italic; margin-top: 5px;"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "style_list": "margin: 20px; padding: 20px; background: #FFF9F2; border-radius: 15px; border: 1px dashed #FFCC80;"
-    },
-    {
-      "type": "html",
-      "value": "<span style=\"color: #E65100; font-weight: bold;\">Votre avis nous intéresse</span>"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"font-size: 13px; color: #6D4C41;\">Le formulaire était-il facile à utiliser ? Enregistrez votre avis :</p>"
+      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #FFCC80; border-radius: 12px; background: white; margin-bottom: 10px; overflow: hidden;"
     },
     {
       "type": "image",
-      "value": "images/vocal.jpg",
-      "style_list": "width: 50px; float: left; margin-right: 10px;"
+      "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
+      "style_list": "width: 60%; object-fit: contain;"
+    },
+    {
+      "type": "text",
+      "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+      "style_list": "font-weight: bold; font-size: 18px;"
     },
     {
       "type": "end_display_group"
+    },
+    {
+      "type": "html",
+      "value": "<br><b style=\"color: #e67e22\">AUTRE COÛT AU SEMIS</b>"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "grp_question_existence",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "aud_exist_fr",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/on_autre_cout_semis_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span>Ecrivez le nom(s) d'autre(s) coût(s)"
+    },
+    {
+      "type": "text",
+      "value": "*Ces coûts couvrent des services ou intrants non pris en compte.*"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "no_autre_cout_semis",
+      "value": "@field.no_autre_cout_semis",
+      "action_list": "changed | set_field: no_autre_cout_semis: this.value;",
+      "parameter_list": "answer_list: @data.yes_no;\nvariant: flex;\nstyle: secondary;\nitem_width: 60px;\ngrid_gap: 8px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "group_nom_autre",
+      "condition": "@field.no_autre_cout_semis== 'oui'",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "note_autre_cout_semi",
+      "parameter_list": "variant: button_only;\n\nsrc: audio/semis/nom_autre_cout_fr.mp3;\n\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span> Indiquez s'il y a d'autre(s) coût(s) à la récolte non renseignés"
+    },
+    {
+      "type": "image",
+      "value": "images/ecrire.jpg",
+      "style_list": "width: 60%; object-fit: contain;\n"
+    },
+    {
+      "type": "text_box",
+      "name": "nom_autre_cout_semis",
+      "value": "@field.nom_autre_cout_semis",
+      "action_list": "changed | set_field: nom_autre_cout_semis: this.value;",
+      "parameter_list": "placeholder: Nom des coûts...;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "*La réponse est obligatoire !*",
+      "condition": "@calc(@field.no_autre_cout_semis == 'oui' && (@field.nom_autre_cout_semis == '' || @field.nom_autre_cout_semis == null))",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "name": "v_montant_autre_err",
+      "value": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_semis) || Number(@field.autre_cout_semis) < 0)"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "group_montant_autre",
+      "condition": "@field.no_autre_cout_semis == 'oui'",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "note_autre_cout_semis1",
+      "parameter_list": "variant: button_only;\nsrc: audio/postSemi/autre_cout_semis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span>Donnez le montant du coût pour <span style=\"color: #e67e22\"> @field.nom_autre_cout_semis</span>"
+    },
+    {
+      "type": "text",
+      "value": "S'il y a plusieurs éléments, donnez le coût agrégé de l'ensemble",
+      "style_list": "font-style: italic; color: #666; font-size: 12px;"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80px; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "autre_cout_semis",
+      "value": "@field.autre_cout_semis",
+      "action_list": "changed | set_field: autre_cout_semis: this.value;",
+      "parameter_list": "number_input: true; placeholder: Montant en Dram...;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "*Mettez une valeur positive*",
+      "condition": "@calc(@field.no_autre_cout_semis == 'oui' && @local.v_montant_autre_err)",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "name": "v_final_autre_cout",
+      "value": "@calc(@field.no_autre_cout_semis == 'oui' ? (Number(@field.autre_cout_semis) || 0) : 0)"
     },
     {
       "type": "begin_display_group",
@@ -87,8 +196,8 @@
       "type": "button",
       "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | emit: completed\n",
-      "parameter_list": "style: navigation;",
+      "action_list": "click | set_field: autre_cout_semis_total : @local.v_final_autre_cout;\n\nclick | emit: completed;",
+      "parameter_list": "style: navigation;\n\ndisabled: !@local.v_page9_valid",
       "style_list": "flex: 1"
     },
     {

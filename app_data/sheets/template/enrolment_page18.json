@@ -6,7 +6,7 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "APRECIATIONS ET OBSERVATIONS SUR LE FORMULAIRE",
+      "value": "INFO SUPPLEMENTAIRE SUR LES CARACTERISTIQUES DE L'UPA",
       "_translations": {
         "value": {}
       },
@@ -16,71 +16,462 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "name": "observation_appreciation_label",
-          "value": "Partagez vos appréciations, observations, ou suggestions d'amélioration sur le formulaire par audio",
+          "type": "html",
+          "name": "type_canal_info_label",
+          "value": "<span style=\"color: red;\">*</span> Sélectionnez le canal pour donner l'information supplémentaire",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_3.observation_appreciation_label"
+          "style_list": [
+            "font-size:20px"
+          ],
+          "_nested_name": "display_group_3.type_canal_info_label"
         },
         {
           "type": "audio",
-          "name": "audio_17_1",
+          "name": "audio_16_1",
           "parameter_list": {
             "variant": "button_only",
-            "src": "audio/Enrolement/appreciation_audio_fr.mp3",
+            "src": "audio/Enrolement/canal_obser_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_3.audio_17_1"
+          "_nested_name": "display_group_3.audio_16_1"
         }
       ],
       "name": "display_group_3",
       "_nested_name": "display_group_3"
     },
     {
-      "type": "image",
-      "value": "images/vocal.jpg",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "width:120px",
-        "height:120px",
-        "object-fit:contain",
-        "flex-shrink:0"
-      ],
-      "name": "image_5",
-      "_nested_name": "image_5"
-    },
-    {
       "type": "text",
-      "name": "observation_appreciation_hint",
-      "value": "*Il s'agit de partager à travers un enregistrement vocal toute appréciation (positive/négative) ou observation sur les éléments de ce formulaire, et aussi des suggestions d'amélioration.",
+      "name": "error_type_canal_info",
+      "value": "@global.error_required_answer",
       "_translations": {
         "value": {}
       },
+      "condition": "!@fields.type_canal_info",
       "style_list": [
-        "color: gray",
+        "color: red",
         "font-size: 16px"
       ],
-      "_nested_name": "observation_appreciation_hint"
+      "_nested_name": "error_type_canal_info",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@fields.type_canal_info",
+            "matchedExpression": "!@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "!@fields.type_canal_info": [
+          "condition"
+        ]
+      }
     },
     {
-      "type": "text",
-      "name": "observation_appreciation",
-      "value": "We would need a recorder here in order to transmit observations or feedback regarding the form.",
+      "type": "radio_button_grid",
+      "name": "type_canal_info",
+      "value": "@fields.type_canal_info",
       "_translations": {
         "value": {}
       },
-      "style_list": [
-        "color: gray",
-        "font-size: 14px"
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "type_canal_info",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : type_canal_info: this.value"
+        }
       ],
-      "_nested_name": "observation_appreciation"
+      "parameter_list": {
+        "answer_list": "@data.group_observation",
+        "variant": "flex",
+        "item_width": "60px",
+        "grid_gap": "8px"
+      },
+      "_nested_name": "type_canal_info",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.type_canal_info",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ],
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@data.group_observation",
+              "matchedExpression": "@data.group_observation",
+              "type": "data",
+              "fieldName": "group_observation"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "value"
+        ],
+        "@data.group_observation": [
+          "parameter_list.answer_list"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_info == \"par_text\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_text_label",
+          "value": "Entrez par écrit l'information supplémentaire.",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_7.info_text_label"
+        },
+        {
+          "type": "audio",
+          "name": "audio_16_2",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/oberv_ecrit_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_7.audio_16_2"
+        }
+      ],
+      "name": "display_group_7",
+      "_nested_name": "display_group_7",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_text\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_area",
+      "name": "info_text",
+      "value": "@fields.info_text",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "info_text",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : info_text: this.value"
+        }
+      ],
+      "parameter_list": {
+        "placeholder": "Info par écrit"
+      },
+      "condition": "@fields.type_canal_info == \"par_text\"",
+      "_nested_name": "info_text",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.info_text",
+            "matchedExpression": "@fields.info_text",
+            "type": "fields",
+            "fieldName": "info_text"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_text\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.info_text": [
+          "value"
+        ],
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_info == \"par_video\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_video_label",
+          "value": "Enregistrez par vidéo l'information supplémentaire.",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_10.info_video_label"
+        },
+        {
+          "type": "audio",
+          "name": "audio_16_3",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/oberv_vid_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_10.audio_16_3"
+        }
+      ],
+      "name": "display_group_10",
+      "_nested_name": "display_group_10",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_video\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "value": "Prendre une video",
+      "_translations": {
+        "value": {}
+      },
+      "parameter_list": {
+        "icon": "images/icons/screen-recorder-svgrepo-com.svg"
+      },
+      "condition": "@fields.type_canal_info == \"par_video\"",
+      "name": "button_12",
+      "_nested_name": "button_12",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_video\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_info == \"par_vocal\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_audio_label",
+          "value": "Enregistrez par vocal l'information supplémentaire.",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_13.info_audio_label"
+        },
+        {
+          "type": "audio",
+          "name": "audio_16_4",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/oberv_audio_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_13.audio_16_4"
+        }
+      ],
+      "name": "display_group_13",
+      "_nested_name": "display_group_13",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_vocal\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "info_audio",
+      "value": "We would need a audio recorder here",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.type_canal_info == \"par_vocal\"",
+      "_nested_name": "info_audio",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_vocal\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_info == \"par_photo\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "info_image_label",
+          "value": "Enregistrez par image l'information supplémentaire.",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_16.info_image_label"
+        },
+        {
+          "type": "audio",
+          "name": "audio_16_5",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/oberv_phot_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_16.audio_16_5"
+        }
+      ],
+      "name": "display_group_16",
+      "_nested_name": "display_group_16",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_photo\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "value": "Prendre une photo",
+      "_translations": {
+        "value": {}
+      },
+      "parameter_list": {
+        "icon": "images/icons/photo-svgrepo-com.svg"
+      },
+      "condition": "@fields.type_canal_info == \"par_photo\"",
+      "name": "button_18",
+      "_nested_name": "button_18",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.type_canal_info == \"par_photo\"",
+            "matchedExpression": "@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_canal_info": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "!!@local.type_canal_info",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "!!@local.type_canal_info",
+            "matchedExpression": "!@local.type_canal_info",
+            "type": "local",
+            "fieldName": "type_canal_info"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.type_canal_info": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -95,7 +486,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_17_button_back",
+          "name": "page_16_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -110,11 +501,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_17_button_back"
+          "_nested_name": "dg_footer.page_16_button_back"
         },
         {
           "type": "button",
-          "name": "page_17_button_continue",
+          "name": "page_16_button_continue",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -132,7 +523,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_17_button_continue",
+          "_nested_name": "dg_footer.page_16_button_continue",
           "_dynamicFields": {
             "value": [
               {

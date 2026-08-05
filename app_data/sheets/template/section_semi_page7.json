@@ -37,151 +37,151 @@
       }
     },
     {
-      "name": "v_sem_fmt",
-      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_semence_achetee))",
+      "name": "v_pnt_fmt",
+      "value": "@calc(/^\\d+$/.test(@field.quantite_pnt_png))",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "v_sem_fmt",
+      "_nested_name": "v_pnt_fmt",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_semence_achetee))",
-            "matchedExpression": "@field.quantite_semence_achetee",
+            "fullExpression": "@calc(/^\\d+$/.test(@field.quantite_pnt_png))",
+            "matchedExpression": "@field.quantite_pnt_png",
             "type": "field",
-            "fieldName": "quantite_semence_achetee"
+            "fieldName": "quantite_pnt_png"
           },
           {
-            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_semence_achetee))",
-            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_semence_achetee))",
+            "fullExpression": "@calc(/^\\d+$/.test(@field.quantite_pnt_png))",
+            "matchedExpression": "@calc(/^\\d+$/.test(@field.quantite_pnt_png))",
             "type": "calc",
-            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@field.quantite_semence_achetee)"
+            "fieldName": "/^\\d+$/.test(@field.quantite_pnt_png)"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.quantite_semence_achetee": [
+        "@field.quantite_pnt_png": [
           "value"
         ],
-        "@calc(/^\\d+(\\.\\d+)?$/.test(@field.quantite_semence_achetee))": [
+        "@calc(/^\\d+$/.test(@field.quantite_pnt_png))": [
           "value"
         ]
       }
     },
     {
-      "name": "v_sem_err",
-      "value": "@calc(!@local.v_sem_fmt || Number(@field.quantite_semence_achetee) < 0)",
+      "name": "v_pnt_err",
+      "value": "@calc(!@local.v_pnt_fmt || Number(@field.quantite_pnt_png) < 0)",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "v_sem_err",
+      "_nested_name": "v_pnt_err",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(!@local.v_sem_fmt || Number(@field.quantite_semence_achetee) < 0)",
-            "matchedExpression": "!@local.v_sem_fmt",
+            "fullExpression": "@calc(!@local.v_pnt_fmt || Number(@field.quantite_pnt_png) < 0)",
+            "matchedExpression": "!@local.v_pnt_fmt",
             "type": "local",
-            "fieldName": "v_sem_fmt"
+            "fieldName": "v_pnt_fmt"
           },
           {
-            "fullExpression": "@calc(!@local.v_sem_fmt || Number(@field.quantite_semence_achetee) < 0)",
-            "matchedExpression": "@field.quantite_semence_achetee",
+            "fullExpression": "@calc(!@local.v_pnt_fmt || Number(@field.quantite_pnt_png) < 0)",
+            "matchedExpression": "@field.quantite_pnt_png",
             "type": "field",
-            "fieldName": "quantite_semence_achetee"
+            "fieldName": "quantite_pnt_png"
           },
           {
-            "fullExpression": "@calc(!@local.v_sem_fmt || Number(@field.quantite_semence_achetee) < 0)",
-            "matchedExpression": "@calc(!@local.v_sem_fmt || Number(@field.quantite_semence_achetee) < 0)",
+            "fullExpression": "@calc(!@local.v_pnt_fmt || Number(@field.quantite_pnt_png) < 0)",
+            "matchedExpression": "@calc(!@local.v_pnt_fmt || Number(@field.quantite_pnt_png) < 0)",
             "type": "calc",
-            "fieldName": "!@local.v_sem_fmt || Number(@field.quantite_semence_achetee) < 0"
+            "fieldName": "!@local.v_pnt_fmt || Number(@field.quantite_pnt_png) < 0"
           }
         ]
       },
       "_dynamicDependencies": {
-        "!@local.v_sem_fmt": [
+        "!@local.v_pnt_fmt": [
           "value"
         ],
-        "@field.quantite_semence_achetee": [
+        "@field.quantite_pnt_png": [
           "value"
         ],
-        "@calc(!@local.v_sem_fmt || Number(@field.quantite_semence_achetee) < 0)": [
+        "@calc(!@local.v_pnt_fmt || Number(@field.quantite_pnt_png) < 0)": [
           "value"
         ]
       }
     },
     {
-      "name": "v_cout_sem_fmt",
-      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_semence_achetee_nonzero))",
+      "name": "v_cout_pnt_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_pnt_png_nonzero))",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "v_cout_sem_fmt",
+      "_nested_name": "v_cout_pnt_fmt",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_semence_achetee_nonzero))",
-            "matchedExpression": "@field.cout_semence_achetee_nonzero",
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_pnt_png_nonzero))",
+            "matchedExpression": "@field.cout_pnt_png_nonzero",
             "type": "field",
-            "fieldName": "cout_semence_achetee_nonzero"
+            "fieldName": "cout_pnt_png_nonzero"
           },
           {
-            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_semence_achetee_nonzero))",
-            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_semence_achetee_nonzero))",
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_pnt_png_nonzero))",
+            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_pnt_png_nonzero))",
             "type": "calc",
-            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@field.cout_semence_achetee_nonzero)"
+            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@field.cout_pnt_png_nonzero)"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.cout_semence_achetee_nonzero": [
+        "@field.cout_pnt_png_nonzero": [
           "value"
         ],
-        "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_semence_achetee_nonzero))": [
+        "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_pnt_png_nonzero))": [
           "value"
         ]
       }
     },
     {
-      "name": "v_cout_sem_err",
-      "value": "@calc(!@local.v_cout_sem_fmt || Number(@field.cout_semence_achetee_nonzero) < 0)",
+      "name": "v_cout_pnt_err",
+      "value": "@calc(!@local.v_cout_pnt_fmt || Number(@field.cout_pnt_png_nonzero) < 0)",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "v_cout_sem_err",
+      "_nested_name": "v_cout_pnt_err",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(!@local.v_cout_sem_fmt || Number(@field.cout_semence_achetee_nonzero) < 0)",
-            "matchedExpression": "!@local.v_cout_sem_fmt",
+            "fullExpression": "@calc(!@local.v_cout_pnt_fmt || Number(@field.cout_pnt_png_nonzero) < 0)",
+            "matchedExpression": "!@local.v_cout_pnt_fmt",
             "type": "local",
-            "fieldName": "v_cout_sem_fmt"
+            "fieldName": "v_cout_pnt_fmt"
           },
           {
-            "fullExpression": "@calc(!@local.v_cout_sem_fmt || Number(@field.cout_semence_achetee_nonzero) < 0)",
-            "matchedExpression": "@field.cout_semence_achetee_nonzero",
+            "fullExpression": "@calc(!@local.v_cout_pnt_fmt || Number(@field.cout_pnt_png_nonzero) < 0)",
+            "matchedExpression": "@field.cout_pnt_png_nonzero",
             "type": "field",
-            "fieldName": "cout_semence_achetee_nonzero"
+            "fieldName": "cout_pnt_png_nonzero"
           },
           {
-            "fullExpression": "@calc(!@local.v_cout_sem_fmt || Number(@field.cout_semence_achetee_nonzero) < 0)",
-            "matchedExpression": "@calc(!@local.v_cout_sem_fmt || Number(@field.cout_semence_achetee_nonzero) < 0)",
+            "fullExpression": "@calc(!@local.v_cout_pnt_fmt || Number(@field.cout_pnt_png_nonzero) < 0)",
+            "matchedExpression": "@calc(!@local.v_cout_pnt_fmt || Number(@field.cout_pnt_png_nonzero) < 0)",
             "type": "calc",
-            "fieldName": "!@local.v_cout_sem_fmt || Number(@field.cout_semence_achetee_nonzero) < 0"
+            "fieldName": "!@local.v_cout_pnt_fmt || Number(@field.cout_pnt_png_nonzero) < 0"
           }
         ]
       },
       "_dynamicDependencies": {
-        "!@local.v_cout_sem_fmt": [
+        "!@local.v_cout_pnt_fmt": [
           "value"
         ],
-        "@field.cout_semence_achetee_nonzero": [
+        "@field.cout_pnt_png_nonzero": [
           "value"
         ],
-        "@calc(!@local.v_cout_sem_fmt || Number(@field.cout_semence_achetee_nonzero) < 0)": [
+        "@calc(!@local.v_cout_pnt_fmt || Number(@field.cout_pnt_png_nonzero) < 0)": [
           "value"
         ]
       }
@@ -324,7 +324,7 @@
     },
     {
       "type": "html",
-      "value": "<div style=\"color: #e67e22; font-weight: bold; font-size: 14px; margin-bottom: 10px;\"> SEMIS</div>",
+      "value": "<div style=\"color: #e67e22; font-weight: bold; font-size: 14px; margin-bottom: 10px;\">APPORT PNT/PNG </div>",
       "_translations": {
         "value": {}
       },
@@ -333,7 +333,7 @@
     },
     {
       "type": "display_group",
-      "name": "grp_quantite_semence",
+      "name": "grp_quantite_pnt",
       "style_list": [
         "display: block",
         "width: 100%"
@@ -344,18 +344,18 @@
           "name": "aud_pnt_fr",
           "parameter_list": {
             "variant": "button_only",
-            "src": "audio/semis/q_semence_fr.mp3",
+            "src": "audio/semis/q_pnt_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "exclude_from_translation": true,
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "grp_quantite_semence.aud_pnt_fr"
+          "_nested_name": "grp_quantite_pnt.aud_pnt_fr"
         },
         {
           "type": "html",
-          "value": "<span style=\"color: red;\">*</span> Quantité de semence achetée (kg)",
+          "value": "<span style=\"color: red;\">*</span> Quantité PNT/PNG (sac) </span>",
           "_translations": {
             "value": {}
           },
@@ -363,11 +363,11 @@
             "font-weight: bold"
           ],
           "name": "html_2",
-          "_nested_name": "grp_quantite_semence.html_2"
+          "_nested_name": "grp_quantite_pnt.html_2"
         },
         {
           "type": "text",
-          "value": "*La quantité de semence achetée de l'ensemble des parcelles*",
+          "value": "*Mettez 0 si aucun PNT*  <span style=\"font-size: 12px; color: gray;\"></span>",
           "_translations": {
             "value": {}
           },
@@ -376,11 +376,11 @@
             "color: gray"
           ],
           "name": "text_3",
-          "_nested_name": "grp_quantite_semence.text_3"
+          "_nested_name": "grp_quantite_pnt.text_3"
         },
         {
           "type": "image",
-          "value": "images/kg.jpg",
+          "value": "images/sac.jpg",
           "_translations": {
             "value": {}
           },
@@ -389,15 +389,15 @@
             "object-fit: contain"
           ],
           "name": "image_4",
-          "_nested_name": "grp_quantite_semence.image_4"
+          "_nested_name": "grp_quantite_pnt.image_4"
         }
       ],
-      "_nested_name": "grp_quantite_semence"
+      "_nested_name": "grp_quantite_pnt"
     },
     {
       "type": "text_box",
-      "name": "quantite_semence_achetee",
-      "value": "@field.quantite_semence_achetee",
+      "name": "quantite_pnt_png",
+      "value": "@field.quantite_pnt_png",
       "_translations": {
         "value": {}
       },
@@ -406,29 +406,29 @@
           "trigger": "changed",
           "action_id": "set_field",
           "args": [
-            "quantite_semence_achetee",
+            "quantite_pnt_png",
             "this.value"
           ],
-          "_raw": "changed | set_field: quantite_semence_achetee: this.value"
+          "_raw": "changed | set_field: quantite_pnt_png: this.value"
         }
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Poids en kg"
+        "placeholder": "Nombre de sacs"
       },
-      "_nested_name": "quantite_semence_achetee",
+      "_nested_name": "quantite_pnt_png",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@field.quantite_semence_achetee",
-            "matchedExpression": "@field.quantite_semence_achetee",
+            "fullExpression": "@field.quantite_pnt_png",
+            "matchedExpression": "@field.quantite_pnt_png",
             "type": "field",
-            "fieldName": "quantite_semence_achetee"
+            "fieldName": "quantite_pnt_png"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.quantite_semence_achetee": [
+        "@field.quantite_pnt_png": [
           "value"
         ]
       }
@@ -439,7 +439,7 @@
       "_translations": {
         "value": {}
       },
-      "condition": "@local.v_sem_err",
+      "condition": "@local.v_pnt_err",
       "style_list": [
         "font-size: 12px",
         "color: red"
@@ -449,23 +449,23 @@
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@local.v_sem_err",
-            "matchedExpression": "@local.v_sem_err",
+            "fullExpression": "@local.v_pnt_err",
+            "matchedExpression": "@local.v_pnt_err",
             "type": "local",
-            "fieldName": "v_sem_err"
+            "fieldName": "v_pnt_err"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.v_sem_err": [
+        "@local.v_pnt_err": [
           "condition"
         ]
       }
     },
     {
       "type": "display_group",
-      "name": "cout_labour_zero",
-      "condition": "@calc(Number(@field.quantite_semence_achetee) == 0)",
+      "name": "cout_chaux_zero",
+      "condition": "@calc(Number(@field.quantite_pnt_png) == 0)",
       "style_list": [
         "display: block",
         "width: 100%"
@@ -476,18 +476,18 @@
           "name": "aud_chaux_z_fr",
           "parameter_list": {
             "variant": "button_only",
-            "src": "audio/semis/cout_semence_fr.mp3",
+            "src": "audio/semis/cout_pnt_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "exclude_from_translation": true,
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "cout_labour_zero.aud_chaux_z_fr"
+          "_nested_name": "cout_chaux_zero.aud_chaux_z_fr"
         },
         {
           "type": "html",
-          "value": "Coût semence (Dram) <span style=\"font-size: 14px; color: #555;\"></span>",
+          "value": "Coût PNT/PNG (Dram) <span style=\"font-size: 14px; color: #555;\"></span>",
           "_translations": {
             "value": {}
           },
@@ -495,117 +495,7 @@
             "font-weight: bold"
           ],
           "name": "html_2",
-          "_nested_name": "cout_labour_zero.html_2"
-        },
-        {
-          "type": "text",
-          "value": "*Rappel : 1 dram = 5 FCFA. Mettez \"0\" si aucune semence achetée*",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "font-size: 14px",
-            "color: gray"
-          ],
-          "name": "text_3",
-          "_nested_name": "cout_labour_zero.text_3"
-        },
-        {
-          "type": "image",
-          "value": "images/cfa.jpg",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "width: 80px",
-            "object-fit: contain"
-          ],
-          "name": "image_4",
-          "_nested_name": "cout_labour_zero.image_4"
-        },
-        {
-          "type": "text_box",
-          "value": 0,
-          "parameter_list": {
-            "disabled": "true"
-          },
-          "name": "text_box_5",
-          "_nested_name": "cout_labour_zero.text_box_5"
-        },
-        {
-          "type": "text",
-          "value": "Coût bloqué à 0 car aucune semence achetée",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "font-size: 12px",
-            "color: #999"
-          ],
-          "name": "text_6",
-          "_nested_name": "cout_labour_zero.text_6"
-        }
-      ],
-      "_nested_name": "cout_labour_zero",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@calc(Number(@field.quantite_semence_achetee) == 0)",
-            "matchedExpression": "@field.quantite_semence_achetee",
-            "type": "field",
-            "fieldName": "quantite_semence_achetee"
-          },
-          {
-            "fullExpression": "@calc(Number(@field.quantite_semence_achetee) == 0)",
-            "matchedExpression": "@calc(Number(@field.quantite_semence_achetee) == 0)",
-            "type": "calc",
-            "fieldName": "Number(@field.quantite_semence_achetee) == 0"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.quantite_semence_achetee": [
-          "condition"
-        ],
-        "@calc(Number(@field.quantite_semence_achetee) == 0)": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "display_group",
-      "name": "cout_semence_nonzero",
-      "condition": "@calc(Number(@field.quantite_semence_achetee) > 0)",
-      "style_list": [
-        "display: block",
-        "width: 100%"
-      ],
-      "rows": [
-        {
-          "type": "audio",
-          "name": "aud_sem_nz_fr",
-          "parameter_list": {
-            "variant": "button_only",
-            "src": "audio/semis/cout_semence_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "float: right"
-          ],
-          "_nested_name": "cout_semence_nonzero.aud_sem_nz_fr"
-        },
-        {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span> Coût semence (Dram) <br>",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "font-weight: bold"
-          ],
-          "name": "html_2",
-          "_nested_name": "cout_semence_nonzero.html_2"
+          "_nested_name": "cout_chaux_zero.html_2"
         },
         {
           "type": "text",
@@ -618,7 +508,7 @@
             "color: gray"
           ],
           "name": "text_3",
-          "_nested_name": "cout_semence_nonzero.text_3"
+          "_nested_name": "cout_chaux_zero.text_3"
         },
         {
           "type": "image",
@@ -631,12 +521,122 @@
             "object-fit: contain"
           ],
           "name": "image_4",
-          "_nested_name": "cout_semence_nonzero.image_4"
+          "_nested_name": "cout_chaux_zero.image_4"
         },
         {
           "type": "text_box",
-          "name": "cout_semence_achetee_nonzero",
-          "value": "@field.cout_semence_achetee_nonzero",
+          "value": 0,
+          "parameter_list": {
+            "disabled": "true"
+          },
+          "name": "text_box_5",
+          "_nested_name": "cout_chaux_zero.text_box_5"
+        },
+        {
+          "type": "text",
+          "value": "Coût bloqué à 0 car aucun PNT/PNG apporté",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 12px",
+            "color: #999"
+          ],
+          "name": "text_6",
+          "_nested_name": "cout_chaux_zero.text_6"
+        }
+      ],
+      "_nested_name": "cout_chaux_zero",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@calc(Number(@field.quantite_pnt_png) == 0)",
+            "matchedExpression": "@field.quantite_pnt_png",
+            "type": "field",
+            "fieldName": "quantite_pnt_png"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.quantite_pnt_png) == 0)",
+            "matchedExpression": "@calc(Number(@field.quantite_pnt_png) == 0)",
+            "type": "calc",
+            "fieldName": "Number(@field.quantite_pnt_png) == 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.quantite_pnt_png": [
+          "condition"
+        ],
+        "@calc(Number(@field.quantite_pnt_png) == 0)": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "cout_chaux_nonzero",
+      "condition": "@calc(Number(@field.quantite_pnt_png) > 0)",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "name": "aud_chaux_nz_fr",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/semis/cout_pnt_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "cout_chaux_nonzero.aud_chaux_nz_fr"
+        },
+        {
+          "type": "html",
+          "value": "<span style=\"color: red;\">*</span> Coût PNT/PNG (Dram) <span style=\"font-size: 14px; color: #555;\"></span>",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight: bold"
+          ],
+          "name": "html_2",
+          "_nested_name": "cout_chaux_nonzero.html_2"
+        },
+        {
+          "type": "text",
+          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "cout_chaux_nonzero.text_3"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80px",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "cout_chaux_nonzero.image_4"
+        },
+        {
+          "type": "text_box",
+          "name": "cout_pnt_png_nonzero",
+          "value": "@field.cout_pnt_png_nonzero",
           "_translations": {
             "value": {}
           },
@@ -645,227 +645,227 @@
               "trigger": "changed",
               "action_id": "set_field",
               "args": [
-                "cout_semence_achetee_nonzero",
+                "cout_pnt_png_nonzero",
                 "this.value"
               ],
-              "_raw": "changed | set_field: cout_semence_achetee_nonzero: this.value"
+              "_raw": "changed | set_field: cout_pnt_png_nonzero: this.value"
             }
           ],
           "parameter_list": {
             "number_input": "true",
             "placeholder": "Montant en Dram"
           },
-          "_nested_name": "cout_semence_nonzero.cout_semence_achetee_nonzero",
+          "_nested_name": "cout_chaux_nonzero.cout_pnt_png_nonzero",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@field.cout_semence_achetee_nonzero",
-                "matchedExpression": "@field.cout_semence_achetee_nonzero",
+                "fullExpression": "@field.cout_pnt_png_nonzero",
+                "matchedExpression": "@field.cout_pnt_png_nonzero",
                 "type": "field",
-                "fieldName": "cout_semence_achetee_nonzero"
+                "fieldName": "cout_pnt_png_nonzero"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@field.cout_semence_achetee_nonzero": [
+            "@field.cout_pnt_png_nonzero": [
               "value"
             ]
           }
         },
         {
           "type": "text",
-          "value": "Mettez une valeur positive.<br>",
+          "value": "Mettez une valeur positive.<br><span style=\"font-size:11px;\"></span>",
           "_translations": {
             "value": {}
           },
-          "condition": "@local.v_cout_sem_err",
+          "condition": "@local.v_cout_pnt_err",
           "style_list": [
             "font-size: 12px",
             "color: red"
           ],
           "name": "text_6",
-          "_nested_name": "cout_semence_nonzero.text_6",
+          "_nested_name": "cout_chaux_nonzero.text_6",
           "_dynamicFields": {
             "condition": [
               {
-                "fullExpression": "@local.v_cout_sem_err",
-                "matchedExpression": "@local.v_cout_sem_err",
+                "fullExpression": "@local.v_cout_pnt_err",
+                "matchedExpression": "@local.v_cout_pnt_err",
                 "type": "local",
-                "fieldName": "v_cout_sem_err"
+                "fieldName": "v_cout_pnt_err"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@local.v_cout_sem_err": [
+            "@local.v_cout_pnt_err": [
               "condition"
             ]
           }
         }
       ],
-      "_nested_name": "cout_semence_nonzero",
+      "_nested_name": "cout_chaux_nonzero",
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@calc(Number(@field.quantite_semence_achetee) > 0)",
-            "matchedExpression": "@field.quantite_semence_achetee",
+            "fullExpression": "@calc(Number(@field.quantite_pnt_png) > 0)",
+            "matchedExpression": "@field.quantite_pnt_png",
             "type": "field",
-            "fieldName": "quantite_semence_achetee"
+            "fieldName": "quantite_pnt_png"
           },
           {
-            "fullExpression": "@calc(Number(@field.quantite_semence_achetee) > 0)",
-            "matchedExpression": "@calc(Number(@field.quantite_semence_achetee) > 0)",
+            "fullExpression": "@calc(Number(@field.quantite_pnt_png) > 0)",
+            "matchedExpression": "@calc(Number(@field.quantite_pnt_png) > 0)",
             "type": "calc",
-            "fieldName": "Number(@field.quantite_semence_achetee) > 0"
+            "fieldName": "Number(@field.quantite_pnt_png) > 0"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.quantite_semence_achetee": [
+        "@field.quantite_pnt_png": [
           "condition"
         ],
-        "@calc(Number(@field.quantite_semence_achetee) > 0)": [
+        "@calc(Number(@field.quantite_pnt_png) > 0)": [
           "condition"
         ]
       }
     },
     {
-      "name": "v_val_sem_nz",
-      "value": "@calc(Number(@field.cout_semence_achetee_nonzero) || 0)",
+      "name": "v_val_pnt_nz",
+      "value": "@calc(Number(@field.cout_pnt_png_nonzero) || 0)",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "v_val_sem_nz",
+      "_nested_name": "v_val_pnt_nz",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(Number(@field.cout_semence_achetee_nonzero) || 0)",
-            "matchedExpression": "@field.cout_semence_achetee_nonzero",
+            "fullExpression": "@calc(Number(@field.cout_pnt_png_nonzero) || 0)",
+            "matchedExpression": "@field.cout_pnt_png_nonzero",
             "type": "field",
-            "fieldName": "cout_semence_achetee_nonzero"
+            "fieldName": "cout_pnt_png_nonzero"
           },
           {
-            "fullExpression": "@calc(Number(@field.cout_semence_achetee_nonzero) || 0)",
-            "matchedExpression": "@calc(Number(@field.cout_semence_achetee_nonzero) || 0)",
+            "fullExpression": "@calc(Number(@field.cout_pnt_png_nonzero) || 0)",
+            "matchedExpression": "@calc(Number(@field.cout_pnt_png_nonzero) || 0)",
             "type": "calc",
-            "fieldName": "Number(@field.cout_semence_achetee_nonzero) || 0"
+            "fieldName": "Number(@field.cout_pnt_png_nonzero) || 0"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.cout_semence_achetee_nonzero": [
+        "@field.cout_pnt_png_nonzero": [
           "value"
         ],
-        "@calc(Number(@field.cout_semence_achetee_nonzero) || 0)": [
+        "@calc(Number(@field.cout_pnt_png_nonzero) || 0)": [
           "value"
         ]
       }
     },
     {
-      "name": "v_final_sem",
-      "value": "@calc(Number(@field.quantite_semence_achetee) == 0 ? 0 : @local.v_val_sem_nz)",
+      "name": "v_final_pnt",
+      "value": "@calc(Number(@field.quantite_pnt_png) == 0 ? 0 : @local.v_val_pnt_nz)",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "v_final_sem",
+      "_nested_name": "v_final_pnt",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(Number(@field.quantite_semence_achetee) == 0 ? 0 : @local.v_val_sem_nz)",
-            "matchedExpression": "@field.quantite_semence_achetee",
+            "fullExpression": "@calc(Number(@field.quantite_pnt_png) == 0 ? 0 : @local.v_val_pnt_nz)",
+            "matchedExpression": "@field.quantite_pnt_png",
             "type": "field",
-            "fieldName": "quantite_semence_achetee"
+            "fieldName": "quantite_pnt_png"
           },
           {
-            "fullExpression": "@calc(Number(@field.quantite_semence_achetee) == 0 ? 0 : @local.v_val_sem_nz)",
-            "matchedExpression": "@local.v_val_sem_nz",
+            "fullExpression": "@calc(Number(@field.quantite_pnt_png) == 0 ? 0 : @local.v_val_pnt_nz)",
+            "matchedExpression": "@local.v_val_pnt_nz",
             "type": "local",
-            "fieldName": "v_val_sem_nz"
+            "fieldName": "v_val_pnt_nz"
           },
           {
-            "fullExpression": "@calc(Number(@field.quantite_semence_achetee) == 0 ? 0 : @local.v_val_sem_nz)",
-            "matchedExpression": "@calc(Number(@field.quantite_semence_achetee) == 0 ? 0 : @local.v_val_sem_nz)",
+            "fullExpression": "@calc(Number(@field.quantite_pnt_png) == 0 ? 0 : @local.v_val_pnt_nz)",
+            "matchedExpression": "@calc(Number(@field.quantite_pnt_png) == 0 ? 0 : @local.v_val_pnt_nz)",
             "type": "calc",
-            "fieldName": "Number(@field.quantite_semence_achetee) == 0 ? 0 : @local.v_val_sem_nz"
+            "fieldName": "Number(@field.quantite_pnt_png) == 0 ? 0 : @local.v_val_pnt_nz"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.quantite_semence_achetee": [
+        "@field.quantite_pnt_png": [
           "value"
         ],
-        "@local.v_val_sem_nz": [
+        "@local.v_val_pnt_nz": [
           "value"
         ],
-        "@calc(Number(@field.quantite_semence_achetee) == 0 ? 0 : @local.v_val_sem_nz)": [
+        "@calc(Number(@field.quantite_pnt_png) == 0 ? 0 : @local.v_val_pnt_nz)": [
           "value"
         ]
       }
     },
     {
-      "name": "v_page7_valid",
-      "value": "@calc(@local.v_sem_fmt && Number(@field.quantite_semence_achetee) >= 0 && (Number(@field.quantite_semence_achetee) == 0 || (@local.v_cout_sem_fmt && Number(@field.cout_semence_achetee_nonzero) >= 0)))",
+      "name": "v_page5_valid",
+      "value": "@calc(@local.v_pnt_fmt && Number(@field.quantite_pnt_png) >= 0 && (Number(@field.quantite_pnt_png) == 0 || (@local.v_cout_pnt_fmt && Number(@field.cout_pnt_png_nonzero) >= 0)))",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "v_page7_valid",
+      "_nested_name": "v_page5_valid",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(@local.v_sem_fmt && Number(@field.quantite_semence_achetee) >= 0 && (Number(@field.quantite_semence_achetee) == 0 || (@local.v_cout_sem_fmt && Number(@field.cout_semence_achetee_nonzero) >= 0)))",
-            "matchedExpression": "@local.v_sem_fmt",
+            "fullExpression": "@calc(@local.v_pnt_fmt && Number(@field.quantite_pnt_png) >= 0 && (Number(@field.quantite_pnt_png) == 0 || (@local.v_cout_pnt_fmt && Number(@field.cout_pnt_png_nonzero) >= 0)))",
+            "matchedExpression": "@local.v_pnt_fmt",
             "type": "local",
-            "fieldName": "v_sem_fmt"
+            "fieldName": "v_pnt_fmt"
           },
           {
-            "fullExpression": "@calc(@local.v_sem_fmt && Number(@field.quantite_semence_achetee) >= 0 && (Number(@field.quantite_semence_achetee) == 0 || (@local.v_cout_sem_fmt && Number(@field.cout_semence_achetee_nonzero) >= 0)))",
-            "matchedExpression": "@field.quantite_semence_achetee",
+            "fullExpression": "@calc(@local.v_pnt_fmt && Number(@field.quantite_pnt_png) >= 0 && (Number(@field.quantite_pnt_png) == 0 || (@local.v_cout_pnt_fmt && Number(@field.cout_pnt_png_nonzero) >= 0)))",
+            "matchedExpression": "@field.quantite_pnt_png",
             "type": "field",
-            "fieldName": "quantite_semence_achetee"
+            "fieldName": "quantite_pnt_png"
           },
           {
-            "fullExpression": "@calc(@local.v_sem_fmt && Number(@field.quantite_semence_achetee) >= 0 && (Number(@field.quantite_semence_achetee) == 0 || (@local.v_cout_sem_fmt && Number(@field.cout_semence_achetee_nonzero) >= 0)))",
-            "matchedExpression": "@field.quantite_semence_achetee",
+            "fullExpression": "@calc(@local.v_pnt_fmt && Number(@field.quantite_pnt_png) >= 0 && (Number(@field.quantite_pnt_png) == 0 || (@local.v_cout_pnt_fmt && Number(@field.cout_pnt_png_nonzero) >= 0)))",
+            "matchedExpression": "@field.quantite_pnt_png",
             "type": "field",
-            "fieldName": "quantite_semence_achetee"
+            "fieldName": "quantite_pnt_png"
           },
           {
-            "fullExpression": "@calc(@local.v_sem_fmt && Number(@field.quantite_semence_achetee) >= 0 && (Number(@field.quantite_semence_achetee) == 0 || (@local.v_cout_sem_fmt && Number(@field.cout_semence_achetee_nonzero) >= 0)))",
-            "matchedExpression": "@local.v_cout_sem_fmt",
+            "fullExpression": "@calc(@local.v_pnt_fmt && Number(@field.quantite_pnt_png) >= 0 && (Number(@field.quantite_pnt_png) == 0 || (@local.v_cout_pnt_fmt && Number(@field.cout_pnt_png_nonzero) >= 0)))",
+            "matchedExpression": "@local.v_cout_pnt_fmt",
             "type": "local",
-            "fieldName": "v_cout_sem_fmt"
+            "fieldName": "v_cout_pnt_fmt"
           },
           {
-            "fullExpression": "@calc(@local.v_sem_fmt && Number(@field.quantite_semence_achetee) >= 0 && (Number(@field.quantite_semence_achetee) == 0 || (@local.v_cout_sem_fmt && Number(@field.cout_semence_achetee_nonzero) >= 0)))",
-            "matchedExpression": "@field.cout_semence_achetee_nonzero",
+            "fullExpression": "@calc(@local.v_pnt_fmt && Number(@field.quantite_pnt_png) >= 0 && (Number(@field.quantite_pnt_png) == 0 || (@local.v_cout_pnt_fmt && Number(@field.cout_pnt_png_nonzero) >= 0)))",
+            "matchedExpression": "@field.cout_pnt_png_nonzero",
             "type": "field",
-            "fieldName": "cout_semence_achetee_nonzero"
+            "fieldName": "cout_pnt_png_nonzero"
           },
           {
-            "fullExpression": "@calc(@local.v_sem_fmt && Number(@field.quantite_semence_achetee) >= 0 && (Number(@field.quantite_semence_achetee) == 0 || (@local.v_cout_sem_fmt && Number(@field.cout_semence_achetee_nonzero) >= 0)))",
-            "matchedExpression": "@calc(@local.v_sem_fmt && Number(@field.quantite_semence_achetee) >= 0 && (Number(@field.quantite_semence_achetee) == 0 || (@local.v_cout_sem_fmt && Number(@field.cout_semence_achetee_nonzero) >= 0)))",
+            "fullExpression": "@calc(@local.v_pnt_fmt && Number(@field.quantite_pnt_png) >= 0 && (Number(@field.quantite_pnt_png) == 0 || (@local.v_cout_pnt_fmt && Number(@field.cout_pnt_png_nonzero) >= 0)))",
+            "matchedExpression": "@calc(@local.v_pnt_fmt && Number(@field.quantite_pnt_png) >= 0 && (Number(@field.quantite_pnt_png) == 0 || (@local.v_cout_pnt_fmt && Number(@field.cout_pnt_png_nonzero) >= 0)))",
             "type": "calc",
-            "fieldName": "@local.v_sem_fmt && Number(@field.quantite_semence_achetee) >= 0 && (Number(@field.quantite_semence_achetee) == 0 || (@local.v_cout_sem_fmt && Number(@field.cout_semence_achetee_nonzero) >= 0))"
+            "fieldName": "@local.v_pnt_fmt && Number(@field.quantite_pnt_png) >= 0 && (Number(@field.quantite_pnt_png) == 0 || (@local.v_cout_pnt_fmt && Number(@field.cout_pnt_png_nonzero) >= 0))"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.v_sem_fmt": [
+        "@local.v_pnt_fmt": [
           "value"
         ],
-        "@field.quantite_semence_achetee": [
+        "@field.quantite_pnt_png": [
           "value",
           "value"
         ],
-        "@local.v_cout_sem_fmt": [
+        "@local.v_cout_pnt_fmt": [
           "value"
         ],
-        "@field.cout_semence_achetee_nonzero": [
+        "@field.cout_pnt_png_nonzero": [
           "value"
         ],
-        "@calc(@local.v_sem_fmt && Number(@field.quantite_semence_achetee) >= 0 && (Number(@field.quantite_semence_achetee) == 0 || (@local.v_cout_sem_fmt && Number(@field.cout_semence_achetee_nonzero) >= 0)))": [
+        "@calc(@local.v_pnt_fmt && Number(@field.quantite_pnt_png) >= 0 && (Number(@field.quantite_pnt_png) == 0 || (@local.v_cout_pnt_fmt && Number(@field.cout_pnt_png_nonzero) >= 0)))": [
           "value"
         ]
       }
@@ -911,10 +911,10 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "cout_semence_achetee",
-                "@local.v_final_sem"
+                "cout_pnt_png",
+                "@local.v_final_pnt"
               ],
-              "_raw": "click | set_field: cout_semence_achetee : @local.v_final_sem"
+              "_raw": "click | set_field: cout_pnt_png : @local.v_final_pnt"
             },
             {
               "trigger": "click",
@@ -927,7 +927,7 @@
           ],
           "parameter_list": {
             "style": "navigation",
-            "disabled": "!@local.v_page7_valid"
+            "disabled": "!@local.v_page5_valid"
           },
           "style_list": [
             "flex: 1"
@@ -947,19 +947,19 @@
                 "args": {
                   "1": [
                     {
-                      "fullExpression": "@local.v_final_sem",
-                      "matchedExpression": "@local.v_final_sem",
+                      "fullExpression": "@local.v_final_pnt",
+                      "matchedExpression": "@local.v_final_pnt",
                       "type": "local",
-                      "fieldName": "v_final_sem"
+                      "fieldName": "v_final_pnt"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: cout_semence_achetee : @local.v_final_sem",
-                    "matchedExpression": "@local.v_final_sem",
+                    "fullExpression": "click | set_field: cout_pnt_png : @local.v_final_pnt",
+                    "matchedExpression": "@local.v_final_pnt",
                     "type": "local",
-                    "fieldName": "v_final_sem"
+                    "fieldName": "v_final_pnt"
                   }
                 ]
               }
@@ -967,10 +967,10 @@
             "parameter_list": {
               "disabled": [
                 {
-                  "fullExpression": "!@local.v_page7_valid",
-                  "matchedExpression": "!@local.v_page7_valid",
+                  "fullExpression": "!@local.v_page5_valid",
+                  "matchedExpression": "!@local.v_page5_valid",
                   "type": "local",
-                  "fieldName": "v_page7_valid"
+                  "fieldName": "v_page5_valid"
                 }
               ]
             }
@@ -979,11 +979,11 @@
             "@global.btn_continue": [
               "value"
             ],
-            "@local.v_final_sem": [
+            "@local.v_final_pnt": [
               "action_list.0.args.1",
               "action_list.0._raw"
             ],
-            "!@local.v_page7_valid": [
+            "!@local.v_page5_valid": [
               "parameter_list.disabled"
             ]
           }
