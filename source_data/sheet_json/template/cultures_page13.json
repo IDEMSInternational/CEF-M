@@ -69,7 +69,7 @@
     },
     {
       "name": "valid_prix_prevu_vente",
-      "value": "@calc(!!@fields.prix_prevu_vente && @fields.prix_prevu_vente != \"\" && @fields.prix_prevu_vente > 0)"
+      "value": "@calc(!!@fields.prix_prevu_vente && @fields.prix_prevu_vente != ' ' && @fields.prix_prevu_vente > 0)"
     },
     {
       "type": "text",

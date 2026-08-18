@@ -80,6 +80,80 @@
         {
           "type": "display_group",
           "name": "card_culture_sec",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "width",
+              "args": [
+                "100%"
+              ],
+              "_raw": "width: 100%"
+            },
+            {
+              "trigger": "click",
+              "action_id": "display",
+              "args": [
+                "flex"
+              ],
+              "_raw": "display: flex"
+            },
+            {
+              "trigger": "click",
+              "action_id": "flex-direction",
+              "args": [
+                "column"
+              ],
+              "_raw": "flex-direction: column"
+            },
+            {
+              "trigger": "click",
+              "action_id": "align-items",
+              "args": [
+                "center"
+              ],
+              "_raw": "align-items: center"
+            },
+            {
+              "trigger": "click",
+              "action_id": "border",
+              "args": [
+                "1px solid #ddd"
+              ],
+              "_raw": "border: 1px solid #ddd"
+            },
+            {
+              "trigger": "click",
+              "action_id": "border-radius",
+              "args": [
+                "10px"
+              ],
+              "_raw": "border-radius: 10px"
+            },
+            {
+              "trigger": "click",
+              "action_id": "background",
+              "args": [
+                "white"
+              ],
+              "_raw": "background: white"
+            },
+            {
+              "trigger": "click",
+              "action_id": "margin-bottom",
+              "args": [
+                "10px"
+              ],
+              "_raw": "margin-bottom: 10px"
+            },
+            {
+              "trigger": "click",
+              "action_id": "overflow",
+              "args": [
+                "hidden"
+              ],
+              "_raw": "overflow: hidden"
+            }
+          ],
           "style_list": [
             "width: 100%",
             "display: flex",
@@ -98,6 +172,24 @@
               "_translations": {
                 "value": {}
               },
+              "action_list": [
+                {
+                  "trigger": "click",
+                  "action_id": "width",
+                  "args": [
+                    "100px"
+                  ],
+                  "_raw": "width:100px"
+                },
+                {
+                  "trigger": "click",
+                  "action_id": "height",
+                  "args": [
+                    "100px"
+                  ],
+                  "_raw": "height:100px"
+                }
+              ],
               "style_list": [
                 "width: 60%",
                 "object-fit: contain"

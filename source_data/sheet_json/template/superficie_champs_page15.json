@@ -58,7 +58,8 @@
       "name": "page15_button_continue",
       "value": "Continuer",
       "action_list": "click | set_field: superficie_geo: @fields.superficie_parcelle;\nclick | set_field: @calc('superficie_geo_parcelle_N' + @fields.num_parcelle) : @fields.superficie_geo;\nclick | emit: completed;",
-      "parameter_list": "disabled: !@local.completed_enabled"
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "style_list": "flex: 1"
     },
     {
       "type": "end_display_group"

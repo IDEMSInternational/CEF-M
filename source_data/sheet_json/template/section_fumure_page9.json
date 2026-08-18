@@ -28,10 +28,6 @@
       "value": "@calc(@fields.superficie_exploitation % @fields.portion_fertilisable == 0 ? (@fields.superficie_exploitation / @fields.portion_fertilisable) : Math.floor(@fields.superficie_exploitation / @fields.portion_fertilisable) + 1)"
     },
     {
-      "type": "text",
-      "value": "**@local.nb_annee**"
-    },
-    {
       "type": "begin_display_group",
       "parameter_list": "style: column;",
       "condition": "@local.nb_annee <= 3"

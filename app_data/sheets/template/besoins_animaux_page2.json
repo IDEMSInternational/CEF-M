@@ -63,9 +63,27 @@
     {
       "type": "data_items",
       "value": "@data.categorie_animaux",
+      "style_list": [
+        "display: flex",
+        "flex-wrap: wrap",
+        "justify-content: space-between",
+        "width: 100%",
+        "gap: 10px"
+      ],
       "rows": [
         {
           "type": "display_group",
+          "style_list": [
+            "width: 100%",
+            "display: flex",
+            "flex-direction: column",
+            "align-items: center",
+            "border: 1px solid #FFCC80",
+            "border-radius: 12px",
+            "background: white",
+            "margin-bottom: 10px",
+            "overflow: hidden"
+          ],
           "rows": [
             {
               "type": "image",
@@ -74,10 +92,8 @@
                 "value": {}
               },
               "style_list": [
-                "width:70px",
-                "height:70px",
-                "object-fit:contain",
-                "flex-shrink:0"
+                "width:100px",
+                "height:100px"
               ],
               "name": "image_1",
               "_nested_name": "data_items_5.display_group_1_@item.id.image_1",

@@ -148,7 +148,8 @@
         }
       ],
       "parameter_list": {
-        "number_input": "true"
+        "number_input": "true",
+        "placeholder": "Ecrivez le numero"
       },
       "_nested_name": "num_phone",
       "_dynamicFields": {
@@ -293,6 +294,9 @@
           "_raw": "changed | set_field : chef_upa: this.value"
         }
       ],
+      "parameter_list": {
+        "placeholder": "Ecrivez le nom"
+      },
       "_nested_name": "chef_upa",
       "_dynamicFields": {
         "value": [
@@ -849,6 +853,9 @@
           "_raw": "changed | set_field : chef_travaux: this.value"
         }
       ],
+      "parameter_list": {
+        "placeholder": "Ecrivez le nom"
+      },
       "_nested_name": "chef_travaux",
       "_dynamicFields": {
         "value": [
@@ -1031,6 +1038,9 @@
           "_raw": "changed | set_field : neo_alphabete: this.value"
         }
       ],
+      "parameter_list": {
+        "placeholder": "Ecrivez le nom"
+      },
       "_nested_name": "neo_alphabete",
       "_dynamicFields": {
         "value": [
@@ -1180,13 +1190,12 @@
     },
     {
       "type": "display_group",
-      "name": "dg_footer",
       "value": "",
       "parameter_list": {
         "sticky": "bottom"
       },
       "style_list": [
-        "padding: 12px 24px"
+        "padding: 16px 24px"
       ],
       "rows": [
         {
@@ -1206,7 +1215,7 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_3_button_back"
+          "_nested_name": "display_group_45.page_3_button_back"
         },
         {
           "type": "button",
@@ -1230,7 +1239,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.btn_attempt_submit",
+          "_nested_name": "display_group_45.btn_attempt_submit",
           "_dynamicFields": {
             "value": [
               {
@@ -1291,7 +1300,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_3_button_continue",
+          "_nested_name": "display_group_45.page_3_button_continue",
           "_dynamicFields": {
             "value": [
               {
@@ -1333,7 +1342,8 @@
           }
         }
       ],
-      "_nested_name": "dg_footer"
+      "name": "display_group_45",
+      "_nested_name": "display_group_45"
     }
   ],
   "_source": {

@@ -24,7 +24,6 @@
       "type": "end_display_group"
     },
     {
-      "type": "set_field",
       "name": "frais_education_annuel",
       "value": "@calc(Number(@fields.totaux_frais_education_premier_cycle || 0) + Number(@fields.totaux_frais_education_second_cycle || 0) + Number(@fields.totaux_frais_education_lycee_professionnelle || 0) + Number(@fields.totaux_frais_education_universite || 0))"
     },
@@ -65,7 +64,7 @@
       "type": "button",
       "name": "page8_button_continue",
       "value": "@global.btn_continue",
-      "action_list": "click | emit: completed;",
+      "action_list": "click | set_field: frais_education_annuel: @local.frais_education_annuel;\nclick | emit: completed;",
       "style_list": "flex: 1"
     },
     {

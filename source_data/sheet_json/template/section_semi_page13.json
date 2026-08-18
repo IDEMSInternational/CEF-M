@@ -5,35 +5,34 @@
   "rows": [
     {
       "type": "title",
-      "value": "BILAN GLOBAL DES SEMIS"
+      "value": "BILAN GLOBAL SEMIS"
     },
     {
-      "name": "montant",
-      "value": "@calc(Number(@field.grand_total_semis|| 0))"
+      "name": "v_grand_total",
+      "value": "@calc(Number(@field.grand_total_semis || 0))"
     },
     {
-      "name": "montant_cfa",
-      "value": "@calc(@local.montant * 5)"
-    },
-    {
-      "type": "begin_display_group",
-      "name": "final_grp",
-      "style_list": "background: #00adcc; padding: 25px; border-radius: 0 0 25px 25px; margin-bottom: 20px; text-align: center;"
+      "name": "v_grand_total_fcfa",
+      "value": "@calc(Number(@local.v_grand_total || 0) * 5)"
     },
     {
       "type": "html",
-      "value": "<div style=\"color: black; text-transform: uppercase; font-size: 12px; letter-spacing: 2px;\">Total Investi (Semis)</div>"
+      "value": "<h2 style=\"color: #1B5E20; text-align: center; margin: 0;\">INVESTISSEMENT TOTAL UPA</h2>"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: button_only;\nsrc: audio/semis/cout_tot_semis_fr.mp3\n;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "flex-shrink: 0;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa_tot.jpg",
+      "style_list": "width:100px; height:100px;"
     },
     {
       "type": "html",
-      "value": "<div style=\"font-size: 36px; font-weight: bold; color: white; margin: 10px 0;\">@local.montant<span style=\"font-size: 18px;\">Dram</span></div>"
-    },
-    {
-      "type": "html",
-      "value": "<div style=\"background: rgba(255,255,255,0.1); padding: 8px 15px; border-radius: 20px; display: inline-block; color: white; font-weight: bold;\">≈ @local.montant_cfa FCFA</div>"
-    },
-    {
-      "type": "end_display_group"
+      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41; text-transform: uppercase;\">Total Investi (Toutes Cultures)</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.v_grand_total Dram</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.v_grand_total_fcfa FCFA\n    </span>\n  </div>\n</div>"
     },
     {
       "type": "begin_display_group",
@@ -46,30 +45,19 @@
     },
     {
       "type": "text ",
-      "value": "@field.selected_cultures_list",
+      "value": "@field.selected_cultures_list ",
       "style_list": "color: #666; font-style: italic; margin-top: 5px;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "style_list": "margin: 20px; padding: 20px; background: #FFF9F2; border-radius: 15px; border: 1px dashed #FFCC80;"
+      "type": "html",
+      "value": "<br><b style=\"color: #455A64\">VOTRE AVIS SUR LE FORMULAIRE </b>"
     },
     {
       "type": "html",
-      "value": "<span style=\"color: #E65100; font-weight: bold;\">Votre avis nous intéresse</span>"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"font-size: 13px; color: #6D4C41;\">Le formulaire était-il facile à utiliser ? Enregistrez votre avis :</p>"
-    },
-    {
-      "type": "image",
-      "value": "images/vocal.jpg",
-      "style_list": "width: 50px; float: left; margin-right: 10px;"
-    },
-    {
-      "type": "end_display_group"
+      "value": "<p style=\"font-size: 12px; color: gray;\">Partagez vos suggestions ou difficultés rencontrées.</p>"
     },
     {
       "type": "begin_display_group",
@@ -87,8 +75,7 @@
       "type": "button",
       "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | emit: completed\n",
-      "parameter_list": "style: navigation;",
+      "action_list": "click | emit: completed",
       "style_list": "flex: 1"
     },
     {

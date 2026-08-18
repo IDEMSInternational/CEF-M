@@ -55,7 +55,7 @@
     {
       "type": "image",
       "value": "images/charrette.jpg",
-      "style_list": "width: 50%; object-fit: contain;\n\n\n"
+      "style_list": "width:100px; height:100px; object-fit:contain; flex-shrink:0;"
     },
     {
       "type": "end_display_group"
@@ -70,14 +70,9 @@
     },
     {
       "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@fields.quantite_fumure_organique"
-    },
-    {
-      "type": "html",
       "name": "valid_quantite_fumure_organique",
-      "value": "<span style=\"color: red; font-size: 13px;\">La réponse est obligatoire !</span>",
+      "value": "<span style=\"color: red; font-size: 13px;\">@global.warning_message </span>",
+      "condition": "!@fields.quantite_fumure_organique",
       "exclude_from_translation": true
     },
     {
@@ -184,7 +179,8 @@
       "name": "page12_button_continue",
       "value": "Continuer",
       "action_list": "click | set_field: @calc('quantite_fumure_organique_parcelle_N' + @fields.num_parcelle) : @fields.quantite_fumure_organique;\n        click | set_field: @calc('type_fumure_selected_parcelle_N' + @fields.num_parcelle) : @local.type_fumure_selected;\n        click | set_field: @calc('autre_fumier_texte_parcelle_N' + @fields.num_parcelle) : @fields.autre_fumier_texte;\n        click | set_field: attempt_submit_p12: false;\n        click | emit: completed;",
-      "parameter_list": "disabled: !@local.completed_enabled"
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "style_list": "flex: 1"
     },
     {
       "type": "end_display_group"

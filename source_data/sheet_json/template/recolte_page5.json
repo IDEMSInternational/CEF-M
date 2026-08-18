@@ -37,7 +37,7 @@
     {
       "type": "image",
       "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
-      "style_list": "width: 60%; object-fit: contain;"
+      "style_list": "width: 100px; height: 100px;"
     },
     {
       "type": "text",
@@ -199,7 +199,7 @@
       "name": "button_completed",
       "value": "Terminer",
       "action_list": "click | set_field: total_recolte_culture : @local.v_total_recolte_culture;\nclick | set_field: grand_total_recolte : @local.v_new_total;\nclick | set_field: current_culture_index : 0;\nclick | set_field: active_culture_name : @calc(@field.selected_cultures_list.split(',')[0]);\nclick | emit: completed;",
-      "parameter_list": "style: navigation;\ndisabled: !@local.v_page7_valid;",
+      "parameter_list": "disabled: !@local.v_page7_valid;",
       "condition": "@calc(Number(@field.current_culture_index) >= Number(@field.total_cultures_selected) - 1)",
       "style_list": "flex: 1"
     },

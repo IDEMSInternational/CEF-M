@@ -205,8 +205,8 @@
             "value": {}
           },
           "style_list": [
-            "width: 60%",
-            "object-fit: contain"
+            "width: 100px",
+            "height: 100px"
           ],
           "name": "image_1",
           "_nested_name": "display_group_8.image_1",
@@ -1125,7 +1125,6 @@
             }
           ],
           "parameter_list": {
-            "style": "navigation",
             "disabled": "!@local.completed_enabled"
           },
           "condition": "@calc(Number(@field.current_culture_index) < Number(@field.total_cultures_selected) - 1)",
@@ -1636,7 +1635,6 @@
             }
           ],
           "parameter_list": {
-            "style": "navigation",
             "disabled": "!@local.completed_enabled"
           },
           "condition": "@calc(Number(@field.current_culture_index) >= Number(@field.total_cultures_selected) - 1)",

@@ -104,7 +104,7 @@
     },
     {
       "name": "valid_nombre_boeuf_labour",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_boeuf_labour) && @local.nombre_boeuf_labour>= 0 ) || @local.nombre_boeuf_labour == '' || !@local.nombre_boeuf_labour)",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_boeuf_labour) && @local.nombre_boeuf_labour >=0 ) || @local.nombre_boeuf_labour == ' ' || !!@local.nombre_boeuf_labour )",
       "_translations": {
         "value": {}
       },
@@ -114,34 +114,34 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_boeuf_labour) && @local.nombre_boeuf_labour>= 0 ) || @local.nombre_boeuf_labour == '' || !@local.nombre_boeuf_labour)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_boeuf_labour) && @local.nombre_boeuf_labour >=0 ) || @local.nombre_boeuf_labour == ' ' || !!@local.nombre_boeuf_labour )",
             "matchedExpression": "@local.nombre_boeuf_labour",
             "type": "local",
             "fieldName": "nombre_boeuf_labour"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_boeuf_labour) && @local.nombre_boeuf_labour>= 0 ) || @local.nombre_boeuf_labour == '' || !@local.nombre_boeuf_labour)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_boeuf_labour) && @local.nombre_boeuf_labour >=0 ) || @local.nombre_boeuf_labour == ' ' || !!@local.nombre_boeuf_labour )",
             "matchedExpression": "@local.nombre_boeuf_labour",
             "type": "local",
             "fieldName": "nombre_boeuf_labour"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_boeuf_labour) && @local.nombre_boeuf_labour>= 0 ) || @local.nombre_boeuf_labour == '' || !@local.nombre_boeuf_labour)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_boeuf_labour) && @local.nombre_boeuf_labour >=0 ) || @local.nombre_boeuf_labour == ' ' || !!@local.nombre_boeuf_labour )",
             "matchedExpression": "@local.nombre_boeuf_labour",
             "type": "local",
             "fieldName": "nombre_boeuf_labour"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_boeuf_labour) && @local.nombre_boeuf_labour>= 0 ) || @local.nombre_boeuf_labour == '' || !@local.nombre_boeuf_labour)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_boeuf_labour) && @local.nombre_boeuf_labour >=0 ) || @local.nombre_boeuf_labour == ' ' || !!@local.nombre_boeuf_labour )",
             "matchedExpression": "!@local.nombre_boeuf_labour",
             "type": "local",
             "fieldName": "nombre_boeuf_labour"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_boeuf_labour) && @local.nombre_boeuf_labour>= 0 ) || @local.nombre_boeuf_labour == '' || !@local.nombre_boeuf_labour)",
-            "matchedExpression": "@calc((/^\\d+$/.test(@local.nombre_boeuf_labour) && @local.nombre_boeuf_labour>= 0 ) || @local.nombre_boeuf_labour == '' || !@local.nombre_boeuf_labour)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_boeuf_labour) && @local.nombre_boeuf_labour >=0 ) || @local.nombre_boeuf_labour == ' ' || !!@local.nombre_boeuf_labour )",
+            "matchedExpression": "@calc((/^\\d+$/.test(@local.nombre_boeuf_labour) && @local.nombre_boeuf_labour >=0 ) || @local.nombre_boeuf_labour == ' ' || !!@local.nombre_boeuf_labour )",
             "type": "calc",
-            "fieldName": "(/^\\d+$/.test(@local.nombre_boeuf_labour) && @local.nombre_boeuf_labour>= 0 ) || @local.nombre_boeuf_labour == '' || !@local.nombre_boeuf_labour"
+            "fieldName": "(/^\\d+$/.test(@local.nombre_boeuf_labour) && @local.nombre_boeuf_labour >=0 ) || @local.nombre_boeuf_labour == ' ' || !!@local.nombre_boeuf_labour "
           }
         ]
       },
@@ -154,7 +154,7 @@
         "!@local.nombre_boeuf_labour": [
           "value"
         ],
-        "@calc((/^\\d+$/.test(@local.nombre_boeuf_labour) && @local.nombre_boeuf_labour>= 0 ) || @local.nombre_boeuf_labour == '' || !@local.nombre_boeuf_labour)": [
+        "@calc((/^\\d+$/.test(@local.nombre_boeuf_labour) && @local.nombre_boeuf_labour >=0 ) || @local.nombre_boeuf_labour == ' ' || !!@local.nombre_boeuf_labour )": [
           "value"
         ]
       }
@@ -284,7 +284,7 @@
       "_translations": {
         "value": {}
       },
-      "condition": "!@local.valid_nombre_boeuf_labour",
+      "condition": "!@local.valid_nombre_boeuf_labour && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": [
         "color: #FF0000",
@@ -303,10 +303,16 @@
         ],
         "condition": [
           {
-            "fullExpression": "!@local.valid_nombre_boeuf_labour",
+            "fullExpression": "!@local.valid_nombre_boeuf_labour && @fields.attempt_submit",
             "matchedExpression": "!@local.valid_nombre_boeuf_labour",
             "type": "local",
             "fieldName": "valid_nombre_boeuf_labour"
+          },
+          {
+            "fullExpression": "!@local.valid_nombre_boeuf_labour && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
           }
         ]
       },
@@ -315,6 +321,9 @@
           "value"
         ],
         "!@local.valid_nombre_boeuf_labour": [
+          "condition"
+        ],
+        "@fields.attempt_submit": [
           "condition"
         ]
       }
@@ -387,7 +396,7 @@
     },
     {
       "name": "valid_nombre_taureaux",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_taureaux) && @local.nombre_taureaux>= 0 ) || @local.nombre_taureaux == '' || !@local.nombre_taureaux)",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_taureaux) && @local.nombre_taureaux >=0 ) || @local.nombre_taureaux == ' ' || !!@local.nombre_taureaux )",
       "_translations": {
         "value": {}
       },
@@ -397,34 +406,34 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_taureaux) && @local.nombre_taureaux>= 0 ) || @local.nombre_taureaux == '' || !@local.nombre_taureaux)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_taureaux) && @local.nombre_taureaux >=0 ) || @local.nombre_taureaux == ' ' || !!@local.nombre_taureaux )",
             "matchedExpression": "@local.nombre_taureaux",
             "type": "local",
             "fieldName": "nombre_taureaux"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_taureaux) && @local.nombre_taureaux>= 0 ) || @local.nombre_taureaux == '' || !@local.nombre_taureaux)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_taureaux) && @local.nombre_taureaux >=0 ) || @local.nombre_taureaux == ' ' || !!@local.nombre_taureaux )",
             "matchedExpression": "@local.nombre_taureaux",
             "type": "local",
             "fieldName": "nombre_taureaux"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_taureaux) && @local.nombre_taureaux>= 0 ) || @local.nombre_taureaux == '' || !@local.nombre_taureaux)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_taureaux) && @local.nombre_taureaux >=0 ) || @local.nombre_taureaux == ' ' || !!@local.nombre_taureaux )",
             "matchedExpression": "@local.nombre_taureaux",
             "type": "local",
             "fieldName": "nombre_taureaux"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_taureaux) && @local.nombre_taureaux>= 0 ) || @local.nombre_taureaux == '' || !@local.nombre_taureaux)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_taureaux) && @local.nombre_taureaux >=0 ) || @local.nombre_taureaux == ' ' || !!@local.nombre_taureaux )",
             "matchedExpression": "!@local.nombre_taureaux",
             "type": "local",
             "fieldName": "nombre_taureaux"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_taureaux) && @local.nombre_taureaux>= 0 ) || @local.nombre_taureaux == '' || !@local.nombre_taureaux)",
-            "matchedExpression": "@calc((/^\\d+$/.test(@local.nombre_taureaux) && @local.nombre_taureaux>= 0 ) || @local.nombre_taureaux == '' || !@local.nombre_taureaux)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_taureaux) && @local.nombre_taureaux >=0 ) || @local.nombre_taureaux == ' ' || !!@local.nombre_taureaux )",
+            "matchedExpression": "@calc((/^\\d+$/.test(@local.nombre_taureaux) && @local.nombre_taureaux >=0 ) || @local.nombre_taureaux == ' ' || !!@local.nombre_taureaux )",
             "type": "calc",
-            "fieldName": "(/^\\d+$/.test(@local.nombre_taureaux) && @local.nombre_taureaux>= 0 ) || @local.nombre_taureaux == '' || !@local.nombre_taureaux"
+            "fieldName": "(/^\\d+$/.test(@local.nombre_taureaux) && @local.nombre_taureaux >=0 ) || @local.nombre_taureaux == ' ' || !!@local.nombre_taureaux "
           }
         ]
       },
@@ -437,7 +446,7 @@
         "!@local.nombre_taureaux": [
           "value"
         ],
-        "@calc((/^\\d+$/.test(@local.nombre_taureaux) && @local.nombre_taureaux>= 0 ) || @local.nombre_taureaux == '' || !@local.nombre_taureaux)": [
+        "@calc((/^\\d+$/.test(@local.nombre_taureaux) && @local.nombre_taureaux >=0 ) || @local.nombre_taureaux == ' ' || !!@local.nombre_taureaux )": [
           "value"
         ]
       }
@@ -567,7 +576,7 @@
       "_translations": {
         "value": {}
       },
-      "condition": "!@local.valid_nombre_taureaux",
+      "condition": "!@local.valid_nombre_taureaux && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": [
         "color: #FF0000",
@@ -586,10 +595,16 @@
         ],
         "condition": [
           {
-            "fullExpression": "!@local.valid_nombre_taureaux",
+            "fullExpression": "!@local.valid_nombre_taureaux && @fields.attempt_submit",
             "matchedExpression": "!@local.valid_nombre_taureaux",
             "type": "local",
             "fieldName": "valid_nombre_taureaux"
+          },
+          {
+            "fullExpression": "!@local.valid_nombre_taureaux && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
           }
         ]
       },
@@ -598,6 +613,9 @@
           "value"
         ],
         "!@local.valid_nombre_taureaux": [
+          "condition"
+        ],
+        "@fields.attempt_submit": [
           "condition"
         ]
       }
@@ -670,7 +688,7 @@
     },
     {
       "name": "valid_nombre_vaches_taries",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_vaches_taries) && @local.nombre_vaches_taries>= 0 ) || @local.nombre_vaches_taries == '' || !@local.nombre_vaches_taries)",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_vaches_taries) && @local.nombre_vaches_taries >=0 ) || @local.nombre_vaches_taries == ' ' || !!@local.nombre_vaches_taries )",
       "_translations": {
         "value": {}
       },
@@ -680,34 +698,34 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_taries) && @local.nombre_vaches_taries>= 0 ) || @local.nombre_vaches_taries == '' || !@local.nombre_vaches_taries)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_taries) && @local.nombre_vaches_taries >=0 ) || @local.nombre_vaches_taries == ' ' || !!@local.nombre_vaches_taries )",
             "matchedExpression": "@local.nombre_vaches_taries",
             "type": "local",
             "fieldName": "nombre_vaches_taries"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_taries) && @local.nombre_vaches_taries>= 0 ) || @local.nombre_vaches_taries == '' || !@local.nombre_vaches_taries)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_taries) && @local.nombre_vaches_taries >=0 ) || @local.nombre_vaches_taries == ' ' || !!@local.nombre_vaches_taries )",
             "matchedExpression": "@local.nombre_vaches_taries",
             "type": "local",
             "fieldName": "nombre_vaches_taries"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_taries) && @local.nombre_vaches_taries>= 0 ) || @local.nombre_vaches_taries == '' || !@local.nombre_vaches_taries)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_taries) && @local.nombre_vaches_taries >=0 ) || @local.nombre_vaches_taries == ' ' || !!@local.nombre_vaches_taries )",
             "matchedExpression": "@local.nombre_vaches_taries",
             "type": "local",
             "fieldName": "nombre_vaches_taries"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_taries) && @local.nombre_vaches_taries>= 0 ) || @local.nombre_vaches_taries == '' || !@local.nombre_vaches_taries)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_taries) && @local.nombre_vaches_taries >=0 ) || @local.nombre_vaches_taries == ' ' || !!@local.nombre_vaches_taries )",
             "matchedExpression": "!@local.nombre_vaches_taries",
             "type": "local",
             "fieldName": "nombre_vaches_taries"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_taries) && @local.nombre_vaches_taries>= 0 ) || @local.nombre_vaches_taries == '' || !@local.nombre_vaches_taries)",
-            "matchedExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_taries) && @local.nombre_vaches_taries>= 0 ) || @local.nombre_vaches_taries == '' || !@local.nombre_vaches_taries)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_taries) && @local.nombre_vaches_taries >=0 ) || @local.nombre_vaches_taries == ' ' || !!@local.nombre_vaches_taries )",
+            "matchedExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_taries) && @local.nombre_vaches_taries >=0 ) || @local.nombre_vaches_taries == ' ' || !!@local.nombre_vaches_taries )",
             "type": "calc",
-            "fieldName": "(/^\\d+$/.test(@local.nombre_vaches_taries) && @local.nombre_vaches_taries>= 0 ) || @local.nombre_vaches_taries == '' || !@local.nombre_vaches_taries"
+            "fieldName": "(/^\\d+$/.test(@local.nombre_vaches_taries) && @local.nombre_vaches_taries >=0 ) || @local.nombre_vaches_taries == ' ' || !!@local.nombre_vaches_taries "
           }
         ]
       },
@@ -720,7 +738,7 @@
         "!@local.nombre_vaches_taries": [
           "value"
         ],
-        "@calc((/^\\d+$/.test(@local.nombre_vaches_taries) && @local.nombre_vaches_taries>= 0 ) || @local.nombre_vaches_taries == '' || !@local.nombre_vaches_taries)": [
+        "@calc((/^\\d+$/.test(@local.nombre_vaches_taries) && @local.nombre_vaches_taries >=0 ) || @local.nombre_vaches_taries == ' ' || !!@local.nombre_vaches_taries )": [
           "value"
         ]
       }
@@ -850,7 +868,7 @@
       "_translations": {
         "value": {}
       },
-      "condition": "!@local.valid_nombre_vaches_taries",
+      "condition": "!@local.valid_nombre_vaches_taries && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": [
         "color: #FF0000",
@@ -869,10 +887,16 @@
         ],
         "condition": [
           {
-            "fullExpression": "!@local.valid_nombre_vaches_taries",
+            "fullExpression": "!@local.valid_nombre_vaches_taries && @fields.attempt_submit",
             "matchedExpression": "!@local.valid_nombre_vaches_taries",
             "type": "local",
             "fieldName": "valid_nombre_vaches_taries"
+          },
+          {
+            "fullExpression": "!@local.valid_nombre_vaches_taries && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
           }
         ]
       },
@@ -881,6 +905,9 @@
           "value"
         ],
         "!@local.valid_nombre_vaches_taries": [
+          "condition"
+        ],
+        "@fields.attempt_submit": [
           "condition"
         ]
       }
@@ -953,7 +980,7 @@
     },
     {
       "name": "valid_nombre_vaches_laitieres",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_vaches_laitieres) && @local.nombre_vaches_laitieres>= 0 ) || @local.nombre_vaches_laitieres == '' || !@local.nombre_vaches_laitieres)",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_vaches_laitieres) && @local.nombre_vaches_laitieres >=0 ) || @local.nombre_vaches_laitieres == ' ' || !!@local.nombre_vaches_laitieres )",
       "_translations": {
         "value": {}
       },
@@ -963,34 +990,34 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_laitieres) && @local.nombre_vaches_laitieres>= 0 ) || @local.nombre_vaches_laitieres == '' || !@local.nombre_vaches_laitieres)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_laitieres) && @local.nombre_vaches_laitieres >=0 ) || @local.nombre_vaches_laitieres == ' ' || !!@local.nombre_vaches_laitieres )",
             "matchedExpression": "@local.nombre_vaches_laitieres",
             "type": "local",
             "fieldName": "nombre_vaches_laitieres"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_laitieres) && @local.nombre_vaches_laitieres>= 0 ) || @local.nombre_vaches_laitieres == '' || !@local.nombre_vaches_laitieres)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_laitieres) && @local.nombre_vaches_laitieres >=0 ) || @local.nombre_vaches_laitieres == ' ' || !!@local.nombre_vaches_laitieres )",
             "matchedExpression": "@local.nombre_vaches_laitieres",
             "type": "local",
             "fieldName": "nombre_vaches_laitieres"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_laitieres) && @local.nombre_vaches_laitieres>= 0 ) || @local.nombre_vaches_laitieres == '' || !@local.nombre_vaches_laitieres)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_laitieres) && @local.nombre_vaches_laitieres >=0 ) || @local.nombre_vaches_laitieres == ' ' || !!@local.nombre_vaches_laitieres )",
             "matchedExpression": "@local.nombre_vaches_laitieres",
             "type": "local",
             "fieldName": "nombre_vaches_laitieres"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_laitieres) && @local.nombre_vaches_laitieres>= 0 ) || @local.nombre_vaches_laitieres == '' || !@local.nombre_vaches_laitieres)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_laitieres) && @local.nombre_vaches_laitieres >=0 ) || @local.nombre_vaches_laitieres == ' ' || !!@local.nombre_vaches_laitieres )",
             "matchedExpression": "!@local.nombre_vaches_laitieres",
             "type": "local",
             "fieldName": "nombre_vaches_laitieres"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_laitieres) && @local.nombre_vaches_laitieres>= 0 ) || @local.nombre_vaches_laitieres == '' || !@local.nombre_vaches_laitieres)",
-            "matchedExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_laitieres) && @local.nombre_vaches_laitieres>= 0 ) || @local.nombre_vaches_laitieres == '' || !@local.nombre_vaches_laitieres)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_laitieres) && @local.nombre_vaches_laitieres >=0 ) || @local.nombre_vaches_laitieres == ' ' || !!@local.nombre_vaches_laitieres )",
+            "matchedExpression": "@calc((/^\\d+$/.test(@local.nombre_vaches_laitieres) && @local.nombre_vaches_laitieres >=0 ) || @local.nombre_vaches_laitieres == ' ' || !!@local.nombre_vaches_laitieres )",
             "type": "calc",
-            "fieldName": "(/^\\d+$/.test(@local.nombre_vaches_laitieres) && @local.nombre_vaches_laitieres>= 0 ) || @local.nombre_vaches_laitieres == '' || !@local.nombre_vaches_laitieres"
+            "fieldName": "(/^\\d+$/.test(@local.nombre_vaches_laitieres) && @local.nombre_vaches_laitieres >=0 ) || @local.nombre_vaches_laitieres == ' ' || !!@local.nombre_vaches_laitieres "
           }
         ]
       },
@@ -1003,7 +1030,7 @@
         "!@local.nombre_vaches_laitieres": [
           "value"
         ],
-        "@calc((/^\\d+$/.test(@local.nombre_vaches_laitieres) && @local.nombre_vaches_laitieres>= 0 ) || @local.nombre_vaches_laitieres == '' || !@local.nombre_vaches_laitieres)": [
+        "@calc((/^\\d+$/.test(@local.nombre_vaches_laitieres) && @local.nombre_vaches_laitieres >=0 ) || @local.nombre_vaches_laitieres == ' ' || !!@local.nombre_vaches_laitieres )": [
           "value"
         ]
       }
@@ -1133,7 +1160,7 @@
       "_translations": {
         "value": {}
       },
-      "condition": "!@local.valid_nombre_vaches_laitieres",
+      "condition": "!@local.valid_nombre_vaches_laitieres && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": [
         "color: #FF0000",
@@ -1152,10 +1179,16 @@
         ],
         "condition": [
           {
-            "fullExpression": "!@local.valid_nombre_vaches_laitieres",
+            "fullExpression": "!@local.valid_nombre_vaches_laitieres && @fields.attempt_submit",
             "matchedExpression": "!@local.valid_nombre_vaches_laitieres",
             "type": "local",
             "fieldName": "valid_nombre_vaches_laitieres"
+          },
+          {
+            "fullExpression": "!@local.valid_nombre_vaches_laitieres && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
           }
         ]
       },
@@ -1164,6 +1197,9 @@
           "value"
         ],
         "!@local.valid_nombre_vaches_laitieres": [
+          "condition"
+        ],
+        "@fields.attempt_submit": [
           "condition"
         ]
       }
@@ -1236,7 +1272,7 @@
     },
     {
       "name": "valid_nombre_genisses",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_genisses) && @local.nombre_genisses>= 0 ) || @local.nombre_genisses == '' || !@local.nombre_genisses)",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_genisses) && @local.nombre_genisses >=0 ) || @local.nombre_genisses == ' ' || !!@local.nombre_genisses )",
       "_translations": {
         "value": {}
       },
@@ -1246,34 +1282,34 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_genisses) && @local.nombre_genisses>= 0 ) || @local.nombre_genisses == '' || !@local.nombre_genisses)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_genisses) && @local.nombre_genisses >=0 ) || @local.nombre_genisses == ' ' || !!@local.nombre_genisses )",
             "matchedExpression": "@local.nombre_genisses",
             "type": "local",
             "fieldName": "nombre_genisses"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_genisses) && @local.nombre_genisses>= 0 ) || @local.nombre_genisses == '' || !@local.nombre_genisses)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_genisses) && @local.nombre_genisses >=0 ) || @local.nombre_genisses == ' ' || !!@local.nombre_genisses )",
             "matchedExpression": "@local.nombre_genisses",
             "type": "local",
             "fieldName": "nombre_genisses"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_genisses) && @local.nombre_genisses>= 0 ) || @local.nombre_genisses == '' || !@local.nombre_genisses)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_genisses) && @local.nombre_genisses >=0 ) || @local.nombre_genisses == ' ' || !!@local.nombre_genisses )",
             "matchedExpression": "@local.nombre_genisses",
             "type": "local",
             "fieldName": "nombre_genisses"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_genisses) && @local.nombre_genisses>= 0 ) || @local.nombre_genisses == '' || !@local.nombre_genisses)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_genisses) && @local.nombre_genisses >=0 ) || @local.nombre_genisses == ' ' || !!@local.nombre_genisses )",
             "matchedExpression": "!@local.nombre_genisses",
             "type": "local",
             "fieldName": "nombre_genisses"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_genisses) && @local.nombre_genisses>= 0 ) || @local.nombre_genisses == '' || !@local.nombre_genisses)",
-            "matchedExpression": "@calc((/^\\d+$/.test(@local.nombre_genisses) && @local.nombre_genisses>= 0 ) || @local.nombre_genisses == '' || !@local.nombre_genisses)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_genisses) && @local.nombre_genisses >=0 ) || @local.nombre_genisses == ' ' || !!@local.nombre_genisses )",
+            "matchedExpression": "@calc((/^\\d+$/.test(@local.nombre_genisses) && @local.nombre_genisses >=0 ) || @local.nombre_genisses == ' ' || !!@local.nombre_genisses )",
             "type": "calc",
-            "fieldName": "(/^\\d+$/.test(@local.nombre_genisses) && @local.nombre_genisses>= 0 ) || @local.nombre_genisses == '' || !@local.nombre_genisses"
+            "fieldName": "(/^\\d+$/.test(@local.nombre_genisses) && @local.nombre_genisses >=0 ) || @local.nombre_genisses == ' ' || !!@local.nombre_genisses "
           }
         ]
       },
@@ -1286,7 +1322,7 @@
         "!@local.nombre_genisses": [
           "value"
         ],
-        "@calc((/^\\d+$/.test(@local.nombre_genisses) && @local.nombre_genisses>= 0 ) || @local.nombre_genisses == '' || !@local.nombre_genisses)": [
+        "@calc((/^\\d+$/.test(@local.nombre_genisses) && @local.nombre_genisses >=0 ) || @local.nombre_genisses == ' ' || !!@local.nombre_genisses )": [
           "value"
         ]
       }
@@ -1416,7 +1452,7 @@
       "_translations": {
         "value": {}
       },
-      "condition": "!@local.valid_nombre_genisses",
+      "condition": "!@local.valid_nombre_genisses && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": [
         "color: #FF0000",
@@ -1435,10 +1471,16 @@
         ],
         "condition": [
           {
-            "fullExpression": "!@local.valid_nombre_genisses",
+            "fullExpression": "!@local.valid_nombre_genisses && @fields.attempt_submit",
             "matchedExpression": "!@local.valid_nombre_genisses",
             "type": "local",
             "fieldName": "valid_nombre_genisses"
+          },
+          {
+            "fullExpression": "!@local.valid_nombre_genisses && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
           }
         ]
       },
@@ -1447,6 +1489,9 @@
           "value"
         ],
         "!@local.valid_nombre_genisses": [
+          "condition"
+        ],
+        "@fields.attempt_submit": [
           "condition"
         ]
       }
@@ -1519,7 +1564,7 @@
     },
     {
       "name": "valid_nombre_veaux",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_veaux) && @local.nombre_veaux>= 0 ) || @local.nombre_veaux == '' || !@local.nombre_veaux)",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_veaux) && @local.nombre_veaux >=0 ) || @local.nombre_veaux == ' ' || !!@local.nombre_veaux )",
       "_translations": {
         "value": {}
       },
@@ -1529,34 +1574,34 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_veaux) && @local.nombre_veaux>= 0 ) || @local.nombre_veaux == '' || !@local.nombre_veaux)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_veaux) && @local.nombre_veaux >=0 ) || @local.nombre_veaux == ' ' || !!@local.nombre_veaux )",
             "matchedExpression": "@local.nombre_veaux",
             "type": "local",
             "fieldName": "nombre_veaux"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_veaux) && @local.nombre_veaux>= 0 ) || @local.nombre_veaux == '' || !@local.nombre_veaux)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_veaux) && @local.nombre_veaux >=0 ) || @local.nombre_veaux == ' ' || !!@local.nombre_veaux )",
             "matchedExpression": "@local.nombre_veaux",
             "type": "local",
             "fieldName": "nombre_veaux"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_veaux) && @local.nombre_veaux>= 0 ) || @local.nombre_veaux == '' || !@local.nombre_veaux)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_veaux) && @local.nombre_veaux >=0 ) || @local.nombre_veaux == ' ' || !!@local.nombre_veaux )",
             "matchedExpression": "@local.nombre_veaux",
             "type": "local",
             "fieldName": "nombre_veaux"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_veaux) && @local.nombre_veaux>= 0 ) || @local.nombre_veaux == '' || !@local.nombre_veaux)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_veaux) && @local.nombre_veaux >=0 ) || @local.nombre_veaux == ' ' || !!@local.nombre_veaux )",
             "matchedExpression": "!@local.nombre_veaux",
             "type": "local",
             "fieldName": "nombre_veaux"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_veaux) && @local.nombre_veaux>= 0 ) || @local.nombre_veaux == '' || !@local.nombre_veaux)",
-            "matchedExpression": "@calc((/^\\d+$/.test(@local.nombre_veaux) && @local.nombre_veaux>= 0 ) || @local.nombre_veaux == '' || !@local.nombre_veaux)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_veaux) && @local.nombre_veaux >=0 ) || @local.nombre_veaux == ' ' || !!@local.nombre_veaux )",
+            "matchedExpression": "@calc((/^\\d+$/.test(@local.nombre_veaux) && @local.nombre_veaux >=0 ) || @local.nombre_veaux == ' ' || !!@local.nombre_veaux )",
             "type": "calc",
-            "fieldName": "(/^\\d+$/.test(@local.nombre_veaux) && @local.nombre_veaux>= 0 ) || @local.nombre_veaux == '' || !@local.nombre_veaux"
+            "fieldName": "(/^\\d+$/.test(@local.nombre_veaux) && @local.nombre_veaux >=0 ) || @local.nombre_veaux == ' ' || !!@local.nombre_veaux "
           }
         ]
       },
@@ -1569,7 +1614,7 @@
         "!@local.nombre_veaux": [
           "value"
         ],
-        "@calc((/^\\d+$/.test(@local.nombre_veaux) && @local.nombre_veaux>= 0 ) || @local.nombre_veaux == '' || !@local.nombre_veaux)": [
+        "@calc((/^\\d+$/.test(@local.nombre_veaux) && @local.nombre_veaux >=0 ) || @local.nombre_veaux == ' ' || !!@local.nombre_veaux )": [
           "value"
         ]
       }
@@ -1699,7 +1744,7 @@
       "_translations": {
         "value": {}
       },
-      "condition": "!@local.valid_nombre_veaux",
+      "condition": "!@local.valid_nombre_veaux && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": [
         "color: #FF0000",
@@ -1718,10 +1763,16 @@
         ],
         "condition": [
           {
-            "fullExpression": "!@local.valid_nombre_veaux",
+            "fullExpression": "!@local.valid_nombre_veaux && @fields.attempt_submit",
             "matchedExpression": "!@local.valid_nombre_veaux",
             "type": "local",
             "fieldName": "valid_nombre_veaux"
+          },
+          {
+            "fullExpression": "!@local.valid_nombre_veaux && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
           }
         ]
       },
@@ -1731,6 +1782,78 @@
         ],
         "!@local.valid_nombre_veaux": [
           "condition"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.valid_nombre_boeuf_labour && @local.valid_nombre_veaux && @local.valid_nombre_taureaux && @local.valid_nombre_vaches_taries && @local.valid_nombre_vaches_laitieres && @local.valid_nombre_genisses",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@local.valid_nombre_boeuf_labour && @local.valid_nombre_veaux && @local.valid_nombre_taureaux && @local.valid_nombre_vaches_taries && @local.valid_nombre_vaches_laitieres && @local.valid_nombre_genisses",
+            "matchedExpression": "@local.valid_nombre_boeuf_labour",
+            "type": "local",
+            "fieldName": "valid_nombre_boeuf_labour"
+          },
+          {
+            "fullExpression": "@local.valid_nombre_boeuf_labour && @local.valid_nombre_veaux && @local.valid_nombre_taureaux && @local.valid_nombre_vaches_taries && @local.valid_nombre_vaches_laitieres && @local.valid_nombre_genisses",
+            "matchedExpression": "@local.valid_nombre_veaux",
+            "type": "local",
+            "fieldName": "valid_nombre_veaux"
+          },
+          {
+            "fullExpression": "@local.valid_nombre_boeuf_labour && @local.valid_nombre_veaux && @local.valid_nombre_taureaux && @local.valid_nombre_vaches_taries && @local.valid_nombre_vaches_laitieres && @local.valid_nombre_genisses",
+            "matchedExpression": "@local.valid_nombre_taureaux",
+            "type": "local",
+            "fieldName": "valid_nombre_taureaux"
+          },
+          {
+            "fullExpression": "@local.valid_nombre_boeuf_labour && @local.valid_nombre_veaux && @local.valid_nombre_taureaux && @local.valid_nombre_vaches_taries && @local.valid_nombre_vaches_laitieres && @local.valid_nombre_genisses",
+            "matchedExpression": "@local.valid_nombre_vaches_taries",
+            "type": "local",
+            "fieldName": "valid_nombre_vaches_taries"
+          },
+          {
+            "fullExpression": "@local.valid_nombre_boeuf_labour && @local.valid_nombre_veaux && @local.valid_nombre_taureaux && @local.valid_nombre_vaches_taries && @local.valid_nombre_vaches_laitieres && @local.valid_nombre_genisses",
+            "matchedExpression": "@local.valid_nombre_vaches_laitieres",
+            "type": "local",
+            "fieldName": "valid_nombre_vaches_laitieres"
+          },
+          {
+            "fullExpression": "@local.valid_nombre_boeuf_labour && @local.valid_nombre_veaux && @local.valid_nombre_taureaux && @local.valid_nombre_vaches_taries && @local.valid_nombre_vaches_laitieres && @local.valid_nombre_genisses",
+            "matchedExpression": "@local.valid_nombre_genisses",
+            "type": "local",
+            "fieldName": "valid_nombre_genisses"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.valid_nombre_boeuf_labour": [
+          "value"
+        ],
+        "@local.valid_nombre_veaux": [
+          "value"
+        ],
+        "@local.valid_nombre_taureaux": [
+          "value"
+        ],
+        "@local.valid_nombre_vaches_taries": [
+          "value"
+        ],
+        "@local.valid_nombre_vaches_laitieres": [
+          "value"
+        ],
+        "@local.valid_nombre_genisses": [
+          "value"
         ]
       }
     },
@@ -1740,6 +1863,7 @@
       "_translations": {
         "value": {}
       },
+      "condition": "@local.completed_enabled",
       "exclude_from_translation": true,
       "type": "set_variable",
       "_nested_name": "total_bovins",
@@ -1787,6 +1911,14 @@
             "type": "calc",
             "fieldName": "Number(@local.nombre_boeuf_labour) + Number(@local.nombre_veaux)+ Number(@local.nombre_taureaux)+ Number(@local.nombre_vaches_taries) + Number(@local.nombre_vaches_laitieres) +Number(@local.nombre_genisses)"
           }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@local.completed_enabled",
+            "matchedExpression": "@local.completed_enabled",
+            "type": "local",
+            "fieldName": "completed_enabled"
+          }
         ]
       },
       "_dynamicDependencies": {
@@ -1810,6 +1942,9 @@
         ],
         "@calc(Number(@local.nombre_boeuf_labour) + Number(@local.nombre_veaux)+ Number(@local.nombre_taureaux)+ Number(@local.nombre_vaches_taries) + Number(@local.nombre_vaches_laitieres) +Number(@local.nombre_genisses))": [
           "value"
+        ],
+        "@local.completed_enabled": [
+          "condition"
         ]
       }
     },
@@ -1817,34 +1952,26 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "Nombre total de bovins de l'UPA:",
+          "type": "html",
+          "value": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\">\nNombre total de bovins de l'UPA:  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n  @local.total_bovins bovins\n  </span>\n</div>",
           "_translations": {
             "value": {}
           },
-          "parameter_list": {
-            "style": "emphasised"
-          },
-          "exclude_from_translation": true,
-          "name": "text_1",
-          "_nested_name": "display_group_47.text_1"
-        },
-        {
-          "type": "text",
-          "value": "@local.total_bovins bovins",
-          "_translations": {
-            "value": {}
-          },
-          "parameter_list": {
-            "style": "emphasised"
-          },
-          "exclude_from_translation": true,
-          "name": "text_2",
-          "_nested_name": "display_group_47.text_2",
+          "condition": "@local.total_bovins",
+          "name": "html_1",
+          "_nested_name": "display_group_48.html_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@local.total_bovins bovins",
+                "fullExpression": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\">\nNombre total de bovins de l'UPA:  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n  @local.total_bovins bovins\n  </span>\n</div>",
+                "matchedExpression": "@local.total_bovins",
+                "type": "local",
+                "fieldName": "total_bovins"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@local.total_bovins",
                 "matchedExpression": "@local.total_bovins",
                 "type": "local",
                 "fieldName": "total_bovins"
@@ -1853,92 +1980,14 @@
           },
           "_dynamicDependencies": {
             "@local.total_bovins": [
-              "value"
+              "value",
+              "condition"
             ]
           }
         }
       ],
-      "name": "display_group_47",
-      "_nested_name": "display_group_47"
-    },
-    {
-      "name": "completed_enabled",
-      "value": "@calc(@local.valid_nombre_boeuf_labour && @local.valid_nombre_veaux && @local.valid_nombre_taureaux && @local.valid_nombre_vaches_taries && @local.valid_nombre_vaches_laitieres && @local.valid_nombre_genisses)",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": true,
-      "type": "set_variable",
-      "_nested_name": "completed_enabled",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(@local.valid_nombre_boeuf_labour && @local.valid_nombre_veaux && @local.valid_nombre_taureaux && @local.valid_nombre_vaches_taries && @local.valid_nombre_vaches_laitieres && @local.valid_nombre_genisses)",
-            "matchedExpression": "@local.valid_nombre_boeuf_labour",
-            "type": "local",
-            "fieldName": "valid_nombre_boeuf_labour"
-          },
-          {
-            "fullExpression": "@calc(@local.valid_nombre_boeuf_labour && @local.valid_nombre_veaux && @local.valid_nombre_taureaux && @local.valid_nombre_vaches_taries && @local.valid_nombre_vaches_laitieres && @local.valid_nombre_genisses)",
-            "matchedExpression": "@local.valid_nombre_veaux",
-            "type": "local",
-            "fieldName": "valid_nombre_veaux"
-          },
-          {
-            "fullExpression": "@calc(@local.valid_nombre_boeuf_labour && @local.valid_nombre_veaux && @local.valid_nombre_taureaux && @local.valid_nombre_vaches_taries && @local.valid_nombre_vaches_laitieres && @local.valid_nombre_genisses)",
-            "matchedExpression": "@local.valid_nombre_taureaux",
-            "type": "local",
-            "fieldName": "valid_nombre_taureaux"
-          },
-          {
-            "fullExpression": "@calc(@local.valid_nombre_boeuf_labour && @local.valid_nombre_veaux && @local.valid_nombre_taureaux && @local.valid_nombre_vaches_taries && @local.valid_nombre_vaches_laitieres && @local.valid_nombre_genisses)",
-            "matchedExpression": "@local.valid_nombre_vaches_taries",
-            "type": "local",
-            "fieldName": "valid_nombre_vaches_taries"
-          },
-          {
-            "fullExpression": "@calc(@local.valid_nombre_boeuf_labour && @local.valid_nombre_veaux && @local.valid_nombre_taureaux && @local.valid_nombre_vaches_taries && @local.valid_nombre_vaches_laitieres && @local.valid_nombre_genisses)",
-            "matchedExpression": "@local.valid_nombre_vaches_laitieres",
-            "type": "local",
-            "fieldName": "valid_nombre_vaches_laitieres"
-          },
-          {
-            "fullExpression": "@calc(@local.valid_nombre_boeuf_labour && @local.valid_nombre_veaux && @local.valid_nombre_taureaux && @local.valid_nombre_vaches_taries && @local.valid_nombre_vaches_laitieres && @local.valid_nombre_genisses)",
-            "matchedExpression": "@local.valid_nombre_genisses",
-            "type": "local",
-            "fieldName": "valid_nombre_genisses"
-          },
-          {
-            "fullExpression": "@calc(@local.valid_nombre_boeuf_labour && @local.valid_nombre_veaux && @local.valid_nombre_taureaux && @local.valid_nombre_vaches_taries && @local.valid_nombre_vaches_laitieres && @local.valid_nombre_genisses)",
-            "matchedExpression": "@calc(@local.valid_nombre_boeuf_labour && @local.valid_nombre_veaux && @local.valid_nombre_taureaux && @local.valid_nombre_vaches_taries && @local.valid_nombre_vaches_laitieres && @local.valid_nombre_genisses)",
-            "type": "calc",
-            "fieldName": "@local.valid_nombre_boeuf_labour && @local.valid_nombre_veaux && @local.valid_nombre_taureaux && @local.valid_nombre_vaches_taries && @local.valid_nombre_vaches_laitieres && @local.valid_nombre_genisses"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.valid_nombre_boeuf_labour": [
-          "value"
-        ],
-        "@local.valid_nombre_veaux": [
-          "value"
-        ],
-        "@local.valid_nombre_taureaux": [
-          "value"
-        ],
-        "@local.valid_nombre_vaches_taries": [
-          "value"
-        ],
-        "@local.valid_nombre_vaches_laitieres": [
-          "value"
-        ],
-        "@local.valid_nombre_genisses": [
-          "value"
-        ],
-        "@calc(@local.valid_nombre_boeuf_labour && @local.valid_nombre_veaux && @local.valid_nombre_taureaux && @local.valid_nombre_vaches_taries && @local.valid_nombre_vaches_laitieres && @local.valid_nombre_genisses)": [
-          "value"
-        ]
-      }
+      "name": "display_group_48",
+      "_nested_name": "display_group_48"
     },
     {
       "type": "display_group",
@@ -2076,10 +2125,10 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "nombre_vaches_laitieres",
-                "@local.nombre_vaches_laitieres"
+                "nombre_genisses",
+                "@local.nombre_genisses"
               ],
-              "_raw": "click | set_field: nombre_vaches_laitieres: @local.nombre_vaches_laitieres"
+              "_raw": "click | set_field: nombre_genisses: @local.nombre_genisses"
             },
             {
               "trigger": "click",
@@ -2213,19 +2262,19 @@
                 "args": {
                   "1": [
                     {
-                      "fullExpression": "@local.nombre_vaches_laitieres",
-                      "matchedExpression": "@local.nombre_vaches_laitieres",
+                      "fullExpression": "@local.nombre_genisses",
+                      "matchedExpression": "@local.nombre_genisses",
                       "type": "local",
-                      "fieldName": "nombre_vaches_laitieres"
+                      "fieldName": "nombre_genisses"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: nombre_vaches_laitieres: @local.nombre_vaches_laitieres",
-                    "matchedExpression": "@local.nombre_vaches_laitieres",
+                    "fullExpression": "click | set_field: nombre_genisses: @local.nombre_genisses",
+                    "matchedExpression": "@local.nombre_genisses",
                     "type": "local",
-                    "fieldName": "nombre_vaches_laitieres"
+                    "fieldName": "nombre_genisses"
                   }
                 ]
               }
@@ -2268,7 +2317,9 @@
             ],
             "@local.nombre_vaches_laitieres": [
               "action_list.4.args.1",
-              "action_list.4._raw",
+              "action_list.4._raw"
+            ],
+            "@local.nombre_genisses": [
               "action_list.5.args.1",
               "action_list.5._raw"
             ],

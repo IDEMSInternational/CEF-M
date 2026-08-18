@@ -46,7 +46,7 @@
     },
     {
       "name": "valid_quantite_compost",
-      "value": "@calc(!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)"
+      "value": "@calc(!!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)"
     },
     {
       "type": "text",

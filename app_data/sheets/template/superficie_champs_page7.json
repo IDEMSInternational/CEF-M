@@ -552,7 +552,7 @@
       "rows": [
         {
           "type": "html",
-          "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez le type de la variété <b>@local.nom_variete</b> :</label>",
+          "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez le type de la variété <b>@local.variete_semence</b> :</label>",
           "_translations": {
             "value": {}
           },
@@ -561,15 +561,15 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez le type de la variété <b>@local.nom_variete</b> :</label>",
-                "matchedExpression": "@local.nom_variete",
+                "fullExpression": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez le type de la variété <b>@local.variete_semence</b> :</label>",
+                "matchedExpression": "@local.variete_semence",
                 "type": "local",
-                "fieldName": "nom_variete"
+                "fieldName": "variete_semence"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@local.nom_variete": [
+            "@local.variete_semence": [
               "value"
             ]
           }
@@ -681,6 +681,9 @@
     },
     {
       "type": "display_group",
+      "parameter_list": {
+        "style": "column"
+      },
       "condition": "@fields.type_variete_culture",
       "style_list": [
         "display: block",
@@ -689,41 +692,134 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez la source de la variété <b>@local.nom_variete</b> :</label>",
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "html",
+              "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez la source de la variété <b>@local.nom_variete</b> :</label>",
+              "_translations": {
+                "value": {}
+              },
+              "name": "html_1",
+              "_nested_name": "display_group_19.display_group_1.html_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez la source de la variété <b>@local.nom_variete</b> :</label>",
+                    "matchedExpression": "@local.nom_variete",
+                    "type": "local",
+                    "fieldName": "nom_variete"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@local.nom_variete": [
+                  "value"
+                ]
+              }
+            },
+            {
+              "type": "audio",
+              "name": "audio_8_2",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/Superficie/source_semence_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "style_list": [
+                "float : right"
+              ],
+              "_nested_name": "display_group_19.display_group_1.audio_8_2"
+            }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_19.display_group_1"
+        },
+        {
+          "type": "radio_button_grid",
+          "name": "source_semence_culture",
+          "value": "@fields.source_semence_culture",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_19.html_1",
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "source_semence_culture",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: source_semence_culture: this.value"
+            }
+          ],
+          "parameter_list": {
+            "answer_list": "@data.source_semence",
+            "variant": "list"
+          },
+          "_nested_name": "display_group_19.source_semence_culture",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez la source de la variété <b>@local.nom_variete</b> :</label>",
-                "matchedExpression": "@local.nom_variete",
-                "type": "local",
-                "fieldName": "nom_variete"
+                "fullExpression": "@fields.source_semence_culture",
+                "matchedExpression": "@fields.source_semence_culture",
+                "type": "fields",
+                "fieldName": "source_semence_culture"
               }
-            ]
+            ],
+            "parameter_list": {
+              "answer_list": [
+                {
+                  "fullExpression": "@data.source_semence",
+                  "matchedExpression": "@data.source_semence",
+                  "type": "data",
+                  "fieldName": "source_semence"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
-            "@local.nom_variete": [
+            "@fields.source_semence_culture": [
               "value"
+            ],
+            "@data.source_semence": [
+              "parameter_list.answer_list"
             ]
           }
         },
         {
-          "type": "audio",
-          "name": "audio_8_2",
-          "parameter_list": {
-            "variant": "button_only",
-            "src": "audio/Superficie/source_semence_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          "type": "html",
+          "value": "<span style=\"color: red; font-size: 13px;\">Sélection obligatoire !</span>",
+          "_translations": {
+            "value": {}
           },
-          "style_list": [
-            "float : right"
-          ],
-          "_nested_name": "display_group_19.audio_8_2"
+          "condition": "@fields.attempt_submit_p8 && !@fields.source_semence_culture",
+          "name": "html_3",
+          "_nested_name": "display_group_19.html_3",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "@fields.attempt_submit_p8 && !@fields.source_semence_culture",
+                "matchedExpression": "@fields.attempt_submit_p8",
+                "type": "fields",
+                "fieldName": "attempt_submit_p8"
+              },
+              {
+                "fullExpression": "@fields.attempt_submit_p8 && !@fields.source_semence_culture",
+                "matchedExpression": "!@fields.source_semence_culture",
+                "type": "fields",
+                "fieldName": "source_semence_culture"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.attempt_submit_p8": [
+              "condition"
+            ],
+            "!@fields.source_semence_culture": [
+              "condition"
+            ]
+          }
         }
       ],
       "name": "display_group_19",
@@ -745,92 +841,6 @@
       }
     },
     {
-      "type": "radio_button_grid",
-      "name": "source_semence_culture",
-      "value": "@fields.source_semence_culture",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "source_semence_culture",
-            "this.value"
-          ],
-          "_raw": "changed | set_field: source_semence_culture: this.value"
-        }
-      ],
-      "parameter_list": {
-        "answer_list": "@data.source_semence",
-        "variant": "list"
-      },
-      "_nested_name": "source_semence_culture",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@fields.source_semence_culture",
-            "matchedExpression": "@fields.source_semence_culture",
-            "type": "fields",
-            "fieldName": "source_semence_culture"
-          }
-        ],
-        "parameter_list": {
-          "answer_list": [
-            {
-              "fullExpression": "@data.source_semence",
-              "matchedExpression": "@data.source_semence",
-              "type": "data",
-              "fieldName": "source_semence"
-            }
-          ]
-        }
-      },
-      "_dynamicDependencies": {
-        "@fields.source_semence_culture": [
-          "value"
-        ],
-        "@data.source_semence": [
-          "parameter_list.answer_list"
-        ]
-      }
-    },
-    {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">Sélection obligatoire !</span>",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.attempt_submit_p8 && !@fields.source_semence_culture",
-      "name": "html_22",
-      "_nested_name": "html_22",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@fields.attempt_submit_p8 && !@fields.source_semence_culture",
-            "matchedExpression": "@fields.attempt_submit_p8",
-            "type": "fields",
-            "fieldName": "attempt_submit_p8"
-          },
-          {
-            "fullExpression": "@fields.attempt_submit_p8 && !@fields.source_semence_culture",
-            "matchedExpression": "!@fields.source_semence_culture",
-            "type": "fields",
-            "fieldName": "source_semence_culture"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.attempt_submit_p8": [
-          "condition"
-        ],
-        "!@fields.source_semence_culture": [
-          "condition"
-        ]
-      }
-    },
-    {
       "type": "display_group",
       "condition": "@fields.source_semence_culture == 'semence_autre_source'",
       "style_list": [
@@ -845,7 +855,7 @@
             "value": {}
           },
           "name": "html_1",
-          "_nested_name": "display_group_23.html_1"
+          "_nested_name": "display_group_21.html_1"
         },
         {
           "type": "audio",
@@ -855,11 +865,11 @@
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "name": "audio_2",
-          "_nested_name": "display_group_23.audio_2"
+          "_nested_name": "display_group_21.audio_2"
         }
       ],
-      "name": "display_group_23",
-      "_nested_name": "display_group_23",
+      "name": "display_group_21",
+      "_nested_name": "display_group_21",
       "_dynamicFields": {
         "condition": [
           {
@@ -934,8 +944,8 @@
         "value": {}
       },
       "condition": "@fields.attempt_submit_p8 && @fields.source_semence_culture == 'semence_autre_source' && !@fields.autre_source_semence_culture",
-      "name": "html_26",
-      "_nested_name": "html_26",
+      "name": "html_24",
+      "_nested_name": "html_24",
       "_dynamicFields": {
         "condition": [
           {
@@ -995,7 +1005,7 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_27.page8_button_back"
+          "_nested_name": "display_group_25.page8_button_back"
         },
         {
           "type": "button",
@@ -1062,7 +1072,10 @@
           "parameter_list": {
             "disabled": "!@local.valid_p8"
           },
-          "_nested_name": "display_group_27.page8_button_continue",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_25.page8_button_continue",
           "_dynamicFields": {
             "action_list": {
               "0": {
@@ -1331,8 +1344,8 @@
           }
         }
       ],
-      "name": "display_group_27",
-      "_nested_name": "display_group_27"
+      "name": "display_group_25",
+      "_nested_name": "display_group_25"
     }
   ],
   "_source": {

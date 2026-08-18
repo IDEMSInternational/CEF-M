@@ -5,225 +5,85 @@
   "rows": [
     {
       "type": "title",
-      "value": "GESTION DES RÉSIDUS DE CULTURE",
+      "value": "**Culture précédente dans la parcelle N⁰@fields.num_parcelle lors de la saison passée du champ @fields.nom_champ**",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
-    },
-    {
-      "name": "attempt_submit",
-      "value": "@fields.attempt_submit",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "attempt_submit",
+      "_nested_name": "title_2",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.attempt_submit",
-            "matchedExpression": "@fields.attempt_submit",
+            "fullExpression": "**Culture précédente dans la parcelle N⁰@fields.num_parcelle lors de la saison passée du champ @fields.nom_champ**",
+            "matchedExpression": "@fields.num_parcelle",
             "type": "fields",
-            "fieldName": "attempt_submit"
+            "fieldName": "num_parcelle"
+          },
+          {
+            "fullExpression": "**Culture précédente dans la parcelle N⁰@fields.num_parcelle lors de la saison passée du champ @fields.nom_champ**",
+            "matchedExpression": "@fields.nom_champ",
+            "type": "fields",
+            "fieldName": "nom_champ"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.attempt_submit": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "v_nom_cult_prev",
-      "value": "@calc(@fields.culture_prev == '999' ? @fields.autre_culture_prev : @fields.culture_prev)",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "v_nom_cult_prev",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(@fields.culture_prev == '999' ? @fields.autre_culture_prev : @fields.culture_prev)",
-            "matchedExpression": "@fields.culture_prev",
-            "type": "fields",
-            "fieldName": "culture_prev"
-          },
-          {
-            "fullExpression": "@calc(@fields.culture_prev == '999' ? @fields.autre_culture_prev : @fields.culture_prev)",
-            "matchedExpression": "@fields.autre_culture_prev",
-            "type": "fields",
-            "fieldName": "autre_culture_prev"
-          },
-          {
-            "fullExpression": "@calc(@fields.culture_prev == '999' ? @fields.autre_culture_prev : @fields.culture_prev)",
-            "matchedExpression": "@fields.culture_prev",
-            "type": "fields",
-            "fieldName": "culture_prev"
-          },
-          {
-            "fullExpression": "@calc(@fields.culture_prev == '999' ? @fields.autre_culture_prev : @fields.culture_prev)",
-            "matchedExpression": "@calc(@fields.culture_prev == '999' ? @fields.autre_culture_prev : @fields.culture_prev)",
-            "type": "calc",
-            "fieldName": "@fields.culture_prev == '999' ? @fields.autre_culture_prev : @fields.culture_prev"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.culture_prev": [
-          "value",
+        "@fields.num_parcelle": [
           "value"
         ],
-        "@fields.autre_culture_prev": [
-          "value"
-        ],
-        "@calc(@fields.culture_prev == '999' ? @fields.autre_culture_prev : @fields.culture_prev)": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "valid_tige",
-      "value": "@calc(!!@fields.tige_laisse_champ && @fields.tige_laisse_champ !== \"\")",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "valid_tige",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(!!@fields.tige_laisse_champ && @fields.tige_laisse_champ !== \"\")",
-            "matchedExpression": "!@fields.tige_laisse_champ",
-            "type": "fields",
-            "fieldName": "tige_laisse_champ"
-          },
-          {
-            "fullExpression": "@calc(!!@fields.tige_laisse_champ && @fields.tige_laisse_champ !== \"\")",
-            "matchedExpression": "@fields.tige_laisse_champ",
-            "type": "fields",
-            "fieldName": "tige_laisse_champ"
-          },
-          {
-            "fullExpression": "@calc(!!@fields.tige_laisse_champ && @fields.tige_laisse_champ !== \"\")",
-            "matchedExpression": "@calc(!!@fields.tige_laisse_champ && @fields.tige_laisse_champ !== \"\")",
-            "type": "calc",
-            "fieldName": "!!@fields.tige_laisse_champ && @fields.tige_laisse_champ !== \"\""
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "!@fields.tige_laisse_champ": [
-          "value"
-        ],
-        "@fields.tige_laisse_champ": [
-          "value"
-        ],
-        "@calc(!!@fields.tige_laisse_champ && @fields.tige_laisse_champ !== \"\")": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "completed_enabled",
-      "value": "@local.valid_tige",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "completed_enabled",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@local.valid_tige",
-            "matchedExpression": "@local.valid_tige",
-            "type": "local",
-            "fieldName": "valid_tige"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.valid_tige": [
+        "@fields.nom_champ": [
           "value"
         ]
       }
     },
     {
       "type": "display_group",
-      "name": "grp_header",
       "rows": [
         {
-          "type": "html",
-          "value": "<h3 style=\"color: #1e3656; margin: 0; font-size: 16px; text-transform: uppercase;\">Gestion des résidus de la culture précédente</h3>",
+          "type": "text",
+          "value": "@global.culture_preced_hint",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "grp_header.html_1"
-        }
-      ],
-      "_nested_name": "grp_header"
-    },
-    {
-      "type": "display_group",
-      "name": "grp_question",
-      "rows": [
-        {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span> Indiquez si les tiges de <b>@local.v_nom_cult_prev</b> sont restées et retournées dans le sol de la parcelle N⁰@field.numero_parcelle",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_1",
-          "_nested_name": "grp_question.html_1",
+          "name": "text_1",
+          "_nested_name": "display_group_3.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<span style=\"color: red;\">*</span> Indiquez si les tiges de <b>@local.v_nom_cult_prev</b> sont restées et retournées dans le sol de la parcelle N⁰@field.numero_parcelle",
-                "matchedExpression": "@local.v_nom_cult_prev",
-                "type": "local",
-                "fieldName": "v_nom_cult_prev"
-              },
-              {
-                "fullExpression": "<span style=\"color: red;\">*</span> Indiquez si les tiges de <b>@local.v_nom_cult_prev</b> sont restées et retournées dans le sol de la parcelle N⁰@field.numero_parcelle",
-                "matchedExpression": "@field.numero_parcelle",
-                "type": "field",
-                "fieldName": "numero_parcelle"
+                "fullExpression": "@global.culture_preced_hint",
+                "matchedExpression": "@global.culture_preced_hint",
+                "type": "global",
+                "fieldName": "culture_preced_hint"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@local.v_nom_cult_prev": [
-              "value"
-            ],
-            "@field.numero_parcelle": [
+            "@global.culture_preced_hint": [
               "value"
             ]
           }
         },
         {
           "type": "audio",
+          "name": "audio_6_1",
           "parameter_list": {
             "variant": "button_only",
-            "src": "audio/semis/tige_laisse_champ_fr.mp3",
+            "src": "audio/Superficie/cult_preced_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "style_list": [
-            "float: right"
+            "float : right"
           ],
-          "name": "audio_2",
-          "_nested_name": "grp_question.audio_2"
+          "_nested_name": "display_group_3.audio_6_1"
         }
       ],
-      "_nested_name": "grp_question"
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
     },
     {
       "type": "radio_button_grid",
-      "name": "tige_laisse_champ",
-      "value": "@fields.tige_laisse_champ",
+      "name": "culture_prev",
+      "value": "@fields.culture_prev",
       "_translations": {
         "value": {}
       },
@@ -232,99 +92,219 @@
           "trigger": "changed",
           "action_id": "set_field",
           "args": [
-            "tige_laisse_champ",
+            "culture_prev",
             "this.value"
           ],
-          "_raw": "changed | set_field: tige_laisse_champ: this.value"
+          "_raw": "changed | set_field: culture_prev: this.value"
         }
       ],
       "parameter_list": {
-        "answer_list": "@data.yes_no",
-        "variant": "flex",
-        "item_width": "100px",
-        "grid_gap": "15px",
-        "style": "secondary"
+        "answer_list": "@data.cult_princip",
+        "item_width": "80px",
+        "grid_width": "150%",
+        "grid_gap": "10px",
+        "variant": "circle-icon"
       },
-      "_nested_name": "tige_laisse_champ",
+      "_nested_name": "culture_prev",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.tige_laisse_champ",
-            "matchedExpression": "@fields.tige_laisse_champ",
+            "fullExpression": "@fields.culture_prev",
+            "matchedExpression": "@fields.culture_prev",
             "type": "fields",
-            "fieldName": "tige_laisse_champ"
+            "fieldName": "culture_prev"
           }
         ],
         "parameter_list": {
           "answer_list": [
             {
-              "fullExpression": "@data.yes_no",
-              "matchedExpression": "@data.yes_no",
+              "fullExpression": "@data.cult_princip",
+              "matchedExpression": "@data.cult_princip",
               "type": "data",
-              "fieldName": "yes_no"
+              "fieldName": "cult_princip"
             }
           ]
         }
       },
       "_dynamicDependencies": {
-        "@fields.tige_laisse_champ": [
+        "@fields.culture_prev": [
           "value"
         ],
-        "@data.yes_no": [
+        "@data.cult_princip": [
           "parameter_list.answer_list"
         ]
       }
     },
     {
-      "type": "display_group",
-      "hidden": "@fields.attempt_submit && !@local.valid_tige",
-      "style_list": [
-        "display: block",
-        "width: 100%",
-        "margin-top: 15px",
-        "padding: 8px",
-        "background: #fff5f5",
-        "border-radius: 6px"
-      ],
-      "rows": [
-        {
-          "type": "html",
-          "value": "<span style=\"color: red; font-weight: bold;\">Réponse obligatoire !</span>",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "width:100px",
-            "height:100px"
-          ],
-          "name": "html_1",
-          "_nested_name": "display_group_12.html_1"
-        }
-      ],
-      "name": "display_group_12",
-      "_nested_name": "display_group_12",
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@fields.culture_prev",
+      "_nested_name": "html_text",
       "_dynamicFields": {
-        "hidden": [
+        "value": [
           {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_tige",
-            "matchedExpression": "@fields.attempt_submit",
+            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "matchedExpression": "@global.warning_message",
+            "type": "global",
+            "fieldName": "warning_message"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@fields.culture_prev",
+            "matchedExpression": "!@fields.culture_prev",
             "type": "fields",
-            "fieldName": "attempt_submit"
-          },
-          {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_tige",
-            "matchedExpression": "!@local.valid_tige",
-            "type": "local",
-            "fieldName": "valid_tige"
+            "fieldName": "culture_prev"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.attempt_submit": [
-          "hidden"
+        "@global.warning_message": [
+          "value"
         ],
-        "!@local.valid_tige": [
-          "hidden"
+        "!@fields.culture_prev": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.culture_prev == 'autre'",
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.autre_message",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_7.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.autre_message",
+                "matchedExpression": "@global.autre_message",
+                "type": "global",
+                "fieldName": "autre_message"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.autre_message": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_6_2",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Superficie/autre_cult_nom1_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_7.audio_6_2"
+        }
+      ],
+      "name": "display_group_7",
+      "_nested_name": "display_group_7",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.culture_prev == 'autre'",
+            "matchedExpression": "@fields.culture_prev",
+            "type": "fields",
+            "fieldName": "culture_prev"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.culture_prev": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "autre_culture_prev",
+      "value": "@fields.autre_culture_prev",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "autre_culture_prev",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: autre_culture_prev : this.value"
+        }
+      ],
+      "parameter_list": {
+        "max_length": "30",
+        "placeholder": "Entrez le nom de la culture"
+      },
+      "condition": "@fields.culture_prev == 'autre'",
+      "exclude_from_translation": true,
+      "_nested_name": "autre_culture_prev",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.autre_culture_prev",
+            "matchedExpression": "@fields.autre_culture_prev",
+            "type": "fields",
+            "fieldName": "autre_culture_prev"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.culture_prev == 'autre'",
+            "matchedExpression": "@fields.culture_prev",
+            "type": "fields",
+            "fieldName": "culture_prev"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.autre_culture_prev": [
+          "value"
+        ],
+        "@fields.culture_prev": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@fields.culture_prev",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": true,
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.culture_prev",
+            "matchedExpression": "@fields.culture_prev",
+            "type": "fields",
+            "fieldName": "culture_prev"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.culture_prev": [
+          "value"
         ]
       }
     },
@@ -340,7 +320,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page5_button_back",
+          "name": "page6_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -355,11 +335,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_14.page5_button_back"
+          "_nested_name": "display_group_11.page6_button_back"
         },
         {
           "type": "button",
-          "name": "page5_button_continue",
+          "name": "page6_button_continue",
           "value": "Continuer",
           "_translations": {
             "value": {}
@@ -369,19 +349,19 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "@calc('tige_laisse_champ_parcelle_N' + @fields.numero_parcelle)",
-                "@fields.tige_laisse_champ"
+                "@calc('culture_prev_parcelle_N' + @fields.num_parcelle)",
+                "@fields.culture_prev"
               ],
-              "_raw": "click | set_field: @calc('tige_laisse_champ_parcelle_N' + @fields.numero_parcelle) : @fields.tige_laisse_champ"
+              "_raw": "click | set_field: @calc('culture_prev_parcelle_N' + @fields.num_parcelle) : @fields.culture_prev"
             },
             {
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "attempt_submit",
-                false
+                "@calc('autre_culture_prev_parcelle_N' + @fields.num_parcelle)",
+                "@fields.autre_culture_prev"
               ],
-              "_raw": "click | set_field: attempt_submit: false"
+              "_raw": "click | set_field: @calc('autre_culture_prev_parcelle_N' + @fields.num_parcelle) : @fields.autre_culture_prev"
             },
             {
               "trigger": "click",
@@ -395,46 +375,89 @@
           "parameter_list": {
             "disabled": "!@local.completed_enabled"
           },
-          "_nested_name": "display_group_14.page5_button_continue",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_11.page6_button_continue",
           "_dynamicFields": {
             "action_list": {
               "0": {
                 "args": {
                   "0": [
                     {
-                      "fullExpression": "@calc('tige_laisse_champ_parcelle_N' + @fields.numero_parcelle)",
-                      "matchedExpression": "@fields.numero_parcelle",
+                      "fullExpression": "@calc('culture_prev_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@fields.num_parcelle",
                       "type": "fields",
-                      "fieldName": "numero_parcelle"
+                      "fieldName": "num_parcelle"
                     },
                     {
-                      "fullExpression": "@calc('tige_laisse_champ_parcelle_N' + @fields.numero_parcelle)",
-                      "matchedExpression": "@calc('tige_laisse_champ_parcelle_N' + @fields.numero_parcelle)",
+                      "fullExpression": "@calc('culture_prev_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('culture_prev_parcelle_N' + @fields.num_parcelle)",
                       "type": "calc",
-                      "fieldName": "'tige_laisse_champ_parcelle_N' + @fields.numero_parcelle"
+                      "fieldName": "'culture_prev_parcelle_N' + @fields.num_parcelle"
                     }
                   ],
                   "1": [
                     {
-                      "fullExpression": "@fields.tige_laisse_champ",
-                      "matchedExpression": "@fields.tige_laisse_champ",
+                      "fullExpression": "@fields.culture_prev",
+                      "matchedExpression": "@fields.culture_prev",
                       "type": "fields",
-                      "fieldName": "tige_laisse_champ"
+                      "fieldName": "culture_prev"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('tige_laisse_champ_parcelle_N' + @fields.numero_parcelle) : @fields.tige_laisse_champ",
-                    "matchedExpression": "@fields.numero_parcelle",
+                    "fullExpression": "click | set_field: @calc('culture_prev_parcelle_N' + @fields.num_parcelle) : @fields.culture_prev",
+                    "matchedExpression": "@fields.num_parcelle",
                     "type": "fields",
-                    "fieldName": "numero_parcelle"
+                    "fieldName": "num_parcelle"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('tige_laisse_champ_parcelle_N' + @fields.numero_parcelle) : @fields.tige_laisse_champ",
-                    "matchedExpression": "@fields.tige_laisse_champ",
+                    "fullExpression": "click | set_field: @calc('culture_prev_parcelle_N' + @fields.num_parcelle) : @fields.culture_prev",
+                    "matchedExpression": "@fields.culture_prev",
                     "type": "fields",
-                    "fieldName": "tige_laisse_champ"
+                    "fieldName": "culture_prev"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "@calc('autre_culture_prev_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@fields.num_parcelle",
+                      "type": "fields",
+                      "fieldName": "num_parcelle"
+                    },
+                    {
+                      "fullExpression": "@calc('autre_culture_prev_parcelle_N' + @fields.num_parcelle)",
+                      "matchedExpression": "@calc('autre_culture_prev_parcelle_N' + @fields.num_parcelle)",
+                      "type": "calc",
+                      "fieldName": "'autre_culture_prev_parcelle_N' + @fields.num_parcelle"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.autre_culture_prev",
+                      "matchedExpression": "@fields.autre_culture_prev",
+                      "type": "fields",
+                      "fieldName": "autre_culture_prev"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: @calc('autre_culture_prev_parcelle_N' + @fields.num_parcelle) : @fields.autre_culture_prev",
+                    "matchedExpression": "@fields.num_parcelle",
+                    "type": "fields",
+                    "fieldName": "num_parcelle"
+                  },
+                  {
+                    "fullExpression": "click | set_field: @calc('autre_culture_prev_parcelle_N' + @fields.num_parcelle) : @fields.autre_culture_prev",
+                    "matchedExpression": "@fields.autre_culture_prev",
+                    "type": "fields",
+                    "fieldName": "autre_culture_prev"
                   }
                 ]
               }
@@ -451,16 +474,25 @@
             }
           },
           "_dynamicDependencies": {
-            "@fields.numero_parcelle": [
+            "@fields.num_parcelle": [
               "action_list.0.args.0",
-              "action_list.0._raw"
+              "action_list.0._raw",
+              "action_list.1.args.0",
+              "action_list.1._raw"
             ],
-            "@calc('tige_laisse_champ_parcelle_N' + @fields.numero_parcelle)": [
+            "@calc('culture_prev_parcelle_N' + @fields.num_parcelle)": [
               "action_list.0.args.0"
             ],
-            "@fields.tige_laisse_champ": [
+            "@fields.culture_prev": [
               "action_list.0.args.1",
               "action_list.0._raw"
+            ],
+            "@calc('autre_culture_prev_parcelle_N' + @fields.num_parcelle)": [
+              "action_list.1.args.0"
+            ],
+            "@fields.autre_culture_prev": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
             ],
             "!@local.completed_enabled": [
               "parameter_list.disabled"
@@ -468,8 +500,8 @@
           }
         }
       ],
-      "name": "display_group_14",
-      "_nested_name": "display_group_14"
+      "name": "display_group_11",
+      "_nested_name": "display_group_11"
     }
   ],
   "_source": {

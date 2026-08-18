@@ -152,7 +152,7 @@
     {
       "type": "button",
       "name": "page_5_btn_continue",
-      "value": "non_bouton",
+      "value": "@global.btn_continue",
       "action_list": "click | set_field: select_niveau_scolaire: @local.select_niveau_scolaire;\nclick | set_field: select_niveau_scolaire_count: @local.select_niveau_scolaire_count;\nclick | set_field: niveau_scolaire_loop_idx: @local.niveau_scolaire_loop_idx;\nclick | set_field: current_niveau_scolaire: @local.current_niveau_scolaire;\n\nclick | set_data | _list_id: depenses_settings_pages, _index: 5, completed: true;\nclick | set_data | _list_id: depenses_settings_pages, _index: 6, completed: true;\nclick | set_data | _list_id: depenses_settings_pages, _index: 7, completed: true;\nclick | set_data | _list_id: depenses_settings_pages, _index: 8, completed: true;\n",
       "parameter_list": "disabled: !@local.completed_enabled",
       "condition": "@fields.enfants_scolarise_oui == 'non' && @local.completed_enabled",

@@ -393,8 +393,8 @@
       "parameter_list": {
         "answer_list": "@data.type_sol",
         "style": "secondary",
-        "item_width": "60px",
-        "grid_gap": "8px"
+        "item_width": "40px",
+        "grid_gap": "5px"
       },
       "_nested_name": "type_sol",
       "_dynamicFields": {
@@ -1054,6 +1054,9 @@
           "parameter_list": {
             "disabled": "!@local.completed_enabled"
           },
+          "style_list": [
+            "flex: 1"
+          ],
           "_nested_name": "display_group_32.page4_button_continue",
           "_dynamicFields": {
             "action_list": {

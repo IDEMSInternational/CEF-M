@@ -69,11 +69,11 @@
       "name": "cout_prevu_herbicide_prelevee",
       "value": "@fields.cout_prevu_herbicide_prelevee",
       "action_list": "changed | set_field : cout_prevu_herbicide_prelevee: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "name": "valid_cout_prevu_herbicide_prelevee",
-      "value": "@calc(!!@fields.cout_prevu_herbicide_prelevee && @fields.cout_prevu_herbicide_prelevee != \"\" && @fields.cout_prevu_herbicide_prelevee >= 0)"
+      "value": "@calc(!!@fields.cout_prevu_herbicide_prelevee && @fields.cout_prevu_herbicide_prelevee != ' ' && @fields.cout_prevu_herbicide_prelevee >= 0)"
     },
     {
       "type": "text",
@@ -112,11 +112,11 @@
       "name": "cout_prevu_sarclage",
       "value": "@fields.cout_prevu_sarclage",
       "action_list": "changed | set_field : cout_prevu_sarclage: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "name": "valid_cout_prevu_sarclage",
-      "value": "@calc(!!@fields.cout_prevu_sarclage && @fields.cout_prevu_sarclage != \"\" && @fields.cout_prevu_sarclage >= 0)"
+      "value": "@calc(!!@fields.cout_prevu_sarclage && @fields.cout_prevu_sarclage != ' ' && @fields.cout_prevu_sarclage >= 0)"
     },
     {
       "type": "text",
@@ -155,11 +155,11 @@
       "name": "cout_prevu_desherbage",
       "value": "@fields.cout_prevu_desherbage",
       "action_list": "changed | set_field : cout_prevu_desherbage: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "name": "valid_cout_prevu_desherbage",
-      "value": "@calc(!!@fields.cout_prevu_desherbage && @fields.cout_prevu_desherbage != \"\" && @fields.cout_prevu_desherbage >= 0)"
+      "value": "@calc(!!@fields.cout_prevu_desherbage && @fields.cout_prevu_desherbage != ' ' && @fields.cout_prevu_desherbage >= 0)"
     },
     {
       "type": "text",
@@ -198,11 +198,11 @@
       "name": "cout_prevu_herbicide",
       "value": "@fields.cout_prevu_herbicide",
       "action_list": "changed | set_field : cout_prevu_herbicide: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "name": "valid_cout_prevu_herbicide",
-      "value": "@calc(!!@fields.cout_prevu_herbicide && @fields.cout_prevu_herbicide != \"\" && @fields.cout_prevu_herbicide >= 0)"
+      "value": "@calc(!!@fields.cout_prevu_herbicide && @fields.cout_prevu_herbicide != ' ' && @fields.cout_prevu_herbicide >= 0)"
     },
     {
       "type": "text",
@@ -241,11 +241,11 @@
       "name": "cout_prevu_buttage",
       "value": "@fields.cout_prevu_buttage",
       "action_list": "changed | set_field : cout_prevu_buttage: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "name": "valid_cout_prevu_buttage",
-      "value": "@calc(!!@fields.cout_prevu_buttage && @fields.cout_prevu_buttage != \"\" && @fields.cout_prevu_buttage >= 0)"
+      "value": "@calc(!!@fields.cout_prevu_buttage && @fields.cout_prevu_buttage != ' ' && @fields.cout_prevu_buttage >= 0)"
     },
     {
       "type": "text",
@@ -284,11 +284,11 @@
       "name": "cout_prevu_insecticide",
       "value": "@fields.cout_prevu_insecticide",
       "action_list": "changed | set_field : cout_prevu_insecticide: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "name": "valid_cout_prevu_insecticide",
-      "value": "@calc(!!@fields.cout_prevu_insecticide && @fields.cout_prevu_insecticide != \"\" && @fields.cout_prevu_insecticide >= 0)"
+      "value": "@calc(!!@fields.cout_prevu_insecticide && @fields.cout_prevu_insecticide != ' ' && @fields.cout_prevu_insecticide >= 0)"
     },
     {
       "type": "text",

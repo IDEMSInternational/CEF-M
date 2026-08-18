@@ -66,7 +66,7 @@
     {
       "type": "image",
       "value": "images/arbre.jpg",
-      "style_list": "width: 80%; object-fit: contain;\n"
+      "style_list": "width:90px; height:90px; "
     },
     {
       "type": "end_display_group"
@@ -83,14 +83,13 @@
       "type": "html",
       "name": "html_text",
       "value": "<span style=\"color: red; font-size: 13px;\">La réponse est obligatoire !</span>",
-      "style_list": "@fields.attempt_submit_p10 && !@fields.nombre_arbre"
+      "condition": "@fields.attempt_submit_p10 && !@fields.nombre_arbre"
     },
     {
       "type": "html",
       "name": "html_text",
       "value": "<span style=\"color: red; font-size: 13px;\">Veuillez entrer un nombre entier positif ou 0 !</span>",
-      "condition": "!@fields.nombre_arbre",
-      "style_list": "!!@fields.nombre_arbre && !@local.valid_nbre_arbre"
+      "condition": "!!@fields.nombre_arbre && !@local.valid_nbre_arbre"
     },
     {
       "name": "valid_nombre_arbre",
@@ -153,7 +152,8 @@
       "name": "page10_button_continue",
       "value": "Continuer",
       "action_list": "click | set_field: @calc('nombre_arbre_parcelle_N' + @fields.num_parcelle) : @fields.nombre_arbre;\n        click | set_field: @calc('nom_arbre_parcelle_N' + @fields.num_parcelle) : @fields.nom_arbre;\n        click | emit: completed;",
-      "parameter_list": "disabled: !@local.completed_enabled"
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "style_list": "flex: 1"
     },
     {
       "type": "end_display_group"

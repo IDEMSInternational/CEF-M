@@ -81,16 +81,23 @@
       "name": "no_autre_cout_semis",
       "value": "@field.no_autre_cout_semis",
       "action_list": "changed | set_field: no_autre_cout_semis: this.value;",
-      "parameter_list": "answer_list: @data.yes_no;\nvariant: flex;\nstyle: secondary;\nitem_width: 60px;\ngrid_gap: 8px;"
+      "parameter_list": "answer_list: @data.oui_non;\nvariant: flex;\nstyle: secondary;\nitem_width: 60px;\ngrid_gap: 8px;"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "begin_display_group",
-      "name": "group_nom_autre",
-      "condition": "@field.no_autre_cout_semis== 'oui'",
+      "parameter_list": "style: colum",
+      "condition": "@field.no_autre_cout_semis == 'oui'",
       "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span> Indiquez s'il y a d'autre(s) coût(s) à la récolte non renseignés"
     },
     {
       "type": "audio",
@@ -100,13 +107,12 @@
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span> Indiquez s'il y a d'autre(s) coût(s) à la récolte non renseignés"
+      "type": "end_display_group"
     },
     {
       "type": "image",
       "value": "images/ecrire.jpg",
-      "style_list": "width: 60%; object-fit: contain;\n"
+      "style_list": "width:100px; height:100px;"
     },
     {
       "type": "text_box",
@@ -116,13 +122,13 @@
       "parameter_list": "placeholder: Nom des coûts...;"
     },
     {
-      "type": "end_display_group"
-    },
-    {
       "type": "text",
       "value": "*La réponse est obligatoire !*",
-      "condition": "@calc(@field.no_autre_cout_semis == 'oui' && (@field.nom_autre_cout_semis == '' || @field.nom_autre_cout_semis == null))",
+      "condition": "@calc(@field.no_autre_cout_semis == 'oui' && (@field.nom_autre_cout_semis == ' ' || @field.nom_autre_cout_semis == null))",
       "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "name": "v_montant_autre_err",
@@ -130,20 +136,25 @@
     },
     {
       "type": "begin_display_group",
-      "name": "group_montant_autre",
-      "condition": "@field.no_autre_cout_semis == 'oui'",
-      "style_list": "display: block; width: 100%"
+      "parameter_list": "style: colum",
+      "condition": "@field.no_autre_cout_semis == 'oui' && @fields.nom_autre_cout_semis"
     },
     {
-      "type": "audio",
-      "name": "note_autre_cout_semis1",
-      "parameter_list": "variant: button_only;\nsrc: audio/postSemi/autre_cout_semis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
+      "type": "begin_display_group"
     },
     {
       "type": "html",
       "value": "<span style=\"color: red;\">*</span>Donnez le montant du coût pour <span style=\"color: #e67e22\"> @field.nom_autre_cout_semis</span>"
+    },
+    {
+      "type": "audio",
+      "name": "note_autre_cout_semis1",
+      "parameter_list": "variant: button_only;\nsrc: audio/semis/autre_cout_semis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "text",
@@ -158,7 +169,7 @@
     {
       "type": "image",
       "value": "images/cfa.jpg",
-      "style_list": "width: 80px; object-fit: contain;"
+      "style_list": "width:100px; height:100px;"
     },
     {
       "type": "text_box",
@@ -168,13 +179,13 @@
       "parameter_list": "number_input: true; placeholder: Montant en Dram...;"
     },
     {
-      "type": "end_display_group"
-    },
-    {
       "type": "text",
       "value": "*Mettez une valeur positive*",
       "condition": "@calc(@field.no_autre_cout_semis == 'oui' && @local.v_montant_autre_err)",
       "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "name": "v_final_autre_cout",
@@ -182,7 +193,6 @@
     },
     {
       "type": "begin_display_group",
-      "name": "dg_footer",
       "parameter_list": "sticky: bottom;",
       "style_list": "padding: 12px 24px;"
     },
@@ -197,7 +207,7 @@
       "name": "button_completed",
       "value": "@global.btn_continue",
       "action_list": "click | set_field: autre_cout_semis_total : @local.v_final_autre_cout;\n\nclick | emit: completed;",
-      "parameter_list": "style: navigation;\n\ndisabled: !@local.v_page9_valid",
+      "parameter_list": "disabled: !@local.v_page9_valid",
       "style_list": "flex: 1"
     },
     {

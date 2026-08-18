@@ -1219,7 +1219,7 @@
     },
     {
       "name": "v_fem",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_femmes) && Number(@local.nombre_femmes) >= 0 && Number(@local.nombre_femmes) <= 25) || !@local.nombre_femmes)",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_femmes) && Number(@local.nombre_femmes) >= 0) || !@local.nombre_femmes)",
       "_translations": {
         "value": {}
       },
@@ -1229,47 +1229,40 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_femmes) && Number(@local.nombre_femmes) >= 0 && Number(@local.nombre_femmes) <= 25) || !@local.nombre_femmes)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_femmes) && Number(@local.nombre_femmes) >= 0) || !@local.nombre_femmes)",
             "matchedExpression": "@local.nombre_femmes",
             "type": "local",
             "fieldName": "nombre_femmes"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_femmes) && Number(@local.nombre_femmes) >= 0 && Number(@local.nombre_femmes) <= 25) || !@local.nombre_femmes)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_femmes) && Number(@local.nombre_femmes) >= 0) || !@local.nombre_femmes)",
             "matchedExpression": "@local.nombre_femmes",
             "type": "local",
             "fieldName": "nombre_femmes"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_femmes) && Number(@local.nombre_femmes) >= 0 && Number(@local.nombre_femmes) <= 25) || !@local.nombre_femmes)",
-            "matchedExpression": "@local.nombre_femmes",
-            "type": "local",
-            "fieldName": "nombre_femmes"
-          },
-          {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_femmes) && Number(@local.nombre_femmes) >= 0 && Number(@local.nombre_femmes) <= 25) || !@local.nombre_femmes)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_femmes) && Number(@local.nombre_femmes) >= 0) || !@local.nombre_femmes)",
             "matchedExpression": "!@local.nombre_femmes",
             "type": "local",
             "fieldName": "nombre_femmes"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_femmes) && Number(@local.nombre_femmes) >= 0 && Number(@local.nombre_femmes) <= 25) || !@local.nombre_femmes)",
-            "matchedExpression": "@calc((/^\\d+$/.test(@local.nombre_femmes) && Number(@local.nombre_femmes) >= 0 && Number(@local.nombre_femmes) <= 25) || !@local.nombre_femmes)",
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_femmes) && Number(@local.nombre_femmes) >= 0) || !@local.nombre_femmes)",
+            "matchedExpression": "@calc((/^\\d+$/.test(@local.nombre_femmes) && Number(@local.nombre_femmes) >= 0) || !@local.nombre_femmes)",
             "type": "calc",
-            "fieldName": "(/^\\d+$/.test(@local.nombre_femmes) && Number(@local.nombre_femmes) >= 0 && Number(@local.nombre_femmes) <= 25) || !@local.nombre_femmes"
+            "fieldName": "(/^\\d+$/.test(@local.nombre_femmes) && Number(@local.nombre_femmes) >= 0) || !@local.nombre_femmes"
           }
         ]
       },
       "_dynamicDependencies": {
         "@local.nombre_femmes": [
           "value",
-          "value",
           "value"
         ],
         "!@local.nombre_femmes": [
           "value"
         ],
-        "@calc((/^\\d+$/.test(@local.nombre_femmes) && Number(@local.nombre_femmes) >= 0 && Number(@local.nombre_femmes) <= 25) || !@local.nombre_femmes)": [
+        "@calc((/^\\d+$/.test(@local.nombre_femmes) && Number(@local.nombre_femmes) >= 0) || !@local.nombre_femmes)": [
           "value"
         ]
       }

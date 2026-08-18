@@ -247,31 +247,34 @@
       "_nested_name": "image_8"
     },
     {
-      "type": "text",
+      "type": "html",
       "name": "note_cal_superficie",
-      "value": "@global.sup_fouragere",
+      "value": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\"> @global.sup_fouragere\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n   @fields.cal_superficie ha\n  </span>\n</div>",
       "_translations": {
         "value": {}
       },
-      "style_list": [
-        "background-color: #f0f4f8",
-        "border-left-width: 4px",
-        "border-left-style: solid",
-        "border-left-color: #0056b3"
-      ],
       "_nested_name": "note_cal_superficie",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.sup_fouragere",
+            "fullExpression": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\"> @global.sup_fouragere\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n   @fields.cal_superficie ha\n  </span>\n</div>",
             "matchedExpression": "@global.sup_fouragere",
             "type": "global",
             "fieldName": "sup_fouragere"
+          },
+          {
+            "fullExpression": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\"> @global.sup_fouragere\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n   @fields.cal_superficie ha\n  </span>\n</div>",
+            "matchedExpression": "@fields.cal_superficie",
+            "type": "fields",
+            "fieldName": "cal_superficie"
           }
         ]
       },
       "_dynamicDependencies": {
         "@global.sup_fouragere": [
+          "value"
+        ],
+        "@fields.cal_superficie": [
           "value"
         ]
       }
@@ -349,31 +352,34 @@
       "_nested_name": "image_13"
     },
     {
-      "type": "text",
+      "type": "html",
       "name": "depense",
-      "value": "@global.mot_alim_betail",
+      "value": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\">@global.mot_alim_betail\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n    @fields.cal_depense_total drm\n  </span>\n</div>",
       "_translations": {
         "value": {}
       },
-      "style_list": [
-        "background-color: #f0f4f8",
-        "border-left-width: 4px",
-        "border-left-style: solid",
-        "border-left-color: #0056b3"
-      ],
       "_nested_name": "depense",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.mot_alim_betail",
+            "fullExpression": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\">@global.mot_alim_betail\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n    @fields.cal_depense_total drm\n  </span>\n</div>",
             "matchedExpression": "@global.mot_alim_betail",
             "type": "global",
             "fieldName": "mot_alim_betail"
+          },
+          {
+            "fullExpression": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\">@global.mot_alim_betail\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n    @fields.cal_depense_total drm\n  </span>\n</div>",
+            "matchedExpression": "@fields.cal_depense_total",
+            "type": "fields",
+            "fieldName": "cal_depense_total"
           }
         ]
       },
       "_dynamicDependencies": {
         "@global.mot_alim_betail": [
+          "value"
+        ],
+        "@fields.cal_depense_total": [
           "value"
         ]
       }
@@ -451,31 +457,34 @@
       "_nested_name": "image_18"
     },
     {
-      "type": "text",
+      "type": "html",
       "name": "total_frais_soins",
-      "value": "@global.montant_soin",
+      "value": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\">\n@global.montant_soin\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n    @fields.cal_depense_soins drm\n  </span>\n</div>",
       "_translations": {
         "value": {}
       },
-      "style_list": [
-        "background-color: #f0f4f8",
-        "border-left-width: 4px",
-        "border-left-style: solid",
-        "border-left-color: #0056b3"
-      ],
       "_nested_name": "total_frais_soins",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.montant_soin",
+            "fullExpression": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\">\n@global.montant_soin\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n    @fields.cal_depense_soins drm\n  </span>\n</div>",
             "matchedExpression": "@global.montant_soin",
             "type": "global",
             "fieldName": "montant_soin"
+          },
+          {
+            "fullExpression": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\">\n@global.montant_soin\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n    @fields.cal_depense_soins drm\n  </span>\n</div>",
+            "matchedExpression": "@fields.cal_depense_soins",
+            "type": "fields",
+            "fieldName": "cal_depense_soins"
           }
         ]
       },
       "_dynamicDependencies": {
         "@global.montant_soin": [
+          "value"
+        ],
+        "@fields.cal_depense_soins": [
           "value"
         ]
       }

@@ -117,7 +117,8 @@
         }
       ],
       "parameter_list": {
-        "number_input": "true"
+        "number_input": "true",
+        "placeholder": "Entrez le nombre"
       },
       "_nested_name": "nombre_poules",
       "_dynamicFields": {
@@ -138,7 +139,7 @@
     },
     {
       "name": "valid_nombre_poules",
-      "value": "@calc((/^\\d+$/.test(@fields.nombre_poules) &&@fields.nombre_poules>= 0 ) || @fields.nombre_poules == '' || !@fields.nombre_poules)",
+      "value": "@calc((/^\\d+$/.test(@fields.nombre_poules) && @fields.nombre_poules>= 0 ) || @fields.nombre_poules == ' ' || !!@fields.nombre_poules)",
       "_translations": {
         "value": {}
       },
@@ -147,34 +148,34 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_poules) &&@fields.nombre_poules>= 0 ) || @fields.nombre_poules == '' || !@fields.nombre_poules)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_poules) && @fields.nombre_poules>= 0 ) || @fields.nombre_poules == ' ' || !!@fields.nombre_poules)",
             "matchedExpression": "@fields.nombre_poules",
             "type": "fields",
             "fieldName": "nombre_poules"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_poules) &&@fields.nombre_poules>= 0 ) || @fields.nombre_poules == '' || !@fields.nombre_poules)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_poules) && @fields.nombre_poules>= 0 ) || @fields.nombre_poules == ' ' || !!@fields.nombre_poules)",
             "matchedExpression": "@fields.nombre_poules",
             "type": "fields",
             "fieldName": "nombre_poules"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_poules) &&@fields.nombre_poules>= 0 ) || @fields.nombre_poules == '' || !@fields.nombre_poules)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_poules) && @fields.nombre_poules>= 0 ) || @fields.nombre_poules == ' ' || !!@fields.nombre_poules)",
             "matchedExpression": "@fields.nombre_poules",
             "type": "fields",
             "fieldName": "nombre_poules"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_poules) &&@fields.nombre_poules>= 0 ) || @fields.nombre_poules == '' || !@fields.nombre_poules)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_poules) && @fields.nombre_poules>= 0 ) || @fields.nombre_poules == ' ' || !!@fields.nombre_poules)",
             "matchedExpression": "!@fields.nombre_poules",
             "type": "fields",
             "fieldName": "nombre_poules"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_poules) &&@fields.nombre_poules>= 0 ) || @fields.nombre_poules == '' || !@fields.nombre_poules)",
-            "matchedExpression": "@calc((/^\\d+$/.test(@fields.nombre_poules) &&@fields.nombre_poules>= 0 ) || @fields.nombre_poules == '' || !@fields.nombre_poules)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_poules) && @fields.nombre_poules>= 0 ) || @fields.nombre_poules == ' ' || !!@fields.nombre_poules)",
+            "matchedExpression": "@calc((/^\\d+$/.test(@fields.nombre_poules) && @fields.nombre_poules>= 0 ) || @fields.nombre_poules == ' ' || !!@fields.nombre_poules)",
             "type": "calc",
-            "fieldName": "(/^\\d+$/.test(@fields.nombre_poules) &&@fields.nombre_poules>= 0 ) || @fields.nombre_poules == '' || !@fields.nombre_poules"
+            "fieldName": "(/^\\d+$/.test(@fields.nombre_poules) && @fields.nombre_poules>= 0 ) || @fields.nombre_poules == ' ' || !!@fields.nombre_poules"
           }
         ]
       },
@@ -187,24 +188,25 @@
         "!@fields.nombre_poules": [
           "value"
         ],
-        "@calc((/^\\d+$/.test(@fields.nombre_poules) &&@fields.nombre_poules>= 0 ) || @fields.nombre_poules == '' || !@fields.nombre_poules)": [
+        "@calc((/^\\d+$/.test(@fields.nombre_poules) && @fields.nombre_poules>= 0 ) || @fields.nombre_poules == ' ' || !!@fields.nombre_poules)": [
           "value"
         ]
       }
     },
     {
       "type": "text",
-      "name": "error_nombre_poules",
       "value": "@global.error_number_min_0",
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.attempt_submit && !@local.valid_nombre_poules",
+      "condition": "!@local.valid_nombre_poules && @fields.attempt_submit",
+      "exclude_from_translation": true,
       "style_list": [
-        "color: red",
+        "color: #FF0000",
         "font-size: 12px"
       ],
-      "_nested_name": "error_nombre_poules",
+      "name": "text_9",
+      "_nested_name": "text_9",
       "_dynamicFields": {
         "value": [
           {
@@ -216,16 +218,16 @@
         ],
         "condition": [
           {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_nombre_poules",
-            "matchedExpression": "@fields.attempt_submit",
-            "type": "fields",
-            "fieldName": "attempt_submit"
-          },
-          {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_nombre_poules",
+            "fullExpression": "!@local.valid_nombre_poules && @fields.attempt_submit",
             "matchedExpression": "!@local.valid_nombre_poules",
             "type": "local",
             "fieldName": "valid_nombre_poules"
+          },
+          {
+            "fullExpression": "!@local.valid_nombre_poules && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
           }
         ]
       },
@@ -233,10 +235,10 @@
         "@global.error_number_min_0": [
           "value"
         ],
-        "@fields.attempt_submit": [
+        "!@local.valid_nombre_poules": [
           "condition"
         ],
-        "!@local.valid_nombre_poules": [
+        "@fields.attempt_submit": [
           "condition"
         ]
       }
@@ -322,7 +324,8 @@
         }
       ],
       "parameter_list": {
-        "number_input": "true"
+        "number_input": "true",
+        "placeholder": "Entrez le nombre"
       },
       "_nested_name": "nombre_pintades",
       "_dynamicFields": {
@@ -343,7 +346,7 @@
     },
     {
       "name": "valid_nombre_pintades",
-      "value": "@calc((/^\\d+$/.test(@fields.nombre_pintades) &&@fields.nombre_pintades>= 0 ) || @fields.nombre_pintades == '' || !@fields.nombre_pintades)",
+      "value": "@calc((/^\\d+$/.test(@fields.nombre_pintades) && @fields.nombre_pintades>= 0 ) || @fields.nombre_pintades == ' ' || !!@fields.nombre_pintades)",
       "_translations": {
         "value": {}
       },
@@ -352,34 +355,34 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_pintades) &&@fields.nombre_pintades>= 0 ) || @fields.nombre_pintades == '' || !@fields.nombre_pintades)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_pintades) && @fields.nombre_pintades>= 0 ) || @fields.nombre_pintades == ' ' || !!@fields.nombre_pintades)",
             "matchedExpression": "@fields.nombre_pintades",
             "type": "fields",
             "fieldName": "nombre_pintades"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_pintades) &&@fields.nombre_pintades>= 0 ) || @fields.nombre_pintades == '' || !@fields.nombre_pintades)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_pintades) && @fields.nombre_pintades>= 0 ) || @fields.nombre_pintades == ' ' || !!@fields.nombre_pintades)",
             "matchedExpression": "@fields.nombre_pintades",
             "type": "fields",
             "fieldName": "nombre_pintades"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_pintades) &&@fields.nombre_pintades>= 0 ) || @fields.nombre_pintades == '' || !@fields.nombre_pintades)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_pintades) && @fields.nombre_pintades>= 0 ) || @fields.nombre_pintades == ' ' || !!@fields.nombre_pintades)",
             "matchedExpression": "@fields.nombre_pintades",
             "type": "fields",
             "fieldName": "nombre_pintades"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_pintades) &&@fields.nombre_pintades>= 0 ) || @fields.nombre_pintades == '' || !@fields.nombre_pintades)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_pintades) && @fields.nombre_pintades>= 0 ) || @fields.nombre_pintades == ' ' || !!@fields.nombre_pintades)",
             "matchedExpression": "!@fields.nombre_pintades",
             "type": "fields",
             "fieldName": "nombre_pintades"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_pintades) &&@fields.nombre_pintades>= 0 ) || @fields.nombre_pintades == '' || !@fields.nombre_pintades)",
-            "matchedExpression": "@calc((/^\\d+$/.test(@fields.nombre_pintades) &&@fields.nombre_pintades>= 0 ) || @fields.nombre_pintades == '' || !@fields.nombre_pintades)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_pintades) && @fields.nombre_pintades>= 0 ) || @fields.nombre_pintades == ' ' || !!@fields.nombre_pintades)",
+            "matchedExpression": "@calc((/^\\d+$/.test(@fields.nombre_pintades) && @fields.nombre_pintades>= 0 ) || @fields.nombre_pintades == ' ' || !!@fields.nombre_pintades)",
             "type": "calc",
-            "fieldName": "(/^\\d+$/.test(@fields.nombre_pintades) &&@fields.nombre_pintades>= 0 ) || @fields.nombre_pintades == '' || !@fields.nombre_pintades"
+            "fieldName": "(/^\\d+$/.test(@fields.nombre_pintades) && @fields.nombre_pintades>= 0 ) || @fields.nombre_pintades == ' ' || !!@fields.nombre_pintades"
           }
         ]
       },
@@ -392,24 +395,25 @@
         "!@fields.nombre_pintades": [
           "value"
         ],
-        "@calc((/^\\d+$/.test(@fields.nombre_pintades) &&@fields.nombre_pintades>= 0 ) || @fields.nombre_pintades == '' || !@fields.nombre_pintades)": [
+        "@calc((/^\\d+$/.test(@fields.nombre_pintades) && @fields.nombre_pintades>= 0 ) || @fields.nombre_pintades == ' ' || !!@fields.nombre_pintades)": [
           "value"
         ]
       }
     },
     {
       "type": "text",
-      "name": "error_nombre_pintades",
       "value": "@global.error_number_min_0",
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.attempt_submit && !@local.valid_nombre_pintades",
+      "condition": "!@local.valid_nombre_pintades && @fields.attempt_submit",
+      "exclude_from_translation": true,
       "style_list": [
-        "color: red",
+        "color: #FF0000",
         "font-size: 12px"
       ],
-      "_nested_name": "error_nombre_pintades",
+      "name": "text_15",
+      "_nested_name": "text_15",
       "_dynamicFields": {
         "value": [
           {
@@ -421,16 +425,16 @@
         ],
         "condition": [
           {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_nombre_pintades",
-            "matchedExpression": "@fields.attempt_submit",
-            "type": "fields",
-            "fieldName": "attempt_submit"
-          },
-          {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_nombre_pintades",
+            "fullExpression": "!@local.valid_nombre_pintades && @fields.attempt_submit",
             "matchedExpression": "!@local.valid_nombre_pintades",
             "type": "local",
             "fieldName": "valid_nombre_pintades"
+          },
+          {
+            "fullExpression": "!@local.valid_nombre_pintades && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
           }
         ]
       },
@@ -438,10 +442,10 @@
         "@global.error_number_min_0": [
           "value"
         ],
-        "@fields.attempt_submit": [
+        "!@local.valid_nombre_pintades": [
           "condition"
         ],
-        "!@local.valid_nombre_pintades": [
+        "@fields.attempt_submit": [
           "condition"
         ]
       }
@@ -527,7 +531,8 @@
         }
       ],
       "parameter_list": {
-        "number_input": "true"
+        "number_input": "true",
+        "placeholder": "Entrez le nombre"
       },
       "_nested_name": "nombre_lapins",
       "_dynamicFields": {
@@ -548,7 +553,7 @@
     },
     {
       "name": "valid_nombre_lapins",
-      "value": "@calc((/^\\d+$/.test(@fields.nombre_lapins) &&@fields.nombre_lapins>= 0 ) || @fields.nombre_lapins == '' || !@fields.nombre_lapins)",
+      "value": "@calc((/^\\d+$/.test(@fields.nombre_lapins) && @fields.nombre_lapins>= 0 ) || @fields.nombre_lapins == ' ' || !!@fields.nombre_lapins)",
       "_translations": {
         "value": {}
       },
@@ -557,34 +562,34 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_lapins) &&@fields.nombre_lapins>= 0 ) || @fields.nombre_lapins == '' || !@fields.nombre_lapins)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_lapins) && @fields.nombre_lapins>= 0 ) || @fields.nombre_lapins == ' ' || !!@fields.nombre_lapins)",
             "matchedExpression": "@fields.nombre_lapins",
             "type": "fields",
             "fieldName": "nombre_lapins"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_lapins) &&@fields.nombre_lapins>= 0 ) || @fields.nombre_lapins == '' || !@fields.nombre_lapins)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_lapins) && @fields.nombre_lapins>= 0 ) || @fields.nombre_lapins == ' ' || !!@fields.nombre_lapins)",
             "matchedExpression": "@fields.nombre_lapins",
             "type": "fields",
             "fieldName": "nombre_lapins"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_lapins) &&@fields.nombre_lapins>= 0 ) || @fields.nombre_lapins == '' || !@fields.nombre_lapins)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_lapins) && @fields.nombre_lapins>= 0 ) || @fields.nombre_lapins == ' ' || !!@fields.nombre_lapins)",
             "matchedExpression": "@fields.nombre_lapins",
             "type": "fields",
             "fieldName": "nombre_lapins"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_lapins) &&@fields.nombre_lapins>= 0 ) || @fields.nombre_lapins == '' || !@fields.nombre_lapins)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_lapins) && @fields.nombre_lapins>= 0 ) || @fields.nombre_lapins == ' ' || !!@fields.nombre_lapins)",
             "matchedExpression": "!@fields.nombre_lapins",
             "type": "fields",
             "fieldName": "nombre_lapins"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_lapins) &&@fields.nombre_lapins>= 0 ) || @fields.nombre_lapins == '' || !@fields.nombre_lapins)",
-            "matchedExpression": "@calc((/^\\d+$/.test(@fields.nombre_lapins) &&@fields.nombre_lapins>= 0 ) || @fields.nombre_lapins == '' || !@fields.nombre_lapins)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_lapins) && @fields.nombre_lapins>= 0 ) || @fields.nombre_lapins == ' ' || !!@fields.nombre_lapins)",
+            "matchedExpression": "@calc((/^\\d+$/.test(@fields.nombre_lapins) && @fields.nombre_lapins>= 0 ) || @fields.nombre_lapins == ' ' || !!@fields.nombre_lapins)",
             "type": "calc",
-            "fieldName": "(/^\\d+$/.test(@fields.nombre_lapins) &&@fields.nombre_lapins>= 0 ) || @fields.nombre_lapins == '' || !@fields.nombre_lapins"
+            "fieldName": "(/^\\d+$/.test(@fields.nombre_lapins) && @fields.nombre_lapins>= 0 ) || @fields.nombre_lapins == ' ' || !!@fields.nombre_lapins"
           }
         ]
       },
@@ -597,24 +602,25 @@
         "!@fields.nombre_lapins": [
           "value"
         ],
-        "@calc((/^\\d+$/.test(@fields.nombre_lapins) &&@fields.nombre_lapins>= 0 ) || @fields.nombre_lapins == '' || !@fields.nombre_lapins)": [
+        "@calc((/^\\d+$/.test(@fields.nombre_lapins) && @fields.nombre_lapins>= 0 ) || @fields.nombre_lapins == ' ' || !!@fields.nombre_lapins)": [
           "value"
         ]
       }
     },
     {
       "type": "text",
-      "name": "error_nombre_lapins",
       "value": "@global.error_number_min_0",
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.attempt_submit && !@local.valid_nombre_lapins",
+      "condition": "!@local.valid_nombre_lapins && @fields.attempt_submit",
+      "exclude_from_translation": true,
       "style_list": [
-        "color: red",
+        "color: #FF0000",
         "font-size: 12px"
       ],
-      "_nested_name": "error_nombre_lapins",
+      "name": "text_21",
+      "_nested_name": "text_21",
       "_dynamicFields": {
         "value": [
           {
@@ -626,16 +632,16 @@
         ],
         "condition": [
           {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_nombre_lapins",
-            "matchedExpression": "@fields.attempt_submit",
-            "type": "fields",
-            "fieldName": "attempt_submit"
-          },
-          {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_nombre_lapins",
+            "fullExpression": "!@local.valid_nombre_lapins && @fields.attempt_submit",
             "matchedExpression": "!@local.valid_nombre_lapins",
             "type": "local",
             "fieldName": "valid_nombre_lapins"
+          },
+          {
+            "fullExpression": "!@local.valid_nombre_lapins && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
           }
         ]
       },
@@ -643,10 +649,10 @@
         "@global.error_number_min_0": [
           "value"
         ],
-        "@fields.attempt_submit": [
+        "!@local.valid_nombre_lapins": [
           "condition"
         ],
-        "!@local.valid_nombre_lapins": [
+        "@fields.attempt_submit": [
           "condition"
         ]
       }
@@ -732,7 +738,8 @@
         }
       ],
       "parameter_list": {
-        "number_input": "true"
+        "number_input": "true",
+        "placeholder": "Entrez le nombre"
       },
       "_nested_name": "nombre_canards",
       "_dynamicFields": {
@@ -753,7 +760,7 @@
     },
     {
       "name": "valid_nombre_canards",
-      "value": "@calc((/^\\d+$/.test(@fields.nombre_canards) &&@fields.nombre_canards>= 0 ) || @fields.nombre_canards == '' || !@fields.nombre_canards)",
+      "value": "@calc((/^\\d+$/.test(@fields.nombre_canards) && @fields.nombre_canards>= 0 ) || @fields.nombre_canards == ' ' || !!@fields.nombre_canards)",
       "_translations": {
         "value": {}
       },
@@ -762,34 +769,34 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_canards) &&@fields.nombre_canards>= 0 ) || @fields.nombre_canards == '' || !@fields.nombre_canards)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_canards) && @fields.nombre_canards>= 0 ) || @fields.nombre_canards == ' ' || !!@fields.nombre_canards)",
             "matchedExpression": "@fields.nombre_canards",
             "type": "fields",
             "fieldName": "nombre_canards"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_canards) &&@fields.nombre_canards>= 0 ) || @fields.nombre_canards == '' || !@fields.nombre_canards)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_canards) && @fields.nombre_canards>= 0 ) || @fields.nombre_canards == ' ' || !!@fields.nombre_canards)",
             "matchedExpression": "@fields.nombre_canards",
             "type": "fields",
             "fieldName": "nombre_canards"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_canards) &&@fields.nombre_canards>= 0 ) || @fields.nombre_canards == '' || !@fields.nombre_canards)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_canards) && @fields.nombre_canards>= 0 ) || @fields.nombre_canards == ' ' || !!@fields.nombre_canards)",
             "matchedExpression": "@fields.nombre_canards",
             "type": "fields",
             "fieldName": "nombre_canards"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_canards) &&@fields.nombre_canards>= 0 ) || @fields.nombre_canards == '' || !@fields.nombre_canards)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_canards) && @fields.nombre_canards>= 0 ) || @fields.nombre_canards == ' ' || !!@fields.nombre_canards)",
             "matchedExpression": "!@fields.nombre_canards",
             "type": "fields",
             "fieldName": "nombre_canards"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_canards) &&@fields.nombre_canards>= 0 ) || @fields.nombre_canards == '' || !@fields.nombre_canards)",
-            "matchedExpression": "@calc((/^\\d+$/.test(@fields.nombre_canards) &&@fields.nombre_canards>= 0 ) || @fields.nombre_canards == '' || !@fields.nombre_canards)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_canards) && @fields.nombre_canards>= 0 ) || @fields.nombre_canards == ' ' || !!@fields.nombre_canards)",
+            "matchedExpression": "@calc((/^\\d+$/.test(@fields.nombre_canards) && @fields.nombre_canards>= 0 ) || @fields.nombre_canards == ' ' || !!@fields.nombre_canards)",
             "type": "calc",
-            "fieldName": "(/^\\d+$/.test(@fields.nombre_canards) &&@fields.nombre_canards>= 0 ) || @fields.nombre_canards == '' || !@fields.nombre_canards"
+            "fieldName": "(/^\\d+$/.test(@fields.nombre_canards) && @fields.nombre_canards>= 0 ) || @fields.nombre_canards == ' ' || !!@fields.nombre_canards"
           }
         ]
       },
@@ -802,24 +809,25 @@
         "!@fields.nombre_canards": [
           "value"
         ],
-        "@calc((/^\\d+$/.test(@fields.nombre_canards) &&@fields.nombre_canards>= 0 ) || @fields.nombre_canards == '' || !@fields.nombre_canards)": [
+        "@calc((/^\\d+$/.test(@fields.nombre_canards) && @fields.nombre_canards>= 0 ) || @fields.nombre_canards == ' ' || !!@fields.nombre_canards)": [
           "value"
         ]
       }
     },
     {
       "type": "text",
-      "name": "error_nombre_canards",
       "value": "@global.error_number_min_0",
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.attempt_submit && !@local.valid_nombre_canards",
+      "condition": "!@local.valid_nombre_canards && @fields.attempt_submit",
+      "exclude_from_translation": true,
       "style_list": [
-        "color: red",
+        "color: #FF0000",
         "font-size: 12px"
       ],
-      "_nested_name": "error_nombre_canards",
+      "name": "text_27",
+      "_nested_name": "text_27",
       "_dynamicFields": {
         "value": [
           {
@@ -831,16 +839,16 @@
         ],
         "condition": [
           {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_nombre_canards",
-            "matchedExpression": "@fields.attempt_submit",
-            "type": "fields",
-            "fieldName": "attempt_submit"
-          },
-          {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_nombre_canards",
+            "fullExpression": "!@local.valid_nombre_canards && @fields.attempt_submit",
             "matchedExpression": "!@local.valid_nombre_canards",
             "type": "local",
             "fieldName": "valid_nombre_canards"
+          },
+          {
+            "fullExpression": "!@local.valid_nombre_canards && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
           }
         ]
       },
@@ -848,10 +856,10 @@
         "@global.error_number_min_0": [
           "value"
         ],
-        "@fields.attempt_submit": [
+        "!@local.valid_nombre_canards": [
           "condition"
         ],
-        "!@local.valid_nombre_canards": [
+        "@fields.attempt_submit": [
           "condition"
         ]
       }
@@ -937,7 +945,8 @@
         }
       ],
       "parameter_list": {
-        "number_input": "true"
+        "number_input": "true",
+        "placeholder": "Entrez le nombre"
       },
       "_nested_name": "nombre_pigeons",
       "_dynamicFields": {
@@ -958,7 +967,7 @@
     },
     {
       "name": "valid_nombre_pigeons",
-      "value": "@calc((/^\\d+$/.test(@fields.nombre_pigeons) &&@fields.nombre_pigeons>= 0 ) || @fields.nombre_pigeons == '' || !@fields.nombre_pigeons)",
+      "value": "@calc((/^\\d+$/.test(@fields.nombre_pigeons) && @fields.nombre_pigeons>= 0 ) || @fields.nombre_pigeons == ' ' || !!@fields.nombre_pigeons)",
       "_translations": {
         "value": {}
       },
@@ -967,34 +976,34 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_pigeons) &&@fields.nombre_pigeons>= 0 ) || @fields.nombre_pigeons == '' || !@fields.nombre_pigeons)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_pigeons) && @fields.nombre_pigeons>= 0 ) || @fields.nombre_pigeons == ' ' || !!@fields.nombre_pigeons)",
             "matchedExpression": "@fields.nombre_pigeons",
             "type": "fields",
             "fieldName": "nombre_pigeons"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_pigeons) &&@fields.nombre_pigeons>= 0 ) || @fields.nombre_pigeons == '' || !@fields.nombre_pigeons)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_pigeons) && @fields.nombre_pigeons>= 0 ) || @fields.nombre_pigeons == ' ' || !!@fields.nombre_pigeons)",
             "matchedExpression": "@fields.nombre_pigeons",
             "type": "fields",
             "fieldName": "nombre_pigeons"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_pigeons) &&@fields.nombre_pigeons>= 0 ) || @fields.nombre_pigeons == '' || !@fields.nombre_pigeons)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_pigeons) && @fields.nombre_pigeons>= 0 ) || @fields.nombre_pigeons == ' ' || !!@fields.nombre_pigeons)",
             "matchedExpression": "@fields.nombre_pigeons",
             "type": "fields",
             "fieldName": "nombre_pigeons"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_pigeons) &&@fields.nombre_pigeons>= 0 ) || @fields.nombre_pigeons == '' || !@fields.nombre_pigeons)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_pigeons) && @fields.nombre_pigeons>= 0 ) || @fields.nombre_pigeons == ' ' || !!@fields.nombre_pigeons)",
             "matchedExpression": "!@fields.nombre_pigeons",
             "type": "fields",
             "fieldName": "nombre_pigeons"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_pigeons) &&@fields.nombre_pigeons>= 0 ) || @fields.nombre_pigeons == '' || !@fields.nombre_pigeons)",
-            "matchedExpression": "@calc((/^\\d+$/.test(@fields.nombre_pigeons) &&@fields.nombre_pigeons>= 0 ) || @fields.nombre_pigeons == '' || !@fields.nombre_pigeons)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_pigeons) && @fields.nombre_pigeons>= 0 ) || @fields.nombre_pigeons == ' ' || !!@fields.nombre_pigeons)",
+            "matchedExpression": "@calc((/^\\d+$/.test(@fields.nombre_pigeons) && @fields.nombre_pigeons>= 0 ) || @fields.nombre_pigeons == ' ' || !!@fields.nombre_pigeons)",
             "type": "calc",
-            "fieldName": "(/^\\d+$/.test(@fields.nombre_pigeons) &&@fields.nombre_pigeons>= 0 ) || @fields.nombre_pigeons == '' || !@fields.nombre_pigeons"
+            "fieldName": "(/^\\d+$/.test(@fields.nombre_pigeons) && @fields.nombre_pigeons>= 0 ) || @fields.nombre_pigeons == ' ' || !!@fields.nombre_pigeons"
           }
         ]
       },
@@ -1007,24 +1016,25 @@
         "!@fields.nombre_pigeons": [
           "value"
         ],
-        "@calc((/^\\d+$/.test(@fields.nombre_pigeons) &&@fields.nombre_pigeons>= 0 ) || @fields.nombre_pigeons == '' || !@fields.nombre_pigeons)": [
+        "@calc((/^\\d+$/.test(@fields.nombre_pigeons) && @fields.nombre_pigeons>= 0 ) || @fields.nombre_pigeons == ' ' || !!@fields.nombre_pigeons)": [
           "value"
         ]
       }
     },
     {
       "type": "text",
-      "name": "error_nombre_pigeons",
       "value": "@global.error_number_min_0",
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.attempt_submit && !@local.valid_nombre_pigeons",
+      "condition": "!@local.valid_nombre_pigeons && @fields.attempt_submit",
+      "exclude_from_translation": true,
       "style_list": [
-        "color: red",
+        "color: #FF0000",
         "font-size: 12px"
       ],
-      "_nested_name": "error_nombre_pigeons",
+      "name": "text_33",
+      "_nested_name": "text_33",
       "_dynamicFields": {
         "value": [
           {
@@ -1036,16 +1046,16 @@
         ],
         "condition": [
           {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_nombre_pigeons",
-            "matchedExpression": "@fields.attempt_submit",
-            "type": "fields",
-            "fieldName": "attempt_submit"
-          },
-          {
-            "fullExpression": "@fields.attempt_submit && !@local.valid_nombre_pigeons",
+            "fullExpression": "!@local.valid_nombre_pigeons && @fields.attempt_submit",
             "matchedExpression": "!@local.valid_nombre_pigeons",
             "type": "local",
             "fieldName": "valid_nombre_pigeons"
+          },
+          {
+            "fullExpression": "!@local.valid_nombre_pigeons && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
           }
         ]
       },
@@ -1053,10 +1063,10 @@
         "@global.error_number_min_0": [
           "value"
         ],
-        "@fields.attempt_submit": [
+        "!@local.valid_nombre_pigeons": [
           "condition"
         ],
-        "!@local.valid_nombre_pigeons": [
+        "@fields.attempt_submit": [
           "condition"
         ]
       }
@@ -1109,6 +1119,20 @@
       "_nested_name": "display_group_34"
     },
     {
+      "type": "text",
+      "value": "Ecrivez aucun s'il n'ya pas d'autre volaille",
+      "_translations": {
+        "value": {}
+      },
+      "exclude_from_translation": true,
+      "style_list": [
+        "color: #000000",
+        "font-size: 12px"
+      ],
+      "name": "text_36",
+      "_nested_name": "text_36"
+    },
+    {
       "type": "text_box",
       "name": "autre_animal",
       "value": "@fields.autre_animal",
@@ -1157,7 +1181,7 @@
           "style_list": [
             "font-size:20px"
           ],
-          "_nested_name": "display_group_37.nombre_autre_animal_label",
+          "_nested_name": "display_group_38.nombre_autre_animal_label",
           "_dynamicFields": {
             "value": [
               {
@@ -1185,11 +1209,11 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_37.audio_16_6"
+          "_nested_name": "display_group_38.audio_16_6"
         }
       ],
-      "name": "display_group_37",
-      "_nested_name": "display_group_37",
+      "name": "display_group_38",
+      "_nested_name": "display_group_38",
       "_dynamicFields": {
         "condition": [
           {
@@ -1225,7 +1249,8 @@
         }
       ],
       "parameter_list": {
-        "number_input": "true"
+        "number_input": "true",
+        "placeholder": "Entrez le nombre"
       },
       "condition": "!!@local.autre_animal",
       "_nested_name": "nombre_autre_animal",
@@ -1258,7 +1283,7 @@
     },
     {
       "name": "valid_nombre_autre_animal",
-      "value": "@calc((/^\\d+$/.test(@fields.nombre_autre_animal) &&@fields.nombre_autre_animal>= 0 ) || @fields.nombre_autre_animal == '' || !@fields.nombre_autre_animal)",
+      "value": "@calc((/^\\d+$/.test(@fields.nombre_autre_animal) && @fields.nombre_autre_animal>= 0 ) || @fields.nombre_autre_animal == ' ' || !!@fields.nombre_autre_animal)",
       "_translations": {
         "value": {}
       },
@@ -1267,34 +1292,34 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_autre_animal) &&@fields.nombre_autre_animal>= 0 ) || @fields.nombre_autre_animal == '' || !@fields.nombre_autre_animal)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_autre_animal) && @fields.nombre_autre_animal>= 0 ) || @fields.nombre_autre_animal == ' ' || !!@fields.nombre_autre_animal)",
             "matchedExpression": "@fields.nombre_autre_animal",
             "type": "fields",
             "fieldName": "nombre_autre_animal"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_autre_animal) &&@fields.nombre_autre_animal>= 0 ) || @fields.nombre_autre_animal == '' || !@fields.nombre_autre_animal)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_autre_animal) && @fields.nombre_autre_animal>= 0 ) || @fields.nombre_autre_animal == ' ' || !!@fields.nombre_autre_animal)",
             "matchedExpression": "@fields.nombre_autre_animal",
             "type": "fields",
             "fieldName": "nombre_autre_animal"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_autre_animal) &&@fields.nombre_autre_animal>= 0 ) || @fields.nombre_autre_animal == '' || !@fields.nombre_autre_animal)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_autre_animal) && @fields.nombre_autre_animal>= 0 ) || @fields.nombre_autre_animal == ' ' || !!@fields.nombre_autre_animal)",
             "matchedExpression": "@fields.nombre_autre_animal",
             "type": "fields",
             "fieldName": "nombre_autre_animal"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_autre_animal) &&@fields.nombre_autre_animal>= 0 ) || @fields.nombre_autre_animal == '' || !@fields.nombre_autre_animal)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_autre_animal) && @fields.nombre_autre_animal>= 0 ) || @fields.nombre_autre_animal == ' ' || !!@fields.nombre_autre_animal)",
             "matchedExpression": "!@fields.nombre_autre_animal",
             "type": "fields",
             "fieldName": "nombre_autre_animal"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_autre_animal) &&@fields.nombre_autre_animal>= 0 ) || @fields.nombre_autre_animal == '' || !@fields.nombre_autre_animal)",
-            "matchedExpression": "@calc((/^\\d+$/.test(@fields.nombre_autre_animal) &&@fields.nombre_autre_animal>= 0 ) || @fields.nombre_autre_animal == '' || !@fields.nombre_autre_animal)",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.nombre_autre_animal) && @fields.nombre_autre_animal>= 0 ) || @fields.nombre_autre_animal == ' ' || !!@fields.nombre_autre_animal)",
+            "matchedExpression": "@calc((/^\\d+$/.test(@fields.nombre_autre_animal) && @fields.nombre_autre_animal>= 0 ) || @fields.nombre_autre_animal == ' ' || !!@fields.nombre_autre_animal)",
             "type": "calc",
-            "fieldName": "(/^\\d+$/.test(@fields.nombre_autre_animal) &&@fields.nombre_autre_animal>= 0 ) || @fields.nombre_autre_animal == '' || !@fields.nombre_autre_animal"
+            "fieldName": "(/^\\d+$/.test(@fields.nombre_autre_animal) && @fields.nombre_autre_animal>= 0 ) || @fields.nombre_autre_animal == ' ' || !!@fields.nombre_autre_animal"
           }
         ]
       },
@@ -1307,24 +1332,25 @@
         "!@fields.nombre_autre_animal": [
           "value"
         ],
-        "@calc((/^\\d+$/.test(@fields.nombre_autre_animal) &&@fields.nombre_autre_animal>= 0 ) || @fields.nombre_autre_animal == '' || !@fields.nombre_autre_animal)": [
+        "@calc((/^\\d+$/.test(@fields.nombre_autre_animal) && @fields.nombre_autre_animal>= 0 ) || @fields.nombre_autre_animal == ' ' || !!@fields.nombre_autre_animal)": [
           "value"
         ]
       }
     },
     {
       "type": "text",
-      "name": "error_nombre_autre_animal",
       "value": "@global.error_number_min_0",
       "_translations": {
         "value": {}
       },
-      "condition": "!!@local.autre_animal && @fields.attempt_submit && !@local.valid_nombre_autre_animal",
+      "condition": "!@local.valid_nombre_autre_animal && @fields.attempt_submit",
+      "exclude_from_translation": true,
       "style_list": [
-        "color: red",
+        "color: #FF0000",
         "font-size: 12px"
       ],
-      "_nested_name": "error_nombre_autre_animal",
+      "name": "text_42",
+      "_nested_name": "text_42",
       "_dynamicFields": {
         "value": [
           {
@@ -1336,22 +1362,16 @@
         ],
         "condition": [
           {
-            "fullExpression": "!!@local.autre_animal && @fields.attempt_submit && !@local.valid_nombre_autre_animal",
-            "matchedExpression": "!@local.autre_animal",
-            "type": "local",
-            "fieldName": "autre_animal"
-          },
-          {
-            "fullExpression": "!!@local.autre_animal && @fields.attempt_submit && !@local.valid_nombre_autre_animal",
-            "matchedExpression": "@fields.attempt_submit",
-            "type": "fields",
-            "fieldName": "attempt_submit"
-          },
-          {
-            "fullExpression": "!!@local.autre_animal && @fields.attempt_submit && !@local.valid_nombre_autre_animal",
+            "fullExpression": "!@local.valid_nombre_autre_animal && @fields.attempt_submit",
             "matchedExpression": "!@local.valid_nombre_autre_animal",
             "type": "local",
             "fieldName": "valid_nombre_autre_animal"
+          },
+          {
+            "fullExpression": "!@local.valid_nombre_autre_animal && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
           }
         ]
       },
@@ -1359,13 +1379,10 @@
         "@global.error_number_min_0": [
           "value"
         ],
-        "!@local.autre_animal": [
+        "!@local.valid_nombre_autre_animal": [
           "condition"
         ],
         "@fields.attempt_submit": [
-          "condition"
-        ],
-        "!@local.valid_nombre_autre_animal": [
           "condition"
         ]
       }
@@ -1518,6 +1535,15 @@
             "value": {}
           },
           "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                false
+              ],
+              "_raw": "click | set_field: attempt_submit: false"
+            },
             {
               "trigger": "click",
               "action_id": "emit",

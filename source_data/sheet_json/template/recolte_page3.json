@@ -54,7 +54,7 @@
     {
       "type": "image",
       "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
-      "style_list": "width: 60%; object-fit: contain;"
+      "style_list": "width: 100px; height: 100px;"
     },
     {
       "type": "text",
@@ -85,7 +85,7 @@
     {
       "type": "image",
       "value": "images/charrette.jpg",
-      "style_list": "width: 80%; object-fit: contain; margin-bottom: 10px;"
+      "style_list": "width: 100px; height: 100px;"
     },
     {
       "type": "text_box",
@@ -124,7 +124,7 @@
     {
       "type": "image",
       "value": "images/botte.jpg",
-      "style_list": "width: 80%; object-fit: contain; margin-bottom: 10px;"
+      "style_list": "width: 100px; height: 100px;"
     },
     {
       "type": "text_box ",
@@ -163,7 +163,7 @@
       "name": "button_completed",
       "value": "@global.btn_continue",
       "action_list": "click | emit: completed;",
-      "parameter_list": "style: navigation;\ndisabled: !@local.v_page6_valid",
+      "parameter_list": "disabled: !@local.v_page6_valid",
       "style_list": "flex: 1"
     },
     {

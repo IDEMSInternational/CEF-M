@@ -325,7 +325,7 @@
     },
     {
       "type": "display_group",
-      "condition": "@fields.on_production_info == 'oui'",
+      "condition": "@fields.on_production_info == 'oui' && @fields.culture == 'coton'",
       "style_list": [
         "display: block",
         "width: 100%",
@@ -336,7 +336,6 @@
       "rows": [
         {
           "type": "display_group",
-          "condition": "@fields.culture == 'coton'",
           "style_list": [
             "display: flex",
             "align-items: center",
@@ -395,22 +394,7 @@
             }
           ],
           "name": "display_group_1",
-          "_nested_name": "display_group_12.display_group_1",
-          "_dynamicFields": {
-            "condition": [
-              {
-                "fullExpression": "@fields.culture == 'coton'",
-                "matchedExpression": "@fields.culture",
-                "type": "fields",
-                "fieldName": "culture"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@fields.culture": [
-              "condition"
-            ]
-          }
+          "_nested_name": "display_group_12.display_group_1"
         },
         {
           "type": "text_box",
@@ -490,22 +474,31 @@
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@fields.on_production_info == 'oui'",
+            "fullExpression": "@fields.on_production_info == 'oui' && @fields.culture == 'coton'",
             "matchedExpression": "@fields.on_production_info",
             "type": "fields",
             "fieldName": "on_production_info"
+          },
+          {
+            "fullExpression": "@fields.on_production_info == 'oui' && @fields.culture == 'coton'",
+            "matchedExpression": "@fields.culture",
+            "type": "fields",
+            "fieldName": "culture"
           }
         ]
       },
       "_dynamicDependencies": {
         "@fields.on_production_info": [
           "condition"
+        ],
+        "@fields.culture": [
+          "condition"
         ]
       }
     },
     {
       "type": "display_group",
-      "condition": "@fields.on_production_info == 'oui' && @fields.association == 'oui'",
+      "condition": "@fields.on_production_info == 'oui' && @fields.association_oui_non\n == 'oui'",
       "style_list": [
         "display: block",
         "width: 100%",
@@ -516,17 +509,10 @@
       "rows": [
         {
           "type": "display_group",
-          "condition": "@fields.culture != 'coton'",
-          "style_list": [
-            "display: flex",
-            "align-items: center",
-            "grid_gap: 12px",
-            "margin-bottom: 8px"
-          ],
           "rows": [
             {
               "type": "html",
-              "value": "<span style=\"font-size: 13px; color: #1e3656; font-weight: bold;\">Production de la culture associée @fields.nom_culture_associee (en kg)</span>",
+              "value": "<span style=\"font-size: 20px; color: #1e3656; font-weight: bold;\">Production de la culture associée @fields.nom_culture_associee (en kg)</span>",
               "_translations": {
                 "value": {}
               },
@@ -535,7 +521,7 @@
               "_dynamicFields": {
                 "value": [
                   {
-                    "fullExpression": "<span style=\"font-size: 13px; color: #1e3656; font-weight: bold;\">Production de la culture associée @fields.nom_culture_associee (en kg)</span>",
+                    "fullExpression": "<span style=\"font-size: 20px; color: #1e3656; font-weight: bold;\">Production de la culture associée @fields.nom_culture_associee (en kg)</span>",
                     "matchedExpression": "@fields.nom_culture_associee",
                     "type": "fields",
                     "fieldName": "nom_culture_associee"
@@ -557,40 +543,25 @@
                 "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
               },
               "_nested_name": "display_group_14.display_group_1.audio_13_2"
-            },
-            {
-              "type": "image",
-              "value": "images/kg.jpg",
-              "_translations": {
-                "value": {}
-              },
-              "style_list": [
-                "width: 50px",
-                "height: 50px",
-                "object-fit: contain",
-                "flex-shrink: 0"
-              ],
-              "name": "image_3",
-              "_nested_name": "display_group_14.display_group_1.image_3"
             }
           ],
           "name": "display_group_1",
-          "_nested_name": "display_group_14.display_group_1",
-          "_dynamicFields": {
-            "condition": [
-              {
-                "fullExpression": "@fields.culture != 'coton'",
-                "matchedExpression": "@fields.culture",
-                "type": "fields",
-                "fieldName": "culture"
-              }
-            ]
+          "_nested_name": "display_group_14.display_group_1"
+        },
+        {
+          "type": "image",
+          "value": "images/kg.jpg",
+          "_translations": {
+            "value": {}
           },
-          "_dynamicDependencies": {
-            "@fields.culture": [
-              "condition"
-            ]
-          }
+          "style_list": [
+            "width: 50px",
+            "height: 50px",
+            "object-fit: contain",
+            "flex-shrink: 0"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_14.image_2"
         },
         {
           "type": "text_box",
@@ -637,8 +608,8 @@
             "value": {}
           },
           "condition": "@fields.attempt_submit_p14 && !@local.valid_prod_cult2",
-          "name": "html_3",
-          "_nested_name": "display_group_14.html_3",
+          "name": "html_4",
+          "_nested_name": "display_group_14.html_4",
           "_dynamicFields": {
             "condition": [
               {
@@ -670,16 +641,16 @@
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@fields.on_production_info == 'oui' && @fields.association == 'oui'",
+            "fullExpression": "@fields.on_production_info == 'oui' && @fields.association_oui_non\n == 'oui'",
             "matchedExpression": "@fields.on_production_info",
             "type": "fields",
             "fieldName": "on_production_info"
           },
           {
-            "fullExpression": "@fields.on_production_info == 'oui' && @fields.association == 'oui'",
-            "matchedExpression": "@fields.association",
+            "fullExpression": "@fields.on_production_info == 'oui' && @fields.association_oui_non\n == 'oui'",
+            "matchedExpression": "@fields.association_oui_non",
             "type": "fields",
-            "fieldName": "association"
+            "fieldName": "association_oui_non"
           }
         ]
       },
@@ -687,7 +658,7 @@
         "@fields.on_production_info": [
           "condition"
         ],
-        "@fields.association": [
+        "@fields.association_oui_non": [
           "condition"
         ]
       }
@@ -775,6 +746,9 @@
           "parameter_list": {
             "disabled": "!@local.completed_enabled"
           },
+          "style_list": [
+            "flex: 1"
+          ],
           "_nested_name": "display_group_16.page13_button_continue",
           "_dynamicFields": {
             "action_list": {

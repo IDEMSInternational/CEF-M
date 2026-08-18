@@ -157,7 +157,7 @@
             },
             {
               "name": "valid_source_npk_coton_14_18_18",
-              "value": "@calc(!!@fields.source_npk_coton_14_18_18 && @fields.source_npk_coton_14_18_18 != \"\" && @fields.source_npk_coton_14_18_18 <= @fields.besoins_prevue_npk_coton_14_18_18)",
+              "value": "@calc(!!@fields.source_npk_coton_14_18_18 && @fields.source_npk_coton_14_18_18 != ' ' && @fields.source_npk_coton_14_18_18 <= @fields.besoins_prevue_npk_coton_14_18_18)",
               "_translations": {
                 "value": {}
               },
@@ -166,34 +166,34 @@
               "_dynamicFields": {
                 "value": [
                   {
-                    "fullExpression": "@calc(!!@fields.source_npk_coton_14_18_18 && @fields.source_npk_coton_14_18_18 != \"\" && @fields.source_npk_coton_14_18_18 <= @fields.besoins_prevue_npk_coton_14_18_18)",
+                    "fullExpression": "@calc(!!@fields.source_npk_coton_14_18_18 && @fields.source_npk_coton_14_18_18 != ' ' && @fields.source_npk_coton_14_18_18 <= @fields.besoins_prevue_npk_coton_14_18_18)",
                     "matchedExpression": "!@fields.source_npk_coton_14_18_18",
                     "type": "fields",
                     "fieldName": "source_npk_coton_14_18_18"
                   },
                   {
-                    "fullExpression": "@calc(!!@fields.source_npk_coton_14_18_18 && @fields.source_npk_coton_14_18_18 != \"\" && @fields.source_npk_coton_14_18_18 <= @fields.besoins_prevue_npk_coton_14_18_18)",
+                    "fullExpression": "@calc(!!@fields.source_npk_coton_14_18_18 && @fields.source_npk_coton_14_18_18 != ' ' && @fields.source_npk_coton_14_18_18 <= @fields.besoins_prevue_npk_coton_14_18_18)",
                     "matchedExpression": "@fields.source_npk_coton_14_18_18",
                     "type": "fields",
                     "fieldName": "source_npk_coton_14_18_18"
                   },
                   {
-                    "fullExpression": "@calc(!!@fields.source_npk_coton_14_18_18 && @fields.source_npk_coton_14_18_18 != \"\" && @fields.source_npk_coton_14_18_18 <= @fields.besoins_prevue_npk_coton_14_18_18)",
+                    "fullExpression": "@calc(!!@fields.source_npk_coton_14_18_18 && @fields.source_npk_coton_14_18_18 != ' ' && @fields.source_npk_coton_14_18_18 <= @fields.besoins_prevue_npk_coton_14_18_18)",
                     "matchedExpression": "@fields.source_npk_coton_14_18_18",
                     "type": "fields",
                     "fieldName": "source_npk_coton_14_18_18"
                   },
                   {
-                    "fullExpression": "@calc(!!@fields.source_npk_coton_14_18_18 && @fields.source_npk_coton_14_18_18 != \"\" && @fields.source_npk_coton_14_18_18 <= @fields.besoins_prevue_npk_coton_14_18_18)",
+                    "fullExpression": "@calc(!!@fields.source_npk_coton_14_18_18 && @fields.source_npk_coton_14_18_18 != ' ' && @fields.source_npk_coton_14_18_18 <= @fields.besoins_prevue_npk_coton_14_18_18)",
                     "matchedExpression": "@fields.besoins_prevue_npk_coton_14_18_18",
                     "type": "fields",
                     "fieldName": "besoins_prevue_npk_coton_14_18_18"
                   },
                   {
-                    "fullExpression": "@calc(!!@fields.source_npk_coton_14_18_18 && @fields.source_npk_coton_14_18_18 != \"\" && @fields.source_npk_coton_14_18_18 <= @fields.besoins_prevue_npk_coton_14_18_18)",
-                    "matchedExpression": "@calc(!!@fields.source_npk_coton_14_18_18 && @fields.source_npk_coton_14_18_18 != \"\" && @fields.source_npk_coton_14_18_18 <= @fields.besoins_prevue_npk_coton_14_18_18)",
+                    "fullExpression": "@calc(!!@fields.source_npk_coton_14_18_18 && @fields.source_npk_coton_14_18_18 != ' ' && @fields.source_npk_coton_14_18_18 <= @fields.besoins_prevue_npk_coton_14_18_18)",
+                    "matchedExpression": "@calc(!!@fields.source_npk_coton_14_18_18 && @fields.source_npk_coton_14_18_18 != ' ' && @fields.source_npk_coton_14_18_18 <= @fields.besoins_prevue_npk_coton_14_18_18)",
                     "type": "calc",
-                    "fieldName": "!!@fields.source_npk_coton_14_18_18 && @fields.source_npk_coton_14_18_18 != \"\" && @fields.source_npk_coton_14_18_18 <= @fields.besoins_prevue_npk_coton_14_18_18"
+                    "fieldName": "!!@fields.source_npk_coton_14_18_18 && @fields.source_npk_coton_14_18_18 != ' ' && @fields.source_npk_coton_14_18_18 <= @fields.besoins_prevue_npk_coton_14_18_18"
                   }
                 ]
               },
@@ -208,14 +208,14 @@
                 "@fields.besoins_prevue_npk_coton_14_18_18": [
                   "value"
                 ],
-                "@calc(!!@fields.source_npk_coton_14_18_18 && @fields.source_npk_coton_14_18_18 != \"\" && @fields.source_npk_coton_14_18_18 <= @fields.besoins_prevue_npk_coton_14_18_18)": [
+                "@calc(!!@fields.source_npk_coton_14_18_18 && @fields.source_npk_coton_14_18_18 != ' ' && @fields.source_npk_coton_14_18_18 <= @fields.besoins_prevue_npk_coton_14_18_18)": [
                   "value"
                 ]
               }
             },
             {
               "type": "text",
-              "value": "@global.error_required_answer",
+              "value": "Donnez une valeur valide entre 0 et @fields.besoins_prevue_npk_coton_14_18_18",
               "_translations": {
                 "value": {}
               },
@@ -231,10 +231,10 @@
               "_dynamicFields": {
                 "value": [
                   {
-                    "fullExpression": "@global.error_required_answer",
-                    "matchedExpression": "@global.error_required_answer",
-                    "type": "global",
-                    "fieldName": "error_required_answer"
+                    "fullExpression": "Donnez une valeur valide entre 0 et @fields.besoins_prevue_npk_coton_14_18_18",
+                    "matchedExpression": "@fields.besoins_prevue_npk_coton_14_18_18",
+                    "type": "fields",
+                    "fieldName": "besoins_prevue_npk_coton_14_18_18"
                   }
                 ],
                 "condition": [
@@ -253,7 +253,7 @@
                 ]
               },
               "_dynamicDependencies": {
-                "@global.error_required_answer": [
+                "@fields.besoins_prevue_npk_coton_14_18_18": [
                   "value"
                 ],
                 "@fields.attempt_submit": [
@@ -391,7 +391,7 @@
             },
             {
               "name": "valid_source_npk_cereal_15_15_15",
-              "value": "@calc(!!@fields.source_npk_cereal_15_15_15 && @fields.source_npk_cereal_15_15_15 != \"\" && @fields.source_npk_cereal_15_15_15 <= @fields.besoins_prevue_npk_cereale_15_15_15)",
+              "value": "@calc(!!@fields.source_npk_cereal_15_15_15 && @fields.source_npk_cereal_15_15_15 != ' ' && @fields.source_npk_cereal_15_15_15 <= @fields.besoins_prevue_npk_cereale_15_15_15)",
               "_translations": {
                 "value": {}
               },
@@ -400,34 +400,34 @@
               "_dynamicFields": {
                 "value": [
                   {
-                    "fullExpression": "@calc(!!@fields.source_npk_cereal_15_15_15 && @fields.source_npk_cereal_15_15_15 != \"\" && @fields.source_npk_cereal_15_15_15 <= @fields.besoins_prevue_npk_cereale_15_15_15)",
+                    "fullExpression": "@calc(!!@fields.source_npk_cereal_15_15_15 && @fields.source_npk_cereal_15_15_15 != ' ' && @fields.source_npk_cereal_15_15_15 <= @fields.besoins_prevue_npk_cereale_15_15_15)",
                     "matchedExpression": "!@fields.source_npk_cereal_15_15_15",
                     "type": "fields",
                     "fieldName": "source_npk_cereal_15_15_15"
                   },
                   {
-                    "fullExpression": "@calc(!!@fields.source_npk_cereal_15_15_15 && @fields.source_npk_cereal_15_15_15 != \"\" && @fields.source_npk_cereal_15_15_15 <= @fields.besoins_prevue_npk_cereale_15_15_15)",
+                    "fullExpression": "@calc(!!@fields.source_npk_cereal_15_15_15 && @fields.source_npk_cereal_15_15_15 != ' ' && @fields.source_npk_cereal_15_15_15 <= @fields.besoins_prevue_npk_cereale_15_15_15)",
                     "matchedExpression": "@fields.source_npk_cereal_15_15_15",
                     "type": "fields",
                     "fieldName": "source_npk_cereal_15_15_15"
                   },
                   {
-                    "fullExpression": "@calc(!!@fields.source_npk_cereal_15_15_15 && @fields.source_npk_cereal_15_15_15 != \"\" && @fields.source_npk_cereal_15_15_15 <= @fields.besoins_prevue_npk_cereale_15_15_15)",
+                    "fullExpression": "@calc(!!@fields.source_npk_cereal_15_15_15 && @fields.source_npk_cereal_15_15_15 != ' ' && @fields.source_npk_cereal_15_15_15 <= @fields.besoins_prevue_npk_cereale_15_15_15)",
                     "matchedExpression": "@fields.source_npk_cereal_15_15_15",
                     "type": "fields",
                     "fieldName": "source_npk_cereal_15_15_15"
                   },
                   {
-                    "fullExpression": "@calc(!!@fields.source_npk_cereal_15_15_15 && @fields.source_npk_cereal_15_15_15 != \"\" && @fields.source_npk_cereal_15_15_15 <= @fields.besoins_prevue_npk_cereale_15_15_15)",
+                    "fullExpression": "@calc(!!@fields.source_npk_cereal_15_15_15 && @fields.source_npk_cereal_15_15_15 != ' ' && @fields.source_npk_cereal_15_15_15 <= @fields.besoins_prevue_npk_cereale_15_15_15)",
                     "matchedExpression": "@fields.besoins_prevue_npk_cereale_15_15_15",
                     "type": "fields",
                     "fieldName": "besoins_prevue_npk_cereale_15_15_15"
                   },
                   {
-                    "fullExpression": "@calc(!!@fields.source_npk_cereal_15_15_15 && @fields.source_npk_cereal_15_15_15 != \"\" && @fields.source_npk_cereal_15_15_15 <= @fields.besoins_prevue_npk_cereale_15_15_15)",
-                    "matchedExpression": "@calc(!!@fields.source_npk_cereal_15_15_15 && @fields.source_npk_cereal_15_15_15 != \"\" && @fields.source_npk_cereal_15_15_15 <= @fields.besoins_prevue_npk_cereale_15_15_15)",
+                    "fullExpression": "@calc(!!@fields.source_npk_cereal_15_15_15 && @fields.source_npk_cereal_15_15_15 != ' ' && @fields.source_npk_cereal_15_15_15 <= @fields.besoins_prevue_npk_cereale_15_15_15)",
+                    "matchedExpression": "@calc(!!@fields.source_npk_cereal_15_15_15 && @fields.source_npk_cereal_15_15_15 != ' ' && @fields.source_npk_cereal_15_15_15 <= @fields.besoins_prevue_npk_cereale_15_15_15)",
                     "type": "calc",
-                    "fieldName": "!!@fields.source_npk_cereal_15_15_15 && @fields.source_npk_cereal_15_15_15 != \"\" && @fields.source_npk_cereal_15_15_15 <= @fields.besoins_prevue_npk_cereale_15_15_15"
+                    "fieldName": "!!@fields.source_npk_cereal_15_15_15 && @fields.source_npk_cereal_15_15_15 != ' ' && @fields.source_npk_cereal_15_15_15 <= @fields.besoins_prevue_npk_cereale_15_15_15"
                   }
                 ]
               },
@@ -442,14 +442,14 @@
                 "@fields.besoins_prevue_npk_cereale_15_15_15": [
                   "value"
                 ],
-                "@calc(!!@fields.source_npk_cereal_15_15_15 && @fields.source_npk_cereal_15_15_15 != \"\" && @fields.source_npk_cereal_15_15_15 <= @fields.besoins_prevue_npk_cereale_15_15_15)": [
+                "@calc(!!@fields.source_npk_cereal_15_15_15 && @fields.source_npk_cereal_15_15_15 != ' ' && @fields.source_npk_cereal_15_15_15 <= @fields.besoins_prevue_npk_cereale_15_15_15)": [
                   "value"
                 ]
               }
             },
             {
               "type": "text",
-              "value": "@global.error_required_answer",
+              "value": "Donnez une valeur valide entre 0 et @fields.besoins_prevue_npk_cereale_15_15_15",
               "_translations": {
                 "value": {}
               },
@@ -465,10 +465,10 @@
               "_dynamicFields": {
                 "value": [
                   {
-                    "fullExpression": "@global.error_required_answer",
-                    "matchedExpression": "@global.error_required_answer",
-                    "type": "global",
-                    "fieldName": "error_required_answer"
+                    "fullExpression": "Donnez une valeur valide entre 0 et @fields.besoins_prevue_npk_cereale_15_15_15",
+                    "matchedExpression": "@fields.besoins_prevue_npk_cereale_15_15_15",
+                    "type": "fields",
+                    "fieldName": "besoins_prevue_npk_cereale_15_15_15"
                   }
                 ],
                 "condition": [
@@ -487,7 +487,7 @@
                 ]
               },
               "_dynamicDependencies": {
-                "@global.error_required_answer": [
+                "@fields.besoins_prevue_npk_cereale_15_15_15": [
                   "value"
                 ],
                 "@fields.attempt_submit": [
@@ -616,7 +616,7 @@
             },
             {
               "name": "valid_source_npk_cereal_17_17_17",
-              "value": "@calc(!!@fields.source_npk_cereal_17_17_17 && @fields.source_npk_cereal_17_17_17 != \"\" && @fields.source_npk_cereal_17_17_17 <= @fields.besoins_prevue_npk_cereale_17_17_17)",
+              "value": "@calc(!!@fields.source_npk_cereal_17_17_17 && @fields.source_npk_cereal_17_17_17 != ' ' && @fields.source_npk_cereal_17_17_17 <= @fields.besoins_prevue_npk_cereale_17_17_17)",
               "_translations": {
                 "value": {}
               },
@@ -625,34 +625,34 @@
               "_dynamicFields": {
                 "value": [
                   {
-                    "fullExpression": "@calc(!!@fields.source_npk_cereal_17_17_17 && @fields.source_npk_cereal_17_17_17 != \"\" && @fields.source_npk_cereal_17_17_17 <= @fields.besoins_prevue_npk_cereale_17_17_17)",
+                    "fullExpression": "@calc(!!@fields.source_npk_cereal_17_17_17 && @fields.source_npk_cereal_17_17_17 != ' ' && @fields.source_npk_cereal_17_17_17 <= @fields.besoins_prevue_npk_cereale_17_17_17)",
                     "matchedExpression": "!@fields.source_npk_cereal_17_17_17",
                     "type": "fields",
                     "fieldName": "source_npk_cereal_17_17_17"
                   },
                   {
-                    "fullExpression": "@calc(!!@fields.source_npk_cereal_17_17_17 && @fields.source_npk_cereal_17_17_17 != \"\" && @fields.source_npk_cereal_17_17_17 <= @fields.besoins_prevue_npk_cereale_17_17_17)",
+                    "fullExpression": "@calc(!!@fields.source_npk_cereal_17_17_17 && @fields.source_npk_cereal_17_17_17 != ' ' && @fields.source_npk_cereal_17_17_17 <= @fields.besoins_prevue_npk_cereale_17_17_17)",
                     "matchedExpression": "@fields.source_npk_cereal_17_17_17",
                     "type": "fields",
                     "fieldName": "source_npk_cereal_17_17_17"
                   },
                   {
-                    "fullExpression": "@calc(!!@fields.source_npk_cereal_17_17_17 && @fields.source_npk_cereal_17_17_17 != \"\" && @fields.source_npk_cereal_17_17_17 <= @fields.besoins_prevue_npk_cereale_17_17_17)",
+                    "fullExpression": "@calc(!!@fields.source_npk_cereal_17_17_17 && @fields.source_npk_cereal_17_17_17 != ' ' && @fields.source_npk_cereal_17_17_17 <= @fields.besoins_prevue_npk_cereale_17_17_17)",
                     "matchedExpression": "@fields.source_npk_cereal_17_17_17",
                     "type": "fields",
                     "fieldName": "source_npk_cereal_17_17_17"
                   },
                   {
-                    "fullExpression": "@calc(!!@fields.source_npk_cereal_17_17_17 && @fields.source_npk_cereal_17_17_17 != \"\" && @fields.source_npk_cereal_17_17_17 <= @fields.besoins_prevue_npk_cereale_17_17_17)",
+                    "fullExpression": "@calc(!!@fields.source_npk_cereal_17_17_17 && @fields.source_npk_cereal_17_17_17 != ' ' && @fields.source_npk_cereal_17_17_17 <= @fields.besoins_prevue_npk_cereale_17_17_17)",
                     "matchedExpression": "@fields.besoins_prevue_npk_cereale_17_17_17",
                     "type": "fields",
                     "fieldName": "besoins_prevue_npk_cereale_17_17_17"
                   },
                   {
-                    "fullExpression": "@calc(!!@fields.source_npk_cereal_17_17_17 && @fields.source_npk_cereal_17_17_17 != \"\" && @fields.source_npk_cereal_17_17_17 <= @fields.besoins_prevue_npk_cereale_17_17_17)",
-                    "matchedExpression": "@calc(!!@fields.source_npk_cereal_17_17_17 && @fields.source_npk_cereal_17_17_17 != \"\" && @fields.source_npk_cereal_17_17_17 <= @fields.besoins_prevue_npk_cereale_17_17_17)",
+                    "fullExpression": "@calc(!!@fields.source_npk_cereal_17_17_17 && @fields.source_npk_cereal_17_17_17 != ' ' && @fields.source_npk_cereal_17_17_17 <= @fields.besoins_prevue_npk_cereale_17_17_17)",
+                    "matchedExpression": "@calc(!!@fields.source_npk_cereal_17_17_17 && @fields.source_npk_cereal_17_17_17 != ' ' && @fields.source_npk_cereal_17_17_17 <= @fields.besoins_prevue_npk_cereale_17_17_17)",
                     "type": "calc",
-                    "fieldName": "!!@fields.source_npk_cereal_17_17_17 && @fields.source_npk_cereal_17_17_17 != \"\" && @fields.source_npk_cereal_17_17_17 <= @fields.besoins_prevue_npk_cereale_17_17_17"
+                    "fieldName": "!!@fields.source_npk_cereal_17_17_17 && @fields.source_npk_cereal_17_17_17 != ' ' && @fields.source_npk_cereal_17_17_17 <= @fields.besoins_prevue_npk_cereale_17_17_17"
                   }
                 ]
               },
@@ -667,14 +667,14 @@
                 "@fields.besoins_prevue_npk_cereale_17_17_17": [
                   "value"
                 ],
-                "@calc(!!@fields.source_npk_cereal_17_17_17 && @fields.source_npk_cereal_17_17_17 != \"\" && @fields.source_npk_cereal_17_17_17 <= @fields.besoins_prevue_npk_cereale_17_17_17)": [
+                "@calc(!!@fields.source_npk_cereal_17_17_17 && @fields.source_npk_cereal_17_17_17 != ' ' && @fields.source_npk_cereal_17_17_17 <= @fields.besoins_prevue_npk_cereale_17_17_17)": [
                   "value"
                 ]
               }
             },
             {
               "type": "text",
-              "value": "@global.error_required_answer",
+              "value": "Donnez une valeur valide entre 0 et @fields.besoins_prevue_npk_cereale_17_17_17",
               "_translations": {
                 "value": {}
               },
@@ -690,10 +690,10 @@
               "_dynamicFields": {
                 "value": [
                   {
-                    "fullExpression": "@global.error_required_answer",
-                    "matchedExpression": "@global.error_required_answer",
-                    "type": "global",
-                    "fieldName": "error_required_answer"
+                    "fullExpression": "Donnez une valeur valide entre 0 et @fields.besoins_prevue_npk_cereale_17_17_17",
+                    "matchedExpression": "@fields.besoins_prevue_npk_cereale_17_17_17",
+                    "type": "fields",
+                    "fieldName": "besoins_prevue_npk_cereale_17_17_17"
                   }
                 ],
                 "condition": [
@@ -712,7 +712,7 @@
                 ]
               },
               "_dynamicDependencies": {
-                "@global.error_required_answer": [
+                "@fields.besoins_prevue_npk_cereale_17_17_17": [
                   "value"
                 ],
                 "@fields.attempt_submit": [
@@ -841,7 +841,7 @@
             },
             {
               "name": "valid_source_dap",
-              "value": "@calc(!!@fields.source_dap && @fields.source_dap != \"\" && @fields.source_dap <= @fields.besoins_prevue_dap)",
+              "value": "@calc(!!@fields.source_dap && @fields.source_dap != ' ' && @fields.source_dap <= @fields.besoins_prevue_dap)",
               "_translations": {
                 "value": {}
               },
@@ -850,34 +850,34 @@
               "_dynamicFields": {
                 "value": [
                   {
-                    "fullExpression": "@calc(!!@fields.source_dap && @fields.source_dap != \"\" && @fields.source_dap <= @fields.besoins_prevue_dap)",
+                    "fullExpression": "@calc(!!@fields.source_dap && @fields.source_dap != ' ' && @fields.source_dap <= @fields.besoins_prevue_dap)",
                     "matchedExpression": "!@fields.source_dap",
                     "type": "fields",
                     "fieldName": "source_dap"
                   },
                   {
-                    "fullExpression": "@calc(!!@fields.source_dap && @fields.source_dap != \"\" && @fields.source_dap <= @fields.besoins_prevue_dap)",
+                    "fullExpression": "@calc(!!@fields.source_dap && @fields.source_dap != ' ' && @fields.source_dap <= @fields.besoins_prevue_dap)",
                     "matchedExpression": "@fields.source_dap",
                     "type": "fields",
                     "fieldName": "source_dap"
                   },
                   {
-                    "fullExpression": "@calc(!!@fields.source_dap && @fields.source_dap != \"\" && @fields.source_dap <= @fields.besoins_prevue_dap)",
+                    "fullExpression": "@calc(!!@fields.source_dap && @fields.source_dap != ' ' && @fields.source_dap <= @fields.besoins_prevue_dap)",
                     "matchedExpression": "@fields.source_dap",
                     "type": "fields",
                     "fieldName": "source_dap"
                   },
                   {
-                    "fullExpression": "@calc(!!@fields.source_dap && @fields.source_dap != \"\" && @fields.source_dap <= @fields.besoins_prevue_dap)",
+                    "fullExpression": "@calc(!!@fields.source_dap && @fields.source_dap != ' ' && @fields.source_dap <= @fields.besoins_prevue_dap)",
                     "matchedExpression": "@fields.besoins_prevue_dap",
                     "type": "fields",
                     "fieldName": "besoins_prevue_dap"
                   },
                   {
-                    "fullExpression": "@calc(!!@fields.source_dap && @fields.source_dap != \"\" && @fields.source_dap <= @fields.besoins_prevue_dap)",
-                    "matchedExpression": "@calc(!!@fields.source_dap && @fields.source_dap != \"\" && @fields.source_dap <= @fields.besoins_prevue_dap)",
+                    "fullExpression": "@calc(!!@fields.source_dap && @fields.source_dap != ' ' && @fields.source_dap <= @fields.besoins_prevue_dap)",
+                    "matchedExpression": "@calc(!!@fields.source_dap && @fields.source_dap != ' ' && @fields.source_dap <= @fields.besoins_prevue_dap)",
                     "type": "calc",
-                    "fieldName": "!!@fields.source_dap && @fields.source_dap != \"\" && @fields.source_dap <= @fields.besoins_prevue_dap"
+                    "fieldName": "!!@fields.source_dap && @fields.source_dap != ' ' && @fields.source_dap <= @fields.besoins_prevue_dap"
                   }
                 ]
               },
@@ -892,18 +892,18 @@
                 "@fields.besoins_prevue_dap": [
                   "value"
                 ],
-                "@calc(!!@fields.source_dap && @fields.source_dap != \"\" && @fields.source_dap <= @fields.besoins_prevue_dap)": [
+                "@calc(!!@fields.source_dap && @fields.source_dap != ' ' && @fields.source_dap <= @fields.besoins_prevue_dap)": [
                   "value"
                 ]
               }
             },
             {
               "type": "text",
-              "value": "@global.error_required_answer",
+              "value": "Donnez une valeur valide entre 0 et @fields.besoins_prevue_dap",
               "_translations": {
                 "value": {}
               },
-              "condition": "@fields.attempt_submit && !@local.valid_source_dap",
+              "condition": "@fields.attempt_submit && !@local.valid_source_npk_coton_14_18_18",
               "style_list": [
                 "color: red",
                 "font-size: 16px",
@@ -915,35 +915,35 @@
               "_dynamicFields": {
                 "value": [
                   {
-                    "fullExpression": "@global.error_required_answer",
-                    "matchedExpression": "@global.error_required_answer",
-                    "type": "global",
-                    "fieldName": "error_required_answer"
+                    "fullExpression": "Donnez une valeur valide entre 0 et @fields.besoins_prevue_dap",
+                    "matchedExpression": "@fields.besoins_prevue_dap",
+                    "type": "fields",
+                    "fieldName": "besoins_prevue_dap"
                   }
                 ],
                 "condition": [
                   {
-                    "fullExpression": "@fields.attempt_submit && !@local.valid_source_dap",
+                    "fullExpression": "@fields.attempt_submit && !@local.valid_source_npk_coton_14_18_18",
                     "matchedExpression": "@fields.attempt_submit",
                     "type": "fields",
                     "fieldName": "attempt_submit"
                   },
                   {
-                    "fullExpression": "@fields.attempt_submit && !@local.valid_source_dap",
-                    "matchedExpression": "!@local.valid_source_dap",
+                    "fullExpression": "@fields.attempt_submit && !@local.valid_source_npk_coton_14_18_18",
+                    "matchedExpression": "!@local.valid_source_npk_coton_14_18_18",
                     "type": "local",
-                    "fieldName": "valid_source_dap"
+                    "fieldName": "valid_source_npk_coton_14_18_18"
                   }
                 ]
               },
               "_dynamicDependencies": {
-                "@global.error_required_answer": [
+                "@fields.besoins_prevue_dap": [
                   "value"
                 ],
                 "@fields.attempt_submit": [
                   "condition"
                 ],
-                "!@local.valid_source_dap": [
+                "!@local.valid_source_npk_coton_14_18_18": [
                   "condition"
                 ]
               }
@@ -1066,7 +1066,7 @@
             },
             {
               "name": "valid_source_uree",
-              "value": "@calc(!!@fields.source_uree && @fields.source_uree != \"\" && @fields.source_uree <= @fields.besoins_prevus_uree)",
+              "value": "@calc(!!@fields.source_uree && @fields.source_uree != ' ' && @fields.source_uree <= @fields.besoins_prevus_uree)",
               "_translations": {
                 "value": {}
               },
@@ -1075,34 +1075,34 @@
               "_dynamicFields": {
                 "value": [
                   {
-                    "fullExpression": "@calc(!!@fields.source_uree && @fields.source_uree != \"\" && @fields.source_uree <= @fields.besoins_prevus_uree)",
+                    "fullExpression": "@calc(!!@fields.source_uree && @fields.source_uree != ' ' && @fields.source_uree <= @fields.besoins_prevus_uree)",
                     "matchedExpression": "!@fields.source_uree",
                     "type": "fields",
                     "fieldName": "source_uree"
                   },
                   {
-                    "fullExpression": "@calc(!!@fields.source_uree && @fields.source_uree != \"\" && @fields.source_uree <= @fields.besoins_prevus_uree)",
+                    "fullExpression": "@calc(!!@fields.source_uree && @fields.source_uree != ' ' && @fields.source_uree <= @fields.besoins_prevus_uree)",
                     "matchedExpression": "@fields.source_uree",
                     "type": "fields",
                     "fieldName": "source_uree"
                   },
                   {
-                    "fullExpression": "@calc(!!@fields.source_uree && @fields.source_uree != \"\" && @fields.source_uree <= @fields.besoins_prevus_uree)",
+                    "fullExpression": "@calc(!!@fields.source_uree && @fields.source_uree != ' ' && @fields.source_uree <= @fields.besoins_prevus_uree)",
                     "matchedExpression": "@fields.source_uree",
                     "type": "fields",
                     "fieldName": "source_uree"
                   },
                   {
-                    "fullExpression": "@calc(!!@fields.source_uree && @fields.source_uree != \"\" && @fields.source_uree <= @fields.besoins_prevus_uree)",
+                    "fullExpression": "@calc(!!@fields.source_uree && @fields.source_uree != ' ' && @fields.source_uree <= @fields.besoins_prevus_uree)",
                     "matchedExpression": "@fields.besoins_prevus_uree",
                     "type": "fields",
                     "fieldName": "besoins_prevus_uree"
                   },
                   {
-                    "fullExpression": "@calc(!!@fields.source_uree && @fields.source_uree != \"\" && @fields.source_uree <= @fields.besoins_prevus_uree)",
-                    "matchedExpression": "@calc(!!@fields.source_uree && @fields.source_uree != \"\" && @fields.source_uree <= @fields.besoins_prevus_uree)",
+                    "fullExpression": "@calc(!!@fields.source_uree && @fields.source_uree != ' ' && @fields.source_uree <= @fields.besoins_prevus_uree)",
+                    "matchedExpression": "@calc(!!@fields.source_uree && @fields.source_uree != ' ' && @fields.source_uree <= @fields.besoins_prevus_uree)",
                     "type": "calc",
-                    "fieldName": "!!@fields.source_uree && @fields.source_uree != \"\" && @fields.source_uree <= @fields.besoins_prevus_uree"
+                    "fieldName": "!!@fields.source_uree && @fields.source_uree != ' ' && @fields.source_uree <= @fields.besoins_prevus_uree"
                   }
                 ]
               },
@@ -1117,14 +1117,14 @@
                 "@fields.besoins_prevus_uree": [
                   "value"
                 ],
-                "@calc(!!@fields.source_uree && @fields.source_uree != \"\" && @fields.source_uree <= @fields.besoins_prevus_uree)": [
+                "@calc(!!@fields.source_uree && @fields.source_uree != ' ' && @fields.source_uree <= @fields.besoins_prevus_uree)": [
                   "value"
                 ]
               }
             },
             {
               "type": "text",
-              "value": "@global.error_required_answer",
+              "value": "Donnez une valeur valide entre 0 et @fields.besoins_prevus_uree",
               "_translations": {
                 "value": {}
               },
@@ -1140,10 +1140,10 @@
               "_dynamicFields": {
                 "value": [
                   {
-                    "fullExpression": "@global.error_required_answer",
-                    "matchedExpression": "@global.error_required_answer",
-                    "type": "global",
-                    "fieldName": "error_required_answer"
+                    "fullExpression": "Donnez une valeur valide entre 0 et @fields.besoins_prevus_uree",
+                    "matchedExpression": "@fields.besoins_prevus_uree",
+                    "type": "fields",
+                    "fieldName": "besoins_prevus_uree"
                   }
                 ],
                 "condition": [
@@ -1162,7 +1162,7 @@
                 ]
               },
               "_dynamicDependencies": {
-                "@global.error_required_answer": [
+                "@fields.besoins_prevus_uree": [
                   "value"
                 ],
                 "@fields.attempt_submit": [
@@ -1392,6 +1392,120 @@
       }
     },
     {
+      "type": "text",
+      "name": "completed_enabled",
+      "value": "@calc((!!@fields.source_npk_coton_14_18_18 && @local.valid_source_npk_coton_14_18_18) || (!!@fields.source_npk_cereal_15_15_15 && @local.valid_source_npk_cereal_15_15_15) || (@fields.source_npk_cereal_17_17_17 && @local.valid_source_npk_cereal_17_17_17) || (@fields.source_dap && @local.valid_source_dap) || (@fields.source_uree && @local.valid_source_uree))",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((!!@fields.source_npk_coton_14_18_18 && @local.valid_source_npk_coton_14_18_18) || (!!@fields.source_npk_cereal_15_15_15 && @local.valid_source_npk_cereal_15_15_15) || (@fields.source_npk_cereal_17_17_17 && @local.valid_source_npk_cereal_17_17_17) || (@fields.source_dap && @local.valid_source_dap) || (@fields.source_uree && @local.valid_source_uree))",
+            "matchedExpression": "!@fields.source_npk_coton_14_18_18",
+            "type": "fields",
+            "fieldName": "source_npk_coton_14_18_18"
+          },
+          {
+            "fullExpression": "@calc((!!@fields.source_npk_coton_14_18_18 && @local.valid_source_npk_coton_14_18_18) || (!!@fields.source_npk_cereal_15_15_15 && @local.valid_source_npk_cereal_15_15_15) || (@fields.source_npk_cereal_17_17_17 && @local.valid_source_npk_cereal_17_17_17) || (@fields.source_dap && @local.valid_source_dap) || (@fields.source_uree && @local.valid_source_uree))",
+            "matchedExpression": "@local.valid_source_npk_coton_14_18_18",
+            "type": "local",
+            "fieldName": "valid_source_npk_coton_14_18_18"
+          },
+          {
+            "fullExpression": "@calc((!!@fields.source_npk_coton_14_18_18 && @local.valid_source_npk_coton_14_18_18) || (!!@fields.source_npk_cereal_15_15_15 && @local.valid_source_npk_cereal_15_15_15) || (@fields.source_npk_cereal_17_17_17 && @local.valid_source_npk_cereal_17_17_17) || (@fields.source_dap && @local.valid_source_dap) || (@fields.source_uree && @local.valid_source_uree))",
+            "matchedExpression": "!@fields.source_npk_cereal_15_15_15",
+            "type": "fields",
+            "fieldName": "source_npk_cereal_15_15_15"
+          },
+          {
+            "fullExpression": "@calc((!!@fields.source_npk_coton_14_18_18 && @local.valid_source_npk_coton_14_18_18) || (!!@fields.source_npk_cereal_15_15_15 && @local.valid_source_npk_cereal_15_15_15) || (@fields.source_npk_cereal_17_17_17 && @local.valid_source_npk_cereal_17_17_17) || (@fields.source_dap && @local.valid_source_dap) || (@fields.source_uree && @local.valid_source_uree))",
+            "matchedExpression": "@local.valid_source_npk_cereal_15_15_15",
+            "type": "local",
+            "fieldName": "valid_source_npk_cereal_15_15_15"
+          },
+          {
+            "fullExpression": "@calc((!!@fields.source_npk_coton_14_18_18 && @local.valid_source_npk_coton_14_18_18) || (!!@fields.source_npk_cereal_15_15_15 && @local.valid_source_npk_cereal_15_15_15) || (@fields.source_npk_cereal_17_17_17 && @local.valid_source_npk_cereal_17_17_17) || (@fields.source_dap && @local.valid_source_dap) || (@fields.source_uree && @local.valid_source_uree))",
+            "matchedExpression": "@fields.source_npk_cereal_17_17_17",
+            "type": "fields",
+            "fieldName": "source_npk_cereal_17_17_17"
+          },
+          {
+            "fullExpression": "@calc((!!@fields.source_npk_coton_14_18_18 && @local.valid_source_npk_coton_14_18_18) || (!!@fields.source_npk_cereal_15_15_15 && @local.valid_source_npk_cereal_15_15_15) || (@fields.source_npk_cereal_17_17_17 && @local.valid_source_npk_cereal_17_17_17) || (@fields.source_dap && @local.valid_source_dap) || (@fields.source_uree && @local.valid_source_uree))",
+            "matchedExpression": "@local.valid_source_npk_cereal_17_17_17",
+            "type": "local",
+            "fieldName": "valid_source_npk_cereal_17_17_17"
+          },
+          {
+            "fullExpression": "@calc((!!@fields.source_npk_coton_14_18_18 && @local.valid_source_npk_coton_14_18_18) || (!!@fields.source_npk_cereal_15_15_15 && @local.valid_source_npk_cereal_15_15_15) || (@fields.source_npk_cereal_17_17_17 && @local.valid_source_npk_cereal_17_17_17) || (@fields.source_dap && @local.valid_source_dap) || (@fields.source_uree && @local.valid_source_uree))",
+            "matchedExpression": "@fields.source_dap",
+            "type": "fields",
+            "fieldName": "source_dap"
+          },
+          {
+            "fullExpression": "@calc((!!@fields.source_npk_coton_14_18_18 && @local.valid_source_npk_coton_14_18_18) || (!!@fields.source_npk_cereal_15_15_15 && @local.valid_source_npk_cereal_15_15_15) || (@fields.source_npk_cereal_17_17_17 && @local.valid_source_npk_cereal_17_17_17) || (@fields.source_dap && @local.valid_source_dap) || (@fields.source_uree && @local.valid_source_uree))",
+            "matchedExpression": "@local.valid_source_dap",
+            "type": "local",
+            "fieldName": "valid_source_dap"
+          },
+          {
+            "fullExpression": "@calc((!!@fields.source_npk_coton_14_18_18 && @local.valid_source_npk_coton_14_18_18) || (!!@fields.source_npk_cereal_15_15_15 && @local.valid_source_npk_cereal_15_15_15) || (@fields.source_npk_cereal_17_17_17 && @local.valid_source_npk_cereal_17_17_17) || (@fields.source_dap && @local.valid_source_dap) || (@fields.source_uree && @local.valid_source_uree))",
+            "matchedExpression": "@fields.source_uree",
+            "type": "fields",
+            "fieldName": "source_uree"
+          },
+          {
+            "fullExpression": "@calc((!!@fields.source_npk_coton_14_18_18 && @local.valid_source_npk_coton_14_18_18) || (!!@fields.source_npk_cereal_15_15_15 && @local.valid_source_npk_cereal_15_15_15) || (@fields.source_npk_cereal_17_17_17 && @local.valid_source_npk_cereal_17_17_17) || (@fields.source_dap && @local.valid_source_dap) || (@fields.source_uree && @local.valid_source_uree))",
+            "matchedExpression": "@local.valid_source_uree",
+            "type": "local",
+            "fieldName": "valid_source_uree"
+          },
+          {
+            "fullExpression": "@calc((!!@fields.source_npk_coton_14_18_18 && @local.valid_source_npk_coton_14_18_18) || (!!@fields.source_npk_cereal_15_15_15 && @local.valid_source_npk_cereal_15_15_15) || (@fields.source_npk_cereal_17_17_17 && @local.valid_source_npk_cereal_17_17_17) || (@fields.source_dap && @local.valid_source_dap) || (@fields.source_uree && @local.valid_source_uree))",
+            "matchedExpression": "@calc((!!@fields.source_npk_coton_14_18_18 && @local.valid_source_npk_coton_14_18_18) || (!!@fields.source_npk_cereal_15_15_15 && @local.valid_source_npk_cereal_15_15_15) || (@fields.source_npk_cereal_17_17_17 && @local.valid_source_npk_cereal_17_17_17) || (@fields.source_dap && @local.valid_source_dap) || (@fields.source_uree && @local.valid_source_uree))",
+            "type": "calc",
+            "fieldName": "(!!@fields.source_npk_coton_14_18_18 && @local.valid_source_npk_coton_14_18_18) || (!!@fields.source_npk_cereal_15_15_15 && @local.valid_source_npk_cereal_15_15_15) || (@fields.source_npk_cereal_17_17_17 && @local.valid_source_npk_cereal_17_17_17) || (@fields.source_dap && @local.valid_source_dap) || (@fields.source_uree && @local.valid_source_uree)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.source_npk_coton_14_18_18": [
+          "value"
+        ],
+        "@local.valid_source_npk_coton_14_18_18": [
+          "value"
+        ],
+        "!@fields.source_npk_cereal_15_15_15": [
+          "value"
+        ],
+        "@local.valid_source_npk_cereal_15_15_15": [
+          "value"
+        ],
+        "@fields.source_npk_cereal_17_17_17": [
+          "value"
+        ],
+        "@local.valid_source_npk_cereal_17_17_17": [
+          "value"
+        ],
+        "@fields.source_dap": [
+          "value"
+        ],
+        "@local.valid_source_dap": [
+          "value"
+        ],
+        "@fields.source_uree": [
+          "value"
+        ],
+        "@local.valid_source_uree": [
+          "value"
+        ],
+        "@calc((!!@fields.source_npk_coton_14_18_18 && @local.valid_source_npk_coton_14_18_18) || (!!@fields.source_npk_cereal_15_15_15 && @local.valid_source_npk_cereal_15_15_15) || (@fields.source_npk_cereal_17_17_17 && @local.valid_source_npk_cereal_17_17_17) || (@fields.source_dap && @local.valid_source_dap) || (@fields.source_uree && @local.valid_source_uree))": [
+          "value"
+        ]
+      }
+    },
+    {
       "type": "display_group",
       "value": "",
       "parameter_list": {
@@ -1418,12 +1532,51 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_8.page18_button_back"
+          "_nested_name": "display_group_9.page18_button_back"
+        },
+        {
+          "type": "button",
+          "name": "page_17_btn_attempt_submit",
+          "value": "try",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                true
+              ],
+              "_raw": "click | set_field: attempt_submit: true"
+            }
+          ],
+          "condition": "!@local.completed_enabled",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_9.page_17_btn_attempt_submit",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "!@local.completed_enabled",
+                "matchedExpression": "!@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "!@local.completed_enabled": [
+              "condition"
+            ]
+          }
         },
         {
           "type": "button",
           "name": "button_next_source",
-          "value": "Continuer",
+          "value": "next",
           "_translations": {
             "value": {}
           },
@@ -1548,11 +1701,14 @@
               }
             }
           ],
-          "condition": "@local.last_source_engrais",
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "condition": "@local.last_source_engrais && @local.completed_enabled",
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_8.button_next_source",
+          "_nested_name": "display_group_9.button_next_source",
           "_dynamicFields": {
             "action_list": {
               "0": {
@@ -1766,12 +1922,28 @@
                 ]
               }
             },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            },
             "condition": [
               {
-                "fullExpression": "@local.last_source_engrais",
+                "fullExpression": "@local.last_source_engrais && @local.completed_enabled",
                 "matchedExpression": "@local.last_source_engrais",
                 "type": "local",
                 "fieldName": "last_source_engrais"
+              },
+              {
+                "fullExpression": "@local.last_source_engrais && @local.completed_enabled",
+                "matchedExpression": "@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
               }
             ]
           },
@@ -1816,7 +1988,13 @@
               "action_list.11.args.1",
               "action_list.11._raw"
             ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ],
             "@local.last_source_engrais": [
+              "condition"
+            ],
+            "@local.completed_enabled": [
               "condition"
             ]
           }
@@ -1831,6 +2009,51 @@
           "action_list": [
             {
               "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "source_npk_coton_14_18_18_@fields.engrais_source_label",
+                "@fields.source_npk_coton_14_18_18"
+              ],
+              "_raw": "click | set_field: source_npk_coton_14_18_18_@fields.engrais_source_label: @fields.source_npk_coton_14_18_18"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "source_npk_cereal_15_15_15_@fields.engrais_source_label",
+                "@fields.source_npk_cereal_15_15_15"
+              ],
+              "_raw": "click | set_field: source_npk_cereal_15_15_15_@fields.engrais_source_label: @fields.source_npk_cereal_15_15_15"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "source_npk_cereal_17_17_17_@fields.engrais_source_label",
+                "@fields.source_npk_cereal_17_17_17"
+              ],
+              "_raw": "click | set_field: source_npk_cereal_17_17_17_@fields.engrais_source_label: @fields.source_npk_cereal_17_17_17"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "source_dap_@fields.engrais_source_label",
+                "@fields.source_dap"
+              ],
+              "_raw": "click | set_field: source_dap_@fields.engrais_source_label: @fields.source_dap"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "source_uree_@fields.engrais_source_label",
+                "@fields.source_uree"
+              ],
+              "_raw": "click | set_field: source_uree_@fields.engrais_source_label: @fields.source_uree"
+            },
+            {
+              "trigger": "click",
               "action_id": "emit",
               "args": [
                 "completed"
@@ -1838,30 +2061,259 @@
               "_raw": "click | emit: completed"
             }
           ],
-          "condition": "!@local.last_source_engrais",
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "condition": "!@local.last_source_engrais && @local.completed_enabled",
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_8.page18_button_continue",
+          "_nested_name": "display_group_9.page18_button_continue",
           "_dynamicFields": {
+            "action_list": {
+              "0": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "source_npk_coton_14_18_18_@fields.engrais_source_label",
+                      "matchedExpression": "@fields.engrais_source_label",
+                      "type": "fields",
+                      "fieldName": "engrais_source_label"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.source_npk_coton_14_18_18",
+                      "matchedExpression": "@fields.source_npk_coton_14_18_18",
+                      "type": "fields",
+                      "fieldName": "source_npk_coton_14_18_18"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: source_npk_coton_14_18_18_@fields.engrais_source_label: @fields.source_npk_coton_14_18_18",
+                    "matchedExpression": "@fields.engrais_source_label",
+                    "type": "fields",
+                    "fieldName": "engrais_source_label"
+                  },
+                  {
+                    "fullExpression": "click | set_field: source_npk_coton_14_18_18_@fields.engrais_source_label: @fields.source_npk_coton_14_18_18",
+                    "matchedExpression": "@fields.source_npk_coton_14_18_18",
+                    "type": "fields",
+                    "fieldName": "source_npk_coton_14_18_18"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "source_npk_cereal_15_15_15_@fields.engrais_source_label",
+                      "matchedExpression": "@fields.engrais_source_label",
+                      "type": "fields",
+                      "fieldName": "engrais_source_label"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.source_npk_cereal_15_15_15",
+                      "matchedExpression": "@fields.source_npk_cereal_15_15_15",
+                      "type": "fields",
+                      "fieldName": "source_npk_cereal_15_15_15"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: source_npk_cereal_15_15_15_@fields.engrais_source_label: @fields.source_npk_cereal_15_15_15",
+                    "matchedExpression": "@fields.engrais_source_label",
+                    "type": "fields",
+                    "fieldName": "engrais_source_label"
+                  },
+                  {
+                    "fullExpression": "click | set_field: source_npk_cereal_15_15_15_@fields.engrais_source_label: @fields.source_npk_cereal_15_15_15",
+                    "matchedExpression": "@fields.source_npk_cereal_15_15_15",
+                    "type": "fields",
+                    "fieldName": "source_npk_cereal_15_15_15"
+                  }
+                ]
+              },
+              "2": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "source_npk_cereal_17_17_17_@fields.engrais_source_label",
+                      "matchedExpression": "@fields.engrais_source_label",
+                      "type": "fields",
+                      "fieldName": "engrais_source_label"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.source_npk_cereal_17_17_17",
+                      "matchedExpression": "@fields.source_npk_cereal_17_17_17",
+                      "type": "fields",
+                      "fieldName": "source_npk_cereal_17_17_17"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: source_npk_cereal_17_17_17_@fields.engrais_source_label: @fields.source_npk_cereal_17_17_17",
+                    "matchedExpression": "@fields.engrais_source_label",
+                    "type": "fields",
+                    "fieldName": "engrais_source_label"
+                  },
+                  {
+                    "fullExpression": "click | set_field: source_npk_cereal_17_17_17_@fields.engrais_source_label: @fields.source_npk_cereal_17_17_17",
+                    "matchedExpression": "@fields.source_npk_cereal_17_17_17",
+                    "type": "fields",
+                    "fieldName": "source_npk_cereal_17_17_17"
+                  }
+                ]
+              },
+              "3": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "source_dap_@fields.engrais_source_label",
+                      "matchedExpression": "@fields.engrais_source_label",
+                      "type": "fields",
+                      "fieldName": "engrais_source_label"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.source_dap",
+                      "matchedExpression": "@fields.source_dap",
+                      "type": "fields",
+                      "fieldName": "source_dap"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: source_dap_@fields.engrais_source_label: @fields.source_dap",
+                    "matchedExpression": "@fields.engrais_source_label",
+                    "type": "fields",
+                    "fieldName": "engrais_source_label"
+                  },
+                  {
+                    "fullExpression": "click | set_field: source_dap_@fields.engrais_source_label: @fields.source_dap",
+                    "matchedExpression": "@fields.source_dap",
+                    "type": "fields",
+                    "fieldName": "source_dap"
+                  }
+                ]
+              },
+              "4": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "source_uree_@fields.engrais_source_label",
+                      "matchedExpression": "@fields.engrais_source_label",
+                      "type": "fields",
+                      "fieldName": "engrais_source_label"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.source_uree",
+                      "matchedExpression": "@fields.source_uree",
+                      "type": "fields",
+                      "fieldName": "source_uree"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: source_uree_@fields.engrais_source_label: @fields.source_uree",
+                    "matchedExpression": "@fields.engrais_source_label",
+                    "type": "fields",
+                    "fieldName": "engrais_source_label"
+                  },
+                  {
+                    "fullExpression": "click | set_field: source_uree_@fields.engrais_source_label: @fields.source_uree",
+                    "matchedExpression": "@fields.source_uree",
+                    "type": "fields",
+                    "fieldName": "source_uree"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            },
             "condition": [
               {
-                "fullExpression": "!@local.last_source_engrais",
+                "fullExpression": "!@local.last_source_engrais && @local.completed_enabled",
                 "matchedExpression": "!@local.last_source_engrais",
                 "type": "local",
                 "fieldName": "last_source_engrais"
+              },
+              {
+                "fullExpression": "!@local.last_source_engrais && @local.completed_enabled",
+                "matchedExpression": "@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
               }
             ]
           },
           "_dynamicDependencies": {
+            "@fields.engrais_source_label": [
+              "action_list.0.args.0",
+              "action_list.0._raw",
+              "action_list.1.args.0",
+              "action_list.1._raw",
+              "action_list.2.args.0",
+              "action_list.2._raw",
+              "action_list.3.args.0",
+              "action_list.3._raw",
+              "action_list.4.args.0",
+              "action_list.4._raw"
+            ],
+            "@fields.source_npk_coton_14_18_18": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "@fields.source_npk_cereal_15_15_15": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
+            "@fields.source_npk_cereal_17_17_17": [
+              "action_list.2.args.1",
+              "action_list.2._raw"
+            ],
+            "@fields.source_dap": [
+              "action_list.3.args.1",
+              "action_list.3._raw"
+            ],
+            "@fields.source_uree": [
+              "action_list.4.args.1",
+              "action_list.4._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ],
             "!@local.last_source_engrais": [
+              "condition"
+            ],
+            "@local.completed_enabled": [
               "condition"
             ]
           }
         }
       ],
-      "name": "display_group_8",
-      "_nested_name": "display_group_8"
+      "name": "display_group_9",
+      "_nested_name": "display_group_9"
     }
   ],
   "_source": {

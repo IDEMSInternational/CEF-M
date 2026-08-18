@@ -5,7 +5,7 @@
   "rows": [
     {
       "name": "v_total_drm",
-      "value": "@calc(Number(@field.cout_pnt_png || 0) + Number(@field.cout_superficie_labouree || 0) + Number(@field.cout_semence_achetee || 0) + Number(@field.cout_herbicide_prelevee || 0) + Number(@field.autre_cout_semis_total || 0))"
+      "value": "@calc((Number(@field.cout_pnt_png) || 0) + (Number(@field.cout_superficie_labouree) || 0) + (Number(@field.cout_semence_achetee) || 0) + (Number(@field.cout_herbicide_prelevee) || 0) + (Number(@field.cout_transport_nonzero) || 0) + (Number(@field.autre_cout_semis_total) || 0))"
     },
     {
       "name": "v_total_cfa",
@@ -13,7 +13,7 @@
     },
     {
       "name": "v_obs_valide",
-      "value": "@calc((!@field.type_observation) || (@field.type_observation == 'par_vocal') || (@field.type_observation == 'par_video') || (@field.type_observation == 'par_ecrit' && (!!@fields.temp_observ && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'par_photo') && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'pas_observ'))"
+      "value": "@calc(!@field.type_observation || @field.type_observation == 'par_vocal' || @field.type_observation == 'par_video'|| @field.type_observation == 'par_photo' || (@field.type_observation == 'par_ecrit' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || (@field.type_observation == 'par_photo' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || @field.type_observation == 'pas_observ')"
     },
     {
       "name": "v_page10_valid",
@@ -54,7 +54,7 @@
     {
       "type": "image",
       "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
-      "style_list": "width: 60%; object-fit: contain;"
+      "style_list": "width:100px; height:100px;"
     },
     {
       "type": "text",
@@ -66,7 +66,7 @@
     },
     {
       "type": "begin_display_group",
-      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 2px solid #4f8ff1; border-radius: 12px; background: #f4f7fc; padding: 15px; margin-bottom: 20px;"
+      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; background: #f4f7fc; padding: 15px; margin-bottom: 20px;"
     },
     {
       "type": "audio",
@@ -235,7 +235,7 @@
       "type": "button",
       "name": "btn_next_crop",
       "value": "@global.btn_continue",
-      "action_list": "click | add_data | _list_id: semis_summary_list, \nculture: @field.active_culture_name, \nquantite_pnt: @field.quantite_pnt_png, \ncout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree, \nquantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm;\n\nclick | set_field: grand_total_semis : @local.v_new_grand_total;\n\nclick | set_data | _list_id: section_semi_settings_pages, _index: 3, completed: false;\n\nclick | set_data | _list_id: section_semi_settings_pages, _index: 4, completed: false;\n\nclick | set_data | _list_id: section_semi_settings_pages, _index: 5, completed: false;\n\nclick | set_data | _list_id: section_semi_settings_pages, _index: 6, completed: false;\n\nclick | set_data | _list_id: section_semi_settings_pages, _index: 7, completed: false;\n\nclick | set_data | _list_id: section_semi_settings_pages, _index: 8, completed: false;\n\nclick | set_data | _list_id: section_semi_settings_pages, _index: 9, completed: false;\n\nclick | set_data | _list_id: section_semi_settings_pages, _index: 10, completed: false;\n\nclick | set_data | _list_id: section_semi_settings_pages, _index: 11, completed: false;\n\nclick | set_field: quantite_pnt_png : ;\n\nclick | set_field: cout_pnt_png : ;\n\nclick | set_field: superficie_labouree : ;\n\nclick | set_field: cout_superficie_labouree : ;\n\nclick | set_field: quantite_semence_achetee : ;\n\nclick | set_field: cout_semence_achetee : ;\n\nclick | set_field: quantite_herbicide_prelevee : ;\n\nclick | set_field: cout_herbicide_prelevee : ;\n\nclick | set_field: autre_cout_semis_total : ;\n\nclick | set_field: type_observation : ;\n\nclick | set_field: temp_observ : ;\n\nclick | set_field: current_culture_index : @local.v_new_idx;\n\nclick | set_field: active_culture_name : @calc(@field.selected_cultures_list.split(',')[@local.v_new_idx]);\n\nclick | emit: force_reprocess;",
+      "action_list": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png,\n cout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree,\n quantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm;\nclick | set_field: grand_total_semis : @local.v_new_grand_total;\nclick | set_data | _list_id: section_semi_settings_pages, _index: 3, completed: false;\nclick | set_data | _list_id: section_semi_settings_pages, _index: 4, completed: false;\nclick | set_data | _list_id: section_semi_settings_pages, _index: 5, completed: false;\nclick | set_data | _list_id: section_semi_settings_pages, _index: 6, completed: false;\nclick | set_data | _list_id: section_semi_settings_pages, _index: 7, completed: false;\nclick | set_data | _list_id: section_semi_settings_pages, _index: 8, completed: false;\nclick | set_data | _list_id: section_semi_settings_pages, _index: 9, completed: false;\nclick | set_data | _list_id: section_semi_settings_pages, _index: 10, completed: false;\nclick | set_data | _list_id: section_semi_settings_pages, _index: 11, completed: false;\nclick | set_field: quantite_pnt_png : ;\nclick | set_field: quantite_fumure_organique: ;\nclick | set_field: superficie_ha: ;\nclick | set_field: cout_transport_nonzero: ;\nclick | set_field: cout_transport : ;\nclick | set_field: quantite_chaux_agricole: ;\nclick | set_field: cout_chaux_agricole_nonzero: ;\nclick | set_field: cout_chaux_agricole : ;\nclick | set_field: cout_pnt_png_nonzero: ;\nclick | set_field: cout_pnt_png : ;\nclick | set_field: superficie_labouree : ;\nclick | set_field: cout_superficie_labouree_nonzero: ;\nclick | set_field: cout_superficie_labouree : ;\nclick | set_field: quantite_semence_achetee : ;\nclick | set_field: cout_semence_achetee_nonzero: ;\nclick | set_field: cout_semence_achetee : ;\nclick | set_field: quantite_herbicide_prelevee : ;\nclick | set_field: cout_herbicide_prelevee_nonzero: ;\nclick | set_field: cout_herbicide_prelevee : ;\nclick | set_field: nom_autre_cout_semis: ;\nclick | set_field: autre_cout_semis: ;\nclick | set_field: no_autre_cout_semis: ;\nclick | set_field: type_observation : ;\nclick | set_field: temp_observ : ;\nclick | set_field: current_culture_index : @local.v_new_idx;\nclick | set_field: active_culture_name : @calc(@field.selected_cultures_list.split(',')[@local.v_new_idx]);\nclick | emit: force_reprocess;",
       "parameter_list": "disabled: !@local.v_obs_valide;",
       "condition": "@calc(Number(@field.current_culture_index) < Number(@field.total_cultures_selected) - 1)",
       "style_list": "flex: 1"
@@ -244,7 +244,7 @@
       "type": "button",
       "name": "page_15_button_continue",
       "value": "Terminer",
-      "action_list": "click | set_field: grand_total_semis : @local.v_new_grand_total;\n\nclick | set_field: current_culture_index : 0;\n\nclick | set_field: active_culture_name : @calc(@field.selected_cultures_list.split(',')[0]);\n\nclick | emit: completed;",
+      "action_list": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png, cout_pnt: @field.cout_pnt_png, superficie_labouree: @field.superficie_labouree, cout_labour: @field.cout_superficie_labouree, quantite_semence: @field.quantite_semence_achetee, cout_semence: @field.cout_semence_achetee, quantite_herbicide: @field.quantite_herbicide_prelevee, cout_herbicide: @field.cout_herbicide_prelevee, observation_canal: @field.type_observation, observation_media: @field.temp_observ, cout_total_culture: @local.v_total_drm;\nclick | set_field: grand_total_semis : @local.v_new_grand_total;\nclick | set_field: current_culture_index : 0;\nclick | set_field: active_culture_name : @calc(@field.selected_cultures_list.split(',')[0]);\nclick | emit: completed;\n",
       "parameter_list": "disabled: !@local.v_obs_valide;",
       "condition": "@calc(Number(@field.current_culture_index) >= Number(@field.total_cultures_selected) - 1)",
       "style_list": "flex: 1\n"

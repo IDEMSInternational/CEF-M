@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "BILAN GLOBAL DES SEMIS",
+      "value": "BILAN GLOBAL SEMIS",
       "_translations": {
         "value": {}
       },
@@ -13,26 +13,26 @@
       "_nested_name": "title_2"
     },
     {
-      "name": "montant",
-      "value": "@calc(Number(@field.grand_total_semis|| 0))",
+      "name": "v_grand_total",
+      "value": "@calc(Number(@field.grand_total_semis || 0))",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "montant",
+      "_nested_name": "v_grand_total",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(Number(@field.grand_total_semis|| 0))",
+            "fullExpression": "@calc(Number(@field.grand_total_semis || 0))",
             "matchedExpression": "@field.grand_total_semis",
             "type": "field",
             "fieldName": "grand_total_semis"
           },
           {
-            "fullExpression": "@calc(Number(@field.grand_total_semis|| 0))",
-            "matchedExpression": "@calc(Number(@field.grand_total_semis|| 0))",
+            "fullExpression": "@calc(Number(@field.grand_total_semis || 0))",
+            "matchedExpression": "@calc(Number(@field.grand_total_semis || 0))",
             "type": "calc",
-            "fieldName": "Number(@field.grand_total_semis|| 0)"
+            "fieldName": "Number(@field.grand_total_semis || 0)"
           }
         ]
       },
@@ -40,114 +40,112 @@
         "@field.grand_total_semis": [
           "value"
         ],
-        "@calc(Number(@field.grand_total_semis|| 0))": [
+        "@calc(Number(@field.grand_total_semis || 0))": [
           "value"
         ]
       }
     },
     {
-      "name": "montant_cfa",
-      "value": "@calc(@local.montant * 5)",
+      "name": "v_grand_total_fcfa",
+      "value": "@calc(Number(@local.v_grand_total || 0) * 5)",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "montant_cfa",
+      "_nested_name": "v_grand_total_fcfa",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(@local.montant * 5)",
-            "matchedExpression": "@local.montant",
+            "fullExpression": "@calc(Number(@local.v_grand_total || 0) * 5)",
+            "matchedExpression": "@local.v_grand_total",
             "type": "local",
-            "fieldName": "montant"
+            "fieldName": "v_grand_total"
           },
           {
-            "fullExpression": "@calc(@local.montant * 5)",
-            "matchedExpression": "@calc(@local.montant * 5)",
+            "fullExpression": "@calc(Number(@local.v_grand_total || 0) * 5)",
+            "matchedExpression": "@calc(Number(@local.v_grand_total || 0) * 5)",
             "type": "calc",
-            "fieldName": "@local.montant * 5"
+            "fieldName": "Number(@local.v_grand_total || 0) * 5"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.montant": [
+        "@local.v_grand_total": [
           "value"
         ],
-        "@calc(@local.montant * 5)": [
+        "@calc(Number(@local.v_grand_total || 0) * 5)": [
           "value"
         ]
       }
     },
     {
-      "type": "display_group",
-      "name": "final_grp",
+      "type": "html",
+      "value": "<h2 style=\"color: #1B5E20; text-align: center; margin: 0;\">INVESTISSEMENT TOTAL UPA</h2>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_5",
+      "_nested_name": "html_5"
+    },
+    {
+      "type": "audio",
+      "parameter_list": {
+        "variant": "button_only",
+        "src": "audio/semis/cout_tot_semis_fr.mp3",
+        "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+      },
+      "exclude_from_translation": true,
       "style_list": [
-        "background: #00adcc",
-        "padding: 25px",
-        "border-radius: 0 0 25px 25px",
-        "margin-bottom: 20px",
-        "text-align: center"
+        "flex-shrink: 0"
       ],
-      "rows": [
-        {
-          "type": "html",
-          "value": "<div style=\"color: black; text-transform: uppercase; font-size: 12px; letter-spacing: 2px;\">Total Investi (Semis)</div>",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_1",
-          "_nested_name": "final_grp.html_1"
-        },
-        {
-          "type": "html",
-          "value": "<div style=\"font-size: 36px; font-weight: bold; color: white; margin: 10px 0;\">@local.montant<span style=\"font-size: 18px;\">Dram</span></div>",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_2",
-          "_nested_name": "final_grp.html_2",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "<div style=\"font-size: 36px; font-weight: bold; color: white; margin: 10px 0;\">@local.montant<span style=\"font-size: 18px;\">Dram</span></div>",
-                "matchedExpression": "@local.montant",
-                "type": "local",
-                "fieldName": "montant"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@local.montant": [
-              "value"
-            ]
-          }
-        },
-        {
-          "type": "html",
-          "value": "<div style=\"background: rgba(255,255,255,0.1); padding: 8px 15px; border-radius: 20px; display: inline-block; color: white; font-weight: bold;\">≈ @local.montant_cfa FCFA</div>",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_3",
-          "_nested_name": "final_grp.html_3",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "<div style=\"background: rgba(255,255,255,0.1); padding: 8px 15px; border-radius: 20px; display: inline-block; color: white; font-weight: bold;\">≈ @local.montant_cfa FCFA</div>",
-                "matchedExpression": "@local.montant_cfa",
-                "type": "local",
-                "fieldName": "montant_cfa"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@local.montant_cfa": [
-              "value"
-            ]
-          }
-        }
+      "name": "audio_6",
+      "_nested_name": "audio_6"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa_tot.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:100px",
+        "height:100px"
       ],
-      "_nested_name": "final_grp"
+      "name": "image_7",
+      "_nested_name": "image_7"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41; text-transform: uppercase;\">Total Investi (Toutes Cultures)</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.v_grand_total Dram</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.v_grand_total_fcfa FCFA\n    </span>\n  </div>\n</div>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_8",
+      "_nested_name": "html_8",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41; text-transform: uppercase;\">Total Investi (Toutes Cultures)</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.v_grand_total Dram</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.v_grand_total_fcfa FCFA\n    </span>\n  </div>\n</div>",
+            "matchedExpression": "@local.v_grand_total",
+            "type": "local",
+            "fieldName": "v_grand_total"
+          },
+          {
+            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41; text-transform: uppercase;\">Total Investi (Toutes Cultures)</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.v_grand_total Dram</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.v_grand_total_fcfa FCFA\n    </span>\n  </div>\n</div>",
+            "matchedExpression": "@local.v_grand_total_fcfa",
+            "type": "local",
+            "fieldName": "v_grand_total_fcfa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_grand_total": [
+          "value"
+        ],
+        "@local.v_grand_total_fcfa": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -198,29 +196,8 @@
       "_nested_name": "cultures_list"
     },
     {
-      "style_list": [
-        "margin: 20px",
-        "padding: 20px",
-        "background: #FFF9F2",
-        "border-radius: 15px",
-        "border: 1px dashed #FFCC80"
-      ],
-      "type": "set_variable",
-      "name": "set_variable_9",
-      "_nested_name": "set_variable_9"
-    },
-    {
       "type": "html",
-      "value": "<span style=\"color: #E65100; font-weight: bold;\">Votre avis nous intéresse</span>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_10",
-      "_nested_name": "html_10"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"font-size: 13px; color: #6D4C41;\">Le formulaire était-il facile à utiliser ? Enregistrez votre avis :</p>",
+      "value": "<br><b style=\"color: #455A64\">VOTRE AVIS SUR LE FORMULAIRE </b>",
       "_translations": {
         "value": {}
       },
@@ -228,18 +205,13 @@
       "_nested_name": "html_11"
     },
     {
-      "type": "image",
-      "value": "images/vocal.jpg",
+      "type": "html",
+      "value": "<p style=\"font-size: 12px; color: gray;\">Partagez vos suggestions ou difficultés rencontrées.</p>",
       "_translations": {
         "value": {}
       },
-      "style_list": [
-        "width: 50px",
-        "float: left",
-        "margin-right: 10px"
-      ],
-      "name": "image_12",
-      "_nested_name": "image_12"
+      "name": "html_12",
+      "_nested_name": "html_12"
     },
     {
       "type": "display_group",
@@ -287,9 +259,6 @@
               "_raw": "click | emit: completed"
             }
           ],
-          "parameter_list": {
-            "style": "navigation"
-          },
           "style_list": [
             "flex: 1"
           ],

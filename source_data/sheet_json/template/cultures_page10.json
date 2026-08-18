@@ -69,11 +69,11 @@
       "name": "cout_prevu_total_prestation_recolte",
       "value": "@fields.cout_prevu_total_prestation_recolte",
       "action_list": "changed | set_field : cout_prevu_total_prestation_recolte: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "name": "valid_cout_prevu_total_prestation_recolte",
-      "value": "@calc(!!@fields.cout_prevu_total_prestation_recolte && @fields.cout_prevu_total_prestation_recolte != \"\" && @fields.cout_prevu_total_prestation_recolte >= 0)"
+      "value": "@calc(!!@fields.cout_prevu_total_prestation_recolte && @fields.cout_prevu_total_prestation_recolte != ' ' && @fields.cout_prevu_total_prestation_recolte >= 0)"
     },
     {
       "type": "text",
@@ -112,11 +112,11 @@
       "name": "cout_prevu_total_battage",
       "value": "@fields.cout_prevu_total_battage",
       "action_list": "changed | set_field : cout_prevu_total_battage: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "name": "valid_cout_prevu_total_battage",
-      "value": "@calc(!!@fields.cout_prevu_total_battage && @fields.cout_prevu_total_battage != \"\" && @fields.cout_prevu_total_battage >= 0)"
+      "value": "@calc(!!@fields.cout_prevu_total_battage && @fields.cout_prevu_total_battage != ' ' && @fields.cout_prevu_total_battage >= 0)"
     },
     {
       "type": "text",
@@ -150,11 +150,11 @@
       "name": "production_prevue",
       "value": "@fields.production_prevue",
       "action_list": "changed | set_field : production_prevue: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "name": "valid_production_prevue",
-      "value": "@calc(!!@fields.production_prevue && @fields.production_prevue != \"\" && @fields.production_prevue >= 0)"
+      "value": "@calc(!!@fields.production_prevue && @fields.production_prevue != ' ' && @fields.production_prevue >= 0)"
     },
     {
       "type": "text",

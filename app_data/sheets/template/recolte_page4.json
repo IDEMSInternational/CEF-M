@@ -103,8 +103,8 @@
             "value": {}
           },
           "style_list": [
-            "width: 60%",
-            "object-fit: contain"
+            "width: 100px",
+            "height: 100px"
           ],
           "name": "image_1",
           "_nested_name": "display_group_5.image_1",
@@ -240,7 +240,7 @@
             }
           ],
           "parameter_list": {
-            "answer_list": "@data.yes_no",
+            "answer_list": "@data.oui_non",
             "variant": "flex",
             "style": "secondary",
             "item_width": "60px",
@@ -259,10 +259,10 @@
             "parameter_list": {
               "answer_list": [
                 {
-                  "fullExpression": "@data.yes_no",
-                  "matchedExpression": "@data.yes_no",
+                  "fullExpression": "@data.oui_non",
+                  "matchedExpression": "@data.oui_non",
                   "type": "data",
-                  "fieldName": "yes_no"
+                  "fieldName": "oui_non"
                 }
               ]
             }
@@ -271,7 +271,7 @@
             "@field.no_autre_cout_recolte": [
               "value"
             ],
-            "@data.yes_no": [
+            "@data.oui_non": [
               "parameter_list.answer_list"
             ]
           }
@@ -282,6 +282,9 @@
     {
       "type": "display_group",
       "name": "group_nom_autre",
+      "parameter_list": {
+        "style": "column"
+      },
       "condition": "@field.no_autre_cout_recolte == 'oui'",
       "style_list": [
         "display: block",
@@ -289,27 +292,34 @@
       ],
       "rows": [
         {
-          "type": "audio",
-          "name": "note_autre_cout_recolte2",
-          "parameter_list": {
-            "variant": "button_only",
-            "src": "audio/postSemi/nom_autre_cout_recolte_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "float: right"
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "html",
+              "value": "<span style=\"color: red;\">*</span> Indiquez s'il y a d'autre(s) coût(s) à la récolte non renseignés",
+              "_translations": {
+                "value": {}
+              },
+              "name": "html_1",
+              "_nested_name": "group_nom_autre.display_group_1.html_1"
+            },
+            {
+              "type": "audio",
+              "name": "note_autre_cout_recolte2",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/postSemi/nom_autre_cout_recolte_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "exclude_from_translation": true,
+              "style_list": [
+                "float: right"
+              ],
+              "_nested_name": "group_nom_autre.display_group_1.note_autre_cout_recolte2"
+            }
           ],
-          "_nested_name": "group_nom_autre.note_autre_cout_recolte2"
-        },
-        {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span> Indiquez s'il y a d'autre(s) coût(s) à la récolte non renseignés",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_2",
-          "_nested_name": "group_nom_autre.html_2"
+          "name": "display_group_1",
+          "_nested_name": "group_nom_autre.display_group_1"
         },
         {
           "type": "image",
@@ -318,11 +328,11 @@
             "value": {}
           },
           "style_list": [
-            "width: 60%",
-            "object-fit: contain"
+            "width: 100px",
+            "height: 100px"
           ],
-          "name": "image_3",
-          "_nested_name": "group_nom_autre.image_3"
+          "name": "image_2",
+          "_nested_name": "group_nom_autre.image_2"
         },
         {
           "type": "text_box",
@@ -361,6 +371,60 @@
               "value"
             ]
           }
+        },
+        {
+          "type": "text",
+          "value": "*La réponse est obligatoire !*",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@calc(@field.no_autre_cout_recolte == 'oui' && (@field.nom_autre_cout_recolte == '' || @field.nom_autre_cout_recolte == null))",
+          "style_list": [
+            "color: red",
+            "font-size: 12px"
+          ],
+          "name": "text_4",
+          "_nested_name": "group_nom_autre.text_4",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "@calc(@field.no_autre_cout_recolte == 'oui' && (@field.nom_autre_cout_recolte == '' || @field.nom_autre_cout_recolte == null))",
+                "matchedExpression": "@field.no_autre_cout_recolte",
+                "type": "field",
+                "fieldName": "no_autre_cout_recolte"
+              },
+              {
+                "fullExpression": "@calc(@field.no_autre_cout_recolte == 'oui' && (@field.nom_autre_cout_recolte == '' || @field.nom_autre_cout_recolte == null))",
+                "matchedExpression": "@field.nom_autre_cout_recolte",
+                "type": "field",
+                "fieldName": "nom_autre_cout_recolte"
+              },
+              {
+                "fullExpression": "@calc(@field.no_autre_cout_recolte == 'oui' && (@field.nom_autre_cout_recolte == '' || @field.nom_autre_cout_recolte == null))",
+                "matchedExpression": "@field.nom_autre_cout_recolte",
+                "type": "field",
+                "fieldName": "nom_autre_cout_recolte"
+              },
+              {
+                "fullExpression": "@calc(@field.no_autre_cout_recolte == 'oui' && (@field.nom_autre_cout_recolte == '' || @field.nom_autre_cout_recolte == null))",
+                "matchedExpression": "@calc(@field.no_autre_cout_recolte == 'oui' && (@field.nom_autre_cout_recolte == '' || @field.nom_autre_cout_recolte == null))",
+                "type": "calc",
+                "fieldName": "@field.no_autre_cout_recolte == 'oui' && (@field.nom_autre_cout_recolte == '' || @field.nom_autre_cout_recolte == null)"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.no_autre_cout_recolte": [
+              "condition"
+            ],
+            "@field.nom_autre_cout_recolte": [
+              "condition",
+              "condition"
+            ],
+            "@calc(@field.no_autre_cout_recolte == 'oui' && (@field.nom_autre_cout_recolte == '' || @field.nom_autre_cout_recolte == null))": [
+              "condition"
+            ]
+          }
         }
       ],
       "_nested_name": "group_nom_autre",
@@ -376,60 +440,6 @@
       },
       "_dynamicDependencies": {
         "@field.no_autre_cout_recolte": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "value": "*La réponse est obligatoire !*",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@calc(@field.no_autre_cout_recolte == 'oui' && (@field.nom_autre_cout_recolte == '' || @field.nom_autre_cout_recolte == null))",
-      "style_list": [
-        "color: red",
-        "font-size: 12px"
-      ],
-      "name": "text_12",
-      "_nested_name": "text_12",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@calc(@field.no_autre_cout_recolte == 'oui' && (@field.nom_autre_cout_recolte == '' || @field.nom_autre_cout_recolte == null))",
-            "matchedExpression": "@field.no_autre_cout_recolte",
-            "type": "field",
-            "fieldName": "no_autre_cout_recolte"
-          },
-          {
-            "fullExpression": "@calc(@field.no_autre_cout_recolte == 'oui' && (@field.nom_autre_cout_recolte == '' || @field.nom_autre_cout_recolte == null))",
-            "matchedExpression": "@field.nom_autre_cout_recolte",
-            "type": "field",
-            "fieldName": "nom_autre_cout_recolte"
-          },
-          {
-            "fullExpression": "@calc(@field.no_autre_cout_recolte == 'oui' && (@field.nom_autre_cout_recolte == '' || @field.nom_autre_cout_recolte == null))",
-            "matchedExpression": "@field.nom_autre_cout_recolte",
-            "type": "field",
-            "fieldName": "nom_autre_cout_recolte"
-          },
-          {
-            "fullExpression": "@calc(@field.no_autre_cout_recolte == 'oui' && (@field.nom_autre_cout_recolte == '' || @field.nom_autre_cout_recolte == null))",
-            "matchedExpression": "@calc(@field.no_autre_cout_recolte == 'oui' && (@field.nom_autre_cout_recolte == '' || @field.nom_autre_cout_recolte == null))",
-            "type": "calc",
-            "fieldName": "@field.no_autre_cout_recolte == 'oui' && (@field.nom_autre_cout_recolte == '' || @field.nom_autre_cout_recolte == null)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.no_autre_cout_recolte": [
-          "condition"
-        ],
-        "@field.nom_autre_cout_recolte": [
-          "condition",
-          "condition"
-        ],
-        "@calc(@field.no_autre_cout_recolte == 'oui' && (@field.nom_autre_cout_recolte == '' || @field.nom_autre_cout_recolte == null))": [
           "condition"
         ]
       }
@@ -476,7 +486,9 @@
     },
     {
       "type": "display_group",
-      "name": "group_montant_autre",
+      "parameter_list": {
+        "style": "column"
+      },
       "condition": "@field.no_autre_cout_recolte == 'oui'",
       "style_list": [
         "display: block",
@@ -484,42 +496,49 @@
       ],
       "rows": [
         {
-          "type": "audio",
-          "name": "note_autre_cout_recolte1",
-          "parameter_list": {
-            "variant": "button_only",
-            "src": "audio/postSemi/autre_cout_recolte_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "float: right"
-          ],
-          "_nested_name": "group_montant_autre.note_autre_cout_recolte1"
-        },
-        {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span>Donnez le montant du coût pour <span style=\"color: #e67e22\"> @field.nom_autre_cout_recolte</span>",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_2",
-          "_nested_name": "group_montant_autre.html_2",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "<span style=\"color: red;\">*</span>Donnez le montant du coût pour <span style=\"color: #e67e22\"> @field.nom_autre_cout_recolte</span>",
-                "matchedExpression": "@field.nom_autre_cout_recolte",
-                "type": "field",
-                "fieldName": "nom_autre_cout_recolte"
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "audio",
+              "name": "note_autre_cout_recolte1",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/postSemi/autre_cout_recolte_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "exclude_from_translation": true,
+              "style_list": [
+                "float: right"
+              ],
+              "_nested_name": "display_group_13.display_group_1.note_autre_cout_recolte1"
+            },
+            {
+              "type": "html",
+              "value": "<span style=\"color: red;\">*</span>Donnez le montant du coût pour <span style=\"color: #e67e22\"> @field.nom_autre_cout_recolte</span>",
+              "_translations": {
+                "value": {}
+              },
+              "name": "html_2",
+              "_nested_name": "display_group_13.display_group_1.html_2",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "<span style=\"color: red;\">*</span>Donnez le montant du coût pour <span style=\"color: #e67e22\"> @field.nom_autre_cout_recolte</span>",
+                    "matchedExpression": "@field.nom_autre_cout_recolte",
+                    "type": "field",
+                    "fieldName": "nom_autre_cout_recolte"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@field.nom_autre_cout_recolte": [
+                  "value"
+                ]
               }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@field.nom_autre_cout_recolte": [
-              "value"
-            ]
-          }
+            }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_13.display_group_1"
         },
         {
           "type": "text",
@@ -532,8 +551,8 @@
             "color: #666",
             "font-size: 12px"
           ],
-          "name": "text_3",
-          "_nested_name": "group_montant_autre.text_3"
+          "name": "text_2",
+          "_nested_name": "display_group_13.text_2"
         },
         {
           "type": "text",
@@ -545,8 +564,8 @@
             "font-size: 14px",
             "color: gray"
           ],
-          "name": "text_4",
-          "_nested_name": "group_montant_autre.text_4"
+          "name": "text_3",
+          "_nested_name": "display_group_13.text_3"
         },
         {
           "type": "image",
@@ -555,11 +574,11 @@
             "value": {}
           },
           "style_list": [
-            "width: 80px",
-            "object-fit: contain"
+            "width: 100px",
+            "height: 100px"
           ],
-          "name": "image_5",
-          "_nested_name": "group_montant_autre.image_5"
+          "name": "image_4",
+          "_nested_name": "display_group_13.image_4"
         },
         {
           "type": "text_box",
@@ -583,7 +602,7 @@
             "number_input": "true",
             "placeholder": "Montant en Dram..."
           },
-          "_nested_name": "group_montant_autre.autre_cout_recolte",
+          "_nested_name": "display_group_13.autre_cout_recolte",
           "_dynamicFields": {
             "value": [
               {
@@ -599,9 +618,57 @@
               "value"
             ]
           }
+        },
+        {
+          "type": "text",
+          "value": "*Mettez une valeur positive*",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@calc(@field.no_autre_cout_recolte == 'oui' && @local.v_montant_autre_err)",
+          "style_list": [
+            "color: red",
+            "font-size: 12px"
+          ],
+          "name": "text_6",
+          "_nested_name": "display_group_13.text_6",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "@calc(@field.no_autre_cout_recolte == 'oui' && @local.v_montant_autre_err)",
+                "matchedExpression": "@field.no_autre_cout_recolte",
+                "type": "field",
+                "fieldName": "no_autre_cout_recolte"
+              },
+              {
+                "fullExpression": "@calc(@field.no_autre_cout_recolte == 'oui' && @local.v_montant_autre_err)",
+                "matchedExpression": "@local.v_montant_autre_err",
+                "type": "local",
+                "fieldName": "v_montant_autre_err"
+              },
+              {
+                "fullExpression": "@calc(@field.no_autre_cout_recolte == 'oui' && @local.v_montant_autre_err)",
+                "matchedExpression": "@calc(@field.no_autre_cout_recolte == 'oui' && @local.v_montant_autre_err)",
+                "type": "calc",
+                "fieldName": "@field.no_autre_cout_recolte == 'oui' && @local.v_montant_autre_err"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.no_autre_cout_recolte": [
+              "condition"
+            ],
+            "@local.v_montant_autre_err": [
+              "condition"
+            ],
+            "@calc(@field.no_autre_cout_recolte == 'oui' && @local.v_montant_autre_err)": [
+              "condition"
+            ]
+          }
         }
       ],
-      "_nested_name": "group_montant_autre",
+      "name": "display_group_13",
+      "_nested_name": "display_group_13",
       "_dynamicFields": {
         "condition": [
           {
@@ -614,53 +681,6 @@
       },
       "_dynamicDependencies": {
         "@field.no_autre_cout_recolte": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "value": "*Mettez une valeur positive*",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@calc(@field.no_autre_cout_recolte == 'oui' && @local.v_montant_autre_err)",
-      "style_list": [
-        "color: red",
-        "font-size: 12px"
-      ],
-      "name": "text_16",
-      "_nested_name": "text_16",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@calc(@field.no_autre_cout_recolte == 'oui' && @local.v_montant_autre_err)",
-            "matchedExpression": "@field.no_autre_cout_recolte",
-            "type": "field",
-            "fieldName": "no_autre_cout_recolte"
-          },
-          {
-            "fullExpression": "@calc(@field.no_autre_cout_recolte == 'oui' && @local.v_montant_autre_err)",
-            "matchedExpression": "@local.v_montant_autre_err",
-            "type": "local",
-            "fieldName": "v_montant_autre_err"
-          },
-          {
-            "fullExpression": "@calc(@field.no_autre_cout_recolte == 'oui' && @local.v_montant_autre_err)",
-            "matchedExpression": "@calc(@field.no_autre_cout_recolte == 'oui' && @local.v_montant_autre_err)",
-            "type": "calc",
-            "fieldName": "@field.no_autre_cout_recolte == 'oui' && @local.v_montant_autre_err"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.no_autre_cout_recolte": [
-          "condition"
-        ],
-        "@local.v_montant_autre_err": [
-          "condition"
-        ],
-        "@calc(@field.no_autre_cout_recolte == 'oui' && @local.v_montant_autre_err)": [
           "condition"
         ]
       }
@@ -852,7 +872,6 @@
             }
           ],
           "parameter_list": {
-            "style": "navigation",
             "disabled": "!@local.completed_enabled"
           },
           "style_list": [

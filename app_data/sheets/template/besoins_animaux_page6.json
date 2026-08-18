@@ -607,7 +607,7 @@
         {
           "type": "set_field",
           "name": "frais_veterinaire_cat",
-          "value": "@calc((Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0)))",
+          "value": "@calc(Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0))",
           "_translations": {
             "value": {}
           },
@@ -616,22 +616,22 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@calc((Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0)))",
+                "fullExpression": "@calc(Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0))",
                 "matchedExpression": "@fields.frais_veterinaire_tete",
                 "type": "fields",
                 "fieldName": "frais_veterinaire_tete"
               },
               {
-                "fullExpression": "@calc((Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0)))",
+                "fullExpression": "@calc(Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0))",
                 "matchedExpression": "@fields.nb_animaux",
                 "type": "fields",
                 "fieldName": "nb_animaux"
               },
               {
-                "fullExpression": "@calc((Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0)))",
-                "matchedExpression": "@calc((Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0)))",
+                "fullExpression": "@calc(Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0))",
+                "matchedExpression": "@calc(Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0))",
                 "type": "calc",
-                "fieldName": "(Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0))"
+                "fieldName": "Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0)"
               }
             ],
             "condition": [
@@ -651,7 +651,7 @@
             "@fields.nb_animaux": [
               "value"
             ],
-            "@calc((Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0)))": [
+            "@calc(Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0))": [
               "value"
             ]
           }
@@ -1474,6 +1474,24 @@
           "action_list": [
             {
               "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "frais_veterinaire_tete_@fields.current_cat_animaux",
+                "@fields.frais_veterinaire_tete"
+              ],
+              "_raw": "click | set_field: frais_veterinaire_tete_@fields.current_cat_animaux: @fields.frais_veterinaire_tete"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "frais_veterinaire_cat_@fields.current_cat_animaux",
+                "@fields.frais_veterinaire_cat"
+              ],
+              "_raw": "click | set_field: frais_veterinaire_cat_@fields.current_cat_animaux: @fields.frais_veterinaire_cat"
+            },
+            {
+              "trigger": "click",
               "action_id": "emit",
               "args": [
                 "completed"
@@ -1490,6 +1508,76 @@
           ],
           "_nested_name": "display_group_9.page8_button_continue",
           "_dynamicFields": {
+            "action_list": {
+              "0": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "frais_veterinaire_tete_@fields.current_cat_animaux",
+                      "matchedExpression": "@fields.current_cat_animaux",
+                      "type": "fields",
+                      "fieldName": "current_cat_animaux"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.frais_veterinaire_tete",
+                      "matchedExpression": "@fields.frais_veterinaire_tete",
+                      "type": "fields",
+                      "fieldName": "frais_veterinaire_tete"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: frais_veterinaire_tete_@fields.current_cat_animaux: @fields.frais_veterinaire_tete",
+                    "matchedExpression": "@fields.current_cat_animaux",
+                    "type": "fields",
+                    "fieldName": "current_cat_animaux"
+                  },
+                  {
+                    "fullExpression": "click | set_field: frais_veterinaire_tete_@fields.current_cat_animaux: @fields.frais_veterinaire_tete",
+                    "matchedExpression": "@fields.frais_veterinaire_tete",
+                    "type": "fields",
+                    "fieldName": "frais_veterinaire_tete"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "frais_veterinaire_cat_@fields.current_cat_animaux",
+                      "matchedExpression": "@fields.current_cat_animaux",
+                      "type": "fields",
+                      "fieldName": "current_cat_animaux"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.frais_veterinaire_cat",
+                      "matchedExpression": "@fields.frais_veterinaire_cat",
+                      "type": "fields",
+                      "fieldName": "frais_veterinaire_cat"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: frais_veterinaire_cat_@fields.current_cat_animaux: @fields.frais_veterinaire_cat",
+                    "matchedExpression": "@fields.current_cat_animaux",
+                    "type": "fields",
+                    "fieldName": "current_cat_animaux"
+                  },
+                  {
+                    "fullExpression": "click | set_field: frais_veterinaire_cat_@fields.current_cat_animaux: @fields.frais_veterinaire_cat",
+                    "matchedExpression": "@fields.frais_veterinaire_cat",
+                    "type": "fields",
+                    "fieldName": "frais_veterinaire_cat"
+                  }
+                ]
+              }
+            },
             "parameter_list": {
               "disabled": [
                 {
@@ -1510,6 +1598,20 @@
             ]
           },
           "_dynamicDependencies": {
+            "@fields.current_cat_animaux": [
+              "action_list.0.args.0",
+              "action_list.0._raw",
+              "action_list.1.args.0",
+              "action_list.1._raw"
+            ],
+            "@fields.frais_veterinaire_tete": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "@fields.frais_veterinaire_cat": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
             "!@local.completed_enabled": [
               "parameter_list.disabled"
             ],

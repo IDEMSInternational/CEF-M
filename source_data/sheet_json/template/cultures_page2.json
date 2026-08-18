@@ -30,10 +30,17 @@
     },
     {
       "type": "begin_data_items",
-      "value": "@data.planif_cultures_primaires"
+      "value": "@data.planif_cultures_primaires",
+      "style_list": "display: flex; flex-wrap: wrap; justify-content: space-between; width: 90%; gap: 10px;"
     },
     {
-      "type": "begin_display_group"
+      "type": "begin_display_group",
+      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #FFCC80; border-radius: 12px; background: white; margin-bottom: 10px; overflow: hidden;"
+    },
+    {
+      "type": "image",
+      "value": "@item.image",
+      "style_list": "width:100px; height:100px; object-fit:contain; flex-shrink:0"
     },
     {
       "name": "cult_name",
@@ -46,11 +53,6 @@
       "action_list": "changed | set_field: @local.cult_name: @local.check_cult;",
       "parameter_list": "label_text: @item.text; reverse: false; align: center; ",
       "style_list": "margin-bottom: 10px;"
-    },
-    {
-      "type": "image",
-      "value": "@item.image",
-      "style_list": "width:100px; height:100px; object-fit:contain; flex-shrink:0"
     },
     {
       "type": "end_display_group"

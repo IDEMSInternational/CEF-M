@@ -1,0 +1,104 @@
+{
+  "flow_type": "template",
+  "flow_name": "supp_simple",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "SUPPLEMENTATION SIMPLE"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.categorie_animaux",
+      "parameter_list": "filter: @item.name == @fields.current_cat_animaux"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@item.text: @fields.nb_animaux tête(s)"
+    },
+    {
+      "type": "image",
+      "value": "@item.image",
+      "style_list": "width:150px; height:150px; "
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "**Les quantités des aliments ci-dessous pour ce regime sont calculées en fonction du nombre d’animaux**"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "name": "comp_faible_con",
+      "value": "@calc((Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 0, 'embouche_bovine': 0, 'vache_laitiere': 0, 'autres_bovins': 0, 'assins': 0, 'embouche_ovine': 0, 'reste_ovins': 2.3, 'caprins': 2.3}[@fields.current_cat_animaux] || 0)).toFixed(1))"
+    },
+    {
+      "name": "comp_faible_resid",
+      "value": "@calc((Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 5.4, 'embouche_bovine': 0, 'vache_laitiere': 5.4, 'autres_bovins': 5.4, 'assins': 0, 'embouche_ovine': 0.5, 'reste_ovins': 0, 'caprins': 0}[@fields.current_cat_animaux] || 0)).toFixed(1))"
+    },
+    {
+      "name": "comp_faible_fane",
+      "value": "@calc((Number(@fields.nb_animaux || 0) * ({'boeufs_labour': 120, 'embouche_bovine': 67, 'vache_laitiere': 120, 'autres_bovins': 120, 'assins': 0, 'embouche_ovine': 0, 'reste_ovins': 60, 'caprins': 60}[@fields.current_cat_animaux] || 0)).toFixed(1))"
+    },
+    {
+      "type": "text",
+      "value": " \n         \nConcentrés= tourteau de coton ou son de céréales\n*1 sac de tourteau = 40 kg,\n*1 sac de son= 50 kg"
+    },
+    {
+      "type": "image",
+      "value": "images/concentre.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  Quantité de concentrés : <strong> @local.comp_faible_con sac  </strong>\n</div>"
+    },
+    {
+      "type": "text",
+      "value": "Résidus de céréales= paille de céréales (maïs, sorgho ou mil)\n* 1 charrétée= 100 kg"
+    },
+    {
+      "type": "image",
+      "value": "images/Residus.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales: </strong> @local.comp_faible_resid charrettée</div>"
+    },
+    {
+      "type": "text",
+      "value": "Fânes=foins,\nFânes de niébé, de mucuna, d'arachide, de soja,\nFoins de Brachiaria, de panicum\n*1 botte de fâne= 1,5 kg"
+    },
+    {
+      "type": "image",
+      "value": "images/Fane2.jpg",
+      "style_list": "width:120px; height:120px; "
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes: </strong> @local.comp_faible_fane botte</div>"
+    },
+    {
+      "type": "set_field",
+      "name": "comp_faible_con_@fields.current_cat_animaux",
+      "value": "@local.comp_faible_con"
+    },
+    {
+      "type": "set_field",
+      "name": "comp_faible_resid_@fields.current_cat_animaux",
+      "value": "@local.comp_faible_resid"
+    },
+    {
+      "type": "set_field",
+      "name": "comp_faible_fane_@fields.current_cat_animaux",
+      "value": "@local.comp_faible_fane"
+    }
+  ]
+}

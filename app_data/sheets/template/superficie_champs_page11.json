@@ -393,8 +393,10 @@
             "value": {}
           },
           "style_list": [
-            "width: 50%",
-            "object-fit: contain"
+            "width:100px",
+            "height:100px",
+            "object-fit:contain",
+            "flex-shrink:0"
           ],
           "name": "image_1",
           "_nested_name": "display_group_10.image_1"
@@ -444,17 +446,18 @@
     },
     {
       "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "name": "valid_quantite_fumure_organique",
+      "value": "<span style=\"color: red; font-size: 13px;\">@global.warning_message </span>",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.quantite_fumure_organique",
-      "_nested_name": "html_text",
+      "exclude_from_translation": true,
+      "_nested_name": "valid_quantite_fumure_organique",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "fullExpression": "<span style=\"color: red; font-size: 13px;\">@global.warning_message </span>",
             "matchedExpression": "@global.warning_message",
             "type": "global",
             "fieldName": "warning_message"
@@ -480,16 +483,6 @@
     },
     {
       "type": "html",
-      "name": "valid_quantite_fumure_organique",
-      "value": "<span style=\"color: red; font-size: 13px;\">La réponse est obligatoire !</span>",
-      "_translations": {
-        "value": {}
-      },
-      "exclude_from_translation": true,
-      "_nested_name": "valid_quantite_fumure_organique"
-    },
-    {
-      "type": "html",
       "value": "<span style=\"color: red; font-size: 13px;\">Veuillez entrer un nombre entier positif ou 0 !</span>",
       "_translations": {
         "value": {}
@@ -500,8 +493,8 @@
         "color: #FF0000",
         "font-size: 14px"
       ],
-      "name": "html_15",
-      "_nested_name": "html_15",
+      "name": "html_14",
+      "_nested_name": "html_14",
       "_dynamicFields": {
         "condition": [
           {
@@ -554,7 +547,7 @@
             "value": {}
           },
           "name": "html_1",
-          "_nested_name": "display_group_16.html_1"
+          "_nested_name": "display_group_15.html_1"
         },
         {
           "type": "audio",
@@ -567,11 +560,11 @@
           "style_list": [
             "float : right"
           ],
-          "_nested_name": "display_group_16.audio_12_2"
+          "_nested_name": "display_group_15.audio_12_2"
         }
       ],
-      "name": "display_group_16",
-      "_nested_name": "display_group_16",
+      "name": "display_group_15",
+      "_nested_name": "display_group_15",
       "_dynamicFields": {
         "condition": [
           {
@@ -623,7 +616,7 @@
               "style_list": [
                 "margin-bottom: 10px"
               ],
-              "_nested_name": "data_items_18.display_group_1_@item.id.@item.name",
+              "_nested_name": "data_items_17.display_group_1_@item.id.@item.name",
               "_dynamicFields": {
                 "name": [
                   {
@@ -689,13 +682,13 @@
                 },
                 "_nested_name": [
                   {
-                    "fullExpression": "data_items_18.display_group_1_@item.id.@item.name",
+                    "fullExpression": "data_items_17.display_group_1_@item.id.@item.name",
                     "matchedExpression": "@item.id",
                     "type": "item",
                     "fieldName": "id"
                   },
                   {
-                    "fullExpression": "data_items_18.display_group_1_@item.id.@item.name",
+                    "fullExpression": "data_items_17.display_group_1_@item.id.@item.name",
                     "matchedExpression": "@item.name",
                     "type": "item",
                     "fieldName": "name"
@@ -722,7 +715,7 @@
             }
           ],
           "name": "display_group_1_@item.id",
-          "_nested_name": "data_items_18.display_group_1_@item.id",
+          "_nested_name": "data_items_17.display_group_1_@item.id",
           "_dynamicFields": {
             "condition": [
               {
@@ -742,7 +735,7 @@
             ],
             "_nested_name": [
               {
-                "fullExpression": "data_items_18.display_group_1_@item.id",
+                "fullExpression": "data_items_17.display_group_1_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -760,8 +753,8 @@
           }
         }
       ],
-      "name": "data_items_18",
-      "_nested_name": "data_items_18",
+      "name": "data_items_17",
+      "_nested_name": "data_items_17",
       "_dynamicFields": {
         "value": [
           {
@@ -800,8 +793,8 @@
         "color: red",
         "font-size: 16px"
       ],
-      "name": "html_20",
-      "_nested_name": "html_20",
+      "name": "html_19",
+      "_nested_name": "html_19",
       "_dynamicFields": {
         "condition": [
           {
@@ -847,7 +840,7 @@
             "value": {}
           },
           "name": "html_1",
-          "_nested_name": "display_group_21.html_1"
+          "_nested_name": "display_group_20.html_1"
         },
         {
           "type": "audio",
@@ -860,11 +853,11 @@
           "style_list": [
             "float : right"
           ],
-          "_nested_name": "display_group_21.audio_12_2"
+          "_nested_name": "display_group_20.audio_12_2"
         }
       ],
-      "name": "display_group_21",
-      "_nested_name": "display_group_21",
+      "name": "display_group_20",
+      "_nested_name": "display_group_20",
       "_dynamicFields": {
         "condition": [
           {
@@ -1028,7 +1021,7 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_25.page12_button_back"
+          "_nested_name": "display_group_24.page12_button_back"
         },
         {
           "type": "button",
@@ -1086,7 +1079,10 @@
           "parameter_list": {
             "disabled": "!@local.completed_enabled"
           },
-          "_nested_name": "display_group_25.page12_button_continue",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_24.page12_button_continue",
           "_dynamicFields": {
             "action_list": {
               "0": {
@@ -1257,8 +1253,8 @@
           }
         }
       ],
-      "name": "display_group_25",
-      "_nested_name": "display_group_25"
+      "name": "display_group_24",
+      "_nested_name": "display_group_24"
     }
   ],
   "_source": {

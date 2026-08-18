@@ -29,7 +29,7 @@
     },
     {
       "name": "total_depenses_recurrentes",
-      "value": "@calc((Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + (Number(@fields.montant_autre_frais) || 0)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+      "value": "@calc(Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + Number(@fields.montant_autre_frais || 0))",
       "_translations": {
         "value": {}
       },
@@ -38,34 +38,34 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + (Number(@fields.montant_autre_frais) || 0)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+            "fullExpression": "@calc(Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + Number(@fields.montant_autre_frais || 0))",
             "matchedExpression": "@fields.frais_condiment_annuel",
             "type": "fields",
             "fieldName": "frais_condiment_annuel"
           },
           {
-            "fullExpression": "@calc((Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + (Number(@fields.montant_autre_frais) || 0)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+            "fullExpression": "@calc(Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + Number(@fields.montant_autre_frais || 0))",
             "matchedExpression": "@fields.frais_sante_annuel",
             "type": "fields",
             "fieldName": "frais_sante_annuel"
           },
           {
-            "fullExpression": "@calc((Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + (Number(@fields.montant_autre_frais) || 0)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+            "fullExpression": "@calc(Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + Number(@fields.montant_autre_frais || 0))",
             "matchedExpression": "@fields.frais_education_annuel",
             "type": "fields",
             "fieldName": "frais_education_annuel"
           },
           {
-            "fullExpression": "@calc((Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + (Number(@fields.montant_autre_frais) || 0)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+            "fullExpression": "@calc(Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + Number(@fields.montant_autre_frais || 0))",
             "matchedExpression": "@fields.montant_autre_frais",
             "type": "fields",
             "fieldName": "montant_autre_frais"
           },
           {
-            "fullExpression": "@calc((Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + (Number(@fields.montant_autre_frais) || 0)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@calc((Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + (Number(@fields.montant_autre_frais) || 0)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+            "fullExpression": "@calc(Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + Number(@fields.montant_autre_frais || 0))",
+            "matchedExpression": "@calc(Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + Number(@fields.montant_autre_frais || 0))",
             "type": "calc",
-            "fieldName": "(Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + (Number(@fields.montant_autre_frais) || 0)).toLocaleString('fr-FR').replace(/\\u202f/g, ' ')"
+            "fieldName": "Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + Number(@fields.montant_autre_frais || 0)"
           }
         ]
       },
@@ -82,14 +82,14 @@
         "@fields.montant_autre_frais": [
           "value"
         ],
-        "@calc((Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + (Number(@fields.montant_autre_frais) || 0)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))": [
+        "@calc(Number(@fields.frais_condiment_annuel) + Number(@fields.frais_sante_annuel) + Number(@fields.frais_education_annuel) + Number(@fields.montant_autre_frais || 0))": [
           "value"
         ]
       }
     },
     {
       "name": "total_depenses_investissements",
-      "value": "@calc((Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+      "value": "@calc(Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)+ Number(@fields.montant_autre_invest || 0))",
       "_translations": {
         "value": {}
       },
@@ -98,28 +98,34 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+            "fullExpression": "@calc(Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)+ Number(@fields.montant_autre_invest || 0))",
             "matchedExpression": "@fields.invest_maison",
             "type": "fields",
             "fieldName": "invest_maison"
           },
           {
-            "fullExpression": "@calc((Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+            "fullExpression": "@calc(Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)+ Number(@fields.montant_autre_invest || 0))",
             "matchedExpression": "@fields.invest_mariage",
             "type": "fields",
             "fieldName": "invest_mariage"
           },
           {
-            "fullExpression": "@calc((Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+            "fullExpression": "@calc(Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)+ Number(@fields.montant_autre_invest || 0))",
             "matchedExpression": "@fields.invest_equipment",
             "type": "fields",
             "fieldName": "invest_equipment"
           },
           {
-            "fullExpression": "@calc((Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@calc((Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+            "fullExpression": "@calc(Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)+ Number(@fields.montant_autre_invest || 0))",
+            "matchedExpression": "@fields.montant_autre_invest",
+            "type": "fields",
+            "fieldName": "montant_autre_invest"
+          },
+          {
+            "fullExpression": "@calc(Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)+ Number(@fields.montant_autre_invest || 0))",
+            "matchedExpression": "@calc(Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)+ Number(@fields.montant_autre_invest || 0))",
             "type": "calc",
-            "fieldName": "(Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)).toLocaleString('fr-FR').replace(/\\u202f/g, ' ')"
+            "fieldName": "Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)+ Number(@fields.montant_autre_invest || 0)"
           }
         ]
       },
@@ -133,14 +139,17 @@
         "@fields.invest_equipment": [
           "value"
         ],
-        "@calc((Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))": [
+        "@fields.montant_autre_invest": [
+          "value"
+        ],
+        "@calc(Number(@fields.invest_maison) + Number(@fields.invest_mariage) + Number(@fields.invest_equipment)+ Number(@fields.montant_autre_invest || 0))": [
           "value"
         ]
       }
     },
     {
       "name": "depenes_total_upa",
-      "value": "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) + Number(@local.total_depenses_investissements.replace(/\\s/g, ''))).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+      "value": "@calc(Number(@local.total_depenses_recurrentes) + Number(@local.total_depenses_investissements))",
       "_translations": {
         "value": {}
       },
@@ -149,40 +158,40 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) + Number(@local.total_depenses_investissements.replace(/\\s/g, ''))).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@local.total_depenses_recurrentes.replace",
+            "fullExpression": "@calc(Number(@local.total_depenses_recurrentes) + Number(@local.total_depenses_investissements))",
+            "matchedExpression": "@local.total_depenses_recurrentes",
             "type": "local",
             "fieldName": "total_depenses_recurrentes"
           },
           {
-            "fullExpression": "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) + Number(@local.total_depenses_investissements.replace(/\\s/g, ''))).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@local.total_depenses_investissements.replace",
+            "fullExpression": "@calc(Number(@local.total_depenses_recurrentes) + Number(@local.total_depenses_investissements))",
+            "matchedExpression": "@local.total_depenses_investissements",
             "type": "local",
             "fieldName": "total_depenses_investissements"
           },
           {
-            "fullExpression": "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) + Number(@local.total_depenses_investissements.replace(/\\s/g, ''))).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) + Number(@local.total_depenses_investissements.replace(/\\s/g, ''))).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+            "fullExpression": "@calc(Number(@local.total_depenses_recurrentes) + Number(@local.total_depenses_investissements))",
+            "matchedExpression": "@calc(Number(@local.total_depenses_recurrentes) + Number(@local.total_depenses_investissements))",
             "type": "calc",
-            "fieldName": "(Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) + Number(@local.total_depenses_investissements.replace(/\\s/g, ''))).toLocaleString('fr-FR').replace(/\\u202f/g, ' ')"
+            "fieldName": "Number(@local.total_depenses_recurrentes) + Number(@local.total_depenses_investissements)"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.total_depenses_recurrentes.replace": [
+        "@local.total_depenses_recurrentes": [
           "value"
         ],
-        "@local.total_depenses_investissements.replace": [
+        "@local.total_depenses_investissements": [
           "value"
         ],
-        "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) + Number(@local.total_depenses_investissements.replace(/\\s/g, ''))).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))": [
+        "@calc(Number(@local.total_depenses_recurrentes) + Number(@local.total_depenses_investissements))": [
           "value"
         ]
       }
     },
     {
       "name": "total_depenses_recurrentes_cfa",
-      "value": "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+      "value": "@calc((Number(@local.total_depenses_recurrentes * 5)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
       "_translations": {
         "value": {}
       },
@@ -191,31 +200,31 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@local.total_depenses_recurrentes.replace",
+            "fullExpression": "@calc((Number(@local.total_depenses_recurrentes * 5)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+            "matchedExpression": "@local.total_depenses_recurrentes",
             "type": "local",
             "fieldName": "total_depenses_recurrentes"
           },
           {
-            "fullExpression": "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+            "fullExpression": "@calc((Number(@local.total_depenses_recurrentes * 5)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+            "matchedExpression": "@calc((Number(@local.total_depenses_recurrentes * 5)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
             "type": "calc",
-            "fieldName": "(Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' ')"
+            "fieldName": "(Number(@local.total_depenses_recurrentes * 5)).toLocaleString('fr-FR').replace(/\\u202f/g, ' ')"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.total_depenses_recurrentes.replace": [
+        "@local.total_depenses_recurrentes": [
           "value"
         ],
-        "@calc((Number(@local.total_depenses_recurrentes.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))": [
+        "@calc((Number(@local.total_depenses_recurrentes * 5)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))": [
           "value"
         ]
       }
     },
     {
       "name": "total_depenses_investissements_cfa",
-      "value": "@calc((Number(@local.total_depenses_investissements.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+      "value": "@calc((Number(@local.total_depenses_investissements * 5)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
       "_translations": {
         "value": {}
       },
@@ -224,31 +233,31 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((Number(@local.total_depenses_investissements.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@local.total_depenses_investissements.replace",
+            "fullExpression": "@calc((Number(@local.total_depenses_investissements * 5)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+            "matchedExpression": "@local.total_depenses_investissements",
             "type": "local",
             "fieldName": "total_depenses_investissements"
           },
           {
-            "fullExpression": "@calc((Number(@local.total_depenses_investissements.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@calc((Number(@local.total_depenses_investissements.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+            "fullExpression": "@calc((Number(@local.total_depenses_investissements * 5)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+            "matchedExpression": "@calc((Number(@local.total_depenses_investissements * 5)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
             "type": "calc",
-            "fieldName": "(Number(@local.total_depenses_investissements.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' ')"
+            "fieldName": "(Number(@local.total_depenses_investissements * 5)).toLocaleString('fr-FR').replace(/\\u202f/g, ' ')"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.total_depenses_investissements.replace": [
+        "@local.total_depenses_investissements": [
           "value"
         ],
-        "@calc((Number(@local.total_depenses_investissements.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))": [
+        "@calc((Number(@local.total_depenses_investissements * 5)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))": [
           "value"
         ]
       }
     },
     {
       "name": "depenes_total_upa_cfa",
-      "value": "@calc((Number(@local.depenes_total_upa.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+      "value": "@calc((Number(@local.depenes_total_upa * 5)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
       "_translations": {
         "value": {}
       },
@@ -257,24 +266,24 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((Number(@local.depenes_total_upa.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@local.depenes_total_upa.replace",
+            "fullExpression": "@calc((Number(@local.depenes_total_upa * 5)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+            "matchedExpression": "@local.depenes_total_upa",
             "type": "local",
             "fieldName": "depenes_total_upa"
           },
           {
-            "fullExpression": "@calc((Number(@local.depenes_total_upa.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
-            "matchedExpression": "@calc((Number(@local.depenes_total_upa.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+            "fullExpression": "@calc((Number(@local.depenes_total_upa * 5)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
+            "matchedExpression": "@calc((Number(@local.depenes_total_upa * 5)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))",
             "type": "calc",
-            "fieldName": "(Number(@local.depenes_total_upa.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' ')"
+            "fieldName": "(Number(@local.depenes_total_upa * 5)).toLocaleString('fr-FR').replace(/\\u202f/g, ' ')"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.depenes_total_upa.replace": [
+        "@local.depenes_total_upa": [
           "value"
         ],
-        "@calc((Number(@local.depenes_total_upa.replace(/\\s/g, '')) * 5).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))": [
+        "@calc((Number(@local.depenes_total_upa * 5)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))": [
           "value"
         ]
       }
@@ -628,6 +637,33 @@
           "action_list": [
             {
               "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "total_depenses_recurrentes",
+                "@local.total_depenses_recurrentes"
+              ],
+              "_raw": "click | set_field: total_depenses_recurrentes : @local.total_depenses_recurrentes"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "total_depenses_investissements",
+                "@local.total_depenses_investissements"
+              ],
+              "_raw": "click | set_field: total_depenses_investissements : @local.total_depenses_investissements"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "depenes_total_upa",
+                "@local.depenes_total_upa"
+              ],
+              "_raw": "click | set_field: depenes_total_upa : @local.depenes_total_upa"
+            },
+            {
+              "trigger": "click",
               "action_id": "emit",
               "args": [
                 "completed"
@@ -647,16 +683,96 @@
                 "type": "global",
                 "fieldName": "btn_continue"
               }
-            ]
+            ],
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.total_depenses_recurrentes",
+                      "matchedExpression": "@local.total_depenses_recurrentes",
+                      "type": "local",
+                      "fieldName": "total_depenses_recurrentes"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: total_depenses_recurrentes : @local.total_depenses_recurrentes",
+                    "matchedExpression": "@local.total_depenses_recurrentes",
+                    "type": "local",
+                    "fieldName": "total_depenses_recurrentes"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.total_depenses_investissements",
+                      "matchedExpression": "@local.total_depenses_investissements",
+                      "type": "local",
+                      "fieldName": "total_depenses_investissements"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: total_depenses_investissements : @local.total_depenses_investissements",
+                    "matchedExpression": "@local.total_depenses_investissements",
+                    "type": "local",
+                    "fieldName": "total_depenses_investissements"
+                  }
+                ]
+              },
+              "2": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.depenes_total_upa",
+                      "matchedExpression": "@local.depenes_total_upa",
+                      "type": "local",
+                      "fieldName": "depenes_total_upa"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: depenes_total_upa : @local.depenes_total_upa",
+                    "matchedExpression": "@local.depenes_total_upa",
+                    "type": "local",
+                    "fieldName": "depenes_total_upa"
+                  }
+                ]
+              }
+            }
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
+            ],
+            "@local.total_depenses_recurrentes": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "@local.total_depenses_investissements": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
+            "@local.depenes_total_upa": [
+              "action_list.2.args.1",
+              "action_list.2._raw"
             ]
           }
         }
       ],
       "_nested_name": "dg_footer"
+    },
+    {
+      "action_list": [],
+      "type": "set_variable",
+      "name": "set_variable_23",
+      "_nested_name": "set_variable_23"
     }
   ],
   "_source": {

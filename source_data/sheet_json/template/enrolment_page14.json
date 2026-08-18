@@ -56,7 +56,7 @@
     },
     {
       "name": "valid_nombre_boeuf_labour",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_boeuf_labour) && @local.nombre_boeuf_labour>= 0 ) || @local.nombre_boeuf_labour == '' || !@local.nombre_boeuf_labour)",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_boeuf_labour) && @local.nombre_boeuf_labour >=0 ) || @local.nombre_boeuf_labour == ' ' || !!@local.nombre_boeuf_labour )",
       "exclude_from_translation": true
     },
     {
@@ -70,7 +70,7 @@
     {
       "type": "text",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_boeuf_labour",
+      "condition": "!@local.valid_nombre_boeuf_labour && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": "color: #FF0000;\nfont-size: 12px"
     },
@@ -119,7 +119,7 @@
     },
     {
       "name": "valid_nombre_taureaux",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_taureaux) && @local.nombre_taureaux>= 0 ) || @local.nombre_taureaux == '' || !@local.nombre_taureaux)",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_taureaux) && @local.nombre_taureaux >=0 ) || @local.nombre_taureaux == ' ' || !!@local.nombre_taureaux )",
       "exclude_from_translation": true
     },
     {
@@ -133,7 +133,7 @@
     {
       "type": "text",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_taureaux",
+      "condition": "!@local.valid_nombre_taureaux && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": "color: #FF0000;\nfont-size: 12px"
     },
@@ -182,7 +182,7 @@
     },
     {
       "name": "valid_nombre_vaches_taries",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_vaches_taries) && @local.nombre_vaches_taries>= 0 ) || @local.nombre_vaches_taries == '' || !@local.nombre_vaches_taries)",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_vaches_taries) && @local.nombre_vaches_taries >=0 ) || @local.nombre_vaches_taries == ' ' || !!@local.nombre_vaches_taries )",
       "exclude_from_translation": true
     },
     {
@@ -196,7 +196,7 @@
     {
       "type": "text",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_vaches_taries",
+      "condition": "!@local.valid_nombre_vaches_taries && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": "color: #FF0000;\nfont-size: 12px"
     },
@@ -245,7 +245,7 @@
     },
     {
       "name": "valid_nombre_vaches_laitieres",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_vaches_laitieres) && @local.nombre_vaches_laitieres>= 0 ) || @local.nombre_vaches_laitieres == '' || !@local.nombre_vaches_laitieres)",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_vaches_laitieres) && @local.nombre_vaches_laitieres >=0 ) || @local.nombre_vaches_laitieres == ' ' || !!@local.nombre_vaches_laitieres )",
       "exclude_from_translation": true
     },
     {
@@ -259,7 +259,7 @@
     {
       "type": "text",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_vaches_laitieres",
+      "condition": "!@local.valid_nombre_vaches_laitieres && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": "color: #FF0000;\nfont-size: 14px"
     },
@@ -308,7 +308,7 @@
     },
     {
       "name": "valid_nombre_genisses",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_genisses) && @local.nombre_genisses>= 0 ) || @local.nombre_genisses == '' || !@local.nombre_genisses)",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_genisses) && @local.nombre_genisses >=0 ) || @local.nombre_genisses == ' ' || !!@local.nombre_genisses )",
       "exclude_from_translation": true
     },
     {
@@ -322,7 +322,7 @@
     {
       "type": "text",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_genisses",
+      "condition": "!@local.valid_nombre_genisses && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": "color: #FF0000;\nfont-size: 12px"
     },
@@ -371,7 +371,7 @@
     },
     {
       "name": "valid_nombre_veaux",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_veaux) && @local.nombre_veaux>= 0 ) || @local.nombre_veaux == '' || !@local.nombre_veaux)",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_veaux) && @local.nombre_veaux >=0 ) || @local.nombre_veaux == ' ' || !!@local.nombre_veaux )",
       "exclude_from_translation": true
     },
     {
@@ -385,37 +385,30 @@
     {
       "type": "text",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_veaux",
+      "condition": "!@local.valid_nombre_veaux && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": "color: #FF0000;\nfont-size: 12px"
     },
     {
+      "name": "completed_enabled",
+      "value": "@local.valid_nombre_boeuf_labour && @local.valid_nombre_veaux && @local.valid_nombre_taureaux && @local.valid_nombre_vaches_taries && @local.valid_nombre_vaches_laitieres && @local.valid_nombre_genisses"
+    },
+    {
       "name": "total_bovins",
       "value": "@calc(Number(@local.nombre_boeuf_labour) + Number(@local.nombre_veaux)+ Number(@local.nombre_taureaux)+ Number(@local.nombre_vaches_taries) + Number(@local.nombre_vaches_laitieres) +Number(@local.nombre_genisses))",
+      "condition": "@local.completed_enabled",
       "exclude_from_translation": true
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "Nombre total de bovins de l'UPA:",
-      "parameter_list": "style: emphasised;",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "text",
-      "value": "@local.total_bovins bovins ",
-      "parameter_list": "style: emphasised;",
-      "exclude_from_translation": true
+      "type": "html",
+      "value": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\">\nNombre total de bovins de l'UPA:  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n  @local.total_bovins bovins\n  </span>\n</div>",
+      "condition": "@local.total_bovins"
     },
     {
       "type": "end_display_group"
-    },
-    {
-      "name": "completed_enabled",
-      "value": "@calc(@local.valid_nombre_boeuf_labour && @local.valid_nombre_veaux && @local.valid_nombre_taureaux && @local.valid_nombre_vaches_taries && @local.valid_nombre_vaches_laitieres && @local.valid_nombre_genisses)",
-      "style_list": true
     },
     {
       "type": "begin_display_group",
@@ -441,7 +434,7 @@
       "type": "button",
       "name": "button_continue_14",
       "value": "Continuer",
-      "action_list": "click | set_field: nombre_boeuf_labour: @local.nombre_boeuf_labour;\nclick | set_field: nombre_veaux: @local.nombre_veaux;\nclick | set_field: nombre_taureaux: @local.nombre_taureaux;\nclick | set_field: nombre_vaches_taries: @local.nombre_vaches_taries;\nclick | set_field: nombre_vaches_laitieres: @local.nombre_vaches_laitieres;\nclick | set_field: nombre_vaches_laitieres: @local.nombre_vaches_laitieres;\nclick | set_field: attempt_submit: false;\nclick | emit: completed;",
+      "action_list": "click | set_field: nombre_boeuf_labour: @local.nombre_boeuf_labour;\nclick | set_field: nombre_veaux: @local.nombre_veaux;\nclick | set_field: nombre_taureaux: @local.nombre_taureaux;\nclick | set_field: nombre_vaches_taries: @local.nombre_vaches_taries;\nclick | set_field: nombre_vaches_laitieres: @local.nombre_vaches_laitieres;\nclick | set_field: nombre_genisses: @local.nombre_genisses;\nclick | set_field: attempt_submit: false;\nclick | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled;",
       "condition": "@local.completed_enabled",
       "style_list": "flex: 1"

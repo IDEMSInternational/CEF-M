@@ -74,7 +74,7 @@
     {
       "type": "image",
       "value": "images/association.jpg",
-      "style_list": "width: 80%; object-fit: contain;\n\n"
+      "style_list": "width:100px; height:100px; \n\n"
     },
     {
       "type": "radio_button_grid",
@@ -214,8 +214,9 @@
       "type": "button",
       "name": "page11_button_continue",
       "value": "Continuer",
-      "action_list": "click | set_field: @calc('association_parcelle_N' + @fields.num_parcelle) : @fields.association_oui_non;\n        click | set_field: @calc('cult_asso_selected_parcelle_N' + @fields.num_parcelle) : @local.cult_asso_selected;\n        click | set_field: @calc('autre_cult_asso1_parcelle_N' + @fields.num_parcelle) : @fields.autre_cult_asso1;\n        click | set_field: @calc('autre_cult_asso2_parcelle_N' + @fields.num_parcelle) : @fields.autre_cult_asso2;\n        click | emit: completed;",
-      "parameter_list": "disabled: !@local.completed_enabled"
+      "action_list": "click | set_field: @calc('association_parcelle_N' + @fields.num_parcelle) : @fields.association_oui_non;\nclick | set_field: @calc('cult_asso_selected_parcelle_N' + @fields.num_parcelle) : @local.cult_asso_selected;\nclick | set_field: @calc('autre_cult_asso1_parcelle_N' + @fields.num_parcelle) : @fields.autre_cult_asso1;\nclick | set_field: @calc('autre_cult_asso2_parcelle_N' + @fields.num_parcelle) : @fields.autre_cult_asso2; \nclick | emit: completed;",
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "style_list": "flex: 1"
     },
     {
       "type": "end_display_group"

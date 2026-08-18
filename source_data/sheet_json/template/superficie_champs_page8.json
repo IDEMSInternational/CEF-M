@@ -57,13 +57,13 @@
       "type": "begin_display_group"
     },
     {
+      "type": "html",
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Quantité de semence de @fields.cult_princip (en kg) :</label"
+    },
+    {
       "type": "audio",
       "name": "audio_9_2",
       "parameter_list": "variant: button_only; src: audio/Superficie/q_semence_fr.mp3; play_icon_asset: images/icons/audio/Speaker_Icon.svg;"
-    },
-    {
-      "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Quantité de semence de @fields.cult_princip (en kg) :</label"
     },
     {
       "type": "end_display_group"
@@ -71,7 +71,7 @@
     {
       "type": "image",
       "value": "images/kg.jpg",
-      "style_list": "width: 60%; object-fit: contain;"
+      "style_list": "width:100px; height:100px; object-fit:contain; flex-shrink:0;\n"
     },
     {
       "type": "html",
@@ -121,8 +121,9 @@
       "type": "button",
       "name": "page9_button_continue",
       "value": "Continuer",
-      "action_list": "click | set_field: @calc('date_semis_parcelle_N' + @fields.num_parcelle) : @fields.date_semence;\n        click | set_field: @calc('quantite_semence_parcelle_N' + @fields.num_parcelle) : @fields.quantite_semence;\n        click | set_field: attempt_submit_p9: false;\n        click | emit: completed;",
-      "parameter_list": "disabled: !@local.valid_p9"
+      "action_list": "click | set_field: @calc('date_semis_parcelle_N' + @fields.num_parcelle) : @fields.date_semence;\nclick | set_field: @calc('quantite_semence_parcelle_N' + @fields.num_parcelle) : @fields.quantite_semence;\nclick | set_field: attempt_submit_p9: false;\n click | emit: completed;",
+      "parameter_list": "disabled: !@local.valid_p9",
+      "style_list": "flex: 1"
     },
     {
       "type": "end_display_group"

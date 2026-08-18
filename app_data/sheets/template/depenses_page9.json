@@ -365,7 +365,7 @@
     },
     {
       "type": "display_group",
-      "condition": "@local.autre_depense_yesno == \"yes\"",
+      "condition": "@local.autre_depense_yesno == 'yes'",
       "style_list": [
         "width: 100%",
         "display: block"
@@ -689,7 +689,7 @@
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@local.autre_depense_yesno == \"yes\"",
+            "fullExpression": "@local.autre_depense_yesno == 'yes'",
             "matchedExpression": "@local.autre_depense_yesno",
             "type": "local",
             "fieldName": "autre_depense_yesno"

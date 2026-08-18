@@ -3,30 +3,30 @@
 
 | type | count |
 | --- | --- |
-| audio | 334 |
-| button | 211 |
+| audio | 335 |
+| button | 223 |
 | combo_box | 11 |
-| data_items | 105 |
+| data_items | 106 |
 | date_time_picker | 8 |
 | declare_field_default | 2 |
-| display_group | 705 |
-| html | 444 |
-| image | 351 |
+| display_group | 717 |
+| html | 459 |
+| image | 355 |
 | plh_module_list_item | 10 |
-| radio_button_grid | 27 |
+| radio_button_grid | 29 |
 | radio_list | 26 |
-| round_button | 138 |
-| set_field | 33 |
-| set_variable | 598 |
+| round_button | 139 |
+| set_field | 35 |
+| set_variable | 606 |
 | simple_checkbox | 11 |
 | square_button | 2 |
 | subtitle | 3 |
 | task_progress_bar | 10 |
 | template | 14 |
-| text | 826 |
+| text | 823 |
 | text_area | 10 |
-| text_box | 251 |
-| title | 145 |
+| text_box | 244 |
+| title | 146 |
 | toggle_bar | 1 |
 </details>
 
@@ -35,15 +35,27 @@
 
 | type | count |
 | --- | --- |
-| add_data | 9 |
+| add_data | 10 |
+| align-items | 1 |
 | audio_play | 1 |
+| background | 1 |
+| border | 1 |
+| border-radius | 1 |
+| display | 1 |
 | emit: completed | 138 |
+| emit: completed
+click | 1 |
 | emit: force_reprocess | 3 |
-| emit: uncompleted | 135 |
-| go_to | 41 |
+| emit: uncompleted | 136 |
+| flex-direction | 1 |
+| go_to | 49 |
+| height | 1 |
+| margin-bottom | 1 |
+| overflow | 1 |
 | set_data | 76 |
-| set_field | 705 |
+| set_field | 747 |
 | set_local | 29 |
+| width | 2 |
 </details>
 
 <details open>
@@ -51,8 +63,8 @@
 
 | assets | KB | MB |
 | --- | --- | --- |
-| total | 32205 KB | 32.2 MB |
-| unused | 189144 KB | 189.1 MB |
+| total | 48499 KB | 48.5 MB |
+| unused | 186451 KB | 186.5 MB |
 </details>
 
 <details open>
@@ -542,7 +554,6 @@ Assets that appear in app-data but do not have references within sheets
 | audio/semis/annee_saison_bm.mp3 | 20.6 |
 | audio/semis/annee_saison_fr.mp3 | 23.4 |
 | audio/semis/appreciation_audio_bm.mp3 | 50.4 |
-| audio/semis/appreciation_audio_fr.mp3 | 52.5 |
 | audio/semis/canal_obser_bm.mp3 | 121.7 |
 | audio/semis/cout_chaux_agri_bm.mp3 | 90.9 |
 | audio/semis/cout_cult_semis_bm.mp3 | 219.2 |
@@ -595,7 +606,6 @@ Assets that appear in app-data but do not have references within sheets
 | images/ChatGPT Image 24 avr. 2025, 00_28_43.png | 2344.6 |
 | images/ChatGPT Image 24 avr. 2025, 21_44_33.png | 2223.9 |
 | images/ChatGPT Image 24 avr. 2025, 21_48_06.png | 2421.5 |
-| images/ChatGPT Image 24 avr. 2025, 21_51_40.png | 2536.1 |
 | images/ChatGPT Image 24 avr. 2025, 22_00_29.png | 2590 |
 | images/ChatGPT Image 24 avr. 2025, 22_18_33.png | 1745.1 |
 | images/ChatGPT Image 24 avr. 2025, 23_40_56.png | 2911.5 |
@@ -630,7 +640,6 @@ Assets that appear in app-data but do not have references within sheets
 | images/Complementation_ameliorée.jpg | 54.8 |
 | images/Complementation_faible.jpg | 51.6 |
 | images/Divagation.jpeg | 273.9 |
-| images/Divagation.jpg | 46.8 |
 | images/New Microsoft PowerPoint Presentation.pptx | 5253.1 |
 | images/Stabulation.jpg | 61.6 |
 | images/activity_bg.svg | 13.8 |
@@ -644,7 +653,6 @@ Assets that appear in app-data but do not have references within sheets
 | images/autre_cout.jpg | 12 |
 | images/background_1.jpg | 420 |
 | images/battage.jpg | 3.8 |
-| images/boeufs_labour.jpg | 16.7 |
 | images/branch-with-leaves.avif | 33.9 |
 | images/buttage.jpg | 4 |
 | images/caprins.jpg | 4.7 |
@@ -656,7 +664,6 @@ Assets that appear in app-data but do not have references within sheets
 | images/desherbage.jpg | 4 |
 | images/embouche_bovine.jpg | 18.4 |
 | images/embouche_ovine.jpg | 18.1 |
-| images/fane.jpg | 4.6 |
 | images/farming.png | 16.3 |
 | images/gps_local.jpg | 17.5 |
 | images/green_back.png | 33.9 |
@@ -669,7 +676,7 @@ Assets that appear in app-data but do not have references within sheets
 | images/info_icon.jpg | 8.3 |
 | images/insecticide.jpg | 3 |
 | images/istockphoto.jpg | 14.7 |
-| images/labour.jpg | 23.1 |
+| images/labour.jpg | 4.5 |
 | images/maïs.jpg | 3.2 |
 | images/non.jpg | 8.4 |
 | images/npk.jpg | 4.3 |
@@ -683,7 +690,7 @@ Assets that appear in app-data but do not have references within sheets
 | images/rotation1.jpg | 164.1 |
 | images/saison_paturage.png | 2209.4 |
 | images/sarclage.jpg | 4.7 |
-| images/semence.jpg | 3.6 |
+| images/semence.jpg | 5.1 |
 | images/sup_mais_2.jpg | 4 |
 | images/sup_mil_2.jpg | 9.1 |
 | images/sup_sorgho_2.jpg | 9.1 |
@@ -697,7 +704,6 @@ Assets that appear in app-data but do not have references within sheets
 | images/type_fumure (2).jpg | 88.2 |
 | images/type_sol.jpg | 90.3 |
 | images/uree.jpg | 4.4 |
-| images/vache_laitiere.jpg | 19 |
 | images/welcome_farmer.jpg | 89.6 |
 </details>
 
@@ -708,12 +714,11 @@ Assets that have references within sheets but do not appear in app-data
 
 | path | count |
 | --- | --- |
-| audio/Enrolement/appreciation_audio_fr.mp3 | 7 |
+| audio/Enrolement/appreciation_audio_fr.mp3 | 6 |
 | audio/Enrolement/on_autre_mat_fr.mp3 | 1 |
 | audio/Enrolement/scpc_fr.mp3 | 1 |
 | audio/alimentationHumaine/appreciation_audio_fr.mp3 | 1 |
 | audio/postSemi/autre_cout_recolte_fr.mp3 | 1 |
-| audio/postSemi/autre_cout_semis_fr.mp3 | 1 |
 | audio/postSemi/cult_second_fr.mp3 | 1 |
 | audio/postSemi/cult_second_nom1_fr.mp3 | 1 |
 | audio/postSemi/cult_second_nom2_fr.mp3 | 1 |
@@ -725,7 +730,7 @@ Assets that have references within sheets but do not appear in app-data
 | audio/recolte/Ob_ecrit_recoltes_fr.mp3 | 1 |
 | audio/recolte/Ob_photo_recoltes_fr.mp3 | 1 |
 | audio/recolte/Ob_video_recoltes_fr.mp3 | 1 |
-| audio/semis/autre_cout_semis_fr.mp3 | 1 |
+| audio/semis/autre_cout_semis_fr.mp3 | 2 |
 | audio/semis/cout_battage_fr.mp3 | 1 |
 | audio/semis/cout_buttage_fr.mp3 | 1 |
 | audio/semis/cout_desherbage_fr.mp3 | 1 |
@@ -748,7 +753,6 @@ Assets that have references within sheets but do not appear in app-data
 | audio/semis/tige_laisse_champ_fr.mp3 | 1 |
 | audio/superficie/nbre_parcel_fr.mp3 | 1 |
 | click | audio_play:audio/Enrolement/pompe_fr.mp3 | 1 |
-| images/Fane.jpg | 5 |
 </details>
 
 <details >
@@ -957,6 +961,7 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | audio/recolte/production_residu_fr.mp3 | 216.9 | 1 |
 | audio/recolte/qr_code_fr.mp3 | 165.9 | 1 |
 | audio/semis/Q_fumure_fr.mp3 | 319.7 | 1 |
+| audio/semis/appreciation_audio_fr.mp3 | 52.5 | 1 |
 | audio/semis/canal_obser_fr.mp3 | 98.5 | 1 |
 | audio/semis/cout_chaux_agri_fr.mp3 | 127.7 | 1 |
 | audio/semis/cout_cult_semis_fr.mp3 | 273.2 | 3 |
@@ -964,7 +969,7 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | audio/semis/cout_labour_fr.mp3 | 172.7 | 4 |
 | audio/semis/cout_pnt_fr.mp3 | 156.2 | 2 |
 | audio/semis/cout_semence_fr.mp3 | 140.4 | 5 |
-| audio/semis/cout_tot_semis_fr.mp3 | 260.4 | 1 |
+| audio/semis/cout_tot_semis_fr.mp3 | 260.4 | 2 |
 | audio/semis/cout_transport_fr.mp3 | 316.7 | 3 |
 | audio/semis/nom_autre_cout_fr.mp3 | 40.4 | 1 |
 | audio/semis/note_form_semis_fr.mp3 | 402.4 | 2 |
@@ -978,10 +983,16 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | audio/semis/sup_labour_fr.mp3 | 244.7 | 2 |
 | images/1er_cycle.jpg | 93.8 | 1 |
 | images/2nd_cycle.jpg | 106.1 | 1 |
+| images/Cout de production.png | 1357.8 | 3 |
+| images/Fane.jpg | 18.2 | 1 |
+| images/Fane2.jpg | 18.2 | 5 |
 | images/Fatoumata_pic.png | 1245.9 | 1 |
 | images/Flag_of_Italy.svg.png | 2.9 | 1 |
 | images/Flag_of_Mali.svg | 0.2 | 1 |
-| images/Residus.jpg | 17.6 | 6 |
+| images/Observation.png | 1985.1 | 3 |
+| images/Production.png | 2046.7 | 3 |
+| images/Rendement.png | 2038.3 | 3 |
+| images/Residus.jpg | 17.6 | 7 |
 | images/adolescent.jpg | 22.3 | 1 |
 | images/agri.jpg | 33.3 | 2 |
 | images/ane.jpg | 18.1 | 2 |
@@ -998,25 +1009,29 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/background_app.png | 718.7 | 1 |
 | images/batteuse.jpg | 15.1 | 1 |
 | images/besoin_upa.jpg | 13.5 | 1 |
+| images/besoins  planifiés.png | 1986.7 | 3 |
 | images/bienvenue.png | 1173.8 | 1 |
-| images/bissap.jpg | 5.3 | 4 |
-| images/boeuf_labour.jpg | 14.2 | 2 |
+| images/bissap.jpg | 17.3 | 4 |
+| images/boeuf_labour.jpg | 14.2 | 1 |
+| images/boeufs_labour.jpg | 16.7 | 1 |
 | images/botte.jpg | 5.2 | 1 |
 | images/bottom_image.svg | 6.8 | 1 |
 | images/bovin_embouche.jpg | 235.6 | 1 |
 | images/buttage_cfa.jpg | 15.2 | 1 |
 | images/butter.jpg | 20.1 | 1 |
 | images/canard.jpg | 17.4 | 1 |
+| images/cartes champs.png | 2058.1 | 3 |
 | images/cfa.jpg | 2.6 | 63 |
-| images/cfa_tot.jpg | 2.9 | 22 |
-| images/champ.jpg | 65.5 | 1 |
+| images/cfa_tot.jpg | 2.9 | 23 |
+| images/champ.jpg | 37.4 | 1 |
+| images/characteristics UPA.png | 2012.4 | 3 |
 | images/charrette.jpg | 4.2 | 4 |
 | images/charrue.jpg | 10.6 | 1 |
 | images/chef_travaux.jpg | 3.6 | 1 |
 | images/cheval.jpg | 18.1 | 1 |
 | images/chevre.jpg | 17.8 | 2 |
 | images/commerce.jpg | 18.8 | 1 |
-| images/concentre.jpg | 22 | 5 |
+| images/concentre.jpg | 22 | 6 |
 | images/condiments.jpg | 144.3 | 1 |
 | images/coton.jpg | 3.7 | 4 |
 | images/cultures.jpg | 1982.8 | 2 |
@@ -1037,20 +1052,20 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/first_asset.png | 3.5 | 2 |
 | images/flacon.jpg | 4 | 3 |
 | images/fonio.jpg | 6.1 | 4 |
-| images/fourrage.jpg | 22 | 4 |
+| images/fourrage.jpg | 3.6 | 4 |
 | images/fruits.jpeg | 446 | 1 |
 | images/fumure.jpg | 6.6 | 1 |
 | images/genisse.jpg | 17.8 | 1 |
 | images/grenier.jpg | 250.8 | 1 |
-| images/groupe_a.jpg | 87.4 | 2 |
-| images/groupe_b.jpg | 88.6 | 2 |
+| images/groupe_a.jpg | 322 | 2 |
+| images/groupe_b.jpg | 288.2 | 2 |
 | images/groupe_c.jpg | 477 | 2 |
-| images/groupe_d.jpg | 68.3 | 2 |
+| images/groupe_d.jpg | 272.4 | 2 |
 | images/herbicide_cfa.jpg | 13.4 | 2 |
 | images/herse.jpg | 17.4 | 1 |
 | images/holding.jpg | 14 | 1 |
 | images/homme_adult.jpg | 19 | 1 |
-| images/icons/audio/Speaker_Icon.svg | 0.5 | 335 |
+| images/icons/audio/Speaker_Icon.svg | 0.5 | 336 |
 | images/icons/expand_circle_right.png | 4 | 10 |
 | images/icons/photo-svgrepo-com.svg | 0.8 | 1 |
 | images/icons/screen-recorder-svgrepo-com.svg | 1.3 | 1 |
@@ -1079,7 +1094,7 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/op_cereales.jpg | 30.1 | 3 |
 | images/op_coton.jpg | 29.1 | 4 |
 | images/pas_observ.jpg | 13.7 | 1 |
-| images/patate_douce.jpg | 14.8 | 5 |
+| images/patate_douce.jpg | 4.1 | 5 |
 | images/pente.jpg | 3.1 | 1 |
 | images/photo.jpg | 4.6 | 1 |
 | images/pigeon.jpg | 17.1 | 1 |
@@ -1093,7 +1108,7 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/ratio_travailleur_terre.jpg | 19.8 | 1 |
 | images/reste_ovins.jpg | 15.4 | 1 |
 | images/rice.jpg | 6.1 | 4 |
-| images/riz.jpg | 6.1 | 2 |
+| images/riz.jpg | 19.9 | 2 |
 | images/rotation.jpg | 127.2 | 1 |
 | images/sac.jpg | 3.1 | 25 |
 | images/sac_mais.jpg | 13.9 | 1 |
@@ -1102,7 +1117,7 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/sac_sorgho.jpg | 13.9 | 1 |
 | images/saison_paturage.jpg | 137.4 | 1 |
 | images/sante.jpg | 194.4 | 1 |
-| images/sarclage_cfa.jpg | 17.6 | 1 |
+| images/sarclage_cfa.jpg | 15.9 | 1 |
 | images/seeding.png | 41.2 | 1 |
 | images/semoir.jpg | 21 | 1 |
 | images/sesame.jpg | 5.6 | 4 |
@@ -1124,6 +1139,7 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/superf_fumure.jpg | 17.7 | 1 |
 | images/superf_geoloca.jpg | 4.4 | 1 |
 | images/superf_unit.jpg | 2.9 | 11 |
+| images/superficiescultures.png | 2062 | 3 |
 | images/taureau.jpg | 20 | 1 |
 | images/text.jpg | 3.6 | 1 |
 | images/tourteau.jpg | 17.7 | 2 |
@@ -1134,14 +1150,15 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/type_fumure.jpg | 46.1 | 1 |
 | images/unit_fumure.jpg | 21.1 | 5 |
 | images/universite.jpg | 114.6 | 1 |
-| images/vache_lait.jpg | 17.4 | 2 |
+| images/vache_lait.jpg | 17.4 | 1 |
+| images/vache_laitiere.jpg | 19 | 1 |
 | images/vache_tarie.jpg | 19.7 | 1 |
 | images/veau.jpg | 17.8 | 1 |
 | images/video.jpg | 4.4 | 1 |
 | images/vieille.jpg | 23.5 | 1 |
 | images/vieux.jpg | 17.4 | 1 |
-| images/vocal.jpg | 4.2 | 11 |
-| images/wouandzou.jpg | 5.4 | 4 |
+| images/vocal.jpg | 4.2 | 10 |
+| images/wouandzou.jpg | 22.6 | 4 |
 </details>
 
 <details >
@@ -1149,7 +1166,7 @@ Assets that are used within sheets and also can be found in the synced asset dat
 
 | type | subtype | total |
 | --- | --- | --- |
-| data_list |  | 62 |
+| data_list |  | 65 |
 | global |  | 11 |
-| template |  | 171 |
+| template |  | 175 |
 </details>

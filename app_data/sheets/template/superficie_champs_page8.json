@@ -286,23 +286,13 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "audio",
-          "name": "audio_9_2",
-          "parameter_list": {
-            "variant": "button_only",
-            "src": "audio/Superficie/q_semence_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "_nested_name": "display_group_11.audio_9_2"
-        },
-        {
           "type": "html",
           "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Quantité de semence de @fields.cult_princip (en kg) :</label",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "display_group_11.html_2",
+          "name": "html_1",
+          "_nested_name": "display_group_11.html_1",
           "_dynamicFields": {
             "value": [
               {
@@ -318,6 +308,16 @@
               "value"
             ]
           }
+        },
+        {
+          "type": "audio",
+          "name": "audio_9_2",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Superficie/q_semence_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "_nested_name": "display_group_11.audio_9_2"
         }
       ],
       "name": "display_group_11",
@@ -330,8 +330,10 @@
         "value": {}
       },
       "style_list": [
-        "width: 60%",
-        "object-fit: contain"
+        "width:100px",
+        "height:100px",
+        "object-fit:contain",
+        "flex-shrink:0"
       ],
       "name": "image_13",
       "_nested_name": "image_13"
@@ -590,6 +592,9 @@
           "parameter_list": {
             "disabled": "!@local.valid_p9"
           },
+          "style_list": [
+            "flex: 1"
+          ],
           "_nested_name": "display_group_19.page9_button_continue",
           "_dynamicFields": {
             "action_list": {
