@@ -56,7 +56,7 @@
     },
     {
       "name": "valid_nombre_anes",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_anes) && @local.nombre_anes>= 0 ) || @local.nombre_anes == '' || !@local.nombre_anes)",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_anes) && @local.nombre_anes >=0 ) || @local.nombre_anes == ' ' || !!@local.nombre_anes )",
       "exclude_from_translation": true
     },
     {
@@ -70,7 +70,7 @@
     {
       "type": "text",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_anes",
+      "condition": "!@local.valid_nombre_anes && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": "color: #FF0000;\nfont-size: 12px"
     },
@@ -119,7 +119,7 @@
     },
     {
       "name": "valid_nombre_chevaux",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_chevaux) && @local.nombre_chevaux>= 0 ) || @local.nombre_chevaux == '' || !@local.nombre_chevaux)",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_chevaux) && @local.nombre_chevaux >=0 ) || @local.nombre_chevaux == ' ' || !!@local.nombre_chevaux )",
       "exclude_from_translation": true
     },
     {
@@ -133,7 +133,7 @@
     {
       "type": "text",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_chevaux",
+      "condition": "!@local.valid_nombre_chevaux && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": "color: #FF0000;\nfont-size: 12px"
     },
@@ -182,7 +182,7 @@
     },
     {
       "name": "valid_nombre_moutons",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_moutons) && @local.nombre_moutons>= 0 ) || @local.nombre_moutons == '' || !@local.nombre_moutons)",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_moutons) && @local.nombre_moutons >=0 ) || @local.nombre_moutons == ' ' || !!@local.nombre_moutons )",
       "exclude_from_translation": true
     },
     {
@@ -196,7 +196,7 @@
     {
       "type": "text",
       "value": "@global.error_number_min_0 ",
-      "condition": "!@local.valid_nombre_moutons",
+      "condition": "!@local.valid_nombre_moutons && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": "color: #FF0000;\nfont-size: 12px"
     },
@@ -245,7 +245,7 @@
     },
     {
       "name": "valid_nombre_chevres",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_chevres) && @local.nombre_chevres>= 0 ) || @local.nombre_chevres == '' || !@local.nombre_chevres)",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_chevres) && @local.nombre_chevres >=0 ) || @local.nombre_chevres == ' ' || !!@local.nombre_chevres )",
       "exclude_from_translation": true
     },
     {
@@ -259,7 +259,7 @@
     {
       "type": "text",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_chevres",
+      "condition": "!@local.valid_nombre_chevres && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": "color: #FF0000;\nfont-size: 12px"
     },
@@ -294,7 +294,7 @@
     {
       "type": "text_box",
       "name": "nombre_porcs",
-      "value": "@fields.nombre_genisses",
+      "value": "@fields.nombre_porcs",
       "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
       "condition": "!!@field.nombre_porcs",
       "exclude_from_translation": true
@@ -308,7 +308,7 @@
     },
     {
       "name": "valid_nombre_porcs",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_porcs) && @local.nombre_porcs>= 0) || @local.nombre_porcs == '' || !@local.nombre_porcs)",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_porcs) && @local.nombre_porcs >=0 ) || @local.nombre_porcs == ' ' || !!@local.nombre_porcs )",
       "exclude_from_translation": true
     },
     {
@@ -322,7 +322,7 @@
     {
       "type": "text",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_porcs",
+      "condition": "!@local.valid_nombre_porcs && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": "color: #FF0000;\nfont-size: 12px"
     },

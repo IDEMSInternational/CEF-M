@@ -98,7 +98,7 @@
         }
       ],
       "parameter_list": {
-        "type": "year",
+        "type": "date",
         "min": "2023",
         "max": "@calc(now())"
       },
@@ -252,151 +252,8 @@
       }
     },
     {
-      "type": "text",
-      "value": "**@global.num_upa**",
-      "_translations": {
-        "value": {}
-      },
-      "name": "text_11",
-      "_nested_name": "text_11",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "**@global.num_upa**",
-            "matchedExpression": "@global.num_upa",
-            "type": "global",
-            "fieldName": "num_upa"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.num_upa": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "text_box",
-      "name": "numero_tel_UPA",
-      "value": "@fields.numero_tel_UPA",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "numero_tel_UPA",
-            "this.value"
-          ],
-          "_raw": "changed | set_field: numero_tel_UPA: this.value"
-        }
-      ],
-      "parameter_list": {
-        "number_input": "true",
-        "placeholder": "Entrez le numero de telephone"
-      },
-      "_nested_name": "numero_tel_UPA",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@fields.numero_tel_UPA",
-            "matchedExpression": "@fields.numero_tel_UPA",
-            "type": "fields",
-            "fieldName": "numero_tel_UPA"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.numero_tel_UPA": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "valid_numero_upa",
-      "value": "@calc(/^[1-9][0-9]{7}$/.test(@local.numero_tel_UPA)|| @local.numero_tel_UPA == '')",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "valid_numero_upa",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(/^[1-9][0-9]{7}$/.test(@local.numero_tel_UPA)|| @local.numero_tel_UPA == '')",
-            "matchedExpression": "@local.numero_tel_UPA",
-            "type": "local",
-            "fieldName": "numero_tel_UPA"
-          },
-          {
-            "fullExpression": "@calc(/^[1-9][0-9]{7}$/.test(@local.numero_tel_UPA)|| @local.numero_tel_UPA == '')",
-            "matchedExpression": "@local.numero_tel_UPA",
-            "type": "local",
-            "fieldName": "numero_tel_UPA"
-          },
-          {
-            "fullExpression": "@calc(/^[1-9][0-9]{7}$/.test(@local.numero_tel_UPA)|| @local.numero_tel_UPA == '')",
-            "matchedExpression": "@calc(/^[1-9][0-9]{7}$/.test(@local.numero_tel_UPA)|| @local.numero_tel_UPA == '')",
-            "type": "calc",
-            "fieldName": "/^[1-9][0-9]{7}$/.test(@local.numero_tel_UPA)|| @local.numero_tel_UPA == ''"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.numero_tel_UPA": [
-          "value",
-          "value"
-        ],
-        "@calc(/^[1-9][0-9]{7}$/.test(@local.numero_tel_UPA)|| @local.numero_tel_UPA == '')": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "html",
-      "name": "error_num_phone",
-      "value": "<p style=\"color: red;\"> @global.numero_error </p>",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "!@local.valid_numero_upa",
-      "style_list": [
-        "color: red",
-        "font-size: 16px"
-      ],
-      "_nested_name": "error_num_phone",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<p style=\"color: red;\"> @global.numero_error </p>",
-            "matchedExpression": "@global.numero_error",
-            "type": "global",
-            "fieldName": "numero_error"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "!@local.valid_numero_upa",
-            "matchedExpression": "!@local.valid_numero_upa",
-            "type": "local",
-            "fieldName": "valid_numero_upa"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.numero_error": [
-          "value"
-        ],
-        "!@local.valid_numero_upa": [
-          "condition"
-        ]
-      }
-    },
-    {
       "name": "completed_enabled",
-      "value": "@local.v_year_ok && @local.valid_numero_upa",
+      "value": "@local.v_year_ok",
       "_translations": {
         "value": {}
       },
@@ -405,24 +262,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@local.v_year_ok && @local.valid_numero_upa",
+            "fullExpression": "@local.v_year_ok",
             "matchedExpression": "@local.v_year_ok",
             "type": "local",
             "fieldName": "v_year_ok"
-          },
-          {
-            "fullExpression": "@local.v_year_ok && @local.valid_numero_upa",
-            "matchedExpression": "@local.valid_numero_upa",
-            "type": "local",
-            "fieldName": "valid_numero_upa"
           }
         ]
       },
       "_dynamicDependencies": {
         "@local.v_year_ok": [
-          "value"
-        ],
-        "@local.valid_numero_upa": [
           "value"
         ]
       }

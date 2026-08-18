@@ -5,70 +5,67 @@
   "rows": [
     {
       "type": "title",
-      "value": "GESTION DES RÉSIDUS DE CULTURE"
+      "value": "**Culture précédente dans la parcelle N⁰@fields.num_parcelle lors de la saison passée du champ @fields.nom_champ** "
     },
     {
-      "name": "attempt_submit",
-      "value": "@fields.attempt_submit"
+      "type": "begin_display_group"
     },
     {
-      "name": "v_nom_cult_prev",
-      "value": "@calc(@fields.culture_prev == '999' ? @fields.autre_culture_prev : @fields.culture_prev)"
-    },
-    {
-      "name": "valid_tige",
-      "value": "@calc(!!@fields.tige_laisse_champ && @fields.tige_laisse_champ !== \"\")"
-    },
-    {
-      "name": "completed_enabled",
-      "value": "@local.valid_tige"
-    },
-    {
-      "type": "begin_display_group",
-      "name": "grp_header"
-    },
-    {
-      "type": "html",
-      "value": "<h3 style=\"color: #1e3656; margin: 0; font-size: 16px; text-transform: uppercase;\">Gestion des résidus de la culture précédente</h3>"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "begin_display_group",
-      "name": "grp_question"
-    },
-    {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span> Indiquez si les tiges de <b>@local.v_nom_cult_prev</b> sont restées et retournées dans le sol de la parcelle N⁰@field.numero_parcelle"
+      "type": "text",
+      "value": "@global.culture_preced_hint"
     },
     {
       "type": "audio",
-      "parameter_list": "variant: button_only; src: audio/semis/tige_laisse_champ_fr.mp3; play_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "style_list": "float: right;"
+      "name": "audio_6_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/cult_preced_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "radio_button_grid",
-      "name": "tige_laisse_champ",
-      "value": "@fields.tige_laisse_champ",
-      "action_list": "changed | set_field: tige_laisse_champ: this.value;",
-      "parameter_list": "answer_list: @data.yes_no; variant: flex; item_width: 100px; grid_gap: 15px; style: secondary;"
-    },
-    {
-      "type": "begin_display_group",
-      "hidden": "@fields.attempt_submit && !@local.valid_tige",
-      "style_list": "display: block; width: 100%; margin-top: 15px; padding: 8px; background: #fff5f5; border-radius: 6px;"
+      "name": "culture_prev",
+      "value": "@fields.culture_prev",
+      "action_list": "changed | set_field: culture_prev: this.value;",
+      "parameter_list": "answer_list: @data.cult_princip;\nitem_width: 80px;\ngrid_width: 150%;\ngrid_gap: 10px;\nvariant: circle-icon;"
     },
     {
       "type": "html",
-      "value": "<span style=\"color: red; font-weight: bold;\">Réponse obligatoire !</span>",
-      "style_list": "width:100px; height:100px; "
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@fields.culture_prev"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.culture_prev == 'autre'"
+    },
+    {
+      "type": "text",
+      "value": "@global.autre_message"
+    },
+    {
+      "type": "audio",
+      "name": "audio_6_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/autre_cult_nom1_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
     },
     {
       "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "autre_culture_prev",
+      "value": "@fields.autre_culture_prev",
+      "action_list": "changed | set_field: autre_culture_prev : this.value;",
+      "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom de la culture",
+      "condition": "@fields.culture_prev == 'autre'",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@fields.culture_prev ",
+      "style_list": true
     },
     {
       "type": "begin_display_group",
@@ -78,16 +75,17 @@
     },
     {
       "type": "round_button",
-      "name": "page5_button_back",
+      "name": "page6_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page5_button_continue",
+      "name": "page6_button_continue",
       "value": "Continuer",
-      "action_list": "click | set_field: @calc('tige_laisse_champ_parcelle_N' + @fields.numero_parcelle) : @fields.tige_laisse_champ;\n\nclick | set_field: attempt_submit: false;\n\nclick | emit: completed;",
-      "parameter_list": "disabled: !@local.completed_enabled"
+      "action_list": "click | set_field: @calc('culture_prev_parcelle_N' + @fields.num_parcelle) : @fields.culture_prev;\nclick | set_field: @calc('autre_culture_prev_parcelle_N' + @fields.num_parcelle) : @fields.autre_culture_prev;\nclick | emit: completed;",
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "style_list": "flex: 1"
     },
     {
       "type": "end_display_group"

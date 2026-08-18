@@ -270,7 +270,7 @@
     },
     {
       "name": "v_fem",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_femmes) && Number(@local.nombre_femmes) >= 0 && Number(@local.nombre_femmes) <= 25) || !@local.nombre_femmes)",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_femmes) && Number(@local.nombre_femmes) >= 0) || !@local.nombre_femmes)",
       "exclude_from_translation": true
     },
     {

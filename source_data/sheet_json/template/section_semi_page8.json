@@ -81,7 +81,7 @@
     {
       "type": "image",
       "value": "images/superf_unit.jpg",
-      "style_list": "width: 80%; object-fit: contain;"
+      "style_list": "width:100px; height:100px;"
     },
     {
       "type": "end_display_group"
@@ -125,7 +125,7 @@
     {
       "type": "image",
       "value": "images/cfa.jpg",
-      "style_list": "width: 80px; object-fit: contain;"
+      "style_list": "width:100px; height:100px;"
     },
     {
       "type": "text_box",
@@ -166,7 +166,7 @@
     {
       "type": "image",
       "value": "images/cfa.jpg",
-      "style_list": "width: 80px; object-fit: contain;"
+      "style_list": "width:100px; height:100px;"
     },
     {
       "type": "text_box",
@@ -213,7 +213,7 @@
       "name": "button_completed",
       "value": "@global.btn_continue",
       "action_list": "click | set_field: cout_superficie_labouree : @local.v_final_lab;\n\nclick | emit: completed;",
-      "parameter_list": "style: navigation;\n\ndisabled: !@local.v_page6_valid",
+      "parameter_list": "disabled: !@local.v_page6_valid",
       "style_list": "flex: 1"
     },
     {

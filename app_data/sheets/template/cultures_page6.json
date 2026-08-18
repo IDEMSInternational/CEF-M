@@ -300,7 +300,8 @@
         }
       ],
       "parameter_list": {
-        "number_input": "true"
+        "number_input": "true",
+        "placeholder": "Écrivez le nombre"
       },
       "_nested_name": "quantite_variete",
       "_dynamicFields": {
@@ -321,7 +322,7 @@
     },
     {
       "name": "valid_quantite_variete",
-      "value": "@calc(!!@fields.quantite_variete && @fields.quantite_variete != \"\" && @fields.quantite_variete >= 0)",
+      "value": "@calc(!!@fields.quantite_variete && @fields.quantite_variete != ' ' && @fields.quantite_variete >= 0)",
       "_translations": {
         "value": {}
       },
@@ -330,28 +331,28 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(!!@fields.quantite_variete && @fields.quantite_variete != \"\" && @fields.quantite_variete >= 0)",
+            "fullExpression": "@calc(!!@fields.quantite_variete && @fields.quantite_variete != ' ' && @fields.quantite_variete >= 0)",
             "matchedExpression": "!@fields.quantite_variete",
             "type": "fields",
             "fieldName": "quantite_variete"
           },
           {
-            "fullExpression": "@calc(!!@fields.quantite_variete && @fields.quantite_variete != \"\" && @fields.quantite_variete >= 0)",
+            "fullExpression": "@calc(!!@fields.quantite_variete && @fields.quantite_variete != ' ' && @fields.quantite_variete >= 0)",
             "matchedExpression": "@fields.quantite_variete",
             "type": "fields",
             "fieldName": "quantite_variete"
           },
           {
-            "fullExpression": "@calc(!!@fields.quantite_variete && @fields.quantite_variete != \"\" && @fields.quantite_variete >= 0)",
+            "fullExpression": "@calc(!!@fields.quantite_variete && @fields.quantite_variete != ' ' && @fields.quantite_variete >= 0)",
             "matchedExpression": "@fields.quantite_variete",
             "type": "fields",
             "fieldName": "quantite_variete"
           },
           {
-            "fullExpression": "@calc(!!@fields.quantite_variete && @fields.quantite_variete != \"\" && @fields.quantite_variete >= 0)",
-            "matchedExpression": "@calc(!!@fields.quantite_variete && @fields.quantite_variete != \"\" && @fields.quantite_variete >= 0)",
+            "fullExpression": "@calc(!!@fields.quantite_variete && @fields.quantite_variete != ' ' && @fields.quantite_variete >= 0)",
+            "matchedExpression": "@calc(!!@fields.quantite_variete && @fields.quantite_variete != ' ' && @fields.quantite_variete >= 0)",
             "type": "calc",
-            "fieldName": "!!@fields.quantite_variete && @fields.quantite_variete != \"\" && @fields.quantite_variete >= 0"
+            "fieldName": "!!@fields.quantite_variete && @fields.quantite_variete != ' ' && @fields.quantite_variete >= 0"
           }
         ]
       },
@@ -363,7 +364,7 @@
           "value",
           "value"
         ],
-        "@calc(!!@fields.quantite_variete && @fields.quantite_variete != \"\" && @fields.quantite_variete >= 0)": [
+        "@calc(!!@fields.quantite_variete && @fields.quantite_variete != ' ' && @fields.quantite_variete >= 0)": [
           "value"
         ]
       }
@@ -513,6 +514,57 @@
       }
     },
     {
+      "type": "text",
+      "value": "@global.error_required_answer",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.attempt_submit && !@fields.variete_approvisionnement",
+      "style_list": [
+        "color: red",
+        "font-size: 16px",
+        "background: #fff5f5",
+        "padding: 5px"
+      ],
+      "name": "text_17",
+      "_nested_name": "text_17",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit && !@fields.variete_approvisionnement",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit && !@fields.variete_approvisionnement",
+            "matchedExpression": "!@fields.variete_approvisionnement",
+            "type": "fields",
+            "fieldName": "variete_approvisionnement"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "!@fields.variete_approvisionnement": [
+          "condition"
+        ]
+      }
+    },
+    {
       "type": "display_group",
       "parameter_list": {
         "style": "column"
@@ -526,7 +578,7 @@
             "value": {}
           },
           "name": "text_1",
-          "_nested_name": "display_group_17.text_1",
+          "_nested_name": "display_group_18.text_1",
           "_dynamicFields": {
             "value": [
               {
@@ -554,7 +606,7 @@
             "object-fit: contain"
           ],
           "name": "image_2",
-          "_nested_name": "display_group_17.image_2"
+          "_nested_name": "display_group_18.image_2"
         },
         {
           "type": "text",
@@ -567,7 +619,7 @@
             "font-size: 16px"
           ],
           "name": "text_3",
-          "_nested_name": "display_group_17.text_3"
+          "_nested_name": "display_group_18.text_3"
         },
         {
           "type": "text_box",
@@ -590,7 +642,7 @@
           "parameter_list": {
             "number_input": "true"
           },
-          "_nested_name": "display_group_17.autre_source_approvision_variete",
+          "_nested_name": "display_group_18.autre_source_approvision_variete",
           "_dynamicFields": {
             "value": [
               {
@@ -608,8 +660,8 @@
           }
         }
       ],
-      "name": "display_group_17",
-      "_nested_name": "display_group_17",
+      "name": "display_group_18",
+      "_nested_name": "display_group_18",
       "_dynamicFields": {
         "condition": [
           {
@@ -628,7 +680,7 @@
     },
     {
       "name": "valid_cout_prevu_variete",
-      "value": "@calc(!!@fields.cout_prevu_variete && @fields.cout_prevu_variete != \"\" && @fields.cout_prevu_variete >= 0)",
+      "value": "@calc(!!@fields.cout_prevu_variete && @fields.cout_prevu_variete != ' ' && @fields.cout_prevu_variete >= 0)",
       "_translations": {
         "value": {}
       },
@@ -637,28 +689,28 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(!!@fields.cout_prevu_variete && @fields.cout_prevu_variete != \"\" && @fields.cout_prevu_variete >= 0)",
+            "fullExpression": "@calc(!!@fields.cout_prevu_variete && @fields.cout_prevu_variete != ' ' && @fields.cout_prevu_variete >= 0)",
             "matchedExpression": "!@fields.cout_prevu_variete",
             "type": "fields",
             "fieldName": "cout_prevu_variete"
           },
           {
-            "fullExpression": "@calc(!!@fields.cout_prevu_variete && @fields.cout_prevu_variete != \"\" && @fields.cout_prevu_variete >= 0)",
+            "fullExpression": "@calc(!!@fields.cout_prevu_variete && @fields.cout_prevu_variete != ' ' && @fields.cout_prevu_variete >= 0)",
             "matchedExpression": "@fields.cout_prevu_variete",
             "type": "fields",
             "fieldName": "cout_prevu_variete"
           },
           {
-            "fullExpression": "@calc(!!@fields.cout_prevu_variete && @fields.cout_prevu_variete != \"\" && @fields.cout_prevu_variete >= 0)",
+            "fullExpression": "@calc(!!@fields.cout_prevu_variete && @fields.cout_prevu_variete != ' ' && @fields.cout_prevu_variete >= 0)",
             "matchedExpression": "@fields.cout_prevu_variete",
             "type": "fields",
             "fieldName": "cout_prevu_variete"
           },
           {
-            "fullExpression": "@calc(!!@fields.cout_prevu_variete && @fields.cout_prevu_variete != \"\" && @fields.cout_prevu_variete >= 0)",
-            "matchedExpression": "@calc(!!@fields.cout_prevu_variete && @fields.cout_prevu_variete != \"\" && @fields.cout_prevu_variete >= 0)",
+            "fullExpression": "@calc(!!@fields.cout_prevu_variete && @fields.cout_prevu_variete != ' ' && @fields.cout_prevu_variete >= 0)",
+            "matchedExpression": "@calc(!!@fields.cout_prevu_variete && @fields.cout_prevu_variete != ' ' && @fields.cout_prevu_variete >= 0)",
             "type": "calc",
-            "fieldName": "!!@fields.cout_prevu_variete && @fields.cout_prevu_variete != \"\" && @fields.cout_prevu_variete >= 0"
+            "fieldName": "!!@fields.cout_prevu_variete && @fields.cout_prevu_variete != ' ' && @fields.cout_prevu_variete >= 0"
           }
         ]
       },
@@ -670,7 +722,7 @@
           "value",
           "value"
         ],
-        "@calc(!!@fields.cout_prevu_variete && @fields.cout_prevu_variete != \"\" && @fields.cout_prevu_variete >= 0)": [
+        "@calc(!!@fields.cout_prevu_variete && @fields.cout_prevu_variete != ' ' && @fields.cout_prevu_variete >= 0)": [
           "value"
         ]
       }
@@ -687,16 +739,16 @@
           "rows": [
             {
               "type": "text",
-              "value": "**Coût total de la varété @fields.variete_label(drm)**",
+              "value": "**Coût total de la variété @fields.variete_label(drm)**",
               "_translations": {
                 "value": {}
               },
               "name": "text_1",
-              "_nested_name": "display_group_19.display_group_1.text_1",
+              "_nested_name": "display_group_20.display_group_1.text_1",
               "_dynamicFields": {
                 "value": [
                   {
-                    "fullExpression": "**Coût total de la varété @fields.variete_label(drm)**",
+                    "fullExpression": "**Coût total de la variété @fields.variete_label(drm)**",
                     "matchedExpression": "@fields.variete_label",
                     "type": "fields",
                     "fieldName": "variete_label"
@@ -720,11 +772,11 @@
               "style_list": [
                 "float: right"
               ],
-              "_nested_name": "display_group_19.display_group_1.audio_6_2"
+              "_nested_name": "display_group_20.display_group_1.audio_6_2"
             }
           ],
           "name": "display_group_1",
-          "_nested_name": "display_group_19.display_group_1"
+          "_nested_name": "display_group_20.display_group_1"
         },
         {
           "type": "image",
@@ -739,7 +791,7 @@
             "flex-shrink:0"
           ],
           "name": "image_2",
-          "_nested_name": "display_group_19.image_2"
+          "_nested_name": "display_group_20.image_2"
         },
         {
           "type": "text",
@@ -752,7 +804,7 @@
             "font-size: 16px"
           ],
           "name": "text_3",
-          "_nested_name": "display_group_19.text_3"
+          "_nested_name": "display_group_20.text_3"
         },
         {
           "type": "text_box",
@@ -773,9 +825,10 @@
             }
           ],
           "parameter_list": {
-            "number_input": "true"
+            "number_input": "true",
+            "placeholder": "Écrivez le nombre"
           },
-          "_nested_name": "display_group_19.cout_prevu_variete",
+          "_nested_name": "display_group_20.cout_prevu_variete",
           "_dynamicFields": {
             "value": [
               {
@@ -806,7 +859,7 @@
             "padding: 5px"
           ],
           "name": "text_6",
-          "_nested_name": "display_group_19.text_6",
+          "_nested_name": "display_group_20.text_6",
           "_dynamicFields": {
             "value": [
               {
@@ -844,8 +897,8 @@
           }
         }
       ],
-      "name": "display_group_19",
-      "_nested_name": "display_group_19",
+      "name": "display_group_20",
+      "_nested_name": "display_group_20",
       "_dynamicFields": {
         "condition": [
           {
@@ -922,7 +975,7 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_22.page_6_btn_back"
+          "_nested_name": "display_group_23.page_6_btn_back"
         },
         {
           "type": "button",
@@ -946,7 +999,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_22.page_6_btn_attempt_submit",
+          "_nested_name": "display_group_23.page_6_btn_attempt_submit",
           "_dynamicFields": {
             "value": [
               {
@@ -1034,7 +1087,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_22.page_6_btn_continue",
+          "_nested_name": "display_group_23.page_6_btn_continue",
           "_dynamicFields": {
             "action_list": {
               "0": {
@@ -1211,8 +1264,8 @@
           }
         }
       ],
-      "name": "display_group_22",
-      "_nested_name": "display_group_22"
+      "name": "display_group_23",
+      "_nested_name": "display_group_23"
     }
   ],
   "_source": {

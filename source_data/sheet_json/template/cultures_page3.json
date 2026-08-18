@@ -65,11 +65,11 @@
       "name": "superficie_ha_prevue",
       "value": "@fields.superficie_ha_prevue",
       "action_list": "changed | set_field : superficie_ha_prevue: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez la superficie;"
     },
     {
       "name": "valid_superficie_ha_prevue",
-      "value": "@calc(!!@fields.superficie_ha_prevue && @fields.superficie_ha_prevue != \"\" && @fields.superficie_ha_prevue > 0)"
+      "value": "@calc(!!@fields.superficie_ha_prevue && @fields.superficie_ha_prevue != ' ' && @fields.superficie_ha_prevue > 0)"
     },
     {
       "type": "text",
@@ -108,11 +108,11 @@
       "name": "superficie_prevue_labour",
       "value": "@fields.superficie_prevue_labour",
       "action_list": "changed | set_field : superficie_prevue_labour: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez la superficie;"
     },
     {
       "name": "valid_superficie_prevue_labour",
-      "value": "@calc(!!@fields.superficie_prevue_labour && @fields.superficie_prevue_labour != \"\" && @fields.superficie_prevue_labour >= 0)"
+      "value": "@calc(!!@fields.superficie_prevue_labour && @fields.superficie_prevue_labour != ' ' && @fields.superficie_prevue_labour >= 0)"
     },
     {
       "type": "text",
@@ -156,7 +156,7 @@
       "name": "cout_prevu_superficie_labour_zero",
       "value": "@calc(Number(0))",
       "action_list": "changed | set_field : cout_prevu_superficie_labour_zero: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "type": "end_display_group"
@@ -197,11 +197,11 @@
       "name": "cout_prevu_superficie_labour_nonzero",
       "value": "@fields.cout_prevu_superficie_labour_nonzero",
       "action_list": "changed | set_field : cout_prevu_superficie_labour_nonzero: this.value;\n",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "name": "valid_cout_prevu_superficie_labour_nonzero",
-      "value": "@calc(!@fields.cout_prevu_superficie_labour_nonzero || @fields.cout_prevu_superficie_labour_nonzero != \"\" || @fields.cout_prevu_superficie_labour_nonzero >= 0)"
+      "value": "@calc(!!@fields.cout_prevu_superficie_labour_nonzero && @fields.cout_prevu_superficie_labour_nonzero != ' ' && @fields.cout_prevu_superficie_labour_nonzero >= 0)"
     },
     {
       "type": "text",
@@ -214,7 +214,7 @@
     },
     {
       "name": "completed_enabled",
-      "value": "@local.valid_superficie_ha_prevue && @local.valid_superficie_prevue_labour"
+      "value": "@local.valid_superficie_ha_prevue && @local.valid_superficie_prevue_labour && @local.valid_cout_prevu_superficie_labour_nonzero"
     },
     {
       "name": "cout_prevue_superficie_labour",

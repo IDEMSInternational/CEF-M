@@ -298,7 +298,8 @@
         }
       ],
       "parameter_list": {
-        "number_input": "true"
+        "number_input": "true",
+        "placeholder": "Écrivez le nombre"
       },
       "_nested_name": "cout_prevu_total_prestation_recolte",
       "_dynamicFields": {
@@ -319,7 +320,7 @@
     },
     {
       "name": "valid_cout_prevu_total_prestation_recolte",
-      "value": "@calc(!!@fields.cout_prevu_total_prestation_recolte && @fields.cout_prevu_total_prestation_recolte != \"\" && @fields.cout_prevu_total_prestation_recolte >= 0)",
+      "value": "@calc(!!@fields.cout_prevu_total_prestation_recolte && @fields.cout_prevu_total_prestation_recolte != ' ' && @fields.cout_prevu_total_prestation_recolte >= 0)",
       "_translations": {
         "value": {}
       },
@@ -328,28 +329,28 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(!!@fields.cout_prevu_total_prestation_recolte && @fields.cout_prevu_total_prestation_recolte != \"\" && @fields.cout_prevu_total_prestation_recolte >= 0)",
+            "fullExpression": "@calc(!!@fields.cout_prevu_total_prestation_recolte && @fields.cout_prevu_total_prestation_recolte != ' ' && @fields.cout_prevu_total_prestation_recolte >= 0)",
             "matchedExpression": "!@fields.cout_prevu_total_prestation_recolte",
             "type": "fields",
             "fieldName": "cout_prevu_total_prestation_recolte"
           },
           {
-            "fullExpression": "@calc(!!@fields.cout_prevu_total_prestation_recolte && @fields.cout_prevu_total_prestation_recolte != \"\" && @fields.cout_prevu_total_prestation_recolte >= 0)",
+            "fullExpression": "@calc(!!@fields.cout_prevu_total_prestation_recolte && @fields.cout_prevu_total_prestation_recolte != ' ' && @fields.cout_prevu_total_prestation_recolte >= 0)",
             "matchedExpression": "@fields.cout_prevu_total_prestation_recolte",
             "type": "fields",
             "fieldName": "cout_prevu_total_prestation_recolte"
           },
           {
-            "fullExpression": "@calc(!!@fields.cout_prevu_total_prestation_recolte && @fields.cout_prevu_total_prestation_recolte != \"\" && @fields.cout_prevu_total_prestation_recolte >= 0)",
+            "fullExpression": "@calc(!!@fields.cout_prevu_total_prestation_recolte && @fields.cout_prevu_total_prestation_recolte != ' ' && @fields.cout_prevu_total_prestation_recolte >= 0)",
             "matchedExpression": "@fields.cout_prevu_total_prestation_recolte",
             "type": "fields",
             "fieldName": "cout_prevu_total_prestation_recolte"
           },
           {
-            "fullExpression": "@calc(!!@fields.cout_prevu_total_prestation_recolte && @fields.cout_prevu_total_prestation_recolte != \"\" && @fields.cout_prevu_total_prestation_recolte >= 0)",
-            "matchedExpression": "@calc(!!@fields.cout_prevu_total_prestation_recolte && @fields.cout_prevu_total_prestation_recolte != \"\" && @fields.cout_prevu_total_prestation_recolte >= 0)",
+            "fullExpression": "@calc(!!@fields.cout_prevu_total_prestation_recolte && @fields.cout_prevu_total_prestation_recolte != ' ' && @fields.cout_prevu_total_prestation_recolte >= 0)",
+            "matchedExpression": "@calc(!!@fields.cout_prevu_total_prestation_recolte && @fields.cout_prevu_total_prestation_recolte != ' ' && @fields.cout_prevu_total_prestation_recolte >= 0)",
             "type": "calc",
-            "fieldName": "!!@fields.cout_prevu_total_prestation_recolte && @fields.cout_prevu_total_prestation_recolte != \"\" && @fields.cout_prevu_total_prestation_recolte >= 0"
+            "fieldName": "!!@fields.cout_prevu_total_prestation_recolte && @fields.cout_prevu_total_prestation_recolte != ' ' && @fields.cout_prevu_total_prestation_recolte >= 0"
           }
         ]
       },
@@ -361,7 +362,7 @@
           "value",
           "value"
         ],
-        "@calc(!!@fields.cout_prevu_total_prestation_recolte && @fields.cout_prevu_total_prestation_recolte != \"\" && @fields.cout_prevu_total_prestation_recolte >= 0)": [
+        "@calc(!!@fields.cout_prevu_total_prestation_recolte && @fields.cout_prevu_total_prestation_recolte != ' ' && @fields.cout_prevu_total_prestation_recolte >= 0)": [
           "value"
         ]
       }
@@ -493,7 +494,8 @@
         }
       ],
       "parameter_list": {
-        "number_input": "true"
+        "number_input": "true",
+        "placeholder": "Écrivez le nombre"
       },
       "_nested_name": "cout_prevu_total_battage",
       "_dynamicFields": {
@@ -514,7 +516,7 @@
     },
     {
       "name": "valid_cout_prevu_total_battage",
-      "value": "@calc(!!@fields.cout_prevu_total_battage && @fields.cout_prevu_total_battage != \"\" && @fields.cout_prevu_total_battage >= 0)",
+      "value": "@calc(!!@fields.cout_prevu_total_battage && @fields.cout_prevu_total_battage != ' ' && @fields.cout_prevu_total_battage >= 0)",
       "_translations": {
         "value": {}
       },
@@ -523,28 +525,28 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(!!@fields.cout_prevu_total_battage && @fields.cout_prevu_total_battage != \"\" && @fields.cout_prevu_total_battage >= 0)",
+            "fullExpression": "@calc(!!@fields.cout_prevu_total_battage && @fields.cout_prevu_total_battage != ' ' && @fields.cout_prevu_total_battage >= 0)",
             "matchedExpression": "!@fields.cout_prevu_total_battage",
             "type": "fields",
             "fieldName": "cout_prevu_total_battage"
           },
           {
-            "fullExpression": "@calc(!!@fields.cout_prevu_total_battage && @fields.cout_prevu_total_battage != \"\" && @fields.cout_prevu_total_battage >= 0)",
+            "fullExpression": "@calc(!!@fields.cout_prevu_total_battage && @fields.cout_prevu_total_battage != ' ' && @fields.cout_prevu_total_battage >= 0)",
             "matchedExpression": "@fields.cout_prevu_total_battage",
             "type": "fields",
             "fieldName": "cout_prevu_total_battage"
           },
           {
-            "fullExpression": "@calc(!!@fields.cout_prevu_total_battage && @fields.cout_prevu_total_battage != \"\" && @fields.cout_prevu_total_battage >= 0)",
+            "fullExpression": "@calc(!!@fields.cout_prevu_total_battage && @fields.cout_prevu_total_battage != ' ' && @fields.cout_prevu_total_battage >= 0)",
             "matchedExpression": "@fields.cout_prevu_total_battage",
             "type": "fields",
             "fieldName": "cout_prevu_total_battage"
           },
           {
-            "fullExpression": "@calc(!!@fields.cout_prevu_total_battage && @fields.cout_prevu_total_battage != \"\" && @fields.cout_prevu_total_battage >= 0)",
-            "matchedExpression": "@calc(!!@fields.cout_prevu_total_battage && @fields.cout_prevu_total_battage != \"\" && @fields.cout_prevu_total_battage >= 0)",
+            "fullExpression": "@calc(!!@fields.cout_prevu_total_battage && @fields.cout_prevu_total_battage != ' ' && @fields.cout_prevu_total_battage >= 0)",
+            "matchedExpression": "@calc(!!@fields.cout_prevu_total_battage && @fields.cout_prevu_total_battage != ' ' && @fields.cout_prevu_total_battage >= 0)",
             "type": "calc",
-            "fieldName": "!!@fields.cout_prevu_total_battage && @fields.cout_prevu_total_battage != \"\" && @fields.cout_prevu_total_battage >= 0"
+            "fieldName": "!!@fields.cout_prevu_total_battage && @fields.cout_prevu_total_battage != ' ' && @fields.cout_prevu_total_battage >= 0"
           }
         ]
       },
@@ -556,7 +558,7 @@
           "value",
           "value"
         ],
-        "@calc(!!@fields.cout_prevu_total_battage && @fields.cout_prevu_total_battage != \"\" && @fields.cout_prevu_total_battage >= 0)": [
+        "@calc(!!@fields.cout_prevu_total_battage && @fields.cout_prevu_total_battage != ' ' && @fields.cout_prevu_total_battage >= 0)": [
           "value"
         ]
       }
@@ -699,7 +701,8 @@
         }
       ],
       "parameter_list": {
-        "number_input": "true"
+        "number_input": "true",
+        "placeholder": "Écrivez le nombre"
       },
       "_nested_name": "production_prevue",
       "_dynamicFields": {
@@ -720,7 +723,7 @@
     },
     {
       "name": "valid_production_prevue",
-      "value": "@calc(!!@fields.production_prevue && @fields.production_prevue != \"\" && @fields.production_prevue >= 0)",
+      "value": "@calc(!!@fields.production_prevue && @fields.production_prevue != ' ' && @fields.production_prevue >= 0)",
       "_translations": {
         "value": {}
       },
@@ -729,28 +732,28 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(!!@fields.production_prevue && @fields.production_prevue != \"\" && @fields.production_prevue >= 0)",
+            "fullExpression": "@calc(!!@fields.production_prevue && @fields.production_prevue != ' ' && @fields.production_prevue >= 0)",
             "matchedExpression": "!@fields.production_prevue",
             "type": "fields",
             "fieldName": "production_prevue"
           },
           {
-            "fullExpression": "@calc(!!@fields.production_prevue && @fields.production_prevue != \"\" && @fields.production_prevue >= 0)",
+            "fullExpression": "@calc(!!@fields.production_prevue && @fields.production_prevue != ' ' && @fields.production_prevue >= 0)",
             "matchedExpression": "@fields.production_prevue",
             "type": "fields",
             "fieldName": "production_prevue"
           },
           {
-            "fullExpression": "@calc(!!@fields.production_prevue && @fields.production_prevue != \"\" && @fields.production_prevue >= 0)",
+            "fullExpression": "@calc(!!@fields.production_prevue && @fields.production_prevue != ' ' && @fields.production_prevue >= 0)",
             "matchedExpression": "@fields.production_prevue",
             "type": "fields",
             "fieldName": "production_prevue"
           },
           {
-            "fullExpression": "@calc(!!@fields.production_prevue && @fields.production_prevue != \"\" && @fields.production_prevue >= 0)",
-            "matchedExpression": "@calc(!!@fields.production_prevue && @fields.production_prevue != \"\" && @fields.production_prevue >= 0)",
+            "fullExpression": "@calc(!!@fields.production_prevue && @fields.production_prevue != ' ' && @fields.production_prevue >= 0)",
+            "matchedExpression": "@calc(!!@fields.production_prevue && @fields.production_prevue != ' ' && @fields.production_prevue >= 0)",
             "type": "calc",
-            "fieldName": "!!@fields.production_prevue && @fields.production_prevue != \"\" && @fields.production_prevue >= 0"
+            "fieldName": "!!@fields.production_prevue && @fields.production_prevue != ' ' && @fields.production_prevue >= 0"
           }
         ]
       },
@@ -762,7 +765,7 @@
           "value",
           "value"
         ],
-        "@calc(!!@fields.production_prevue && @fields.production_prevue != \"\" && @fields.production_prevue >= 0)": [
+        "@calc(!!@fields.production_prevue && @fields.production_prevue != ' ' && @fields.production_prevue >= 0)": [
           "value"
         ]
       }

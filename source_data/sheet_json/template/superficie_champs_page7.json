@@ -92,7 +92,7 @@
     },
     {
       "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez le type de la variété <b>@local.nom_variete</b> :</label>"
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez le type de la variété <b>@local.variete_semence</b> :</label>"
     },
     {
       "type": "audio",
@@ -117,8 +117,12 @@
     },
     {
       "type": "begin_display_group",
+      "parameter_list": "style:column",
       "condition": "@fields.type_variete_culture",
       "style_list": "display: block; width: 100%; margin-top: 15px;"
+    },
+    {
+      "type": "begin_display_group"
     },
     {
       "type": "html",
@@ -144,6 +148,9 @@
       "type": "html",
       "value": "<span style=\"color: red; font-size: 13px;\">Sélection obligatoire !</span>",
       "condition": "@fields.attempt_submit_p8 && !@fields.source_semence_culture"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "begin_display_group",
@@ -191,7 +198,8 @@
       "name": "page8_button_continue",
       "value": "Continuer",
       "action_list": "click | set_field: @calc('variete_semence_P' + @fields.num_parcelle) : @fields.variete_semence;\n        click | set_field: @calc('nom_variete_P' + @fields.num_parcelle) : @local.nom_variete;\n        click | set_field: @calc('type_variete_P' + @fields.num_parcelle) : @fields.type_variete_culture;\n        click | set_field: @calc('source_semence_P' + @fields.num_parcelle) : @fields.source_semence_culture;\n        click | set_field: @calc('autre_source_semence_P' + @fields.num_parcelle) : @fields.autre_source_semence_culture;\n        click | emit: completed;",
-      "parameter_list": "disabled: !@local.valid_p8"
+      "parameter_list": "disabled: !@local.valid_p8",
+      "style_list": "flex: 1"
     },
     {
       "type": "end_display_group"

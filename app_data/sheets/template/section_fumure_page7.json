@@ -161,7 +161,7 @@
     },
     {
       "name": "valid_quantite_compost",
-      "value": "@calc(!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)",
+      "value": "@calc(!!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)",
       "_translations": {
         "value": {}
       },
@@ -170,28 +170,28 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)",
+            "fullExpression": "@calc(!!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)",
             "matchedExpression": "!@fields.quantite_compost",
             "type": "fields",
             "fieldName": "quantite_compost"
           },
           {
-            "fullExpression": "@calc(!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)",
+            "fullExpression": "@calc(!!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)",
             "matchedExpression": "@fields.quantite_compost",
             "type": "fields",
             "fieldName": "quantite_compost"
           },
           {
-            "fullExpression": "@calc(!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)",
+            "fullExpression": "@calc(!!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)",
             "matchedExpression": "@fields.quantite_compost",
             "type": "fields",
             "fieldName": "quantite_compost"
           },
           {
-            "fullExpression": "@calc(!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)",
-            "matchedExpression": "@calc(!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)",
+            "fullExpression": "@calc(!!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)",
+            "matchedExpression": "@calc(!!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)",
             "type": "calc",
-            "fieldName": "!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0"
+            "fieldName": "!!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0"
           }
         ]
       },
@@ -203,7 +203,7 @@
           "value",
           "value"
         ],
-        "@calc(!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)": [
+        "@calc(!!@fields.quantite_compost && @fields.quantite_compost != \"\" && @fields.quantite_compost >= 0)": [
           "value"
         ]
       }

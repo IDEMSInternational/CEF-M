@@ -57,12 +57,12 @@
       "_nested_name": "display_group_3"
     },
     {
-      "type": "set_field",
       "name": "frais_education_annuel",
       "value": "@calc(Number(@fields.totaux_frais_education_premier_cycle || 0) + Number(@fields.totaux_frais_education_second_cycle || 0) + Number(@fields.totaux_frais_education_lycee_professionnelle || 0) + Number(@fields.totaux_frais_education_universite || 0))",
       "_translations": {
         "value": {}
       },
+      "type": "set_variable",
       "_nested_name": "frais_education_annuel",
       "_dynamicFields": {
         "value": [
@@ -229,6 +229,15 @@
           "action_list": [
             {
               "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "frais_education_annuel",
+                "@local.frais_education_annuel"
+              ],
+              "_raw": "click | set_field: frais_education_annuel: @local.frais_education_annuel"
+            },
+            {
+              "trigger": "click",
               "action_id": "emit",
               "args": [
                 "completed"
@@ -248,11 +257,37 @@
                 "type": "global",
                 "fieldName": "btn_continue"
               }
-            ]
+            ],
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.frais_education_annuel",
+                      "matchedExpression": "@local.frais_education_annuel",
+                      "type": "local",
+                      "fieldName": "frais_education_annuel"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: frais_education_annuel: @local.frais_education_annuel",
+                    "matchedExpression": "@local.frais_education_annuel",
+                    "type": "local",
+                    "fieldName": "frais_education_annuel"
+                  }
+                ]
+              }
+            }
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
+            ],
+            "@local.frais_education_annuel": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
             ]
           }
         }

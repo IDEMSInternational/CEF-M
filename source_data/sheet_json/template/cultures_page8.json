@@ -74,11 +74,11 @@
       "name": "quantite_prevue_npk_coton_14_18_18",
       "value": "@fields.quantite_prevue_npk_coton_14_18_18",
       "action_list": "changed | set_field : quantite_prevue_npk_coton_14_18_18: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "name": "valid_quantite_prevue_npk_coton_14_18_18",
-      "value": "@calc(!!@fields.quantite_prevue_npk_coton_14_18_18 && @fields.quantite_prevue_npk_coton_14_18_18 != \"\" && @fields.quantite_prevue_npk_coton_14_18_18 >= 0)"
+      "value": "@calc(!!@fields.quantite_prevue_npk_coton_14_18_18 && @fields.quantite_prevue_npk_coton_14_18_18 != ' ' && @fields.quantite_prevue_npk_coton_14_18_18 >= 0)"
     },
     {
       "type": "text",
@@ -125,11 +125,11 @@
       "name": "cout_prevu_npk_coton_14_18_18",
       "value": "@fields.cout_prevu_npk_coton_14_18_18",
       "action_list": "changed | set_field : cout_prevu_npk_coton_14_18_18: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "name": "valid_cout_prevu_npk_coton_14_18_18",
-      "value": "@calc(!!@fields.cout_prevu_npk_coton_14_18_18 && @fields.cout_prevu_npk_coton_14_18_18 != \"\" && @fields.cout_prevu_npk_coton_14_18_18 >= 0)"
+      "value": "@calc(!!@fields.cout_prevu_npk_coton_14_18_18 && @fields.cout_prevu_npk_coton_14_18_18 != ' ' && @fields.cout_prevu_npk_coton_14_18_18 >= 0)"
     },
     {
       "type": "text",
@@ -176,11 +176,11 @@
       "name": "quantite_prevue_npk_cereale_15_15_15",
       "value": "@fields.quantite_prevue_npk_cereale_15_15_15",
       "action_list": "changed | set_field : quantite_prevue_npk_cereale_15_15_15: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "name": "valid_quantite_prevue_npk_cereale_15_15_15",
-      "value": "@calc(!!@fields.quantite_prevue_npk_cereale_15_15_15 && @fields.quantite_prevue_npk_cereale_15_15_15 != \"\" && @fields.quantite_prevue_npk_cereale_15_15_15 >= 0)"
+      "value": "@calc(!!@fields.quantite_prevue_npk_cereale_15_15_15 && @fields.quantite_prevue_npk_cereale_15_15_15 != ' ' && @fields.quantite_prevue_npk_cereale_15_15_15 >= 0)"
     },
     {
       "type": "text",
@@ -227,11 +227,11 @@
       "name": "cout_prevu_npk_cereale_15_15_15",
       "value": "@fields.cout_prevu_npk_cereale_15_15_15",
       "action_list": "changed | set_field : cout_prevu_npk_cereale_15_15_15: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "name": "valid_cout_prevu_npk_cereale_15_15_15",
-      "value": "@calc(!!@fields.cout_prevu_npk_cereale_15_15_15 && @fields.cout_prevu_npk_cereale_15_15_15 != \"\" && @fields.cout_prevu_npk_cereale_15_15_15 >= 0)"
+      "value": "@calc(!!@fields.cout_prevu_npk_cereale_15_15_15 && @fields.cout_prevu_npk_cereale_15_15_15 != ' ' && @fields.cout_prevu_npk_cereale_15_15_15 >= 0)"
     },
     {
       "type": "text",
@@ -278,11 +278,11 @@
       "name": "quantite_prevue_npk_cereale_17_17_17",
       "value": "@fields.quantite_prevue_npk_cereale_17_17_17",
       "action_list": "changed | set_field : quantite_prevue_npk_cereale_17_17_17: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "name": "valid_quantite_prevue_npk_cereale_17_17_17",
-      "value": "@calc(!!@fields.quantite_prevue_npk_cereale_17_17_17 && @fields.quantite_prevue_npk_cereale_17_17_17 != \"\" && @fields.quantite_prevue_npk_cereale_17_17_17 >= 0)"
+      "value": "@calc(!!@fields.quantite_prevue_npk_cereale_17_17_17 && @fields.quantite_prevue_npk_cereale_17_17_17 != ' '  && @fields.quantite_prevue_npk_cereale_17_17_17 >= 0)"
     },
     {
       "type": "text",
@@ -329,11 +329,11 @@
       "name": "cout_prevu_npk_cereale_17_17_17",
       "value": "@fields.cout_prevu_npk_cereale_17_17_17",
       "action_list": "changed | set_field : cout_prevu_npk_cereale_17_17_17: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "name": "valid_cout_prevu_npk_cereale_17_17_17",
-      "value": "@calc(!!@fields.cout_prevu_npk_cereale_17_17_17 && @fields.cout_prevu_npk_cereale_17_17_17 != \"\" && @fields.cout_prevu_npk_cereale_17_17_17 >= 0)"
+      "value": "@calc(!!@fields.cout_prevu_npk_cereale_17_17_17 && @fields.cout_prevu_npk_cereale_17_17_17 != ' ' && @fields.cout_prevu_npk_cereale_17_17_17 >= 0)"
     },
     {
       "type": "text",
@@ -380,11 +380,11 @@
       "name": "quantite_prevue_dap",
       "value": "@fields.quantite_prevue_dap",
       "action_list": "changed | set_field : quantite_prevue_dap: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "name": "valid_quantite_prevue_dap",
-      "value": "@calc(!!@fields.quantite_prevue_dap && @fields.quantite_prevue_dap != \"\" && @fields.quantite_prevue_dap >= 0)"
+      "value": "@calc(!!@fields.quantite_prevue_dap && @fields.quantite_prevue_dap != ' '  && @fields.quantite_prevue_dap >= 0)"
     },
     {
       "type": "text",
@@ -431,11 +431,11 @@
       "name": "cout_prevu_npk_dap",
       "value": "@fields.cout_prevu_npk_dap",
       "action_list": "changed | set_field : cout_prevu_npk_dap: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "name": "valid_cout_prevu_npk_dap",
-      "value": "@calc(!!@fields.cout_prevu_npk_dap && @fields.cout_prevu_npk_dap != \"\" && @fields.cout_prevu_npk_dap >= 0)"
+      "value": "@calc(!!@fields.cout_prevu_npk_dap && @fields.cout_prevu_npk_dap != ' ' && @fields.cout_prevu_npk_dap >= 0)"
     },
     {
       "type": "text",
@@ -482,11 +482,11 @@
       "name": "quantite_prevue_uree",
       "value": "@fields.quantite_prevue_uree",
       "action_list": "changed | set_field : quantite_prevue_uree: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "name": "valid_quantite_prevue_uree",
-      "value": "@calc(!!@fields.quantite_prevue_uree && @fields.quantite_prevue_uree != \"\" && @fields.quantite_prevue_uree >= 0)"
+      "value": "@calc(!!@fields.quantite_prevue_uree && @fields.quantite_prevue_uree != ' ' && @fields.quantite_prevue_uree >= 0)"
     },
     {
       "type": "text",
@@ -533,11 +533,11 @@
       "name": "cout_prevu_uree",
       "value": "@fields.cout_prevu_uree",
       "action_list": "changed | set_field : cout_prevu_uree: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "name": "valid_cout_prevu_uree",
-      "value": "@calc(!!@fields.cout_prevu_uree && @fields.cout_prevu_uree != \"\" && @fields.cout_prevu_uree >= 0)"
+      "value": "@calc(!!@fields.cout_prevu_uree && @fields.cout_prevu_uree != ' ' && @fields.cout_prevu_uree >= 0)"
     },
     {
       "type": "text",
@@ -558,7 +558,8 @@
     },
     {
       "type": "text",
-      "value": "**Quantité autre engrais @fields.precision_autre_engrais (sac 50 kg)**"
+      "value": "**Quantité autre engrais @fields.precision_autre_engrais (sac 50 kg)**",
+      "action_list": " "
     },
     {
       "type": "audio",
@@ -584,11 +585,11 @@
       "name": "quantite_prevue_autre_engrais",
       "value": "@fields.quantite_prevue_autre_engrais",
       "action_list": "changed | set_field : quantite_prevue_autre_engrais: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "name": "valid_quantite_prevue_autre_engrais",
-      "value": "@calc(!!@fields.quantite_prevue_autre_engrais && @fields.quantite_prevue_autre_engrais != \"\" && @fields.quantite_prevue_autre_engrais >= 0)"
+      "value": "@calc(!!@fields.quantite_prevue_autre_engrais && @fields.quantite_prevue_autre_engrais != ' ' && @fields.quantite_prevue_autre_engrais >= 0)"
     },
     {
       "type": "text",
@@ -635,11 +636,11 @@
       "name": "cout_prevu_autre_engrais",
       "value": "@fields.cout_prevu_autre_engrais",
       "action_list": "changed | set_field : cout_prevu_autre_engrais: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
     },
     {
       "name": "valid_cout_prevu_autre_engrais",
-      "value": "@calc(!!@fields.cout_prevu_autre_engrais && @fields.cout_prevu_autre_engrais != \"\" && @fields.cout_prevu_autre_engrais >= 0)"
+      "value": "@calc(!!@fields.cout_prevu_autre_engrais && @fields.cout_prevu_autre_engrais != ' ' && @fields.cout_prevu_autre_engrais >= 0)"
     },
     {
       "type": "text",
@@ -703,7 +704,7 @@
     },
     {
       "name": "completed_enabled",
-      "value": "@calc(@fields.quantite_prevue_npk_coton_14_18_18 || @fields.quantite_prevue_npk_cereale_15_15_15 || @fields.quantite_prevue_npk_cereale_17_17_17 || @fields.quantite_prevue_dap || @fields.quantite_prevue_uree || @fields.quantite_prevue_autre_engrais)"
+      "value": "@calc((!!@fields.quantite_prevue_npk_coton_14_18_18 && @local.valid_cout_prevu_npk_coton_14_18_18) || (!!@fields.quantite_prevue_npk_cereale_15_15_15 && @local.valid_cout_prevu_npk_cereale_15_15_15) || (@fields.quantite_prevue_npk_cereale_17_17_17 && @local.valid_cout_prevu_npk_cereale_17_17_17) || (@fields.quantite_prevue_dap && @local.valid_cout_prevu_npk_dap) || (@fields.quantite_prevue_uree && @local.valid_cout_prevu_uree) || (@fields.quantite_prevue_autre_engrais && @local.valid_cout_prevu_autre_engrais))"
     },
     {
       "type": "begin_display_group",

@@ -139,17 +139,17 @@
       }
     },
     {
-      "type": "text",
-      "value": "Les cultures prevues: @fields.culture_list_all",
+      "type": "html",
+      "value": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\">\n  Les cultures prévues:\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n    @fields.culture_list_all\n  </span>\n</div>",
       "_translations": {
         "value": {}
       },
-      "name": "text_7",
-      "_nested_name": "text_7",
+      "name": "html_7",
+      "_nested_name": "html_7",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "Les cultures prevues: @fields.culture_list_all",
+            "fullExpression": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\">\n  Les cultures prévues:\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n    @fields.culture_list_all\n  </span>\n</div>",
             "matchedExpression": "@fields.culture_list_all",
             "type": "fields",
             "fieldName": "culture_list_all"

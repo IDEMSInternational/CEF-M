@@ -69,7 +69,7 @@
     {
       "type": "image",
       "value": "images/superf_unit.jpg",
-      "style_list": "width: 80%; object-fit: contain;"
+      "style_list": "width:100px; height:100px;"
     },
     {
       "type": "end_display_group"
@@ -104,7 +104,7 @@
       "name": "button_completed",
       "value": "@global.btn_continue",
       "action_list": "click | emit: completed;",
-      "parameter_list": "style: navigation;\ndisabled:@local.v_sup_err",
+      "parameter_list": "\ndisabled:@local.v_sup_err",
       "style_list": "flex: 1"
     },
     {

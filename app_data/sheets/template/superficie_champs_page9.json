@@ -390,8 +390,8 @@
             "value": {}
           },
           "style_list": [
-            "width: 80%",
-            "object-fit: contain"
+            "width:90px",
+            "height:90px"
           ],
           "name": "image_1",
           "_nested_name": "display_group_10.image_1"
@@ -446,34 +446,30 @@
       "_translations": {
         "value": {}
       },
-      "style_list": [
-        "@fields.attempt_submit_p10 && !@fields.nombre_arbre"
-      ],
+      "condition": "@fields.attempt_submit_p10 && !@fields.nombre_arbre",
       "_nested_name": "html_text",
       "_dynamicFields": {
-        "style_list": {
-          "0": [
-            {
-              "fullExpression": "@fields.attempt_submit_p10 && !@fields.nombre_arbre",
-              "matchedExpression": "@fields.attempt_submit_p10",
-              "type": "fields",
-              "fieldName": "attempt_submit_p10"
-            },
-            {
-              "fullExpression": "@fields.attempt_submit_p10 && !@fields.nombre_arbre",
-              "matchedExpression": "!@fields.nombre_arbre",
-              "type": "fields",
-              "fieldName": "nombre_arbre"
-            }
-          ]
-        }
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit_p10 && !@fields.nombre_arbre",
+            "matchedExpression": "@fields.attempt_submit_p10",
+            "type": "fields",
+            "fieldName": "attempt_submit_p10"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit_p10 && !@fields.nombre_arbre",
+            "matchedExpression": "!@fields.nombre_arbre",
+            "type": "fields",
+            "fieldName": "nombre_arbre"
+          }
+        ]
       },
       "_dynamicDependencies": {
         "@fields.attempt_submit_p10": [
-          "style_list.0"
+          "condition"
         ],
         "!@fields.nombre_arbre": [
-          "style_list.0"
+          "condition"
         ]
       }
     },
@@ -484,44 +480,30 @@
       "_translations": {
         "value": {}
       },
-      "condition": "!@fields.nombre_arbre",
-      "style_list": [
-        "!!@fields.nombre_arbre && !@local.valid_nbre_arbre"
-      ],
+      "condition": "!!@fields.nombre_arbre && !@local.valid_nbre_arbre",
       "_nested_name": "html_text",
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "!@fields.nombre_arbre",
+            "fullExpression": "!!@fields.nombre_arbre && !@local.valid_nbre_arbre",
             "matchedExpression": "!@fields.nombre_arbre",
             "type": "fields",
             "fieldName": "nombre_arbre"
+          },
+          {
+            "fullExpression": "!!@fields.nombre_arbre && !@local.valid_nbre_arbre",
+            "matchedExpression": "!@local.valid_nbre_arbre",
+            "type": "local",
+            "fieldName": "valid_nbre_arbre"
           }
-        ],
-        "style_list": {
-          "0": [
-            {
-              "fullExpression": "!!@fields.nombre_arbre && !@local.valid_nbre_arbre",
-              "matchedExpression": "!@fields.nombre_arbre",
-              "type": "fields",
-              "fieldName": "nombre_arbre"
-            },
-            {
-              "fullExpression": "!!@fields.nombre_arbre && !@local.valid_nbre_arbre",
-              "matchedExpression": "!@local.valid_nbre_arbre",
-              "type": "local",
-              "fieldName": "valid_nbre_arbre"
-            }
-          ]
-        }
+        ]
       },
       "_dynamicDependencies": {
         "!@fields.nombre_arbre": [
-          "condition",
-          "style_list.0"
+          "condition"
         ],
         "!@local.valid_nbre_arbre": [
-          "style_list.0"
+          "condition"
         ]
       }
     },
@@ -834,6 +816,9 @@
           "parameter_list": {
             "disabled": "!@local.completed_enabled"
           },
+          "style_list": [
+            "flex: 1"
+          ],
           "_nested_name": "display_group_21.page10_button_continue",
           "_dynamicFields": {
             "action_list": {

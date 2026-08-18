@@ -79,7 +79,8 @@
       "name": "page14_button_continue",
       "value": "Continuer",
       "action_list": "click | set_field: @calc('superficie_parcelle_N' + @fields.num_parcelle) : @fields.superficie_parcelle;\nclick | set_field: sum_total: @fields.sum_total + @local.superficie_parcelle;\nclick | emit: completed;",
-      "parameter_list": "disabled: !@local.completed_enabled"
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "style_list": "flex: 1"
     },
     {
       "type": "end_display_group"

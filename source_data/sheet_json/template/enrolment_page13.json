@@ -51,7 +51,7 @@
     },
     {
       "name": "valid_nombre_tracteur",
-      "value": "@calc(/^\\d+$/.test(@local.nombre_tracteur) && Number(@local.nombre_tracteur) >= 0  || !@local.nombre_tracteur)"
+      "value": "@calc((/^\\d+$/.test(@local.nombre_tracteur) && @local.nombre_tracteur >=0 ) || @local.nombre_tracteur == ' ' || !!@local.nombre_tracteur )"
     },
     {
       "type": "html",
@@ -61,7 +61,7 @@
     {
       "type": "text",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_tracteur\n",
+      "condition": "!@local.valid_nombre_tracteur && @fields.attempt_submit ",
       "style_list": "color: red; font-size: 12px;\n"
     },
     {
@@ -104,7 +104,7 @@
     },
     {
       "name": "valid_nombre_motoculteurs",
-      "value": "@calc(/^\\d+$/.test(@local.nombre_motoculteurs) && Number(@local.nombre_motoculteurs) >= 0 || !@local.nombre_motoculteurs)"
+      "value": "@calc((/^\\d+$/.test(@local.nombre_motoculteurs) && @local.nombre_motoculteurs >=0 ) || @local.nombre_motoculteurs == ' ' || !!@local.nombre_motoculteurs )"
     },
     {
       "type": "html",
@@ -114,7 +114,7 @@
     {
       "type": "text",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_motoculteurs\n",
+      "condition": "!@local.valid_nombre_motoculteurs && @fields.attempt_submit ",
       "style_list": "color: red; font-size: 12px;\n"
     },
     {
@@ -157,7 +157,7 @@
     },
     {
       "name": "valid_nombre_mototricycle",
-      "value": "@calc(/^\\d+$/.test(@local.nombre_mototricycle) && Number(@local.nombre_mototricycle) >= 0 || !@local.nombre_mototricycle)"
+      "value": "@calc((/^\\d+$/.test(@local.nombre_mototricycle) && @local.nombre_mototricycle >=0 ) || @local.nombre_mototricycle == ' ' || !!@local.nombre_mototricycle )"
     },
     {
       "type": "html",
@@ -167,7 +167,7 @@
     {
       "type": "text",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_mototricycle\n",
+      "condition": "!@local.valid_nombre_mototricycle && @fields.attempt_submit ",
       "style_list": "color: red; font-size: 12px;\n"
     },
     {
@@ -210,7 +210,7 @@
     },
     {
       "name": "valid_nombre_batteuse",
-      "value": "@calc(/^\\d+$/.test(@local.nombre_batteuse) && Number(@local.nombre_batteuse) >= 0 || !@local.nombre_batteuse)"
+      "value": "@calc((/^\\d+$/.test(@local.nombre_batteuse) && @local.nombre_batteuse >=0 ) || @local.nombre_batteuse == ' ' || !!@local.nombre_batteuse )"
     },
     {
       "type": "html",
@@ -220,7 +220,7 @@
     {
       "type": "text",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_batteuse",
+      "condition": "!@local.valid_nombre_batteuse && @fields.attempt_submit ",
       "style_list": "color: red; font-size: 12px;\n"
     },
     {
@@ -263,7 +263,7 @@
     },
     {
       "name": "valid_nombre_decortiqueuse",
-      "value": "@calc(/^\\d+$/.test(@local.nombre_decortiqueuse) && Number(@local.nombre_decortiqueuse) >= 0 || !@local.nombre_decortiqueuse)"
+      "value": "@calc((/^\\d+$/.test(@local.nombre_decortiqueuse) && @local.nombre_decortiqueuse >=0 ) || @local.nombre_decortiqueuse == ' ' || !!@local.nombre_decortiqueuse )"
     },
     {
       "type": "html",
@@ -273,7 +273,7 @@
     {
       "type": "text",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_decortiqueuse",
+      "condition": "!@local.valid_nombre_decortiqueuse && @fields.attempt_submit ",
       "style_list": "color: red; font-size: 12px;\n"
     },
     {
@@ -369,22 +369,15 @@
     {
       "type": "text_box",
       "name": "nombre_autre_materiel",
-      "value": 0,
-      "parameter_list": "number_input: true\n",
-      "condition": "@fields.autre_materiel == 'Aucun' && @fields.on_autre_materiel == 'oui'",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_autre_materiel",
       "value": "@fields.nombre_autre_materiel",
+      "action_list": "changed | set_field : nombre_autre_materiel: this.value;",
       "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
-      "condition": "@fields.autre_materiel != 'Aucun' && @fields.on_autre_materiel == 'oui'",
+      "condition": "@fields.on_autre_materiel == 'oui'",
       "exclude_from_translation": true
     },
     {
       "name": "valid_nombre_autre_materiel",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_autre_materiel) && @local.nombre_autre_materiel>= 0 ) || @local.nombre_corps_buteur == '' || !@local.nombre_corps_buteur || @local.nombre_corps_buteur != 'null')",
+      "value": "@calc((/^\\d+$/.test(@fields.nombre_autre_materiel) && @fields.nombre_autre_materiel >=0 ) || @fields.nombre_autre_materiel == ' ' || !!@fields.nombre_autre_materiel )",
       "exclude_from_translation": true
     },
     {
@@ -396,7 +389,7 @@
     },
     {
       "name": "completed_enabled",
-      "value": "@calc(@local.valid_nombre_tracteur  && @local.valid_nombre_motoculteurs && @local.valid_nombre_mototricycle && @local.valid_nombre_batteuse && @local.valid_nombre_decortiqueuse)",
+      "value": "@local.valid_nombre_tracteur  && @local.valid_nombre_motoculteurs && @local.valid_nombre_mototricycle && @local.valid_nombre_batteuse && @local.valid_nombre_decortiqueuse && !!@fields.on_autre_materiel",
       "style_list": true
     },
     {
@@ -423,7 +416,7 @@
       "type": "button",
       "name": "button_continue_13",
       "value": "Continuer",
-      "action_list": "click | set_field: nombre_pompe_traitement: @local.nombre_pompe_traitement;\nclick | set_field: nombre_pulverisateurs: @local.nombre_pulverisateurs;\nclick | set_field: nombre_corps_buteur: @local.nombre_corps_buteur;\nclick | set_field: nombre_autre_materiel: @local.nombre_autre_materiel;\n\nclick | emit: completed;",
+      "action_list": "click | set_field: nombre_tracteur: @local.nombre_tracteur;\nclick | set_field: nombre_motoculteurs: @local.nombre_motoculteurs;\nclick | set_field: nombre_mototricycle : @local.nombre_mototricycle ;\nclick | set_field: nombre_batteuse: @local.nombre_batteuse;\nclick | set_field: nombre_decortiqueuse: @local.nombre_decortiqueuse;\nclick | set_field: attempt_submit: false;\nclick | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled;",
       "condition": "@local.completed_enabled",
       "style_list": "flex: 1"

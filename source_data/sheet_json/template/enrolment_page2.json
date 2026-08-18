@@ -34,7 +34,7 @@
       "name": "season_label",
       "value": "@fields.season_label",
       "action_list": "changed | set_field: season_label: this.value;",
-      "parameter_list": "type: year;\nmin: 2023; \nmax: @calc(now());"
+      "parameter_list": "type: date;\nmin: 2023; \nmax: @calc(now());"
     },
     {
       "name": "v_year_ok",
@@ -56,30 +56,8 @@
       "condition": "!@local.v_year_ok"
     },
     {
-      "type": "text",
-      "value": "**@global.num_upa**"
-    },
-    {
-      "type": "text_box",
-      "name": "numero_tel_UPA",
-      "value": "@fields.numero_tel_UPA",
-      "action_list": "changed | set_field: numero_tel_UPA: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le numero de telephone "
-    },
-    {
-      "name": "valid_numero_upa",
-      "value": "@calc(/^[1-9][0-9]{7}$/.test(@local.numero_tel_UPA)|| @local.numero_tel_UPA == '')"
-    },
-    {
-      "type": "html",
-      "name": "error_num_phone",
-      "value": "<p style=\"color: red;\"> @global.numero_error </p>",
-      "condition": "!@local.valid_numero_upa",
-      "style_list": "color: red; font-size: 16px;"
-    },
-    {
       "name": "completed_enabled",
-      "value": "@local.v_year_ok && @local.valid_numero_upa"
+      "value": "@local.v_year_ok "
     },
     {
       "type": "begin_display_group",

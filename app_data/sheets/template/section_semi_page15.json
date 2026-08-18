@@ -15,7 +15,7 @@
     {
       "type": "text",
       "name": "note_fin",
-      "value": "@global.note_fin",
+      "value": "@global.note_fin_semis",
       "_translations": {
         "value": {}
       },
@@ -23,15 +23,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.note_fin",
-            "matchedExpression": "@global.note_fin",
+            "fullExpression": "@global.note_fin_semis",
+            "matchedExpression": "@global.note_fin_semis",
             "type": "global",
-            "fieldName": "note_fin"
+            "fieldName": "note_fin_semis"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.note_fin": [
+        "@global.note_fin_semis": [
           "value"
         ]
       }
@@ -78,17 +78,12 @@
               "trigger": "click",
               "action_id": "emit",
               "args": [
-                "completed"
+                "completed\nclick"
               ],
-              "_raw": "click | emit: completed"
-            },
-            {
-              "trigger": "click",
-              "action_id": "go_to",
-              "args": [
-                "home_screen"
-              ],
-              "_raw": "click | go_to: home_screen"
+              "_raw": "click | emit: completed\nclick | go_to: suivi_anl",
+              "params": {
+                "go_to": "suivi_anl"
+              }
             }
           ],
           "style_list": [

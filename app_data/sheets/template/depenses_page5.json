@@ -1092,7 +1092,7 @@
         {
           "type": "button",
           "name": "page_5_btn_continue",
-          "value": "non_bouton",
+          "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
@@ -1187,6 +1187,14 @@
           ],
           "_nested_name": "display_group_20.page_5_btn_continue",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
             "action_list": {
               "0": {
                 "args": {
@@ -1295,6 +1303,9 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
             "@local.select_niveau_scolaire": [
               "action_list.0.args.1",
               "action_list.0._raw"

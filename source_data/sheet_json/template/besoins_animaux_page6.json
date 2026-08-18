@@ -87,7 +87,7 @@
     {
       "type": "set_field",
       "name": "frais_veterinaire_cat",
-      "value": "@calc((Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0)))",
+      "value": "@calc(Number(@fields.frais_veterinaire_tete || 0) * Number(@fields.nb_animaux || 0))",
       "condition": "@fields.frais_veterinaire_tete > 0"
     },
     {
@@ -163,7 +163,7 @@
       "type": "button",
       "name": "page8_button_continue",
       "value": "Continuer",
-      "action_list": "click | emit: completed;",
+      "action_list": "click | set_field: frais_veterinaire_tete_@fields.current_cat_animaux: @fields.frais_veterinaire_tete;\nclick | set_field: frais_veterinaire_cat_@fields.current_cat_animaux: @fields.frais_veterinaire_cat;\nclick | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled",
       "condition": "!@local.last_cat_animaux",
       "style_list": "flex: 1"

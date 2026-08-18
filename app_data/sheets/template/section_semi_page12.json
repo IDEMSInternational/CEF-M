@@ -5,7 +5,7 @@
   "rows": [
     {
       "name": "v_total_drm",
-      "value": "@calc(Number(@field.cout_pnt_png || 0) + Number(@field.cout_superficie_labouree || 0) + Number(@field.cout_semence_achetee || 0) + Number(@field.cout_herbicide_prelevee || 0) + Number(@field.autre_cout_semis_total || 0))",
+      "value": "@calc((Number(@field.cout_pnt_png) || 0) + (Number(@field.cout_superficie_labouree) || 0) + (Number(@field.cout_semence_achetee) || 0) + (Number(@field.cout_herbicide_prelevee) || 0) + (Number(@field.cout_transport_nonzero) || 0) + (Number(@field.autre_cout_semis_total) || 0))",
       "_translations": {
         "value": {}
       },
@@ -14,40 +14,46 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(Number(@field.cout_pnt_png || 0) + Number(@field.cout_superficie_labouree || 0) + Number(@field.cout_semence_achetee || 0) + Number(@field.cout_herbicide_prelevee || 0) + Number(@field.autre_cout_semis_total || 0))",
+            "fullExpression": "@calc((Number(@field.cout_pnt_png) || 0) + (Number(@field.cout_superficie_labouree) || 0) + (Number(@field.cout_semence_achetee) || 0) + (Number(@field.cout_herbicide_prelevee) || 0) + (Number(@field.cout_transport_nonzero) || 0) + (Number(@field.autre_cout_semis_total) || 0))",
             "matchedExpression": "@field.cout_pnt_png",
             "type": "field",
             "fieldName": "cout_pnt_png"
           },
           {
-            "fullExpression": "@calc(Number(@field.cout_pnt_png || 0) + Number(@field.cout_superficie_labouree || 0) + Number(@field.cout_semence_achetee || 0) + Number(@field.cout_herbicide_prelevee || 0) + Number(@field.autre_cout_semis_total || 0))",
+            "fullExpression": "@calc((Number(@field.cout_pnt_png) || 0) + (Number(@field.cout_superficie_labouree) || 0) + (Number(@field.cout_semence_achetee) || 0) + (Number(@field.cout_herbicide_prelevee) || 0) + (Number(@field.cout_transport_nonzero) || 0) + (Number(@field.autre_cout_semis_total) || 0))",
             "matchedExpression": "@field.cout_superficie_labouree",
             "type": "field",
             "fieldName": "cout_superficie_labouree"
           },
           {
-            "fullExpression": "@calc(Number(@field.cout_pnt_png || 0) + Number(@field.cout_superficie_labouree || 0) + Number(@field.cout_semence_achetee || 0) + Number(@field.cout_herbicide_prelevee || 0) + Number(@field.autre_cout_semis_total || 0))",
+            "fullExpression": "@calc((Number(@field.cout_pnt_png) || 0) + (Number(@field.cout_superficie_labouree) || 0) + (Number(@field.cout_semence_achetee) || 0) + (Number(@field.cout_herbicide_prelevee) || 0) + (Number(@field.cout_transport_nonzero) || 0) + (Number(@field.autre_cout_semis_total) || 0))",
             "matchedExpression": "@field.cout_semence_achetee",
             "type": "field",
             "fieldName": "cout_semence_achetee"
           },
           {
-            "fullExpression": "@calc(Number(@field.cout_pnt_png || 0) + Number(@field.cout_superficie_labouree || 0) + Number(@field.cout_semence_achetee || 0) + Number(@field.cout_herbicide_prelevee || 0) + Number(@field.autre_cout_semis_total || 0))",
+            "fullExpression": "@calc((Number(@field.cout_pnt_png) || 0) + (Number(@field.cout_superficie_labouree) || 0) + (Number(@field.cout_semence_achetee) || 0) + (Number(@field.cout_herbicide_prelevee) || 0) + (Number(@field.cout_transport_nonzero) || 0) + (Number(@field.autre_cout_semis_total) || 0))",
             "matchedExpression": "@field.cout_herbicide_prelevee",
             "type": "field",
             "fieldName": "cout_herbicide_prelevee"
           },
           {
-            "fullExpression": "@calc(Number(@field.cout_pnt_png || 0) + Number(@field.cout_superficie_labouree || 0) + Number(@field.cout_semence_achetee || 0) + Number(@field.cout_herbicide_prelevee || 0) + Number(@field.autre_cout_semis_total || 0))",
+            "fullExpression": "@calc((Number(@field.cout_pnt_png) || 0) + (Number(@field.cout_superficie_labouree) || 0) + (Number(@field.cout_semence_achetee) || 0) + (Number(@field.cout_herbicide_prelevee) || 0) + (Number(@field.cout_transport_nonzero) || 0) + (Number(@field.autre_cout_semis_total) || 0))",
+            "matchedExpression": "@field.cout_transport_nonzero",
+            "type": "field",
+            "fieldName": "cout_transport_nonzero"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.cout_pnt_png) || 0) + (Number(@field.cout_superficie_labouree) || 0) + (Number(@field.cout_semence_achetee) || 0) + (Number(@field.cout_herbicide_prelevee) || 0) + (Number(@field.cout_transport_nonzero) || 0) + (Number(@field.autre_cout_semis_total) || 0))",
             "matchedExpression": "@field.autre_cout_semis_total",
             "type": "field",
             "fieldName": "autre_cout_semis_total"
           },
           {
-            "fullExpression": "@calc(Number(@field.cout_pnt_png || 0) + Number(@field.cout_superficie_labouree || 0) + Number(@field.cout_semence_achetee || 0) + Number(@field.cout_herbicide_prelevee || 0) + Number(@field.autre_cout_semis_total || 0))",
-            "matchedExpression": "@calc(Number(@field.cout_pnt_png || 0) + Number(@field.cout_superficie_labouree || 0) + Number(@field.cout_semence_achetee || 0) + Number(@field.cout_herbicide_prelevee || 0) + Number(@field.autre_cout_semis_total || 0))",
+            "fullExpression": "@calc((Number(@field.cout_pnt_png) || 0) + (Number(@field.cout_superficie_labouree) || 0) + (Number(@field.cout_semence_achetee) || 0) + (Number(@field.cout_herbicide_prelevee) || 0) + (Number(@field.cout_transport_nonzero) || 0) + (Number(@field.autre_cout_semis_total) || 0))",
+            "matchedExpression": "@calc((Number(@field.cout_pnt_png) || 0) + (Number(@field.cout_superficie_labouree) || 0) + (Number(@field.cout_semence_achetee) || 0) + (Number(@field.cout_herbicide_prelevee) || 0) + (Number(@field.cout_transport_nonzero) || 0) + (Number(@field.autre_cout_semis_total) || 0))",
             "type": "calc",
-            "fieldName": "Number(@field.cout_pnt_png || 0) + Number(@field.cout_superficie_labouree || 0) + Number(@field.cout_semence_achetee || 0) + Number(@field.cout_herbicide_prelevee || 0) + Number(@field.autre_cout_semis_total || 0)"
+            "fieldName": "(Number(@field.cout_pnt_png) || 0) + (Number(@field.cout_superficie_labouree) || 0) + (Number(@field.cout_semence_achetee) || 0) + (Number(@field.cout_herbicide_prelevee) || 0) + (Number(@field.cout_transport_nonzero) || 0) + (Number(@field.autre_cout_semis_total) || 0)"
           }
         ]
       },
@@ -64,10 +70,13 @@
         "@field.cout_herbicide_prelevee": [
           "value"
         ],
+        "@field.cout_transport_nonzero": [
+          "value"
+        ],
         "@field.autre_cout_semis_total": [
           "value"
         ],
-        "@calc(Number(@field.cout_pnt_png || 0) + Number(@field.cout_superficie_labouree || 0) + Number(@field.cout_semence_achetee || 0) + Number(@field.cout_herbicide_prelevee || 0) + Number(@field.autre_cout_semis_total || 0))": [
+        "@calc((Number(@field.cout_pnt_png) || 0) + (Number(@field.cout_superficie_labouree) || 0) + (Number(@field.cout_semence_achetee) || 0) + (Number(@field.cout_herbicide_prelevee) || 0) + (Number(@field.cout_transport_nonzero) || 0) + (Number(@field.autre_cout_semis_total) || 0))": [
           "value"
         ]
       }
@@ -107,7 +116,7 @@
     },
     {
       "name": "v_obs_valide",
-      "value": "@calc((!@field.type_observation) || (@field.type_observation == 'par_vocal') || (@field.type_observation == 'par_video') || (@field.type_observation == 'par_ecrit' && (!!@fields.temp_observ && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'par_photo') && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'pas_observ'))",
+      "value": "@calc(!@field.type_observation || @field.type_observation == 'par_vocal' || @field.type_observation == 'par_video'|| @field.type_observation == 'par_photo' || (@field.type_observation == 'par_ecrit' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || (@field.type_observation == 'par_photo' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || @field.type_observation == 'pas_observ')",
       "_translations": {
         "value": {}
       },
@@ -116,64 +125,76 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((!@field.type_observation) || (@field.type_observation == 'par_vocal') || (@field.type_observation == 'par_video') || (@field.type_observation == 'par_ecrit' && (!!@fields.temp_observ && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'par_photo') && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'pas_observ'))",
+            "fullExpression": "@calc(!@field.type_observation || @field.type_observation == 'par_vocal' || @field.type_observation == 'par_video'|| @field.type_observation == 'par_photo' || (@field.type_observation == 'par_ecrit' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || (@field.type_observation == 'par_photo' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || @field.type_observation == 'pas_observ')",
             "matchedExpression": "!@field.type_observation",
             "type": "field",
             "fieldName": "type_observation"
           },
           {
-            "fullExpression": "@calc((!@field.type_observation) || (@field.type_observation == 'par_vocal') || (@field.type_observation == 'par_video') || (@field.type_observation == 'par_ecrit' && (!!@fields.temp_observ && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'par_photo') && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'pas_observ'))",
+            "fullExpression": "@calc(!@field.type_observation || @field.type_observation == 'par_vocal' || @field.type_observation == 'par_video'|| @field.type_observation == 'par_photo' || (@field.type_observation == 'par_ecrit' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || (@field.type_observation == 'par_photo' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || @field.type_observation == 'pas_observ')",
             "matchedExpression": "@field.type_observation",
             "type": "field",
             "fieldName": "type_observation"
           },
           {
-            "fullExpression": "@calc((!@field.type_observation) || (@field.type_observation == 'par_vocal') || (@field.type_observation == 'par_video') || (@field.type_observation == 'par_ecrit' && (!!@fields.temp_observ && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'par_photo') && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'pas_observ'))",
+            "fullExpression": "@calc(!@field.type_observation || @field.type_observation == 'par_vocal' || @field.type_observation == 'par_video'|| @field.type_observation == 'par_photo' || (@field.type_observation == 'par_ecrit' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || (@field.type_observation == 'par_photo' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || @field.type_observation == 'pas_observ')",
             "matchedExpression": "@field.type_observation",
             "type": "field",
             "fieldName": "type_observation"
           },
           {
-            "fullExpression": "@calc((!@field.type_observation) || (@field.type_observation == 'par_vocal') || (@field.type_observation == 'par_video') || (@field.type_observation == 'par_ecrit' && (!!@fields.temp_observ && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'par_photo') && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'pas_observ'))",
+            "fullExpression": "@calc(!@field.type_observation || @field.type_observation == 'par_vocal' || @field.type_observation == 'par_video'|| @field.type_observation == 'par_photo' || (@field.type_observation == 'par_ecrit' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || (@field.type_observation == 'par_photo' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || @field.type_observation == 'pas_observ')",
             "matchedExpression": "@field.type_observation",
             "type": "field",
             "fieldName": "type_observation"
           },
           {
-            "fullExpression": "@calc((!@field.type_observation) || (@field.type_observation == 'par_vocal') || (@field.type_observation == 'par_video') || (@field.type_observation == 'par_ecrit' && (!!@fields.temp_observ && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'par_photo') && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'pas_observ'))",
-            "matchedExpression": "!@fields.temp_observ",
-            "type": "fields",
+            "fullExpression": "@calc(!@field.type_observation || @field.type_observation == 'par_vocal' || @field.type_observation == 'par_video'|| @field.type_observation == 'par_photo' || (@field.type_observation == 'par_ecrit' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || (@field.type_observation == 'par_photo' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || @field.type_observation == 'pas_observ')",
+            "matchedExpression": "@field.type_observation",
+            "type": "field",
+            "fieldName": "type_observation"
+          },
+          {
+            "fullExpression": "@calc(!@field.type_observation || @field.type_observation == 'par_vocal' || @field.type_observation == 'par_video'|| @field.type_observation == 'par_photo' || (@field.type_observation == 'par_ecrit' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || (@field.type_observation == 'par_photo' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || @field.type_observation == 'pas_observ')",
+            "matchedExpression": "!@field.temp_observ",
+            "type": "field",
             "fieldName": "temp_observ"
           },
           {
-            "fullExpression": "@calc((!@field.type_observation) || (@field.type_observation == 'par_vocal') || (@field.type_observation == 'par_video') || (@field.type_observation == 'par_ecrit' && (!!@fields.temp_observ && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'par_photo') && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'pas_observ'))",
-            "matchedExpression": "@fields.temp_observ.trim",
-            "type": "fields",
+            "fullExpression": "@calc(!@field.type_observation || @field.type_observation == 'par_vocal' || @field.type_observation == 'par_video'|| @field.type_observation == 'par_photo' || (@field.type_observation == 'par_ecrit' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || (@field.type_observation == 'par_photo' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || @field.type_observation == 'pas_observ')",
+            "matchedExpression": "@field.temp_observ.trim",
+            "type": "field",
             "fieldName": "temp_observ"
           },
           {
-            "fullExpression": "@calc((!@field.type_observation) || (@field.type_observation == 'par_vocal') || (@field.type_observation == 'par_video') || (@field.type_observation == 'par_ecrit' && (!!@fields.temp_observ && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'par_photo') && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'pas_observ'))",
+            "fullExpression": "@calc(!@field.type_observation || @field.type_observation == 'par_vocal' || @field.type_observation == 'par_video'|| @field.type_observation == 'par_photo' || (@field.type_observation == 'par_ecrit' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || (@field.type_observation == 'par_photo' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || @field.type_observation == 'pas_observ')",
             "matchedExpression": "@field.type_observation",
             "type": "field",
             "fieldName": "type_observation"
           },
           {
-            "fullExpression": "@calc((!@field.type_observation) || (@field.type_observation == 'par_vocal') || (@field.type_observation == 'par_video') || (@field.type_observation == 'par_ecrit' && (!!@fields.temp_observ && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'par_photo') && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'pas_observ'))",
-            "matchedExpression": "@fields.temp_observ.trim",
-            "type": "fields",
+            "fullExpression": "@calc(!@field.type_observation || @field.type_observation == 'par_vocal' || @field.type_observation == 'par_video'|| @field.type_observation == 'par_photo' || (@field.type_observation == 'par_ecrit' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || (@field.type_observation == 'par_photo' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || @field.type_observation == 'pas_observ')",
+            "matchedExpression": "!@field.temp_observ",
+            "type": "field",
             "fieldName": "temp_observ"
           },
           {
-            "fullExpression": "@calc((!@field.type_observation) || (@field.type_observation == 'par_vocal') || (@field.type_observation == 'par_video') || (@field.type_observation == 'par_ecrit' && (!!@fields.temp_observ && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'par_photo') && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'pas_observ'))",
+            "fullExpression": "@calc(!@field.type_observation || @field.type_observation == 'par_vocal' || @field.type_observation == 'par_video'|| @field.type_observation == 'par_photo' || (@field.type_observation == 'par_ecrit' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || (@field.type_observation == 'par_photo' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || @field.type_observation == 'pas_observ')",
+            "matchedExpression": "@field.temp_observ.trim",
+            "type": "field",
+            "fieldName": "temp_observ"
+          },
+          {
+            "fullExpression": "@calc(!@field.type_observation || @field.type_observation == 'par_vocal' || @field.type_observation == 'par_video'|| @field.type_observation == 'par_photo' || (@field.type_observation == 'par_ecrit' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || (@field.type_observation == 'par_photo' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || @field.type_observation == 'pas_observ')",
             "matchedExpression": "@field.type_observation",
             "type": "field",
             "fieldName": "type_observation"
           },
           {
-            "fullExpression": "@calc((!@field.type_observation) || (@field.type_observation == 'par_vocal') || (@field.type_observation == 'par_video') || (@field.type_observation == 'par_ecrit' && (!!@fields.temp_observ && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'par_photo') && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'pas_observ'))",
-            "matchedExpression": "@calc((!@field.type_observation) || (@field.type_observation == 'par_vocal') || (@field.type_observation == 'par_video') || (@field.type_observation == 'par_ecrit' && (!!@fields.temp_observ && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'par_photo') && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'pas_observ'))",
+            "fullExpression": "@calc(!@field.type_observation || @field.type_observation == 'par_vocal' || @field.type_observation == 'par_video'|| @field.type_observation == 'par_photo' || (@field.type_observation == 'par_ecrit' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || (@field.type_observation == 'par_photo' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || @field.type_observation == 'pas_observ')",
+            "matchedExpression": "@calc(!@field.type_observation || @field.type_observation == 'par_vocal' || @field.type_observation == 'par_video'|| @field.type_observation == 'par_photo' || (@field.type_observation == 'par_ecrit' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || (@field.type_observation == 'par_photo' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || @field.type_observation == 'pas_observ')",
             "type": "calc",
-            "fieldName": "(!@field.type_observation) || (@field.type_observation == 'par_vocal') || (@field.type_observation == 'par_video') || (@field.type_observation == 'par_ecrit' && (!!@fields.temp_observ && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'par_photo') && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'pas_observ')"
+            "fieldName": "!@field.type_observation || @field.type_observation == 'par_vocal' || @field.type_observation == 'par_video'|| @field.type_observation == 'par_photo' || (@field.type_observation == 'par_ecrit' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || (@field.type_observation == 'par_photo' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || @field.type_observation == 'pas_observ'"
           }
         ]
       },
@@ -186,16 +207,18 @@
           "value",
           "value",
           "value",
-          "value"
-        ],
-        "!@fields.temp_observ": [
-          "value"
-        ],
-        "@fields.temp_observ.trim": [
           "value",
           "value"
         ],
-        "@calc((!@field.type_observation) || (@field.type_observation == 'par_vocal') || (@field.type_observation == 'par_video') || (@field.type_observation == 'par_ecrit' && (!!@fields.temp_observ && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'par_photo') && @fields.temp_observ.trim().length > 0)) || (@field.type_observation == 'pas_observ'))": [
+        "!@field.temp_observ": [
+          "value",
+          "value"
+        ],
+        "@field.temp_observ.trim": [
+          "value",
+          "value"
+        ],
+        "@calc(!@field.type_observation || @field.type_observation == 'par_vocal' || @field.type_observation == 'par_video'|| @field.type_observation == 'par_photo' || (@field.type_observation == 'par_ecrit' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || (@field.type_observation == 'par_photo' && !!@field.temp_observ && @field.temp_observ.trim().length > 0) || @field.type_observation == 'pas_observ')": [
           "value"
         ]
       }
@@ -426,8 +449,8 @@
             "value": {}
           },
           "style_list": [
-            "width: 60%",
-            "object-fit: contain"
+            "width:100px",
+            "height:100px"
           ],
           "name": "image_1",
           "_nested_name": "display_group_12.image_1",
@@ -502,8 +525,6 @@
         "display: flex",
         "flex-direction: column",
         "align-items: center",
-        "border: 2px solid #4f8ff1",
-        "border-radius: 12px",
         "background: #f4f7fc",
         "padding: 15px",
         "margin-bottom: 20px"
@@ -1080,7 +1101,7 @@
               "trigger": "click",
               "action_id": "add_data",
               "args": [],
-              "_raw": "click | add_data | _list_id: semis_summary_list, \nculture: @field.active_culture_name, \nquantite_pnt: @field.quantite_pnt_png, \ncout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree, \nquantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
+              "_raw": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png,\n cout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree,\n quantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
               "params": {
                 "_list_id": "semis_summary_list",
                 "culture": "@field.active_culture_name",
@@ -1218,6 +1239,78 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
+                "quantite_fumure_organique",
+                ""
+              ],
+              "_raw": "click | set_field: quantite_fumure_organique:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "superficie_ha",
+                ""
+              ],
+              "_raw": "click | set_field: superficie_ha:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cout_transport_nonzero",
+                ""
+              ],
+              "_raw": "click | set_field: cout_transport_nonzero:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cout_transport",
+                ""
+              ],
+              "_raw": "click | set_field: cout_transport :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "quantite_chaux_agricole",
+                ""
+              ],
+              "_raw": "click | set_field: quantite_chaux_agricole:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cout_chaux_agricole_nonzero",
+                ""
+              ],
+              "_raw": "click | set_field: cout_chaux_agricole_nonzero:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cout_chaux_agricole",
+                ""
+              ],
+              "_raw": "click | set_field: cout_chaux_agricole :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cout_pnt_png_nonzero",
+                ""
+              ],
+              "_raw": "click | set_field: cout_pnt_png_nonzero:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
                 "cout_pnt_png",
                 ""
               ],
@@ -1231,6 +1324,15 @@
                 ""
               ],
               "_raw": "click | set_field: superficie_labouree :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cout_superficie_labouree_nonzero",
+                ""
+              ],
+              "_raw": "click | set_field: cout_superficie_labouree_nonzero:"
             },
             {
               "trigger": "click",
@@ -1254,6 +1356,15 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
+                "cout_semence_achetee_nonzero",
+                ""
+              ],
+              "_raw": "click | set_field: cout_semence_achetee_nonzero:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
                 "cout_semence_achetee",
                 ""
               ],
@@ -1272,6 +1383,15 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
+                "cout_herbicide_prelevee_nonzero",
+                ""
+              ],
+              "_raw": "click | set_field: cout_herbicide_prelevee_nonzero:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
                 "cout_herbicide_prelevee",
                 ""
               ],
@@ -1281,10 +1401,28 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "autre_cout_semis_total",
+                "nom_autre_cout_semis",
                 ""
               ],
-              "_raw": "click | set_field: autre_cout_semis_total :"
+              "_raw": "click | set_field: nom_autre_cout_semis:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "autre_cout_semis",
+                ""
+              ],
+              "_raw": "click | set_field: autre_cout_semis:"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "no_autre_cout_semis",
+                ""
+              ],
+              "_raw": "click | set_field: no_autre_cout_semis:"
             },
             {
               "trigger": "click",
@@ -1352,73 +1490,73 @@
               "0": {
                 "_raw": [
                   {
-                    "fullExpression": "click | add_data | _list_id: semis_summary_list, \nculture: @field.active_culture_name, \nquantite_pnt: @field.quantite_pnt_png, \ncout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree, \nquantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png,\n cout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree,\n quantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
                     "matchedExpression": "@field.active_culture_name",
                     "type": "field",
                     "fieldName": "active_culture_name"
                   },
                   {
-                    "fullExpression": "click | add_data | _list_id: semis_summary_list, \nculture: @field.active_culture_name, \nquantite_pnt: @field.quantite_pnt_png, \ncout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree, \nquantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png,\n cout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree,\n quantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
                     "matchedExpression": "@field.quantite_pnt_png",
                     "type": "field",
                     "fieldName": "quantite_pnt_png"
                   },
                   {
-                    "fullExpression": "click | add_data | _list_id: semis_summary_list, \nculture: @field.active_culture_name, \nquantite_pnt: @field.quantite_pnt_png, \ncout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree, \nquantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png,\n cout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree,\n quantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
                     "matchedExpression": "@field.cout_pnt_png",
                     "type": "field",
                     "fieldName": "cout_pnt_png"
                   },
                   {
-                    "fullExpression": "click | add_data | _list_id: semis_summary_list, \nculture: @field.active_culture_name, \nquantite_pnt: @field.quantite_pnt_png, \ncout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree, \nquantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png,\n cout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree,\n quantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
                     "matchedExpression": "@field.superficie_labouree",
                     "type": "field",
                     "fieldName": "superficie_labouree"
                   },
                   {
-                    "fullExpression": "click | add_data | _list_id: semis_summary_list, \nculture: @field.active_culture_name, \nquantite_pnt: @field.quantite_pnt_png, \ncout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree, \nquantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png,\n cout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree,\n quantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
                     "matchedExpression": "@field.cout_superficie_labouree",
                     "type": "field",
                     "fieldName": "cout_superficie_labouree"
                   },
                   {
-                    "fullExpression": "click | add_data | _list_id: semis_summary_list, \nculture: @field.active_culture_name, \nquantite_pnt: @field.quantite_pnt_png, \ncout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree, \nquantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png,\n cout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree,\n quantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
                     "matchedExpression": "@field.quantite_semence_achetee",
                     "type": "field",
                     "fieldName": "quantite_semence_achetee"
                   },
                   {
-                    "fullExpression": "click | add_data | _list_id: semis_summary_list, \nculture: @field.active_culture_name, \nquantite_pnt: @field.quantite_pnt_png, \ncout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree, \nquantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png,\n cout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree,\n quantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
                     "matchedExpression": "@field.cout_semence_achetee",
                     "type": "field",
                     "fieldName": "cout_semence_achetee"
                   },
                   {
-                    "fullExpression": "click | add_data | _list_id: semis_summary_list, \nculture: @field.active_culture_name, \nquantite_pnt: @field.quantite_pnt_png, \ncout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree, \nquantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png,\n cout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree,\n quantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
                     "matchedExpression": "@field.quantite_herbicide_prelevee",
                     "type": "field",
                     "fieldName": "quantite_herbicide_prelevee"
                   },
                   {
-                    "fullExpression": "click | add_data | _list_id: semis_summary_list, \nculture: @field.active_culture_name, \nquantite_pnt: @field.quantite_pnt_png, \ncout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree, \nquantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png,\n cout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree,\n quantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
                     "matchedExpression": "@field.cout_herbicide_prelevee",
                     "type": "field",
                     "fieldName": "cout_herbicide_prelevee"
                   },
                   {
-                    "fullExpression": "click | add_data | _list_id: semis_summary_list, \nculture: @field.active_culture_name, \nquantite_pnt: @field.quantite_pnt_png, \ncout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree, \nquantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png,\n cout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree,\n quantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
                     "matchedExpression": "@field.type_observation",
                     "type": "field",
                     "fieldName": "type_observation"
                   },
                   {
-                    "fullExpression": "click | add_data | _list_id: semis_summary_list, \nculture: @field.active_culture_name, \nquantite_pnt: @field.quantite_pnt_png, \ncout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree, \nquantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png,\n cout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree,\n quantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
                     "matchedExpression": "@field.temp_observ",
                     "type": "field",
                     "fieldName": "temp_observ"
                   },
                   {
-                    "fullExpression": "click | add_data | _list_id: semis_summary_list, \nculture: @field.active_culture_name, \nquantite_pnt: @field.quantite_pnt_png, \ncout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree, \nquantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png,\n cout_pnt: @field.cout_pnt_png, \nsuperficie_labouree: @field.superficie_labouree, \ncout_labour: @field.cout_superficie_labouree,\n quantite_semence: @field.quantite_semence_achetee, \ncout_semence: @field.cout_semence_achetee, \nquantite_herbicide: @field.quantite_herbicide_prelevee, \ncout_herbicide: @field.cout_herbicide_prelevee, \nobservation_canal: @field.type_observation, \nobservation_media: @field.temp_observ, \ncout_total_culture: @local.v_total_drm",
                     "matchedExpression": "@local.v_total_drm",
                     "type": "local",
                     "fieldName": "v_total_drm"
@@ -1543,7 +1681,7 @@
                   }
                 ]
               },
-              "22": {
+              "35": {
                 "args": {
                   "1": [
                     {
@@ -1563,7 +1701,7 @@
                   }
                 ]
               },
-              "23": {
+              "36": {
                 "args": {
                   "1": [
                     {
@@ -1696,18 +1834,18 @@
               "action_list.1._raw"
             ],
             "@local.v_new_idx": [
-              "action_list.22.args.1",
-              "action_list.22._raw",
-              "action_list.23.args.1",
-              "action_list.23._raw"
+              "action_list.35.args.1",
+              "action_list.35._raw",
+              "action_list.36.args.1",
+              "action_list.36._raw"
             ],
             "@field.selected_cultures_list.split": [
-              "action_list.23.args.1",
-              "action_list.23._raw"
+              "action_list.36.args.1",
+              "action_list.36._raw"
             ],
             "@calc(@field.selected_cultures_list.split(',')[@local.v_new_idx])": [
-              "action_list.23.args.1",
-              "action_list.23._raw"
+              "action_list.36.args.1",
+              "action_list.36._raw"
             ],
             "!@local.v_obs_valide": [
               "parameter_list.disabled"
@@ -1731,6 +1869,27 @@
             "value": {}
           },
           "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "add_data",
+              "args": [],
+              "_raw": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png, cout_pnt: @field.cout_pnt_png, superficie_labouree: @field.superficie_labouree, cout_labour: @field.cout_superficie_labouree, quantite_semence: @field.quantite_semence_achetee, cout_semence: @field.cout_semence_achetee, quantite_herbicide: @field.quantite_herbicide_prelevee, cout_herbicide: @field.cout_herbicide_prelevee, observation_canal: @field.type_observation, observation_media: @field.temp_observ, cout_total_culture: @local.v_total_drm",
+              "params": {
+                "_list_id": "semis_summary_list",
+                "culture": "@field.active_culture_name",
+                "quantite_pnt": "@field.quantite_pnt_png",
+                "cout_pnt": "@field.cout_pnt_png",
+                "superficie_labouree": "@field.superficie_labouree",
+                "cout_labour": "@field.cout_superficie_labouree",
+                "quantite_semence": "@field.quantite_semence_achetee",
+                "cout_semence": "@field.cout_semence_achetee",
+                "quantite_herbicide": "@field.quantite_herbicide_prelevee",
+                "cout_herbicide": "@field.cout_herbicide_prelevee",
+                "observation_canal": "@field.type_observation",
+                "observation_media": "@field.temp_observ",
+                "cout_total_culture": "@local.v_total_drm"
+              }
+            },
             {
               "trigger": "click",
               "action_id": "set_field",
@@ -1778,6 +1937,180 @@
           "_dynamicFields": {
             "action_list": {
               "0": {
+                "_raw": [
+                  {
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png, cout_pnt: @field.cout_pnt_png, superficie_labouree: @field.superficie_labouree, cout_labour: @field.cout_superficie_labouree, quantite_semence: @field.quantite_semence_achetee, cout_semence: @field.cout_semence_achetee, quantite_herbicide: @field.quantite_herbicide_prelevee, cout_herbicide: @field.cout_herbicide_prelevee, observation_canal: @field.type_observation, observation_media: @field.temp_observ, cout_total_culture: @local.v_total_drm",
+                    "matchedExpression": "@field.active_culture_name",
+                    "type": "field",
+                    "fieldName": "active_culture_name"
+                  },
+                  {
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png, cout_pnt: @field.cout_pnt_png, superficie_labouree: @field.superficie_labouree, cout_labour: @field.cout_superficie_labouree, quantite_semence: @field.quantite_semence_achetee, cout_semence: @field.cout_semence_achetee, quantite_herbicide: @field.quantite_herbicide_prelevee, cout_herbicide: @field.cout_herbicide_prelevee, observation_canal: @field.type_observation, observation_media: @field.temp_observ, cout_total_culture: @local.v_total_drm",
+                    "matchedExpression": "@field.quantite_pnt_png",
+                    "type": "field",
+                    "fieldName": "quantite_pnt_png"
+                  },
+                  {
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png, cout_pnt: @field.cout_pnt_png, superficie_labouree: @field.superficie_labouree, cout_labour: @field.cout_superficie_labouree, quantite_semence: @field.quantite_semence_achetee, cout_semence: @field.cout_semence_achetee, quantite_herbicide: @field.quantite_herbicide_prelevee, cout_herbicide: @field.cout_herbicide_prelevee, observation_canal: @field.type_observation, observation_media: @field.temp_observ, cout_total_culture: @local.v_total_drm",
+                    "matchedExpression": "@field.cout_pnt_png",
+                    "type": "field",
+                    "fieldName": "cout_pnt_png"
+                  },
+                  {
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png, cout_pnt: @field.cout_pnt_png, superficie_labouree: @field.superficie_labouree, cout_labour: @field.cout_superficie_labouree, quantite_semence: @field.quantite_semence_achetee, cout_semence: @field.cout_semence_achetee, quantite_herbicide: @field.quantite_herbicide_prelevee, cout_herbicide: @field.cout_herbicide_prelevee, observation_canal: @field.type_observation, observation_media: @field.temp_observ, cout_total_culture: @local.v_total_drm",
+                    "matchedExpression": "@field.superficie_labouree",
+                    "type": "field",
+                    "fieldName": "superficie_labouree"
+                  },
+                  {
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png, cout_pnt: @field.cout_pnt_png, superficie_labouree: @field.superficie_labouree, cout_labour: @field.cout_superficie_labouree, quantite_semence: @field.quantite_semence_achetee, cout_semence: @field.cout_semence_achetee, quantite_herbicide: @field.quantite_herbicide_prelevee, cout_herbicide: @field.cout_herbicide_prelevee, observation_canal: @field.type_observation, observation_media: @field.temp_observ, cout_total_culture: @local.v_total_drm",
+                    "matchedExpression": "@field.cout_superficie_labouree",
+                    "type": "field",
+                    "fieldName": "cout_superficie_labouree"
+                  },
+                  {
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png, cout_pnt: @field.cout_pnt_png, superficie_labouree: @field.superficie_labouree, cout_labour: @field.cout_superficie_labouree, quantite_semence: @field.quantite_semence_achetee, cout_semence: @field.cout_semence_achetee, quantite_herbicide: @field.quantite_herbicide_prelevee, cout_herbicide: @field.cout_herbicide_prelevee, observation_canal: @field.type_observation, observation_media: @field.temp_observ, cout_total_culture: @local.v_total_drm",
+                    "matchedExpression": "@field.quantite_semence_achetee",
+                    "type": "field",
+                    "fieldName": "quantite_semence_achetee"
+                  },
+                  {
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png, cout_pnt: @field.cout_pnt_png, superficie_labouree: @field.superficie_labouree, cout_labour: @field.cout_superficie_labouree, quantite_semence: @field.quantite_semence_achetee, cout_semence: @field.cout_semence_achetee, quantite_herbicide: @field.quantite_herbicide_prelevee, cout_herbicide: @field.cout_herbicide_prelevee, observation_canal: @field.type_observation, observation_media: @field.temp_observ, cout_total_culture: @local.v_total_drm",
+                    "matchedExpression": "@field.cout_semence_achetee",
+                    "type": "field",
+                    "fieldName": "cout_semence_achetee"
+                  },
+                  {
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png, cout_pnt: @field.cout_pnt_png, superficie_labouree: @field.superficie_labouree, cout_labour: @field.cout_superficie_labouree, quantite_semence: @field.quantite_semence_achetee, cout_semence: @field.cout_semence_achetee, quantite_herbicide: @field.quantite_herbicide_prelevee, cout_herbicide: @field.cout_herbicide_prelevee, observation_canal: @field.type_observation, observation_media: @field.temp_observ, cout_total_culture: @local.v_total_drm",
+                    "matchedExpression": "@field.quantite_herbicide_prelevee",
+                    "type": "field",
+                    "fieldName": "quantite_herbicide_prelevee"
+                  },
+                  {
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png, cout_pnt: @field.cout_pnt_png, superficie_labouree: @field.superficie_labouree, cout_labour: @field.cout_superficie_labouree, quantite_semence: @field.quantite_semence_achetee, cout_semence: @field.cout_semence_achetee, quantite_herbicide: @field.quantite_herbicide_prelevee, cout_herbicide: @field.cout_herbicide_prelevee, observation_canal: @field.type_observation, observation_media: @field.temp_observ, cout_total_culture: @local.v_total_drm",
+                    "matchedExpression": "@field.cout_herbicide_prelevee",
+                    "type": "field",
+                    "fieldName": "cout_herbicide_prelevee"
+                  },
+                  {
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png, cout_pnt: @field.cout_pnt_png, superficie_labouree: @field.superficie_labouree, cout_labour: @field.cout_superficie_labouree, quantite_semence: @field.quantite_semence_achetee, cout_semence: @field.cout_semence_achetee, quantite_herbicide: @field.quantite_herbicide_prelevee, cout_herbicide: @field.cout_herbicide_prelevee, observation_canal: @field.type_observation, observation_media: @field.temp_observ, cout_total_culture: @local.v_total_drm",
+                    "matchedExpression": "@field.type_observation",
+                    "type": "field",
+                    "fieldName": "type_observation"
+                  },
+                  {
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png, cout_pnt: @field.cout_pnt_png, superficie_labouree: @field.superficie_labouree, cout_labour: @field.cout_superficie_labouree, quantite_semence: @field.quantite_semence_achetee, cout_semence: @field.cout_semence_achetee, quantite_herbicide: @field.quantite_herbicide_prelevee, cout_herbicide: @field.cout_herbicide_prelevee, observation_canal: @field.type_observation, observation_media: @field.temp_observ, cout_total_culture: @local.v_total_drm",
+                    "matchedExpression": "@field.temp_observ",
+                    "type": "field",
+                    "fieldName": "temp_observ"
+                  },
+                  {
+                    "fullExpression": "click | add_data | _list_id: semis_summary_list, culture: @field.active_culture_name, quantite_pnt: @field.quantite_pnt_png, cout_pnt: @field.cout_pnt_png, superficie_labouree: @field.superficie_labouree, cout_labour: @field.cout_superficie_labouree, quantite_semence: @field.quantite_semence_achetee, cout_semence: @field.cout_semence_achetee, quantite_herbicide: @field.quantite_herbicide_prelevee, cout_herbicide: @field.cout_herbicide_prelevee, observation_canal: @field.type_observation, observation_media: @field.temp_observ, cout_total_culture: @local.v_total_drm",
+                    "matchedExpression": "@local.v_total_drm",
+                    "type": "local",
+                    "fieldName": "v_total_drm"
+                  }
+                ],
+                "params": {
+                  "culture": [
+                    {
+                      "fullExpression": "@field.active_culture_name",
+                      "matchedExpression": "@field.active_culture_name",
+                      "type": "field",
+                      "fieldName": "active_culture_name"
+                    }
+                  ],
+                  "quantite_pnt": [
+                    {
+                      "fullExpression": "@field.quantite_pnt_png",
+                      "matchedExpression": "@field.quantite_pnt_png",
+                      "type": "field",
+                      "fieldName": "quantite_pnt_png"
+                    }
+                  ],
+                  "cout_pnt": [
+                    {
+                      "fullExpression": "@field.cout_pnt_png",
+                      "matchedExpression": "@field.cout_pnt_png",
+                      "type": "field",
+                      "fieldName": "cout_pnt_png"
+                    }
+                  ],
+                  "superficie_labouree": [
+                    {
+                      "fullExpression": "@field.superficie_labouree",
+                      "matchedExpression": "@field.superficie_labouree",
+                      "type": "field",
+                      "fieldName": "superficie_labouree"
+                    }
+                  ],
+                  "cout_labour": [
+                    {
+                      "fullExpression": "@field.cout_superficie_labouree",
+                      "matchedExpression": "@field.cout_superficie_labouree",
+                      "type": "field",
+                      "fieldName": "cout_superficie_labouree"
+                    }
+                  ],
+                  "quantite_semence": [
+                    {
+                      "fullExpression": "@field.quantite_semence_achetee",
+                      "matchedExpression": "@field.quantite_semence_achetee",
+                      "type": "field",
+                      "fieldName": "quantite_semence_achetee"
+                    }
+                  ],
+                  "cout_semence": [
+                    {
+                      "fullExpression": "@field.cout_semence_achetee",
+                      "matchedExpression": "@field.cout_semence_achetee",
+                      "type": "field",
+                      "fieldName": "cout_semence_achetee"
+                    }
+                  ],
+                  "quantite_herbicide": [
+                    {
+                      "fullExpression": "@field.quantite_herbicide_prelevee",
+                      "matchedExpression": "@field.quantite_herbicide_prelevee",
+                      "type": "field",
+                      "fieldName": "quantite_herbicide_prelevee"
+                    }
+                  ],
+                  "cout_herbicide": [
+                    {
+                      "fullExpression": "@field.cout_herbicide_prelevee",
+                      "matchedExpression": "@field.cout_herbicide_prelevee",
+                      "type": "field",
+                      "fieldName": "cout_herbicide_prelevee"
+                    }
+                  ],
+                  "observation_canal": [
+                    {
+                      "fullExpression": "@field.type_observation",
+                      "matchedExpression": "@field.type_observation",
+                      "type": "field",
+                      "fieldName": "type_observation"
+                    }
+                  ],
+                  "observation_media": [
+                    {
+                      "fullExpression": "@field.temp_observ",
+                      "matchedExpression": "@field.temp_observ",
+                      "type": "field",
+                      "fieldName": "temp_observ"
+                    }
+                  ],
+                  "cout_total_culture": [
+                    {
+                      "fullExpression": "@local.v_total_drm",
+                      "matchedExpression": "@local.v_total_drm",
+                      "type": "local",
+                      "fieldName": "v_total_drm"
+                    }
+                  ]
+                }
+              },
+              "1": {
                 "args": {
                   "1": [
                     {
@@ -1797,7 +2130,7 @@
                   }
                 ]
               },
-              "2": {
+              "3": {
                 "args": {
                   "1": [
                     {
@@ -1862,17 +2195,65 @@
             ]
           },
           "_dynamicDependencies": {
+            "@field.active_culture_name": [
+              "action_list.0._raw",
+              "action_list.0.params.culture"
+            ],
+            "@field.quantite_pnt_png": [
+              "action_list.0._raw",
+              "action_list.0.params.quantite_pnt"
+            ],
+            "@field.cout_pnt_png": [
+              "action_list.0._raw",
+              "action_list.0.params.cout_pnt"
+            ],
+            "@field.superficie_labouree": [
+              "action_list.0._raw",
+              "action_list.0.params.superficie_labouree"
+            ],
+            "@field.cout_superficie_labouree": [
+              "action_list.0._raw",
+              "action_list.0.params.cout_labour"
+            ],
+            "@field.quantite_semence_achetee": [
+              "action_list.0._raw",
+              "action_list.0.params.quantite_semence"
+            ],
+            "@field.cout_semence_achetee": [
+              "action_list.0._raw",
+              "action_list.0.params.cout_semence"
+            ],
+            "@field.quantite_herbicide_prelevee": [
+              "action_list.0._raw",
+              "action_list.0.params.quantite_herbicide"
+            ],
+            "@field.cout_herbicide_prelevee": [
+              "action_list.0._raw",
+              "action_list.0.params.cout_herbicide"
+            ],
+            "@field.type_observation": [
+              "action_list.0._raw",
+              "action_list.0.params.observation_canal"
+            ],
+            "@field.temp_observ": [
+              "action_list.0._raw",
+              "action_list.0.params.observation_media"
+            ],
+            "@local.v_total_drm": [
+              "action_list.0._raw",
+              "action_list.0.params.cout_total_culture"
+            ],
             "@local.v_new_grand_total": [
-              "action_list.0.args.1",
-              "action_list.0._raw"
+              "action_list.1.args.1",
+              "action_list.1._raw"
             ],
             "@field.selected_cultures_list.split": [
-              "action_list.2.args.1",
-              "action_list.2._raw"
+              "action_list.3.args.1",
+              "action_list.3._raw"
             ],
             "@calc(@field.selected_cultures_list.split(',')[0])": [
-              "action_list.2.args.1",
-              "action_list.2._raw"
+              "action_list.3.args.1",
+              "action_list.3._raw"
             ],
             "!@local.v_obs_valide": [
               "parameter_list.disabled"

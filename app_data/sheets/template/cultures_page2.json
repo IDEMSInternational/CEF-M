@@ -87,10 +87,69 @@
     {
       "type": "data_items",
       "value": "@data.planif_cultures_primaires",
+      "style_list": [
+        "display: flex",
+        "flex-wrap: wrap",
+        "justify-content: space-between",
+        "width: 90%",
+        "gap: 10px"
+      ],
       "rows": [
         {
           "type": "display_group",
+          "style_list": [
+            "width: 100%",
+            "display: flex",
+            "flex-direction: column",
+            "align-items: center",
+            "border: 1px solid #FFCC80",
+            "border-radius: 12px",
+            "background: white",
+            "margin-bottom: 10px",
+            "overflow: hidden"
+          ],
           "rows": [
+            {
+              "type": "image",
+              "value": "@item.image",
+              "_translations": {
+                "value": {}
+              },
+              "style_list": [
+                "width:100px",
+                "height:100px",
+                "object-fit:contain",
+                "flex-shrink:0"
+              ],
+              "name": "image_1",
+              "_nested_name": "data_items_6.display_group_1_@item.id.image_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@item.image",
+                    "matchedExpression": "@item.image",
+                    "type": "item",
+                    "fieldName": "image"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_6.display_group_1_@item.id.image_1",
+                    "matchedExpression": "@item.id.image_1",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.image": [
+                  "value"
+                ],
+                "@item.id.image_1": [
+                  "_nested_name"
+                ]
+              }
+            },
             {
               "name": "cult_name",
               "value": "@calc('culture_' + @item.name)",
@@ -231,47 +290,6 @@
                   "parameter_list.label_text"
                 ],
                 "@item.id.check_cult": [
-                  "_nested_name"
-                ]
-              }
-            },
-            {
-              "type": "image",
-              "value": "@item.image",
-              "_translations": {
-                "value": {}
-              },
-              "style_list": [
-                "width:100px",
-                "height:100px",
-                "object-fit:contain",
-                "flex-shrink:0"
-              ],
-              "name": "image_3",
-              "_nested_name": "data_items_6.display_group_1_@item.id.image_3",
-              "_dynamicFields": {
-                "value": [
-                  {
-                    "fullExpression": "@item.image",
-                    "matchedExpression": "@item.image",
-                    "type": "item",
-                    "fieldName": "image"
-                  }
-                ],
-                "_nested_name": [
-                  {
-                    "fullExpression": "data_items_6.display_group_1_@item.id.image_3",
-                    "matchedExpression": "@item.id.image_3",
-                    "type": "item",
-                    "fieldName": "id"
-                  }
-                ]
-              },
-              "_dynamicDependencies": {
-                "@item.image": [
-                  "value"
-                ],
-                "@item.id.image_3": [
                   "_nested_name"
                 ]
               }

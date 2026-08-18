@@ -50,7 +50,7 @@
       "name": "num_phone",
       "value": "@fields.num_phone",
       "action_list": "changed | set_field: num_phone: this.value;",
-      "parameter_list": "number_input: true"
+      "parameter_list": "number_input: true; placeholder: Ecrivez le numero;"
     },
     {
       "type": "text",
@@ -85,7 +85,8 @@
       "type": "text_box",
       "name": "chef_upa",
       "value": "@fields.chef_upa",
-      "action_list": "changed | set_field : chef_upa: this.value;"
+      "action_list": "changed | set_field : chef_upa: this.value;",
+      "parameter_list": "placeholder: Ecrivez le nom ;"
     },
     {
       "type": "text",
@@ -224,7 +225,8 @@
       "type": "text_box",
       "name": "chef_travaux",
       "value": "@fields.chef_travaux",
-      "action_list": "changed | set_field : chef_travaux: this.value;"
+      "action_list": "changed | set_field : chef_travaux: this.value;",
+      "parameter_list": "placeholder: Ecrivez le nom ;"
     },
     {
       "type": "text",
@@ -270,7 +272,8 @@
       "type": "text_box",
       "name": "neo_alphabete",
       "value": "@fields.neo_alphabete",
-      "action_list": "changed | set_field : neo_alphabete: this.value;"
+      "action_list": "changed | set_field : neo_alphabete: this.value;",
+      "parameter_list": "placeholder: Ecrivez le nom ;"
     },
     {
       "type": "text",
@@ -291,10 +294,9 @@
     },
     {
       "type": "begin_display_group",
-      "name": "dg_footer",
       "value": " ",
       "parameter_list": "sticky: bottom;",
-      "style_list": "padding: 12px 24px;"
+      "style_list": "padding: 16px 24px;"
     },
     {
       "type": "round_button",

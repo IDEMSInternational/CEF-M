@@ -46,7 +46,7 @@
     {
       "type": "image",
       "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
-      "style_list": "width: 60%; object-fit: contain;"
+      "style_list": "width: 100px; height: 100px;"
     },
     {
       "type": "text",
@@ -76,7 +76,7 @@
     {
       "type": "image",
       "value": "images/kg.jpg",
-      "style_list": "width: 80%; object-fit: contain;"
+      "style_list": "width: 100px; height: 100px;"
     },
     {
       "type": "end_display_group"
@@ -120,7 +120,7 @@
     {
       "type": "image",
       "value": "images/cfa.jpg",
-      "style_list": "width: 80%; object-fit: contain;"
+      "style_list": "width: 100px; height: 100px;"
     },
     {
       "type": "text_box",
@@ -164,7 +164,7 @@
     {
       "type": "image",
       "value": "images/cfa.jpg",
-      "style_list": "width: 80%; object-fit: contain;"
+      "style_list": "width: 100px; height: 100px;"
     },
     {
       "type": "text_box",
@@ -209,7 +209,7 @@
       "name": "button_completed",
       "value": "@global.btn_continue",
       "action_list": "click | set_field: final_cout_battage : @local.v_final_b;\nclick | emit: completed;",
-      "parameter_list": "style: navigation;\ndisabled: !@local.v_page5_valid",
+      "parameter_list": "disabled: !@local.v_page5_valid",
       "style_list": "flex: 1"
     },
     {

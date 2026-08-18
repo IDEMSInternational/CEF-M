@@ -65,12 +65,11 @@
     },
     {
       "type": "begin_display_group",
-      "condition": "@fields.on_production_info == 'oui'",
+      "condition": "@fields.on_production_info == 'oui' && @fields.culture == 'coton'",
       "style_list": "display: block; width: 100%; margin-top: 20px; border-top: 1px dashed #cbd5e0; padding-top: 15px;"
     },
     {
       "type": "begin_display_group",
-      "condition": "@fields.culture == 'coton'",
       "style_list": "display: flex; align-items: center; grid_gap: 12px; margin-bottom: 8px;"
     },
     {
@@ -106,17 +105,15 @@
     },
     {
       "type": "begin_display_group",
-      "condition": "@fields.on_production_info == 'oui' && @fields.association == 'oui'",
+      "condition": "@fields.on_production_info == 'oui' && @fields.association_oui_non\n == 'oui'",
       "style_list": "display: block; width: 100%; margin-top: 15px; background: #f8f9fa; padding: 12px;"
     },
     {
-      "type": "begin_display_group",
-      "condition": "@fields.culture != 'coton'",
-      "style_list": "display: flex; align-items: center; grid_gap: 12px; margin-bottom: 8px;"
+      "type": "begin_display_group"
     },
     {
       "type": "html",
-      "value": "<span style=\"font-size: 13px; color: #1e3656; font-weight: bold;\">Production de la culture associée @fields.nom_culture_associee (en kg)</span>"
+      "value": "<span style=\"font-size: 20px; color: #1e3656; font-weight: bold;\">Production de la culture associée @fields.nom_culture_associee (en kg)</span>"
     },
     {
       "type": "audio",
@@ -124,12 +121,12 @@
       "parameter_list": "variant: button_only;\nsrc: audio/Superficie/pro_cult_asso_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
     },
     {
+      "type": "end_display_group"
+    },
+    {
       "type": "image",
       "value": "images/kg.jpg",
       "style_list": "width: 50px; height: 50px; object-fit: contain; flex-shrink: 0;"
-    },
-    {
-      "type": "end_display_group"
     },
     {
       "type": "text_box",
@@ -163,7 +160,8 @@
       "name": "page13_button_continue",
       "value": "Continuer",
       "action_list": "click | set_field: @calc('on_production_info_parcelle_N' + @fields.num_parcelle) : @fields.on_production_info;\n        click | set_field: @calc('production_culture1_parcelle_N' + @fields.num_parcelle) : @fields.production_parcelle_culture1;\n        click | set_field: @calc('production_culture2_parcelle_N' + @fields.num_parcelle) : @fields.production_parcelle_culture2;\n        click | set_field: attempt_submit_p14: false;\n        click | emit: completed;",
-      "parameter_list": "disabled: !@local.completed_enabled"
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "style_list": "flex: 1"
     },
     {
       "type": "end_display_group"

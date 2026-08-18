@@ -299,7 +299,7 @@
     },
     {
       "name": "valid_prix_prevu_vente",
-      "value": "@calc(!!@fields.prix_prevu_vente && @fields.prix_prevu_vente != \"\" && @fields.prix_prevu_vente > 0)",
+      "value": "@calc(!!@fields.prix_prevu_vente && @fields.prix_prevu_vente != ' ' && @fields.prix_prevu_vente > 0)",
       "_translations": {
         "value": {}
       },
@@ -308,28 +308,28 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(!!@fields.prix_prevu_vente && @fields.prix_prevu_vente != \"\" && @fields.prix_prevu_vente > 0)",
+            "fullExpression": "@calc(!!@fields.prix_prevu_vente && @fields.prix_prevu_vente != ' ' && @fields.prix_prevu_vente > 0)",
             "matchedExpression": "!@fields.prix_prevu_vente",
             "type": "fields",
             "fieldName": "prix_prevu_vente"
           },
           {
-            "fullExpression": "@calc(!!@fields.prix_prevu_vente && @fields.prix_prevu_vente != \"\" && @fields.prix_prevu_vente > 0)",
+            "fullExpression": "@calc(!!@fields.prix_prevu_vente && @fields.prix_prevu_vente != ' ' && @fields.prix_prevu_vente > 0)",
             "matchedExpression": "@fields.prix_prevu_vente",
             "type": "fields",
             "fieldName": "prix_prevu_vente"
           },
           {
-            "fullExpression": "@calc(!!@fields.prix_prevu_vente && @fields.prix_prevu_vente != \"\" && @fields.prix_prevu_vente > 0)",
+            "fullExpression": "@calc(!!@fields.prix_prevu_vente && @fields.prix_prevu_vente != ' ' && @fields.prix_prevu_vente > 0)",
             "matchedExpression": "@fields.prix_prevu_vente",
             "type": "fields",
             "fieldName": "prix_prevu_vente"
           },
           {
-            "fullExpression": "@calc(!!@fields.prix_prevu_vente && @fields.prix_prevu_vente != \"\" && @fields.prix_prevu_vente > 0)",
-            "matchedExpression": "@calc(!!@fields.prix_prevu_vente && @fields.prix_prevu_vente != \"\" && @fields.prix_prevu_vente > 0)",
+            "fullExpression": "@calc(!!@fields.prix_prevu_vente && @fields.prix_prevu_vente != ' ' && @fields.prix_prevu_vente > 0)",
+            "matchedExpression": "@calc(!!@fields.prix_prevu_vente && @fields.prix_prevu_vente != ' ' && @fields.prix_prevu_vente > 0)",
             "type": "calc",
-            "fieldName": "!!@fields.prix_prevu_vente && @fields.prix_prevu_vente != \"\" && @fields.prix_prevu_vente > 0"
+            "fieldName": "!!@fields.prix_prevu_vente && @fields.prix_prevu_vente != ' ' && @fields.prix_prevu_vente > 0"
           }
         ]
       },
@@ -341,7 +341,7 @@
           "value",
           "value"
         ],
-        "@calc(!!@fields.prix_prevu_vente && @fields.prix_prevu_vente != \"\" && @fields.prix_prevu_vente > 0)": [
+        "@calc(!!@fields.prix_prevu_vente && @fields.prix_prevu_vente != ' ' && @fields.prix_prevu_vente > 0)": [
           "value"
         ]
       }

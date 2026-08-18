@@ -83,6 +83,15 @@
         "url": "https://docs.google.com/spreadsheets/d/1bsOPyv0Dfa9DAa3wAfsTvsv1qbTq_Fl8d0Wb9AO67xk"
       }
     },
+    "choix_evaluation": {
+      "flow_type": "data_list",
+      "flow_name": "choix_evaluation",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/home screen.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/101vhqFeVwFOEXsetLO1RPrKGGmuUw6bUr7kKwaBJwvs"
+      }
+    },
     "commune_dioila": {
       "flow_type": "data_list",
       "flow_name": "commune_dioila",
@@ -256,6 +265,15 @@
         "name": "cef_m sheets",
         "path": "template/section_semis_data.xlsx",
         "url": "https://docs.google.com/spreadsheets/d/1JIhjbjWlcorGBwu27zBrwsZsTzJBvWRv4dBuPDCtQUw"
+      }
+    },
+    "homeScreen": {
+      "flow_type": "data_list",
+      "flow_name": "homeScreen",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/appWeb/homeScreen_form_data.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1uCivYMqKmfqAmvJoB9xmtxL4EoHJ6zVeXLh8x_Nhc6Y"
       }
     },
     "locations": {
@@ -668,6 +686,23 @@
         "url": "https://docs.google.com/spreadsheets/d/1D9jm4BAudygqEatQmiea-FQXFprJ245nWMaZputZ3Ng"
       }
     },
+    "upaInfo": {
+      "flow_type": "data_list",
+      "flow_name": "upaInfo",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/appWeb/homeScreen_form_data.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1uCivYMqKmfqAmvJoB9xmtxL4EoHJ6zVeXLh8x_Nhc6Y"
+      },
+      "_metadata": {
+        "code": {
+          "type": "number"
+        },
+        "phone_number": {
+          "type": "number"
+        }
+      }
+    },
     "village_FR_SCPC": {
       "flow_type": "data_list",
       "flow_name": "village_FR_SCPC",
@@ -873,6 +908,15 @@
     }
   },
   "template": {
+    "acceuil": {
+      "flow_type": "template",
+      "flow_name": "acceuil",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/appWeb/homeScreen_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1W7U2vmhWYnxS8Ooj3qbcz1pyHAeGUCVlxMIAHghKQFU"
+      }
+    },
     "app_menu": {
       "flow_type": "template",
       "flow_name": "app_menu",
@@ -907,6 +951,15 @@
         "name": "cef_m sheets",
         "path": "template/training/training_sheets.xlsx",
         "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
+      }
+    },
+    "auth": {
+      "flow_type": "template",
+      "flow_name": "auth",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/appWeb/homeScreen_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1W7U2vmhWYnxS8Ooj3qbcz1pyHAeGUCVlxMIAHghKQFU"
       }
     },
     "besoins_animaux": {
@@ -1661,15 +1714,6 @@
         "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
       }
     },
-    "evaluation_anl": {
-      "flow_type": "template",
-      "flow_name": "evaluation_anl",
-      "_source": {
-        "name": "cef_m sheets",
-        "path": "template/home screen.xlsx",
-        "url": "https://docs.google.com/spreadsheets/d/101vhqFeVwFOEXsetLO1RPrKGGmuUw6bUr7kKwaBJwvs"
-      }
-    },
     "fatoumata": {
       "flow_type": "template",
       "flow_name": "fatoumata",
@@ -2404,6 +2448,24 @@
         "url": "https://docs.google.com/spreadsheets/d/1Za6KnU73iDgbTARvf6JCQo0vJb_EkTgiHEyZUJdNgXs"
       }
     },
+    "supp_simple": {
+      "flow_type": "template",
+      "flow_name": "supp_simple",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/besoins_animaux_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1U46sOmNeVPbt-HeQiPvQBjmJoqzQnjrSCBu93Ydt7Iw"
+      }
+    },
+    "test": {
+      "flow_type": "template",
+      "flow_name": "test",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/appWeb/homeScreen_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1W7U2vmhWYnxS8Ooj3qbcz1pyHAeGUCVlxMIAHghKQFU"
+      }
+    },
     "training": {
       "flow_type": "template",
       "flow_name": "training",
@@ -2411,6 +2473,15 @@
         "name": "cef_m sheets",
         "path": "template/training/training_sheets.xlsx",
         "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
+      }
+    },
+    "web_acceuil": {
+      "flow_type": "template",
+      "flow_name": "web_acceuil",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/home screen.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/101vhqFeVwFOEXsetLO1RPrKGGmuUw6bUr7kKwaBJwvs"
       }
     },
     "year_selection": {

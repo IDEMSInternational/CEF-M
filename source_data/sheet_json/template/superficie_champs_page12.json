@@ -356,7 +356,8 @@
       "name": "page13_button_continue",
       "value": "Continuer",
       "action_list": "click | set_field: @calc('on_fertilisant_info_parcelle_N' + @fields.num_parcelle) : @fields.on_fertilisant_info;\n        click | set_field: @calc('qte_npk_coton_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk_coton;\n        click | set_field: @calc('qte_npk_cereale_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk_cereale;\n        click | set_field: @calc('qte_uree_parcelle_N' + @fields.num_parcelle) : @fields.quantite_uree;\n        click | set_field: @calc('qte_dap_parcelle_N' + @fields.num_parcelle) : @fields.quantite_dap;\n        click | set_field: @calc('autre_engrais_mineral_parcelle_N' + @fields.num_parcelle) : @fields.autre_engrais_mineral;\n        click | set_field: @calc('nom_autre_engrais_parcelle_N' + @fields.num_parcelle) : @fields.nom_autre_engrais;\n        click | set_field: @calc('qte_autre_engrais_parcelle_N' + @fields.num_parcelle) : @fields.quantite_autre_engrais;\n        click | set_field: attempt_submit_p13: false;\n        click | emit: completed;",
-      "parameter_list": "disabled: !@local.completed_enabled"
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "style_list": "flex: 1"
     },
     {
       "type": "end_display_group"
